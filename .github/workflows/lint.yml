@@ -1,0 +1,24 @@
+name: Lint Workflow
+on: [ push, pull_request ]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install packages
+        run: npm install
+
+      - name: Lint
+        run: npm run lint

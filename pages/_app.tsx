@@ -14,9 +14,9 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
             </Head>
             <div className="flex flex-col min-h-screen text-base text-black">
                 <Header />
-                <div className="flex flex-col flex-1 lg:grid lg:grid-cols-auto-fill lg:grid-rows-auto-fill">
                     <Navigation />
-                    <main className="flex-grow lg:col-span-1 px-4 sm:px-6 xl:px-8 py-7 bg-white">
+                <div className="flex-1 grid grid-rows-[auto,auto,1fr] lg:grid-cols-[auto,1fr] lg:grid-rows-[auto,1fr]">
+                    <main className="flex-auto lg:col-span-1 px-4 sm:px-6 xl:px-8 py-7 bg-white h-full">
                         <Component {...pageProps} />
                     </main>
                 </div>

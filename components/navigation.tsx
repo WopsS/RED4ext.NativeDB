@@ -2,7 +2,7 @@ import Sidebar from "./sidebar";
 import TypeItem from "./type-item";
 import TypeSelector from "./type-selector";
 
-export function Navigation(): JSX.Element  {
+function Navigation(): JSX.Element  {
     return (
         <>
             <div className="lg:col-span-full">

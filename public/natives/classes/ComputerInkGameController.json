@@ -1,0 +1,990 @@
+{
+  "parent": "DeviceInkGameControllerBase",
+  "name": "ComputerInkGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "TweakDBID",
+      "name": "layoutID",
+      "flags": 4297195553
+    },
+    {
+      "type": "CName",
+      "name": "currentLayoutLibraryID",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "mainLayout",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "devicesMenuInitialized",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "devicesMenuSpawned",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "devicesMenuSpawnRequested",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "menuInitialized",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkVideoWidget",
+      "name": "mainDisplayWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "EDocumentType",
+      "name": "forceOpenDocumentType",
+      "flags": 4297130016
+    },
+    {
+      "type": "SDocumentAdress",
+      "name": "forceOpenDocumentAdress",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onMailThumbnailWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onFileThumbnailWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onMailWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onFileWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onMenuButtonWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onMainMenuButtonWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onBannerWidgetsUpdateListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onGlitchingStateChangedListener",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "GetComputerInkLibraryPath;ScreenDefinitionPackage",
+      "shortName": "GetComputerInkLibraryPath",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "ScreenDefinitionPackage",
+          "name": "screenDefinition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetForceOpenDocumentAdress;",
+      "shortName": "GetForceOpenDocumentAdress",
+      "return": {
+        "type": "SDocumentAdress",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetForceOpenDocumentType;",
+      "shortName": "GetForceOpenDocumentType",
+      "return": {
+        "type": "EDocumentType",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetMainLayoutController;",
+      "shortName": "GetMainLayoutController",
+      "return": {
+        "type": "handle:ComputerMainLayoutWidgetController",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "GetMenuName;EComputerMenuType",
+      "shortName": "GetMenuName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "EComputerMenuType",
+          "name": "menuType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "handle:Computer",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "GetTerminalInkLibraryPath;ScreenDefinitionPackage",
+      "shortName": "GetTerminalInkLibraryPath",
+      "return": {
+        "type": "redResourceReferenceScriptToken",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "ScreenDefinitionPackage",
+          "name": "screenDefinition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GoToMenu;String",
+      "shortName": "GoToMenu",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "menuID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HideMenuByName;String",
+      "shortName": "HideMenuByName",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "elementName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeBanners;array<SBannerWidgetPackage>",
+      "shortName": "InitializeBanners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:SBannerWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeFiles;array<SDocumentWidgetPackage>",
+      "shortName": "InitializeFiles",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:SDocumentWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeFilesThumbnails;array<SDocumentThumbnailWidgetPackage>",
+      "shortName": "InitializeFilesThumbnails",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:SDocumentThumbnailWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeMails;array<SDocumentWidgetPackage>",
+      "shortName": "InitializeMails",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:SDocumentWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeMailsThumbnails;array<SDocumentThumbnailWidgetPackage>",
+      "shortName": "InitializeMailsThumbnails",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:SDocumentThumbnailWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeMainLayout;",
+      "shortName": "InitializeMainLayout",
+      "flags": 256
+    },
+    {
+      "fullName": "InitializeMainMenuButtons;array<SComputerMenuButtonWidgetPackage>",
+      "shortName": "InitializeMainMenuButtons",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:SComputerMenuButtonWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeMenuButtons;array<SComputerMenuButtonWidgetPackage>",
+      "shortName": "InitializeMenuButtons",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:SComputerMenuButtonWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsDevicesManuSpawnRequested;",
+      "shortName": "IsDevicesManuSpawnRequested",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "IsDevicesManuSpawned;",
+      "shortName": "IsDevicesManuSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "IsMainLayoutInitialized;",
+      "shortName": "IsMainLayoutInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "OnBannerWidgetsUpdate",
+      "shortName": "OnBannerWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDevicesMenuSpawned",
+      "shortName": "OnDevicesMenuSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDocumentThumbnailCallback",
+      "shortName": "OnDocumentThumbnailCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFileThumbnailWidgetsUpdate",
+      "shortName": "OnFileThumbnailWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFileWidgetsUpdate",
+      "shortName": "OnFileWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGoToMenuEvent",
+      "shortName": "OnGoToMenuEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:GoToMenuEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideFileCallback",
+      "shortName": "OnHideFileCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideFullBannerCallback",
+      "shortName": "OnHideFullBannerCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideMailCallback",
+      "shortName": "OnHideMailCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMailThumbnailWidgetsUpdate",
+      "shortName": "OnMailThumbnailWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMailWidgetsUpdate",
+      "shortName": "OnMailWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMainLayoutSpawned",
+      "shortName": "OnMainLayoutSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMainMenuButtonWidgetsUpdate",
+      "shortName": "OnMainMenuButtonWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuButtonCallback",
+      "shortName": "OnMenuButtonCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuButtonWidgetsUpdate",
+      "shortName": "OnMenuButtonWidgetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenDocumentEvent",
+      "shortName": "OnOpenDocumentEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:OpenDocumentEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShowFullBannerCallback",
+      "shortName": "OnShowFullBannerCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnWindowCloseCallback",
+      "shortName": "OnWindowCloseCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenDocument;ComputerDocumentThumbnailWidgetController",
+      "shortName": "OpenDocument",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ComputerDocumentThumbnailWidgetController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenDocument;EDocumentTypeSDocumentAdress",
+      "shortName": "OpenDocument",
+      "flags": 132,
+      "params": [
+        {
+          "type": "EDocumentType",
+          "name": "documentType",
+          "flags": 128
+        },
+        {
+          "type": "SDocumentAdress",
+          "name": "adress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayVideo;ResRefBoolCName",
+      "shortName": "PlayVideo",
+      "flags": 516,
+      "params": [
+        {
+          "type": "redResourceReferenceScriptToken",
+          "name": "videoPath",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "looped",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "audioEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Refresh;EDeviceStatus",
+      "shortName": "Refresh",
+      "flags": 512,
+      "params": [
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterBlackboardCallbacks;IBlackboard",
+      "shortName": "RegisterBlackboardCallbacks",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterCloseWindowButtonCallback;",
+      "shortName": "RegisterCloseWindowButtonCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestBannerWidgetsUpdate;",
+      "shortName": "RequestBannerWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestFileThumbnailWidgetsUpdate;",
+      "shortName": "RequestFileThumbnailWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestFileWidgetUpdate;SDocumentAdress",
+      "shortName": "RequestFileWidgetUpdate",
+      "flags": 516,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "documentAdress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestMailThumbnailWidgetsUpdate;",
+      "shortName": "RequestMailThumbnailWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestMailWidgetUpdate;SDocumentAdress",
+      "shortName": "RequestMailWidgetUpdate",
+      "flags": 516,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "documentAdress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestMainMenuButtonWidgetsUpdate;",
+      "shortName": "RequestMainMenuButtonWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestMenuButtonWidgetsUpdate;",
+      "shortName": "RequestMenuButtonWidgetsUpdate",
+      "flags": 516
+    },
+    {
+      "fullName": "ResetForceOpenDocumentData;",
+      "shortName": "ResetForceOpenDocumentData",
+      "flags": 516
+    },
+    {
+      "fullName": "ResolveBreadcrumbLevel;",
+      "shortName": "ResolveBreadcrumbLevel",
+      "flags": 256
+    },
+    {
+      "fullName": "ResolveInitialMenuType;",
+      "shortName": "ResolveInitialMenuType",
+      "flags": 132
+    },
+    {
+      "fullName": "ResolveQuestInfo;QuestInfo",
+      "shortName": "ResolveQuestInfo",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedeviceQuestInfo",
+          "name": "questInfo",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDevicesMenu;ComputerInkGameControllerinkWidget",
+      "shortName": "SetDevicesMenu",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ComputerInkGameController",
+          "name": "gameController",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "parentWidget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupWidgets;",
+      "shortName": "SetupWidgets",
+      "flags": 256
+    },
+    {
+      "fullName": "ShowDevices;",
+      "shortName": "ShowDevices",
+      "flags": 260
+    },
+    {
+      "fullName": "ShowFiles;",
+      "shortName": "ShowFiles",
+      "flags": 260
+    },
+    {
+      "fullName": "ShowInternet;",
+      "shortName": "ShowInternet",
+      "flags": 260
+    },
+    {
+      "fullName": "ShowMails;",
+      "shortName": "ShowMails",
+      "flags": 260
+    },
+    {
+      "fullName": "ShowMainMenu;",
+      "shortName": "ShowMainMenu",
+      "flags": 260
+    },
+    {
+      "fullName": "ShowMenuByName;String",
+      "shortName": "ShowMenuByName",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "elementName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowNewsfeed;",
+      "shortName": "ShowNewsfeed",
+      "flags": 260
+    },
+    {
+      "fullName": "StartGlitchingScreen;GlitchData",
+      "shortName": "StartGlitchingScreen",
+      "flags": 128,
+      "params": [
+        {
+          "type": "GlitchData",
+          "name": "glitchData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopGlitchingScreen;",
+      "shortName": "StopGlitchingScreen",
+      "flags": 128
+    },
+    {
+      "fullName": "StopVideo;",
+      "shortName": "StopVideo",
+      "flags": 516
+    },
+    {
+      "fullName": "TurnOff;",
+      "shortName": "TurnOff",
+      "flags": 256
+    },
+    {
+      "fullName": "TurnOn;",
+      "shortName": "TurnOn",
+      "flags": 256
+    },
+    {
+      "fullName": "UnRegisterBlackboardCallbacks;IBlackboard",
+      "shortName": "UnRegisterBlackboardCallbacks",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateActionWidgets;array<SActionWidgetPackage>",
+      "shortName": "UpdateActionWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SActionWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateBannersWidgets;array<SBannerWidgetPackage>",
+      "shortName": "UpdateBannersWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SBannerWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateFilesThumbnailsWidgets;array<SDocumentThumbnailWidgetPackage>",
+      "shortName": "UpdateFilesThumbnailsWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SDocumentThumbnailWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateFilesWidgets;array<SDocumentWidgetPackage>",
+      "shortName": "UpdateFilesWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SDocumentWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMailsThumbnailsWidgets;array<SDocumentThumbnailWidgetPackage>",
+      "shortName": "UpdateMailsThumbnailsWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SDocumentThumbnailWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMailsWidgets;array<SDocumentWidgetPackage>",
+      "shortName": "UpdateMailsWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SDocumentWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMainMenuButtonsWidgets;array<SComputerMenuButtonWidgetPackage>",
+      "shortName": "UpdateMainMenuButtonsWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SComputerMenuButtonWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMenuButtonsWidgets;array<SComputerMenuButtonWidgetPackage>",
+      "shortName": "UpdateMenuButtonsWidgets",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:SComputerMenuButtonWidgetPackage",
+          "name": "widgetsData",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

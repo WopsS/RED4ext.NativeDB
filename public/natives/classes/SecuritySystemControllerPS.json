@@ -1,0 +1,2551 @@
+{
+  "parent": "DeviceSystemBaseControllerPS",
+  "name": "SecuritySystemControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "array:SecurityAccessLevelEntry",
+      "name": "level_0",
+      "flags": 6650134561
+    },
+    {
+      "type": "array:SecurityAccessLevelEntry",
+      "name": "level_1",
+      "flags": 6650134561
+    },
+    {
+      "type": "array:SecurityAccessLevelEntry",
+      "name": "level_2",
+      "flags": 6650134561
+    },
+    {
+      "type": "array:SecurityAccessLevelEntry",
+      "name": "level_3",
+      "flags": 6650134561
+    },
+    {
+      "type": "array:SecurityAccessLevelEntry",
+      "name": "level_4",
+      "flags": 6650134561
+    },
+    {
+      "type": "Bool",
+      "name": "allowSecuritySystemToDisableItself",
+      "flags": 4364238881
+    },
+    {
+      "type": "TweakDBID",
+      "name": "attitudeGroup",
+      "flags": 4632674337
+    },
+    {
+      "type": "Bool",
+      "name": "suppressAbilityToModifyAttitude",
+      "flags": 4364238881
+    },
+    {
+      "type": "EShouldChangeAttitude",
+      "name": "attitudeChangeMode",
+      "flags": 4565565472
+    },
+    {
+      "type": "Time",
+      "name": "performAutomaticResetAfter",
+      "flags": 4364238881
+    },
+    {
+      "type": "Bool",
+      "name": "hideAreasOnMinimap",
+      "flags": 4632674337
+    },
+    {
+      "type": "Bool",
+      "name": "isUnderStrictQuestControl",
+      "flags": 4565565472
+    },
+    {
+      "type": "ESecuritySystemState",
+      "name": "securitySystemState",
+      "flags": 4565565472
+    },
+    {
+      "type": "handle:AgentRegistry",
+      "name": "agentsRegistry",
+      "flags": 13289717792
+    },
+    {
+      "type": "handle:SecuritySystemControllerPS",
+      "name": "securitySystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "latestOutputEngineTime",
+      "flags": 13155500064
+    },
+    {
+      "type": "Float",
+      "name": "updateInterval",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "restartDuration",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:entEntityID",
+      "name": "protectedEntityIDs",
+      "flags": 15441395744
+    },
+    {
+      "type": "array:entEntityID",
+      "name": "entitiesRemainingAtGate",
+      "flags": 15441395744
+    },
+    {
+      "type": "array:handle:BlacklistEntry",
+      "name": "blacklist",
+      "flags": 15441395744
+    },
+    {
+      "type": "Int32",
+      "name": "currentReprimandID",
+      "flags": 13155500064
+    },
+    {
+      "type": "Bool",
+      "name": "blacklistDelayValid",
+      "flags": 13155500064
+    },
+    {
+      "type": "gameDelayID",
+      "name": "blacklistDelayID",
+      "flags": 13155500064
+    },
+    {
+      "type": "Int32",
+      "name": "maxGlobalWarningsCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "delayIDValid",
+      "flags": 13155500064
+    },
+    {
+      "type": "gameDelayID",
+      "name": "deescalationEventID",
+      "flags": 13155500064
+    },
+    {
+      "type": "Int32",
+      "name": "outputsSend",
+      "flags": 13155500064
+    },
+    {
+      "type": "Int32",
+      "name": "inputsReceived",
+      "flags": 13155500064
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionFullSystemRestart;",
+      "shortName": "ActionFullSystemRestart",
+      "return": {
+        "type": "handle:FullSystemRestart",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ActionSecuritySystemBreachResponse;SecuritySystemInput",
+      "shortName": "ActionSecuritySystemBreachResponse",
+      "return": {
+        "type": "handle:SecuritySystemOutput",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "notificationEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionSecuritySystemStatus;",
+      "shortName": "ActionSecuritySystemStatus",
+      "return": {
+        "type": "handle:SecuritySystemStatus",
+        "flags": 64
+      },
+      "flags": 8452
+    },
+    {
+      "fullName": "ActionThumbnailUI;",
+      "shortName": "ActionThumbnailUI",
+      "return": {
+        "type": "handle:ThumbnailUI",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "AddAccessLevelData;ESecurityAccessLevelCNameTweakDBID",
+      "shortName": "AddAccessLevelData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "entryLevel",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "password",
+          "flags": 1152
+        },
+        {
+          "type": "TweakDBID",
+          "name": "keycard",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AddAccessLevelEntry;array<SecurityAccessLevelEntry>CNameTweakDBID",
+      "shortName": "AddAccessLevelEntry",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:SecurityAccessLevelEntry",
+          "name": "level",
+          "flags": 640
+        },
+        {
+          "type": "CName",
+          "name": "password",
+          "flags": 1152
+        },
+        {
+          "type": "TweakDBID",
+          "name": "keycard",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AddAgentRecord;DeviceLinkarray<SecurityAreaControllerPS>Bool",
+      "shortName": "AddAgentRecord",
+      "flags": 132,
+      "params": [
+        {
+          "type": "DeviceLink",
+          "name": "agent",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "connectedAreas",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "requestLatestOutput",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AuthorizeUser;EntityIDCName",
+      "shortName": "AuthorizeUser",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "password",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AuthorizeUser;EntityIDESecurityAccessLevel",
+      "shortName": "AuthorizeUser",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BlacklistEntityID;GameObjectBlacklistReason",
+      "shortName": "BlacklistEntityID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "go",
+          "flags": 128
+        },
+        {
+          "type": "BlacklistReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BlacklistEntityID;EntityIDBlacklistReason",
+      "shortName": "BlacklistEntityID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "BlacklistReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CancelAutomaticDeescalationEvent;",
+      "shortName": "CancelAutomaticDeescalationEvent",
+      "flags": 132
+    },
+    {
+      "fullName": "CleanSecuritySystemMemory;",
+      "shortName": "CleanSecuritySystemMemory",
+      "flags": 132
+    },
+    {
+      "fullName": "CompileSecurityAgentRegistry;",
+      "shortName": "CompileSecurityAgentRegistry",
+      "flags": 132
+    },
+    {
+      "fullName": "CreateRegistry;",
+      "shortName": "CreateRegistry",
+      "flags": 132
+    },
+    {
+      "fullName": "Debug;BoolBoolStringEReprimandInstructionsSecuritySystemInput",
+      "shortName": "Debug",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "instructionAdded",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "inputAdded",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "trace",
+          "flags": 128
+        },
+        {
+          "type": "EReprimandInstructions",
+          "name": "instruction",
+          "flags": 1152
+        },
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DebugGetInputsCount;",
+      "shortName": "DebugGetInputsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "DebugGetOutputsCount;",
+      "shortName": "DebugGetOutputsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "Debug_GetPlayerBlacklistReason;",
+      "shortName": "Debug_GetPlayerBlacklistReason",
+      "return": {
+        "type": "BlacklistReason",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "Debug_GetPlayerWarningCount;",
+      "shortName": "Debug_GetPlayerWarningCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "Debug_GetReprimandID;",
+      "shortName": "Debug_GetReprimandID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "Deescalate;SecuritySystemInput",
+      "shortName": "Deescalate",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DetermineSecurityAreaTypeForEntityID;EntityID",
+      "shortName": "DetermineSecurityAreaTypeForEntityID",
+      "return": {
+        "type": "ESecurityAreaType",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DetermineSecuritySystemState;SecuritySystemInputBool",
+      "shortName": "DetermineSecuritySystemState",
+      "return": {
+        "type": "ESecuritySystemState",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isSimulation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DisableDevice;",
+      "shortName": "DisableDevice",
+      "flags": 256
+    },
+    {
+      "fullName": "ExtractNPCIDsFromQuestNotification;QuestSecuritySystemInput",
+      "shortName": "ExtractNPCIDsFromQuestNotification",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:QuestSecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgentAreas;PersistentID",
+      "shortName": "GetAgentAreas",
+      "return": {
+        "type": "array:handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgentRegistry;",
+      "shortName": "GetAgentRegistry",
+      "return": {
+        "type": "handle:AgentRegistry",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAttitudeSystem;",
+      "shortName": "GetAttitudeSystem",
+      "return": {
+        "type": "handle:gameCAttitudeManager",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetAttitudeTowards;EntityID",
+      "shortName": "GetAttitudeTowards",
+      "return": {
+        "type": "EAIAttitude",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttitudeTowards;CName",
+      "shortName": "GetAttitudeTowards",
+      "return": {
+        "type": "EAIAttitude",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "CName",
+          "name": "otherGroup",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttitudeTowards;GameObject",
+      "shortName": "GetAttitudeTowards",
+      "return": {
+        "type": "EAIAttitude",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDebugTags;",
+      "shortName": "GetDebugTags",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceStatusAction;",
+      "shortName": "GetDeviceStatusAction",
+      "return": {
+        "type": "handle:SecuritySystemStatus",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetEntityBlacklistIndex;EntityID",
+      "shortName": "GetEntityBlacklistIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMostDangerousSecurityAreaForEntityID;GameObject",
+      "shortName": "GetMostDangerousSecurityAreaForEntityID",
+      "return": {
+        "type": "handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "go",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMostDangerousSecurityAreaForEntityID;EntityID",
+      "shortName": "GetMostDangerousSecurityAreaForEntityID",
+      "return": {
+        "type": "handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOverlappingAreas;array<SecurityAreaControllerPS>array<SecurityAreaControllerPS>",
+      "shortName": "GetOverlappingAreas",
+      "return": {
+        "type": "array:handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "bunch1",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "bunch2",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOverlappingAreas;SecuritySystemInput",
+      "shortName": "GetOverlappingAreas",
+      "return": {
+        "type": "array:handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPS;Agent",
+      "shortName": "GetPS",
+      "return": {
+        "type": "handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "agent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetReprimandPerformer;EntityID",
+      "shortName": "GetReprimandPerformer",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetReprimandReceiver;PersistentID",
+      "shortName": "GetReprimandReceiver",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSecurityAccessData;ESecurityAccessLevel",
+      "shortName": "GetSecurityAccessData",
+      "return": {
+        "type": "array:SecurityAccessLevelEntry",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSecurityAreas;BoolBool",
+      "shortName": "GetSecurityAreas",
+      "return": {
+        "type": "array:handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "includeInactive",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "acquireOnlyDirectlyConnected",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetSecurityBlacklist;",
+      "shortName": "GetSecurityBlacklist",
+      "return": {
+        "type": "array:handle:BlacklistEntry",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecurityState;",
+      "shortName": "GetSecurityState",
+      "return": {
+        "type": "ESecuritySystemState",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecuritySystemAttitudeGroupName;",
+      "shortName": "GetSecuritySystemAttitudeGroupName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSensors;",
+      "shortName": "GetSensors",
+      "return": {
+        "type": "array:handle:SensorDeviceControllerPS",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetTurrets;SecurityAreaControllerPSscript_ref<array<SecurityTurretControllerPS>>",
+      "shortName": "GetTurrets",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:SecurityAreaControllerPS",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:handle:SecurityTurretControllerPS",
+          "name": "turrets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetUserAuthorizationLevel;EntityID",
+      "shortName": "GetUserAuthorizationLevel",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetValidRecipients;SecuritySystemInput",
+      "shortName": "GetValidRecipients",
+      "return": {
+        "type": "array:SecuritySystemOutputData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleAreaBeingDisabled;SecurityAreaControllerPS",
+      "shortName": "HandleAreaBeingDisabled",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecurityAreaControllerPS",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleAreaBeingEnabled;SecurityAreaControllerPS",
+      "shortName": "HandleAreaBeingEnabled",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecurityAreaControllerPS",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasEntityBeenSpottedTooManyTimes;PersistentIDEntityID",
+      "shortName": "HasEntityBeenSpottedTooManyTimes",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "reporter",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasEntityBeenSpottedTooManyTimes;PersistentIDGameObjectESecurityNotificationType",
+      "shortName": "HasEntityBeenSpottedTooManyTimes",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "reporter",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityNotificationType",
+          "name": "notificationType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasSupport;PersistentID",
+      "shortName": "HasSupport",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasSurpassedGlobalWarningsCount;EntityID",
+      "shortName": "HasSurpassedGlobalWarningsCount",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "InitiateAgentRegistry;",
+      "shortName": "InitiateAgentRegistry",
+      "flags": 132
+    },
+    {
+      "fullName": "InitiateAutomaticDeescalationEvent;SecuritySystemInput",
+      "shortName": "InitiateAutomaticDeescalationEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEntityBlacklisted;EntityID",
+      "shortName": "IsEntityBlacklisted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEntityBlacklisted;GameObject",
+      "shortName": "IsEntityBlacklisted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "gameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEntityBlacklistedForAtLeast;GameObjectBlacklistReason",
+      "shortName": "IsEntityBlacklistedForAtLeast",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "go",
+          "flags": 128
+        },
+        {
+          "type": "BlacklistReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEntityBlacklistedForAtLeast;EntityIDBlacklistReason",
+      "shortName": "IsEntityBlacklistedForAtLeast",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "BlacklistReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEntityBlacklistedForSpecificReason;EntityIDBlacklistReason",
+      "shortName": "IsEntityBlacklistedForSpecificReason",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "BlacklistReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsHidden;",
+      "shortName": "IsHidden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsNotificationValid;SecuritySystemInput",
+      "shortName": "IsNotificationValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayersEntityID;EntityID",
+      "shortName": "IsPlayersEntityID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPoliceSecuritySystem;",
+      "shortName": "IsPoliceSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsRefreshRequired;",
+      "shortName": "IsRefreshRequired",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "IsRegistryReady;",
+      "shortName": "IsRegistryReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "IsReprimandOngoing;",
+      "shortName": "IsReprimandOngoing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsReprimandOngoingAgainst;EntityID",
+      "shortName": "IsReprimandOngoingAgainst",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "suspect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSystemAlerted;",
+      "shortName": "IsSystemAlerted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsSystemClean;",
+      "shortName": "IsSystemClean",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "IsSystemInCombat;",
+      "shortName": "IsSystemInCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsSystemSafe;",
+      "shortName": "IsSystemSafe",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsTargetTresspassingMyZone;EntityIDEntityID",
+      "shortName": "IsTargetTresspassingMyZone",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "suspect",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "reporter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUnderStrictQuestControl;",
+      "shortName": "IsUnderStrictQuestControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsUserAuthorized;GameObjectESecurityAccessLevel",
+      "shortName": "IsUserAuthorized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUserAuthorized;EntityIDESecurityAccessLevel",
+      "shortName": "IsUserAuthorized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUserAuthorizedViaCard;EntityIDESecurityAccessLevel",
+      "shortName": "IsUserAuthorizedViaCard",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUserAuthorizedViaPassword;CNameESecurityAccessLevel",
+      "shortName": "IsUserAuthorizedViaPassword",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "CName",
+          "name": "password",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUserInsideSystem;EntityID",
+      "shortName": "IsUserInsideSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "userToBeChecked",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUserInsideSystem;EntityIDESecurityAccessLevel",
+      "shortName": "IsUserInsideSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "userToBeChecked",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "highestSecurityAccessLevel",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsUserInsideSystem;EntityIDESecurityAccessLevelESecurityAreaType",
+      "shortName": "IsUserInsideSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "userToBeChecked",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "highestSecurityAccessLevel",
+          "flags": 640
+        },
+        {
+          "type": "ESecurityAreaType",
+          "name": "highestThreat",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyAboutAttitudeChange;",
+      "shortName": "NotifyAboutAttitudeChange",
+      "flags": 260
+    },
+    {
+      "fullName": "OnActionForceResetDevice;ActionForceResetDevice",
+      "shortName": "OnActionForceResetDevice",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ActionForceResetDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActionTakeOverSecuritySystem;TakeOverSecuritySystem",
+      "shortName": "OnActionTakeOverSecuritySystem",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:TakeOverSecuritySystem",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAddUserEvent;AddUserEvent",
+      "shortName": "OnAddUserEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:AddUserEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAgentSpawned;SecurityAgentSpawnedEvent",
+      "shortName": "OnAgentSpawned",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecurityAgentSpawnedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAutomaticDeescalationEvent;AutomaticDeescalationEvent",
+      "shortName": "OnAutomaticDeescalationEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:AutomaticDeescalationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBlacklistPeriodEnded;BlacklistPeriodEnded",
+      "shortName": "OnBlacklistPeriodEnded",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:BlacklistPeriodEnded",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeescalate;DeescalationEvent",
+      "shortName": "OnDeescalate",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:DeescalationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFullSystemRestart;FullSystemRestart",
+      "shortName": "OnFullSystemRestart",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:FullSystemRestart",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnMadnessDebuff;MadnessDebuff",
+      "shortName": "OnMadnessDebuff",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:MadnessDebuff",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
+      "shortName": "OnMaraudersMapDeviceDebug",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:worldMaraudersMapDevicesSink",
+          "name": "sink",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerSpotted;PlayerSpotted",
+      "shortName": "OnPlayerSpotted",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:PlayerSpotted",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestAuthorizePlayer;AuthorizePlayerInSecuritySystem",
+      "shortName": "OnQuestAuthorizePlayer",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:AuthorizePlayerInSecuritySystem",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestBlackListPlayer;BlacklistPlayer",
+      "shortName": "OnQuestBlackListPlayer",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:BlacklistPlayer",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestChangeSecuritySystemAttitudeGroup;QuestChangeSecuritySystemAttitudeGroup",
+      "shortName": "OnQuestChangeSecuritySystemAttitudeGroup",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestChangeSecuritySystemAttitudeGroup",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestCombatActionNotification;QuestCombatActionNotification",
+      "shortName": "OnQuestCombatActionNotification",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestCombatActionNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestExclusiveQuestControl;SuppressSecuritySystemStateChange",
+      "shortName": "OnQuestExclusiveQuestControl",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SuppressSecuritySystemStateChange",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceON;QuestForceON",
+      "shortName": "OnQuestForceON",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:QuestForceON",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestIllegalActionNotification;QuestIllegalActionNotification",
+      "shortName": "OnQuestIllegalActionNotification",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestIllegalActionNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemoveFromBlacklist;RemoveFromBlacklistEvent",
+      "shortName": "OnRemoveFromBlacklist",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RemoveFromBlacklistEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRevokeAuthorization;RevokeAuthorization",
+      "shortName": "OnRevokeAuthorization",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:RevokeAuthorization",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityAreaCrossingPerimeter;SecurityAreaCrossingPerimeter",
+      "shortName": "OnSecurityAreaCrossingPerimeter",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecurityAreaCrossingPerimeter",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityAreaTypeChangedNotification;SecurityAreaTypeChangedNotification",
+      "shortName": "OnSecurityAreaTypeChangedNotification",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecurityAreaTypeChangedNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemInput;SecuritySystemInput",
+      "shortName": "OnSecuritySystemInput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetSecuritySystemState;SetSecuritySystemState",
+      "shortName": "OnSetSecuritySystemState",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SetSecuritySystemState",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSuppressSecuritySystemReaction;SuppressSecuritySystemReaction",
+      "shortName": "OnSuppressSecuritySystemReaction",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SuppressSecuritySystemReaction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PerformAuthorizationAttemptUsingKeycard;EntityID",
+      "shortName": "PerformAuthorizationAttemptUsingKeycard",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PerformAuthorizationAttemptUsingPassword;EntityIDCName",
+      "shortName": "PerformAuthorizationAttemptUsingPassword",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "password",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessBreachNotificationWithRecipientsList;array<EntityID>SecuritySystemInput",
+      "shortName": "ProcessBreachNotificationWithRecipientsList",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "array:entEntityID",
+          "name": "addresseeList",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "securitySystemInput",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessFriendly;SecuritySystemInput",
+      "shortName": "ProcessFriendly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessHostile;SecuritySystemInput",
+      "shortName": "ProcessHostile",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessInput;SecuritySystemInput",
+      "shortName": "ProcessInput",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessNeutral;SecuritySystemInput",
+      "shortName": "ProcessNeutral",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ProduceOutput;SecuritySystemInputBool",
+      "shortName": "ProduceOutput",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "securityStateChanged",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProvideAccessDataLevel_0;",
+      "shortName": "ProvideAccessDataLevel_0",
+      "return": {
+        "type": "array:SecurityAccessLevelEntry",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ProvideAccessDataLevel_1;",
+      "shortName": "ProvideAccessDataLevel_1",
+      "return": {
+        "type": "array:SecurityAccessLevelEntry",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ProvideAccessDataLevel_2;",
+      "shortName": "ProvideAccessDataLevel_2",
+      "return": {
+        "type": "array:SecurityAccessLevelEntry",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ProvideAccessDataLevel_3;",
+      "shortName": "ProvideAccessDataLevel_3",
+      "return": {
+        "type": "array:SecurityAccessLevelEntry",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ProvideAccessDataLevel_4;",
+      "shortName": "ProvideAccessDataLevel_4",
+      "return": {
+        "type": "array:SecurityAccessLevelEntry",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "QuestAuthorizePlayer;AuthorizePlayerInSecuritySystem",
+      "shortName": "QuestAuthorizePlayer",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:AuthorizePlayerInSecuritySystem",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestBlacklistPlayer;BlacklistPlayer",
+      "shortName": "QuestBlacklistPlayer",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:BlacklistPlayer",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestChangeSecuritySystemAttitudeGroup;QuestChangeSecuritySystemAttitudeGroup",
+      "shortName": "QuestChangeSecuritySystemAttitudeGroup",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestChangeSecuritySystemAttitudeGroup",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestChangeSecuritySystemState;SetSecuritySystemState",
+      "shortName": "QuestChangeSecuritySystemState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SetSecuritySystemState",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestCombatActionNotification;QuestCombatActionNotification",
+      "shortName": "QuestCombatActionNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestCombatActionNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestIllegalActionNotification;QuestIllegalActionNotification",
+      "shortName": "QuestIllegalActionNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestIllegalActionNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestSuppressSecuritySystem;SuppressSecuritySystemStateChange",
+      "shortName": "QuestSuppressSecuritySystem",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SuppressSecuritySystemStateChange",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReduceLevelByOne;ESecurityAccessLevel",
+      "shortName": "ReduceLevelByOne",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseAllReprimands;",
+      "shortName": "ReleaseAllReprimands",
+      "flags": 132
+    },
+    {
+      "fullName": "ReleaseCurrentPerformerFromReprimand;EReprimandInstructionsEntityID",
+      "shortName": "ReleaseCurrentPerformerFromReprimand",
+      "flags": 132,
+      "params": [
+        {
+          "type": "EReprimandInstructions",
+          "name": "instructions",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFromBlacklist;GameObject",
+      "shortName": "RemoveFromBlacklist",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "go",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFromBlacklist;EntityID",
+      "shortName": "RemoveFromBlacklist",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveUser;EntityID",
+      "shortName": "RemoveUser",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReportPotentialSituation;SecuritySystemInput",
+      "shortName": "ReportPotentialSituation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestLatestOutput;PersistentID",
+      "shortName": "RequestLatestOutput",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestTargetsAssessment;array<Agent>GameObject",
+      "shortName": "RequestTargetsAssessment",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:Agent",
+          "name": "providedAgents",
+          "flags": 1152
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveNotificationImmediately;SecuritySystemInput",
+      "shortName": "ResolveNotificationImmediately",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolvePotentialDeescalation;",
+      "shortName": "ResolvePotentialDeescalation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ResolveReprimand;SecuritySystemInputESecuritySystemState",
+      "shortName": "ResolveReprimand",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "ESecuritySystemState",
+          "name": "determinedState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveTransitionFromAlerted;SecuritySystemInputBool",
+      "shortName": "ResolveTransitionFromAlerted",
+      "return": {
+        "type": "ESecuritySystemState",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isSimulation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveTransitionFromCombat;SecuritySystemInputBool",
+      "shortName": "ResolveTransitionFromCombat",
+      "return": {
+        "type": "ESecuritySystemState",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isSimulation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveTransitionFromSafe;SecuritySystemInputBool",
+      "shortName": "ResolveTransitionFromSafe",
+      "return": {
+        "type": "ESecuritySystemState",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isSimulation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RevokeProtection;EntityID",
+      "shortName": "RevokeProtection",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SecuritySystemLog;String",
+      "shortName": "SecuritySystemLog",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "String",
+          "name": "message",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SecuritySystemLog;ReprimandUpdate",
+      "shortName": "SecuritySystemLog",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:ReprimandUpdate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendReprimandEvent;ReprimandUpdate",
+      "shortName": "SendReprimandEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ReprimandUpdate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendResponseToCustomRecipients;SecuritySystemOutput",
+      "shortName": "SendResponseToCustomRecipients",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "response",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendSupportEvents;array<Agent>Bool",
+      "shortName": "SendSupportEvents",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:Agent",
+          "name": "modifiedAgents",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "forceRevokeSupport",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetReprimandPerformer;SecuritySystemInputEReprimandInstructions",
+      "shortName": "SetReprimandPerformer",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "EReprimandInstructions",
+          "name": "instructions",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSecurityState;ESecuritySystemStateSecuritySystemInputBool",
+      "shortName": "SetSecurityState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecuritySystemState",
+          "name": "newState",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isComingFromQuest",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetSecurityStateAndTriggerResponse;ESecuritySystemStateSecuritySystemInputBool",
+      "shortName": "SetSecurityStateAndTriggerResponse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecuritySystemState",
+          "name": "newState",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isComingFromQuest",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetSecuritySystemAttitude;EAIAttitudeSecuritySystemInputBool",
+      "shortName": "SetSecuritySystemAttitude",
+      "flags": 132,
+      "params": [
+        {
+          "type": "EAIAttitude",
+          "name": "desiredAttitude",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isComingFromQuest",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetSecuritySystemAttitudeGroup;TweakDBID",
+      "shortName": "SetSecuritySystemAttitudeGroup",
+      "flags": 260,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "newAttitude",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldReactToTarget;EntityIDEntityID",
+      "shortName": "ShouldReactToTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "suspect",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "reporter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldSecuritySystemDisableItself;",
+      "shortName": "ShouldSecuritySystemDisableItself",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "TriggerBlacklistWipeCountdown;BoolEntityID",
+      "shortName": "TriggerBlacklistWipeCountdown",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "start",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

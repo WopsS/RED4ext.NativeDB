@@ -1,0 +1,483 @@
+{
+  "parent": "BaseProjectile",
+  "name": "sampleSmartBullet",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:entIComponent",
+      "name": "meshComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "effect",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "countTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "startVelocity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "lifetime",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "bendTimeRatio",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "bendFactor",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "useParabolicPhase",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "parabolicVelocityMin",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "parabolicVelocityMax",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "parabolicDuration",
+      "flags": 4297130017
+    },
+    {
+      "type": "Vector4",
+      "name": "parabolicGravity",
+      "flags": 4297130017
+    },
+    {
+      "type": "handle:gameprojectileSpiralParams",
+      "name": "spiralParams",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "useSpiralParams",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "alive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hit",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "trailName",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameStatsSystem",
+      "name": "statsSystem",
+      "flags": 4431544352
+    },
+    {
+      "type": "entEntityID",
+      "name": "weaponID",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:gameprojectileParabolicTrajectoryParams",
+      "name": "parabolicPhaseParams",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:gameprojectileFollowCurveTrajectoryParams",
+      "name": "followPhaseParams",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:gameprojectileLinearTrajectoryParams",
+      "name": "linearPhaseParams",
+      "flags": 4431544352
+    },
+    {
+      "type": "Bool",
+      "name": "targeted",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "trailStarted",
+      "flags": 4297326624
+    },
+    {
+      "type": "ESmartBulletPhase",
+      "name": "phase",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "timeInPhase",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "randStartVelocity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "smartGunMissDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "smartGunHitProbability",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "smartGunMissRadius",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "randomWeaponMissChance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "randomTargetMissChance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "readyToMiss",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "stopAndDropOnTargetingDisruption",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "shouldStopAndDrop",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "targetID",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "ignoredTargetID",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "owner",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "weapon",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector4",
+      "name": "startPosition",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hasExploded",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIAttack",
+      "name": "attack",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:BulletCollisionEvaluator",
+      "name": "BulletCollisionEvaluator",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "BulletRelease;",
+      "shortName": "BulletRelease",
+      "flags": 132
+    },
+    {
+      "fullName": "DealDamage;gameprojectileHitEvent",
+      "shortName": "DealDamage",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameprojectileHitEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DisableTargetCollisions;EntityID",
+      "shortName": "DisableTargetCollisions",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnableTargetCollisions;EntityID",
+      "shortName": "EnableTargetCollisions",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInitialDistanceToTarget;",
+      "shortName": "GetInitialDistanceToTarget",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "OnAcceleratedMovement",
+      "shortName": "OnAcceleratedMovement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileAcceleratedMovementEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCollision",
+      "shortName": "OnCollision",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileHitEvent",
+          "name": "projectileHitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFollowSuccess",
+      "shortName": "OnFollowSuccess",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileFollowEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileSetUpEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLinearMovement",
+      "shortName": "OnLinearMovement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileLinearMovementEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShoot",
+      "shortName": "OnShoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShootTarget",
+      "shortName": "OnShootTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootTargetEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTick",
+      "shortName": "OnTick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileTickEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Reset;",
+      "shortName": "Reset",
+      "flags": 132
+    },
+    {
+      "fullName": "SetCurrentDamageTrailName;",
+      "shortName": "SetCurrentDamageTrailName",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupCommonParams;Vector4",
+      "shortName": "SetupCommonParams",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "weaponVel",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartNextPhase;",
+      "shortName": "StartNextPhase",
+      "flags": 132
+    },
+    {
+      "fullName": "StartPhase;ESmartBulletPhase",
+      "shortName": "StartPhase",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESmartBulletPhase",
+          "name": "phase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartTrailEffect;",
+      "shortName": "StartTrailEffect",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateReadyToMiss;",
+      "shortName": "UpdateReadyToMiss",
+      "flags": 132
+    }
+  ]
+}

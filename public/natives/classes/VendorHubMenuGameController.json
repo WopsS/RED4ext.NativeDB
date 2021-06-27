@@ -1,0 +1,415 @@
+{
+  "parent": "gameuiMenuGameController",
+  "name": "VendorHubMenuGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "selectorWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "playerCurrency",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "vendorShopLabel",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "notificationRoot",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "playerWeight",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "levelValue",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "streetCredLabel",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "levelBarProgress",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "levelBarSpacer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "streetCredBarProgress",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "streetCredBarSpacer",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:hubSelectorSingleSmallCarouselController",
+      "name": "selectorCtrl",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:VendorDataManager",
+      "name": "VendorDataManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:VendorUserData",
+      "name": "vendorUserData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:questVendorPanelData",
+      "name": "vendorPanelData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:StorageUserData",
+      "name": "storageUserData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PlayerDevelopmentSystem",
+      "name": "PDS",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "root",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "VendorBlackboard",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "playerStatsBlackboard",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:UI_VendorDef",
+      "name": "VendorBlackboardDef",
+      "flags": 4431544352
+    },
+    {
+      "type": "Uint32",
+      "name": "VendorUpdatedCallbackID",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint32",
+      "name": "weightListener",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint32",
+      "name": "characterLevelListener",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint32",
+      "name": "characterCurrentXPListener",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint32",
+      "name": "characterCredListener",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint32",
+      "name": "characterCredPointsListener",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint32",
+      "name": "characterCurrentHealthListener",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:inkMenuEventDispatcher",
+      "name": "menuEventDispatcher",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:MenuData",
+      "name": "menuData",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:StorageBlackboardDef",
+      "name": "storageDef",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "storageBlackboard",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CloseVendor;",
+      "shortName": "CloseVendor",
+      "flags": 132
+    },
+    {
+      "fullName": "Init;",
+      "shortName": "Init",
+      "flags": 132
+    },
+    {
+      "fullName": "NotifyActivePanel;HubVendorMenuItems",
+      "shortName": "NotifyActivePanel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "HubVendorMenuItems",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterCurrentHealthUpdated",
+      "shortName": "OnCharacterCurrentHealthUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelCurrentXPUpdated",
+      "shortName": "OnCharacterLevelCurrentXPUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelUpdated",
+      "shortName": "OnCharacterLevelUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterStreetCredLevelUpdated",
+      "shortName": "OnCharacterStreetCredLevelUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterStreetCredPointsUpdated",
+      "shortName": "OnCharacterStreetCredPointsUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnMenuChanged",
+      "shortName": "OnMenuChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerWeightUpdated",
+      "shortName": "OnPlayerWeightUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMenuEventDispatcher",
+      "shortName": "OnSetMenuEventDispatcher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkMenuEventDispatcher",
+          "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetUserData",
+      "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnVendorUpdated",
+      "shortName": "OnVendorUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveBB;",
+      "shortName": "RemoveBB",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupBB;",
+      "shortName": "SetupBB",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupMenuTabs;",
+      "shortName": "SetupMenuTabs",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupTopBar;",
+      "shortName": "SetupTopBar",
+      "flags": 132
+    }
+  ]
+}

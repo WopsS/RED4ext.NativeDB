@@ -1,0 +1,171 @@
+{
+  "parent": "gameuiWidgetGameController",
+  "name": "gameuiCooldownGameController",
+  "flags": 2,
+  "props": [
+    {
+      "type": "Int32",
+      "name": "maxCooldowns",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "cooldownContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "poolHolder",
+      "flags": 4297130017
+    },
+    {
+      "type": "ECooldownGameControllerMode",
+      "name": "mode",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:gamedataStatusEffectType",
+      "name": "effectTypes",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:SingleCooldownManager",
+      "name": "cooldownPool",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:SingleCooldownManager",
+      "name": "matchBuffer",
+      "flags": 6583025696
+    },
+    {
+      "type": "Uint32",
+      "name": "buffsCallback",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "debuffsCallback",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UI_PlayerBioMonitorDef",
+      "name": "blackboardDef",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "blackboard",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "GetBuffs;script_ref<array<BuffInfo>>",
+      "shortName": "GetBuffs",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "script_ref:array:gameuiBuffInfo",
+          "name": "buffs",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDebuffs;script_ref<array<BuffInfo>>",
+      "shortName": "GetDebuffs",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "script_ref:array:gameuiBuffInfo",
+          "name": "debuffs",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInstance;",
+      "shortName": "GetInstance",
+      "return": {
+        "type": "ScriptGameInstance",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "OnCooldownUpdate",
+      "shortName": "OnCooldownUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "array:gameuiBuffInfo",
+          "name": "buffList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEffectUpdate",
+      "shortName": "OnEffectUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "v",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "ParseBuffList;array<UIBuffInfo>",
+      "shortName": "ParseBuffList",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:UIBuffInfo",
+          "name": "buffList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestCooldownVisualization;UIBuffInfo",
+      "shortName": "RequestCooldownVisualization",
+      "flags": 516,
+      "params": [
+        {
+          "type": "UIBuffInfo",
+          "name": "buffData",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "parent": "MasterControllerPS",
+  "name": "DeviceSystemBaseControllerPS",
+  "flags": 5,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "quickHacksEnabled",
+      "flags": 4565631008
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionGetAccess;",
+      "shortName": "ActionGetAccess",
+      "return": {
+        "type": "handle:GetAccess",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGetAccess;GetAccess",
+      "shortName": "OnGetAccess",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:GetAccess",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RevokeQuickHacks;DeviceComponentPS",
+      "shortName": "RevokeQuickHacks",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameDeviceComponentPS",
+          "name": "device",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "parent": "ABaseWrapper",
+  "name": "JournalWrapper",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gameJournalManager",
+      "name": "journalManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameJournalRequestContext",
+      "name": "journalContext",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameJournalRequestContext",
+      "name": "journalSubQuestContext",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:gameJournalEntry",
+      "name": "listOfJournalEntries",
+      "flags": 6583025696
+    },
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstance",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "BuildQuestData;JournalQuest",
+      "shortName": "BuildQuestData",
+      "return": {
+        "type": "handle:QuestDataWrapper",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalQuest",
+          "name": "currQuest",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuildQuestData_Recursive;JournalEntryStringarray<QuestObjectiveWrapper>array<JournalEntry>Bool",
+      "shortName": "BuildQuestData_Recursive",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "currEntity",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "description",
+          "flags": 640
+        },
+        {
+          "type": "array:handle:QuestObjectiveWrapper",
+          "name": "questObjectives",
+          "flags": 640
+        },
+        {
+          "type": "array:whandle:gameJournalEntry",
+          "name": "links",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "foundTracked",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDescriptionForCodexEntry;JournalCodexEntryarray<JournalEntry>",
+      "shortName": "GetDescriptionForCodexEntry",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalCodexEntry",
+          "name": "entry",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gameJournalEntry",
+          "name": "result",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetEntryHash;JournalEntry",
+      "shortName": "GetEntryHash",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetJournalManager;",
+      "shortName": "GetJournalManager",
+      "return": {
+        "type": "whandle:gameJournalManager",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetQuests;array<JournalEntry>",
+      "shortName": "GetQuests",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:whandle:gameJournalEntry",
+          "name": "entries",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetTrackedEntry;",
+      "shortName": "GetTrackedEntry",
+      "return": {
+        "type": "whandle:gameJournalEntry",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetTrackingStatus;JournalEntry",
+      "shortName": "GetTrackingStatus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Init;GameInstance",
+      "shortName": "Init",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVisited;JournalEntry",
+      "shortName": "IsVisited",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTracking;JournalEntry",
+      "shortName": "SetTracking",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetVisited;JournalEntry",
+      "shortName": "SetVisited",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateQuestData;QuestDataWrapper",
+      "shortName": "UpdateQuestData",
+      "return": {
+        "type": "handle:QuestDataWrapper",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestDataWrapper",
+          "name": "toUpdate",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

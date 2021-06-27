@@ -1,0 +1,375 @@
+{
+  "parent": "gameDeviceComponentPS",
+  "name": "SharedGameplayPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "EDeviceStatus",
+      "name": "deviceState",
+      "flags": 4632739873
+    },
+    {
+      "type": "AuthorizationData",
+      "name": "authorizationProperties",
+      "flags": 4632739873
+    },
+    {
+      "type": "Bool",
+      "name": "wasStateCached",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "wasStateSet",
+      "flags": 4565631008
+    },
+    {
+      "type": "EDeviceStatus",
+      "name": "cachedDeviceState",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "revealDevicesGrid",
+      "group": "Devices Grid",
+      "flags": 4364304417
+    },
+    {
+      "type": "Bool",
+      "name": "revealDevicesGridWhenUnpowered",
+      "group": "Devices Grid",
+      "flags": 4364304417
+    },
+    {
+      "type": "Bool",
+      "name": "wasRevealedInNetworkPing",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "hasNetworkBackdoor",
+      "group": "Backdoor Properties",
+      "flags": 4364304417
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CacheDeviceState;EDeviceStatus",
+      "shortName": "CacheDeviceState",
+      "flags": 260,
+      "params": [
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CheckMasterConnectedClassTypes;",
+      "shortName": "CheckMasterConnectedClassTypes",
+      "return": {
+        "type": "ConnectedClassTypes",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "EvaluateDeviceState;",
+      "shortName": "EvaluateDeviceState",
+      "flags": 512
+    },
+    {
+      "fullName": "FindHighestSecurityAccessLevel;array<SecurityAreaControllerPS>",
+      "shortName": "FindHighestSecurityAccessLevel",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "securityAreas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAccessPoints;",
+      "shortName": "GetAccessPoints",
+      "return": {
+        "type": "array:handle:AccessPointControllerPS",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBackdoorAccessPoint;",
+      "shortName": "GetBackdoorAccessPoint",
+      "return": {
+        "type": "handle:AccessPointControllerPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetDeviceState;",
+      "shortName": "GetDeviceState",
+      "return": {
+        "type": "EDeviceStatus",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetNetworkName;",
+      "shortName": "GetNetworkName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetSecurityAccessLevel;",
+      "shortName": "GetSecurityAccessLevel",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "HasNetworkBackdoor;",
+      "shortName": "HasNetworkBackdoor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsBreached;",
+      "shortName": "IsBreached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsConnectedToBackdoorDevice;",
+      "shortName": "IsConnectedToBackdoorDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsConnectedToSecuritySystem;",
+      "shortName": "IsConnectedToSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsConnectedToSecuritySystem;ESecurityAccessLevel",
+      "shortName": "IsConnectedToSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsPartOfSystem;ESystems",
+      "shortName": "IsPartOfSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "ESystems",
+          "name": "systemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPuppet;",
+      "shortName": "IsPuppet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "OnSetRevealedInNetwork;SetRevealedInNetwork",
+      "shortName": "OnSetRevealedInNetwork",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SetRevealedInNetwork",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueueEntityEvent;EntityIDEvent",
+      "shortName": "QueueEntityEvent",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueuePSEvent;PersistentStateEvent",
+      "shortName": "QueuePSEvent",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "whandle:gamePersistentState",
+          "name": "targetPS",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueuePSEvent;PersistentIDCNameEvent",
+      "shortName": "QueuePSEvent",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "psClassName",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueuePSEventWithDelay;PersistentStateEventFloat",
+      "shortName": "QueuePSEventWithDelay",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "whandle:gamePersistentState",
+          "name": "targetPS",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueuePSEventWithDelay;PersistentIDCNameEventFloat",
+      "shortName": "QueuePSEventWithDelay",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "psClassName",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDeviceState;EDeviceStatus",
+      "shortName": "SetDeviceState",
+      "flags": 256,
+      "params": [
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetRevealedInNetworkPing;Bool",
+      "shortName": "SetRevealedInNetworkPing",
+      "flags": 8704,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "wasRevealed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WasRevealedInNetworkPing;",
+      "shortName": "WasRevealedInNetworkPing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    }
+  ]
+}

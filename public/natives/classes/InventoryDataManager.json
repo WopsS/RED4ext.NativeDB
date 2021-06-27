@@ -1,0 +1,398 @@
+{
+  "parent": "IScriptable",
+  "name": "InventoryDataManager",
+  "flags": 4,
+  "props": [
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstance",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameTransactionSystem",
+      "name": "transactionSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:EquipmentSystem",
+      "name": "equipmentSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameStatsSystem",
+      "name": "statsSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UILocalizationMap",
+      "name": "locMgr",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CanCompareItems;ItemIDItemID",
+      "shortName": "CanCompareItems",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemId",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "compareItemId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FillStatsList;gameItemDataarray<Stat_Record>array<StatViewData>Boolarray<Stat_Record>gameItemData",
+      "shortName": "FillStatsList",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataStat_Record",
+          "name": "statRecords",
+          "flags": 128
+        },
+        {
+          "type": "array:gameStatViewData",
+          "name": "statList",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "canCompare",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataStat_Record",
+          "name": "compareStatRecords",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "compareWithData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquippedItemIdInArea;gamedataEquipmentAreaInt32",
+      "shortName": "GetEquippedItemIdInArea",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipArea",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slot",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetExternalItemData;EntityIDItemID",
+      "shortName": "GetExternalItemData",
+      "return": {
+        "type": "whandle:gameItemData",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ownerId",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "externalItemId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetExternalItemStats;EntityIDItemIDItemID",
+      "shortName": "GetExternalItemStats",
+      "return": {
+        "type": "gameItemViewData",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ownerId",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "externalItemId",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "compareItemId",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemEquipArea;ItemID",
+      "shortName": "GetItemEquipArea",
+      "return": {
+        "type": "gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemStatsByData;gameItemDatagameItemData",
+      "shortName": "GetItemStatsByData",
+      "return": {
+        "type": "gameItemViewData",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "compareWithData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemsList;array<gameItemData>",
+      "shortName": "GetItemsList",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "itemsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemsListByTag;CNamearray<gameItemData>",
+      "shortName": "GetItemsListByTag",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "tag",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "itemsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetLastLootedItems;Int32array<gameItemData>",
+      "shortName": "GetLastLootedItems",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "count",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "itemsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayer;",
+      "shortName": "GetPlayer",
+      "return": {
+        "type": "whandle:PlayerPuppet",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPlayerItemData;ItemID",
+      "shortName": "GetPlayerItemData",
+      "return": {
+        "type": "whandle:gameItemData",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "externalItemId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerItemStats;ItemIDItemID",
+      "shortName": "GetPlayerItemStats",
+      "return": {
+        "type": "gameItemViewData",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemId",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "compareItemId",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerStats;array<StatViewData>",
+      "shortName": "GetPlayerStats",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:gameStatViewData",
+          "name": "statsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetStatsList;TweakDBIDgameItemDataarray<StatViewData>array<StatViewData>gameItemData",
+      "shortName": "GetStatsList",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "mapPath",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "array:gameStatViewData",
+          "name": "primeStatsList",
+          "flags": 640
+        },
+        {
+          "type": "array:gameStatViewData",
+          "name": "secondStatsList",
+          "flags": 640
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "compareWithData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetStatsUIMapName;gameItemData",
+      "shortName": "GetStatsUIMapName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetStatsUIMapName;ItemID",
+      "shortName": "GetStatsUIMapName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;PlayerPuppet",
+      "shortName": "Initialize",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QualityEnumToName;gamedataQuality",
+      "shortName": "QualityEnumToName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "qualityStatValue",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

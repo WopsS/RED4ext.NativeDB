@@ -1,0 +1,95 @@
+{
+  "name": "OutputValidationDataStruct",
+  "flags": 8,
+  "props": [
+    {
+      "type": "entEntityID",
+      "name": "targetID",
+      "flags": 4295229472
+    },
+    {
+      "type": "gamePersistentID",
+      "name": "agentID",
+      "flags": 4295229472
+    },
+    {
+      "type": "entEntityID",
+      "name": "reprimenderID",
+      "flags": 4295229472
+    },
+    {
+      "type": "gamePersistentID",
+      "name": "eventReportedFromArea",
+      "flags": 4295229472
+    },
+    {
+      "type": "ESecurityNotificationType",
+      "name": "eventType",
+      "flags": 4295229472
+    },
+    {
+      "type": "array:gamePersistentID",
+      "name": "breachedAreas",
+      "flags": 6581125152
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OutputValidationDataStruct::Construct;SecuritySystemInputEntityIDarray<PersistentID>",
+      "shortName": "Construct",
+      "return": {
+        "type": "OutputValidationDataStruct",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "currentReprimender",
+          "flags": 128
+        },
+        {
+          "type": "array:gamePersistentID",
+          "name": "breachedAreas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OutputValidationDataStruct::IsDuplicated;OutputValidationDataStructSecuritySystemInputEntityIDarray<PersistentID>",
+      "shortName": "IsDuplicated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "OutputValidationDataStruct",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecuritySystemInput",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "currentReprimender",
+          "flags": 128
+        },
+        {
+          "type": "array:gamePersistentID",
+          "name": "currentlyBreachedAreas",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

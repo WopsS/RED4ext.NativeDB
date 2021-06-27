@@ -1,0 +1,637 @@
+{
+  "parent": "gameScriptableSystem",
+  "name": "CityLightSystem",
+  "flags": 4,
+  "props": [
+    {
+      "type": "array:handle:TimetableCallbackData",
+      "name": "timeSystemCallbacks",
+      "flags": 6851461152
+    },
+    {
+      "type": "array:FuseData",
+      "name": "fuses",
+      "flags": 6851461152
+    },
+    {
+      "type": "ECLSForcedState",
+      "name": "state",
+      "flags": 4565565472
+    },
+    {
+      "type": "CName",
+      "name": "forcedStateSource",
+      "flags": 4565565472
+    },
+    {
+      "type": "array:ForcedStateData",
+      "name": "forcedStatesStack",
+      "flags": 6851461152
+    },
+    {
+      "type": "handle:CLSWeatherListener",
+      "name": "weatherListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "CName",
+      "name": "turnOffLisenerID",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "turnOnLisenerID",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "resetLisenerID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "weatherCallbackId",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddForcedStateRequest;ECLSForcedStateCNameEPriorityBool",
+      "shortName": "AddForcedStateRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ECLSForcedState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "sourceName",
+          "flags": 128
+        },
+        {
+          "type": "EPriority",
+          "name": "priority",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "savable",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddFuse;PSOwnerDataarray<SDeviceTimetableEntry>Int32",
+      "shortName": "AddFuse",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "PSOwnerData",
+          "name": "requesterData",
+          "flags": 128
+        },
+        {
+          "type": "array:SDeviceTimetableEntry",
+          "name": "timeTable",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "lights",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AddTimeTableCallbacks;PSOwnerDataarray<SDeviceTimetableEntry>Int32",
+      "shortName": "AddTimeTableCallbacks",
+      "flags": 132,
+      "params": [
+        {
+          "type": "PSOwnerData",
+          "name": "requesterData",
+          "flags": 128
+        },
+        {
+          "type": "array:SDeviceTimetableEntry",
+          "name": "timeTable",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "lights",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateForcedStatesStack;",
+      "shortName": "EvaluateForcedStatesStack",
+      "flags": 132
+    },
+    {
+      "fullName": "GetActiveTimeTableEntry;FuseDataSDeviceTimetableEntry",
+      "shortName": "GetActiveTimeTableEntry",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "FuseData",
+          "name": "fuse",
+          "flags": 128
+        },
+        {
+          "type": "SDeviceTimetableEntry",
+          "name": "entry",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetActiveTimeTableEntryID;FuseData",
+      "shortName": "GetActiveTimeTableEntryID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "FuseData",
+          "name": "fuse",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCallbacks;",
+      "shortName": "GetCallbacks",
+      "return": {
+        "type": "array:handle:TimetableCallbackData",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetCurrentTime;",
+      "shortName": "GetCurrentTime",
+      "return": {
+        "type": "GameTime",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetFuse;Int32FuseData",
+      "shortName": "GetFuse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "fuseID",
+          "flags": 128
+        },
+        {
+          "type": "FuseData",
+          "name": "fuseData",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetFuseID;PersistentID",
+      "shortName": "GetFuseID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFuseID;PSOwnerData",
+      "shortName": "GetFuseID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "PSOwnerData",
+          "name": "requesterData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFuseStateByID;PersistentID",
+      "shortName": "GetFuseStateByID",
+      "return": {
+        "type": "EDeviceStatus",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFusesCount;",
+      "shortName": "GetFusesCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLightsCount;",
+      "shortName": "GetLightsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetMaxNotificationsPerFrame;",
+      "shortName": "GetMaxNotificationsPerFrame",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetState;",
+      "shortName": "GetState",
+      "return": {
+        "type": "ECLSForcedState",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetTimeTableCallback;SSimpleGameTime",
+      "shortName": "GetTimeTableCallback",
+      "return": {
+        "type": "handle:TimetableCallbackData",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "SSimpleGameTime",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasFuse;PSOwnerDataInt32",
+      "shortName": "HasFuse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "PSOwnerData",
+          "name": "requesterData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "id",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeDebugButtons;",
+      "shortName": "InitializeDebugButtons",
+      "flags": 132
+    },
+    {
+      "fullName": "IsForcedRequestSavable;ForcedStateData",
+      "shortName": "IsForcedRequestSavable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ForcedStateData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTimeTheSame;SSimpleGameTimeSSimpleGameTime",
+      "shortName": "IsTimeTheSame",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "SSimpleGameTime",
+          "name": "time1",
+          "flags": 128
+        },
+        {
+          "type": "SSimpleGameTime",
+          "name": "time2",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyRecipients;TimetableCallbackData",
+      "shortName": "NotifyRecipients",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:TimetableCallbackData",
+          "name": "callbackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyRecipientsOnRegistration;TimetableCallbackData",
+      "shortName": "NotifyRecipientsOnRegistration",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:TimetableCallbackData",
+          "name": "callbackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnDebugButtonClicked;SDOClickedRequest",
+      "shortName": "OnDebugButtonClicked",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameSDOClickedRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnForceCLSStateRequest;ForceCLSStateRequest",
+      "shortName": "OnForceCLSStateRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ForceCLSStateRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNotifyRecipientsrequest;NotifyRecipientsRequest",
+      "shortName": "OnNotifyRecipientsrequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:NotifyRecipientsRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRegisterTimetableRequest;RegisterTimetableRequest",
+      "shortName": "OnRegisterTimetableRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RegisterTimetableRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRestored;Int32Int32",
+      "shortName": "OnRestored",
+      "flags": 128,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "saveVersion",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "gameVersion",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTimeTableCallbackRequest;TimeTableCallbackRequest",
+      "shortName": "OnTimeTableCallbackRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:TimeTableCallbackRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterTimetableCallback;TimetableCallbackData",
+      "shortName": "RegisterTimetableCallback",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:TimetableCallbackData",
+          "name": "callbackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveForcedStateRequestForSource;CName",
+      "shortName": "RemoveForcedStateRequestForSource",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "sourceName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveForcedStatesStackOnLoad;",
+      "shortName": "ResolveForcedStatesStackOnLoad",
+      "flags": 132
+    },
+    {
+      "fullName": "SendDeviceTimetableEvent;RecipientData",
+      "shortName": "SendDeviceTimetableEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "RecipientData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendForceStateDeviceTimetableEvent;FuseDataECLSForcedState",
+      "shortName": "SendForceStateDeviceTimetableEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "FuseData",
+          "name": "fuse",
+          "flags": 128
+        },
+        {
+          "type": "ECLSForcedState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendNotificationByRequest;array<RecipientData>GameTime",
+      "shortName": "SendNotificationByRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:RecipientData",
+          "name": "recipients",
+          "flags": 128
+        },
+        {
+          "type": "GameTime",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendNotificationToRecipients;array<RecipientData>GameTime",
+      "shortName": "SendNotificationToRecipients",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:RecipientData",
+          "name": "recipients",
+          "flags": 128
+        },
+        {
+          "type": "GameTime",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldNotifyRecipient;RecipientDataGameTime",
+      "shortName": "ShouldNotifyRecipient",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "RecipientData",
+          "name": "recipient",
+          "flags": 128
+        },
+        {
+          "type": "GameTime",
+          "name": "callbackTime",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowDebug_fuses;array<FuseData>",
+      "shortName": "ShowDebug_fuses",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:FuseData",
+          "name": "fuses",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowDebug_state;",
+      "shortName": "ShowDebug_state",
+      "flags": 132
+    },
+    {
+      "fullName": "UninitializeDebugButtons;",
+      "shortName": "UninitializeDebugButtons",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateCLSForcedState;",
+      "shortName": "UpdateCLSForcedState",
+      "flags": 132
+    }
+  ]
+}

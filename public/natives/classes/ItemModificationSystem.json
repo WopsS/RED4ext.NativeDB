@@ -1,0 +1,346 @@
+{
+  "parent": "gameScriptableSystem",
+  "name": "ItemModificationSystem",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "blackboard",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ItemModificationSystem::GetAllSlots;gameItemData",
+      "shortName": "GetAllSlots",
+      "return": {
+        "type": "array:gameSPartSlots",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ItemModificationSystem::GetAllSlots;GameObjectItemID",
+      "shortName": "GetAllSlots",
+      "return": {
+        "type": "array:gameSPartSlots",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ItemModificationSystem::GetattachementFromBlueprint;ItemBlueprintElement_Recordarray<AttachmentSlot_Record>",
+      "shortName": "GetattachementFromBlueprint",
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gamedataItemBlueprintElement_Record",
+          "name": "blueprintRecord",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAttachmentSlot_Record",
+          "name": "attachments",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ItemModificationSystem::HasBetterShardInstalled;GameObjectItemIDItemID",
+      "shortName": "HasBetterShardInstalled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "cyberdeckID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "shardID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ItemModificationSystem::IsBasePart;GameObjectItemIDTweakDBID",
+      "shortName": "IsBasePart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ItemModificationSystem::IsItemSlotTaken;GameObjectItemIDTweakDBID",
+      "shortName": "IsItemSlotTaken",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InstallItemPart;GameObjectItemIDItemIDTweakDBID",
+      "shortName": "InstallItemPart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "partItemID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnInstallItemPart;InstallItemPart",
+      "shortName": "OnInstallItemPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:InstallItemPart",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemoveItemPart;RemoveItemPart",
+      "shortName": "OnRemoveItemPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RemoveItemPart",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSwapItemPart;SwapItemPart",
+      "shortName": "OnSwapItemPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SwapItemPart",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveItemPart;GameObjectItemIDTweakDBIDBool",
+      "shortName": "RemoveItemPart",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldUpdateEntity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveLowerShards;GameObjectItemIDItemID",
+      "shortName": "RemoveLowerShards",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "shardID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePartEquipGLPs;GameObjectItemID",
+      "shortName": "RemovePartEquipGLPs",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendCallback;",
+      "shortName": "SendCallback",
+      "flags": 132
+    },
+    {
+      "fullName": "SetPingTutorialFact;ItemIDBoolGameObject",
+      "shortName": "SetPingTutorialFact",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isUnequip",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SwapItemPart;GameObjectItemIDItemIDTweakDBID",
+      "shortName": "SwapItemPart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "partItemID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

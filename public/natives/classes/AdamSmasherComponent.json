@@ -1,0 +1,316 @@
+{
+  "parent": "gameScriptableComponent",
+  "name": "AdamSmasherComponent",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:NPCPuppet",
+      "name": "owner",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "owner_id",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "statusEffect_armor1_id",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "statusEffect_armor2_id",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "statusEffect_armor3_id",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "statusEffect_smashed_id",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameStatPoolsSystem",
+      "name": "statPoolSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "gamedataStatPoolType",
+      "name": "statPoolType",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:AdamSmasherHealthChangeListener",
+      "name": "healthListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "phase2Threshold",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "phase3Threshold",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:entSimpleColliderComponent",
+      "name": "npcCollisionComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:AITargetTrackerComponent",
+      "name": "targetTrackerComponent",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AdamSmasherComponent::GetEmergencyPhaseHealthValue;",
+      "shortName": "GetEmergencyPhaseHealthValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "AdamSmasherComponent::GetPhase2HealthValue;",
+      "shortName": "GetPhase2HealthValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "AdamSmasherComponent::GetPhase3HealthValue;",
+      "shortName": "GetPhase3HealthValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "AdamSmasherComponent::GetRemovePlateHealthValue;",
+      "shortName": "GetRemovePlateHealthValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "ApplyNoInterrupt;",
+      "shortName": "ApplyNoInterrupt",
+      "flags": 516
+    },
+    {
+      "fullName": "ApplySmashed;",
+      "shortName": "ApplySmashed",
+      "flags": 516
+    },
+    {
+      "fullName": "DisableAllDefeatedHitShapes;",
+      "shortName": "DisableAllDefeatedHitShapes",
+      "flags": 260
+    },
+    {
+      "fullName": "DisableAllHitShapes;",
+      "shortName": "DisableAllHitShapes",
+      "flags": 260
+    },
+    {
+      "fullName": "DisableFrontPlate;",
+      "shortName": "DisableFrontPlate",
+      "flags": 132
+    },
+    {
+      "fullName": "DisableRipInteractionLayer;",
+      "shortName": "DisableRipInteractionLayer",
+      "flags": 132
+    },
+    {
+      "fullName": "DisableWeakspots;",
+      "shortName": "DisableWeakspots",
+      "flags": 132
+    },
+    {
+      "fullName": "EnableDefeatedHitShapes;",
+      "shortName": "EnableDefeatedHitShapes",
+      "flags": 260
+    },
+    {
+      "fullName": "EnableRipInteractionLayer;",
+      "shortName": "EnableRipInteractionLayer",
+      "flags": 132
+    },
+    {
+      "fullName": "EnableTorsoWeakspot;",
+      "shortName": "EnableTorsoWeakspot",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAudioEvent",
+      "shortName": "OnAudioEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entAudioEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeactivate;",
+      "shortName": "OnDeactivate",
+      "flags": 260
+    },
+    {
+      "fullName": "OnDeathAfterDefeatedSmasher",
+      "shortName": "OnDeathAfterDefeatedSmasher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisableWeakspotDelayedEvent",
+      "shortName": "OnDisableWeakspotDelayedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DisableWeakspotDelayedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEnableColliderDelayEvent",
+      "shortName": "OnEnableColliderDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:EnableColliderDelayEvent",
+          "name": "enableColliderEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameAttach;",
+      "shortName": "OnGameAttach",
+      "flags": 516
+    },
+    {
+      "fullName": "OnGameDetach;",
+      "shortName": "OnGameDetach",
+      "flags": 516
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied",
+      "shortName": "OnStatusEffectApplied",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHealth;NPCPuppetFloat",
+      "shortName": "SetHealth",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:NPCPuppet",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "valueToSet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPercentLifeForPhase;Float",
+      "shortName": "SetPercentLifeForPhase",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

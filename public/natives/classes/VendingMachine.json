@@ -1,0 +1,514 @@
+{
+  "parent": "InteractiveDevice",
+  "name": "VendingMachine",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:VendorComponent",
+      "name": "vendorID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:entIComponent",
+      "name": "advUiComponent",
+      "flags": 4431413280
+    },
+    {
+      "type": "Bool",
+      "name": "isShortGlitchActive",
+      "flags": 4297195552
+    },
+    {
+      "type": "gameDelayID",
+      "name": "shortGlitchDelayID",
+      "flags": 4297195552
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AdvertGlitch;BoolGlitchData",
+      "shortName": "AdvertGlitch",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "start",
+          "flags": 128
+        },
+        {
+          "type": "GlitchData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuyItems;BuyRequest",
+      "shortName": "BuyItems",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:BuyRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateBlackboard;",
+      "shortName": "CreateBlackboard",
+      "flags": 256
+    },
+    {
+      "fullName": "CreateBuyRequest;ItemID",
+      "shortName": "CreateBuyRequest",
+      "return": {
+        "type": "handle:BuyRequest",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "CreateDispenseRequest;BoolItemID",
+      "shortName": "CreateDispenseRequest",
+      "return": {
+        "type": "handle:DispenseRequest",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldPay",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateDevice;",
+      "shortName": "DeactivateDevice",
+      "flags": 256
+    },
+    {
+      "fullName": "DelayHackedEvent;FloatItemID",
+      "shortName": "DelayHackedEvent",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DelayVendingMachineEvent;FloatBoolBoolItemID",
+      "shortName": "DelayVendingMachineEvent",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isFree",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isReady",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "DispenseItems;DispenseRequest",
+      "shortName": "DispenseItems",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:DispenseRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBlackboardDef;",
+      "shortName": "GetBlackboardDef",
+      "return": {
+        "type": "handle:VendingMachineDeviceBlackboardDef",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:VendingMachineController",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:VendingMachineControllerPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetGlitchData;EGlitchState",
+      "shortName": "GetGlitchData",
+      "return": {
+        "type": "GlitchData",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "EGlitchState",
+          "name": "glitchState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetJunkItem;",
+      "shortName": "GetJunkItem",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "GetProcessingSFX;",
+      "shortName": "GetProcessingSFX",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "GetVendorID;",
+      "shortName": "GetVendorID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "HackedEffect;",
+      "shortName": "HackedEffect",
+      "flags": 256
+    },
+    {
+      "fullName": "InitializeScreenDefinition;",
+      "shortName": "InitializeScreenDefinition",
+      "flags": 128
+    },
+    {
+      "fullName": "OnAreaEnter",
+      "shortName": "OnAreaEnter",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entAreaEnteredEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayHackedEvent",
+      "shortName": "OnDelayHackedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DelayHackedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDispenceItemFromVendor",
+      "shortName": "OnDispenceItemFromVendor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DispenceItemFromVendor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHitEvent",
+      "shortName": "OnHitEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestDispenseFreeItem",
+      "shortName": "OnQuestDispenseFreeItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DispenseFreeItem",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestDispenseSpecificItem",
+      "shortName": "OnQuestDispenseSpecificItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DispenseFreeSpecificItem",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStopShortGlitch",
+      "shortName": "OnStopShortGlitch",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:StopShortGlitchEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVendingMachineFinishedEvent",
+      "shortName": "OnVendingMachineFinishedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VendingMachineFinishedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayItemFall;",
+      "shortName": "PlayItemFall",
+      "flags": 256
+    },
+    {
+      "fullName": "RandomizePosition;",
+      "shortName": "RandomizePosition",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ResolveGameplayState;",
+      "shortName": "ResolveGameplayState",
+      "flags": 256
+    },
+    {
+      "fullName": "SendDataToUIBlackboard;PaymentStatus",
+      "shortName": "SendDataToUIBlackboard",
+      "flags": 260,
+      "params": [
+        {
+          "type": "PaymentStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendSoldOutToUIBlackboard;Bool",
+      "shortName": "SendSoldOutToUIBlackboard",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "soldOut",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SimpleGlitch;Bool",
+      "shortName": "SimpleGlitch",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartGlitching;EGlitchStateFloat",
+      "shortName": "StartGlitching",
+      "flags": 256,
+      "params": [
+        {
+          "type": "EGlitchState",
+          "name": "glitchState",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "intensity",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "StartShortGlitch;",
+      "shortName": "StartShortGlitch",
+      "flags": 132
+    },
+    {
+      "fullName": "StopGlitching;",
+      "shortName": "StopGlitching",
+      "flags": 256
+    },
+    {
+      "fullName": "ToggleLights;Bool",
+      "shortName": "ToggleLights",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOffDevice;",
+      "shortName": "TurnOffDevice",
+      "flags": 256
+    },
+    {
+      "fullName": "TurnOnDevice;",
+      "shortName": "TurnOnDevice",
+      "flags": 256
+    }
+  ]
+}

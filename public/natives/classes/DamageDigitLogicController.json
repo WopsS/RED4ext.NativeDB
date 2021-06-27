@@ -1,0 +1,524 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "DamageDigitLogicController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkTextWidgetReference",
+      "name": "critWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "headshotWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "panelWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "textWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:DamageDigitsGameController",
+      "name": "gameController",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "active",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "successful",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "successfulCritical",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "showingBothDigits",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "distanceModifier",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "calculatedDistanceHeightBias",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "stickingDistanceHeightBias",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "stickToTarget",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "forceStickToTarget",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkScreenProjection",
+      "name": "projection",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "showPositiveAnimDef",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimTransparencyInterpolator",
+      "name": "showPositiveAnimFadeInInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimTransparencyInterpolator",
+      "name": "showPositiveAnimFadeOutInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimMarginInterpolator",
+      "name": "showPositiveAnimMarginInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimScaleInterpolator",
+      "name": "showPositiveAnimScaleInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "showNegativeAnimDef",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimTransparencyInterpolator",
+      "name": "showNegativeAnimFadeInInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimTransparencyInterpolator",
+      "name": "showNegativeAnimFadeOutInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimMarginInterpolator",
+      "name": "showNegativeAnimMarginInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimScaleInterpolator",
+      "name": "showNegativeAnimScaleInterpolator",
+      "flags": 4431347744
+    },
+    {
+      "type": "Vector4",
+      "name": "animStickTargetOffset",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animTimeFadeIn",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animTimeFadeOut",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothTimeFadeIn",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothTimeFadeOut",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animTimeDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animTimeCritDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothTimeDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothTimeCritDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animStartHeight",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animAngleMin1",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animAngleMin2",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animAngleMax1",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animAngleMax2",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothAngleMin1",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothAngleMin2",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothAngleMax1",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothAngleMax2",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceMin",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceMax",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceMin_Crit",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceMax_Crit",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothOffsetX",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothOffsetY",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animBothStickingOffsetY",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animStickTargetWorldZOffset",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animStickingOffsetY",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceModifierMinDistance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceModifierMaxDistance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceModifierMinValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceModifierMaxValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDistanceHeightBias",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animStickingDistanceHeightBias",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animPositiveOpacity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animNegativeOpacity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDynamicDuration",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDynamicDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDynamicCritDuration",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animDynamicCritDelay",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "BuildStateName;gamedataDamageTypegameuiHitType",
+      "shortName": "BuildStateName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataDamageType",
+          "name": "damageType",
+          "flags": 128
+        },
+        {
+          "type": "gameuiHitType",
+          "name": "hitType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CalculateDistanceModifier;Vector4Vector4",
+      "shortName": "CalculateDistanceModifier",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "fromVec",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "toVec",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateShowAnimation;",
+      "shortName": "CreateShowAnimation",
+      "flags": 132
+    },
+    {
+      "fullName": "GenerateRandomMarginInterpolator;BoolBoolBool",
+      "shortName": "GenerateRandomMarginInterpolator",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "positive",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isCritical",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "showingBothDigits",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHide",
+      "shortName": "OnHide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnScreenProjectionUpdate",
+      "shortName": "OnScreenProjectionUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkScreenProjection",
+          "name": "projection",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "SetActive;Bool",
+      "shortName": "SetActive",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "active",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetProjection;inkScreenProjectionDamageDigitsGameController",
+      "shortName": "SetProjection",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:inkScreenProjection",
+          "name": "projection",
+          "flags": 128
+        },
+        {
+          "type": "whandle:DamageDigitsGameController",
+          "name": "gameController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Show;DamageInfoBoolBool",
+      "shortName": "Show",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameuiDamageInfo",
+          "name": "damageInfo",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "showingBothDigits",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceStickToTarget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateDuration;Bool",
+      "shortName": "UpdateDuration",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "showingBothDigits",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdatePositionAndScale;Bool",
+      "shortName": "UpdatePositionAndScale",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "showingBothDigits",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

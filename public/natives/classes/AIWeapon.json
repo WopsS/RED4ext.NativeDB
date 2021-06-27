@@ -1,0 +1,759 @@
+{
+  "parent": "IScriptable",
+  "name": "AIWeapon",
+  "flags": 5,
+  "funcs": [
+    {
+      "fullName": "AIWeapon::CanWeaponOverheat;WeaponObject",
+      "shortName": "CanWeaponOverheat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "gameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::CompareAIPatternRecordArrays;array<AIPattern_Record>array<AIPattern_Record>",
+      "shortName": "CompareAIPatternRecordArrays",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "array:whandle:gamedataAIPattern_Record",
+          "name": "arr1",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIPattern_Record",
+          "name": "arr2",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::Fire;GameObjectWeaponObjectFloatFloatgamedataTriggerModeVector4GameObjectTweakDBIDFloatFloatVector4BoolFloatIPositionProvider",
+      "shortName": "Fire",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeStamp",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "tbhCoefficient",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "requestedTriggerMode",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "targetPosition",
+          "flags": 1152
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 1152
+        },
+        {
+          "type": "TweakDBID",
+          "name": "rangedAttack",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "maxSpreadOverride",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "aimingDelay",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "offset",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "shouldTrackTarget",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "predictionTime",
+          "flags": 1152
+        },
+        {
+          "type": "handle:entIPositionProvider",
+          "name": "posProviderOverride",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::ForceWeaponOverheat;WeaponObjectGameObject",
+      "shortName": "ForceWeaponOverheat",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetChargeLevel;WeaponObjectFloatFloat",
+      "shortName": "GetChargeLevel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "actionDuration",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "chargeLevel",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetDesiredNumberOfShots;WeaponObject",
+      "shortName": "GetDesiredNumberOfShots",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetIsFullyCharged;WeaponObject",
+      "shortName": "GetIsFullyCharged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetNextShotTimeStamp;WeaponObject",
+      "shortName": "GetNextShotTimeStamp",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetPatternPackagesMeetingConditionChecks;GameObjectarray<AIPatternsPackage_Record>AIPatternsPackage_Record",
+      "shortName": "GetPatternPackagesMeetingConditionChecks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIPatternsPackage_Record",
+          "name": "records",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIPatternsPackage_Record",
+          "name": "package",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetPatternRange;WeaponObject",
+      "shortName": "GetPatternRange",
+      "return": {
+        "type": "array:whandle:gamedataAIPattern_Record",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetShootingPattern;WeaponObject",
+      "shortName": "GetShootingPattern",
+      "return": {
+        "type": "whandle:gamedataAIPattern_Record",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetShootingPatternDelayBetweenShots;Int32AIPattern_Record",
+      "shortName": "GetShootingPatternDelayBetweenShots",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "totalShotsFired",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIPattern_Record",
+          "name": "pattern",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetShootingPatternPackage;WeaponObject",
+      "shortName": "GetShootingPatternPackage",
+      "return": {
+        "type": "whandle:gamedataAIPatternsPackage_Record",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetShootingPatternsList;GameObjectWeaponObjectAIPatternsPackage_Recordarray<AIPattern_Record>",
+      "shortName": "GetShootingPatternsList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIPatternsPackage_Record",
+          "name": "chosenPackage",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIPattern_Record",
+          "name": "patternsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetShotTimeStamp;WeaponObject",
+      "shortName": "GetShotTimeStamp",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetTotalNumberOfShots;WeaponObject",
+      "shortName": "GetTotalNumberOfShots",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetWeaponOverheatBB;WeaponObject",
+      "shortName": "GetWeaponOverheatBB",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::GetWeaponOverheatStatPool;WeaponObject",
+      "shortName": "GetWeaponOverheatStatPool",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "gameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::HasExceededDesiredNumberOfShots;WeaponObject",
+      "shortName": "HasExceededDesiredNumberOfShots",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::OnFullyCharged;WeaponObject",
+      "shortName": "OnFullyCharged",
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::OnShotFired;WeaponObjectgamedataTriggerModeFloat",
+      "shortName": "OnShotFired",
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "requestedTriggerMode",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeStamp",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::OnStartShooting;WeaponObjectInt32",
+      "shortName": "OnStartShooting",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "desiredNumberOfShots",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::OnStopShooting;WeaponObjectFloat",
+      "shortName": "OnStopShooting",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "actionDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::ProcessWeaponOverheatStatPool;WeaponObjectGameObjectBool",
+      "shortName": "ProcessWeaponOverheatStatPool",
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "gameObject",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceOverheat",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::QueueNextShot;WeaponObjectgamedataTriggerModeFloatFloat",
+      "shortName": "QueueNextShot",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "requestedTriggerMode",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeStamp",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delayForNextShot",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SelectShootingPattern;AISubActionShootWithWeapon_RecordWeaponObjectGameObjectBool",
+      "shortName": "SelectShootingPattern",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gamedataAISubActionShootWithWeapon_Record",
+          "name": "record",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceReselection",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SelectShootingPatternFromList;WeaponObjectarray<AIPattern_Record>AIPattern_Record",
+      "shortName": "SelectShootingPatternFromList",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIPattern_Record",
+          "name": "patternsList",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIPattern_Record",
+          "name": "selectedPattern",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SelectShootingPatternPackage;GameObjectWeaponObjectarray<AIPatternsPackage_Record>",
+      "shortName": "SelectShootingPatternPackage",
+      "return": {
+        "type": "whandle:gamedataAIPatternsPackage_Record",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIPatternsPackage_Record",
+          "name": "records",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SetAttackBasedOnTimeDilation;GameObjectWeaponObjectTweakDBID",
+      "shortName": "SetAttackBasedOnTimeDilation",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "overrideRangedAttack",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SetPatternRange;WeaponObjectarray<AIPattern_Record>",
+      "shortName": "SetPatternRange",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIPattern_Record",
+          "name": "patternList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SetShootingPattern;WeaponObjectAIPattern_Record",
+      "shortName": "SetShootingPattern",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIPattern_Record",
+          "name": "pattern",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::SetShootingPatternPackage;WeaponObjectAIPatternsPackage_Record",
+      "shortName": "SetShootingPatternPackage",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIPatternsPackage_Record",
+          "name": "patternPackage",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::UpdateCharging;WeaponObjectFloatGameObjectFloat",
+      "shortName": "UpdateCharging",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeStamp",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "chargeLevel",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::UpdateSniperEffect;WeaponObjectFloat",
+      "shortName": "UpdateSniperEffect",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::WeaponCooledDownFromOverheat;WeaponObject",
+      "shortName": "WeaponCooledDownFromOverheat",
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIWeapon::WeaponOverheated;WeaponObject",
+      "shortName": "WeaponOverheated",
+      "flags": 134,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,466 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "gameuiScannerGameController",
+  "flags": 2,
+  "props": [
+    {
+      "type": "entEntityID",
+      "name": "currentTarget",
+      "flags": 6627016704
+    },
+    {
+      "type": "Bool",
+      "name": "scanLock",
+      "flags": 6627016704
+    },
+    {
+      "type": "Float",
+      "name": "percentValue",
+      "flags": 6627016704
+    },
+    {
+      "type": "Float",
+      "name": "oldPercentValue",
+      "flags": 6627016704
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "bbWeaponInfo",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "BraindanceBB",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbWeaponEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "BBID_BraindanceActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "scannerscannerObjectStatsId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "scannerScannablesId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "scannerCurrentProgressId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "scannerCurrentStateId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "scannerScannedObjectId",
+      "flags": 4297130016
+    },
+    {
+      "type": "scannerDataStructure",
+      "name": "scannerData",
+      "flags": 4297130016
+    },
+    {
+      "type": "GameObjectScanStats",
+      "name": "curObj",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "scannerBorderMain",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:scannerBorderLogicController",
+      "name": "scannerBorderController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "scannerProgressMain",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "scannerFullScreenOverlay",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkImageWidget",
+      "name": "center_frame",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkImageWidget",
+      "name": "squares",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:whandle:inkImageWidget",
+      "name": "squaresFilled",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "isUnarmed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEnabled",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isFinish",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isScanned",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isBraindanceActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "border_show",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "center_show",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "center_hide",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "dots_show",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "dots_hide",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "BorderAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "CName",
+      "name": "soundFinishedOn",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "soundFinishedOff",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerSpawnedCallbackID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "BBID_IsEnabledChange",
+      "flags": 4297130016
+    },
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isShown",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerPuppet",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddQuestData;CNameCNameTweakDBID",
+      "shortName": "AddQuestData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "cat",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "entry",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ConnectToPlayerRelatedBlackboards;GameObject",
+      "shortName": "ConnectToPlayerRelatedBlackboards",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateAnimationTemplates;",
+      "shortName": "CreateAnimationTemplates",
+      "flags": 132
+    },
+    {
+      "fullName": "DisconnectFromPlayerRelatedBlackboards;GameObject",
+      "shortName": "DisconnectFromPlayerRelatedBlackboards",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBraindanceToggle",
+      "shortName": "OnBraindanceToggle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnIsEnabledChange",
+      "shortName": "OnIsEnabledChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnObjectData",
+      "shortName": "OnObjectData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProgressChange;Float",
+      "shortName": "OnProgressChange",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnScannablesChange;Variant",
+      "shortName": "OnScannablesChange",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnScannedObjectChanged",
+      "shortName": "OnScannedObjectChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStateChanged",
+      "shortName": "OnStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnitialize",
+      "shortName": "OnUnitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnWeaponSwap",
+      "shortName": "OnWeaponSwap",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlaySound;CName",
+      "shortName": "PlaySound",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "SoundEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowScanBorder;Bool",
+      "shortName": "ShowScanBorder",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowScanner;Bool",
+      "shortName": "ShowScanner",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

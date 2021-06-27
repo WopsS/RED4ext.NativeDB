@@ -1,0 +1,709 @@
+{
+  "parent": "AICombatSquadScriptInterface",
+  "name": "PuppetSquadInterface",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gamedataAISquadParams_Record",
+      "name": "baseSquadRecord",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:SquadTicketReceipt",
+      "name": "ticketHistory",
+      "flags": 6583025696
+    },
+    {
+      "type": "gameEnumNameToIndexCache",
+      "name": "enumValueToNdx",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "sectorsInitialized",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AcknowledgeTicket;CNameEntityAITicket_RecordInt32Float",
+      "shortName": "AcknowledgeTicket",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AllocateTacticsSectors;",
+      "shortName": "AllocateTacticsSectors",
+      "flags": 132
+    },
+    {
+      "fullName": "AllocateTicketHistoryArray;",
+      "shortName": "AllocateTicketHistoryArray",
+      "flags": 132
+    },
+    {
+      "fullName": "CheckCooldown;EntityAITicket_RecordInt32",
+      "shortName": "CheckCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CheckTicketConditions;CNameEntity",
+      "shortName": "CheckTicketConditions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateTicketActivation;CNameEntityAITicket_RecordInt32AISquadParams_Record",
+      "shortName": "EvaluateTicketActivation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAISquadParams_Record",
+          "name": "squadRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateTicketDeactivation;CNameEntityAITicket_RecordInt32AISquadParams_Record",
+      "shortName": "EvaluateTicketDeactivation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAISquadParams_Record",
+          "name": "squadRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAITime;Entity",
+      "shortName": "GetAITime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAcknowledgeDelay;EntityAITicket_RecordInt32Float",
+      "shortName": "GetAcknowledgeDelay",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "acknowledgeDelay",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetLastTicketRecipient;CName",
+      "shortName": "GetLastTicketRecipient",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSquadRecord;EntityAISquadParams_Record",
+      "shortName": "GetSquadRecord",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAISquadParams_Record",
+          "name": "squadRecord",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetTicketHistoryID;CName",
+      "shortName": "GetTicketHistoryID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTicketType;CNameEntityAITicket_RecordInt32AISquadParams_Record",
+      "shortName": "GetTicketType",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 640
+        },
+        {
+          "type": "handle:gamedataAISquadParams_Record",
+          "name": "squadRecord",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetTicketType;CNameEntityAITicket_RecordInt32",
+      "shortName": "GetTicketType",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "OnAckOrder",
+      "shortName": "OnAckOrder",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "orderId",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseSquadAction",
+      "shortName": "OnCloseSquadAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCommitToOrder",
+      "shortName": "OnCommitToOrder",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "orderId",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEvaluationActivation",
+      "shortName": "OnEvaluationActivation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEvaluationDeActivation",
+      "shortName": "OnEvaluationDeActivation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGiveOrder",
+      "shortName": "OnGiveOrder",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "orderId",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialise",
+      "shortName": "OnInitialise",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnOpenSquadAction",
+      "shortName": "OnOpenSquadAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOrderDone",
+      "shortName": "OnOrderDone",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "orderId",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOrderFail",
+      "shortName": "OnOrderFail",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "orderId",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOrderRevoked",
+      "shortName": "OnOrderRevoked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "orderId",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessRingTicket;EntityAITicket_Record",
+      "shortName": "ProcessRingTicket",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RandomizeDeactivationConditionCheckInterval;AITicket_RecordInt32",
+      "shortName": "RandomizeDeactivationConditionCheckInterval",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseSquadMembersTickets;CNameEntity",
+      "shortName": "ReleaseSquadMembersTickets",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SimpleTicketConditionsCheck;CNameEntity",
+      "shortName": "SimpleTicketConditionsCheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTicketHistory;EntityAITicket_RecordInt32EAITicketStatus",
+      "shortName": "UpdateTicketHistory",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "entity",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAITicket_Record",
+          "name": "ticketRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ticketHistoryID",
+          "flags": 128
+        },
+        {
+          "type": "EAITicketStatus",
+          "name": "ticketStatus",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

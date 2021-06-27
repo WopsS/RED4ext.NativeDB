@@ -1,0 +1,293 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "DialogHubLogicController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "progressBarHolder",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "selectionSizeProviderRef",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "selectionRoot",
+      "flags": 4297326625
+    },
+    {
+      "type": "Float",
+      "name": "moveAnimTime",
+      "flags": 4297326625
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "possessedDialogFluff",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "titleWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "titleBorder",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "titleContainer",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "mainVert",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "id",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isSelected",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameinteractionsvisListChoiceHubData",
+      "name": "data",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:DialogChoiceLogicController",
+      "name": "itemControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:DialogChoiceTimerController",
+      "name": "progressBar",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "hasProgressBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "wasTimmed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isClosingDelayed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "lastSelectedIdx",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "inActiveTransparency",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animSelectMarginProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animSelectSizeProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animSelectMargin",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animSelectSize",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animfFadingOutProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimSizeInterpolator",
+      "name": "selectBgSizeInterp",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:inkanimMarginInterpolator",
+      "name": "selectBgMarginInterp",
+      "flags": 4431544352
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "FadeOutItems;Float",
+      "shortName": "FadeOutItems",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "fadeOutTime",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetId;",
+      "shortName": "GetId",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnMenuVisibilityChange;Bool",
+      "shortName": "OnMenuVisibilityChange",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isMenuVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OverrideInputButton;Bool",
+      "shortName": "OverrideInputButton",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "overrideButton",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetData;ListChoiceHubDataBoolInt32BoolBoolInt32Int32",
+      "shortName": "SetData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameinteractionsvisListChoiceHubData",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isSelected",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "selectedInd",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasAboveElements",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasBelowElements",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "currentNum",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "argTotalCountAcrossHubs",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupTimeBar;BoolFloatFloat",
+      "shortName": "SetupTimeBar",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isActive",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timedDuration",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timedProgress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupTitle;StringBoolBool",
+      "shortName": "SetupTitle",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "title",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isActive",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isPossessed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WasTimed;",
+      "shortName": "WasTimed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    }
+  ]
+}

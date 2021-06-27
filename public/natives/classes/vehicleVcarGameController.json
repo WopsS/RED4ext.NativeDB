@@ -1,0 +1,560 @@
+{
+  "parent": "gameuiWidgetGameController",
+  "name": "vehicleVcarGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "activeVehicleBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "vehicleBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "mountBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "speedBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "rpmValueBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "rpmMaxBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "autopilotOnId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerVehStateId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isInAutoPilot",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isInCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "wasCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "windowWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "speedTextWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkImageWidget",
+      "name": "rpmGaugeFullWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "rpmGaugeMaxSize",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorRootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorRPMWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff1Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff2Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff3Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff4Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff5Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff1Anim1Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff1Anim2Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff2Anim1Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "interiorFluff2Anim2Widget",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "activeChunks",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animFadeOutProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_exterior_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_exterior_fadeout",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fadeout",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_rpm_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff1_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff2_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff3_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff4_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff5_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animFluffFadeInProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff1_anim1",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff1_anim2",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff2_anim1",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "anim_interior_fluff2_anim2",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "fluff1animOptions1",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "fluff1animOptions2",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "fluff2animOptions1",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "fluff2animOptions2",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isWindow",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "isInterior",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "hasSpeed",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "hasRPM",
+      "flags": 4297130017
+    },
+    {
+      "type": "Int32",
+      "name": "chunksNumber",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "dynamicRpmPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "Int32",
+      "name": "rpmPerChunk",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "hasRevMax",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "revMaxPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "Int32",
+      "name": "revMaxChunk",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "windowWidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorWidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorRPMWidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff1WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff2WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff3WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff4WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff5WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff1Anim1WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff1Anim2WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff2Anim1WidgetPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "interiorFluff2Anim2WidgetPath",
+      "flags": 4297130017
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddChunk;",
+      "shortName": "AddChunk",
+      "flags": 132
+    },
+    {
+      "fullName": "EvaluateRPMMeterWidget;Int32",
+      "shortName": "EvaluateRPMMeterWidget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "currentAmountOfChunks",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActivateTest",
+      "shortName": "OnActivateTest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActiveVehicleChanged",
+      "shortName": "OnActiveVehicleChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isPlayerMounted",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAnimFadeOutFinshed",
+      "shortName": "OnAnimFadeOutFinshed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAnimFluffFadeInFinshed",
+      "shortName": "OnAnimFluffFadeInFinshed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAutopilotChanged",
+      "shortName": "OnAutopilotChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "autopilotOn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPlayerStateChanged",
+      "shortName": "OnPlayerStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRpmMaxChanged",
+      "shortName": "OnRpmMaxChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "rpmMax",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRpmValueChanged",
+      "shortName": "OnRpmValueChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "rpmValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpeedValueChanegd",
+      "shortName": "OnSpeedValueChanegd",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "speedValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "PrepAnim;",
+      "shortName": "PrepAnim",
+      "flags": 132
+    },
+    {
+      "fullName": "PrepFluffLoopAnim;",
+      "shortName": "PrepFluffLoopAnim",
+      "flags": 132
+    },
+    {
+      "fullName": "RemoveChunk;",
+      "shortName": "RemoveChunk",
+      "flags": 132
+    },
+    {
+      "fullName": "drawRPMGaugeFull;Float",
+      "shortName": "drawRPMGaugeFull",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "rpmValue",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

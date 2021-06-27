@@ -1,0 +1,293 @@
+{
+  "parent": "gameuiCrosshairBaseGameController",
+  "name": "CrosshairGameController_Basic",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkImageWidgetReference",
+      "name": "leftPart",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "rightPart",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "upPart",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "downPart",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "centerPart",
+      "flags": 4297130017
+    },
+    {
+      "type": "Vector2",
+      "name": "bufferedSpread",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamedataTriggerMode",
+      "name": "currentFireMode",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "weaponlocalBB",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "bbcurrentFireMode",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "ricochetModeActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "RicochetChance",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "uiBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "horizontalMinSpread",
+      "flags": 4297326625
+    },
+    {
+      "type": "Float",
+      "name": "verticalMinSpread",
+      "flags": 4297326625
+    },
+    {
+      "type": "Float",
+      "name": "gameplaySpreadMultiplier",
+      "flags": 4297326625
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ApplyCrosshairGUIState;CNameEntity",
+      "shortName": "ApplyCrosshairGUIState",
+      "flags": 256,
+      "params": [
+        {
+          "type": "CName",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "aimedAtEntity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ColapseCrosshair;BoolFloat",
+      "shortName": "ColapseCrosshair",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "full",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ExpandCrosshair;BoolFloat",
+      "shortName": "ExpandCrosshair",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "full",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetIntroAnimation;Bool",
+      "shortName": "GetIntroAnimation",
+      "return": {
+        "type": "handle:inkanimDefinition",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "firstEquip",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOutroAnimation;",
+      "shortName": "GetOutroAnimation",
+      "return": {
+        "type": "handle:inkanimDefinition",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "HideCenterPart;Float",
+      "shortName": "HideCenterPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBulletSpreadChanged",
+      "shortName": "OnBulletSpreadChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "spread",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHide;",
+      "shortName": "OnHide",
+      "flags": 132
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPreIntro",
+      "shortName": "OnPreIntro",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPreOutro",
+      "shortName": "OnPreOutro",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnShow;",
+      "shortName": "OnShow",
+      "flags": 132
+    },
+    {
+      "fullName": "OnState_Aim;",
+      "shortName": "OnState_Aim",
+      "flags": 256
+    },
+    {
+      "fullName": "OnState_GrenadeCharging;",
+      "shortName": "OnState_GrenadeCharging",
+      "flags": 256
+    },
+    {
+      "fullName": "OnState_HipFire;",
+      "shortName": "OnState_HipFire",
+      "flags": 256
+    },
+    {
+      "fullName": "OnState_Reload;",
+      "shortName": "OnState_Reload",
+      "flags": 256
+    },
+    {
+      "fullName": "OnState_Safe;",
+      "shortName": "OnState_Safe",
+      "flags": 256
+    },
+    {
+      "fullName": "OnState_Scanning;",
+      "shortName": "OnState_Scanning",
+      "flags": 256
+    },
+    {
+      "fullName": "OnState_Sprint;",
+      "shortName": "OnState_Sprint",
+      "flags": 256
+    },
+    {
+      "fullName": "OnTriggerModeChanged;Variant",
+      "shortName": "OnTriggerModeChanged",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "ShowCenterPart;Float",
+      "shortName": "ShowCenterPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "parent": "SharedGameplayPS",
+  "name": "DeviceLinkComponentPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "DeviceLink",
+      "name": "parentDevice",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isConnected",
+      "flags": 4565565472
+    },
+    {
+      "type": "entEntityID",
+      "name": "ownerEntityID",
+      "flags": 4565631008
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "DeviceLinkComponentPS::AcquireDeviceLink;GameInstanceEntityID",
+      "shortName": "AcquireDeviceLink",
+      "return": {
+        "type": "handle:DeviceLinkComponentPS",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeviceLinkComponentPS::CreateAndAcquireDeviceLink;GameInstanceEntityID",
+      "shortName": "CreateAndAcquireDeviceLink",
+      "return": {
+        "type": "handle:DeviceLinkComponentPS",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeviceLinkComponentPS::GenerateID;EntityID",
+      "shortName": "GenerateID",
+      "return": {
+        "type": "gamePersistentID",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionDevicePing;PersistentState",
+      "shortName": "ActionDevicePing",
+      "return": {
+        "type": "handle:PingDevice",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gamePersistentState",
+          "name": "ps",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionSecurityBreachNotification;Vector4GameObjectESecurityNotificationTypegamedataStimType",
+      "shortName": "ActionSecurityBreachNotification",
+      "return": {
+        "type": "handle:SecuritySystemInput",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "lastKnownPosition",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "whoBreached",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityNotificationType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Connect;array<DeviceComponentPS>",
+      "shortName": "Connect",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "links",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Connect;DeviceComponentPS",
+      "shortName": "Connect",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gameDeviceComponentPS",
+          "name": "link",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Disconnect;array<DeviceComponentPS>",
+      "shortName": "Disconnect",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "links",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Disconnect;DeviceComponentPS",
+      "shortName": "Disconnect",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gameDeviceComponentPS",
+          "name": "link",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EstablishLink;Bool",
+      "shortName": "EstablishLink",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "connect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAncestors;array<DeviceComponentPS>",
+      "shortName": "GetAncestors",
+      "flags": 8704,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "outDevices",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetDevice;DeviceLink",
+      "shortName": "GetDevice",
+      "return": {
+        "type": "whandle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "DeviceLink",
+          "name": "deviceLink",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetParentDevice;",
+      "shortName": "GetParentDevice",
+      "return": {
+        "type": "whandle:SharedGameplayPS",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetParentDeviceLink;",
+      "shortName": "GetParentDeviceLink",
+      "return": {
+        "type": "DeviceLink",
+        "flags": 64
+      },
+      "flags": 8452
+    },
+    {
+      "fullName": "GetParents;array<DeviceComponentPS>",
+      "shortName": "GetParents",
+      "flags": 8704,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "outDevices",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkBackdoor;",
+      "shortName": "HasNetworkBackdoor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsConnected;",
+      "shortName": "IsConnected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "OnDestroyLink;DestroyLink",
+      "shortName": "OnDestroyLink",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:DestroyLink",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeviceLinkRequest;DeviceLinkRequest",
+      "shortName": "OnDeviceLinkRequest",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:DeviceLinkRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityAreaCrossingPerimeter;SecurityAreaCrossingPerimeter",
+      "shortName": "OnSecurityAreaCrossingPerimeter",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:SecurityAreaCrossingPerimeter",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemDisabled;SecuritySystemDisabled",
+      "shortName": "OnSecuritySystemDisabled",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:SecuritySystemDisabled",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemEnabled;SecuritySystemEnabled",
+      "shortName": "OnSecuritySystemEnabled",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:SecuritySystemEnabled",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
+      "shortName": "OnSecuritySystemOutput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
+      "shortName": "OnTargetAssessmentRequest",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:TargetAssessmentRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PingDevicesNetwork;",
+      "shortName": "PingDevicesNetwork",
+      "flags": 8708
+    },
+    {
+      "fullName": "QueuePSEvent;DeviceLinkEvent",
+      "shortName": "QueuePSEvent",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "DeviceLink",
+          "name": "deviceLink",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetRevealedInNetworkPing;Bool",
+      "shortName": "SetRevealedInNetworkPing",
+      "flags": 8704,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "wasRevealed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerSecuritySystemNotification;Vector4GameObjectESecurityNotificationTypegamedataStimType",
+      "shortName": "TriggerSecuritySystemNotification",
+      "flags": 8704,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "lastKnownPosition",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "whoBreached",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityNotificationType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "WasRevealedInNetworkPing;",
+      "shortName": "WasRevealedInNetworkPing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "SingleCooldownManager",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkImageWidgetReference",
+      "name": "sprite",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "spriteBg",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "icon",
+      "flags": 4297130017
+    },
+    {
+      "type": "ECooldownGameControllerMode",
+      "name": "type",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "name",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "desc",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "timeRemaining",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "stackCount",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkRectangleWidgetReference",
+      "name": "fill",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "outroDuration",
+      "flags": 4297130017
+    },
+    {
+      "type": "Vector2",
+      "name": "fullSizeValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "initialDuration",
+      "flags": 4297130016
+    },
+    {
+      "type": "ECooldownIndicatorState",
+      "name": "state",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "pool",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "grid",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "currentAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "UIBuffInfo",
+      "name": "buffData",
+      "flags": 4297130016
+    },
+    {
+      "type": "String",
+      "name": "defaultTimeRemainingText",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "excludedStatusEffect",
+      "flags": 4297130016
+    },
+    {
+      "type": "String",
+      "name": "C_EXCLUDED_STATUS_EFFECT_NAME",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActivateCooldown;UIBuffInfo",
+      "shortName": "ActivateCooldown",
+      "flags": 516,
+      "params": [
+        {
+          "type": "UIBuffInfo",
+          "name": "buffData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ConvertFloatToTime;FloatGameTimeInt32Int32",
+      "shortName": "ConvertFloatToTime",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Float",
+          "name": "f",
+          "flags": 128
+        },
+        {
+          "type": "GameTime",
+          "name": "time",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "totalSeconds",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "fraction",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "FillIntroAnimationStart;",
+      "shortName": "FillIntroAnimationStart",
+      "flags": 132
+    },
+    {
+      "fullName": "FillOutroAnimationStart;",
+      "shortName": "FillOutroAnimationStart",
+      "flags": 132
+    },
+    {
+      "fullName": "GetState;",
+      "shortName": "GetState",
+      "return": {
+        "type": "ECooldownIndicatorState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "HideCooldownWidget;",
+      "shortName": "HideCooldownWidget",
+      "flags": 132
+    },
+    {
+      "fullName": "Init;inkCompoundRefinkCompoundRef",
+      "shortName": "Init",
+      "flags": 516,
+      "params": [
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "pool",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "grid",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsIDMatch;TweakDBID",
+      "shortName": "IsIDMatch",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFillIntroAnimationOver",
+      "shortName": "OnFillIntroAnimationOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFillOutroAnimationOver",
+      "shortName": "OnFillOutroAnimationOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveCooldown;",
+      "shortName": "RemoveCooldown",
+      "flags": 516
+    },
+    {
+      "fullName": "SetStackCount;Int32",
+      "shortName": "SetStackCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "count",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTimeRemaining;Float",
+      "shortName": "SetTimeRemaining",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Update;FloatUint32",
+      "shortName": "Update",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "timeLeft",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "stackCount",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

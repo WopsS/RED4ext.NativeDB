@@ -1,0 +1,602 @@
+{
+  "parent": "IScriptable",
+  "name": "Vendor",
+  "flags": 4,
+  "props": [
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstance",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "vendorObject",
+      "flags": 4297326624
+    },
+    {
+      "type": "TweakDBID",
+      "name": "tweakID",
+      "flags": 4565565472
+    },
+    {
+      "type": "Float",
+      "name": "lastInteractionTime",
+      "flags": 4565565472
+    },
+    {
+      "type": "array:gameSItemStack",
+      "name": "stock",
+      "flags": 6851461152
+    },
+    {
+      "type": "Float",
+      "name": "priceMultiplier",
+      "flags": 4565565472
+    },
+    {
+      "type": "gamePersistentID",
+      "name": "vendorPersistentID",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "stockInit",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inventoryInit",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inventoryReinitWithPlayerStats",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataVendor_Record",
+      "name": "vendorRecord",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddItemsToStock;SItemStack",
+      "shortName": "AddItemsToStock",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameSItemStack",
+          "name": "itemStack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuyItemFromVendor;SItemStackInt32",
+      "shortName": "BuyItemFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameSItemStack",
+          "name": "itemStack",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuyItemsFromVendor;array<SItemStack>Int32",
+      "shortName": "BuyItemsFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:gameSItemStack",
+          "name": "itemsStack",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuybackItemFromVendor;SItemStackInt32",
+      "shortName": "BuybackItemFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameSItemStack",
+          "name": "itemStack",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuybackItemsFromVendor;array<SItemStack>Int32",
+      "shortName": "BuybackItemsFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:gameSItemStack",
+          "name": "itemsStack",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateDynamicStockFromPlayerProgression;GameObject",
+      "shortName": "CreateDynamicStockFromPlayerProgression",
+      "return": {
+        "type": "array:gameSItemStack",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateStacksFromVendorItem;VendorItem_RecordPlayerPuppet",
+      "shortName": "CreateStacksFromVendorItem",
+      "return": {
+        "type": "array:gameSItemStack",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gamedataVendorItem_Record",
+          "name": "vendorItem",
+          "flags": 128
+        },
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DispenseItemFromVendor;Vector4ItemID",
+      "shortName": "DispenseItemFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "FillVendorInventory;Bool",
+      "shortName": "FillVendorInventory",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "allowRegeneration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCyberwareForSale;Bool",
+      "shortName": "GetCyberwareForSale",
+      "return": {
+        "type": "array:gameSItemStack",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "checkPlayerCanBuy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemIndex;ItemID",
+      "shortName": "GetItemIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemsForSale;Bool",
+      "shortName": "GetItemsForSale",
+      "return": {
+        "type": "array:gameSItemStack",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "checkPlayerCanBuy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemsPlayerCanSell;BoolBool",
+      "shortName": "GetItemsPlayerCanSell",
+      "return": {
+        "type": "array:gameSItemStack",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "allowQuestItems",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "excludeEquipped",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMaxItemStacksPerVendor;",
+      "shortName": "GetMaxItemStacksPerVendor",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetMoney;",
+      "shortName": "GetMoney",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPriceMultiplier;",
+      "shortName": "GetPriceMultiplier",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetRandomStockItem;",
+      "shortName": "GetRandomStockItem",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetStock;",
+      "shortName": "GetStock",
+      "return": {
+        "type": "array:gameSItemStack",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorObject;",
+      "shortName": "GetVendorObject",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorPersistentID;",
+      "shortName": "GetVendorPersistentID",
+      "return": {
+        "type": "gamePersistentID",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorRecord;",
+      "shortName": "GetVendorRecord",
+      "return": {
+        "type": "handle:gamedataVendor_Record",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorTweakID;",
+      "shortName": "GetVendorTweakID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorType;",
+      "shortName": "GetVendorType",
+      "return": {
+        "type": "gamedataVendorType",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "Initialize;GameInstanceTweakDBIDGameObject",
+      "shortName": "Initialize",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "vendorID",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "vendorObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeStock;",
+      "shortName": "InitializeStock",
+      "flags": 132
+    },
+    {
+      "fullName": "LazyInitStock;",
+      "shortName": "LazyInitStock",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAttach;GameObject",
+      "shortName": "OnAttach",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRestored;GameInstance",
+      "shortName": "OnRestored",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVendorMenuOpen;",
+      "shortName": "OnVendorMenuOpen",
+      "flags": 516
+    },
+    {
+      "fullName": "PerformItemTransfer;GameObjectGameObjectSItemTransaction",
+      "shortName": "PerformItemTransfer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "buyer",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "seller",
+          "flags": 128
+        },
+        {
+          "type": "SItemTransaction",
+          "name": "itemTransaction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerCanBuy;script_ref<SItemStack>",
+      "shortName": "PlayerCanBuy",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "script_ref:gameSItemStack",
+          "name": "itemStack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerCanSell;ItemIDBoolBool",
+      "shortName": "PlayerCanSell",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "allowQuestItems",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "excludeEquipped",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegenerateStock;",
+      "shortName": "RegenerateStock",
+      "flags": 132
+    },
+    {
+      "fullName": "RemoveItemsFromStock;SItemStack",
+      "shortName": "RemoveItemsFromStock",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameSItemStack",
+          "name": "itemStack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SellItemToVendor;SItemStackInt32",
+      "shortName": "SellItemToVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameSItemStack",
+          "name": "itemStack",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SellItemsToVendor;array<SItemStack>Int32",
+      "shortName": "SellItemsToVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:gameSItemStack",
+          "name": "itemsStack",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPersistentID;PersistentID",
+      "shortName": "SetPersistentID",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "persistentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPriceMultiplier;Float",
+      "shortName": "SetPriceMultiplier",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldRegenerateItem;TweakDBID",
+      "shortName": "ShouldRegenerateItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "itemTDBID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldRegenerateStock;",
+      "shortName": "ShouldRegenerateStock",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 256
+    }
+  ]
+}

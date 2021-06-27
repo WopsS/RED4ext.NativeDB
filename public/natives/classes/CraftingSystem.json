@@ -1,0 +1,940 @@
+{
+  "parent": "gameScriptableSystem",
+  "name": "CraftingSystem",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "lastActionStatus",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:CraftBook",
+      "name": "playerCraftBook",
+      "flags": 4699783200
+    },
+    {
+      "type": "handle:CraftingSystemInventoryCallback",
+      "name": "callback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameInventoryScriptListener",
+      "name": "inventoryListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "gameItemIconGender",
+      "name": "itemIconGender",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CraftingSystem::GetInstance;GameInstance",
+      "shortName": "GetInstance",
+      "return": {
+        "type": "handle:CraftingSystem",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CraftingSystem::MarkItemAsCrafted;GameObjectgameItemData",
+      "shortName": "MarkItemAsCrafted",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CraftingSystem::SetItemLevel;GameObjectgameItemData",
+      "shortName": "SetItemLevel",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddAmmoRecipes;",
+      "shortName": "AddAmmoRecipes",
+      "flags": 132
+    },
+    {
+      "fullName": "AddIngredientToResult;IngredientDataarray<IngredientData>",
+      "shortName": "AddIngredientToResult",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "IngredientData",
+          "name": "ingredient",
+          "flags": 128
+        },
+        {
+          "type": "array:IngredientData",
+          "name": "outputResult",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "CalculateCraftingLevelBoost;",
+      "shortName": "CalculateCraftingLevelBoost",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "CanCraftGivenQuality;gameItemDatagamedataQuality",
+      "shortName": "CanCraftGivenQuality",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "CanCraftGivenQuality;Item_RecordgamedataQuality",
+      "shortName": "CanCraftGivenQuality",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "CanItemBeCrafted;Item_Record",
+      "shortName": "CanItemBeCrafted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanItemBeCrafted;gameItemData",
+      "shortName": "CanItemBeCrafted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanItemBeDisassembled;GameObjectItemID",
+      "shortName": "CanItemBeDisassembled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanItemBeDisassembled;gameItemData",
+      "shortName": "CanItemBeDisassembled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanItemBeUpgraded;gameItemData",
+      "shortName": "CanItemBeUpgraded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearNonIconicSlots;gameItemData",
+      "shortName": "ClearNonIconicSlots",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CraftItem;GameObjectItem_RecordInt32Int32",
+      "shortName": "CraftItem",
+      "return": {
+        "type": "whandle:gameItemData",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "ammoBulletAmount",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "CreateIngredientData;Item_RecordInt32",
+      "shortName": "CreateIngredientData",
+      "return": {
+        "type": "IngredientData",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateIngredientData;RecipeElement_Record",
+      "shortName": "CreateIngredientData",
+      "return": {
+        "type": "IngredientData",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gamedataRecipeElement_Record",
+          "name": "ingredientData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DisassembleItem;GameObjectItemIDInt32",
+      "shortName": "DisassembleItem",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnoughIngredientsForCrafting;gameItemData",
+      "shortName": "EnoughIngredientsForCrafting",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnoughIngredientsForUpgrading;gameItemData",
+      "shortName": "EnoughIngredientsForUpgrading",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDisassemblyResultItems;GameObjectItemIDInt32array<ItemAttachments>Bool",
+      "shortName": "GetDisassemblyResultItems",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
+        {
+          "type": "array:ItemAttachments",
+          "name": "restoredAttachments",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "calledFromUI",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetIngredientQuality;IngredientData",
+      "shortName": "GetIngredientQuality",
+      "return": {
+        "type": "gamedataQuality",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "IngredientData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemBaseUpgradeCost;gamedataItemTypegamedataQuality",
+      "shortName": "GetItemBaseUpgradeCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemCraftingCost;gameItemData",
+      "shortName": "GetItemCraftingCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemCraftingCost;Item_Record",
+      "shortName": "GetItemCraftingCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemCraftingCost;array<RecipeElement_Record>",
+      "shortName": "GetItemCraftingCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "array:whandle:gamedataRecipeElement_Record",
+          "name": "craftingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemFinalUpgradeCost;gameItemData",
+      "shortName": "GetItemFinalUpgradeCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetLastActionStatus;",
+      "shortName": "GetLastActionStatus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetMaxCraftingAmount;gameItemData",
+      "shortName": "GetMaxCraftingAmount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerCraftBook;",
+      "shortName": "GetPlayerCraftBook",
+      "return": {
+        "type": "handle:CraftBook",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetPlayerCraftableItems;",
+      "shortName": "GetPlayerCraftableItems",
+      "return": {
+        "type": "array:whandle:gamedataItem_Record",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetRecipeData;Item_Record",
+      "shortName": "GetRecipeData",
+      "return": {
+        "type": "handle:RecipeData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetUpgradeRecipeData;ItemID",
+      "shortName": "GetUpgradeRecipeData",
+      "return": {
+        "type": "handle:RecipeData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasIngredients;array<IngredientData>",
+      "shortName": "HasIngredients",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "array:IngredientData",
+          "name": "required",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsRecipeKnown;TweakDBIDCraftBook",
+      "shortName": "IsRecipeKnown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "recipe",
+          "flags": 128
+        },
+        {
+          "type": "handle:CraftBook",
+          "name": "playerCraftBook",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MarkItemAsCrafted;gameItemData",
+      "shortName": "MarkItemAsCrafted",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MergeIngredients;array<IngredientData>array<IngredientData>",
+      "shortName": "MergeIngredients",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "array:IngredientData",
+          "name": "input",
+          "flags": 128
+        },
+        {
+          "type": "array:IngredientData",
+          "name": "output",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "OnAddRecipeRequest;AddRecipeRequest",
+      "shortName": "OnAddRecipeRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:AddRecipeRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnCraftItemRequest;CraftItemRequest",
+      "shortName": "OnCraftItemRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:CraftItemRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisassembleItemRequest;DisassembleItemRequest",
+      "shortName": "OnDisassembleItemRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:DisassembleItemRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideRecipeRequest;HideRecipeRequest",
+      "shortName": "OnHideRecipeRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:HideRecipeRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach;PlayerAttachRequest",
+      "shortName": "OnPlayerAttach",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gamePlayerAttachRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach;PlayerDetachRequest",
+      "shortName": "OnPlayerDetach",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gamePlayerDetachRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRestored;Int32Int32",
+      "shortName": "OnRestored",
+      "flags": 128,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "saveVersion",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "gameVersion",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShowRecipeRequest;ShowRecipeRequest",
+      "shortName": "OnShowRecipeRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ShowRecipeRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpgradeItemRequest;UpgradeItemRequest",
+      "shortName": "OnUpgradeItemRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UpgradeItemRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessCraftSkill;Int32StatsObjectID",
+      "shortName": "ProcessCraftSkill",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "xpAmount",
+          "flags": 128
+        },
+        {
+          "type": "gameStatsObjectID",
+          "name": "craftedItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessCraftedItemsPowerBoost;",
+      "shortName": "ProcessCraftedItemsPowerBoost",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessCraftingPerksData;GameObjectItem_RecordgameItemData",
+      "shortName": "ProcessCraftingPerksData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "craftedItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessDisassemblingPerks;array<IngredientData>gameItemDataarray<ItemAttachments>Bool",
+      "shortName": "ProcessDisassemblingPerks",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "array:IngredientData",
+          "name": "disassembleResult",
+          "flags": 640
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "array:ItemAttachments",
+          "name": "restoredAttachments",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "calledFromUI",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessIconicRevampRestoration;",
+      "shortName": "ProcessIconicRevampRestoration",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessProgramCrafting;TweakDBID",
+      "shortName": "ProcessProgramCrafting",
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "itemTDBID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessUpgradingPerksData;GameObjectItem_Record",
+      "shortName": "ProcessUpgradingPerksData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendItemCraftedDataTrackingRequest;ItemID",
+      "shortName": "SendItemCraftedDataTrackingRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "targetItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetItemLevel;gameItemData",
+      "shortName": "SetItemLevel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateBlackboard;CraftingCommandsItemIDarray<IngredientData>",
+      "shortName": "UpdateBlackboard",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "CraftingCommands",
+          "name": "lastCommand",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "lastItem",
+          "flags": 1152
+        },
+        {
+          "type": "array:IngredientData",
+          "name": "lastIngredients",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpgradeItem;GameObjectItemID",
+      "shortName": "UpgradeItem",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

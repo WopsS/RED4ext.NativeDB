@@ -1,0 +1,638 @@
+{
+  "parent": "gameuiMenuGameController",
+  "name": "PerksMainGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "tooltipsManagerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "buttonHintsManagerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "playerLevel",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "centerHiglightParts",
+      "flags": 6583025697
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "attributeSelectorsContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "perksScreen",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "pointsDisplay",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "johnnyConnectorRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "attributeTooltipHolderRight",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "attributeTooltipHolderLeft",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "resetPerks",
+      "flags": 4297130017
+    },
+    {
+      "type": "CharacterScreenType",
+      "name": "activeScreen",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameuiTooltipsManager",
+      "name": "tooltipsManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ButtonHints",
+      "name": "buttonHintsController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:PlayerDevelopmentDataManager",
+      "name": "dataManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:inkMenuEventDispatcher",
+      "name": "menuEventDispatcher",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:PerksMenuAttributeItemCreated",
+      "name": "perksMenuItemCreatedQueue",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:whandle:PerksMenuAttributeItemController",
+      "name": "attributesControllersList",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "playerStatsBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "characterLevelListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PerkScreenController",
+      "name": "perksScreenController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PerksPointsDisplayController",
+      "name": "pointsDisplayController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:questQuestsSystem",
+      "name": "questSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "resetConfirmationToken",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CheckJohnnyFact;",
+      "shortName": "CheckJohnnyFact",
+      "flags": 132
+    },
+    {
+      "fullName": "HandleEventQueue;",
+      "shortName": "HandleEventQueue",
+      "flags": 260
+    },
+    {
+      "fullName": "HideTooltip;",
+      "shortName": "HideTooltip",
+      "flags": 132
+    },
+    {
+      "fullName": "OnActiveSkillScreenChanged",
+      "shortName": "OnActiveSkillScreenChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ActiveSkillScreenChangedEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttributeClicked",
+      "shortName": "OnAttributeClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksMenuAttributeItemClicked",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttributeHoldStart",
+      "shortName": "OnAttributeHoldStart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksMenuAttributeItemHoldStart",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttributeHoverOut",
+      "shortName": "OnAttributeHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksMenuAttributeItemHoverOut",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttributeHoverOver",
+      "shortName": "OnAttributeHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksMenuAttributeItemHoverOver",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttributePurchaseRequest",
+      "shortName": "OnAttributePurchaseRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AttributeUpgradePurchased",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttributePurchased",
+      "shortName": "OnAttributePurchased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AttributeBoughtEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBack",
+      "shortName": "OnBack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBackClick",
+      "shortName": "OnBackClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelUpdated",
+      "shortName": "OnCharacterLevelUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPerkHoldStart",
+      "shortName": "OnPerkHoldStart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksItemHoldStart",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerkHoverOut",
+      "shortName": "OnPerkHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerkHoverOutEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerkHoverOver",
+      "shortName": "OnPerkHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerkHoverOverEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerkPurchased",
+      "shortName": "OnPerkPurchased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerkBoughtEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerkResetEvent",
+      "shortName": "OnPerkResetEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerkResetEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerksMenuAttributeItemCreated",
+      "shortName": "OnPerksMenuAttributeItemCreated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksMenuAttributeItemCreated",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDevUpdateData",
+      "shortName": "OnPlayerDevUpdateData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PlayerDevUpdateDataEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProficiencyClicked",
+      "shortName": "OnProficiencyClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PerksMenuProficiencyItemClicked",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetConfirmed",
+      "shortName": "OnResetConfirmed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetPerksClick",
+      "shortName": "OnResetPerksClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMenuEventDispatcher",
+      "shortName": "OnSetMenuEventDispatcher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkMenuEventDispatcher",
+          "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnUnitialize",
+      "shortName": "OnUnitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "PlayHoverAnimation;Bool",
+      "shortName": "PlayHoverAnimation",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PrepareTooltips;",
+      "shortName": "PrepareTooltips",
+      "flags": 132
+    },
+    {
+      "fullName": "ResetData;",
+      "shortName": "ResetData",
+      "flags": 132
+    },
+    {
+      "fullName": "ResetHighlightPartsVisibility;",
+      "shortName": "ResetHighlightPartsVisibility",
+      "flags": 260
+    },
+    {
+      "fullName": "SetActiveScreen;CharacterScreenType",
+      "shortName": "SetActiveScreen",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CharacterScreenType",
+          "name": "screenType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAttributeBuyButtonHintHoverOut;",
+      "shortName": "SetAttributeBuyButtonHintHoverOut",
+      "flags": 132
+    },
+    {
+      "fullName": "SetAttributeBuyButtonHintHoverOver;AttributeData",
+      "shortName": "SetAttributeBuyButtonHintHoverOver",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:AttributeData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAttributeHintsHoverOut;",
+      "shortName": "SetAttributeHintsHoverOut",
+      "flags": 132
+    },
+    {
+      "fullName": "SetAttributeHintsHoverOver;",
+      "shortName": "SetAttributeHintsHoverOver",
+      "flags": 132
+    },
+    {
+      "fullName": "SetPerksButtonHintHoverOut;",
+      "shortName": "SetPerksButtonHintHoverOut",
+      "flags": 132
+    },
+    {
+      "fullName": "SetPerksButtonHintHoverOver;BasePerkDisplayData",
+      "shortName": "SetPerksButtonHintHoverOver",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:BasePerkDisplayData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupLayout;",
+      "shortName": "SetupLayout",
+      "flags": 132
+    },
+    {
+      "fullName": "ShowTooltip;inkWidgetIDisplayDatagameuiETooltipPlacement",
+      "shortName": "ShowTooltip",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IDisplayData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "gameuiETooltipPlacement",
+          "name": "placement",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateAvailablePoints;",
+      "shortName": "UpdateAvailablePoints",
+      "flags": 132
+    }
+  ]
+}

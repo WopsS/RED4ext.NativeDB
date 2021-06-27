@@ -1,0 +1,283 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "StaminabarWidgetGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "staminaControllerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "staminaPercTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "staminaStatusTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "Uint32",
+      "name": "bbPSceneTierEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbPStaminaPSMEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:NameplateBarLogicController",
+      "name": "staminaController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "RootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animLongFade",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animHideStaminaProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "currentStamina",
+      "flags": 4297130016
+    },
+    {
+      "type": "GameplayTier",
+      "name": "sceneTier",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamePSMStamina",
+      "name": "staminaState",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:StaminaPoolListener",
+      "name": "staminaPoolListener",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CreateAnimations;",
+      "shortName": "CreateAnimations",
+      "flags": 132
+    },
+    {
+      "fullName": "EvaluateStaminaBarVisibility;",
+      "shortName": "EvaluateStaminaBarVisibility",
+      "flags": 516
+    },
+    {
+      "fullName": "IsPlayingMultiplayer;",
+      "shortName": "IsPlayingMultiplayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "OnForceHide",
+      "shortName": "OnForceHide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnForceTierVisibility",
+      "shortName": "OnForceTierVisibility",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "tierVisibility",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSceneTierChange",
+      "shortName": "OnSceneTierChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "argTier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStaminaHideAnimationFinished",
+      "shortName": "OnStaminaHideAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStaminaPSMChange",
+      "shortName": "OnStaminaPSMChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "arg",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "RegisterPSMListeners;GameObject",
+      "shortName": "RegisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldHide;",
+      "shortName": "ShouldHide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterPSMListeners;GameObject",
+      "shortName": "UnregisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateStaminaLevelWarningFluffTexts;gamePSMStamina",
+      "shortName": "UpdateStaminaLevelWarningFluffTexts",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamePSMStamina",
+          "name": "staminaState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateStaminaValue;FloatFloatFloat",
+      "shortName": "UpdateStaminaValue",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "oldValue",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "newValue",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "percToPoints",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

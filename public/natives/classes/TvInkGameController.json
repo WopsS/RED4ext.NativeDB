@@ -1,0 +1,520 @@
+{
+  "parent": "DeviceInkGameControllerBase",
+  "name": "TvInkGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "defaultUI",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "securedUI",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "channellTextWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "securedTextWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkVideoWidget",
+      "name": "mainDisplayWidget",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "actionsList",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "activeChannelIDX",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:SequenceVideo",
+      "name": "activeSequence",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "activeSequenceVideo",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkWidget",
+      "name": "globalTVChannels",
+      "flags": 6583025696
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "messegeWidget",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkLeafWidget",
+      "name": "backgroundWidget",
+      "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "previousGlobalTVChannelID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "globalTVchanellsCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "globalTVchanellsSpawned",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "globalTVslot",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "activeAudio",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataScreenMessageData_Record",
+      "name": "activeMessage",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onChangeChannelListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "onGlitchingStateChangedListener",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "GetColorFromArray;array<Int32>",
+      "shortName": "GetColorFromArray",
+      "return": {
+        "type": "Color",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:Int32",
+          "name": "colorArray",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetGlobalTVSlot;",
+      "shortName": "GetGlobalTVSlot",
+      "return": {
+        "type": "whandle:inkWidget",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetMessageRecord;TweakDBID",
+      "shortName": "GetMessageRecord",
+      "return": {
+        "type": "handle:gamedataScreenMessageData_Record",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "messageID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "handle:TV",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "HideAllGlobalTVChannels;",
+      "shortName": "HideAllGlobalTVChannels",
+      "flags": 132
+    },
+    {
+      "fullName": "HideGlobalTVChannel;TweakDBID",
+      "shortName": "HideGlobalTVChannel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "channelID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeGlobalTV;",
+      "shortName": "InitializeGlobalTV",
+      "flags": 132
+    },
+    {
+      "fullName": "IsGlobalTVChannel;STvChannel",
+      "shortName": "IsGlobalTVChannel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "STvChannel",
+          "name": "channel",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsGlobalTVInitialized;",
+      "shortName": "IsGlobalTVInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "OnChangeChannel",
+      "shortName": "OnChangeChannel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGLobalChannelSpawned",
+      "shortName": "OnGLobalChannelSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMessageTextureCallback",
+      "shortName": "OnMessageTextureCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkCallbackData",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnVideoFinished",
+      "shortName": "OnVideoFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkVideoWidget",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayVideo;ResRefBoolCName",
+      "shortName": "PlayVideo",
+      "flags": 516,
+      "params": [
+        {
+          "type": "redResourceReferenceScriptToken",
+          "name": "videoPath",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "looped",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "audioEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Refresh;EDeviceStatus",
+      "shortName": "Refresh",
+      "flags": 512,
+      "params": [
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterBlackboardCallbacks;IBlackboard",
+      "shortName": "RegisterBlackboardCallbacks",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterTvChannel;Int32",
+      "shortName": "RegisterTvChannel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveMessegeRecord;ScreenMessageData_Record",
+      "shortName": "ResolveMessegeRecord",
+      "flags": 256,
+      "params": [
+        {
+          "type": "whandle:gamedataScreenMessageData_Record",
+          "name": "record",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SelectChannel;Int32Bool",
+      "shortName": "SelectChannel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetBackgroundTexture;inkImageTweakDBID",
+      "shortName": "SetBackgroundTexture",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkImageWidget",
+          "name": "imageWidget",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "textureID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBackgroundTexture;inkImageUIIcon_Record",
+      "shortName": "SetBackgroundTexture",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkImageWidget",
+          "name": "imageWidget",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataUIIcon_Record",
+          "name": "textureRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBackgroundTexture;inkImageRefUIIcon_Record",
+      "shortName": "SetBackgroundTexture",
+      "flags": 132,
+      "params": [
+        {
+          "type": "inkImageWidgetReference",
+          "name": "imageWidgetRef",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataUIIcon_Record",
+          "name": "textureRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetChannellText;String",
+      "shortName": "SetChannellText",
+      "flags": 516,
+      "params": [
+        {
+          "type": "String",
+          "name": "channelName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSecuredText;String",
+      "shortName": "SetSecuredText",
+      "flags": 516,
+      "params": [
+        {
+          "type": "String",
+          "name": "text",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupWidgets;",
+      "shortName": "SetupWidgets",
+      "flags": 256
+    },
+    {
+      "fullName": "ShowGlobalTVChannel;TweakDBID",
+      "shortName": "ShowGlobalTVChannel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "channelID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartGlitchingScreen;GlitchData",
+      "shortName": "StartGlitchingScreen",
+      "flags": 128,
+      "params": [
+        {
+          "type": "GlitchData",
+          "name": "glitchData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopGlitchingScreen;",
+      "shortName": "StopGlitchingScreen",
+      "flags": 128
+    },
+    {
+      "fullName": "StopVideo;",
+      "shortName": "StopVideo",
+      "flags": 516
+    },
+    {
+      "fullName": "TurnOff;",
+      "shortName": "TurnOff",
+      "flags": 516
+    },
+    {
+      "fullName": "TurnOn;",
+      "shortName": "TurnOn",
+      "flags": 512
+    },
+    {
+      "fullName": "UnRegisterBlackboardCallbacks;IBlackboard",
+      "shortName": "UnRegisterBlackboardCallbacks",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WasGlobalTVinitalizationTrigered;",
+      "shortName": "WasGlobalTVinitalizationTrigered",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    }
+  ]
+}

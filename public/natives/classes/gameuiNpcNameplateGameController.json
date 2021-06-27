@@ -1,0 +1,730 @@
+{
+  "parent": "gameuiProjectedHUDGameController",
+  "name": "gameuiNpcNameplateGameController",
+  "flags": 2,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "projection",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "displayName",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "iconHolder",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "mappinSlot",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "chattersSlot",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:NameplateVisualsLogicController",
+      "name": "visualController",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:gameuiMappinBaseController",
+      "name": "cachedMappinControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "visualControllerNeedsMappinsUpdate",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkScreenProjection",
+      "name": "nameplateProjection",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScreenProjection",
+      "name": "nameplateProjectionCloseDistance",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScreenProjection",
+      "name": "nameplateProjectionDevice",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScreenProjection",
+      "name": "nameplateProjectionDeviceCloseDistance",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "bufferedGameObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gamedataCharacter_Record",
+      "name": "bufferedCharacterRecord",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isScanning",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isNewNPC",
+      "flags": 4297130016
+    },
+    {
+      "type": "EAIAttitude",
+      "name": "attitude",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "zoom",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "currentHealth",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maximumHealth",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "c_DisplayRange",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "c_MaxDisplayRange",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "c_MaxDisplayRangeNotAggressive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "c_DisplayRangeNotAggressive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbNameplateData",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbBuffsList",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbDebuffsList",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbHighLevelStateID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbNPCNamesEnabledID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "VisionStateBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "ZoomStateBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerZonesBlackboardID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerCombatBlackboardID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerAimStatusBlackboardID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "damagePreviewBlackboardID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "uiBlackboardTargetNPC",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "uiBlackboardInteractions",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "interfaceOptionsBlackboard",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ClearSlottedWidgets",
+      "shortName": "ClearSlottedWidgets",
+      "index": 11896,
+      "flags": 1
+    },
+    {
+      "fullName": "GetNameplateVisible",
+      "shortName": "GetNameplateVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 11890,
+      "flags": 1
+    },
+    {
+      "fullName": "IsWidgetSlotted",
+      "shortName": "IsWidgetSlotted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 11894,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNameplateVisible",
+      "shortName": "SetNameplateVisible",
+      "index": 11891,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSlottedWidgets",
+      "shortName": "SetSlottedWidgets",
+      "index": 11895,
+      "flags": 1,
+      "params": [
+        {
+          "type": "array:handle:inkWidget",
+          "name": "widgetsToSlot",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "newParentWidger",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SlotWidget",
+      "shortName": "SlotWidget",
+      "index": 11892,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widgetToSlot",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "newParentWidget",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UnslotWidget",
+      "shortName": "UnslotWidget",
+      "index": 11893,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widgetToUnslot",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ComputeTopMargin;FloatFloat",
+      "shortName": "ComputeTopMargin",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "marginClosest",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "marginFurthest",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBufferedUINameplateRecord;",
+      "shortName": "GetBufferedUINameplateRecord",
+      "return": {
+        "type": "whandle:gamedataUINameplate_Record",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetDistanceToEntity;Entity",
+      "shortName": "GetDistanceToEntity",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetHUDManager;",
+      "shortName": "GetHUDManager",
+      "return": {
+        "type": "handle:HUDManager",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "HelperCheckDistance;Entity",
+      "shortName": "HelperCheckDistance",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAimStatusChange",
+      "shortName": "OnAimStatusChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBuffListChanged",
+      "shortName": "OnBuffListChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDamagePreview",
+      "shortName": "OnDamagePreview",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeBuffListChanged",
+      "shortName": "OnDeBuffListChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnIsEnabledChange",
+      "shortName": "OnIsEnabledChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMappinsUpdated",
+      "shortName": "OnMappinsUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "array:whandle:gameuiMappinBaseController",
+          "name": "mappinControllers",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNPCNamesEnabledChanged",
+      "shortName": "OnNPCNamesEnabledChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNameplateDataChanged",
+      "shortName": "OnNameplateDataChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerCombatChange",
+      "shortName": "OnPlayerCombatChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnScreenProjectionUpdate",
+      "shortName": "OnScreenProjectionUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameuiScreenProjectionsData",
+          "name": "projections",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnZoneChange",
+      "shortName": "OnZoneChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnZoomChanged",
+      "shortName": "OnZoomChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterPSMListeners;GameObject",
+      "shortName": "RegisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveSlotAttachment;",
+      "shortName": "ResolveSlotAttachment",
+      "flags": 260
+    },
+    {
+      "fullName": "SetMainVisible;Bool",
+      "shortName": "SetMainVisible",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNameplateOwnerID;Bool",
+      "shortName": "SetNameplateOwnerID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNameplateProjectionEntity;Entity",
+      "shortName": "SetNameplateProjectionEntity",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterPSMListeners;GameObject",
+      "shortName": "UnregisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateHealthbarColor;Bool",
+      "shortName": "UpdateHealthbarColor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isHostile",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMappinSlotMargin;Float",
+      "shortName": "UpdateMappinSlotMargin",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "newBottomMargin",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateSlotAttachment;array<BaseMappinBaseController>",
+      "shortName": "UpdateSlotAttachment",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:whandle:gameuiMappinBaseController",
+          "name": "mappinControllers",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateVisualControllerState;array<BaseMappinBaseController>",
+      "shortName": "UpdateVisualControllerState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:whandle:gameuiMappinBaseController",
+          "name": "mappinControllers",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

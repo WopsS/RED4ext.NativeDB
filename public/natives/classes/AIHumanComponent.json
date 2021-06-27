@@ -1,0 +1,1143 @@
+{
+  "parent": "AICAgent",
+  "name": "AIHumanComponent",
+  "flags": 2,
+  "props": [
+    {
+      "type": "TweakDBID",
+      "name": "movementParamsRecord",
+      "flags": 6627016705
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "shootingBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "gadgetBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "coverBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "actionBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "patrolBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "alertedPatrolBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "friendlyFireCheckID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIFriendlyFireSystem",
+      "name": "ffs",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "LoSFinderCheckID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameLoSIFinderSystem",
+      "name": "loSFinderSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:senseVisibleObject",
+      "name": "LoSFinderVisibleObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:ActionAnimationScriptProxy",
+      "name": "actionAnimationScriptProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "gameDelayID",
+      "name": "lastOwnerBlockedAttackEventID",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "lastOwnerParriedAttackEventID",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "lastOwnerDodgedAttackEventID",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "grenadeThrowQueryTarget",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "grenadeThrowQueryId",
+      "flags": 4297130016
+    },
+    {
+      "type": "AIbehaviorScriptExecutionContext",
+      "name": "scriptContext",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "scriptContextInitialized",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "highLevelCb",
+      "flags": 4297130016
+    },
+    {
+      "type": "AIbehaviorUniqueActiveCommandList",
+      "name": "activeCommands",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AIHumanComponent::Get;ScriptedPuppetAIHumanComponent",
+      "shortName": "Get",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:AIHumanComponent",
+          "name": "aiComponent",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::GetAssignedVehicle;ScriptedPuppetGameObject",
+      "shortName": "GetAssignedVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "vehicle",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetMountingSlotId",
+      "shortName": "GetLastUsedVehicleSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamemountingMountingSlotId",
+          "name": "vehicleSlot",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetCName",
+      "shortName": "GetLastUsedVehicleSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "vehicleSlotName",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::GetScriptContext;ScriptedPuppetScriptExecutionContext",
+      "shortName": "GetScriptContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::SetCurrentRole;GameObjectAIRole",
+      "shortName": "SetCurrentRole",
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:AIRole",
+          "name": "newRole",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAssignedVehicleId",
+      "shortName": "GetAssignedVehicleId",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "index": 10057,
+      "flags": 8193
+    },
+    {
+      "fullName": "GetAssignedVehicleSlot",
+      "shortName": "GetAssignedVehicleSlot",
+      "return": {
+        "type": "gamemountingMountingSlotId",
+        "flags": 64
+      },
+      "index": 10058,
+      "flags": 8193
+    },
+    {
+      "fullName": "GetMovementParams",
+      "shortName": "GetMovementParams",
+      "return": {
+        "type": "moveMovementParameters",
+        "flags": 64
+      },
+      "index": 10053,
+      "flags": 1,
+      "params": [
+        {
+          "type": "moveMovementType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetNPCRarity",
+      "shortName": "GetNPCRarity",
+      "return": {
+        "type": "gamedataNPCRarity",
+        "flags": 64
+      },
+      "index": 10055,
+      "flags": 8193
+    },
+    {
+      "fullName": "HasVehicleAssigned",
+      "shortName": "HasVehicleAssigned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10059,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsOfficer",
+      "shortName": "IsOfficer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10056,
+      "flags": 8193
+    },
+    {
+      "fullName": "SetMovementParams",
+      "shortName": "SetMovementParams",
+      "index": 10052,
+      "flags": 1,
+      "params": [
+        {
+          "type": "moveMovementParameters",
+          "name": "params",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTDBMovementParams",
+      "shortName": "SetTDBMovementParams",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10054,
+      "flags": 1,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "paramsID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CacheThrowGrenadeAtTargetQuery;GameObject",
+      "shortName": "CacheThrowGrenadeAtTargetQuery",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanThrowGrenadeAtTarget;GameObjectVector4FloatgameGrenadeThrowStartType",
+      "shortName": "CanThrowGrenadeAtTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "throwPositions",
+          "flags": 640
+        },
+        {
+          "type": "Float",
+          "name": "throwAngle",
+          "flags": 640
+        },
+        {
+          "type": "gameGrenadeThrowStartType",
+          "name": "throwStartType",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "CheckTweakCondition;String",
+      "shortName": "CheckTweakCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "String",
+          "name": "ActionConditionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearActionCommandID;script_ref<array<CName>>",
+      "shortName": "ClearActionCommandID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "script_ref:array:CName",
+          "name": "commandClassNames",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CombatQueriesSystemInit;",
+      "shortName": "CombatQueriesSystemInit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "FriendlyFireCheck;",
+      "shortName": "FriendlyFireCheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "FriendlyFireCheckInit;",
+      "shortName": "FriendlyFireCheckInit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "FriendlyFireTargetUpdateInit;",
+      "shortName": "FriendlyFireTargetUpdateInit",
+      "flags": 132
+    },
+    {
+      "fullName": "GetAIAlertedPatrolBlackboard;",
+      "shortName": "GetAIAlertedPatrolBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetAIPatrolBlackboard;",
+      "shortName": "GetAIPatrolBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetActionAnimationScriptProxy;",
+      "shortName": "GetActionAnimationScriptProxy",
+      "return": {
+        "type": "handle:ActionAnimationScriptProxy",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetActionBlackboard;",
+      "shortName": "GetActionBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetActiveCommandID;CName",
+      "shortName": "GetActiveCommandID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "commandClassName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetActiveCommandsCount;",
+      "shortName": "GetActiveCommandsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAssignedVehicle;GameInstanceGameObject",
+      "shortName": "GetAssignedVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "vehicle",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAssignedVehicleData;EntityIDMountingSlotId",
+      "shortName": "GetAssignedVehicleData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 640
+        },
+        {
+          "type": "gamemountingMountingSlotId",
+          "name": "vehicleSlot",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetCombatGadgetBlackboard;",
+      "shortName": "GetCombatGadgetBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCoverBlackboard;",
+      "shortName": "GetCoverBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentRole;",
+      "shortName": "GetCurrentRole",
+      "return": {
+        "type": "handle:AIRole",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetFriendlyFireCheckID;",
+      "shortName": "GetFriendlyFireCheckID",
+      "return": {
+        "type": "Uint32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetFriendlyTarget;GameObject",
+      "shortName": "GetFriendlyTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "friendlyTarget",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetFriendlyTargetAsPlayer;PlayerPuppet",
+      "shortName": "GetFriendlyTargetAsPlayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetGame;",
+      "shortName": "GetGame",
+      "return": {
+        "type": "ScriptGameInstance",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetScriptContext;ScriptExecutionContext",
+      "shortName": "GetScriptContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetShootingBlackboard;",
+      "shortName": "GetShootingBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "IsCommandActive;Uint32",
+      "shortName": "IsCommandActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "commandID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsCommandActive;CName",
+      "shortName": "IsCommandActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "commandClassName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsCommandReceivedOrOverriden;CName",
+      "shortName": "IsCommandReceivedOrOverriden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "commandClassName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsCommandReceivedOrOverriden;Uint32",
+      "shortName": "IsCommandReceivedOrOverriden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "commandID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsFriendlyFiring;",
+      "shortName": "IsFriendlyFiring",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsPlayerCompanion;",
+      "shortName": "IsPlayerCompanion",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "LoSFinderCheckInit;",
+      "shortName": "LoSFinderCheckInit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "NULLCachedThrowGrenadeAtTargetQuery;",
+      "shortName": "NULLCachedThrowGrenadeAtTargetQuery",
+      "flags": 516
+    },
+    {
+      "fullName": "OnAIRoleChanged;AIRoleAIRole",
+      "shortName": "OnAIRoleChanged",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:AIRole",
+          "name": "newRole",
+          "flags": 128
+        },
+        {
+          "type": "handle:AIRole",
+          "name": "oldRole",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAnimParamsEvent",
+      "shortName": "OnAnimParamsEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entAnimParamsEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 132
+    },
+    {
+      "fullName": "OnCommandStateChanged;AICommandAICommandStateAICommandState",
+      "shortName": "OnCommandStateChanged",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:AICommand",
+          "name": "command",
+          "flags": 128
+        },
+        {
+          "type": "AICommandState",
+          "name": "oldState",
+          "flags": 128
+        },
+        {
+          "type": "AICommandState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeath",
+      "shortName": "OnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDefeated",
+      "shortName": "OnDefeated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsDefeatedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayPassiveConditionEvaluationEvent",
+      "shortName": "OnDelayPassiveConditionEvaluationEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DelayPassiveConditionEvaluationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 132
+    },
+    {
+      "fullName": "OnEnemyThreatDetected",
+      "shortName": "OnEnemyThreatDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIEnemyThreatDetected",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHitAiEventReceived",
+      "shortName": "OnHitAiEventReceived",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIAIEvent",
+          "name": "hitAIEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHostileThreatDetected",
+      "shortName": "OnHostileThreatDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIHostileThreatDetected",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNewThreat",
+      "shortName": "OnNewThreat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AINewThreat",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerCombatChanged",
+      "shortName": "OnPlayerCombatChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetScriptExecutionContext",
+      "shortName": "OnSetScriptExecutionContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:SetScriptExecutionContextEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSignalCombatQueriesRequest;Uint16Bool",
+      "shortName": "OnSignalCombatQueriesRequest",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Uint16",
+          "name": "signalId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "newValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSignalCommandSignal;Uint16Bool",
+      "shortName": "OnSignalCommandSignal",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Uint16",
+          "name": "signalId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "newValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStartGrenadeThrowQueryEvent",
+      "shortName": "OnStartGrenadeThrowQueryEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:StartGrenadeThrowQueryEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied",
+      "shortName": "OnStatusEffectApplied",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectRemoved",
+      "shortName": "OnStatusEffectRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnThreatRemoved",
+      "shortName": "OnThreatRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIThreatRemoved",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleAssign",
+      "shortName": "OnVehicleAssign",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameMountAIEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetBehaviorCoverArguments;",
+      "shortName": "ResetBehaviorCoverArguments",
+      "flags": 132
+    },
+    {
+      "fullName": "StartGrenadeThrowQuery;GameObject",
+      "shortName": "StartGrenadeThrowQuery",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TrackActionCommandID;script_ref<array<CName>>",
+      "shortName": "TrackActionCommandID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "script_ref:array:CName",
+          "name": "commandClassNames",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryBulletDodgeOpportunity;",
+      "shortName": "TryBulletDodgeOpportunity",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "UpdateMyAttackBlockedCount;Bool",
+      "shortName": "UpdateMyAttackBlockedCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "resetBB",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMyAttackDodgedCount;Bool",
+      "shortName": "UpdateMyAttackDodgedCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "resetBB",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMyAttackParriedCount;Bool",
+      "shortName": "UpdateMyAttackParriedCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "resetBB",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

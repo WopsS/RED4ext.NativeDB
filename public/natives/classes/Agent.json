@@ -1,0 +1,440 @@
+{
+  "name": "Agent",
+  "flags": 8,
+  "props": [
+    {
+      "type": "DeviceLink",
+      "name": "link",
+      "flags": 13153599520
+    },
+    {
+      "type": "array:ReprimandData",
+      "name": "reprimands",
+      "flags": 15439495200
+    },
+    {
+      "type": "array:gamePersistentID",
+      "name": "supportingAgents",
+      "flags": 15439495200
+    },
+    {
+      "type": "array:DeviceLink",
+      "name": "areas",
+      "flags": 15439495200
+    },
+    {
+      "type": "EFilterType",
+      "name": "incomingFilter",
+      "flags": 13153599520
+    },
+    {
+      "type": "Float",
+      "name": "cachedDelayDuration",
+      "flags": 13153599520
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "Agent::AddArea;script_ref<Agent>SecurityAreaControllerPS",
+      "shortName": "AddArea",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecurityAreaControllerPS",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::AddSupport;script_ref<Agent>PersistentIDBool",
+      "shortName": "AddSupport",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::ClearSupport;script_ref<Agent>",
+      "shortName": "ClearSupport",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::Construct;DeviceLinkarray<SecurityAreaControllerPS>",
+      "shortName": "Construct",
+      "return": {
+        "type": "Agent",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "DeviceLink",
+          "name": "link",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "areas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::ForceRelaseReprimands;script_ref<Agent>",
+      "shortName": "ForceRelaseReprimands",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::GetAreas;Agentarray<DeviceLink>",
+      "shortName": "GetAreas",
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "array:DeviceLink",
+          "name": "areas",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::GetReprimandReceiver;Agent",
+      "shortName": "GetReprimandReceiver",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::GetReprimandsCount;AgentEntityID",
+      "shortName": "GetReprimandsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::HasSupport;Agent",
+      "shortName": "HasSupport",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::IsEligible;AgentESecuritySystemStatearray<SecurityAreaControllerPS>EFilterTypeEBreachOrigin",
+      "shortName": "IsEligible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "ESecuritySystemState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "breachedAreas",
+          "flags": 128
+        },
+        {
+          "type": "EFilterType",
+          "name": "inputsOutgoingFilter",
+          "flags": 128
+        },
+        {
+          "type": "EBreachOrigin",
+          "name": "breachOrigin",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::IsEligibleToShareData;AgentESecuritySystemStatearray<SecurityAreaControllerPS>EFilterType",
+      "shortName": "IsEligibleToShareData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "ESecuritySystemState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "breachedAreas",
+          "flags": 128
+        },
+        {
+          "type": "EFilterType",
+          "name": "inputsOutgoingFilter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::IsPerformingReprimand;Agent",
+      "shortName": "IsPerformingReprimand",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::IsPerformingReprimandAgainst;AgentEntityID",
+      "shortName": "IsPerformingReprimandAgainst",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::IsValid;Agent",
+      "shortName": "IsValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::ReleaseFromReprimand;script_ref<Agent>EntityID",
+      "shortName": "ReleaseFromReprimand",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::RemoveArea;script_ref<Agent>array<SecurityAreaControllerPS>",
+      "shortName": "RemoveArea",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "remainingAreas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::SetIncomingFilter;script_ref<Agent>array<SecurityAreaControllerPS>",
+      "shortName": "SetIncomingFilter",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "areas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::SetIncomingFilter;script_ref<Agent>SecurityAreaControllerPS",
+      "shortName": "SetIncomingFilter",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "handle:SecurityAreaControllerPS",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::StoreReprimand;script_ref<Agent>ReprimandData",
+      "shortName": "StoreReprimand",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "ReprimandData",
+          "name": "reprimandData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::WipeReprimand;script_ref<Agent>CNameAttitudeSystem",
+      "shortName": "WipeReprimand",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "attGroup",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameCAttitudeManager",
+          "name": "attSystem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Agent::WipeReprimand;script_ref<Agent>EntityID",
+      "shortName": "WipeReprimand",
+      "flags": 518,
+      "params": [
+        {
+          "type": "script_ref:Agent",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

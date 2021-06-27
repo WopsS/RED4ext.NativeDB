@@ -1,0 +1,509 @@
+{
+  "parent": "SensorDevice",
+  "name": "SurveillanceCamera",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:entVirtualCameraComponent",
+      "name": "virtualCam",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:entIComponent",
+      "name": "cameraHead",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:entIComponent",
+      "name": "cameraHeadPhysics",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:entIComponent",
+      "name": "verticalDecal1",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:entIComponent",
+      "name": "verticalDecal2",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "meshDestrSupport",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "shouldRotate",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "canStreamVideo",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "canDetectIntruders",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "currentAngle",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "rotateLeft",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector4",
+      "name": "targetPosition",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "factOnFeedReceived",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "questFactOnDetection",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:entLookAtAddEvent",
+      "name": "lookAtEvent",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "currentYawModifier",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "currentPitchModifier",
+      "flags": 4297326624
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CutPower;",
+      "shortName": "CutPower",
+      "flags": 256
+    },
+    {
+      "fullName": "DeactivateDevice;",
+      "shortName": "DeactivateDevice",
+      "flags": 256
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:SurveillanceCameraController",
+        "flags": 64
+      },
+      "flags": 8320
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:SurveillanceCameraControllerPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetScannerName;",
+      "shortName": "GetScannerName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 41216
+    },
+    {
+      "fullName": "IsSurveillanceCamera;",
+      "shortName": "IsSurveillanceCamera",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "OnActionEngineering",
+      "shortName": "OnActionEngineering",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAllValidTargetsDisappears;",
+      "shortName": "OnAllValidTargetsDisappears",
+      "flags": 512
+    },
+    {
+      "fullName": "OnCameraTagLockEvent",
+      "shortName": "OnCameraTagLockEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:CameraTagLockEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCurrentTargetAppears;GameObject",
+      "shortName": "OnCurrentTargetAppears",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeath",
+      "shortName": "OnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach",
+      "shortName": "OnDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnEnterShapeEvent",
+      "shortName": "OnEnterShapeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:senseOnEnterShapeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitShapeEvent",
+      "shortName": "OnExitShapeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:senseOnExitShapeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameAttached",
+      "shortName": "OnGameAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceAttitude",
+      "shortName": "OnSetDeviceAttitude",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTCSTakeOverControlActivate",
+      "shortName": "OnTCSTakeOverControlActivate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:TCSTakeOverControlActivate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTCSTakeOverControlDeactivate",
+      "shortName": "OnTCSTakeOverControlDeactivate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:TCSTakeOverControlDeactivate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleCamera",
+      "shortName": "OnToggleCamera",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ToggleON",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleStreamFeed",
+      "shortName": "OnToggleStreamFeed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ToggleStreamFeed",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnValidTargetAppears;GameObject",
+      "shortName": "OnValidTargetAppears",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnValidTargetDisappears;GameObject",
+      "shortName": "OnValidTargetDisappears",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OverrideLookAtSetupHor;LookAtAddEvent",
+      "shortName": "OverrideLookAtSetupHor",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:entLookAtAddEvent",
+          "name": "lookAtEntityEvent",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "PushPersistentData;",
+      "shortName": "PushPersistentData",
+      "flags": 256
+    },
+    {
+      "fullName": "RegisterToGameSessionDataSystem;Bool",
+      "shortName": "RegisterToGameSessionDataSystem",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "add",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestAlarm;",
+      "shortName": "RequestAlarm",
+      "flags": 132
+    },
+    {
+      "fullName": "ResolveGameplayState;",
+      "shortName": "ResolveGameplayState",
+      "flags": 256
+    },
+    {
+      "fullName": "RestoreDeviceState;",
+      "shortName": "RestoreDeviceState",
+      "flags": 256
+    },
+    {
+      "fullName": "SetAsIntrestingTarget;GameObject",
+      "shortName": "SetAsIntrestingTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetForcedSensesTracing;",
+      "shortName": "SetForcedSensesTracing",
+      "flags": 132
+    },
+    {
+      "fullName": "SetWarningMessage;String",
+      "shortName": "SetWarningMessage",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "lockey",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleFeed;Bool",
+      "shortName": "ToggleFeed",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldBeOn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOffCamera;",
+      "shortName": "TurnOffCamera",
+      "flags": 132
+    },
+    {
+      "fullName": "TurnOffDevice;",
+      "shortName": "TurnOffDevice",
+      "flags": 256
+    },
+    {
+      "fullName": "TurnOnCamera;",
+      "shortName": "TurnOnCamera",
+      "flags": 132
+    },
+    {
+      "fullName": "TurnOnDevice;",
+      "shortName": "TurnOnDevice",
+      "flags": 256
+    }
+  ]
+}

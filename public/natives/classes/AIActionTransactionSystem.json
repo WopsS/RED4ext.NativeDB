@@ -1,0 +1,493 @@
+{
+  "parent": "IScriptable",
+  "name": "AIActionTransactionSystem",
+  "flags": 5,
+  "funcs": [
+    {
+      "fullName": "AIActionTransactionSystem::CalculateEquipmentItems;ScriptedPuppetCNamearray<NPCEquipmentItem_Record>Int32",
+      "shortName": "CalculateEquipmentItems",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "equipmentGroupName",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataNPCEquipmentItem_Record",
+          "name": "items",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "powerLevel",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::CalculateEquipmentItems;ScriptedPuppetNPCEquipmentGroup_Recordarray<NPCEquipmentItem_Record>Int32",
+      "shortName": "CalculateEquipmentItems",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataNPCEquipmentGroup_Record",
+          "name": "equipmentGroupRecord",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataNPCEquipmentItem_Record",
+          "name": "items",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "powerLevel",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::CheckEquipmentGroupForEquipment;ScriptExecutionContextAIItemCond_Record",
+      "shortName": "CheckEquipmentGroupForEquipment",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIItemCond_Record",
+          "name": "condition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::CheckSlotsForEquipment;ScriptExecutionContextCName",
+      "shortName": "CheckSlotsForEquipment",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "equipmentGroup",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::ChooseSingleItemsSetFromPool;Int32Uint32NPCEquipmentItemPool_Record",
+      "shortName": "ChooseSingleItemsSetFromPool",
+      "return": {
+        "type": "array:whandle:gamedataNPCEquipmentItem_Record",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "powerLevel",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "seed",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataNPCEquipmentItemPool_Record",
+          "name": "itemPool",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::DoesItemMeetRequirements;ItemIDAIItemCond_RecordWeaponEvolution_Record",
+      "shortName": "DoesItemMeetRequirements",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "weaponItemID",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataAIItemCond_Record",
+          "name": "condition",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataWeaponEvolution_Record",
+          "name": "evolution",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetDefaultEquipment;ScriptExecutionContextCharacter_RecordBoolarray<NPCItemToEquip>",
+      "shortName": "GetDefaultEquipment",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataCharacter_Record",
+          "name": "characterRecord",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "checkForUnequip",
+          "flags": 128
+        },
+        {
+          "type": "array:NPCItemToEquip",
+          "name": "itemsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetEquipment;ScriptExecutionContextBoolarray<NPCItemToEquip>",
+      "shortName": "GetEquipment",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "checkPrimaryEquipment",
+          "flags": 128
+        },
+        {
+          "type": "array:NPCItemToEquip",
+          "name": "itemsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetEquipmentWithCondition;ScriptExecutionContextBoolBoolarray<NPCItemToEquip>",
+      "shortName": "GetEquipmentWithCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "checkPrimaryEquipment",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "checkForUnequip",
+          "flags": 128
+        },
+        {
+          "type": "array:NPCItemToEquip",
+          "name": "itemsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetFirstItemID;GameObjectItemCategory_RecordCNameItemID",
+      "shortName": "GetFirstItemID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItemCategory_Record",
+          "name": "itemCategory",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "itemTag",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetFirstItemID;GameObjectItemType_RecordCNameItemID",
+      "shortName": "GetFirstItemID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItemType_Record",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "itemTag",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetFirstItemID;GameObjectCNameItemID",
+      "shortName": "GetFirstItemID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "itemTag",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetItemID;ScriptedPuppetItem_RecordTweakDBIDItemID",
+      "shortName": "GetItemID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "onBodySlotID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetItemIDFromRecord;Item_RecordItemID",
+      "shortName": "GetItemIDFromRecord",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetItemsBodySlot;ScriptedPuppetItemIDTweakDBID",
+      "shortName": "GetItemsBodySlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "onBodySlotID",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetOnBodyEquipment;ScriptedPuppetarray<NPCItemToEquip>",
+      "shortName": "GetOnBodyEquipment",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "array:NPCItemToEquip",
+          "name": "itemsToEquip",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::GetOnBodyEquipmentRecords;ScriptedPuppetarray<NPCEquipmentItem_Record>",
+      "shortName": "GetOnBodyEquipmentRecords",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataNPCEquipmentItem_Record",
+          "name": "outEquipmentRecords",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::IsSlotEmptySpawningItem;GameObjectTweakDBID",
+      "shortName": "IsSlotEmptySpawningItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionTransactionSystem::ShouldPerformEquipmentCheck;ScriptedPuppetCName",
+      "shortName": "ShouldPerformEquipmentCheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "equipmentGroup",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,490 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "CrouchIndicatorGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkTextWidgetReference",
+      "name": "CurrentAmmoRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "AllAmmoRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "ammoWrapper",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "container",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "warningMessageWraper",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "smartLinkFirmwareOnline",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "smartLinkFirmwareOffline",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "weaponIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:inkImageWidgetReference",
+      "name": "FireModes",
+      "flags": 6583025697
+    },
+    {
+      "type": "array:inkImageWidgetReference",
+      "name": "WeaponMods",
+      "flags": 6583025697
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "modHolder",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "weaponName",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "damageTypeRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "crouchIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "folded",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:InventoryDataManagerV2",
+      "name": "InventoryManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "InventoryItemData",
+      "name": "weaponItemData",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:DamageTypeIndicator",
+      "name": "damageTypeIndicator",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:gamedataItemType",
+      "name": "WeaponAreas",
+      "flags": 6583025696
+    },
+    {
+      "type": "Uint32",
+      "name": "BBWeaponList",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "BBAmmoLooted",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "BBCurrentWeapon",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "LocomotionStateBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "VisionStateBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "UIStateBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "PlayerSpawnedCallbackID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "ammoHackedListenerId",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameSlotDataHolder",
+      "name": "BufferedRosterData",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "UIBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameSlotWeaponData",
+      "name": "ActiveWeapon",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "hackingBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "Player",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "outOfAmmoAnim",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "transitionAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "blackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UIInteractionsDef",
+      "name": "bbDefinition",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "onMagazineAmmoCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "dataListenerId",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "weaponBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "weaponParamsListenerId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "bufferedMaxAmmo",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "bufferedAmmoId",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "genderName",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "GetAmmoText;Int32Int32",
+      "shortName": "GetAmmoText",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "ammoCount",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "textLength",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemTypeIcon;",
+      "shortName": "GetItemTypeIcon",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetUnreservedAmmoQuantityByType;ItemID",
+      "shortName": "GetUnreservedAmmoQuantityByType",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "ammoID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HelperFireModeIcon;gamedataTriggerMode",
+      "shortName": "HelperFireModeIcon",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataTriggerMode",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LoadWeaponIcon;",
+      "shortName": "LoadWeaponIcon",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAmmoIndicatorHacked",
+      "shortName": "OnAmmoIndicatorHacked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAmmoLooted",
+      "shortName": "OnAmmoLooted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPSMLocomotionStateChanged",
+      "shortName": "OnPSMLocomotionStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPSMVisionStateChanged",
+      "shortName": "OnPSMVisionStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSmartGunParams",
+      "shortName": "OnSmartGunParams",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "argParams",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnUpdateData",
+      "shortName": "OnUpdateData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWeaponDataChanged",
+      "shortName": "OnWeaponDataChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayFold;",
+      "shortName": "PlayFold",
+      "flags": 132
+    },
+    {
+      "fullName": "PlayUnfold;",
+      "shortName": "PlayUnfold",
+      "flags": 132
+    },
+    {
+      "fullName": "RegisterBB;",
+      "shortName": "RegisterBB",
+      "flags": 132
+    },
+    {
+      "fullName": "SetRosterSlotData;Bool",
+      "shortName": "SetRosterSlotData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isMelee",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTriggerModeIcons;",
+      "shortName": "SetTriggerModeIcons",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterBB;",
+      "shortName": "UnregisterBB",
+      "flags": 132
+    }
+  ]
+}

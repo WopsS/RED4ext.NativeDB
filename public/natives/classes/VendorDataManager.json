@@ -1,0 +1,762 @@
+{
+  "parent": "IScriptable",
+  "name": "VendorDataManager",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gameObject",
+      "name": "VendorObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:VendorShoppingCartItem",
+      "name": "BuyingCart",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:VendorShoppingCartItem",
+      "name": "SellingCart",
+      "flags": 6583025696
+    },
+    {
+      "type": "TweakDBID",
+      "name": "VendorID",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:EVendorMode",
+      "name": "VendingBlacklist",
+      "flags": 6583025696
+    },
+    {
+      "type": "Float",
+      "name": "TimeToCompletePurchase",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "UIBBEquipmentBlackboard",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:UI_EquipmentDef",
+      "name": "UIBBEquipment",
+      "flags": 4431413280
+    },
+    {
+      "type": "Uint32",
+      "name": "InventoryBBID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "EquipmentBBID",
+      "flags": 4297130016
+    },
+    {
+      "type": "GameTime",
+      "name": "openTime",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddToBuyingCart;gameItemData",
+      "shortName": "AddToBuyingCart",
+      "return": {
+        "type": "ECartOperationResult",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddToCart;gameItemDataarray<VendorShoppingCartItem>",
+      "shortName": "AddToCart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        },
+        {
+          "type": "array:VendorShoppingCartItem",
+          "name": "cart",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AddToSellingCart;gameItemData",
+      "shortName": "AddToSellingCart",
+      "return": {
+        "type": "ECartOperationResult",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuyItemFromVendor;gameItemDataInt32Int32",
+      "shortName": "BuyItemFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "BuybackItemFromVendor;gameItemDataInt32Int32",
+      "shortName": "BuybackItemFromVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "CanAddToBuyingCart;gameItemData",
+      "shortName": "CanAddToBuyingCart",
+      "return": {
+        "type": "ECartOperationResult",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanAddToSellingCart;gameItemData",
+      "shortName": "CanAddToSellingCart",
+      "return": {
+        "type": "ECartOperationResult",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanPlayerSellItem;ItemID",
+      "shortName": "CanPlayerSellItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Checkout;Bool",
+      "shortName": "Checkout",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "andEquip",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearBuyingCart;",
+      "shortName": "ClearBuyingCart",
+      "flags": 132
+    },
+    {
+      "fullName": "ClearCart;",
+      "shortName": "ClearCart",
+      "flags": 516
+    },
+    {
+      "fullName": "ClearSellingCart;",
+      "shortName": "ClearSellingCart",
+      "flags": 132
+    },
+    {
+      "fullName": "GetAmountInBuiyngCart;gameItemData",
+      "shortName": "GetAmountInBuiyngCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAmountInCart;gameItemDataarray<VendorShoppingCartItem>",
+      "shortName": "GetAmountInCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        },
+        {
+          "type": "array:VendorShoppingCartItem",
+          "name": "cart",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAmountInSellingCart;gameItemData",
+      "shortName": "GetAmountInSellingCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBuyingPrice;ItemID",
+      "shortName": "GetBuyingPrice",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemDataFromBuyingCart;array<gameItemData>",
+      "shortName": "GetItemDataFromBuyingCart",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "items",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemDataFromCart;array<gameItemData>array<VendorShoppingCartItem>",
+      "shortName": "GetItemDataFromCart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "items",
+          "flags": 640
+        },
+        {
+          "type": "array:VendorShoppingCartItem",
+          "name": "cart",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemDataFromSellingCart;array<gameItemData>",
+      "shortName": "GetItemDataFromSellingCart",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "items",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemIDsFromCart;array<ItemID>array<VendorShoppingCartItem>",
+      "shortName": "GetItemIDsFromCart",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:gameItemID",
+          "name": "itemIds",
+          "flags": 640
+        },
+        {
+          "type": "array:VendorShoppingCartItem",
+          "name": "cart",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemsPlayerCanSell;",
+      "shortName": "GetItemsPlayerCanSell",
+      "return": {
+        "type": "array:handle:gameItemData",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetLocalPlayer;",
+      "shortName": "GetLocalPlayer",
+      "return": {
+        "type": "whandle:PlayerPuppet",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetLocalPlayerCurrencyAmount;",
+      "shortName": "GetLocalPlayerCurrencyAmount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetOpenTime;",
+      "shortName": "GetOpenTime",
+      "return": {
+        "type": "GameTime",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPriceInBuyingCart;",
+      "shortName": "GetPriceInBuyingCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPriceInSellingCart;",
+      "shortName": "GetPriceInSellingCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetRipperDocItems;",
+      "shortName": "GetRipperDocItems",
+      "return": {
+        "type": "array:handle:VendorGameItemData",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetSellingPrice;ItemID",
+      "shortName": "GetSellingPrice",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSpecialOffers;",
+      "shortName": "GetSpecialOffers",
+      "return": {
+        "type": "array:handle:gameItemData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetStorageItems;",
+      "shortName": "GetStorageItems",
+      "return": {
+        "type": "array:handle:gameItemData",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetTimeToCompletePurchase;",
+      "shortName": "GetTimeToCompletePurchase",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetTotalAmountInCart;array<VendorShoppingCartItem>",
+      "shortName": "GetTotalAmountInCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:VendorShoppingCartItem",
+          "name": "cart",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVendorDescription;",
+      "shortName": "GetVendorDescription",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorID;",
+      "shortName": "GetVendorID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorInstance;",
+      "shortName": "GetVendorInstance",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorInventoryItems;",
+      "shortName": "GetVendorInventoryItems",
+      "return": {
+        "type": "array:handle:VendorGameItemData",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorName;",
+      "shortName": "GetVendorName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetVendorSpecialOffers;",
+      "shortName": "GetVendorSpecialOffers",
+      "return": {
+        "type": "array:handle:VendorGameItemData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "Initialize;GameObjectEntityID",
+      "shortName": "Initialize",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;GameObjectVendingTerminalSetup",
+      "shortName": "Initialize",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendor",
+          "flags": 128
+        },
+        {
+          "type": "VendingTerminalSetup",
+          "name": "vendingTerminalSetup",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NumItemsInAllCarts;",
+      "shortName": "NumItemsInAllCarts",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "NumItemsInBuyingCart;",
+      "shortName": "NumItemsInBuyingCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "NumItemsInSellingCart;",
+      "shortName": "NumItemsInSellingCart",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "ProcessTooltipsData;EVendorModescript_ref<array<ATooltipData>>",
+      "shortName": "ProcessTooltipsData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "EVendorMode",
+          "name": "vendorMode",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:handle:ATooltipData",
+          "name": "tooltipsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFromBuyingCart;gameItemData",
+      "shortName": "RemoveFromBuyingCart",
+      "return": {
+        "type": "ECartOperationResult",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToRemove",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFromCart;gameItemDataarray<VendorShoppingCartItem>",
+      "shortName": "RemoveFromCart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToAdd",
+          "flags": 128
+        },
+        {
+          "type": "array:VendorShoppingCartItem",
+          "name": "cart",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFromSellingCart;gameItemData",
+      "shortName": "RemoveFromSellingCart",
+      "return": {
+        "type": "ECartOperationResult",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemToRemove",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SellItemToVendor;gameItemDataInt32Int32",
+      "shortName": "SellItemToVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SellItemsToVendor;array<gameItemData>array<Int32>Int32",
+      "shortName": "SellItemsToVendor",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:whandle:gameItemData",
+          "name": "itemsData",
+          "flags": 128
+        },
+        {
+          "type": "array:Int32",
+          "name": "amounts",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "requestId",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TotalNumItemsInAllCarts;",
+      "shortName": "TotalNumItemsInAllCarts",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "TransferItem;GameObjectGameObjectgameItemDataInt32",
+      "shortName": "TransferItem",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "source",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateOpenTime;GameInstance",
+      "shortName": "UpdateOpenTime",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

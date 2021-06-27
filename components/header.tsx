@@ -5,7 +5,7 @@ function Header(): JSX.Element  {
         <header className="flex items-center h-12 px-4 sm:px-6 bg-black-pearl text-white">
             <Link href="/">
                 <a>
-                    <h1 className="text-2xl">NativeDB</h1>
+                    <h1 className="text-2xl hover:text-gray-200 transition duration-100">NativeDB</h1>
                 </a>
             </Link>
         </header>

@@ -3,7 +3,7 @@ import type { AppProps } from "next/app"
 import HeaderComponent from "../components/header";
 import SidebarComponent from "../components/sidebar";
 
-import '../styles/_app.css';
+import '../styles/app.css';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
     return (

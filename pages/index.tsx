@@ -1,5 +1,5 @@
 function Home(): JSX.Element {
-    return <div>Welcome to NativeDB!</div>;
+    return <div></div>;
 }
 
 export default Home;

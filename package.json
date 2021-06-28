@@ -4,7 +4,9 @@
   "description": "A website that contains the scripting RTTI for RED4 engine.",
   "private": true,
   "scripts": {
+    "predev": "ts-node -P ./scripts/tsconfig.json ./scripts/generate-sidebar-items.ts",
     "dev": "next dev",
+    "prebuild": "ts-node -P ./scripts/tsconfig.json ./scripts/generate-sidebar-items",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,19 +14,26 @@
   "dependencies": {
     "next": "^11.0.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-window": "^1.8.6"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.11",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
+    "@types/react-virtualized-auto-sizer": "^1.0.0",
+    "@types/react-window": "^1.8.3",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "autoprefixer": "^10.2.6",
     "eslint": "^7.28.0",
     "eslint-config-next": "^11.0.0",
+    "fs-extra": "^10.0.0",
     "postcss": "^8.3.5",
     "postcss-import": "^14.0.2",
+    "react-virtualized-auto-sizer": "^1.0.5",
     "tailwindcss": "^2.2.4",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.4"
   }
 }

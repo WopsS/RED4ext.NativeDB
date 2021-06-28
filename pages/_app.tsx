@@ -10,7 +10,7 @@ import NativeType from "../utils/native-type";
 import '../styles/app.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-    const [activeType, setActiveType] = useState(NativeType.Class);
+    const [activeType, setActiveType] = useState(pageProps?.type ?? NativeType.Class);
     return (
         <>
             <Head>

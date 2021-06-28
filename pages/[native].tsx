@@ -6,7 +6,7 @@ import { ParsedUrlQuery } from "querystring";
 import BitfieldModel from "../models/bitfield.model";
 import ClassModel from "../models/class.model";
 import EnumModel from "../models/enum.model";
-import { NativeType } from "../utils/native-type";
+import NativeType from "../utils/native-type";
 import { collectNatives } from "../utils/natives";
 
 type NativeModel = BitfieldModel | ClassModel | EnumModel;

@@ -2,8 +2,28 @@ import Link from "next/link";
 import { FixedSizeList as List, ListChildComponentProps as ListProps } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 
+import bitfields from "../data/bitfields.json";
+import classes from "../data/classes.json";
+import enums from "../data/enums.json";
+
+import NativeType from "../utils/native-type";
+
 interface Props {
-    items: string[];
+    activeType: NativeType;
+}
+
+function getItems(type: NativeType): string[] {
+    switch (type) {
+        case NativeType.Bitfield: {
+            return bitfields;
+        }
+        case NativeType.Enum: {
+            return enums;
+        }
+        default: {
+            return classes;
+        }
+    }
 }
 
 function Row(props: ListProps<string[]>): JSX.Element {
@@ -18,15 +38,16 @@ function Row(props: ListProps<string[]>): JSX.Element {
 }
 
 function Sidebar(props: Props): JSX.Element  {
+    const items = getItems(props.activeType);
     return (
-        <aside className="w-full h-96 lg:w-80 lg:h-full bg-gray-100 lg:border-r">
+        <aside className="hidden lg:block lg:w-80 lg:h-full bg-gray-100 lg:border-r">
             <AutoSizer>
                 {({ height, width }) => (
                     <List
                         height={height}
                         width={width}
-                        itemData={props.items}
-                        itemCount={props.items.length}
+                        itemData={items}
+                        itemCount={items.length}
                         itemSize={32}
                     >
                         {Row}

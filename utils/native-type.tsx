@@ -1,5 +1,7 @@
-export enum NativeType {
+enum NativeType {
     Bitfield,
     Class,
     Enum
 }
+
+export default NativeType;

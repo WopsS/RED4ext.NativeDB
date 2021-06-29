@@ -18,16 +18,19 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </Head>
             <div className="flex flex-col min-h-screen text-base text-black">
                 <Header />
-                <div className="flex-1 grid grid-rows-[auto,auto,1fr] lg:grid-cols-[auto,1fr] lg:grid-rows-[auto,1fr]">
+                <div className="flex flex-col flex-auto">
                     <MenuBar
                         activeType={activeType}
                         setActiveType={setActiveType}
                     />
-                    <Sidebar activeType={activeType} />
 
-                    <main className="flex-auto lg:col-span-1 px-4 sm:px-6 xl:px-8 py-7 bg-white h-full">
-                        <Component {...pageProps} />
-                    </main>
+                    <div className="flex flex-row flex-auto">
+                        <Sidebar activeType={activeType} />
+
+                        <main className="flex-auto lg:col-span-1 px-4 sm:px-6 xl:px-8 py-7 bg-white h-full">
+                            <Component {...pageProps} />
+                        </main>
+                    </div>
                 </div>
             </div>
         </>

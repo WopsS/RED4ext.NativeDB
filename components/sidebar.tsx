@@ -90,7 +90,7 @@ function SidebarList(props: {
 function Sidebar(props: Props): JSX.Element  {
     const items = getItems(props.activeType);
     return (
-        <aside className="hidden lg:block lg:w-80 lg:h-full bg-gray-100 lg:border-r overflow-x-hidden">
+        <aside className="hidden lg:block lg:w-80 lg:min-h-full bg-gray-100 lg:border-r">
             <AutoSizer>
                 {({ height, width }) => (
                     <SidebarList width={width} height={height} items={items} />

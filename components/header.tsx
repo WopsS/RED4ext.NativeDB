@@ -11,7 +11,7 @@ function Header(props: Props): JSX.Element  {
     return (
         <header className="flex items-center h-12 px-4 sm:px-6 bg-black-pearl text-white">
             <button
-                className="flex items-center lg:hidden mr-4 hover:text-gray-200 transition duration-100"
+                className="flex items-center lg:hidden mr-4 sm:mr-6 hover:text-gray-200 transition duration-100"
                 onClick={() => props.onMenuToggle(!props.menuIsOpen)}
             >
                 {

@@ -10,7 +10,8 @@ import NativeType from "../utils/native-type";
 import '../styles/app.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-    const [activeType, setActiveType] = useState(pageProps?.type ?? NativeType.Class);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    const [activeType, setActiveType] = useState<NativeType>(pageProps?.type ?? NativeType.Class);
     return (
         <>
             <Head>

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { LegacyRef, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { FixedSizeList as List, ListChildComponentProps as ListProps } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 

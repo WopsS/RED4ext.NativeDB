@@ -63,7 +63,7 @@ function SidebarList(props: {
         height: number;
         items: string[];
     }): JSX.Element {
-    const listRef = useRef<List>();
+    const listRef = useRef<List>(null);
     const router = useRouter();
 
     useLayoutEffect(() => {
@@ -76,7 +76,7 @@ function SidebarList(props: {
 
     return (
         <List
-            ref={listRef as LegacyRef<List>}
+            ref={listRef}
             height={props.height}
             width={props.width}
             itemData={props.items}

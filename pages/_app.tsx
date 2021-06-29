@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         return () => {
           router.events.off("routeChangeComplete", onChanged);
         }
-      }, [router])
+      }, [router, menuIsOpen])
 
     return (
         <>
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         />
 
                         <main className={clsx(
-                            "flex-auto px-4 sm:px-6 xl:px-8 py-7 bg-white",
+                            "flex-auto w-full px-4 sm:px-6 xl:px-8 py-7 bg-white",
                             {
                                 "hidden": menuIsOpen
                             }

@@ -3,6 +3,8 @@ import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } fro
 import * as path from "path";
 import { ParsedUrlQuery } from "querystring";
 
+import Bitfield from "../components/natives/bitfield";
+import Enum from "../components/natives/enum";
 import BitfieldModel from "../models/bitfield.model";
 import ClassModel from "../models/class.model";
 import EnumModel from "../models/enum.model";
@@ -21,6 +23,13 @@ interface Params extends ParsedUrlQuery {
 }
 
 function Native(props: Props): JSX.Element {
+    if (props.type === NativeType.Bitfield) {
+        return <Bitfield {...props.data as BitfieldModel} />;
+    }
+    else if (props.type === NativeType.Enum) {
+        return <Enum {...props.data as EnumModel} />;
+    }
+
     return <div>Welcome to {props.data.name}!</div>;
 }
 

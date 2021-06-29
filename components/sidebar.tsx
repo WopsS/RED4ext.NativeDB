@@ -12,6 +12,7 @@ import enums from "../data/enums.json";
 import NativeType from "../utils/native-type";
 
 interface Props {
+    menuIsOpen: boolean;
     activeType: NativeType;
 }
 
@@ -90,7 +91,12 @@ function SidebarList(props: {
 function Sidebar(props: Props): JSX.Element  {
     const items = getItems(props.activeType);
     return (
-        <aside className="hidden lg:block lg:w-80 lg:min-h-full bg-gray-100 lg:border-r">
+        <aside className={clsx(
+            "w-full lg:block lg:w-80 min-h-full bg-gray-100 lg:border-r",
+            {
+                "hidden": !props.menuIsOpen
+            }
+        )}>
             <AutoSizer>
                 {({ height, width }) => (
                     <SidebarList width={width} height={height} items={items} />

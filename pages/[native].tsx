@@ -4,10 +4,12 @@ import * as path from "path";
 import { ParsedUrlQuery } from "querystring";
 
 import Bitfield from "../components/natives/bitfield";
+import Class from "../components/natives/class";
 import Enum from "../components/natives/enum";
 import BitfieldModel from "../models/bitfield.model";
 import ClassModel from "../models/class.model";
 import EnumModel from "../models/enum.model";
+import { FunctionFlags } from "../models/function.model";
 import NativeType from "../utils/native-type";
 import { collectNatives } from "../utils/natives";
 
@@ -30,7 +32,7 @@ function Native(props: Props): JSX.Element {
         return <Enum {...props.data as EnumModel} />;
     }
 
-    return <div>Welcome to {props.data.name}!</div>;
+    return <Class {...props.data as ClassModel} />;
 }
 
 export async function getStaticProps(ctx: GetStaticPropsContext<Params>): Promise<GetStaticPropsResult<Props>> {
@@ -64,6 +66,12 @@ export async function getStaticProps(ctx: GetStaticPropsContext<Params>): Promis
     }
 
     const content = await fs.readJSON(file) as NativeModel;
+
+    // Do some changes for classes.
+    if (nativeType === NativeType.Class) {
+        handle(content as ClassModel);
+    }
+
     return {
         props: {
             type: nativeType,
@@ -83,6 +91,43 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult<Params>>  {
     return {
         fallback: false,
         paths,
+    }
+}
+
+function handle(cls: ClassModel): void {
+    if (cls.funcs) {
+        /*
+        * Make sure functions are ordered as following:
+        *   import statics
+        *   statics
+        *   imports
+        *   normal functions
+        */
+        cls.funcs = cls.funcs.sort((lhs, rhs) => {
+            const isLhsNative = lhs.flags & FunctionFlags.Native;
+            const isRhsNative = rhs.flags & FunctionFlags.Native;
+
+            if (isLhsNative !== isRhsNative) {
+                if (isLhsNative > 0) {
+                    return -1;
+                }
+
+                return 1;
+            }
+
+            const isLhsStatic = lhs.flags & FunctionFlags.Static;
+            const isRhsStatic = rhs.flags & FunctionFlags.Static;
+
+            if (isLhsStatic !== isRhsStatic) {
+                if (isLhsStatic > 0) {
+                    return -1;
+                }
+
+                return 1;
+            }
+
+            return lhs.fullName.localeCompare(rhs.fullName);
+        });
     }
 }
 

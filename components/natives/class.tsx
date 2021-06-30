@@ -166,10 +166,6 @@ function Methods({ methods }: MethodsProps): JSX.Element | null {
 }
 
 function Class({ parent, name, props, funcs }: ClassModel): JSX.Element  {
-    if (!props && !funcs) {
-
-    }
-
     return (
         <>
             <NativeHeader name={name}>

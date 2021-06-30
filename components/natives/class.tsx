@@ -150,30 +150,42 @@ function Method(props: FunctionModel): JSX.Element {
                     code={code}
                 />
 
-                <HljsCode
-                    className={clsx(
-                        "flex-auto",
-                        {
-                            "hidden": !isFullNameShown
-                        }
-                    )}
-                    code={fullName}
-                />
+                {
+                    fullName !== shortName
+                    ? (
+                        <HljsCode
+                            className={clsx(
+                                "flex-auto",
+                                {
+                                    "hidden": !isFullNameShown
+                                }
+                            )}
+                            code={fullName}
+                        />
+                    )
+                    : null
+                }
             </div>
 
-            <button
-                title={`${isFullNameShown ? "Hide" : "Show"} function's full name (used in RED4ext and CET)`}
-                onClick={() => setFullNameShown(!isFullNameShown)}
-                className={clsx(
-                    "xl:self-stretch w-auto p-4 hover:bg-gray-200 hover:text-gray-900",
-                    {
-                        "text-gray-700": !isFullNameShown,
-                        "text-gray-900": isFullNameShown
-                    }
-                )}
-            >
-                <FontAwesomeIcon icon={isFullNameShown ? faEyeSlash : faEye} />
-            </button>
+            {
+                    fullName !== shortName
+                    ? (
+                        <button
+                            title={`${isFullNameShown ? "Hide" : "Show"} function's full name (used in RED4ext and CET)`}
+                            onClick={() => setFullNameShown(!isFullNameShown)}
+                            className={clsx(
+                                "xl:self-stretch w-auto p-4 hover:bg-gray-200 hover:text-gray-900",
+                                {
+                                    "text-gray-700": !isFullNameShown,
+                                    "text-gray-900": isFullNameShown
+                                }
+                            )}
+                        >
+                            <FontAwesomeIcon icon={isFullNameShown ? faEyeSlash : faEye} />
+                        </button>
+                    )
+                    : null
+                }
 
             <ExtraInfo
                 isNative={!!(flags & FunctionFlags.Native)}

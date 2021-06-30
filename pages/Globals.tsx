@@ -3,7 +3,6 @@ import { GetStaticPropsContext, GetStaticPropsResult } from "next";
 import * as path from "path";
 import Class from "../components/natives/class";
 import ClassModel from "../models/class.model";
-import { FunctionModel } from "../models/function.model";
 import NativeType from "../utils/native-type";
 
 interface Props {

@@ -41,7 +41,7 @@ function Row(props: ListProps<string[]>): JSX.Element {
 
     return (
         <>
-            <Link href={encodeURIComponent(item)}>
+            <Link href={`/${encodeURIComponent(item)}`}>
                 <a
                     className={clsx(
                         "flex items-center py-1 px-4 hover:bg-gray-200 transition duration-100",

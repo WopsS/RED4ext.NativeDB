@@ -165,24 +165,6 @@ function Methods({ methods }: MethodsProps): JSX.Element | null {
 }
 
 function Class({ parent, name, props, funcs }: ClassModel): JSX.Element  {
-    let methods: JSX.Element | null = null;
-    if (funcs) {
-        methods = (
-            <div className="mb-4">
-                <h2 className="mb-4 border-b border-gray-200">Methods</h2>
-                {funcs.map(f => {
-                    const ret = f.return
-                        ? `: ${f.return.type}`
-                        : '';
-
-                    const params = f.params?.map(p => p.name);
-                    const code = `${f.shortName}(${params})${ret}`;
-                    return <HljsCode key={f.fullName} className="mb-3" code={code} />
-                })}
-            </div>
-        );
-    }
-
     return (
         <>
             <NativeHeader name={name}>

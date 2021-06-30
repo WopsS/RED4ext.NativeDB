@@ -1,5 +1,5 @@
 import * as fs from "fs-extra";
-import { GetStaticPropsContext, GetStaticPropsResult } from "next";
+import { GetStaticPropsResult } from "next";
 import * as path from "path";
 import Class from "../components/natives/class";
 import ClassModel from "../models/class.model";
@@ -11,11 +11,11 @@ interface Props {
 }
 
 function Globals(props: Props): JSX.Element {
-    return <Class {...props.data as ClassModel} />;
+    return <Class {...props.data} />;
 }
 
 
-export async function getStaticProps(_ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> {
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
     const nativesDir = path.join(process.cwd(), "public", "natives");
     const file = path.join(nativesDir, `globals.json`);
 

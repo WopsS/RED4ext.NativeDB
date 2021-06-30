@@ -96,7 +96,7 @@ function ExtraInfo({ isNative, isStatic, isPublic, isProtected, isPrivate }: Ext
 }
 
 function Field({ type, name, flags }: PropertyModel): JSX.Element {
-    const code = `var ${name}: ${type}`;
+    const code = `var ${name} : ${type}`;
     return (
         <div id={name} className="flex flex-col xl:flex-row mb-3 rounded bg-gray-100 overflow-hidden">
             <HljsCode
@@ -134,7 +134,7 @@ function Method(props: FunctionModel): JSX.Element {
     const params = props.params;
     const flags = props.flags;
 
-    const paramList = params?.map(p => `${p.name}: ${p.type}`).join(", ") ?? '';
+    const paramList = params?.map(p => `${p.name} : ${p.type}`).join(", ") ?? '';
     const ret =
         props.return
         ? ` : ${props.return.type}`

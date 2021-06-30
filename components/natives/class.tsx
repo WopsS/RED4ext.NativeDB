@@ -166,14 +166,24 @@ function Methods({ methods }: MethodsProps): JSX.Element | null {
 }
 
 function Class({ parent, name, props, funcs }: ClassModel): JSX.Element  {
+    if (!props && !funcs) {
+
+    }
+
     return (
         <>
             <NativeHeader name={name}>
                 <Inheritance parent={parent} />
             </NativeHeader>
 
-            <Fields fields={props} />
-            <Methods methods={funcs} />
+            {
+                !props && !funcs
+                ? <p className="text-center">This class does not contain any fields or methods.</p>
+                : <>
+                    <Fields fields={props} />
+                    <Methods methods={funcs} />
+                </>
+            }
         </>
     );
 }

@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 import ClassModel from "../../models/class.model";
@@ -6,6 +8,7 @@ import { FunctionFlags, FunctionModel } from "../../models/function.model";
 import PropertyModel, { PropertyFlags } from "../../models/property.model";
 import HljsCode from "../hljs-code";
 import NativeHeader from "./native-header";
+import { useState } from "react";
 
 interface InheritanceProps {
     parent?: string;
@@ -124,6 +127,8 @@ function Fields({ fields }: FieldsProps): JSX.Element | null {
 }
 
 function Method(props: FunctionModel): JSX.Element {
+    const [isFullNameShown, setFullNameShown] = useState<boolean>(false);
+
     const fullName = props.fullName;
     const shortName = props.shortName;
     const params = props.params;
@@ -139,10 +144,36 @@ function Method(props: FunctionModel): JSX.Element {
 
     return (
         <div id={fullName} className="flex flex-col xl:flex-row mb-3 rounded bg-gray-100 overflow-hidden">
-            <HljsCode
-                className="flex-auto xl:mr-2"
-                code={code}
-            />
+            <div className="flex flex-col flex-auto overflow-auto">
+                <HljsCode
+                    className="flex-auto"
+                    code={code}
+                />
+
+                <HljsCode
+                    className={clsx(
+                        "flex-auto",
+                        {
+                            "hidden": !isFullNameShown
+                        }
+                    )}
+                    code={fullName}
+                />
+            </div>
+
+            <button
+                title={`${isFullNameShown ? "Hide" : "Show"} function's full name (used in RED4ext and CET)`}
+                onClick={() => setFullNameShown(!isFullNameShown)}
+                className={clsx(
+                    "xl:self-stretch w-auto p-4 hover:bg-gray-200 hover:text-gray-900",
+                    {
+                        "text-gray-700": !isFullNameShown,
+                        "text-gray-900": isFullNameShown
+                    }
+                )}
+            >
+                <FontAwesomeIcon icon={isFullNameShown ? faEyeSlash : faEye} />
+            </button>
 
             <ExtraInfo
                 isNative={!!(flags & FunctionFlags.Native)}

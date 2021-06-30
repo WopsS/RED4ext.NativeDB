@@ -35,7 +35,7 @@ function HljsCode({ className, language, code }: Props): JSX.Element {
 
     return (
         <pre className={clsx(
-            "p-4 !bg-gray-100 rounded overflow-x-auto hljs",
+            "p-4 !bg-gray-100 rounded overflow-auto hljs",
             className
         )}>
             <code dangerouslySetInnerHTML={{ __html: parsedCode }} />

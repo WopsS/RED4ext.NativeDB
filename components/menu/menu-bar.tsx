@@ -8,7 +8,7 @@ interface Props extends NativeTypeSelectorProps {
 function MenuBar(props: Props): JSX.Element {
     return (
         <div className={clsx(
-            "lg:flex w-full h-8 px-4 bg-gray-100 border-b",
+            "lg:flex flex-shrink-0 w-full h-8 px-4 bg-gray-100 border-b",
             {
                 "hidden": !props.menuIsOpen,
                 "flex": props.menuIsOpen

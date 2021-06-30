@@ -9,7 +9,7 @@ interface Props {
 
 function Header(props: Props): JSX.Element  {
     return (
-        <header className="flex items-center h-12 px-4 sm:px-6 bg-black-pearl text-white">
+        <header className="flex flex-shrink-0 items-center w-full h-12 px-4 sm:px-6 bg-black-pearl text-white">
             <button
                 className="flex items-center lg:hidden mr-4 sm:mr-6 hover:text-gray-200 transition duration-100"
                 onClick={() => props.onMenuToggle(!props.menuIsOpen)}
@@ -22,7 +22,7 @@ function Header(props: Props): JSX.Element  {
             </button>
             <Link href="/">
                 <a>
-                    <h1 className="text-2xl hover:text-gray-200 transition duration-100">NativeDB</h1>
+                    <span className="text-2xl hover:text-gray-200 transition duration-100">NativeDB</span>
                 </a>
             </Link>
         </header>

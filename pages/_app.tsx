@@ -38,27 +38,28 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
-            <div className="flex flex-col min-h-screen text-base text-black">
-                <Header
-                    menuIsOpen={menuIsOpen}
-                    onMenuToggle={(isOpen) => setMenuIsOpen(isOpen)}
-                />
 
-                <div className="flex flex-col flex-auto">
+            <div className="h-screen overflow-hidden">
+                <div className="flex flex-col h-full">
+                    <Header
+                        menuIsOpen={menuIsOpen}
+                        onMenuToggle={(isOpen) => setMenuIsOpen(isOpen)}
+                    />
+
                     <MenuBar
                         menuIsOpen={menuIsOpen}
                         activeType={activeType}
                         setActiveType={setActiveType}
                     />
 
-                    <div className="flex flex-row flex-auto">
+                    <div className="flex-auto lg:flex lg:flex-row">
                         <Sidebar
                             menuIsOpen={menuIsOpen}
                             activeType={activeType}
                         />
 
                         <main className={clsx(
-                            "flex-auto w-full px-4 sm:px-6 xl:px-8 py-7 bg-white",
+                            "flex-grow min-w-0 min-h-full max-h-0 px-4 sm:px-6 xl:px-8 py-7 bg-white overflow-auto",
                             {
                                 "hidden": menuIsOpen
                             }

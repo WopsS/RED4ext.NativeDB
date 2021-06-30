@@ -73,20 +73,21 @@ function ExtraInfo({ isNative, isStatic, isPublic, isProtected, isPrivate }: Ext
     return (
         <>
             {elems.map((e, index) => {
-                const isLast = (elems.length - 1) === index;
+                const isFirst = index == 0;
+                const isLast = index === (elems.length - 1);
                 return (
                     <div key={index} className={clsx(
-                        "p-4 rounded-none lg:rounded bg-gray-100",
+                        "xl:self-center p-4 bg-gray-100 xl:border-0",
                         {
-                            "rounded-b": isLast,
-                            "lg:mr-3": !isLast
+                            "xl:mr-2": !isLast,
+                            "border-t-2": isFirst,
+                            "border-b": !isLast
                         }
                     )}>
                         {e}
                     </div>
                 );
-            }
-            )}
+            })}
         </>
     );
 }
@@ -94,9 +95,9 @@ function ExtraInfo({ isNative, isStatic, isPublic, isProtected, isPrivate }: Ext
 function Field({ type, name, flags }: PropertyModel): JSX.Element {
     const code = `var ${name}: ${type}`;
     return (
-        <div id={name} className="flex flex-col lg:flex-row mb-3">
+        <div id={name} className="flex flex-col xl:flex-row mb-3 rounded bg-gray-100 overflow-hidden">
             <HljsCode
-                className="flex-auto lg:mr-2 rounded-b-none lg:rounded"
+                className="flex-auto xl:mr-2"
                 code={code}
             />
 
@@ -137,9 +138,9 @@ function Method(props: FunctionModel): JSX.Element {
     const code = `${shortName}(${paramList})${ret}`;
 
     return (
-        <div id={fullName} className="flex flex-col lg:flex-row mb-3">
+        <div id={fullName} className="flex flex-col xl:flex-row mb-3 rounded bg-gray-100 overflow-hidden">
             <HljsCode
-                className="flex-auto lg:mr-2 rounded-b-none lg:rounded"
+                className="flex-auto xl:mr-2"
                 code={code}
             />
 

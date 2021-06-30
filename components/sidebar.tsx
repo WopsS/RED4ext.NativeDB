@@ -92,7 +92,7 @@ function Sidebar(props: Props): JSX.Element  {
     const items = getItems(props.activeType);
     return (
         <aside className={clsx(
-            "w-full lg:block lg:w-80 min-h-full bg-gray-100 lg:border-r",
+            "lg:block flex-shrink-0 w-full lg:w-80 h-full bg-gray-100 lg:border-r",
             {
                 "hidden": !props.menuIsOpen
             }

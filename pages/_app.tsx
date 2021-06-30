@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         />
 
                         <main className={clsx(
-                            "flex-grow min-w-0 min-h-full max-h-0 px-4 sm:px-6 xl:px-8 py-7 bg-white overflow-auto",
+                            "flex-grow min-w-0 h-full min-h-full max-h-0 px-4 sm:px-6 xl:px-8 py-7 bg-white overflow-auto",
                             {
                                 "hidden": menuIsOpen
                             }

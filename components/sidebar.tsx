@@ -25,7 +25,7 @@ function getItems(type: NativeType): string[] {
             return enums;
         }
         default: {
-            return classes;
+            return ["Globals", ...classes];
         }
     }
 }

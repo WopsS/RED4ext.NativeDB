@@ -1,7 +1,6 @@
 import { Configure, InstantSearch } from "react-instantsearch-dom";
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 
-import Hit from "./hit";
 import Hits from "./hits";
 
 interface Props {

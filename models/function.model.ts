@@ -10,5 +10,5 @@ export interface FunctionModel {
     shortName: string;
     return: BasePropertyModel;
     flags: number;
-    params: PropertyModel[];
+    params?: PropertyModel[];
 }

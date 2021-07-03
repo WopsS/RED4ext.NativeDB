@@ -9,7 +9,7 @@ interface Props {
 
 const searchClient = instantMeiliSearch(
     process.env.meilisearchHost ?? "http://127.0.0.1:7700",
-    process.env.meilisearchKey ?? "",
+    process.env.meilisearchPublicKey ?? "",
     {
         primaryKey: "name"
     }

@@ -45,7 +45,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <Head>
                 <title>
                     {
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                         pageProps?.title
+                            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/restrict-template-expressions
                             ? `${pageProps?.title} - `
                             : ""
                     }

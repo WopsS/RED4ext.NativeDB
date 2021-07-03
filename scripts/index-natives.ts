@@ -86,8 +86,8 @@ async function run(): Promise<void> {
     const enums = await processEnums();
 
     const client = new MeiliSearch({
-        host: process.env.NATIVEDB_MEILISEARCH_HOST ?? "http://127.0.0.1:7700",
-        apiKey: process.env.NATIVEDB_MEILISEARCH_PRIVATE_KEY ?? ""
+        host: process.env.NEXT_PUBLIC_MEILISEARCH_HOST ?? "http://127.0.0.1:7700",
+        apiKey: process.env.MEILISEARCH_PRIVATE_KEY ?? ""
     });
 
     const index = await client.getOrCreateIndex("natives", {

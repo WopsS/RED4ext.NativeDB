@@ -42,7 +42,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext<Params>): Promis
         };
     }
 
-    const nativesDir = path.join(process.cwd(), "public", "natives");
+    const nativesDir = path.join(process.cwd(), "data", "natives");
     const filename = `${ctx.params.native}.json`;
 
     // Find where the native is located, starting with "bitfields" directory since it has the fewest entries.
@@ -81,7 +81,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext<Params>): Promis
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult<Params>>  {
-    const nativesDir = path.join(process.cwd(), "public", "natives");
+    const nativesDir = path.join(process.cwd(), "data", "natives");
     const bitfields = await collectNatives(path.join(nativesDir, "bitfields"));
     const classes = await collectNatives(path.join(nativesDir, "classes"));
     const enums = await collectNatives(path.join(nativesDir, "enums"));

@@ -9,7 +9,7 @@ async function generate(inputDir: string, outputFile: string): Promise<void> {
 }
 
 const dataDir = path.join(process.cwd(), "data");
-const nativesDir = path.join(process.cwd(), "public", "natives");
+const nativesDir = path.join(dataDir, "natives");
 
 generate(path.join(nativesDir, "bitfields"), path.join(dataDir, "bitfields.json"));
 generate(path.join(nativesDir, "classes"), path.join(dataDir, "classes.json"));

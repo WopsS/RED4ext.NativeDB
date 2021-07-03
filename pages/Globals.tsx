@@ -16,7 +16,7 @@ function Globals(props: Props): JSX.Element {
 
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
-    const nativesDir = path.join(process.cwd(), "public", "natives");
+    const nativesDir = path.join(process.cwd(), "data", "natives");
     const file = path.join(nativesDir, `globals.json`);
 
     const content = await fs.readJSON(file) as ClassModel;

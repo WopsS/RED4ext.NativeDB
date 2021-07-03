@@ -14,7 +14,7 @@ import ClassModel from "../models/class.model";
 import EnumModel from "../models/enum.model";
 import NativeType from "../utils/native-type";
 
-const nativesDir = path.join(process.cwd(), "public", "natives");
+const nativesDir = path.join(process.cwd(), "data", "natives");
 dotenv.config();
 
 async function processBitfields(): Promise<EnumDocument[]> {

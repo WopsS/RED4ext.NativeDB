@@ -6,6 +6,7 @@ import ClassModel from "../models/class.model";
 import NativeType from "../utils/native-type";
 
 interface Props {
+    title: string;
     type: NativeType;
     data:  ClassModel;
 }
@@ -24,6 +25,7 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
 
     return {
         props: {
+            title: "Globals",
             type: NativeType.Class,
             data: {
                 name: "Globals",

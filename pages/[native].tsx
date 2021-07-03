@@ -16,6 +16,7 @@ import { collectNatives } from "../utils/natives";
 type NativeModel = BitfieldModel | ClassModel | EnumModel;
 
 interface Props {
+    title: string;
     type: NativeType;
     data:  NativeModel;
 }
@@ -74,6 +75,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext<Params>): Promis
 
     return {
         props: {
+            title: content.name,
             type: nativeType,
             data: content
         }

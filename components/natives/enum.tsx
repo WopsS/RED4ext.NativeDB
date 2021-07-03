@@ -1,5 +1,5 @@
 import EnumModel from "../../models/enum.model";
-import HljsCode from "../hljs-code";
+import Hljs from "../hljs/hljs";
 
 import NativeHeader from "./native-header";
 
@@ -16,7 +16,7 @@ ${members
     return (
         <>
             <NativeHeader name={name} />
-            <HljsCode code={code} />
+            <Hljs code={code} />
         </>
     );
 }

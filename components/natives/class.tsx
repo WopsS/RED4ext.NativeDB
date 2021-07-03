@@ -6,7 +6,7 @@ import Link from "next/link";
 import ClassModel from "../../models/class.model";
 import { FunctionFlags, FunctionModel } from "../../models/function.model";
 import PropertyModel, { PropertyFlags } from "../../models/property.model";
-import HljsCode from "../hljs-code";
+import Hljs from "../hljs/hljs";
 import NativeHeader from "./native-header";
 import { useState } from "react";
 
@@ -99,7 +99,7 @@ function Field({ type, name, flags }: PropertyModel): JSX.Element {
     const code = `var ${name} : ${type}`;
     return (
         <div id={name} className="flex flex-col xl:flex-row mb-3 rounded bg-gray-100 overflow-hidden">
-            <HljsCode
+            <Hljs
                 className="flex-auto xl:mr-2"
                 code={code}
             />
@@ -145,7 +145,7 @@ function Method(props: FunctionModel): JSX.Element {
     return (
         <div id={fullName} className="flex flex-col xl:flex-row mb-3 rounded bg-gray-100 overflow-hidden">
             <div className="flex flex-col flex-auto overflow-auto">
-                <HljsCode
+                <Hljs
                     className="flex-auto"
                     code={code}
                 />
@@ -153,13 +153,14 @@ function Method(props: FunctionModel): JSX.Element {
                 {
                     fullName !== shortName
                     ? (
-                        <HljsCode
+                        <Hljs
                             className={clsx(
                                 "flex-auto",
                                 {
                                     "hidden": !isFullNameShown
                                 }
                             )}
+                            language="plaintext"
                             code={fullName}
                         />
                     )

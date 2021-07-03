@@ -25,7 +25,8 @@ function cyberscript(hljs?: HLJSApi): Language {
         "handle",
         "whandle",
         "array",
-        "out"
+        "out",
+        "optional"
     ];
 
     const RESERVED_TYPES = [

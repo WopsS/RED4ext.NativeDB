@@ -8,7 +8,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 mono: [
-                    "'Fira Code VF'",
+                    //"'Fira Code VF'",
                     "'Fira Code'",
                     ...defaultTheme.fontFamily.mono
                 ]

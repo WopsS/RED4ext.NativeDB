@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -9,8 +10,8 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 @NgModule({
     bootstrap: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule],
     declarations: [AppComponent, NotFoundComponent, HomeComponent],
+    imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
     providers: []
 })
 export class AppModule {}

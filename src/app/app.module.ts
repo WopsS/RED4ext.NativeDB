@@ -9,7 +9,7 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 @NgModule({
     bootstrap: [AppComponent],
     imports: [BrowserModule, AppRoutingModule],
-    declarations: [AppComponent, NotFoundComponent],
+    declarations: [AppComponent, NotFoundComponent, HomeComponent],
     providers: []
 })
 export class AppModule {}

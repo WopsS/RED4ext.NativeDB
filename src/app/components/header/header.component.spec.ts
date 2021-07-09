@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { HeaderComponent } from "./header.component";
@@ -8,6 +9,7 @@ describe("HeaderComponent", () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [FontAwesomeModule],
             declarations: [HeaderComponent]
         }).compileComponents();
     });

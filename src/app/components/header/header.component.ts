@@ -1,14 +1,18 @@
 import { Subscription } from "rxjs";
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import { MenuService } from "./services/menu.service";
+import { MenuService } from "../../services/menu.service";
 
 @Component({
-    selector: "app-root",
-    templateUrl: "./app.component.html",
-    styleUrls: ["./app.component.scss"]
+    selector: "app-header",
+    templateUrl: "./header.component.html",
+    styleUrls: ["./header.component.scss"]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
+    public readonly faBars = faBars;
+    public readonly faTimes = faTimes;
+
     public isMenuOpen = false;
     private isMenuOpenSub?: Subscription | null;
 
@@ -25,5 +29,9 @@ export class AppComponent implements OnInit, OnDestroy {
             this.isMenuOpenSub.unsubscribe();
             this.isMenuOpenSub = null;
         }
+    }
+
+    public toggleMenu(): void {
+        this.menuService.toggle();
     }
 }

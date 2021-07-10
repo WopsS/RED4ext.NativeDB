@@ -2,9 +2,9 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { TestBed } from "@angular/core/testing";
 
 import { AppComponent } from "./app.component";
-import { HeaderComponent } from "./components/header/header.component";
-import { MenuBarComponent } from "./components/menu-bar/menu-bar.component";
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { HeaderComponent } from "./header/header.component";
+import { MenuBarComponent } from "./menu-bar/menu-bar.component";
+import { SidebarComponent } from "./sidebar/sidebar.component";
 
 describe("AppComponent", () => {
     beforeEach(async () => {

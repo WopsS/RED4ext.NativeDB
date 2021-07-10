@@ -1,0 +1,278 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "NetworkMinigameGridController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "gridContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "horizontalHoverHighlight",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "horizontalCurrentHighlight",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "verticalHoverHighlight",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "verticalCurrentHighlight",
+      "flags": 4297195553
+    },
+    {
+      "type": "Vector2",
+      "name": "gridVisualOffset",
+      "flags": 4297195553
+    },
+    {
+      "type": "CName",
+      "name": "gridCellLibraryName",
+      "flags": 4297195553
+    },
+    {
+      "type": "array:CellData",
+      "name": "gridData",
+      "flags": 6583222304
+    },
+    {
+      "type": "CellData",
+      "name": "lastSelected",
+      "flags": 4297326624
+    },
+    {
+      "type": "Vector2",
+      "name": "currentActivePosition",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isHorizontalHighlight",
+      "flags": 4297326624
+    },
+    {
+      "type": "CellData",
+      "name": "lastHighlighted",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animHighlightProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "firstBoot",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isHorizontal",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddCell;CellData",
+      "shortName": "AddCell",
+      "return": {
+        "type": "whandle:inkWidget",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CellData",
+          "name": "toAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Clear;",
+      "shortName": "Clear",
+      "flags": 132
+    },
+    {
+      "fullName": "FindCellData;Vector2",
+      "shortName": "FindCellData",
+      "return": {
+        "type": "CellData",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetGrid;",
+      "shortName": "GetGrid",
+      "return": {
+        "type": "array:CellData",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetLastCellSelected;",
+      "shortName": "GetLastCellSelected",
+      "return": {
+        "type": "CellData",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "HighlightCellSet;Int32BoolBool",
+      "shortName": "HighlightCellSet",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isHover",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isHorizontal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HighlightFromCellHover;Vector2",
+      "shortName": "HighlightFromCellHover",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsOnCurrentCellSet;Vector2",
+      "shortName": "IsOnCurrentCellSet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "RefreshDimLevels;Int32Bool",
+      "shortName": "RefreshDimLevels",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isHorizontal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveHighlightFromCellHover;",
+      "shortName": "RemoveHighlightFromCellHover",
+      "flags": 516
+    },
+    {
+      "fullName": "SetCurrentActivePosition;Vector2Bool",
+      "shortName": "SetCurrentActivePosition",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isHorizontal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetGridData;array<CellData>",
+      "shortName": "SetGridData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:CellData",
+          "name": "gridData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLastCellSelected;CellData",
+      "shortName": "SetLastCellSelected",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CellData",
+          "name": "cell",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUp;array<CellData>",
+      "shortName": "SetUp",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:CellData",
+          "name": "gridData",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

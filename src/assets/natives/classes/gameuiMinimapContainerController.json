@@ -1,0 +1,411 @@
+{
+  "parent": "gameuiMappinsContainerController",
+  "name": "gameuiMinimapContainerController",
+  "flags": 2,
+  "props": [
+    {
+      "type": "Float",
+      "name": "visionRadiusVehicle",
+      "group": "Minimap Settings",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "visionRadiusCombat",
+      "group": "Minimap Settings",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "visionRadiusQuestArea",
+      "group": "Minimap Settings",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "visionRadiusSecurityArea",
+      "group": "Minimap Settings",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "visionRadiusInterior",
+      "group": "Minimap Settings",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "visionRadiusExterior",
+      "group": "Minimap Settings",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "clampedMappinContainer",
+      "group": "Widgets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "unclampedMappinContainer",
+      "group": "Widgets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkMaskWidgetReference",
+      "name": "maskWidget",
+      "group": "Widgets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "playerIconWidget",
+      "group": "Widgets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "compassWidget",
+      "group": "Widgets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkCanvasWidgetReference",
+      "name": "worldGeometryContainer",
+      "group": "World Geometry",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkCacheWidgetReference",
+      "name": "worldGeometryCache",
+      "group": "World Geometry",
+      "flags": 6627016705
+    },
+    {
+      "type": "CName",
+      "name": "geometryLibraryID",
+      "group": "World Geometry",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "timeDisplayWidget",
+      "group": "Game Time Update",
+      "flags": 6627016705
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootZoneSafety",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "locationTextWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "fluffText1",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "securityAreaVignetteWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "securityAreaText",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "messageCounter",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "combatModeHighlight",
+      "flags": 4297195553
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "zoneVignetteAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "inPublicOrRestrictedZone",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "fluffTextCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "mapBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UI_MapDef",
+      "name": "mapDefinition",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "locationDataCallback",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "securityBlackBoardID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "combatAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "playerInCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "zoneNeedsUpdate",
+      "flags": 4297130016
+    },
+    {
+      "type": "ESecurityAreaType",
+      "name": "lastZoneType",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "messageCounterController",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CreateMappinUIProfile;IMappingamedataMappinVariantMappinControllerCustomData",
+      "shortName": "CreateMappinUIProfile",
+      "return": {
+        "type": "gameuiMappinUIProfile",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamemappinsIMappin",
+          "name": "mappin",
+          "flags": 128
+        },
+        {
+          "type": "gamedataMappinVariant",
+          "name": "mappinVariant",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameuiMappinControllerCustomData",
+          "name": "customData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializePlayer;GameObject",
+      "shortName": "InitializePlayer",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnLocationUpdated",
+      "shortName": "OnLocationUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "String",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPSMCombatChanged",
+      "shortName": "OnPSMCombatChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gamePSMCombat",
+          "name": "psmCombat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerEnterArea",
+      "shortName": "OnPlayerEnterArea",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:gameuiMinimapSecurityAreaMappinController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerExitArea",
+      "shortName": "OnPlayerExitArea",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:gameuiMinimapSecurityAreaMappinController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityDataChange",
+      "shortName": "OnSecurityDataChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnitialize",
+      "shortName": "OnUnitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "SecurityZoneUpdate;ESecurityAreaType",
+      "shortName": "SecurityZoneUpdate",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecurityAreaType",
+          "name": "zone",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ZoneToState;ESecurityAreaType",
+      "shortName": "ZoneToState",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecurityAreaType",
+          "name": "zone",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ZoneToTextKey;ESecurityAreaType",
+      "shortName": "ZoneToTextKey",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecurityAreaType",
+          "name": "zone",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

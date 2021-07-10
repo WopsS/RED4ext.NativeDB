@@ -1,0 +1,346 @@
+{
+  "parent": "gameuiGenericNotificationGameController",
+  "name": "ItemsNotificationQueue",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Float",
+      "name": "showDuration",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameTransactionSystem",
+      "name": "transactionSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "currencyNotification",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "itemNotification",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "xpNotification",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerPuppet",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameInventoryScriptListener",
+      "name": "inventoryListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameInventoryScriptListener",
+      "name": "currencyInventoryListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "playerStatsBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PlayerDevelopmentSystem",
+      "name": "playerDevelopmentSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "combatModeListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:InventoryDataManagerV2",
+      "name": "InventoryManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ItemPreferredComparisonResolver",
+      "name": "comparisonResolver",
+      "flags": 4431347744
+    },
+    {
+      "type": "gamePSMCombat",
+      "name": "combatModePSM",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "GetComparisonState;InventoryItemData",
+      "shortName": "GetComparisonState",
+      "return": {
+        "type": "gameItemComparisonState",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetID;",
+      "shortName": "GetID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33280
+    },
+    {
+      "fullName": "GetShouldSaveState;",
+      "shortName": "GetShouldSaveState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33280
+    },
+    {
+      "fullName": "NeedsNotification;gamedataEquipmentArea",
+      "shortName": "NeedsNotification",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterProficiencyUpdated",
+      "shortName": "OnCharacterProficiencyUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ProficiencyProgressEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCombatStateChanged",
+      "shortName": "OnCombatStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNewTarotCardAdded",
+      "shortName": "OnNewTarotCardAdded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:TarotCardAdded",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUILootedItemEvent",
+      "shortName": "OnUILootedItemEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsLootedItemEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVendorBoughtItemEvent",
+      "shortName": "OnVendorBoughtItemEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VendorBoughtItemEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushCurrencyNotification;Int32Uint32",
+      "shortName": "PushCurrencyNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "diff",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "total",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushItemNotification;ItemIDCName",
+      "shortName": "PushItemNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "itemRarity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushXPNotification;Int32Int32Int32CNameStringgamedataProficiencyTypeInt32Bool",
+      "shortName": "PushXPNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "remainingPointsToLevelUp",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "delta",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "notificationColorTheme",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "notificationName",
+          "flags": 128
+        },
+        {
+          "type": "gamedataProficiencyType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "currentLevel",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isLevelMaxed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterPSMListeners;GameObject",
+      "shortName": "RegisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterPSMListeners;GameObject",
+      "shortName": "UnregisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

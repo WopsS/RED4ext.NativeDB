@@ -1,0 +1,376 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "hudCameraController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Float",
+      "name": "pitch_min",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "pitch_max",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "yaw_min",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "yaw_max",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "tele_min",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "tele_max",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "tele_scale",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "max_zoom_level",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "Date",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "Timer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "CameraID",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "timerHrs",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "timerMin",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "timerSec",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "watermark",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "yawCounter",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "pitchCounter",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCanvasWidgetReference",
+      "name": "pitch",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCanvasWidgetReference",
+      "name": "yaw",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCanvasWidgetReference",
+      "name": "tele",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCanvasWidgetReference",
+      "name": "teleScale",
+      "flags": 4297130017
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "scanBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "psmBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "tcsBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "PSM_BBID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "tcs_BBID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "deviceChain_BBID",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCompoundWidget",
+      "name": "root",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "currentZoom",
+      "flags": 4297130016
+    },
+    {
+      "type": "GameTime",
+      "name": "currentTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "controlledObjectRef",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "alpha_fadein",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "AnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "AnimOptions",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "ownerObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maxZoomLevel",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ChangeCameraName;",
+      "shortName": "ChangeCameraName",
+      "flags": 260
+    },
+    {
+      "fullName": "GetEntityNameFromEntityID;GameObject",
+      "shortName": "GetEntityNameFromEntityID",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChangeControlledDevice",
+      "shortName": "OnChangeControlledDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayedHUDInitializeEvent",
+      "shortName": "OnDelayedHUDInitializeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DelayedHUDInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEndLoop",
+      "shortName": "OnEndLoop",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControllOverDevice",
+      "shortName": "OnTakeControllOverDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnZoomChange",
+      "shortName": "OnZoomChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "curZoom",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveState;",
+      "shortName": "ResolveState",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateRulers;",
+      "shortName": "UpdateRulers",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateTime;",
+      "shortName": "UpdateTime",
+      "flags": 132
+    }
+  ]
+}

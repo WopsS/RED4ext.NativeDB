@@ -1,0 +1,817 @@
+{
+  "parent": "MasterControllerPS",
+  "name": "SecurityAreaControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "handle:SecuritySystemControllerPS",
+      "name": "system",
+      "flags": 4431347744
+    },
+    {
+      "type": "array:AreaEntry",
+      "name": "usersInPerimeter",
+      "flags": 6851461152
+    },
+    {
+      "type": "Bool",
+      "name": "isPlayerInside",
+      "flags": 4565565472
+    },
+    {
+      "type": "ESecurityAccessLevel",
+      "name": "securityAccessLevel",
+      "flags": 4364238881
+    },
+    {
+      "type": "ESecurityAreaType",
+      "name": "securityAreaType",
+      "flags": 4632674337
+    },
+    {
+      "type": "EventsFilters",
+      "name": "eventsFilters",
+      "flags": 4364238881
+    },
+    {
+      "type": "array:AreaTypeTransition",
+      "name": "areaTransitions",
+      "flags": 6650134561
+    },
+    {
+      "type": "Bool",
+      "name": "pendingDisableRequest",
+      "flags": 4565565472
+    },
+    {
+      "type": "OutputPersistentData",
+      "name": "lastOutput",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "questPlayerHasTriggeredCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hasThisAreaReceivedCombatNotification",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "pendingNotifyPlayerAboutTransition",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "SecurityAreaControllerPS::SecurityAreaTypeEnumToName;ESecurityAreaType",
+      "shortName": "SecurityAreaTypeEnumToName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ESecurityAreaType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionSecurityAreaCrossingPerimeter;GameObjectBool",
+      "shortName": "ActionSecurityAreaCrossingPerimeter",
+      "return": {
+        "type": "handle:SecurityAreaCrossingPerimeter",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "whoEntered",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "entered",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ApplyTransition;Uint32",
+      "shortName": "ApplyTransition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "listenerIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ApplyTransition;AreaTypeTransition",
+      "shortName": "ApplyTransition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "AreaTypeTransition",
+          "name": "transition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AreaEntered;AreaEnteredEvent",
+      "shortName": "AreaEntered",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:entAreaEnteredEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AreaExited;GameObject",
+      "shortName": "AreaExited",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ExtractSquadProxies;",
+      "shortName": "ExtractSquadProxies",
+      "return": {
+        "type": "array:handle:CommunityProxyPS",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "FillAgentsList;array<PSOwnerData>",
+      "shortName": "FillAgentsList",
+      "flags": 41472,
+      "params": [
+        {
+          "type": "array:PSOwnerData",
+          "name": "agentsList",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "FindEntryIndex;EntityID",
+      "shortName": "FindEntryIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "userToFind",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GameAttached;",
+      "shortName": "GameAttached",
+      "flags": 256
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDebugTags;",
+      "shortName": "GetDebugTags",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceName",
+      "shortName": "GetDeviceName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetDevices;",
+      "shortName": "GetDevices",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetIncomingFilter;",
+      "shortName": "GetIncomingFilter",
+      "return": {
+        "type": "EFilterType",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLastOutput;",
+      "shortName": "GetLastOutput",
+      "return": {
+        "type": "handle:SecuritySystemOutput",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetNPCs;",
+      "shortName": "GetNPCs",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetOutgoingFilter;",
+      "shortName": "GetOutgoingFilter",
+      "return": {
+        "type": "EFilterType",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecurityAccessLevel;",
+      "shortName": "GetSecurityAccessLevel",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetSecurityAreaAgents;",
+      "shortName": "GetSecurityAreaAgents",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecurityAreaData;",
+      "shortName": "GetSecurityAreaData",
+      "return": {
+        "type": "SecurityAreaData",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecurityAreaType;",
+      "shortName": "GetSecurityAreaType",
+      "return": {
+        "type": "ESecurityAreaType",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecurityAreaTypeAsUint32;",
+      "shortName": "GetSecurityAreaTypeAsUint32",
+      "return": {
+        "type": "Uint32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSecuritySystem;",
+      "shortName": "GetSecuritySystem",
+      "return": {
+        "type": "handle:SecuritySystemControllerPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetTurrets;script_ref<array<SecurityTurretControllerPS>>",
+      "shortName": "GetTurrets",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "script_ref:array:handle:SecurityTurretControllerPS",
+          "name": "turrets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetUsersInPerimeter;",
+      "shortName": "GetUsersInPerimeter",
+      "return": {
+        "type": "array:AreaEntry",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "HasPlayerBeenSpottedAndTriggeredCombat;",
+      "shortName": "HasPlayerBeenSpottedAndTriggeredCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "HasThisAreaReceivedCombatNotification;",
+      "shortName": "HasThisAreaReceivedCombatNotification",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "IsActive;",
+      "shortName": "IsActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsAreaCompromised;",
+      "shortName": "IsAreaCompromised",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsConnectedToSecuritySystem;ESecurityAccessLevel",
+      "shortName": "IsConnectedToSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsConnectedToSystem;",
+      "shortName": "IsConnectedToSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsDisableAllowed;script_ref<array<SecurityTurretControllerPS>>",
+      "shortName": "IsDisableAllowed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "script_ref:array:handle:SecurityTurretControllerPS",
+          "name": "turrets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayerInside;",
+      "shortName": "IsPlayerInside",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8452
+    },
+    {
+      "fullName": "IsUserInside;EntityID",
+      "shortName": "IsUserInside",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "userToBeChecked",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifySecuritySystem;SecurityAreaCrossingPerimeter",
+      "shortName": "NotifySecuritySystem",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecurityAreaCrossingPerimeter",
+          "name": "tresspassingEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifySystemAboutCrossingPerimeter;GameObjectBool",
+      "shortName": "NotifySystemAboutCrossingPerimeter",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "tresspasser",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "entering",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFullSystemRestart;FullSystemRestart",
+      "shortName": "OnFullSystemRestart",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:FullSystemRestart",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameEntitySpawnerEvent;gameEntitySpawnerEvent",
+      "shortName": "OnGameEntitySpawnerEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameEntitySpawnerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
+      "shortName": "OnMaraudersMapDeviceDebug",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:worldMaraudersMapDevicesSink",
+          "name": "sink",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestAddTransition;QuestAddTransition",
+      "shortName": "OnQuestAddTransition",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestAddTransition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestCombatActionAreaNotification;QuestCombatActionAreaNotification",
+      "shortName": "OnQuestCombatActionAreaNotification",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:QuestCombatActionAreaNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestExecuteTransition;QuestExecuteTransition",
+      "shortName": "OnQuestExecuteTransition",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestExecuteTransition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestIllegalActionAreaNotification;QuestIllegalActionAreaNotification",
+      "shortName": "OnQuestIllegalActionAreaNotification",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestIllegalActionAreaNotification",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestModifyFilter;QuestModifyFilters",
+      "shortName": "OnQuestModifyFilter",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestModifyFilters",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestRemoveTransition;QuestRemoveTransition",
+      "shortName": "OnQuestRemoveTransition",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestRemoveTransition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemForceAttitudeChange;SecuritySystemForceAttitudeChange",
+      "shortName": "OnSecuritySystemForceAttitudeChange",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecuritySystemForceAttitudeChange",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
+      "shortName": "OnSecuritySystemOutput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "breachEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityTurretOffline;SecurityTurretOffline",
+      "shortName": "OnSecurityTurretOffline",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecurityTurretOffline",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
+      "shortName": "OnTargetAssessmentRequest",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:TargetAssessmentRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PostponeAreaDisabling;array<SecurityTurretControllerPS>",
+      "shortName": "PostponeAreaDisabling",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:SecurityTurretControllerPS",
+          "name": "turrets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessOnEnterRequest;GameObject",
+      "shortName": "ProcessOnEnterRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "objectToProcess",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessOnExitRequest;AreaEntry",
+      "shortName": "ProcessOnExitRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "AreaEntry",
+          "name": "entryToProcess",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushUniqueEntry;AreaEntry",
+      "shortName": "PushUniqueEntry",
+      "flags": 132,
+      "params": [
+        {
+          "type": "AreaEntry",
+          "name": "entryToPush",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterTimeSystemListeners;Entity",
+      "shortName": "RegisterTimeSystemListeners",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:entEntity",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveSecurityAreaType;",
+      "shortName": "ResolveSecurityAreaType",
+      "flags": 132
+    },
+    {
+      "fullName": "RestoreLastOutput;",
+      "shortName": "RestoreLastOutput",
+      "return": {
+        "type": "handle:SecuritySystemOutput",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "SetSecurityAreaType;ESecurityAreaType",
+      "shortName": "SetSecurityAreaType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecurityAreaType",
+          "name": "newType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StoreLastOutputPersistentData;SecuritySystemOutput",
+      "shortName": "StoreLastOutputPersistentData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "breachEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterTimeSystemListeners;",
+      "shortName": "UnregisterTimeSystemListeners",
+      "flags": 516
+    },
+    {
+      "fullName": "UpdateMiniMapRepresentation;",
+      "shortName": "UpdateMiniMapRepresentation",
+      "flags": 132
+    }
+  ]
+}

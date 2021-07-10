@@ -1,0 +1,785 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "healthbarWidgetGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "bbPlayerStats",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "bbPlayerEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "bbRightWeaponInfo",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "bbRightWeaponEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "bbLeftWeaponInfo",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "bbLeftWeaponEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbPSceneTierEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "visionStateBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "combatModeBlackboardId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "bbQuickhacksMemeoryEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkWidgetPath",
+      "name": "healthPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetPath",
+      "name": "healthBarPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetPath",
+      "name": "armorPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetPath",
+      "name": "armorBarPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "expBar",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "expBarSpacer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "levelUpArrow",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "levelUpFrame",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "barsLayoutPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "buffsHolder",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "invulnerableTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "levelTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "nextLevelTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "healthTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "maxHealthTextPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "quickhacksContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "expText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "expTextLabel",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "lostHealthAggregationBar",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "levelUpRectangle",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:NameplateBarLogicController",
+      "name": "healthController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ProgressBarSimpleWidgetLogicController",
+      "name": "armorController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "RootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "buffWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "HPBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "armorBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkTextWidget",
+      "name": "invulnerableText",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animHideTemp",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animShortFade",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animLongFade",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animHideHPProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "delayAnimation",
+      "flags": 4431544352
+    },
+    {
+      "type": "Bool",
+      "name": "animCreated",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "aggregatingActive",
+      "flags": 4297326624
+    },
+    {
+      "type": "Int32",
+      "name": "countingStartHealth",
+      "flags": 4297326624
+    },
+    {
+      "type": "Int32",
+      "name": "currentHealth",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "previousHealth",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maximumHealth",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "quickhacksMemoryPercent",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "currentArmor",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maximumArmor",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkWidget",
+      "name": "quickhackBarArray",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "maxQuickhackBars",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "usedQuickhacks",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "buffsVisible",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isUnarmedRightHand",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isUnarmedLeftHand",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamePSMVision",
+      "name": "currentVisionPSM",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamePSMCombat",
+      "name": "combatModePSM",
+      "flags": 4297130016
+    },
+    {
+      "type": "GameplayTier",
+      "name": "sceneTier",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:GodModeStatListener",
+      "name": "godModeStatListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "playerStatsBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "characterCurrentXPListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "levelUpBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "playerLevelUpListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "currentLevel",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:PlayerDevelopmentSystem",
+      "name": "playerDevelopmentSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstance",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "foldingAnimProxy",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AnimateCharacterLevelUpdated;Int32Bool",
+      "shortName": "AnimateCharacterLevelUpdated",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipAnimation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ComputeHealthBarVisibility;",
+      "shortName": "ComputeHealthBarVisibility",
+      "flags": 132
+    },
+    {
+      "fullName": "CreateAnimations;",
+      "shortName": "CreateAnimations",
+      "flags": 132
+    },
+    {
+      "fullName": "HelperHasGodMode;",
+      "shortName": "HelperHasGodMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "IsCyberdeckEquipped;",
+      "shortName": "IsCyberdeckEquipped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "IsPlayingMultiplayer;",
+      "shortName": "IsPlayingMultiplayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "IsUnarmed;",
+      "shortName": "IsUnarmed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "OnBuffListVisibilityChanged",
+      "shortName": "OnBuffListVisibilityChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:BuffListVisibilityChangedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelCurrentXPUpdated",
+      "shortName": "OnCharacterLevelCurrentXPUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelUpdated",
+      "shortName": "OnCharacterLevelUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCombatStateChanged",
+      "shortName": "OnCombatStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDamageAggregationFinished",
+      "shortName": "OnDamageAggregationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceHide",
+      "shortName": "OnForceHide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnForceTierVisibility",
+      "shortName": "OnForceTierVisibility",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "tierVisibility",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHPHideAnimationFinished",
+      "shortName": "OnHPHideAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnLeftWeaponSwap",
+      "shortName": "OnLeftWeaponSwap",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLevelUpAnimationFinished",
+      "shortName": "OnLevelUpAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPSMVisionStateChanged",
+      "shortName": "OnPSMVisionStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuickhacksMemoryPercentUpdate",
+      "shortName": "OnQuickhacksMemoryPercentUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRightWeaponSwap",
+      "shortName": "OnRightWeaponSwap",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSceneTierChange",
+      "shortName": "OnSceneTierChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "argTier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatsChanged",
+      "shortName": "OnStatsChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "RegisterPSMListeners;GameObject",
+      "shortName": "RegisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetArmorProgress;FloatBool",
+      "shortName": "SetArmorProgress",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "normalizedValue",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "silent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHealthProgress;Float",
+      "shortName": "SetHealthProgress",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupQuickhacksMemoryBar;",
+      "shortName": "SetupQuickhacksMemoryBar",
+      "flags": 132
+    },
+    {
+      "fullName": "StartDamageFallDelay;",
+      "shortName": "StartDamageFallDelay",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterPSMListeners;GameObject",
+      "shortName": "UnregisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateGodModeVisibility;",
+      "shortName": "UpdateGodModeVisibility",
+      "flags": 516
+    },
+    {
+      "fullName": "UpdateQuickhacksMemoryBarSize;Int32",
+      "shortName": "UpdateQuickhacksMemoryBarSize",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "size",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "parent": "BaseProjectile",
+  "name": "MonoDisc",
+  "flags": 4,
+  "props": [
+    {
+      "type": "ThrowType",
+      "name": "throwtype",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "targetAcquired",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "disc",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "target",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "blackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector4",
+      "name": "discSpawnPoint",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector4",
+      "name": "discPosition",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "collisionCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "airTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "destroyTimer",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "returningToPlayer",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "catchingPlayer",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "discCaught",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "discLodgedToSurface",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "wasNPCHit",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:entAnimationControllerComponent",
+      "name": "animationController",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "DealDamage;gameprojectileHitEvent",
+      "shortName": "DealDamage",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameprojectileHitEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GeneralShoot;gameprojectileShootEvent",
+      "shortName": "GeneralShoot",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBlackboardIntVariable;BlackboardID_Int",
+      "shortName": "GetBlackboardIntVariable",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamebbScriptID_Int32",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMaxDistance;",
+      "shortName": "GetMaxDistance",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetPlayerPosition;",
+      "shortName": "GetPlayerPosition",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetPlayerSpeed;",
+      "shortName": "GetPlayerSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetPlayerTargetComponent;",
+      "shortName": "GetPlayerTargetComponent",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetThrowType;Float",
+      "shortName": "GetThrowType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "chargeParam",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayerInKerenzikov;",
+      "shortName": "IsPlayerInKerenzikov",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "LaunchDisc;gameprojectileShootEvent",
+      "shortName": "LaunchDisc",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LodgeDiscToSurface;",
+      "shortName": "LodgeDiscToSurface",
+      "flags": 132
+    },
+    {
+      "fullName": "NoTargetLaunch;MatrixFloatFloatFloatFloat",
+      "shortName": "NoTargetLaunch",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Matrix",
+          "name": "localToWorld",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "startVelocity",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "sideOffset",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "height",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCollision",
+      "shortName": "OnCollision",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileHitEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFollowSuccess",
+      "shortName": "OnFollowSuccess",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileFollowEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileSetUpEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProjectileCaught",
+      "shortName": "OnProjectileCaught",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShoot",
+      "shortName": "OnShoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShootTarget",
+      "shortName": "OnShootTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootTargetEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTick",
+      "shortName": "OnTick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileTickEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayCatchAnimation;",
+      "shortName": "PlayCatchAnimation",
+      "flags": 132
+    },
+    {
+      "fullName": "RegisterForProjectileCaught;",
+      "shortName": "RegisterForProjectileCaught",
+      "flags": 132
+    },
+    {
+      "fullName": "ResetParameters;",
+      "shortName": "ResetParameters",
+      "flags": 132
+    },
+    {
+      "fullName": "ReturnToPlayer;",
+      "shortName": "ReturnToPlayer",
+      "flags": 132
+    },
+    {
+      "fullName": "SetTargetComponent;IPlacedComponent",
+      "shortName": "SetTargetComponent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:entIPlacedComponent",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTargetComponentQuickThrow;IPlacedComponent",
+      "shortName": "SetTargetComponentQuickThrow",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:entIPlacedComponent",
+          "name": "quickThrowTarget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnTrailEffects;",
+      "shortName": "SpawnTrailEffects",
+      "flags": 132
+    },
+    {
+      "fullName": "SpawnVisualEffect;CNameGameObject",
+      "shortName": "SpawnVisualEffect",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "effectName",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "disc",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartCathingPlayer;",
+      "shortName": "StartCathingPlayer",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateAnimData;",
+      "shortName": "UpdateAnimData",
+      "flags": 132
+    }
+  ]
+}

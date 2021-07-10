@@ -1,0 +1,485 @@
+{
+  "parent": "AIINavigationSystem",
+  "name": "AINavigationSystem",
+  "flags": 2,
+  "funcs": [
+    {
+      "fullName": "AINavigationSystem::HasPathFromAtoB;EntityGameInstanceVector4Vector4",
+      "shortName": "HasPathFromAtoB",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "originPoint",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "targetPoint",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CalculatePathForCharacter",
+      "shortName": "CalculatePathForCharacter",
+      "return": {
+        "type": "handle:worldNavigationScriptPath",
+        "flags": 64
+      },
+      "index": 11283,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "startPoint",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "endPoint",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "findPointTolerance",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:worldNavigationScriptCostModCircle",
+          "name": "costModCircle",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "FindPointInBoxForCharacter",
+      "shortName": "FindPointInBoxForCharacter",
+      "return": {
+        "type": "worldNavigationScriptFindPointResult",
+        "flags": 64
+      },
+      "index": 11286,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "center",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "extents",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindPointInSphereForCharacter",
+      "shortName": "FindPointInSphereForCharacter",
+      "return": {
+        "type": "worldNavigationScriptFindPointResult",
+        "flags": 64
+      },
+      "index": 11285,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "center",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindWallInLineForCharacter",
+      "shortName": "FindWallInLineForCharacter",
+      "return": {
+        "type": "handle:worldNavigationScriptFindWallResult",
+        "flags": 64
+      },
+      "index": 11284,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "startPoint",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "endPoint",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "findPointTolerance",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetResult",
+      "shortName": "GetResult",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 11282,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:AINavigationSystemResult",
+          "name": "result",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartPathfinding",
+      "shortName": "StartPathfinding",
+      "return": {
+        "type": "Uint32",
+        "flags": 64
+      },
+      "index": 11280,
+      "flags": 1,
+      "params": [
+        {
+          "type": "script_ref:AINavigationSystemQuery",
+          "name": "query",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopPathfinding",
+      "shortName": "StopPathfinding",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 11281,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFurthestNavmeshPointBehind;EntityFloatInt32Vector4Vector4BoolCName",
+      "shortName": "GetFurthestNavmeshPointBehind",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "origin",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "querySphereRadius",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfSpheres",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 640
+        },
+        {
+          "type": "Vector4",
+          "name": "offsetFromOrigin",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "checkPathToOrigin",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "ratioCurveName",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetNearestNavmeshPointBehind;EntityFloatInt32Vector4Bool",
+      "shortName": "GetNearestNavmeshPointBehind",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "origin",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "querySphereRadius",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfSpheres",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "checkPathToOrigin",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetNearestNavmeshPointBelow;EntityVector4FloatInt32",
+      "shortName": "GetNearestNavmeshPointBelow",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "character",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "origin",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "querySphereRadius",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfSpheres",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasPathForward;GameObjectFloat",
+      "shortName": "HasPathForward",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "sourceObject",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPointOnNavmesh;EntityVector4Float",
+      "shortName": "IsPointOnNavmesh",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "character",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "tolerance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsPointOnNavmesh;EntityVector4Vector4",
+      "shortName": "IsPointOnNavmesh",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "character",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "tolerance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPointOnNavmesh;EntityVector4Vector4Vector4",
+      "shortName": "IsPointOnNavmesh",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "character",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "tolerance",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "navmeshPoint",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "TryToFindNavmeshPointAroundPoint;EntityVector4QuaternionVector4Int32FloatVector4Bool",
+      "shortName": "TryToFindNavmeshPointAroundPoint",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:entEntity",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "originPosition",
+          "flags": 128
+        },
+        {
+          "type": "Quaternion",
+          "name": "originOrientation",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "probeDimensions",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfSpheres",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "sphereDistanceFromOrigin",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "checkPathToOrigin",
+          "flags": 1152
+        }
+      ]
+    }
+  ]
+}

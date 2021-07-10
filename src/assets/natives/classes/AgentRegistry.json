@@ -1,0 +1,581 @@
+{
+  "parent": "IScriptable",
+  "name": "AgentRegistry",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "isInitialized",
+      "flags": 13155565600
+    },
+    {
+      "type": "array:Agent",
+      "name": "agents",
+      "flags": 15441461280
+    },
+    {
+      "type": "ScriptReentrantRWLock",
+      "name": "agentsLock",
+      "flags": 4297326624
+    },
+    {
+      "type": "Int32",
+      "name": "maxReprimandsPerNPC",
+      "flags": 4297326624
+    },
+    {
+      "type": "Int32",
+      "name": "maxReprimandsPerDEVICE",
+      "flags": 4297326624
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AgentRegistry::Construct;",
+      "shortName": "Construct",
+      "return": {
+        "type": "handle:AgentRegistry",
+        "flags": 64
+      },
+      "flags": 518
+    },
+    {
+      "fullName": "AddArea;SecurityAreaControllerPSarray<DeviceComponentPS>",
+      "shortName": "AddArea",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SecurityAreaControllerPS",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "agents",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CleanUpOnNewAttitudeGroup;GameInstanceCName",
+      "shortName": "CleanUpOnNewAttitudeGroup",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "newGroup",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearSupport;",
+      "shortName": "ClearSupport",
+      "flags": 516
+    },
+    {
+      "fullName": "GetAgent;PersistentIDAgent",
+      "shortName": "GetAgent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Agent",
+          "name": "recordCopy",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgentAreas;PersistentID",
+      "shortName": "GetAgentAreas",
+      "return": {
+        "type": "array:DeviceLink",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgentIndex;PersistentIDInt32",
+      "shortName": "GetAgentIndex",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgentIndex_NoLock;PersistentIDInt32",
+      "shortName": "GetAgentIndex_NoLock",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgents;",
+      "shortName": "GetAgents",
+      "return": {
+        "type": "array:Agent",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAgents;array<SecurityAreaControllerPS>",
+      "shortName": "GetAgents",
+      "return": {
+        "type": "array:Agent",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "filter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAgentsIDs;",
+      "shortName": "GetAgentsIDs",
+      "return": {
+        "type": "array:gamePersistentID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAgentsIDs;array<SecurityAreaControllerPS>",
+      "shortName": "GetAgentsIDs",
+      "return": {
+        "type": "array:gamePersistentID",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "filter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetReprimandPerformer;EntityIDAgent",
+      "shortName": "GetReprimandPerformer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Agent",
+          "name": "agent",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetReprimandReceiver;PersistentID",
+      "shortName": "GetReprimandReceiver",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSensors;",
+      "shortName": "GetSensors",
+      "return": {
+        "type": "array:Agent",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSupportedAgents;",
+      "shortName": "GetSupportedAgents",
+      "return": {
+        "type": "array:Agent",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetTurrets;",
+      "shortName": "GetTurrets",
+      "return": {
+        "type": "array:Agent",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetValidAgents;ESecuritySystemStatearray<SecurityAreaControllerPS>",
+      "shortName": "GetValidAgents",
+      "return": {
+        "type": "array:SecuritySystemOutputData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "ESecuritySystemState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "breachedAreas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasEntityBeenSpottedTooManyTimes;PersistentIDEntityID",
+      "shortName": "HasEntityBeenSpottedTooManyTimes",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agent",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HowManyTimesEntityReprimandedByThisAgentAlready;EntityIDPersistentID",
+      "shortName": "HowManyTimesEntityReprimandedByThisAgentAlready",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HowManyTimesEntityReprimandedByThisAgentAlready;GameObjectPersistentID",
+      "shortName": "HowManyTimesEntityReprimandedByThisAgentAlready",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "tresspasser",
+          "flags": 128
+        },
+        {
+          "type": "gamePersistentID",
+          "name": "agent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsAgent;PersistentID",
+      "shortName": "IsAgent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsIndexOutOfBound;Int32",
+      "shortName": "IsIndexOutOfBound",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsInitialized;",
+      "shortName": "IsInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "IsReady;",
+      "shortName": "IsReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsReprimandOngoing;",
+      "shortName": "IsReprimandOngoing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsReprimandOngoingAgainst;EntityID",
+      "shortName": "IsReprimandOngoingAgainst",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "suspect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessOnPlayerSpotted;PlayerSpottedscript_ref<array<Agent>>Bool",
+      "shortName": "ProcessOnPlayerSpotted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:PlayerSpotted",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Agent",
+          "name": "modifiedAgents",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasAnySupport",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterAgent;DeviceLinkarray<SecurityAreaControllerPS>",
+      "shortName": "RegisterAgent",
+      "flags": 516,
+      "params": [
+        {
+          "type": "DeviceLink",
+          "name": "agentPS",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:SecurityAreaControllerPS",
+          "name": "areas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseAllReprimands;array<Agent>",
+      "shortName": "ReleaseAllReprimands",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:Agent",
+          "name": "agents",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseFromReprimandAgainst;EntityIDPersistentID",
+      "shortName": "ReleaseFromReprimandAgainst",
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gamePersistentID",
+          "name": "agent",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveArea;array<OnDisableAreaData>",
+      "shortName": "RemoveArea",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:OnDisableAreaData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SaveAgent_NoLock;Agent",
+      "shortName": "SaveAgent_NoLock",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Agent",
+          "name": "agent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StoreReprimand;PersistentIDEntityIDInt32CName",
+      "shortName": "StoreReprimand",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "reprimandID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "targetAttitude",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterAgent;PersistentID",
+      "shortName": "UnregisterAgent",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "agentID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WipeReprimandData;EntityID",
+      "shortName": "WipeReprimandData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

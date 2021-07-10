@@ -1,0 +1,433 @@
+{
+  "parent": "MasterControllerPS",
+  "name": "ActionsSequencerControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "Float",
+      "name": "sequenceDuration",
+      "flags": 4364238881
+    },
+    {
+      "type": "EActionsSequencerMode",
+      "name": "sequencerMode",
+      "flags": 4364238881
+    },
+    {
+      "type": "SActionTypeForward",
+      "name": "actionTypeToForward",
+      "flags": 4364238881
+    },
+    {
+      "type": "ActionsSequence",
+      "name": "ongoingSequence",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CleanupSequence;",
+      "shortName": "CleanupSequence",
+      "flags": 132
+    },
+    {
+      "fullName": "CommenceSequence;ScriptableDeviceActionarray<DeviceComponentPS>array<Float>",
+      "shortName": "CommenceSequence",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "actionToForward",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "eligibleSlaves",
+          "flags": 128
+        },
+        {
+          "type": "array:Float",
+          "name": "delays",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ForceLockOnAllSlaves;",
+      "shortName": "ForceLockOnAllSlaves",
+      "flags": 8324
+    },
+    {
+      "fullName": "ForceUnlockSlave;PersistentIDCName",
+      "shortName": "ForceUnlockSlave",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "persistentID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "className",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAcceleratingDelays;Int32array<Float>",
+      "shortName": "GetAcceleratingDelays",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "amountOfIntervals",
+          "flags": 128
+        },
+        {
+          "type": "array:Float",
+          "name": "delays",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetDecceleratingDelays;Int32array<Float>",
+      "shortName": "GetDecceleratingDelays",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "amountOfIntervals",
+          "flags": 128
+        },
+        {
+          "type": "array:Float",
+          "name": "delays",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetDelayTimeStamps;Int32",
+      "shortName": "GetDelayTimeStamps",
+      "return": {
+        "type": "array:Float",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "intervals",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEligibleSlaves;PersistentID",
+      "shortName": "GetEligibleSlaves",
+      "return": {
+        "type": "array:handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "sequenceInitiator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuestActions",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRandomDelays;Int32array<Float>",
+      "shortName": "GetRandomDelays",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "amountOfIntervals",
+          "flags": 128
+        },
+        {
+          "type": "array:Float",
+          "name": "delays",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetRegularDelays;Int32array<Float>",
+      "shortName": "GetRegularDelays",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "amountOfIntervals",
+          "flags": 128
+        },
+        {
+          "type": "array:Float",
+          "name": "delays",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "IsActionTypeMachingPreferences;ForwardAction",
+      "shortName": "IsActionTypeMachingPreferences",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ForwardAction",
+          "name": "forwardEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSequenceOngoing;",
+      "shortName": "IsSequenceOngoing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "OnActivateDevice;ActivateDevice",
+      "shortName": "OnActivateDevice",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:ActivateDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeactivateDevice;DeactivateDevice",
+      "shortName": "OnDeactivateDevice",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:DeactivateDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForwardAction;ForwardAction",
+      "shortName": "OnForwardAction",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ForwardAction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceOFF;QuestForceOFF",
+      "shortName": "OnQuestForceOFF",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:QuestForceOFF",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceON;QuestForceON",
+      "shortName": "OnQuestForceON",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:QuestForceON",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForcePower;QuestForcePower",
+      "shortName": "OnQuestForcePower",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:QuestForcePower",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceUnpower;QuestForceUnpower",
+      "shortName": "OnQuestForceUnpower",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:QuestForceUnpower",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSequenceCallback;SequenceCallback",
+      "shortName": "OnSequenceCallback",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SequenceCallback",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceOFF;SetDeviceOFF",
+      "shortName": "OnSetDeviceOFF",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDeviceOFF",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceON;SetDeviceON",
+      "shortName": "OnSetDeviceON",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDeviceON",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDevicePowered;SetDevicePowered",
+      "shortName": "OnSetDevicePowered",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDevicePowered",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceUnpowered;SetDeviceUnpowered",
+      "shortName": "OnSetDeviceUnpowered",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDeviceUnpowered",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WasExecutedByMaster;ForwardAction",
+      "shortName": "WasExecutedByMaster",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ForwardAction",
+          "name": "forwardEvent",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

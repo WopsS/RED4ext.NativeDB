@@ -1,0 +1,497 @@
+{
+  "parent": "inkSelectorController",
+  "name": "hubSelectorSingleCarouselController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Int32",
+      "name": "NUMBER_OF_WIDGETS",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "WIDGETS_PADDING",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "SMALL_WIDGET_SCALE",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "SMALL_WIDGET_OPACITY",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "ANIMATION_TIME",
+      "flags": 4297195552
+    },
+    {
+      "type": "HDRColor",
+      "name": "DEFAULT_WIDGET_COLOR",
+      "flags": 4297195552
+    },
+    {
+      "type": "HDRColor",
+      "name": "SELECTED_WIDGET_COLOR",
+      "flags": 4297195552
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "leftArrowWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "rightArrowWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "container",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "defaultColorDummy",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "activeColorDummy",
+      "flags": 4297195553
+    },
+    {
+      "type": "handle:inkInputDisplayController",
+      "name": "leftArrowController",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:inkInputDisplayController",
+      "name": "rightArrowController",
+      "flags": 4431544352
+    },
+    {
+      "type": "array:MenuData",
+      "name": "elements",
+      "flags": 6583091232
+    },
+    {
+      "type": "Int32",
+      "name": "centerElementIndex",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:handle:HubMenuLabelContentContainer",
+      "name": "widgetsControllers",
+      "flags": 6583091232
+    },
+    {
+      "type": "Bool",
+      "name": "waitForSizes",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "translationOnce",
+      "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "currentIndex",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:handle:inkanimProxy",
+      "name": "activeAnimations",
+      "flags": 6583091232
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AddActiveProxy;inkAnimProxy",
+      "shortName": "AddActiveProxy",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddActiveProxy;array<inkAnimProxy>",
+      "shortName": "AddActiveProxy",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:handle:inkanimProxy",
+          "name": "proxies",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Animate;Int32inkSelectorChangeDirection",
+      "shortName": "Animate",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "targetIndex",
+          "flags": 128
+        },
+        {
+          "type": "inkSelectorChangeDirection",
+          "name": "direction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ColorAnimation;array<inkWidget>HDRColorHDRColor",
+      "shortName": "ColorAnimation",
+      "return": {
+        "type": "array:handle:inkanimProxy",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "array:whandle:inkWidget",
+          "name": "targetWidgets",
+          "flags": 128
+        },
+        {
+          "type": "HDRColor",
+          "name": "startColor",
+          "flags": 128
+        },
+        {
+          "type": "HDRColor",
+          "name": "endColor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetLoopedValue;Int32Int32",
+      "shortName": "GetLoopedValue",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "limit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMaskTargetWidth;Int32",
+      "shortName": "GetMaskTargetWidth",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "targetIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTranslations;Int32",
+      "shortName": "GetTranslations",
+      "return": {
+        "type": "array:Float",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "targetIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnArrangeChildrenComplete",
+      "shortName": "OnArrangeChildrenComplete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnMenuLabelClick",
+      "shortName": "OnMenuLabelClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuLabelHover",
+      "shortName": "OnMenuLabelHover",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuLabelHoverOut",
+      "shortName": "OnMenuLabelHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTranslationCompleted",
+      "shortName": "OnTranslationCompleted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpdateValue",
+      "shortName": "OnUpdateValue",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "String",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "inkSelectorChangeDirection",
+          "name": "changeDirection",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpacityAnimation;inkWidgetFloatFloat",
+      "shortName": "OpacityAnimation",
+      "return": {
+        "type": "handle:inkanimProxy",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "startOpacity",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "endOpacity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetAnimatedStates;",
+      "shortName": "ResetAnimatedStates",
+      "flags": 260
+    },
+    {
+      "fullName": "ScaleAnimation;inkWidgetFloatFloat",
+      "shortName": "ScaleAnimation",
+      "return": {
+        "type": "handle:inkanimProxy",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "startScale",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "endScale",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ScrollTo;MenuData",
+      "shortName": "ScrollTo",
+      "flags": 516,
+      "params": [
+        {
+          "type": "MenuData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetFinishedValues;Int32",
+      "shortName": "SetFinishedValues",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "selectedIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupMenu;array<MenuData>Int32",
+      "shortName": "SetupMenu",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:MenuData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "startIdentifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SizeAnimation;inkWidgetVector2Vector2",
+      "shortName": "SizeAnimation",
+      "return": {
+        "type": "handle:inkanimProxy",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "startSize",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "endSize",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TranslationAnimation;inkWidgetFloatFloat",
+      "shortName": "TranslationAnimation",
+      "return": {
+        "type": "handle:inkanimProxy",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "startTranslation",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "endTranslation",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateArrowsVisibility;",
+      "shortName": "UpdateArrowsVisibility",
+      "flags": 132
+    }
+  ]
+}

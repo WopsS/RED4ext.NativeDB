@@ -1,0 +1,334 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "hudCarController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkTextWidgetReference",
+      "name": "SpeedValue",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:inkImageWidgetReference",
+      "name": "RPMChunks",
+      "flags": 6583025697
+    },
+    {
+      "type": "handle:gameIBlackboard",
+      "name": "psmBlackboard",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "PSM_BBID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "currentZoom",
+      "flags": 4297130016
+    },
+    {
+      "type": "GameTime",
+      "name": "currentTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "activeVehicleUIBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "vehicleBBStateConectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "speedBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "gearBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "tppBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "rpmValueBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "leanAngleBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerStateBBConnectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "activeChunks",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:vehicleBaseObject",
+      "name": "activeVehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "driver",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "EvaluateRPMMeterWidget;Int32",
+      "shortName": "EvaluateRPMMeterWidget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "currentAmountOfChunks",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCameraModeChanged",
+      "shortName": "OnCameraModeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "mode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGearValueChanged",
+      "shortName": "OnGearValueChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "gearValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnLeanAngleChanged",
+      "shortName": "OnLeanAngleChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Float",
+          "name": "leanAngle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMountingEvent",
+      "shortName": "OnMountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamemountingMountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRpmMaxChanged",
+      "shortName": "OnRpmMaxChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "rpmMax",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRpmValueChanged",
+      "shortName": "OnRpmValueChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "rpmValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpeedValueChanged",
+      "shortName": "OnSpeedValueChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "speedValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUnmountingEvent",
+      "shortName": "OnUnmountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamemountingUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnZoomChange",
+      "shortName": "OnZoomChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Float",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterToVehicle;Bool",
+      "shortName": "RegisterToVehicle",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "register",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Reset;",
+      "shortName": "Reset",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateChunkVisibility;",
+      "shortName": "UpdateChunkVisibility",
+      "flags": 132
+    },
+    {
+      "fullName": "drawRPMGaugeFull;Float",
+      "shortName": "drawRPMGaugeFull",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "rpmValue",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

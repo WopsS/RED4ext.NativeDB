@@ -1,0 +1,2493 @@
+{
+  "parent": "gameScriptableSystem",
+  "name": "NetworkSystem",
+  "flags": 4,
+  "props": [
+    {
+      "type": "array:SNetworkLinkData",
+      "name": "networkLinks",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:entEntityID",
+      "name": "networkRevealTargets",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "sessionStarted",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "visionModeChangedCallback",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "focusModeToggleCallback",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "playerSpawnCallback",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "currentPlayerTargetCallbackID",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "lastTargetSlaveID",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "lastTargetMasterID",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "unregisterLinksRequestDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "focusModeActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameFxResource",
+      "name": "lastBeamResource",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameEffectInstance",
+      "name": "pingNetworkEffect",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PingCachedData",
+      "name": "pingCachedData",
+      "flags": 4431347744
+    },
+    {
+      "type": "entEntityID",
+      "name": "lastPingSourceID",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:PingCachedData",
+      "name": "activePings",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "pingLinksCounter",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "networkPresetTBDID",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataNetworkPingingParameteres_Record",
+      "name": "networkPresetRecord",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:gamePersistentID",
+      "name": "backdoors",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "revealedBackdoorsCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameFxResource",
+      "name": "debugCashedPingFxResource",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "debugQueryNumber",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "NetworkSystem::QuickHacksExposedByDefault;GameInstance",
+      "shortName": "QuickHacksExposedByDefault",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NetworkSystem::SendEvaluateVisionModeRequest;GameInstancegameVisionModeType",
+      "shortName": "SendEvaluateVisionModeRequest",
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "instance",
+          "flags": 128
+        },
+        {
+          "type": "gameVisionModeType",
+          "name": "mode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NetworkSystem::ShouldShowOnlyTargetQuickHacks;GameInstance",
+      "shortName": "ShouldShowOnlyTargetQuickHacks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActivateNetworkLinkByIndex;Int32",
+      "shortName": "ActivateNetworkLinkByIndex",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "linkIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddActivePing;GameObjectEPingTypeFloatELinkTypeBoolFxResourceTweakDBID",
+      "shortName": "AddActivePing",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "source",
+          "flags": 128
+        },
+        {
+          "type": "EPingType",
+          "name": "pingType",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        },
+        {
+          "type": "ELinkType",
+          "name": "linkType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "revealNetworkAtEnd",
+          "flags": 128
+        },
+        {
+          "type": "gameFxResource",
+          "name": "fxResource",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "virtualNetworkShapeID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddNetworkLink;SNetworkLinkData",
+      "shortName": "AddNetworkLink",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddNetworkRevealTarget;EntityID",
+      "shortName": "AddNetworkRevealTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AllowSimultanousPinging;",
+      "shortName": "AllowSimultanousPinging",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "CancelNetworkLinkDelay;SNetworkLinkData",
+      "shortName": "CancelNetworkLinkDelay",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CleanNetwork;",
+      "shortName": "CleanNetwork",
+      "flags": 132
+    },
+    {
+      "fullName": "CompareLinks;SNetworkLinkDataSNetworkLinkData",
+      "shortName": "CompareLinks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData1",
+          "flags": 128
+        },
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData2",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CompareLinksData;SNetworkLinkDataSNetworkLinkData",
+      "shortName": "CompareLinksData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData1",
+          "flags": 128
+        },
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData2",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateForksForVirtualLink;SNetworkLinkDataPingCachedDataVector4FloatInt32",
+      "shortName": "CreateForksForVirtualLink",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "handle:PingCachedData",
+          "name": "ping",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "sphereCentre",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slice",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateForksForVirtualLink1;SNetworkLinkDataPingCachedDataVector4FloatVector4Vector4",
+      "shortName": "CreateForksForVirtualLink1",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "handle:PingCachedData",
+          "name": "ping",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "sphereCentre",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "direction",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "connectionPoint",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateForksForVirtualLink1;SNetworkLinkDataPingCachedDataVector4FloatVector4array<Vector4>",
+      "shortName": "CreateForksForVirtualLink1",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "handle:PingCachedData",
+          "name": "ping",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "sphereCentre",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "direction",
+          "flags": 128
+        },
+        {
+          "type": "array:Vector4",
+          "name": "vertices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateVirtualLinksForPing;PingCachedData",
+      "shortName": "CreateVirtualLinksForPing",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:PingCachedData",
+          "name": "ping",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateVirtualLinksForPing1;PingCachedData",
+      "shortName": "CreateVirtualLinksForPing1",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:PingCachedData",
+          "name": "ping",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateVirtualNetwork;PingCachedData",
+      "shortName": "CreateVirtualNetwork",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:PingCachedData",
+          "name": "sourcePing",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DecreasePingLinbksCounter;",
+      "shortName": "DecreasePingLinbksCounter",
+      "flags": 132
+    },
+    {
+      "fullName": "DeterminNetworkLinkPriority;SNetworkLinkData",
+      "shortName": "DeterminNetworkLinkPriority",
+      "return": {
+        "type": "EPriority",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeterminNetworkLinkVisibility;Int32",
+      "shortName": "DeterminNetworkLinkVisibility",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "linkIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DrawNetworkBeam;SNetworkLinkData",
+      "shortName": "DrawNetworkBeam",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DrawNetworkBeamByIndex;Int32",
+      "shortName": "DrawNetworkBeamByIndex",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "linkIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateLastMasterTarget;EntityID",
+      "shortName": "EvaluateLastMasterTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "slaveID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateLastSlaveTarget;EntityID",
+      "shortName": "EvaluateLastSlaveTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "masterID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateVisionMode;gameVisionModeType",
+      "shortName": "EvaluateVisionMode",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameVisionModeType",
+          "name": "visionType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluatelastTargets;EntityID",
+      "shortName": "EvaluatelastTargets",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "newTarget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindBestMatchingVertice;Vector4Vector4FloatFloatVector4array<Vector4>",
+      "shortName": "FindBestMatchingVertice",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "point",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "direction",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "angle",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "excludeVertice",
+          "flags": 128
+        },
+        {
+          "type": "array:Vector4",
+          "name": "vertices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetActivePing;EntityID",
+      "shortName": "GetActivePing",
+      "return": {
+        "type": "handle:PingCachedData",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAllMastersOfSlave;EntityID",
+      "shortName": "GetAllMastersOfSlave",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "slaveID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAllSlavesOfMaster;EntityID",
+      "shortName": "GetAllSlavesOfMaster",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "masterID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAmmountOfPingDurationIntervals;",
+      "shortName": "GetAmmountOfPingDurationIntervals",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetCurrentTarget;",
+      "shortName": "GetCurrentTarget",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetCurrentTargetID;",
+      "shortName": "GetCurrentTargetID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetHudManager;",
+      "shortName": "GetHudManager",
+      "return": {
+        "type": "handle:HUDManager",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetInitialPingSource;",
+      "shortName": "GetInitialPingSource",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetInitialPingSourceID;",
+      "shortName": "GetInitialPingSourceID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLastActivePingWithRevealNetwork;",
+      "shortName": "GetLastActivePingWithRevealNetwork",
+      "return": {
+        "type": "handle:PingCachedData",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLastPingSourceID;",
+      "shortName": "GetLastPingSourceID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetMaxAmountOfVirtualLinkForks;",
+      "shortName": "GetMaxAmountOfVirtualLinkForks",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetMaxFreePingLinks;",
+      "shortName": "GetMaxFreePingLinks",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetMaxNumberOfSegmentsForVirtualNetwork;VirtualNetwork_Record",
+      "shortName": "GetMaxNumberOfSegmentsForVirtualNetwork",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gamedataVirtualNetwork_Record",
+          "name": "virtualNetworkRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMaximumNumberOfActivePings;",
+      "shortName": "GetMaximumNumberOfActivePings",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetMaximumNumberOfFreeLinksPerTarget;",
+      "shortName": "GetMaximumNumberOfFreeLinksPerTarget",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetNetworkBeam;SNetworkLinkData",
+      "shortName": "GetNetworkBeam",
+      "return": {
+        "type": "handle:gameFxInstance",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetNetworkReavealDuration;",
+      "shortName": "GetNetworkReavealDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetNetworkRelation;EntityIDEntityID",
+      "shortName": "GetNetworkRelation",
+      "return": {
+        "type": "ENetworkRelation",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetNumberOfVirtualLinksPerObject;",
+      "shortName": "GetNumberOfVirtualLinksPerObject",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetObjectFromID;EntityID",
+      "shortName": "GetObjectFromID",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPingPresetRecord;",
+      "shortName": "GetPingPresetRecord",
+      "return": {
+        "type": "whandle:gamedataNetworkPingingParameteres_Record",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetPingRange;",
+      "shortName": "GetPingRange",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetPingRevealDuration;",
+      "shortName": "GetPingRevealDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetPingType;EntityID",
+      "shortName": "GetPingType",
+      "return": {
+        "type": "EPingType",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerStateMachineBlackboard;GameObject",
+      "shortName": "GetPlayerStateMachineBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPulseRange;",
+      "shortName": "GetPulseRange",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetRandomPoint;Vector4FloatFloat",
+      "shortName": "GetRandomPoint",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "direction",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "angle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRandomPointOnSphere;Vector4FloatInt32",
+      "shortName": "GetRandomPointOnSphere",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "sphereCentre",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slice",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRandomPointOnSphere;Vector4Float",
+      "shortName": "GetRandomPointOnSphere",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "sphereCentre",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRandomPointOnSphereInFacingQuadrant;Vector4FloatVector4",
+      "shortName": "GetRandomPointOnSphereInFacingQuadrant",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "sphereCenter",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "facePoint",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRandomPointOnSphereQuadrant0;",
+      "shortName": "GetRandomPointOnSphereQuadrant0",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetRevealLinksAfterLeavingFocusDuration;",
+      "shortName": "GetRevealLinksAfterLeavingFocusDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetRevealMasterAfterLeavingFocusDuration;",
+      "shortName": "GetRevealMasterAfterLeavingFocusDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSpacePingAppearModifier;",
+      "shortName": "GetSpacePingAppearModifier",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSpacePingDuration;",
+      "shortName": "GetSpacePingDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetVirtualLinkAngleTollerance;",
+      "shortName": "GetVirtualLinkAngleTollerance",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetVirtualLinkDepth;",
+      "shortName": "GetVirtualLinkDepth",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetVirtualLinkForkAngleTollerance;",
+      "shortName": "GetVirtualLinkForkAngleTollerance",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetVirtualLinksSphereRadius;",
+      "shortName": "GetVirtualLinksSphereRadius",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetVirtualNetworkRecord;",
+      "shortName": "GetVirtualNetworkRecord",
+      "return": {
+        "type": "whandle:gamedataVirtualNetwork_Record",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetVirtualNetworkSegmentMarker;VirtualNetwork_Record",
+      "shortName": "GetVirtualNetworkSegmentMarker",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "whandle:gamedataVirtualNetwork_Record",
+          "name": "virtualNetworkRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasActivePing;EntityID",
+      "shortName": "HasActivePing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasActivePingWithRevealNetwork;EntityID",
+      "shortName": "HasActivePingWithRevealNetwork",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasAnyActiveNetworkLink;EntityID",
+      "shortName": "HasAnyActiveNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasAnyActivePing;",
+      "shortName": "HasAnyActivePing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "HasAnyActivePingWithRevealNetwork;",
+      "shortName": "HasAnyActivePingWithRevealNetwork",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "HasDiffrentChildrenThanTargets;EntityIDarray<EntityID>",
+      "shortName": "HasDiffrentChildrenThanTargets",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "array:entEntityID",
+          "name": "targets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasDiffrentParentsThanTargets;EntityIDarray<EntityID>",
+      "shortName": "HasDiffrentParentsThanTargets",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "array:entEntityID",
+          "name": "targets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLink;SNetworkLinkDataInt32",
+      "shortName": "HasNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLink;EntityIDBool",
+      "shortName": "HasNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "ignorePingLinks",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLink;EntityIDEntityIDELinkType",
+      "shortName": "HasNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "masterID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "slaveID",
+          "flags": 128
+        },
+        {
+          "type": "ELinkType",
+          "name": "linkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLink;EntityID",
+      "shortName": "HasNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLink;SNetworkLinkData",
+      "shortName": "HasNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLinkWithHigherPriority;SNetworkLinkData",
+      "shortName": "HasNetworkLinkWithHigherPriority",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IncreasePingLinbksCounter;",
+      "shortName": "IncreasePingLinbksCounter",
+      "flags": 132
+    },
+    {
+      "fullName": "IsActivePingsLimitReached;",
+      "shortName": "IsActivePingsLimitReached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "IsCurrentTarget;EntityID",
+      "shortName": "IsCurrentTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsCurrentTargetValid;",
+      "shortName": "IsCurrentTargetValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "IsCurrentTargetValidInNetwork;",
+      "shortName": "IsCurrentTargetValidInNetwork",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "IsFreeLinkLimitReached;SNetworkLinkData",
+      "shortName": "IsFreeLinkLimitReached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsIdValid;EntityID",
+      "shortName": "IsIdValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsInNetwork;EntityID",
+      "shortName": "IsInNetwork",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsLastMasterTarget;EntityID",
+      "shortName": "IsLastMasterTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsLastSlaveTarget;EntityID",
+      "shortName": "IsLastSlaveTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsMaster;EntityID",
+      "shortName": "IsMaster",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetEntityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsMasterInNetwork;EntityID",
+      "shortName": "IsMasterInNetwork",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPingLinksLimitReached;",
+      "shortName": "IsPingLinksLimitReached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsSlaveInNetwork;EntityID",
+      "shortName": "IsSlaveInNetwork",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTagged;EntityID",
+      "shortName": "IsTagged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVirtualNetworkWithinDistanceLimit;PingCachedData",
+      "shortName": "IsVirtualNetworkWithinDistanceLimit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:PingCachedData",
+          "name": "sourcePing",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillAllNetworkBeams;",
+      "shortName": "KillAllNetworkBeams",
+      "flags": 132
+    },
+    {
+      "fullName": "KillNetworkBeam;Int32Bool",
+      "shortName": "KillNetworkBeam",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillNetworkBeamByData;SNetworkLinkData",
+      "shortName": "KillNetworkBeamByData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillNetworkBeamByIndex;Int32",
+      "shortName": "KillNetworkBeamByIndex",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillNetworkBeamsByID;EntityIDEntityID",
+      "shortName": "KillNetworkBeamsByID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "slaveID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "masterID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillNetworkBeamsByID;EntityID",
+      "shortName": "KillNetworkBeamsByID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillSingleOldestFreeLink;",
+      "shortName": "KillSingleOldestFreeLink",
+      "flags": 132
+    },
+    {
+      "fullName": "KillSingleOldestFreeLinkWitoutRevealPing;",
+      "shortName": "KillSingleOldestFreeLinkWitoutRevealPing",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnDeactivateAllNetworkLinksRequest;DeactivateAllNetworkLinksRequest",
+      "shortName": "OnDeactivateAllNetworkLinksRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:DeactivateAllNetworkLinksRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnEvaluateVisionModeRequest;EvaluateVisionModeRequest",
+      "shortName": "OnEvaluateVisionModeRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:EvaluateVisionModeRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFocusModeToggle",
+      "shortName": "OnFocusModeToggle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMarkBackdoorAsRevealedRequest;MarkBackdoorAsRevealedRequest",
+      "shortName": "OnMarkBackdoorAsRevealedRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:MarkBackdoorAsRevealedRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNewBackdoorDeviceRequest;NewBackdoorDeviceRequest",
+      "shortName": "OnNewBackdoorDeviceRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:NewBackdoorDeviceRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerSpawnedCallback;GameObject",
+      "shortName": "OnPlayerSpawnedCallback",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerTargetChanged",
+      "shortName": "OnPlayerTargetChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRegisterNetworkLinkRequest;RegisterNetworkLinkRequest",
+      "shortName": "OnRegisterNetworkLinkRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RegisterNetworkLinkRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRegisterPingLinkRequest;RegisterPingNetworkLinkRequest",
+      "shortName": "OnRegisterPingLinkRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RegisterPingNetworkLinkRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRevealNetworkRequestRequest;RevealNetworkRequestRequest",
+      "shortName": "OnRevealNetworkRequestRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RevealNetworkRequestRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStartPingingNetworkRequest;StartPingingNetworkRequest",
+      "shortName": "OnStartPingingNetworkRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:StartPingingNetworkRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStopingingNetworkRequest;StopPingingNetworkRequest",
+      "shortName": "OnStopingingNetworkRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:StopPingingNetworkRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnregisterAllNetworkLinksRequest;UnregisterAllNetworkLinksRequest",
+      "shortName": "OnUnregisterAllNetworkLinksRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UnregisterAllNetworkLinksRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnregisterNetworkLinkBetweenTwoEntitiesRequest;UnregisterNetworkLinkBetweenTwoEntitiesRequest",
+      "shortName": "OnUnregisterNetworkLinkBetweenTwoEntitiesRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UnregisterNetworkLinkBetweenTwoEntitiesRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnregisterNetworkLinkRequest;UnregisterNetworkLinkRequest",
+      "shortName": "OnUnregisterNetworkLinkRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UnregisterNetworkLinkRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnregisterNetworkLinksByIDRequest;UnregisterNetworkLinksByIDRequest",
+      "shortName": "OnUnregisterNetworkLinksByIDRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UnregisterNetworkLinksByIDRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnregisterNetworkLinksByIdAndTypeRequest;UnregisterNetworkLinksByIdAndTypeRequest",
+      "shortName": "OnUnregisterNetworkLinksByIdAndTypeRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UnregisterNetworkLinksByIdAndTypeRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpdateNetworkVisualisationRequest;UpdateNetworkVisualisationRequest",
+      "shortName": "OnUpdateNetworkVisualisationRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:UpdateNetworkVisualisationRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVisionModeChanged",
+      "shortName": "OnVisionModeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuickHacksExposedByDefault;",
+      "shortName": "QuickHacksExposedByDefault",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "RegisterFocusModeCallback;",
+      "shortName": "RegisterFocusModeCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "RegisterNetworkLink;SNetworkLinkData",
+      "shortName": "RegisterNetworkLink",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterNetworkLinkWithDelay;SNetworkLinkDataFloat",
+      "shortName": "RegisterNetworkLinkWithDelay",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterPlayerSpawnedCallback;",
+      "shortName": "RegisterPlayerSpawnedCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "RegisterPlayerTargetCallback;",
+      "shortName": "RegisterPlayerTargetCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "RegisterVisionModeCallback;GameObject",
+      "shortName": "RegisterVisionModeCallback",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveActivePing;Int32",
+      "shortName": "RemoveActivePing",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveActivePingBySource;EntityID",
+      "shortName": "RemoveActivePingBySource",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveActivePingBySourceAndType;EntityIDEPingType",
+      "shortName": "RemoveActivePingBySourceAndType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "EPingType",
+          "name": "pingType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveAllActiveFakePings;",
+      "shortName": "RemoveAllActiveFakePings",
+      "flags": 132
+    },
+    {
+      "fullName": "RemoveAllActivePings;",
+      "shortName": "RemoveAllActivePings",
+      "flags": 132
+    },
+    {
+      "fullName": "RemoveAllNetworkLinks;",
+      "shortName": "RemoveAllNetworkLinks",
+      "flags": 132
+    },
+    {
+      "fullName": "RemoveAllPingLinks;",
+      "shortName": "RemoveAllPingLinks",
+      "flags": 132
+    },
+    {
+      "fullName": "RemoveAllPingLinksByType;ELinkType",
+      "shortName": "RemoveAllPingLinksByType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ELinkType",
+          "name": "linkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkLink;Int32Bool",
+      "shortName": "RemoveNetworkLink",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkLinkByData;SNetworkLinkData",
+      "shortName": "RemoveNetworkLinkByData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkLinkByIdAndType;ELinkTypeEntityID",
+      "shortName": "RemoveNetworkLinkByIdAndType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ELinkType",
+          "name": "linkType",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkLinkByType;ELinkType",
+      "shortName": "RemoveNetworkLinkByType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ELinkType",
+          "name": "linkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkLinksBetweenTwoEntitities;EntityIDEntityIDBool",
+      "shortName": "RemoveNetworkLinksBetweenTwoEntitities",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "firstID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "secondID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "onlyRemoveWeakLink",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkLinksByID;EntityID",
+      "shortName": "RemoveNetworkLinksByID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveNetworkRevealTarget;Int32",
+      "shortName": "RemoveNetworkRevealTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePingLinksByFxResource;FxResourceBool",
+      "shortName": "RemovePingLinksByFxResource",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameFxResource",
+          "name": "fxResource",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "intant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePingLinksBySource;EntityIDBool",
+      "shortName": "RemovePingLinksBySource",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "intant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePingLinksBySourceAndFxResource;EntityIDFxResourceBool",
+      "shortName": "RemovePingLinksBySourceAndFxResource",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "gameFxResource",
+          "name": "fxResource",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "intant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePingLinksBySourceAndType;ELinkTypeEntityID",
+      "shortName": "RemovePingLinksBySourceAndType",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ELinkType",
+          "name": "linkType",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveConnectionHighlight;BoolSNetworkLinkData",
+      "shortName": "ResolveConnectionHighlight",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        },
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveNetworkRevealTarget;SNetworkLinkData",
+      "shortName": "ResolveNetworkRevealTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveNetworkSystemCleanupDelay;",
+      "shortName": "ResolveNetworkSystemCleanupDelay",
+      "flags": 132
+    },
+    {
+      "fullName": "RevealEntireNetworkOnTarget;EntityID",
+      "shortName": "RevealEntireNetworkOnTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RevealNetworkOnCachedTarget;array<EntityID>",
+      "shortName": "RevealNetworkOnCachedTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:entEntityID",
+          "name": "targets",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendConnectionHighlightEvent;BoolEntityIDEntityIDSNetworkLinkData",
+      "shortName": "SendConnectionHighlightEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "source",
+          "flags": 128
+        },
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendRevealNetworkEvent;EntityIDFloat",
+      "shortName": "SendRevealNetworkEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SendRevealNetworkGridRequest;EntityID",
+      "shortName": "SendRevealNetworkGridRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupPingPresetRecord;",
+      "shortName": "SetupPingPresetRecord",
+      "flags": 132
+    },
+    {
+      "fullName": "ShouldForceInstantBeamKill;",
+      "shortName": "ShouldForceInstantBeamKill",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ShouldNetworkElementsPersistAfterFocus;",
+      "shortName": "ShouldNetworkElementsPersistAfterFocus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ShouldPulsRealObject;",
+      "shortName": "ShouldPulsRealObject",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ShouldRevealMasterOnPulse;",
+      "shortName": "ShouldRevealMasterOnPulse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ShouldRevealNetworkAfterPulse;",
+      "shortName": "ShouldRevealNetworkAfterPulse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ShouldRevealSlaveOnPulse;",
+      "shortName": "ShouldRevealSlaveOnPulse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "ShouldShowLinksOnMaster;",
+      "shortName": "ShouldShowLinksOnMaster",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ShouldShowOnlyTargetQuickHacks;",
+      "shortName": "ShouldShowOnlyTargetQuickHacks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ShouldUsePulseOnPing;",
+      "shortName": "ShouldUsePulseOnPing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "SuppressPingIfBackdoorsFound;",
+      "shortName": "SuppressPingIfBackdoorsFound",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "UnregisterFocusModeCallback;",
+      "shortName": "UnregisterFocusModeCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "UnregisterNetworkLinkWithDelay;SNetworkLinkData",
+      "shortName": "UnregisterNetworkLinkWithDelay",
+      "return": {
+        "type": "gameDelayID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterPlayerSpawnedCallback;",
+      "shortName": "UnregisterPlayerSpawnedCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "UnregisterPlayerTargetCallback;",
+      "shortName": "UnregisterPlayerTargetCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "UnregisterVisionModeCallback;",
+      "shortName": "UnregisterVisionModeCallback",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateNetworkLinkData;SNetworkLinkDataInt32",
+      "shortName": "UpdateNetworkLinkData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "indexToUpdate",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateNetworkVisualisation;",
+      "shortName": "UpdateNetworkVisualisation",
+      "flags": 132
+    }
+  ]
+}

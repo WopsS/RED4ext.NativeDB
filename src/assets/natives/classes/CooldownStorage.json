@@ -1,0 +1,452 @@
+{
+  "parent": "IScriptable",
+  "name": "CooldownStorage",
+  "flags": 4,
+  "props": [
+    {
+      "type": "PSOwnerData",
+      "name": "owner",
+      "flags": 4297130016
+    },
+    {
+      "type": "EBOOL",
+      "name": "initialized",
+      "flags": 4297130016
+    },
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstanceHack",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:CooldownPackage",
+      "name": "packages",
+      "flags": 6583025696
+    },
+    {
+      "type": "Uint32",
+      "name": "currentID",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:CooldownPackageDelayIDs",
+      "name": "map",
+      "flags": 6583025696
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "AttachUniqueLabel;",
+      "shortName": "AttachUniqueLabel",
+      "return": {
+        "type": "CooldownStorageID",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "CancelCooldown;CooldownStorageID",
+      "shortName": "CancelCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CancelCooldown;TweakDBID",
+      "shortName": "CancelCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CancelDelayEvents;CooldownPackage",
+      "shortName": "CancelDelayEvents",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:CooldownPackage",
+          "name": "package",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindMapEntry;CooldownStorageID",
+      "shortName": "FindMapEntry",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindMapEntry;CooldownPackage",
+      "shortName": "FindMapEntry",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:CooldownPackage",
+          "name": "package",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindPackageIndexByAction;TweakDBID",
+      "shortName": "FindPackageIndexByAction",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "actionID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindPackageIndexByID;CooldownStorageID",
+      "shortName": "FindPackageIndexByID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "label",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GenerateLabel;Uint32",
+      "shortName": "GenerateLabel",
+      "return": {
+        "type": "CooldownStorageID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPackage;CooldownStorageID",
+      "shortName": "GetPackage",
+      "return": {
+        "type": "handle:CooldownPackage",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "label",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPackage;TweakDBID",
+      "shortName": "GetPackage",
+      "return": {
+        "type": "handle:CooldownPackage",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;PersistentIDCNameGameInstance",
+      "shortName": "Initialize",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "className",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstanceHack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsActionReady;TweakDBID",
+      "shortName": "IsActionReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsActionReady;CooldownStorageID",
+      "shortName": "IsActionReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsActionReady;Int32",
+      "shortName": "IsActionReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsInitialized;",
+      "shortName": "IsInitialized",
+      "return": {
+        "type": "EBOOL",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "ManuallyTriggerCooldown;TweakDBID",
+      "shortName": "ManuallyTriggerCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "actionID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessNewPackage;CooldownRequest",
+      "shortName": "ProcessNewPackage",
+      "return": {
+        "type": "CooldownStorageID",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:CooldownRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveCooldown;CooldownStorageID",
+      "shortName": "RemoveCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "label",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveCooldown;TweakDBID",
+      "shortName": "RemoveCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveCooldown;Int32",
+      "shortName": "RemoveCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveMapEntry;Int32",
+      "shortName": "RemoveMapEntry",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveCooldownEvent;ActionCooldownEvent",
+      "shortName": "ResolveCooldownEvent",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ActionCooldownEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartCooldownRequest;CooldownRequest",
+      "shortName": "StartCooldownRequest",
+      "return": {
+        "type": "CooldownStorageID",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:CooldownRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartSimpleCooldown;BaseScriptableAction",
+      "shortName": "StartSimpleCooldown",
+      "return": {
+        "type": "CooldownStorageID",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:BaseScriptableAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerPackageListeners;CooldownPackage",
+      "shortName": "TriggerPackageListeners",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:CooldownPackage",
+          "name": "package",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMap;CooldownStorageIDarray<DelayID>",
+      "shortName": "UpdateMap",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CooldownStorageID",
+          "name": "label",
+          "flags": 128
+        },
+        {
+          "type": "array:gameDelayID",
+          "name": "ids",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

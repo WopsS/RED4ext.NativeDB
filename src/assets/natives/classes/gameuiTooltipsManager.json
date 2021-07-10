@@ -1,0 +1,777 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "gameuiTooltipsManager",
+  "flags": 2,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "tooltipsContainer",
+      "flags": 6627016705
+    },
+    {
+      "type": "Bool",
+      "name": "flipX",
+      "flags": 6627016705
+    },
+    {
+      "type": "Bool",
+      "name": "flipY",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkMargin",
+      "name": "rootMargin",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkMargin",
+      "name": "screenMargin",
+      "flags": 6627016705
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "TooltipRequesters",
+      "flags": 6583025697
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "TooltipsLibrary",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:CName",
+      "name": "GenericTooltipsNames",
+      "flags": 6583025697
+    },
+    {
+      "type": "array:TooltipWidgetReference",
+      "name": "TooltipLibrariesReferences",
+      "flags": 6583025697
+    },
+    {
+      "type": "array:TooltipWidgetStyledReference",
+      "name": "TooltipLibrariesStyledReferences",
+      "flags": 6583025697
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "MenuTooltipStylePath",
+      "flags": 4297130017
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "HudTooltipStylePath",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:whandle:AGenericTooltipController",
+      "name": "IndexedTooltips",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:NamedTooltipController",
+      "name": "NamedTooltips",
+      "flags": 6583025696
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "TooltipStylePath",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "introAnim",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "FindAttachmentSlot",
+      "shortName": "FindAttachmentSlot",
+      "return": {
+        "type": "whandle:gameuiTooltipAttachmentSlot",
+        "flags": 64
+      },
+      "index": 11950,
+      "flags": 3,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AttachToWidget",
+      "shortName": "AttachToWidget",
+      "index": 11948,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "gameuiETooltipPlacement",
+          "name": "placement",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetTooltipsContainerRef",
+      "shortName": "GetTooltipsContainerRef",
+      "return": {
+        "type": "inkWidgetReference",
+        "flags": 64
+      },
+      "index": 11943,
+      "flags": 1
+    },
+    {
+      "fullName": "MarkToShow",
+      "shortName": "MarkToShow",
+      "index": 11947,
+      "flags": 1
+    },
+    {
+      "fullName": "RefreshTooltipsPosition",
+      "shortName": "RefreshTooltipsPosition",
+      "index": 11944,
+      "flags": 1
+    },
+    {
+      "fullName": "ResetTooltipsPosition",
+      "shortName": "ResetTooltipsPosition",
+      "index": 11945,
+      "flags": 1
+    },
+    {
+      "fullName": "SetCustomMargin",
+      "shortName": "SetCustomMargin",
+      "index": 11942,
+      "flags": 1,
+      "params": [
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetFollowsCursor",
+      "shortName": "SetFollowsCursor",
+      "index": 11946,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "followsCursor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnAttachFromWidget",
+      "shortName": "UnAttachFromWidget",
+      "index": 11949,
+      "flags": 1
+    },
+    {
+      "fullName": "AttachToCursor;",
+      "shortName": "AttachToCursor",
+      "flags": 516
+    },
+    {
+      "fullName": "GetNamedWidget;CName",
+      "shortName": "GetNamedWidget",
+      "return": {
+        "type": "whandle:AGenericTooltipController",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HideTooltips;",
+      "shortName": "HideTooltips",
+      "flags": 516
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnRequestTooltip;inkWidget",
+      "shortName": "OnRequestTooltip",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "RefreshTooltip;Int32",
+      "shortName": "RefreshTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshTooltip;CName",
+      "shortName": "RefreshTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;",
+      "shortName": "Setup",
+      "flags": 516
+    },
+    {
+      "fullName": "Setup;ETooltipsStyle",
+      "shortName": "Setup",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;ETooltipsStyleBool",
+      "shortName": "Setup",
+      "flags": 516,
+      "params": [
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "followCursor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupNamedWidgets;ETooltipsStyleinkWidget",
+      "shortName": "SetupNamedWidgets",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "tooltipsContainer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupStyledNamedWidgets;ETooltipsStyleinkWidget",
+      "shortName": "SetupStyledNamedWidgets",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "tooltipsContainer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;Int32ATooltipData",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;AGenericTooltipControllerATooltipData",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:AGenericTooltipController",
+          "name": "tooltipController",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;Int32ATooltipDatainkMargin",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;CNameATooltipDatainkMargin",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;CNameATooltipData",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;ATooltipData",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;AGenericTooltipControllerATooltipDatainkMargin",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:AGenericTooltipController",
+          "name": "tooltipController",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtPosition;Int32Vector2ATooltipData",
+      "shortName": "ShowTooltipAtPosition",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtPosition;CNameVector2ATooltipData",
+      "shortName": "ShowTooltipAtPosition",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtPosition;AGenericTooltipControllerVector2ATooltipData",
+      "shortName": "ShowTooltipAtPosition",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:AGenericTooltipController",
+          "name": "tooltipController",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtWidget;AGenericTooltipControllerinkWidgetATooltipDatagameuiETooltipPlacementBoolinkMargin",
+      "shortName": "ShowTooltipAtWidget",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:AGenericTooltipController",
+          "name": "tooltipController",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "gameuiETooltipPlacement",
+          "name": "placement",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "playAnim",
+          "flags": 1152
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtWidget;Int32inkWidgetATooltipDatagameuiETooltipPlacementBoolinkMargin",
+      "shortName": "ShowTooltipAtWidget",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "gameuiETooltipPlacement",
+          "name": "placement",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "playAnim",
+          "flags": 1152
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtWidget;CNameinkWidgetATooltipDatagameuiETooltipPlacementBoolinkMargin",
+      "shortName": "ShowTooltipAtWidget",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "gameuiETooltipPlacement",
+          "name": "placement",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "playAnim",
+          "flags": 1152
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipInSlot;Int32ATooltipDatainkWidget",
+      "shortName": "ShowTooltipInSlot",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipInSlot;AGenericTooltipControllerATooltipDatainkWidget",
+      "shortName": "ShowTooltipInSlot",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:AGenericTooltipController",
+          "name": "tooltipController",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipInSlot;CNameATooltipDatainkWidget",
+      "shortName": "ShowTooltipInSlot",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "identifier",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltips;array<ATooltipData>inkMarginBool",
+      "shortName": "ShowTooltips",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "playAnim",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltips;array<ATooltipData>",
+      "shortName": "ShowTooltips",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:ATooltipData",
+          "name": "tooltipsData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipsAtWidget;array<ATooltipData>inkWidgetgameuiETooltipPlacement",
+      "shortName": "ShowTooltipsAtWidget",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "gameuiETooltipPlacement",
+          "name": "placement",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipsAtWidget;array<ATooltipData>inkWidget",
+      "shortName": "ShowTooltipsAtWidget",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

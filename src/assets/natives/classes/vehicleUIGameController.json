@@ -1,0 +1,416 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "vehicleUIGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "vehicleBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:vehicleBaseObject",
+      "name": "vehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:VehicleComponentPS",
+      "name": "vehiclePS",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "vehicleBBStateConectionId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "vehicleCollisionBBStateID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "vehicleBBUIActivId",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "UIEnabled",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "startAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "loopAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "endAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "loopingBootProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "speedometerWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "tachometerWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "timeWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "instruments",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "gearBox",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "radio",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "analogTachWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "analogSpeedWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "isVehicleReady",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActivateUI;",
+      "shortName": "ActivateUI",
+      "flags": 132
+    },
+    {
+      "fullName": "CheckIfVehicleShouldTurnOn;",
+      "shortName": "CheckIfVehicleShouldTurnOn",
+      "flags": 132
+    },
+    {
+      "fullName": "DeactivateUI;",
+      "shortName": "DeactivateUI",
+      "flags": 132
+    },
+    {
+      "fullName": "EvaluateWidgetStyle;GameTime",
+      "shortName": "EvaluateWidgetStyle",
+      "flags": 516,
+      "params": [
+        {
+          "type": "GameTime",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeWidgetStyleSheet;VehicleObject",
+      "shortName": "InitializeWidgetStyleSheet",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "veh",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUIactive;",
+      "shortName": "IsUIactive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "KillBootupProxy;",
+      "shortName": "KillBootupProxy",
+      "flags": 132
+    },
+    {
+      "fullName": "OnActivateUI",
+      "shortName": "OnActivateUI",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "activate",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActivateUIEvent",
+      "shortName": "OnActivateUIEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleUIactivateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEndAnimFinished",
+      "shortName": "OnEndAnimFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForwardVehicleQuestEnableUIEvent",
+      "shortName": "OnForwardVehicleQuestEnableUIEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ForwardVehicleQuestEnableUIEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForwardVehicleQuestUIEffectEvent",
+      "shortName": "OnForwardVehicleQuestUIEffectEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ForwardVehicleQuestUIEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnStartAnimFinished",
+      "shortName": "OnStartAnimFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnVehicleCollision",
+      "shortName": "OnVehicleCollision",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "collision",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehiclePanzerBootupUIQuestEvent",
+      "shortName": "OnVehiclePanzerBootupUIQuestEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehiclePanzerBootupUIQuestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleReady",
+      "shortName": "OnVehicleReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "ready",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleStateChanged",
+      "shortName": "OnVehicleStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayIdleLoop;",
+      "shortName": "PlayIdleLoop",
+      "flags": 132
+    },
+    {
+      "fullName": "PlayLibraryAnim;CName",
+      "shortName": "PlayLibraryAnim",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "animName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterBlackBoardCallbacks;",
+      "shortName": "RegisterBlackBoardCallbacks",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupModule;inkWidgetRefVehicleObjectIBlackboard",
+      "shortName": "SetupModule",
+      "flags": 132,
+      "params": [
+        {
+          "type": "inkWidgetReference",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameIBlackboard",
+          "name": "vehBB",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOff;",
+      "shortName": "TurnOff",
+      "flags": 132
+    },
+    {
+      "fullName": "TurnOn;",
+      "shortName": "TurnOn",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterBlackBoardCallbacks;",
+      "shortName": "UnregisterBlackBoardCallbacks",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterModule;inkWidgetRef",
+      "shortName": "UnregisterModule",
+      "flags": 132,
+      "params": [
+        {
+          "type": "inkWidgetReference",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,435 @@
+{
+  "parent": "MasterControllerPS",
+  "name": "SecurityGateControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "SecurityGateDetectionProperties",
+      "name": "securityGateDetectionProperties",
+      "flags": 4364238881
+    },
+    {
+      "type": "SecurityGateResponseProperties",
+      "name": "securityGateResponseProperties",
+      "flags": 4364238881
+    },
+    {
+      "type": "ESecurityGateStatus",
+      "name": "securityGateStatus",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:TrespasserEntry",
+      "name": "trespassersDataList",
+      "flags": 6583025696
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionQuickHackAuthorization;",
+      "shortName": "ActionQuickHackAuthorization",
+      "return": {
+        "type": "handle:QuickHackAuthorization",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "AddTrespasserEntry;ScriptedPuppetCName",
+      "shortName": "AddTrespasserEntry",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "trespasser",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "areaName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanCreateAnyQuickHackActions;",
+      "shortName": "CanCreateAnyQuickHackActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216
+    },
+    {
+      "fullName": "DetermineIfEnteredFromCorrectSide;Int32CName",
+      "shortName": "DetermineIfEnteredFromCorrectSide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "trespasserIndex",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "areaName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DetermineIfEntityIsWithdrawing;Int32CName",
+      "shortName": "DetermineIfEntityIsWithdrawing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "areaName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateIfActionIsRequired;CNameEntityIDBool",
+      "shortName": "EvaluateIfActionIsRequired",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "mostRecentArea",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "tresspasser",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEntering",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuickHackActions",
+      "flags": 256,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetScannerEntranceType;",
+      "shortName": "GetScannerEntranceType",
+      "return": {
+        "type": "ESecurityGateEntranceType",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetShouldCheckPlayerOnly;",
+      "shortName": "GetShouldCheckPlayerOnly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetTrespasserInScannerArea;Int32",
+      "shortName": "GetTrespasserInScannerArea",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "InitiateScan;Int32",
+      "shortName": "InitiateScan",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "entryIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTrespasserOnTheList;ScriptedPuppetInt32",
+      "shortName": "IsTrespasserOnTheList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "trespasser",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsTrespasserOutside;Int32",
+      "shortName": "IsTrespasserOutside",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ManageSlaves;EntityIDBool",
+      "shortName": "ManageSlaves",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "trespasser",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldUnlock",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitiateScanner;InitiateScanner",
+      "shortName": "OnInitiateScanner",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:InitiateScanner",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PerformRestart;",
+      "shortName": "PerformRestart",
+      "flags": 256
+    },
+    {
+      "fullName": "PerformScan;Int32",
+      "shortName": "PerformScan",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PerformScannerSmokeCheck;ESecurityGateScannerIssueType",
+      "shortName": "PerformScannerSmokeCheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESecurityGateScannerIssueType",
+          "name": "reason",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ProtectEntityFromSecuritySystem;BoolEntityIDBoolBool",
+      "shortName": "ProtectEntityFromSecuritySystem",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldProtect",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "whoToProtect",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "entered",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasEntityWithdrawn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveTrespasserEntry;Int32",
+      "shortName": "RemoveTrespasserEntry",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveScannerNotReady;ESecurityGateScannerIssueType",
+      "shortName": "ResolveScannerNotReady",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ESecurityGateScannerIssueType",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RevokeAuthorization;EntityID",
+      "shortName": "RevokeAuthorization",
+      "flags": 260,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerScanResponse;Bool",
+      "shortName": "TriggerScanResponse",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isSuccessful",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTrespasserEntry;Int32BoolCName",
+      "shortName": "UpdateTrespasserEntry",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEntering",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "areaName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTrespassersList;TriggerEventBool",
+      "shortName": "UpdateTrespassersList",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:entTriggerEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEntering",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WakeUpDevice;",
+      "shortName": "WakeUpDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 256
+    }
+  ]
+}

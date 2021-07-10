@@ -1,0 +1,1921 @@
+{
+  "parent": "ScriptableDeviceComponentPS",
+  "name": "VehicleComponentPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "defaultStateSet",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "stateModifiedByQuest",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "playerVehicle",
+      "flags": 4565631008
+    },
+    {
+      "type": "array:CName",
+      "name": "npcOccupiedSlots",
+      "flags": 6583091232
+    },
+    {
+      "type": "Bool",
+      "name": "isDestroyed",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "isStolen",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "crystalDomeQuestModified",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "crystalDomeQuestState",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "crystalDomeState",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "visualDestructionSet",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "visualDestructionNeeded",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "exploded",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "sirenOn",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "sirenSoundOn",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "sirenLightsOn",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "anyDoorOpen",
+      "flags": 4565631008
+    },
+    {
+      "type": "array:TemporaryDoorState",
+      "name": "previousInteractionState",
+      "flags": 6851526688
+    },
+    {
+      "type": "Bool",
+      "name": "thrusterState",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "uiQuestModified",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "uiState",
+      "flags": 4565631008
+    },
+    {
+      "type": "handle:EngDemoContainer",
+      "name": "vehicleSkillChecks",
+      "flags": 4431413280
+    },
+    {
+      "type": "Bool",
+      "name": "ready",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isPlayerPerformingBodyDisposal",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:vehicleControllerPS",
+      "name": "vehicleControllerPS",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionCloseHood;",
+      "shortName": "ActionCloseHood",
+      "return": {
+        "type": "handle:VehicleCloseHood",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionCloseTrunk;",
+      "shortName": "ActionCloseTrunk",
+      "return": {
+        "type": "handle:VehicleCloseTrunk",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionForceCarAlarm;",
+      "shortName": "ActionForceCarAlarm",
+      "return": {
+        "type": "handle:ForceCarAlarm",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionForceDisableCarAlarm;",
+      "shortName": "ActionForceDisableCarAlarm",
+      "return": {
+        "type": "handle:ForceDisableCarAlarm",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionOpenHood;",
+      "shortName": "ActionOpenHood",
+      "return": {
+        "type": "handle:VehicleOpenHood",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionOpenTrunk;",
+      "shortName": "ActionOpenTrunk",
+      "return": {
+        "type": "handle:VehicleOpenTrunk",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionPlayerTrunk;",
+      "shortName": "ActionPlayerTrunk",
+      "return": {
+        "type": "handle:VehiclePlayerTrunk",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionToggleVehicle;Bool",
+      "shortName": "ActionToggleVehicle",
+      "return": {
+        "type": "handle:ToggleVehicle",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "toggleOn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionVehicleDoorClose;String",
+      "shortName": "ActionVehicleDoorClose",
+      "return": {
+        "type": "handle:VehicleDoorClose",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "slotName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionVehicleDoorInteraction;StringBoolBool",
+      "shortName": "ActionVehicleDoorInteraction",
+      "return": {
+        "type": "handle:VehicleDoorInteraction",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "slotName",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "fromInteraction",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "locked",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ActionVehicleDoorInteractionStateChange;EVehicleDoorVehicleDoorInteractionStateString",
+      "shortName": "ActionVehicleDoorInteractionStateChange",
+      "return": {
+        "type": "handle:VehicleDoorInteractionStateChange",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "doorToChange",
+          "flags": 128
+        },
+        {
+          "type": "vehicleVehicleDoorInteractionState",
+          "name": "desiredState",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "source",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionVehicleDoorOpen;String",
+      "shortName": "ActionVehicleDoorOpen",
+      "return": {
+        "type": "handle:VehicleDoorOpen",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "slotName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionVehicleDoorQuestLocked;",
+      "shortName": "ActionVehicleDoorQuestLocked",
+      "return": {
+        "type": "handle:VehicleQuestDoorLocked",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionVehicleDumpBody;",
+      "shortName": "ActionVehicleDumpBody",
+      "return": {
+        "type": "handle:VehicleDumpBody",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ActionVehicleForceOccupantOut;String",
+      "shortName": "ActionVehicleForceOccupantOut",
+      "return": {
+        "type": "handle:VehicleForceOccupantOut",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "slotName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionVehicleTakeBody;",
+      "shortName": "ActionVehicleTakeBody",
+      "return": {
+        "type": "handle:VehicleTakeBody",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "CanCreateAnyQuickHackActions;",
+      "shortName": "CanCreateAnyQuickHackActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "ChangeToActionContext;VehicleActionsContext",
+      "shortName": "ChangeToActionContext",
+      "return": {
+        "type": "gameGetActionsContext",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "VehicleActionsContext",
+          "name": "vehicleContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CloseAllVehDoors;",
+      "shortName": "CloseAllVehDoors",
+      "flags": 132
+    },
+    {
+      "fullName": "CloseAllVehWindows;",
+      "shortName": "CloseAllVehWindows",
+      "flags": 132
+    },
+    {
+      "fullName": "DetermineActionsToPush;InteractionComponentVehicleActionsContextgameObjectActionsCallbackControllerBool",
+      "shortName": "DetermineActionsToPush",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameinteractionsComponent",
+          "name": "interaction",
+          "flags": 128
+        },
+        {
+          "type": "VehicleActionsContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObjectActionsCallbackController",
+          "name": "objectActionsCallbackController",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isAutoRefresh",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DisableAlarm;",
+      "shortName": "DisableAlarm",
+      "flags": 516
+    },
+    {
+      "fullName": "DisableAllVehInteractions;",
+      "shortName": "DisableAllVehInteractions",
+      "flags": 132
+    },
+    {
+      "fullName": "GameAttached;",
+      "shortName": "GameAttached",
+      "flags": 256
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCrystalDomeQuestState;",
+      "shortName": "GetCrystalDomeQuestState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCrystalDomeState;",
+      "shortName": "GetCrystalDomeState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetDoorInteractionState;EVehicleDoor",
+      "shortName": "GetDoorInteractionState",
+      "return": {
+        "type": "vehicleVehicleDoorInteractionState",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDoorState;EVehicleDoor",
+      "shortName": "GetDoorState",
+      "return": {
+        "type": "vehicleVehicleDoorState",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetHasAnyDoorOpen;",
+      "shortName": "GetHasAnyDoorOpen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetHasDefaultStateBeenSet;",
+      "shortName": "GetHasDefaultStateBeenSet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetHasExploded;",
+      "shortName": "GetHasExploded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetHasStateBeenModifiedByQuest;",
+      "shortName": "GetHasStateBeenModifiedByQuest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetHasVisualDestructionBeenSet;",
+      "shortName": "GetHasVisualDestructionBeenSet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetHoodActions;array<DeviceAction>VehicleActionsContext",
+      "shortName": "GetHoodActions",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "VehicleActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetIsCrystalDomeQuestModified;",
+      "shortName": "GetIsCrystalDomeQuestModified",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetIsDestroyed;",
+      "shortName": "GetIsDestroyed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetIsPlayerVehicle;",
+      "shortName": "GetIsPlayerVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetIsStolen;",
+      "shortName": "GetIsStolen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetIsUiQuestModified;",
+      "shortName": "GetIsUiQuestModified",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetNpcOccupiedSlots;",
+      "shortName": "GetNpcOccupiedSlots",
+      "return": {
+        "type": "array:CName",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetOwnerEntity;",
+      "shortName": "GetOwnerEntity",
+      "return": {
+        "type": "whandle:vehicleBaseObject",
+        "flags": 64
+      },
+      "flags": 8452
+    },
+    {
+      "fullName": "GetPlayerTrunkActions;array<DeviceAction>VehicleActionsContext",
+      "shortName": "GetPlayerTrunkActions",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "VehicleActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuestLockedActions;array<DeviceAction>VehicleActionsContext",
+      "shortName": "GetQuestLockedActions",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "VehicleActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuickHackActions",
+      "flags": 256,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSeats;",
+      "shortName": "GetSeats",
+      "return": {
+        "type": "array:whandle:gamedataVehicleSeat_Record",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "GetSirenLightsState;",
+      "shortName": "GetSirenLightsState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetSirenSoundsState;",
+      "shortName": "GetSirenSoundsState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetSirenState;",
+      "shortName": "GetSirenState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetTempDoorInteractionState;EVehicleDoor",
+      "shortName": "GetTempDoorInteractionState",
+      "return": {
+        "type": "vehicleVehicleDoorInteractionState",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetThrusterState;",
+      "shortName": "GetThrusterState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetTrunkActions;array<DeviceAction>VehicleActionsContext",
+      "shortName": "GetTrunkActions",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "VehicleActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetUiQuestState;",
+      "shortName": "GetUiQuestState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetValidChoices;array<ObjectAction_Record>GetActionsContextgameObjectActionsCallbackControllerarray<InteractionChoice>Bool",
+      "shortName": "GetValidChoices",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:whandle:gamedataObjectAction_Record",
+          "name": "objectActionRecords",
+          "flags": 128
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObjectActionsCallbackController",
+          "name": "objectActionsCallbackController",
+          "flags": 128
+        },
+        {
+          "type": "array:gameinteractionsChoice",
+          "name": "choices",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "isAutoRefresh",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVehicleControllerPS;",
+      "shortName": "GetVehicleControllerPS",
+      "return": {
+        "type": "handle:vehicleControllerPS",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetVehicleControllerPSConst;",
+      "shortName": "GetVehicleControllerPSConst",
+      "return": {
+        "type": "handle:vehicleControllerPS",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "GetVehicleDoorEnum;EVehicleDoorCName",
+      "shortName": "GetVehicleDoorEnum",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 640
+        },
+        {
+          "type": "CName",
+          "name": "doorName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetWindowState;EVehicleDoor",
+      "shortName": "GetWindowState",
+      "return": {
+        "type": "vehicleEVehicleWindowState",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "InitializeDoorInteractionState;",
+      "shortName": "InitializeDoorInteractionState",
+      "flags": 132
+    },
+    {
+      "fullName": "InitializeTempDoorStateStruct;",
+      "shortName": "InitializeTempDoorStateStruct",
+      "flags": 132
+    },
+    {
+      "fullName": "IsDoorLayer;CName",
+      "shortName": "IsDoorLayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "CName",
+          "name": "layer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayerCarryingBody;Bool",
+      "shortName": "IsPlayerCarryingBody",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "includePickupPhase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSlotOccupiedByNPC;CName",
+      "shortName": "IsSlotOccupiedByNPC",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsStateValidForVehicle;VehicleDoorInteractionState",
+      "shortName": "IsStateValidForVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleVehicleDoorInteractionState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LockAllVehDoors;",
+      "shortName": "LockAllVehDoors",
+      "flags": 132
+    },
+    {
+      "fullName": "OnActionDemolition;ActionDemolition",
+      "shortName": "OnActionDemolition",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ActionDemolition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActionEngineering;ActionEngineering",
+      "shortName": "OnActionEngineering",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseHood;VehicleCloseHood",
+      "shortName": "OnCloseHood",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleCloseHood",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseTrunk;VehicleCloseTrunk",
+      "shortName": "OnCloseTrunk",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleCloseTrunk",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceCarAlarm;ForceCarAlarm",
+      "shortName": "OnForceCarAlarm",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ForceCarAlarm",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceDisableCarAlarm;ForceDisableCarAlarm",
+      "shortName": "OnForceDisableCarAlarm",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ForceDisableCarAlarm",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenHood;VehicleOpenHood",
+      "shortName": "OnOpenHood",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleOpenHood",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenTrunk;VehicleOpenTrunk",
+      "shortName": "OnOpenTrunk",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleOpenTrunk",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetExposeQuickHacks;SetExposeQuickHacks",
+      "shortName": "OnSetExposeQuickHacks",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SetExposeQuickHacks",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleDoorWrapperEvent;vehicleToggleDoorWrapperEvent",
+      "shortName": "OnToggleDoorWrapperEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:vehicleToggleDoorWrapperEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleVehicle;ToggleVehicle",
+      "shortName": "OnToggleVehicle",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ToggleVehicle",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleBodyDisposalPerformedEvent;VehicleBodyDisposalPerformedEvent",
+      "shortName": "OnVehicleBodyDisposalPerformedEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleBodyDisposalPerformedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorClose;VehicleDoorClose",
+      "shortName": "OnVehicleDoorClose",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleDoorClose",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorInteraction;VehicleDoorInteraction",
+      "shortName": "OnVehicleDoorInteraction",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleDoorInteraction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorInteractionStateChange;VehicleDoorInteractionStateChange",
+      "shortName": "OnVehicleDoorInteractionStateChange",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleDoorInteractionStateChange",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorOpen;VehicleDoorOpen",
+      "shortName": "OnVehicleDoorOpen",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleDoorOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDumpBody;VehicleDumpBody",
+      "shortName": "OnVehicleDumpBody",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleDumpBody",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleFinishedMounting;VehicleFinishedMountingEvent",
+      "shortName": "OnVehicleFinishedMounting",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:vehicleFinishedMountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleForceOccupantOut;VehicleForceOccupantOut",
+      "shortName": "OnVehicleForceOccupantOut",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:VehicleForceOccupantOut",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleLightQuestToggleEvent;VehicleLightQuestToggleEvent",
+      "shortName": "OnVehicleLightQuestToggleEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleLightQuestToggleEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehiclePanzerBootupUIQuestEvent;VehiclePanzerBootupUIQuestEvent",
+      "shortName": "OnVehiclePanzerBootupUIQuestEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehiclePanzerBootupUIQuestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehiclePlayerTrunk;VehiclePlayerTrunk",
+      "shortName": "OnVehiclePlayerTrunk",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:VehiclePlayerTrunk",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestAVThrusterEvent;VehicleQuestAVThrusterEvent",
+      "shortName": "OnVehicleQuestAVThrusterEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleQuestAVThrusterEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestChangeDoorStateEvent;VehicleQuestChangeDoorStateEvent",
+      "shortName": "OnVehicleQuestChangeDoorStateEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleQuestChangeDoorStateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestChangeWindowStateEvent;vehicleChangeWindowStateEvent",
+      "shortName": "OnVehicleQuestChangeWindowStateEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:vehicleChangeWindowStateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestCrystalDomeEvent;VehicleQuestCrystalDomeEvent",
+      "shortName": "OnVehicleQuestCrystalDomeEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleQuestCrystalDomeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestHornEvent;VehicleQuestHornEvent",
+      "shortName": "OnVehicleQuestHornEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleQuestHornEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestSirenEvent;VehicleQuestSirenEvent",
+      "shortName": "OnVehicleQuestSirenEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleQuestSirenEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestToggleEngineEvent;VehicleQuestToggleEngineEvent",
+      "shortName": "OnVehicleQuestToggleEngineEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleQuestToggleEngineEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestUIEffectEvent;VehicleQuestUIEffectEvent",
+      "shortName": "OnVehicleQuestUIEffectEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleQuestUIEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestUIEvent;VehicleQuestEnableUIEvent",
+      "shortName": "OnVehicleQuestUIEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleQuestEnableUIEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestVisualDestructionEvent;VehicleQuestVisualDestructionEvent",
+      "shortName": "OnVehicleQuestVisualDestructionEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleQuestVisualDestructionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestWindowDestructionEvent;VehicleQuestWindowDestructionEvent",
+      "shortName": "OnVehicleQuestWindowDestructionEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleQuestWindowDestructionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRaceQuestEvent;VehicleRaceQuestEvent",
+      "shortName": "OnVehicleRaceQuestEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleRaceQuestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRadioEvent;VehicleRadioEvent",
+      "shortName": "OnVehicleRadioEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleRadioEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleSeatReservationEvent;VehicleSeatReservationEvent",
+      "shortName": "OnVehicleSeatReservationEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:VehicleSeatReservationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleStartedUnmountingEvent;VehicleStartedUnmountingEvent",
+      "shortName": "OnVehicleStartedUnmountingEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:VehicleStartedUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleTakeBody;VehicleTakeBody",
+      "shortName": "OnVehicleTakeBody",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleTakeBody",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleWindowClose;VehicleWindowClose",
+      "shortName": "OnVehicleWindowClose",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleWindowClose",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleWindowOpen;VehicleWindowOpen",
+      "shortName": "OnVehicleWindowOpen",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:VehicleWindowOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenAllRegularVehDoors;",
+      "shortName": "OpenAllRegularVehDoors",
+      "flags": 516
+    },
+    {
+      "fullName": "OpenAllVehDoors;",
+      "shortName": "OpenAllVehDoors",
+      "flags": 132
+    },
+    {
+      "fullName": "OpenAllVehWindows;",
+      "shortName": "OpenAllVehWindows",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessBodyDisposalEvent;",
+      "shortName": "ProcessBodyDisposalEvent",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessVehicleCrackLockTutorial;",
+      "shortName": "ProcessVehicleCrackLockTutorial",
+      "flags": 260
+    },
+    {
+      "fullName": "ProcessVehicleCrackLockTutorialUsed;",
+      "shortName": "ProcessVehicleCrackLockTutorialUsed",
+      "flags": 260
+    },
+    {
+      "fullName": "ProcessVehicleHijackTutorial;",
+      "shortName": "ProcessVehicleHijackTutorial",
+      "flags": 260
+    },
+    {
+      "fullName": "ProcessVehicleHijackTutorialUsed;",
+      "shortName": "ProcessVehicleHijackTutorialUsed",
+      "flags": 260
+    },
+    {
+      "fullName": "PushActionsToInteractionComponent;InteractionComponentarray<InteractionChoice>VehicleActionsContext",
+      "shortName": "PushActionsToInteractionComponent",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameinteractionsComponent",
+          "name": "interaction",
+          "flags": 128
+        },
+        {
+          "type": "array:gameinteractionsChoice",
+          "name": "choices",
+          "flags": 128
+        },
+        {
+          "type": "VehicleActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestLockAllVehDoors;",
+      "shortName": "QuestLockAllVehDoors",
+      "flags": 132
+    },
+    {
+      "fullName": "RefreshSkillchecks;",
+      "shortName": "RefreshSkillchecks",
+      "flags": 260
+    },
+    {
+      "fullName": "ResetVehicle;",
+      "shortName": "ResetVehicle",
+      "flags": 132
+    },
+    {
+      "fullName": "ResetVehicleInteractionState;",
+      "shortName": "ResetVehicleInteractionState",
+      "flags": 132
+    },
+    {
+      "fullName": "SetCrystalDomeQuestState;Bool",
+      "shortName": "SetCrystalDomeQuestState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCrystalDomeState;Bool",
+      "shortName": "SetCrystalDomeState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDoorInteractionState;EVehicleDoorVehicleDoorInteractionStateString",
+      "shortName": "SetDoorInteractionState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        },
+        {
+          "type": "vehicleVehicleDoorInteractionState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "source",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDoorState;EVehicleDoorVehicleDoorState",
+      "shortName": "SetDoorState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        },
+        {
+          "type": "vehicleVehicleDoorState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasAnyDoorOpen;Bool",
+      "shortName": "SetHasAnyDoorOpen",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasDefaultStateBeenSet;Bool",
+      "shortName": "SetHasDefaultStateBeenSet",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasExploded;Bool",
+      "shortName": "SetHasExploded",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasStateBeenModifiedByQuest;Bool",
+      "shortName": "SetHasStateBeenModifiedByQuest",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasVisualDestructionBeenSet;Bool",
+      "shortName": "SetHasVisualDestructionBeenSet",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsCrystalDomeQuestModified;Bool",
+      "shortName": "SetIsCrystalDomeQuestModified",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsDestroyed;Bool",
+      "shortName": "SetIsDestroyed",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsPlayerVehicle;Bool",
+      "shortName": "SetIsPlayerVehicle",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsStolen;Bool",
+      "shortName": "SetIsStolen",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsUiQuestModified;Bool",
+      "shortName": "SetIsUiQuestModified",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSirenLightsState;Bool",
+      "shortName": "SetSirenLightsState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSirenSoundsState;Bool",
+      "shortName": "SetSirenSoundsState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSirenState;Bool",
+      "shortName": "SetSirenState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTempDoorInteractionState;EVehicleDoorVehicleDoorInteractionState",
+      "shortName": "SetTempDoorInteractionState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        },
+        {
+          "type": "vehicleVehicleDoorInteractionState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetThrusterState;Bool",
+      "shortName": "SetThrusterState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUiQuestState;Bool",
+      "shortName": "SetUiQuestState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWindowState;EVehicleDoorEVehicleWindowState",
+      "shortName": "SetWindowState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "vehicleEVehicleDoor",
+          "name": "door",
+          "flags": 128
+        },
+        {
+          "type": "vehicleEVehicleWindowState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnlockAllVehDoors;",
+      "shortName": "UnlockAllVehDoors",
+      "flags": 132
+    }
+  ]
+}

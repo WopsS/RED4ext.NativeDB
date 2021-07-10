@@ -1,0 +1,499 @@
+{
+  "parent": "BasicDistractionDeviceControllerPS",
+  "name": "ExplosiveDeviceControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "handle:EngDemoContainer",
+      "name": "explosiveSkillChecks",
+      "flags": 4498522149
+    },
+    {
+      "type": "array:ExplosiveDeviceResourceDefinition",
+      "name": "explosionDefinition",
+      "group": "Explosive properties",
+      "flags": 6583091233
+    },
+    {
+      "type": "Bool",
+      "name": "explosiveWithQhacks",
+      "group": "Explosive properties",
+      "flags": 4297195553
+    },
+    {
+      "type": "Float",
+      "name": "HealthDecay",
+      "group": "Explosive properties",
+      "flags": 4364304417
+    },
+    {
+      "type": "Float",
+      "name": "timeToMeshSwap",
+      "group": "Explosive properties",
+      "flags": 4364304417
+    },
+    {
+      "type": "Bool",
+      "name": "shouldDistractionHitVFXIgnoreHitPosition",
+      "group": "Explosive properties",
+      "flags": 4297195553
+    },
+    {
+      "type": "Bool",
+      "name": "canBeDisabledWithQhacks",
+      "group": "Explosive properties",
+      "flags": 4297195553
+    },
+    {
+      "type": "Bool",
+      "name": "disarmed",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "exploded",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "provideExplodeAction",
+      "group": "Tech design",
+      "flags": 4297195553
+    },
+    {
+      "type": "Bool",
+      "name": "doExplosiveEngineerLogic",
+      "group": "Tech design",
+      "flags": 4297195553
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionForceDetonate;",
+      "shortName": "ActionForceDetonate",
+      "return": {
+        "type": "handle:ForceDetonate",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestForceDetonate;",
+      "shortName": "ActionQuestForceDetonate",
+      "return": {
+        "type": "handle:QuestForceDetonate",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuickHackDistractExplosive;",
+      "shortName": "ActionQuickHackDistractExplosive",
+      "return": {
+        "type": "handle:QuickHackDistractExplosive",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuickHackExplodeExplosive;",
+      "shortName": "ActionQuickHackExplodeExplosive",
+      "return": {
+        "type": "handle:QuickHackExplodeExplosive",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuickHackToggleON;",
+      "shortName": "ActionQuickHackToggleON",
+      "return": {
+        "type": "handle:QuickHackToggleON",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "ActionSpiderbotDistractExplosiveDevice;",
+      "shortName": "ActionSpiderbotDistractExplosiveDevice",
+      "return": {
+        "type": "handle:SpiderbotDistractExplosiveDevice",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionSpiderbotDistractExplosiveDevicePerformed;",
+      "shortName": "ActionSpiderbotDistractExplosiveDevicePerformed",
+      "return": {
+        "type": "handle:SpiderbotDistractExplosiveDevicePerformed",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionSpiderbotExplodeExplosiveDevice;",
+      "shortName": "ActionSpiderbotExplodeExplosiveDevice",
+      "return": {
+        "type": "handle:SpiderbotExplodeExplosiveDevice",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionSpiderbotExplodeExplosiveDevicePerformed;",
+      "shortName": "ActionSpiderbotExplodeExplosiveDevicePerformed",
+      "return": {
+        "type": "handle:SpiderbotExplodeExplosiveDevicePerformed",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "CanCreateAnyQuickHackActions;",
+      "shortName": "CanCreateAnyQuickHackActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "Disarm;ScriptableDeviceAction",
+      "shortName": "Disarm",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DoExplosiveResolveGameplayLogic;",
+      "shortName": "DoExplosiveResolveGameplayLogic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GameAttached;",
+      "shortName": "GameAttached",
+      "flags": 256
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDistractionHitVFXIgnoreHitPosition;",
+      "shortName": "GetDistractionHitVFXIgnoreHitPosition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetExplosionDefinition;Int32",
+      "shortName": "GetExplosionDefinition",
+      "return": {
+        "type": "ExplosiveDeviceResourceDefinition",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetExplosionDefinitionArray;",
+      "shortName": "GetExplosionDefinitionArray",
+      "return": {
+        "type": "array:ExplosiveDeviceResourceDefinition",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetHealthDecay;",
+      "shortName": "GetHealthDecay",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuestActions",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuickHackActions",
+      "flags": 256,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTimeToMeshSwap;",
+      "shortName": "GetTimeToMeshSwap",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "IsDisabledWithQhacks;",
+      "shortName": "IsDisabledWithQhacks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsExploded;",
+      "shortName": "IsExploded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsExplosiveWithQhacks;",
+      "shortName": "IsExplosiveWithQhacks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "OnActionEngineering;ActionEngineering",
+      "shortName": "OnActionEngineering",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceDetonate;ForceDetonate",
+      "shortName": "OnForceDetonate",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ForceDetonate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnQuestForceDetonate;QuestForceDetonate",
+      "shortName": "OnQuestForceDetonate",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestForceDetonate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuickHackExplodeExplosive;QuickHackExplodeExplosive",
+      "shortName": "OnQuickHackExplodeExplosive",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuickHackExplodeExplosive",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpiderbotDistractExplosiveDevice;SpiderbotDistractExplosiveDevice",
+      "shortName": "OnSpiderbotDistractExplosiveDevice",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SpiderbotDistractExplosiveDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpiderbotDistractExplosiveDevicePerformed;SpiderbotDistractExplosiveDevicePerformed",
+      "shortName": "OnSpiderbotDistractExplosiveDevicePerformed",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SpiderbotDistractExplosiveDevicePerformed",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpiderbotExplodeExplosiveDevice;SpiderbotExplodeExplosiveDevice",
+      "shortName": "OnSpiderbotExplodeExplosiveDevice",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SpiderbotExplodeExplosiveDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpiderbotExplodeExplosiveDevicePerformed;SpiderbotExplodeExplosiveDevicePerformed",
+      "shortName": "OnSpiderbotExplodeExplosiveDevicePerformed",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:SpiderbotExplodeExplosiveDevicePerformed",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushPersistentData;",
+      "shortName": "PushPersistentData",
+      "flags": 516
+    },
+    {
+      "fullName": "SetExplodedState;Bool",
+      "shortName": "SetExplodedState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

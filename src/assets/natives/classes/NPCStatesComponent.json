@@ -1,0 +1,1149 @@
+{
+  "parent": "gameAINetStateComponent",
+  "name": "NPCStatesComponent",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:entLookAtAddEvent",
+      "name": "aimingLookatEvent",
+      "flags": 4431347744
+    },
+    {
+      "type": "CName",
+      "name": "highLevelAnimFeatureName",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "upperBodyAnimFeatureName",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "stanceAnimFeatureName",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameStatModifierData",
+      "name": "statFlagDefensiveState",
+      "flags": 4431544352
+    },
+    {
+      "type": "gamedataNPCStanceState",
+      "name": "prevNPCStanceState",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamedataNPCHighLevelState",
+      "name": "previousHighLevelState",
+      "flags": 4297130016
+    },
+    {
+      "type": "EHitReactionMode",
+      "name": "prevHitReactionMode",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "bulkyStaggerMinRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "staggerMinRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "unstoppableRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "unstoppableTwitchMinRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "unstoppableTwitchNoneRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "forceImpactRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "forceStaggerRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "forceKnockdownRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "fragileRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "weakRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "toughRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "bulkyRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "regularRecordID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inCombat",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "NPCStatesComponent::AlertPuppet;ScriptedPuppet",
+      "shortName": "AlertPuppet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "ownerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NPCStatesComponent::GetAnimWrapperNameBasedOnHighLevelState;gamedataNPCHighLevelState",
+      "shortName": "GetAnimWrapperNameBasedOnHighLevelState",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "highLevelState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NPCStatesComponent::GetAnimWrapperNameBasedOnStanceState;gamedataNPCStanceState",
+      "shortName": "GetAnimWrapperNameBasedOnStanceState",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "gamedataNPCStanceState",
+          "name": "stanceState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeBehaviorState;gamedataNPCBehaviorState",
+      "shortName": "ChangeBehaviorState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCBehaviorState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeDefenseMode;gamedataDefenseMode",
+      "shortName": "ChangeDefenseMode",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataDefenseMode",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeHighLevelState;gamedataNPCHighLevelState",
+      "shortName": "ChangeHighLevelState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeHitReactionModeState;EHitReactionMode",
+      "shortName": "ChangeHitReactionModeState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "EHitReactionMode",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeLocomotionMode;gamedataLocomotionMode",
+      "shortName": "ChangeLocomotionMode",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataLocomotionMode",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangePhaseState;ENPCPhaseState",
+      "shortName": "ChangePhaseState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ENPCPhaseState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeStanceState;gamedataNPCStanceState",
+      "shortName": "ChangeStanceState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCStanceState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeUpperBodyState;gamedataNPCUpperBodyState",
+      "shortName": "ChangeUpperBodyState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCUpperBodyState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCurrentBehaviorState;",
+      "shortName": "GetCurrentBehaviorState",
+      "return": {
+        "type": "gamedataNPCBehaviorState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentDefenseMode;",
+      "shortName": "GetCurrentDefenseMode",
+      "return": {
+        "type": "gamedataDefenseMode",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentHighLevelState;",
+      "shortName": "GetCurrentHighLevelState",
+      "return": {
+        "type": "gamedataNPCHighLevelState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentHitReactionModeState;",
+      "shortName": "GetCurrentHitReactionModeState",
+      "return": {
+        "type": "EHitReactionMode",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentLocomotionMode;",
+      "shortName": "GetCurrentLocomotionMode",
+      "return": {
+        "type": "gamedataLocomotionMode",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentPhaseState;",
+      "shortName": "GetCurrentPhaseState",
+      "return": {
+        "type": "ENPCPhaseState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentStanceState;",
+      "shortName": "GetCurrentStanceState",
+      "return": {
+        "type": "gamedataNPCStanceState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetCurrentUpperBodyState;",
+      "shortName": "GetCurrentUpperBodyState",
+      "return": {
+        "type": "gamedataNPCUpperBodyState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPreviousHighLevelState;",
+      "shortName": "GetPreviousHighLevelState",
+      "return": {
+        "type": "gamedataNPCHighLevelState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPreviousHitReactionMode;",
+      "shortName": "GetPreviousHitReactionMode",
+      "return": {
+        "type": "EHitReactionMode",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPreviousStanceState;",
+      "shortName": "GetPreviousStanceState",
+      "return": {
+        "type": "gamedataNPCStanceState",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetPuppet;",
+      "shortName": "GetPuppet",
+      "return": {
+        "type": "handle:ScriptedPuppet",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetPuppetStateBlackboard;",
+      "shortName": "GetPuppetStateBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "GetUpperBodyStateForAnimGraph;",
+      "shortName": "GetUpperBodyStateForAnimGraph",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "HandleCombatStateAnimHint;gamedataNPCHighLevelStategamedataNPCHighLevelState",
+      "shortName": "HandleCombatStateAnimHint",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "newState",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "previousState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifySecuritySystemCombat;",
+      "shortName": "NotifySecuritySystemCombat",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAlerted;",
+      "shortName": "OnAlerted",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAttack;",
+      "shortName": "OnAttack",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnBulky;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnBulky",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBulkyStaggerMin;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnBulkyStaggerMin",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChargeAttack;",
+      "shortName": "OnChargeAttack",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnCombat;",
+      "shortName": "OnCombat",
+      "flags": 132
+    },
+    {
+      "fullName": "OnCover;",
+      "shortName": "OnCover",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnCrouch;",
+      "shortName": "OnCrouch",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnDead;",
+      "shortName": "OnDead",
+      "flags": 132
+    },
+    {
+      "fullName": "OnDefend;",
+      "shortName": "OnDefend",
+      "flags": 132
+    },
+    {
+      "fullName": "OnDefendAll;",
+      "shortName": "OnDefendAll",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnDefendMelee;",
+      "shortName": "OnDefendMelee",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnDefendRanged;",
+      "shortName": "OnDefendRanged",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnDefenseModeChanged;",
+      "shortName": "OnDefenseModeChanged",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnForceImpact;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnForceImpact",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceKnockdown;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnForceKnockdown",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceStagger;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnForceStagger",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFragile;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnFragile",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameAttach;",
+      "shortName": "OnGameAttach",
+      "flags": 516
+    },
+    {
+      "fullName": "OnHighLevelStateEnter;gamedataNPCHighLevelStategamedataNPCHighLevelState",
+      "shortName": "OnHighLevelStateEnter",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "newState",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "previousState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHighLevelStateExit;gamedataNPCHighLevelStategamedataNPCHighLevelState",
+      "shortName": "OnHighLevelStateExit",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "leftState",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "nextState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLocomotionModeChanged;",
+      "shortName": "OnLocomotionModeChanged",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnMoving;",
+      "shortName": "OnMoving",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnNPCStateChangeSignalReceived;NPCStateChangeSignal",
+      "shortName": "OnNPCStateChangeSignalReceived",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:NPCStateChangeSignal",
+          "name": "signal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNoDefend;",
+      "shortName": "OnNoDefend",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnNormal;",
+      "shortName": "OnNormal",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnNotifySecuritySystemCombatEvent",
+      "shortName": "OnNotifySecuritySystemCombatEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:NotifySecuritySystemCombatEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnParry;",
+      "shortName": "OnParry",
+      "flags": 132
+    },
+    {
+      "fullName": "OnRegular;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnRegular",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRelaxed;",
+      "shortName": "OnRelaxed",
+      "flags": 132
+    },
+    {
+      "fullName": "OnReload;",
+      "shortName": "OnReload",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnShoot;",
+      "shortName": "OnShoot",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnStaggerMin;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnStaggerMin",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStanceStateChanged;",
+      "shortName": "OnStanceStateChanged",
+      "flags": 132
+    },
+    {
+      "fullName": "OnStand;",
+      "shortName": "OnStand",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnStatic;",
+      "shortName": "OnStatic",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnSwim;",
+      "shortName": "OnSwim",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnTough;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnTough",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnstoppable;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnUnstoppable",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnstoppableTwitchMin;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnUnstoppableTwitchMin",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnstoppableTwitchNone;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnUnstoppableTwitchNone",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpperBodyStateChanged;",
+      "shortName": "OnUpperBodyStateChanged",
+      "flags": 132
+    },
+    {
+      "fullName": "OnVehicle;",
+      "shortName": "OnVehicle",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnWeak;StatsSystemEntityIDTweakDBID",
+      "shortName": "OnWeak",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statSystem",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayDeadVO;",
+      "shortName": "PlayDeadVO",
+      "flags": 132
+    },
+    {
+      "fullName": "SendOnUnstoppableRemovedSignal;Bool",
+      "shortName": "SendOnUnstoppableRemovedSignal",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "b",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentBehaviorState;gamedataNPCBehaviorState",
+      "shortName": "SetCurrentBehaviorState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataNPCBehaviorState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentDefenseMode;gamedataDefenseMode",
+      "shortName": "SetCurrentDefenseMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataDefenseMode",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentHighLevelState;gamedataNPCHighLevelState",
+      "shortName": "SetCurrentHighLevelState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentHitReactionModeState;EHitReactionMode",
+      "shortName": "SetCurrentHitReactionModeState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "EHitReactionMode",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentLocomotionMode;gamedataLocomotionMode",
+      "shortName": "SetCurrentLocomotionMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataLocomotionMode",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentPhaseState;ENPCPhaseState",
+      "shortName": "SetCurrentPhaseState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "ENPCPhaseState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentStanceState;gamedataNPCStanceState",
+      "shortName": "SetCurrentStanceState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataNPCStanceState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentUpperBodyState;gamedataNPCUpperBodyState",
+      "shortName": "SetCurrentUpperBodyState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataNPCUpperBodyState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPreviousHitReactionMode;EHitReactionMode",
+      "shortName": "SetPreviousHitReactionMode",
+      "flags": 516,
+      "params": [
+        {
+          "type": "EHitReactionMode",
+          "name": "prevState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPreviousStanceState;gamedataNPCStanceState",
+      "shortName": "SetPreviousStanceState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataNPCStanceState",
+          "name": "prevState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleVehicleWindow;Bool",
+      "shortName": "ToggleVehicleWindow",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "toggle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOffParryState;",
+      "shortName": "TurnOffParryState",
+      "flags": 132
+    },
+    {
+      "fullName": "TurnOnParryState;",
+      "shortName": "TurnOnParryState",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateBehaviorState;",
+      "shortName": "UpdateBehaviorState",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateDefenseMode;",
+      "shortName": "UpdateDefenseMode",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateDefensiveState;Bool",
+      "shortName": "UpdateDefensiveState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateHighLevelState;gamedataNPCHighLevelStategamedataNPCHighLevelState",
+      "shortName": "UpdateHighLevelState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "newState",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNPCHighLevelState",
+          "name": "previousState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateHitReactionsExceptionState;",
+      "shortName": "UpdateHitReactionsExceptionState",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateLocomotionMode;",
+      "shortName": "UpdateLocomotionMode",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdatePhaseState;",
+      "shortName": "UpdatePhaseState",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateStanceState;",
+      "shortName": "UpdateStanceState",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateUpperBodyState;",
+      "shortName": "UpdateUpperBodyState",
+      "flags": 132
+    }
+  ]
+}

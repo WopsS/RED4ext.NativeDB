@@ -1,0 +1,1211 @@
+{
+  "parent": "ExplosiveDeviceControllerPS",
+  "name": "SensorDeviceControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "isRecognizableBySenses",
+      "group": "Senses",
+      "flags": 4632674337
+    },
+    {
+      "type": "TargetingBehaviour",
+      "name": "targetingBehaviour",
+      "flags": 4632739873
+    },
+    {
+      "type": "DetectionParameters",
+      "name": "detectionParameters",
+      "flags": 4632739873
+    },
+    {
+      "type": "TweakDBID",
+      "name": "lookAtPresetVert",
+      "flags": 4297195553
+    },
+    {
+      "type": "TweakDBID",
+      "name": "lookAtPresetHor",
+      "flags": 4297195553
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "scanGameEffectRef",
+      "group": "Game effect refs",
+      "flags": 4297195553
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "visionConeEffectRef",
+      "group": "Game effect refs",
+      "flags": 4297195553
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "visionConeFriendlyEffectRef",
+      "group": "Game effect refs",
+      "flags": 4297195553
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "idleActiveRef",
+      "group": "Game effect refs",
+      "flags": 4297195553
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "idleFriendlyRef",
+      "group": "Game effect refs",
+      "flags": 4297195553
+    },
+    {
+      "type": "Bool",
+      "name": "canTagEnemies",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "tagLockFromSystem",
+      "flags": 4297195552
+    },
+    {
+      "type": "entEntityID",
+      "name": "netrunnerID",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "netrunnerProxyID",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "netrunnerTargetID",
+      "flags": 4297130016
+    },
+    {
+      "type": "LinkedStatusEffect",
+      "name": "linkedStatusEffect",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "questForcedTargetID",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isInFollowMode",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isAttitudeChanged",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isInTagKillMode",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isIdleForced",
+      "flags": 4565565472
+    },
+    {
+      "type": "entEntityID",
+      "name": "questTargetToSpot",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "questTargetSpotted",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isAnyTargetIsLocked",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isPartOfPrevention",
+      "flags": 4297195553
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionForceIgnoreTargets;",
+      "shortName": "ActionForceIgnoreTargets",
+      "return": {
+        "type": "handle:ForceIgnoreTargets",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "ActionQuestFollowTarget;",
+      "shortName": "ActionQuestFollowTarget",
+      "return": {
+        "type": "handle:QuestFollowTarget",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestForceAttitude;",
+      "shortName": "ActionQuestForceAttitude",
+      "return": {
+        "type": "handle:QuestForceAttitude",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestForceScanEffect;",
+      "shortName": "ActionQuestForceScanEffect",
+      "return": {
+        "type": "handle:QuestForceScanEffect",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestForceScanEffectStop;",
+      "shortName": "ActionQuestForceScanEffectStop",
+      "return": {
+        "type": "handle:QuestForceScanEffectStop",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestLookAtTarget;",
+      "shortName": "ActionQuestLookAtTarget",
+      "return": {
+        "type": "handle:QuestLookAtTarget",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestSetDetectionToFalse;",
+      "shortName": "ActionQuestSetDetectionToFalse",
+      "return": {
+        "type": "handle:QuestSetDetectionToFalse",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestSetDetectionToTrue;",
+      "shortName": "ActionQuestSetDetectionToTrue",
+      "return": {
+        "type": "handle:QuestSetDetectionToTrue",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestSpotTargetReference;",
+      "shortName": "ActionQuestSpotTargetReference",
+      "return": {
+        "type": "handle:QuestSpotTargetReference",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestStopFollowingTarget;",
+      "shortName": "ActionQuestStopFollowingTarget",
+      "return": {
+        "type": "handle:QuestStopFollowingTarget",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestStopLookAtTarget;",
+      "shortName": "ActionQuestStopLookAtTarget",
+      "return": {
+        "type": "handle:QuestStopLookAtTarget",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuickHackToggleON;",
+      "shortName": "ActionQuickHackToggleON",
+      "return": {
+        "type": "handle:QuickHackToggleON",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "ActionSetDeviceTagKillMode;",
+      "shortName": "ActionSetDeviceTagKillMode",
+      "return": {
+        "type": "handle:SetDeviceTagKillMode",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "CanTagEnemies;",
+      "shortName": "CanTagEnemies",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ClearLinkedStatusEffect;",
+      "shortName": "ClearLinkedStatusEffect",
+      "flags": 516
+    },
+    {
+      "fullName": "DrawBetweenEntities;BoolBoolFxResourceEntityIDEntityIDBoolBoolBoolBool",
+      "shortName": "DrawBetweenEntities",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldDraw",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "focusModeOnly",
+          "flags": 128
+        },
+        {
+          "type": "gameFxResource",
+          "name": "fxResource",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "masterID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "slaveID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "revealMaster",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "revealSlave",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "onlyRemoveWeakLink",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isEyeContact",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetBehaviourCanDetectIntruders;",
+      "shortName": "GetBehaviourCanDetectIntruders",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourCanRotate;",
+      "shortName": "GetBehaviourCanRotate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourLastTargetLookAtTime;",
+      "shortName": "GetBehaviourLastTargetLookAtTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourLostTargetSearchTime;",
+      "shortName": "GetBehaviourLostTargetSearchTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourMaxRotationAngle;",
+      "shortName": "GetBehaviourMaxRotationAngle",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourOverrideRootRotation;",
+      "shortName": "GetBehaviourOverrideRootRotation",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourPitchAngle;",
+      "shortName": "GetBehaviourPitchAngle",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourRotationSpeed;",
+      "shortName": "GetBehaviourRotationSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetBehaviourtimeToTakeAction;",
+      "shortName": "GetBehaviourtimeToTakeAction",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetCurrentTarget;",
+      "shortName": "GetCurrentTarget",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetForcedTargetID;",
+      "shortName": "GetForcedTargetID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetIdleActiveRef;",
+      "shortName": "GetIdleActiveRef",
+      "return": {
+        "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetIdleFriendlyRef;",
+      "shortName": "GetIdleFriendlyRef",
+      "return": {
+        "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetInitialWakeState;",
+      "shortName": "GetInitialWakeState",
+      "return": {
+        "type": "ESensorDeviceWakeState",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLinkedStatusEffect;",
+      "shortName": "GetLinkedStatusEffect",
+      "return": {
+        "type": "LinkedStatusEffect",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLookAtPresetHor;",
+      "shortName": "GetLookAtPresetHor",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLookAtPresetVert;",
+      "shortName": "GetLookAtPresetVert",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetNetrunnerID;",
+      "shortName": "GetNetrunnerID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetNetrunnerProxyID;",
+      "shortName": "GetNetrunnerProxyID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetNetrunnerTargetID;",
+      "shortName": "GetNetrunnerTargetID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetQuestSpotTargetID;",
+      "shortName": "GetQuestSpotTargetID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetScanGameEffectRef;",
+      "shortName": "GetScanGameEffectRef",
+      "return": {
+        "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetVisionConeEffectRef;",
+      "shortName": "GetVisionConeEffectRef",
+      "return": {
+        "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetVisionConeFriendlyEffectRef;",
+      "shortName": "GetVisionConeFriendlyEffectRef",
+      "return": {
+        "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsAnyTargetLocked;",
+      "shortName": "IsAnyTargetLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsAttitudeChanged;",
+      "shortName": "IsAttitudeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsAttitudeFromContextHostile;",
+      "shortName": "IsAttitudeFromContextHostile",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "IsDetectingDebug;",
+      "shortName": "IsDetectingDebug",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsIdleForced;",
+      "shortName": "IsIdleForced",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsInFollowMode;",
+      "shortName": "IsInFollowMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsInTagKillMode;",
+      "shortName": "IsInTagKillMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsNoTargetLocked;",
+      "shortName": "IsNoTargetLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "IsPartOfPrevention;",
+      "shortName": "IsPartOfPrevention",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsQuestTargetSpotted;",
+      "shortName": "IsQuestTargetSpotted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092
+    },
+    {
+      "fullName": "NotifyAboutSpottingPlayer;Bool",
+      "shortName": "NotifyAboutSpottingPlayer",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "doSee",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceIgnoreTargets;ForceIgnoreTargets",
+      "shortName": "OnForceIgnoreTargets",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ForceIgnoreTargets",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestFollowTarget;QuestFollowTarget",
+      "shortName": "OnQuestFollowTarget",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestFollowTarget",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceAttitude;QuestForceAttitude",
+      "shortName": "OnQuestForceAttitude",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestForceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceScanEffect;QuestForceScanEffect",
+      "shortName": "OnQuestForceScanEffect",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestForceScanEffect",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceScanEffectStop;QuestForceScanEffectStop",
+      "shortName": "OnQuestForceScanEffectStop",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestForceScanEffectStop",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceStopTakeControlOverCamera;QuestForceStopTakeControlOverCamera",
+      "shortName": "OnQuestForceStopTakeControlOverCamera",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestForceStopTakeControlOverCamera",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceTakeControlOverCamera;QuestForceTakeControlOverCamera",
+      "shortName": "OnQuestForceTakeControlOverCamera",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestForceTakeControlOverCamera",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceTakeControlOverCameraWithChain;QuestForceTakeControlOverCameraWithChain",
+      "shortName": "OnQuestForceTakeControlOverCameraWithChain",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestForceTakeControlOverCameraWithChain",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestLookAtTarget;QuestLookAtTarget",
+      "shortName": "OnQuestLookAtTarget",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestLookAtTarget",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetDetectionToFalse;QuestSetDetectionToFalse",
+      "shortName": "OnQuestSetDetectionToFalse",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestSetDetectionToFalse",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetDetectionToTrue;QuestSetDetectionToTrue",
+      "shortName": "OnQuestSetDetectionToTrue",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestSetDetectionToTrue",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSpotTargetReference;QuestSpotTargetReference",
+      "shortName": "OnQuestSpotTargetReference",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestSpotTargetReference",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestStopFollowingTarget;QuestStopFollowingTarget",
+      "shortName": "OnQuestStopFollowingTarget",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestStopFollowingTarget",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestStopLookAtTarget;QuestStopLookAtTarget",
+      "shortName": "OnQuestStopLookAtTarget",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:QuestStopLookAtTarget",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnReprimandUpdate;ReprimandUpdate",
+      "shortName": "OnReprimandUpdate",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:ReprimandUpdate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRevealEnemiesProgram;RevealEnemiesProgram",
+      "shortName": "OnRevealEnemiesProgram",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:RevealEnemiesProgram",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityAreaCrossingPerimeter;SecurityAreaCrossingPerimeter",
+      "shortName": "OnSecurityAreaCrossingPerimeter",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecurityAreaCrossingPerimeter",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemDisabled;SecuritySystemDisabled",
+      "shortName": "OnSecuritySystemDisabled",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SecuritySystemDisabled",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemEnabled;SecuritySystemEnabled",
+      "shortName": "OnSecuritySystemEnabled",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SecuritySystemEnabled",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
+      "shortName": "OnSecuritySystemOutput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemSupport;SecuritySystemSupport",
+      "shortName": "OnSecuritySystemSupport",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:SecuritySystemSupport",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetAnyTargetIsLocked;SetAnyTargetIsLocked",
+      "shortName": "OnSetAnyTargetIsLocked",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SetAnyTargetIsLocked",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceAttitude;SetDeviceAttitude",
+      "shortName": "OnSetDeviceAttitude",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceTagKillMode;SetDeviceTagKillMode",
+      "shortName": "OnSetDeviceTagKillMode",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SetDeviceTagKillMode",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetQuestTargetWasSeen;SetQuestTargetWasSeen",
+      "shortName": "OnSetQuestTargetWasSeen",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:SetQuestTargetWasSeen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
+      "shortName": "OnTargetAssessmentRequest",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:TargetAssessmentRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PerformRestart;",
+      "shortName": "PerformRestart",
+      "flags": 256
+    },
+    {
+      "fullName": "QuestReleaseCurrentObject;",
+      "shortName": "QuestReleaseCurrentObject",
+      "flags": 516
+    },
+    {
+      "fullName": "SendQuestTakeOverControlRequest;Bool",
+      "shortName": "SendQuestTakeOverControlRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldCreateChain",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCanDetectIntruders;Bool",
+      "shortName": "SetCanDetectIntruders",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsAttitudeChanged;Bool",
+      "shortName": "SetIsAttitudeChanged",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isChanged",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsIdleForced;Bool",
+      "shortName": "SetIsIdleForced",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsInTagKillMode;Bool",
+      "shortName": "SetIsInTagKillMode",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLinkedStatusEffect;LinkedStatusEffect",
+      "shortName": "SetLinkedStatusEffect",
+      "flags": 516,
+      "params": [
+        {
+          "type": "LinkedStatusEffect",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNetrunnerID;EntityID",
+      "shortName": "SetNetrunnerID",
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNetrunnerProxyID;EntityID",
+      "shortName": "SetNetrunnerProxyID",
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNetrunnerTargetID;EntityID",
+      "shortName": "SetNetrunnerTargetID",
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetQuestTargetSpotted;Bool",
+      "shortName": "SetQuestTargetSpotted",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTagLockFromSystem;Bool",
+      "shortName": "SetTagLockFromSystem",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTargetIsLocked;Bool",
+      "shortName": "SetTargetIsLocked",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

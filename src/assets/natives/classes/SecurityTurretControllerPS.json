@@ -1,0 +1,535 @@
+{
+  "parent": "SensorDeviceControllerPS",
+  "name": "SecurityTurretControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "pendingSecuritySystemDisableRequest",
+      "flags": 4565565472
+    },
+    {
+      "type": "handle:EngDemoContainer",
+      "name": "turretSkillChecks",
+      "flags": 4498456613
+    },
+    {
+      "type": "Bool",
+      "name": "ignoreSkillcheckGeneration",
+      "flags": 4297195553
+    },
+    {
+      "type": "gameEffectRef",
+      "name": "laserGameEffectRef",
+      "group": "Game effect refs",
+      "flags": 4297195553
+    },
+    {
+      "type": "String",
+      "name": "weaponItemRecordString",
+      "group": "Weapon custom override",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "vfxNameOnShoot",
+      "group": "Weapon custom override",
+      "flags": 4297130017
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionDemolition;GetActionsContext",
+      "shortName": "ActionDemolition",
+      "return": {
+        "type": "handle:ActionDemolition",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionEngineering;GetActionsContext",
+      "shortName": "ActionEngineering",
+      "return": {
+        "type": "handle:ActionEngineering",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionProgramSetDeviceAttitude;",
+      "shortName": "ActionProgramSetDeviceAttitude",
+      "return": {
+        "type": "handle:ProgramSetDeviceAttitude",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "ActionProgramSetDeviceOff;",
+      "shortName": "ActionProgramSetDeviceOff",
+      "return": {
+        "type": "handle:ProgramSetDeviceOff",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "ActionQuestForceOverheat;",
+      "shortName": "ActionQuestForceOverheat",
+      "return": {
+        "type": "handle:QuestForceOverheat",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestForceReload;",
+      "shortName": "ActionQuestForceReload",
+      "return": {
+        "type": "handle:QuestForceReload",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionQuestRemoveWeapon;",
+      "shortName": "ActionQuestRemoveWeapon",
+      "return": {
+        "type": "handle:QuestRemoveWeapon",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "ActionRipOff;",
+      "shortName": "ActionRipOff",
+      "return": {
+        "type": "handle:RipOff",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "ActionSecurityTurretStatus;",
+      "shortName": "ActionSecurityTurretStatus",
+      "return": {
+        "type": "handle:SecurityTurretStatus",
+        "flags": 64
+      },
+      "flags": 8324
+    },
+    {
+      "fullName": "CanCreateAnyQuickHackActions;",
+      "shortName": "CanCreateAnyQuickHackActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "CanPerformReprimand;",
+      "shortName": "CanPerformReprimand",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216
+    },
+    {
+      "fullName": "GameAttached;",
+      "shortName": "GameAttached",
+      "flags": 256
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceStatusAction;",
+      "shortName": "GetDeviceStatusAction",
+      "return": {
+        "type": "handle:SecurityTurretStatus",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetIsUnderControl;",
+      "shortName": "GetIsUnderControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLaserGameEffectRef;",
+      "shortName": "GetLaserGameEffectRef",
+      "return": {
+        "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetMinigameActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetMinigameActions",
+      "flags": 256,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuestActions",
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuickHackActions",
+      "flags": 256,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVfxNameOnShoot;",
+      "shortName": "GetVfxNameOnShoot",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetWeaponItemRecordString;",
+      "shortName": "GetWeaponItemRecordString",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "IsTurretOperationalUnderSecuritySystem;",
+      "shortName": "IsTurretOperationalUnderSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "OnActionDemolition;ActionDemolition",
+      "shortName": "OnActionDemolition",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ActionDemolition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActionEngineering;ActionEngineering",
+      "shortName": "OnActionEngineering",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisassembleDevice;DisassembleDevice",
+      "shortName": "OnDisassembleDevice",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:DisassembleDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnPendingSecuritySystemDisable;PendingSecuritySystemDisable",
+      "shortName": "OnPendingSecuritySystemDisable",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:PendingSecuritySystemDisable",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceOverheat;QuestForceOverheat",
+      "shortName": "OnQuestForceOverheat",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:QuestForceOverheat",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceReload;QuestForceReload",
+      "shortName": "OnQuestForceReload",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:QuestForceReload",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestRemoveWeapon;QuestRemoveWeapon",
+      "shortName": "OnQuestRemoveWeapon",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:QuestRemoveWeapon",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRipOff;RipOff",
+      "shortName": "OnRipOff",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:RipOff",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecurityAreaCrossingPerimeter;SecurityAreaCrossingPerimeter",
+      "shortName": "OnSecurityAreaCrossingPerimeter",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:SecurityAreaCrossingPerimeter",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
+      "shortName": "OnSecuritySystemOutput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceAttitude;SetDeviceAttitude",
+      "shortName": "OnSetDeviceAttitude",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Override;ScriptableDeviceAction",
+      "shortName": "Override",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RipOff;ScriptableDeviceAction",
+      "shortName": "RipOff",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendDeviceNotOperationalEvent;",
+      "shortName": "SendDeviceNotOperationalEvent",
+      "flags": 512
+    },
+    {
+      "fullName": "SetDeviceState;EDeviceStatus",
+      "shortName": "SetDeviceState",
+      "flags": 260,
+      "params": [
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

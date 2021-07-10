@@ -1,0 +1,337 @@
+{
+  "parent": "gameScriptableComponent",
+  "name": "FxResourceMapperComponent",
+  "flags": 4,
+  "props": [
+    {
+      "type": "array:SAreaEffectData",
+      "name": "areaEffectsData",
+      "group": "Area effects - OBSOLETE USE ONLY TO CORRECT DATA OF EXISTING EFFECTS",
+      "flags": 6583091232
+    },
+    {
+      "type": "array:SAreaEffectTargetData",
+      "name": "areaEffectsInFocusMode",
+      "group": "Area effects - OBSOLETE USE ONLY TO CORRECT DATA OF EXISTING EFFECTS",
+      "flags": 6583091232
+    },
+    {
+      "type": "array:handle:AreaEffectData",
+      "name": "areaEffectData",
+      "group": "Area effects - DEFINE NEW EFFECTS HERE",
+      "flags": 6650200101
+    },
+    {
+      "type": "Float",
+      "name": "investigationSlotOffsetMultiplier",
+      "group": "Area effects - DEFINE NEW EFFECTS HERE",
+      "flags": 4364304421
+    },
+    {
+      "type": "array:handle:AreaEffectTargetData",
+      "name": "areaEffectInFocusMode",
+      "group": "Area effects - DEFINE NEW EFFECTS HERE",
+      "flags": 6650200101
+    },
+    {
+      "type": "Bool",
+      "name": "DEBUG_copiedDataFromEntity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "DEBUG_copiedDataFromFXStruct",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CalculateRangeSphere;FloatCNameFloat",
+      "shortName": "CalculateRangeSphere",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "desiredRange",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "effectName",
+          "flags": 640
+        },
+        {
+          "type": "Float",
+          "name": "effectSize",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "CopyDataToFxMapClass;array<SAreaEffectData>BoolBool",
+      "shortName": "CopyDataToFxMapClass",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:SAreaEffectData",
+          "name": "areaEffectsData",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "DEBUG_entityCopy",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "DEBUG_fxCopy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CopyEffectToFxMapClass;array<SAreaEffectTargetData>",
+      "shortName": "CopyEffectToFxMapClass",
+      "flags": 516,
+      "params": [
+        {
+          "type": "array:SAreaEffectTargetData",
+          "name": "areaEffectsInFocusMode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateAreaEffectTargetData;AreaEffectData",
+      "shortName": "CreateAreaEffectTargetData",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:AreaEffectData",
+          "name": "mainEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateData;TweakDBIDInt32CNameBool",
+      "shortName": "CreateData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "attackTDBID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "gameEffectNameOverride",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "dontHighlightOnLookat",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "CreateEffectStructDataFromAttack;TweakDBIDInt32CNameBool",
+      "shortName": "CreateEffectStructDataFromAttack",
+      "flags": 516,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "attackTDBID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "gameEffectNameOverride",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "dontHighlightOnLookat",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaEffectData;",
+      "shortName": "GetAreaEffectData",
+      "return": {
+        "type": "array:handle:AreaEffectData",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAreaEffectDataByIndex;Int32",
+      "shortName": "GetAreaEffectDataByIndex",
+      "return": {
+        "type": "handle:AreaEffectData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaEffectDataIndexByAction;BaseScriptableAction",
+      "shortName": "GetAreaEffectDataIndexByAction",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:BaseScriptableAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaEffectDataIndexByName;CName",
+      "shortName": "GetAreaEffectDataIndexByName",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "effectName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaEffectDataNameByIndex;Int32",
+      "shortName": "GetAreaEffectDataNameByIndex",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "effectIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaEffectDataSize;",
+      "shortName": "GetAreaEffectDataSize",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAreaEffectInFocusMode;",
+      "shortName": "GetAreaEffectInFocusMode",
+      "return": {
+        "type": "array:handle:AreaEffectTargetData",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetAreaEffectInFocusModeByIndex;Int32",
+      "shortName": "GetAreaEffectInFocusModeByIndex",
+      "return": {
+        "type": "handle:AreaEffectTargetData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaEffectInFocusSize;",
+      "shortName": "GetAreaEffectInFocusSize",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetDistractionRange;DeviceStimType",
+      "shortName": "GetDistractionRange",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "DeviceStimType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInvestigationSlotOffset;",
+      "shortName": "GetInvestigationSlotOffset",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetSmallestDistractionRange;DeviceStimType",
+      "shortName": "GetSmallestDistractionRange",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "DeviceStimType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasAnyDistractions;",
+      "shortName": "HasAnyDistractions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    }
+  ]
+}

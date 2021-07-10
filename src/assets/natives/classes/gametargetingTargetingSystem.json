@@ -1,0 +1,648 @@
+{
+  "parent": "gameITargetingSystem",
+  "name": "gametargetingTargetingSystem",
+  "flags": 66,
+  "funcs": [
+    {
+      "fullName": "AddIgnoredCollisionEntities",
+      "shortName": "AddIgnoredCollisionEntities",
+      "index": 10975,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddIgnoredLookAtEntity",
+      "shortName": "AddIgnoredLookAtEntity",
+      "index": 10973,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ignoredEntityId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AimSnap",
+      "shortName": "AimSnap",
+      "index": 10960,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BreakAimSnap",
+      "shortName": "BreakAimSnap",
+      "index": 10962,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BreakLookAt",
+      "shortName": "BreakLookAt",
+      "index": 10963,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAimAssistConfig",
+      "shortName": "GetAimAssistConfig",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "index": 10969,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBestComponentOnTargetObject",
+      "shortName": "GetBestComponentOnTargetObject",
+      "return": {
+        "type": "whandle:gameTargetingComponent",
+        "flags": 64
+      },
+      "index": 10979,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "shootStartPosition",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "shootStartForward",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gametargetingSystemScriptFilter",
+          "name": "componentFilter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetComponentClosestToCrosshair",
+      "shortName": "GetComponentClosestToCrosshair",
+      "return": {
+        "type": "handle:entIPlacedComponent",
+        "flags": 64
+      },
+      "index": 10951,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "EulerAngles",
+          "name": "angleDistance",
+          "flags": 640
+        },
+        {
+          "type": "gameTargetSearchQuery",
+          "name": "query",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCrosshairData",
+      "shortName": "GetCrosshairData",
+      "index": 10952,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "crosshairPosition",
+          "flags": 640
+        },
+        {
+          "type": "Vector4",
+          "name": "crosshairForward",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetCurrentSpread",
+      "shortName": "GetCurrentSpread",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "index": 10958,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDefaultCrosshairData",
+      "shortName": "GetDefaultCrosshairData",
+      "index": 10953,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "crosshairPosition",
+          "flags": 640
+        },
+        {
+          "type": "Vector4",
+          "name": "crosshairForward",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetDefaultCrosshairOrientationProvider",
+      "shortName": "GetDefaultCrosshairOrientationProvider",
+      "return": {
+        "type": "handle:entIOrientationProvider",
+        "flags": 64
+      },
+      "index": 10955,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Quaternion",
+          "name": "orientationEntitySpace",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetDefaultCrosshairPositionProvider",
+      "shortName": "GetDefaultCrosshairPositionProvider",
+      "return": {
+        "type": "handle:entIPositionProvider",
+        "flags": 64
+      },
+      "index": 10954,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Vector3",
+          "name": "offsetEntitySpace",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetLookAtComponent",
+      "shortName": "GetLookAtComponent",
+      "return": {
+        "type": "whandle:entIComponent",
+        "flags": 64
+      },
+      "index": 10957,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "withLOS",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "ignoreTranparent",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetLookAtObject",
+      "shortName": "GetLookAtObject",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "index": 10956,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "withLOS",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "ignoreTranparent",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetObjectClosestToCrosshair",
+      "shortName": "GetObjectClosestToCrosshair",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "index": 10950,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "EulerAngles",
+          "name": "angleDistance",
+          "flags": 640
+        },
+        {
+          "type": "gameTargetSearchQuery",
+          "name": "query",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPuppetBlackboardUpdater",
+      "shortName": "GetPuppetBlackboardUpdater",
+      "return": {
+        "type": "handle:gamePuppetBlackboardUpdater",
+        "flags": 64
+      },
+      "index": 10959,
+      "flags": 1
+    },
+    {
+      "fullName": "GetTargetParts",
+      "shortName": "GetTargetParts",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10949,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "gameTargetSearchQuery",
+          "name": "query",
+          "flags": 128
+        },
+        {
+          "type": "array:gametargetingTargetPartInfo",
+          "name": "parts",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetTargetingSet",
+      "shortName": "GetTargetingSet",
+      "return": {
+        "type": "gameTargetingSet",
+        "flags": 64
+      },
+      "index": 10978,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "object",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsAnyEnemyOrSensorVisible",
+      "shortName": "IsAnyEnemyOrSensorVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10981,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsAnyEnemyVisible",
+      "shortName": "IsAnyEnemyVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10980,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsVisibleTarget",
+      "shortName": "IsVisibleTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10977,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LookAt",
+      "shortName": "LookAt",
+      "index": 10961,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "gameaimAssistAimRequest",
+          "name": "params",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "OnAimStartBegin",
+      "shortName": "OnAimStartBegin",
+      "index": 10964,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAimStartEnd",
+      "shortName": "OnAimStartEnd",
+      "index": 10965,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAimStop",
+      "shortName": "OnAimStop",
+      "index": 10966,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessLookAtFilter",
+      "shortName": "ProcessLookAtFilter",
+      "index": 10970,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "handle:gametargetingSystemTargetFilter",
+          "name": "filter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterLookAtFilter",
+      "shortName": "RegisterLookAtFilter",
+      "return": {
+        "type": "gametargetingSystemTargetFilterTicket",
+        "flags": 64
+      },
+      "index": 10971,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "handle:gametargetingSystemTargetFilter",
+          "name": "filter",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveIgnoredCollisionEntities",
+      "shortName": "RemoveIgnoredCollisionEntities",
+      "index": 10976,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "entity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveIgnoredLookAtEntity",
+      "shortName": "RemoveIgnoredLookAtEntity",
+      "index": 10974,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ignoredEntityId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAimAssistConfig",
+      "shortName": "SetAimAssistConfig",
+      "index": 10968,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "presetId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsMovingFast",
+      "shortName": "SetIsMovingFast",
+      "index": 10967,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isFast",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterLookAtFilter",
+      "shortName": "UnregisterLookAtFilter",
+      "index": 10972,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "gametargetingSystemTargetFilterTicket",
+          "name": "filterTicket",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

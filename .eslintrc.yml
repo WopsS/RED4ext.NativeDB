@@ -22,10 +22,8 @@ rules:
   require-atomic-updates: error
 
   # Best Practices
-  accessor-pairs: error
   array-callback-return: error
   block-scoped-var: warn
-  class-methods-use-this: warn
   consistent-return: error
   curly: error
   default-case: warn
@@ -208,6 +206,7 @@ overrides:
       - plugin:prettier/recommended
     rules:
       brace-style: off
+      camelcase: off
       comma-dangle: off
       comma-spacing: off
       default-param-last: off
@@ -255,7 +254,6 @@ overrides:
       "@typescript-eslint/keyword-spacing": error
       "@typescript-eslint/member-delimiter-style": error
       "@typescript-eslint/method-signature-style": error
-      "@typescript-eslint/naming-convention": error
       "@typescript-eslint/no-array-constructor": error
       "@typescript-eslint/no-confusing-non-null-assertion": error
       "@typescript-eslint/no-dupe-class-members": error
@@ -326,6 +324,26 @@ overrides:
             methods: explicit
             properties: explicit
             parameterProperties: explicit
+
+      "@typescript-eslint/naming-convention":
+        - error
+        - selector: default
+          format:
+            - camelCase
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+        - selector: variable
+          format:
+            - camelCase
+            - UPPER_CASE
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+        - selector: typeLike
+          format:
+            - PascalCase
+        - selector: enumMember
+          format:
+            - PascalCase
 
       "@typescript-eslint/object-curly-spacing":
         - error

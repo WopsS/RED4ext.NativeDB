@@ -11,8 +11,10 @@
   "
   (click)="toggleMenu()"
 >
-  <fa-icon *ngIf="!isMenuOpen" [icon]="faBars"></fa-icon>
-  <fa-icon *ngIf="isMenuOpen" [icon]="faTimes"></fa-icon>
+  <fa-icon
+    [icon]="isMenuOpen ? faTimes : faBars"
+    [styles]="{ display: 'block' }"
+  ></fa-icon>
 </button>
 
 <a routerLink="/" class="text-2xl hover:text-gray-200 transition duration-100">

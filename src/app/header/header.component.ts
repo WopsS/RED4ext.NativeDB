@@ -2,7 +2,7 @@ import { Subscription } from "rxjs";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import { MenuService } from "../services/menu.service";
+import { MenuService } from "../core/services/menu.service";
 
 @Component({
     selector: "app-header",

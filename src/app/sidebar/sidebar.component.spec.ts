@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { SidebarComponent } from "./sidebar.component";
@@ -8,6 +9,7 @@ describe("SidebarComponent", () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [HttpClientModule],
             declarations: [SidebarComponent]
         }).compileComponents();
     });

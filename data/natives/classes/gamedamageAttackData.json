@@ -71,7 +71,7 @@
   ],
   "funcs": [
     {
-      "fullName": "gamedamageAttackData::CanEffectCriticallyHit;AttackData",
+      "fullName": "gamedamageAttackData::CanEffectCriticallyHit;AttackDataStatsSystem",
       "shortName": "CanEffectCriticallyHit",
       "return": {
         "type": "Bool",
@@ -83,11 +83,16 @@
           "type": "handle:gamedamageAttackData",
           "name": "attackData",
           "flags": 128
+        },
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statsSystem",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "gamedamageAttackData::CanGrenadeCriticallyHit;AttackData",
+      "fullName": "gamedamageAttackData::CanGrenadeCriticallyHit;AttackDataStatsSystem",
       "shortName": "CanGrenadeCriticallyHit",
       "return": {
         "type": "Bool",
@@ -98,6 +103,11 @@
         {
           "type": "handle:gamedamageAttackData",
           "name": "attackData",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statsSystem",
           "flags": 128
         }
       ]
@@ -327,7 +337,7 @@
         },
         {
           "type": "CName",
-          "name": "source",
+          "name": "sourceName",
           "flags": 128
         }
       ]
@@ -513,11 +523,6 @@
       ]
     },
     {
-      "fullName": "Initialize;",
-      "shortName": "Initialize",
-      "flags": 516
-    },
-    {
       "fullName": "PreAttack;",
       "shortName": "PreAttack",
       "flags": 516
@@ -534,7 +539,19 @@
         },
         {
           "type": "CName",
-          "name": "source",
+          "name": "sourceName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFlag;hitFlag",
+      "shortName": "RemoveFlag",
+      "flags": 516,
+      "params": [
+        {
+          "type": "hitFlag",
+          "name": "flag",
           "flags": 128
         }
       ]

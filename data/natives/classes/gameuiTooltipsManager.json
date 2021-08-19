@@ -34,11 +34,6 @@
       "flags": 6583025697
     },
     {
-      "type": "redResourceReferenceScriptToken",
-      "name": "TooltipsLibrary",
-      "flags": 4297130017
-    },
-    {
       "type": "array:CName",
       "name": "GenericTooltipsNames",
       "flags": 6583025697
@@ -52,6 +47,11 @@
       "type": "array:TooltipWidgetStyledReference",
       "name": "TooltipLibrariesStyledReferences",
       "flags": 6583025697
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "TooltipsLibrary",
+      "flags": 4297130017
     },
     {
       "type": "redResourceReferenceScriptToken",
@@ -74,11 +74,6 @@
       "flags": 6583025696
     },
     {
-      "type": "redResourceReferenceScriptToken",
-      "name": "TooltipStylePath",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:inkanimProxy",
       "name": "introAnim",
       "flags": 4431347744
@@ -92,7 +87,7 @@
         "type": "whandle:gameuiTooltipAttachmentSlot",
         "flags": 64
       },
-      "index": 11950,
+      "index": 12146,
       "flags": 3,
       "params": [
         {
@@ -105,7 +100,7 @@
     {
       "fullName": "AttachToWidget",
       "shortName": "AttachToWidget",
-      "index": 11948,
+      "index": 12144,
       "flags": 1,
       "params": [
         {
@@ -127,31 +122,31 @@
         "type": "inkWidgetReference",
         "flags": 64
       },
-      "index": 11943,
+      "index": 12139,
       "flags": 1
     },
     {
       "fullName": "MarkToShow",
       "shortName": "MarkToShow",
-      "index": 11947,
+      "index": 12143,
       "flags": 1
     },
     {
       "fullName": "RefreshTooltipsPosition",
       "shortName": "RefreshTooltipsPosition",
-      "index": 11944,
+      "index": 12140,
       "flags": 1
     },
     {
       "fullName": "ResetTooltipsPosition",
       "shortName": "ResetTooltipsPosition",
-      "index": 11945,
+      "index": 12141,
       "flags": 1
     },
     {
       "fullName": "SetCustomMargin",
       "shortName": "SetCustomMargin",
-      "index": 11942,
+      "index": 12138,
       "flags": 1,
       "params": [
         {
@@ -164,7 +159,7 @@
     {
       "fullName": "SetFollowsCursor",
       "shortName": "SetFollowsCursor",
-      "index": 11946,
+      "index": 12142,
       "flags": 1,
       "params": [
         {
@@ -177,13 +172,29 @@
     {
       "fullName": "UnAttachFromWidget",
       "shortName": "UnAttachFromWidget",
-      "index": 11949,
+      "index": 12145,
       "flags": 1
     },
     {
       "fullName": "AttachToCursor;",
       "shortName": "AttachToCursor",
       "flags": 516
+    },
+    {
+      "fullName": "GetDefaultStyleResRef;ETooltipsStyle",
+      "shortName": "GetDefaultStyleResRef",
+      "return": {
+        "type": "redResourceReferenceScriptToken",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetNamedWidget;CName",
@@ -223,6 +234,27 @@
         {
           "type": "whandle:inkWidget",
           "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTooltipWidgetSpawned",
+      "shortName": "OnTooltipWidgetSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "tooltipWidget",
+          "flags": 128
+        },
+        {
+          "type": "handle:TooltipSpawnedCallbackData",
+          "name": "callbackData",
           "flags": 128
         }
       ]
@@ -295,7 +327,29 @@
       ]
     },
     {
-      "fullName": "SetupNamedWidgets;ETooltipsStyleinkWidget",
+      "fullName": "SetupIndexedWidgets;ETooltipsStyleinkWidgetResRef",
+      "shortName": "SetupIndexedWidgets",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "tooltipsContainer",
+          "flags": 128
+        },
+        {
+          "type": "redResourceReferenceScriptToken",
+          "name": "styleResRef",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupNamedWidgets;ETooltipsStyleinkWidgetResRef",
       "shortName": "SetupNamedWidgets",
       "flags": 132,
       "params": [
@@ -307,6 +361,11 @@
         {
           "type": "whandle:inkWidget",
           "name": "tooltipsContainer",
+          "flags": 128
+        },
+        {
+          "type": "redResourceReferenceScriptToken",
+          "name": "styleResRef",
           "flags": 128
         }
       ]
@@ -324,6 +383,23 @@
         {
           "type": "whandle:inkWidget",
           "name": "tooltipsContainer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupWidgetAttachment;inkWidgetETooltipsStyle",
+      "shortName": "SetupWidgetAttachment",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "ETooltipsStyle",
+          "name": "tooltipStyle",
           "flags": 128
         }
       ]
@@ -407,35 +483,6 @@
       ]
     },
     {
-      "fullName": "ShowTooltip;CNameATooltipData",
-      "shortName": "ShowTooltip",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "identifier",
-          "flags": 128
-        },
-        {
-          "type": "handle:ATooltipData",
-          "name": "tooltipData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowTooltip;ATooltipData",
-      "shortName": "ShowTooltip",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:ATooltipData",
-          "name": "tooltipData",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ShowTooltip;AGenericTooltipControllerATooltipDatainkMargin",
       "shortName": "ShowTooltip",
       "flags": 516,
@@ -458,18 +505,25 @@
       ]
     },
     {
-      "fullName": "ShowTooltipAtPosition;Int32Vector2ATooltipData",
-      "shortName": "ShowTooltipAtPosition",
+      "fullName": "ShowTooltip;ATooltipData",
+      "shortName": "ShowTooltip",
       "flags": 516,
       "params": [
         {
-          "type": "Int32",
-          "name": "index",
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
           "flags": 128
-        },
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltip;CNameATooltipData",
+      "shortName": "ShowTooltip",
+      "flags": 516,
+      "params": [
         {
-          "type": "Vector2",
-          "name": "position",
+          "type": "CName",
+          "name": "identifier",
           "flags": 128
         },
         {
@@ -487,6 +541,28 @@
         {
           "type": "CName",
           "name": "identifier",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipAtPosition;Int32Vector2ATooltipData",
+      "shortName": "ShowTooltipAtPosition",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
           "flags": 128
         },
         {

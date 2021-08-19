@@ -144,9 +144,9 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "pendingBehaviorCb",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -191,11 +191,6 @@
     {
       "type": "CName",
       "name": "presetName",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
-      "name": "inProcess",
       "flags": 4297130016
     },
     {
@@ -408,27 +403,6 @@
         {
           "type": "whandle:ScriptedPuppet",
           "name": "owner",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReactionManagerComponent::HasStimTag;StimuliEventCName",
-      "shortName": "HasStimTag",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "tag",
           "flags": 128
         }
       ]
@@ -1183,6 +1157,42 @@
       ]
     },
     {
+      "fullName": "HandleStimEvent;StimuliEvent",
+      "shortName": "HandleStimEvent",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleStimEventByTask;StimuliEvent",
+      "shortName": "HandleStimEventByTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleStimEventTask;ScriptTaskData",
+      "shortName": "HandleStimEventTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HasCombatTarget;",
       "shortName": "HasCombatTarget",
       "return": {
@@ -1376,15 +1386,6 @@
         "flags": 64
       },
       "flags": 132
-    },
-    {
-      "fullName": "IsInProcess;",
-      "shortName": "IsInProcess",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324
     },
     {
       "fullName": "IsInTrafficLane;",
@@ -2973,6 +2974,30 @@
       ]
     },
     {
+      "fullName": "ReactToSecuritySystemOutputByTask;SecuritySystemOutput",
+      "shortName": "ReactToSecuritySystemOutputByTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReactToSecuritySystemOutputTask;ScriptTaskData",
+      "shortName": "ReactToSecuritySystemOutputTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RecentReaction;gamedataOutput",
       "shortName": "RecentReaction",
       "return": {
@@ -3365,18 +3390,6 @@
       "flags": 132
     },
     {
-      "fullName": "StartProcess;Bool",
-      "shortName": "StartProcess",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "affected",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "StimRule;Rule_RecordgamedataStimType",
       "shortName": "StimRule",
       "return": {
@@ -3533,28 +3546,6 @@
       "flags": 128
     },
     {
-      "fullName": "TriggerReactionBehaviorForCrowd;StimuliEventgamedataOutputBool",
-      "shortName": "TriggerReactionBehaviorForCrowd",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "gamedataOutput",
-          "name": "reaction",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "initAnimInWorkspot",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "TriggerReactionBehaviorForCrowd;GameObjectgamedataOutputBoolVector4",
       "shortName": "TriggerReactionBehaviorForCrowd",
       "flags": 132,
@@ -3578,6 +3569,28 @@
           "type": "Vector4",
           "name": "sourcePosition",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerReactionBehaviorForCrowd;StimuliEventgamedataOutputBool",
+      "shortName": "TriggerReactionBehaviorForCrowd",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "gamedataOutput",
+          "name": "reaction",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "initAnimInWorkspot",
+          "flags": 128
         }
       ]
     },

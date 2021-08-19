@@ -27,6 +27,11 @@
       "type": "Bool",
       "name": "isVirtual",
       "flags": 4297130017
+    },
+    {
+      "type": "array:CName",
+      "name": "pingedSquads",
+      "flags": 6583025696
     }
   ],
   "funcs": [
@@ -56,6 +61,18 @@
         "flags": 64
       },
       "flags": 260
+    },
+    {
+      "fullName": "AddPingedSquad;CName",
+      "shortName": "AddPingedSquad",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "squadName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "AddReward;TransactionSystemTweakDBIDUint32",
@@ -129,6 +146,11 @@
       "flags": 132
     },
     {
+      "fullName": "ClearPingedSquads;",
+      "shortName": "ClearPingedSquads",
+      "flags": 132
+    },
+    {
       "fullName": "DebugBreachConnectedDevices;",
       "shortName": "DebugBreachConnectedDevices",
       "flags": 516
@@ -169,7 +191,7 @@
     {
       "fullName": "GameAttached;",
       "shortName": "GameAttached",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "GenerateMaterialDrops;FloatFloatFloatFloatTransactionSystem",
@@ -216,7 +238,7 @@
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:BackDoorDeviceBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -377,6 +399,22 @@
       "flags": 260
     },
     {
+      "fullName": "IsSquadMarkedWithPing;CName",
+      "shortName": "IsSquadMarkedWithPing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "squadName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsVirtual;",
       "shortName": "IsVirtual",
       "return": {
@@ -384,6 +422,11 @@
         "flags": 64
       },
       "flags": 8708
+    },
+    {
+      "fullName": "LogicReady;",
+      "shortName": "LogicReady",
+      "flags": 256
     },
     {
       "fullName": "OnBreachAccessPointEvent;BreachAccessPointEvent",
@@ -573,7 +616,7 @@
     {
       "fullName": "PingSquad;",
       "shortName": "PingSquad",
-      "flags": 8320
+      "flags": 128
     },
     {
       "fullName": "ProcessLoot;FloatFloatFloatFloatFloatFloatTransactionSystem",
@@ -630,9 +673,28 @@
       ]
     },
     {
-      "fullName": "RefreshSlaves;",
+      "fullName": "RefreshSlaves;array<DeviceComponentPS>",
       "shortName": "RefreshSlaves",
-      "flags": 132
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePingedSquad;CName",
+      "shortName": "RemovePingedSquad",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "squadName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ResolveDive;Bool",

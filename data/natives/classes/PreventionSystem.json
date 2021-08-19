@@ -214,9 +214,9 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onPlayerChoiceCallID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Uint32",
@@ -229,14 +229,14 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "playerHLSID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "playerVehicleStateID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "gamePSMHighLevel",
@@ -282,6 +282,11 @@
       "type": "array:whandle:gameObject",
       "name": "viewers",
       "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "hasViewers",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -546,7 +551,7 @@
       ]
     },
     {
-      "fullName": "PreventionSystem::RegisterToPreventionSystem;GameInstanceGameObject",
+      "fullName": "PreventionSystem::RegisterToPreventionSystem;GameInstanceDevice",
       "shortName": "RegisterToPreventionSystem",
       "flags": 518,
       "params": [
@@ -556,7 +561,7 @@
           "flags": 128
         },
         {
-          "type": "handle:gameObject",
+          "type": "handle:Device",
           "name": "requester",
           "flags": 128
         }
@@ -666,7 +671,7 @@
       ]
     },
     {
-      "fullName": "PreventionSystem::UnRegisterToPreventionSystem;GameInstanceGameObject",
+      "fullName": "PreventionSystem::UnRegisterToPreventionSystem;GameInstanceDevice",
       "shortName": "UnRegisterToPreventionSystem",
       "flags": 518,
       "params": [
@@ -676,7 +681,7 @@
           "flags": 128
         },
         {
-          "type": "handle:gameObject",
+          "type": "handle:Device",
           "name": "requester",
           "flags": 128
         }
@@ -1183,6 +1188,18 @@
       ]
     },
     {
+      "fullName": "HasViewersChanged;Bool",
+      "shortName": "HasViewersChanged",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "currentViewerState",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HeatPipeline;Bool",
       "shortName": "HeatPipeline",
       "flags": 132,
@@ -1612,6 +1629,11 @@
       ]
     },
     {
+      "fullName": "OnViewersStateChanged;",
+      "shortName": "OnViewersStateChanged",
+      "flags": 132
+    },
+    {
       "fullName": "PlayerAttachedCallback;GameObject",
       "shortName": "PlayerAttachedCallback",
       "flags": 132,
@@ -1691,13 +1713,18 @@
       "flags": 132
     },
     {
-      "fullName": "Register;GameObject",
+      "fullName": "Register;CNamePersistentState",
       "shortName": "Register",
       "flags": 132,
       "params": [
         {
-          "type": "whandle:gameObject",
-          "name": "object",
+          "type": "CName",
+          "name": "attitudeGroup",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamePersistentState",
+          "name": "ps",
           "flags": 128
         }
       ]
@@ -1767,6 +1794,18 @@
       ]
     },
     {
+      "fullName": "SetAgentsSupport;Bool",
+      "shortName": "SetAgentsSupport",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hasSupport",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetHeatStage;EPreventionHeatStage",
       "shortName": "SetHeatStage",
       "return": {
@@ -1831,6 +1870,23 @@
       ]
     },
     {
+      "fullName": "SetSingleAgentSupport;PersistentStateBool",
+      "shortName": "SetSingleAgentSupport",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gamePersistentState",
+          "name": "ps",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasSupport",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetWantedLevelFact;Int32",
       "shortName": "SetWantedLevelFact",
       "flags": 132,
@@ -1874,7 +1930,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "SpawnPipeline;EPreventionHeatStageFloat",
@@ -2003,13 +2059,18 @@
       "flags": 132
     },
     {
-      "fullName": "UnRegister;GameObject",
+      "fullName": "UnRegister;CNamePersistentState",
       "shortName": "UnRegister",
       "flags": 132,
       "params": [
         {
-          "type": "whandle:gameObject",
-          "name": "object",
+          "type": "CName",
+          "name": "attitudeGroup",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamePersistentState",
+          "name": "ps",
           "flags": 128
         }
       ]
@@ -2058,13 +2119,13 @@
       ]
     },
     {
-      "fullName": "WakeUpAgent;EntityIDBool",
+      "fullName": "WakeUpAgent;PersistentStateBool",
       "shortName": "WakeUpAgent",
       "flags": 132,
       "params": [
         {
-          "type": "entEntityID",
-          "name": "entID",
+          "type": "whandle:gamePersistentState",
+          "name": "ps",
           "flags": 128
         },
         {

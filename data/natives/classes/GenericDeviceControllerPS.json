@@ -181,7 +181,7 @@
     {
       "fullName": "GameAttached;",
       "shortName": "GameAttached",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "GetActions;array<DeviceAction>GetActionsContext",
@@ -228,6 +228,22 @@
         "flags": 64
       },
       "flags": 8708
+    },
+    {
+      "fullName": "GetQuestActionByName;CName",
+      "shortName": "GetQuestActionByName",
+      "return": {
+        "type": "handle:gamedeviceAction",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
@@ -341,6 +357,11 @@
       "fullName": "InitializeQuestDBCallbacksForCustomActions;",
       "shortName": "InitializeQuestDBCallbacksForCustomActions",
       "flags": 516
+    },
+    {
+      "fullName": "LogicReady;",
+      "shortName": "LogicReady",
+      "flags": 256
     },
     {
       "fullName": "OnActionDemolition;ActionDemolition",
@@ -519,11 +540,31 @@
     {
       "fullName": "ResolveFactOnCustomAction;CName",
       "shortName": "ResolveFactOnCustomAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
       "flags": 516,
       "params": [
         {
           "type": "CName",
           "name": "factName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveFactOnCustomActionByIndex;Int32",
+      "shortName": "ResolveFactOnCustomActionByIndex",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
           "flags": 128
         }
       ]

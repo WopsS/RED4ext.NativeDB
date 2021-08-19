@@ -4,22 +4,177 @@
   "flags": 4,
   "props": [
     {
+      "type": "handle:DefaultTransitionStatListener",
+      "name": "statListener",
+      "flags": 4431544352
+    },
+    {
       "type": "handle:AnimFeature_SelectRandomAnimSync",
       "name": "randomSync",
       "flags": 4431544352
     },
     {
+      "type": "handle:AnimFeature_WeaponReload",
+      "name": "animReloadData",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:AnimFeature_WeaponReloadSpeedData",
+      "name": "animReloadSpeed",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "bbCallbackID",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:gamedataWeaponItem_Record",
+      "name": "weaponRecord",
+      "flags": 4431544352
+    },
+    {
       "type": "Bool",
-      "name": "sprintingLastUpdate",
+      "name": "animReloadDataDirty",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "animReloadSpeedDirty",
       "flags": 4297326624
     },
     {
       "type": "Bool",
       "name": "uninteruptibleSet",
       "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "weaponHasAutoLoader",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "canReloadWhileSprinting",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "magazineEmpty",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "lastReloadWasEmpty",
+      "flags": 4297326624
     }
   ],
   "funcs": [
+    {
+      "fullName": "ActivateReloadAnimData;StateContextStateGameScriptInterface",
+      "shortName": "ActivateReloadAnimData",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateReloadAnimData;StateContextStateGameScriptInterface",
+      "shortName": "DeactivateReloadAnimData",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetReloadAnimSpeed;gamedataStatTypeWeaponItem_Record",
+      "shortName": "GetReloadAnimSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataWeaponItem_Record",
+          "name": "weaponRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAmmoCountChanged",
+      "shortName": "OnAmmoCountChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnEnter;StateContextStateGameScriptInterface",
       "shortName": "OnEnter",
@@ -72,6 +227,33 @@
       ]
     },
     {
+      "fullName": "OnStatChanged;StatsObjectIDgamedataStatTypeFloatFloat",
+      "shortName": "OnStatChanged",
+      "flags": 512,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "ownerID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "diff",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUpdate;FloatStateContextStateGameScriptInterface",
       "shortName": "OnUpdate",
       "flags": 260,
@@ -94,42 +276,21 @@
       ]
     },
     {
-      "fullName": "SendReloadAnimData;StateContextStateGameScriptInterfaceBool",
-      "shortName": "SendReloadAnimData",
+      "fullName": "RefreshReloadPermanentFloats;StateContext",
+      "shortName": "RefreshReloadPermanentFloats",
       "flags": 260,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
           "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isActive",
-          "flags": 128
         }
       ]
     },
     {
-      "fullName": "ShouldUseAutoloader;StateGameScriptInterface",
-      "shortName": "ShouldUseAutoloader",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
+      "fullName": "UpdateIsEmptyReload;",
+      "shortName": "UpdateIsEmptyReload",
+      "flags": 260
     }
   ]
 }

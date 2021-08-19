@@ -55,7 +55,22 @@
     },
     {
       "type": "inkWidgetReference",
-      "name": "resetPerks",
+      "name": "respecButtonContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "cantRespecNotificationContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "resetPrice",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "spentPerks",
       "flags": 4297130017
     },
     {
@@ -94,14 +109,14 @@
       "flags": 6583025696
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "playerStatsBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterLevelListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "whandle:PerkScreenController",
@@ -122,6 +137,26 @@
       "type": "handle:inkGameNotificationToken",
       "name": "resetConfirmationToken",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "inCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "enoughMoneyForRespec",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "cantRespecAnim",
+      "flags": 4431347744
+    },
+    {
+      "type": "PerkMenuAttribute",
+      "name": "lastHoveredAttribute",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -486,6 +521,38 @@
       ]
     },
     {
+      "fullName": "OnResetPerksHoverOut",
+      "shortName": "OnResetPerksHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetPerksHoverOver",
+      "shortName": "OnResetPerksHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetMenuEventDispatcher",
       "shortName": "OnSetMenuEventDispatcher",
       "return": {
@@ -598,6 +665,18 @@
         {
           "type": "handle:BasePerkDisplayData",
           "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetRespecButton;Bool",
+      "shortName": "SetRespecButton",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
           "flags": 128
         }
       ]

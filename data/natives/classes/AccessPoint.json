@@ -4,36 +4,6 @@
   "flags": 4,
   "props": [
     {
-      "type": "handle:gameLightComponent",
-      "name": "diode0",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:gameLightComponent",
-      "name": "diode1",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:gameLightComponent",
-      "name": "diode2",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:gameLightComponent",
-      "name": "diode3",
-      "flags": 4431347744
-    },
-    {
-      "type": "Float",
-      "name": "elapsedTime",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
-      "name": "turnOnLight",
-      "flags": 4297130016
-    },
-    {
       "type": "String",
       "name": "networkName",
       "group": "Network Visualisation",
@@ -92,15 +62,10 @@
       "flags": 41472
     },
     {
-      "fullName": "DeviceUpdate;",
-      "shortName": "DeviceUpdate",
-      "flags": 256
-    },
-    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:BackDoorDeviceBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -109,7 +74,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:AccessPointController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8448
@@ -118,27 +83,10 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:AccessPointControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
-    },
-    {
-      "fullName": "GlitchDiode;Int32",
-      "shortName": "GlitchDiode",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GlitchScreenAfterBreaching;",
-      "shortName": "GlitchScreenAfterBreaching",
-      "flags": 260
     },
     {
       "fullName": "InitiatePersonalLinkWorkspot;GameObject",
@@ -224,22 +172,6 @@
       ]
     },
     {
-      "fullName": "OnDummyEvent",
-      "shortName": "OnDummyEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:DummyEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnFactChangedEvent",
       "shortName": "OnFactChangedEvent",
       "return": {
@@ -276,38 +208,6 @@
         {
           "type": "entEntityRequestComponentsInterface",
           "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnShutdownModule",
-      "shortName": "OnShutdownModule",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ShutdownModule",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnStartGlitchingText",
-      "shortName": "OnStartGlitchingText",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:StartGlitchingText",
-          "name": "evt",
           "flags": 128
         }
       ]
@@ -367,18 +267,6 @@
       "flags": 256
     },
     {
-      "fullName": "SetIsInDefaultState;Bool",
-      "shortName": "SetIsInDefaultState",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isInDefault",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ShouldRegisterToHUD;",
       "shortName": "ShouldRegisterToHUD",
       "return": {
@@ -388,43 +276,21 @@
       "flags": 8448
     },
     {
-      "fullName": "ShutdownModule;Int32",
-      "shortName": "ShutdownModule",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "module",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartGlitching;EGlitchStateFloat",
-      "shortName": "StartGlitching",
-      "flags": 256,
-      "params": [
-        {
-          "type": "EGlitchState",
-          "name": "glitchState",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "intensity",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "StopGlitching;",
-      "shortName": "StopGlitching",
-      "flags": 256
-    },
-    {
       "fullName": "TerminateConnection;",
       "shortName": "TerminateConnection",
       "flags": 256
+    },
+    {
+      "fullName": "ToggleLights;Bool",
+      "shortName": "ToggleLights",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "TogglePersonalLink;BoolGameObject",

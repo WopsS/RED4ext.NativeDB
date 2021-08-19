@@ -68,6 +68,11 @@
       "type": "Bool",
       "name": "isLogicReady",
       "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "maxDevicesToExtractInOneFrame",
+      "flags": 4297195552
     }
   ],
   "funcs": [
@@ -78,7 +83,7 @@
         "type": "handle:gamedeviceClearance",
         "flags": 64
       },
-      "index": 9503,
+      "index": 9565,
       "flags": 8193
     },
     {
@@ -88,7 +93,7 @@
         "type": "String",
         "flags": 64
       },
-      "index": 9506,
+      "index": 9568,
       "flags": 1
     },
     {
@@ -98,7 +103,7 @@
         "type": "String",
         "flags": 64
       },
-      "index": 9504,
+      "index": 9566,
       "flags": 8193
     },
     {
@@ -108,13 +113,13 @@
         "type": "String",
         "flags": 64
       },
-      "index": 9505,
+      "index": 9567,
       "flags": 8193
     },
     {
       "fullName": "GetNativeActions",
       "shortName": "GetNativeActions",
-      "index": 9502,
+      "index": 9564,
       "flags": 1,
       "params": [
         {
@@ -136,7 +141,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 9507,
+      "index": 9569,
       "flags": 1
     },
     {
@@ -166,6 +171,11 @@
       ]
     },
     {
+      "fullName": "ExposeQuickHacks;",
+      "shortName": "ExposeQuickHacks",
+      "flags": 132
+    },
+    {
       "fullName": "ExposeQuickHacks;Bool",
       "shortName": "ExposeQuickHacks",
       "flags": 260,
@@ -176,11 +186,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "ExposeQuickHacks;",
-      "shortName": "ExposeQuickHacks",
-      "flags": 132
     },
     {
       "fullName": "GetActionWidgets;GetActionsContext",
@@ -244,6 +249,22 @@
           "type": "array:handle:gameDeviceComponentPS",
           "name": "outDevices",
           "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttachedSlaveForPing;MasterControllerPS",
+      "shortName": "GetAttachedSlaveForPing",
+      "return": {
+        "type": "handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "handle:MasterControllerPS",
+          "name": "context",
+          "flags": 1152
         }
       ]
     },
@@ -407,6 +428,36 @@
       ]
     },
     {
+      "fullName": "GetLazyAncestors;",
+      "shortName": "GetLazyAncestors",
+      "return": {
+        "type": "array:handle:gameLazyDevice",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetLazyChildren;array<LazyDevice>",
+      "shortName": "GetLazyChildren",
+      "flags": 8704,
+      "params": [
+        {
+          "type": "array:handle:gameLazyDevice",
+          "name": "outDevices",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetLazyParents;",
+      "shortName": "GetLazyParents",
+      "return": {
+        "type": "array:handle:gameLazyDevice",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
       "fullName": "GetMyEntityID;",
       "shortName": "GetMyEntityID",
       "return": {
@@ -469,6 +520,38 @@
         "flags": 64
       },
       "flags": 512
+    },
+    {
+      "fullName": "GetQuestActionByName;CName",
+      "shortName": "GetQuestActionByName",
+      "return": {
+        "type": "handle:gamedeviceAction",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuestActionByNameToNative;CName",
+      "shortName": "GetQuestActionByNameToNative",
+      "return": {
+        "type": "handle:gamedeviceAction",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
@@ -552,6 +635,27 @@
       "flags": 33280
     },
     {
+      "fullName": "GetVirtualSystem;DeviceComponentPSVirtualSystemPS",
+      "shortName": "GetVirtualSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "handle:gameDeviceComponentPS",
+          "name": "slave",
+          "flags": 128
+        },
+        {
+          "type": "handle:VirtualSystemPS",
+          "name": "vs",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "GetVirtualSystem;PersistentIDVirtualSystemPS",
       "shortName": "GetVirtualSystem",
       "return": {
@@ -581,27 +685,6 @@
       },
       "flags": 41472,
       "params": [
-        {
-          "type": "handle:VirtualSystemPS",
-          "name": "vs",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "GetVirtualSystem;DeviceComponentPSVirtualSystemPS",
-      "shortName": "GetVirtualSystem",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472,
-      "params": [
-        {
-          "type": "handle:gameDeviceComponentPS",
-          "name": "slave",
-          "flags": 128
-        },
         {
           "type": "handle:VirtualSystemPS",
           "name": "vs",
@@ -746,6 +829,22 @@
       "flags": 41472
     },
     {
+      "fullName": "OnExtractDevicesEvent;ExtractDevicesEvent",
+      "shortName": "OnExtractDevicesEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:ExtractDevicesEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
       "shortName": "OnMaraudersMapDeviceDebug",
       "flags": 512,
@@ -766,6 +865,23 @@
           "type": "handle:gameIBlackboard",
           "name": "blackboard",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessDevicesLazy;array<LazyDevice>ProcessDevicesEvent",
+      "shortName": "ProcessDevicesLazy",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:handle:gameLazyDevice",
+          "name": "lazyDevices",
+          "flags": 128
+        },
+        {
+          "type": "handle:ProcessDevicesEvent",
+          "name": "eventToSendOnCompleted",
+          "flags": 1152
         }
       ]
     },
@@ -818,6 +934,18 @@
         {
           "type": "handle:ScriptableDeviceAction",
           "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveExtractDevicesEvent;ExtractDevicesEvent",
+      "shortName": "ResolveExtractDevicesEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ExtractDevicesEvent",
+          "name": "evt",
           "flags": 128
         }
       ]

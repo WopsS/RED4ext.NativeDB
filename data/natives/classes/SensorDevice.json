@@ -129,6 +129,11 @@
       "flags": 4297130016
     },
     {
+      "type": "handle:redCallbackObject",
+      "name": "taggedListenerCallback",
+      "flags": 4431347744
+    },
+    {
       "type": "array:handle:gameLightComponent",
       "name": "lightScanRefs",
       "flags": 6583091232
@@ -398,6 +403,23 @@
       ]
     },
     {
+      "fullName": "AddTaggedListener;GameObjectCName",
+      "shortName": "AddTaggedListener",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "object",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "funcName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ApplyAnimFeatureToReplicate;GameObjectCNameAnimFeature",
       "shortName": "ApplyAnimFeatureToReplicate",
       "flags": 512,
@@ -639,7 +661,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:SensorDeviceController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8320
@@ -702,7 +724,7 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:SensorDeviceControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -821,6 +843,28 @@
       "flags": 8708
     },
     {
+      "fullName": "HandleSecuritySystemOutput;",
+      "shortName": "HandleSecuritySystemOutput",
+      "flags": 260
+    },
+    {
+      "fullName": "HandleSecuritySystemOutputByTask;",
+      "shortName": "HandleSecuritySystemOutputByTask",
+      "flags": 260
+    },
+    {
+      "fullName": "HandleSecuritySystemOutputTask;ScriptTaskData",
+      "shortName": "HandleSecuritySystemOutputTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HasEntityPlayerAttitudeGroup;",
       "shortName": "HasEntityPlayerAttitudeGroup",
       "return": {
@@ -847,6 +891,18 @@
       "fullName": "InitializeLights;",
       "shortName": "InitializeLights",
       "flags": 260
+    },
+    {
+      "fullName": "InitializeLightsTask;ScriptTaskData",
+      "shortName": "InitializeLightsTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "IsCurrentTargetOutOfSenseRange;GameObject",
@@ -1206,6 +1262,38 @@
       "params": [
         {
           "type": "handle:senseOnRemoveDetection",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostInitialize",
+      "shortName": "OnPostInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPostInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreUninitialize",
+      "shortName": "OnPreUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPreUninitializeEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1879,6 +1967,28 @@
       "flags": 516
     },
     {
+      "fullName": "ResolveConnectionWithSecuritySystem;",
+      "shortName": "ResolveConnectionWithSecuritySystem",
+      "flags": 260
+    },
+    {
+      "fullName": "ResolveConnectionWithSecuritySystemByTask;",
+      "shortName": "ResolveConnectionWithSecuritySystemByTask",
+      "flags": 260
+    },
+    {
+      "fullName": "ResolveConnectionWithSecuritySystemTask;ScriptTaskData",
+      "shortName": "ResolveConnectionWithSecuritySystemTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
@@ -2206,23 +2316,6 @@
       "flags": 256
     },
     {
-      "fullName": "UnregisterListenerOnTargetHP;GameObjectTargetedObjectDeathListener",
-      "shortName": "UnregisterListenerOnTargetHP",
-      "flags": 8708,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "listeningObject",
-          "flags": 128
-        },
-        {
-          "type": "handle:TargetedObjectDeathListener",
-          "name": "listener",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "UnregisterListenerOnTargetHP;GameObjectGameObject",
       "shortName": "UnregisterListenerOnTargetHP",
       "flags": 260,
@@ -2235,6 +2328,23 @@
         {
           "type": "whandle:gameObject",
           "name": "lostObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterListenerOnTargetHP;GameObjectTargetedObjectDeathListener",
+      "shortName": "UnregisterListenerOnTargetHP",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "listeningObject",
+          "flags": 128
+        },
+        {
+          "type": "handle:TargetedObjectDeathListener",
+          "name": "listener",
           "flags": 128
         }
       ]

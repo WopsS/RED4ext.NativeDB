@@ -2,6 +2,23 @@
   "parent": "DefaultTransition",
   "name": "WeaponTransition",
   "flags": 5,
+  "props": [
+    {
+      "type": "TweakDBID",
+      "name": "magazineID",
+      "flags": 4297326624
+    },
+    {
+      "type": "TweakDBID",
+      "name": "magazineAttack",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:gamedataRangedAttackPackage_Record",
+      "name": "rangedAttackPackage",
+      "flags": 4431544352
+    }
+  ],
   "funcs": [
     {
       "fullName": "WeaponTransition::GetPlayerSpeed;StateGameScriptInterface",
@@ -22,27 +39,6 @@
     {
       "fullName": "WeaponTransition::ServerHasReloadRequest;StateContextStateGameScriptInterface",
       "shortName": "ServerHasReloadRequest",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "WeaponTransition::ShouldReloadWeapon;StateContextStateGameScriptInterface",
-      "shortName": "ShouldReloadWeapon",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -183,10 +179,15 @@
       ]
     },
     {
-      "fullName": "EndShootingSequence;StateContextStateGameScriptInterface",
+      "fullName": "EndShootingSequence;WeaponObjectStateContextStateGameScriptInterface",
       "shortName": "EndShootingSequence",
       "flags": 260,
       "params": [
+        {
+          "type": "handle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
@@ -300,27 +301,6 @@
       "flags": 41220
     },
     {
-      "fullName": "GetReloadAnimSpeed;StateGameScriptInterfacegamedataStatType",
-      "shortName": "GetReloadAnimSpeed",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8452,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "gamedataStatType",
-          "name": "statType",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetShootingNumBurstTotalName;",
       "shortName": "GetShootingNumBurstTotalName",
       "return": {
@@ -362,22 +342,6 @@
         "flags": 64
       },
       "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HasSecondaryTriggerMode;StateGameScriptInterface",
-      "shortName": "HasSecondaryTriggerMode",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8452,
       "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
@@ -529,27 +493,6 @@
       ]
     },
     {
-      "fullName": "IsWeaponReadyToShoot;StateContextStateGameScriptInterface",
-      "shortName": "IsWeaponReadyToShoot",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8452,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "PlayEffect;CNameStateGameScriptInterfaceCName",
       "shortName": "PlayEffect",
       "flags": 260,
@@ -679,13 +622,18 @@
       ]
     },
     {
-      "fullName": "ShowAttackPreview;BoolStateGameScriptInterfaceStateContext",
+      "fullName": "ShowAttackPreview;BoolWeaponObjectStateGameScriptInterfaceStateContext",
       "shortName": "ShowAttackPreview",
       "flags": 260,
       "params": [
         {
           "type": "Bool",
           "name": "showIfAiming",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameweaponObject",
+          "name": "weaponObject",
           "flags": 128
         },
         {
@@ -779,6 +727,48 @@
     {
       "fullName": "SwitchTriggerMode;StateContextStateGameScriptInterface",
       "shortName": "SwitchTriggerMode",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToFullAutoTransitionCondition;StateContextStateGameScriptInterface",
+      "shortName": "ToFullAutoTransitionCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8452,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToSemiAutoTransitionCondition;StateContextStateGameScriptInterface",
+      "shortName": "ToSemiAutoTransitionCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
       "flags": 8452,
       "params": [
         {

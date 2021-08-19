@@ -57,6 +57,16 @@
     },
     {
       "type": "Bool",
+      "name": "canShowMappinsByTask",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "canHideMappinsByTask",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
       "name": "isHighlightedInFocusMode",
       "flags": 4297130016
     },
@@ -140,6 +150,23 @@
       "flags": 132
     },
     {
+      "fullName": "ClearAllRoleMappinsByTask;",
+      "shortName": "ClearAllRoleMappinsByTask",
+      "flags": 256
+    },
+    {
+      "fullName": "ClearAllRoleMappinsTask;ScriptTaskData",
+      "shortName": "ClearAllRoleMappinsTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CompareRoleMappinsData;GameplayRoleMappinDataGameplayRoleMappinData",
       "shortName": "CompareRoleMappinsData",
       "return": {
@@ -202,6 +229,23 @@
       "fullName": "DeterminGamplayRole;",
       "shortName": "DeterminGamplayRole",
       "flags": 132
+    },
+    {
+      "fullName": "DeterminGamplayRoleByTask;",
+      "shortName": "DeterminGamplayRoleByTask",
+      "flags": 132
+    },
+    {
+      "fullName": "DeterminGamplayRoleTask;ScriptTaskData",
+      "shortName": "DeterminGamplayRoleTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "EvaluateMappins;",
@@ -408,6 +452,23 @@
       "flags": 516
     },
     {
+      "fullName": "HideRoleMappinsByTask;",
+      "shortName": "HideRoleMappinsByTask",
+      "flags": 256
+    },
+    {
+      "fullName": "HideRoleMappinsTask;ScriptTaskData",
+      "shortName": "HideRoleMappinsTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HideSingleMappin;Int32",
       "shortName": "HideSingleMappin",
       "flags": 132,
@@ -542,12 +603,12 @@
     {
       "fullName": "OnGameAttach;",
       "shortName": "OnGameAttach",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "OnGameDetach;",
       "shortName": "OnGameDetach",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "OnHUDInstruction",
@@ -624,6 +685,38 @@
       "params": [
         {
           "type": "handle:PerformedAction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostInitialize",
+      "shortName": "OnPostInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPostInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreUninitialize",
+      "shortName": "OnPreUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPreUninitializeEvent",
           "name": "evt",
           "flags": 128
         }
@@ -797,6 +890,23 @@
       "flags": 516
     },
     {
+      "fullName": "ShowRoleMappinsByTask;",
+      "shortName": "ShowRoleMappinsByTask",
+      "flags": 256
+    },
+    {
+      "fullName": "ShowRoleMappinsTask;ScriptTaskData",
+      "shortName": "ShowRoleMappinsTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ShowSingleMappin;Int32GameplayRoleMappinData",
       "shortName": "ShowSingleMappin",
       "flags": 132,
@@ -887,13 +997,13 @@
       ]
     },
     {
-      "fullName": "ToggleMappin;Int32Bool",
+      "fullName": "ToggleMappin;gamedataMappinVariantBool",
       "shortName": "ToggleMappin",
       "flags": 516,
       "params": [
         {
-          "type": "Int32",
-          "name": "mappinIndex",
+          "type": "gamedataMappinVariant",
+          "name": "mappinVariant",
           "flags": 128
         },
         {
@@ -904,13 +1014,13 @@
       ]
     },
     {
-      "fullName": "ToggleMappin;gamedataMappinVariantBool",
+      "fullName": "ToggleMappin;Int32Bool",
       "shortName": "ToggleMappin",
       "flags": 516,
       "params": [
         {
-          "type": "gamedataMappinVariant",
-          "name": "mappinVariant",
+          "type": "Int32",
+          "name": "mappinIndex",
           "flags": 128
         },
         {

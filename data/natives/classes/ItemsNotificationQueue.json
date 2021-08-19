@@ -44,19 +44,14 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
-      "name": "playerStatsBlackboard",
-      "flags": 4431347744
-    },
-    {
       "type": "handle:PlayerDevelopmentSystem",
       "name": "playerDevelopmentSystem",
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "combatModeListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "handle:InventoryDataManagerV2",
@@ -75,6 +70,22 @@
     }
   ],
   "funcs": [
+    {
+      "fullName": "EquipmentAreaNeedsNotification;gamedataEquipmentArea",
+      "shortName": "EquipmentAreaNeedsNotification",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "GetComparisonState;InventoryItemData",
       "shortName": "GetComparisonState",
@@ -110,7 +121,23 @@
       "flags": 33280
     },
     {
-      "fullName": "NeedsNotification;gamedataEquipmentArea",
+      "fullName": "IsBestInBackpack;InventoryItemData",
+      "shortName": "IsBestInBackpack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "newItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NeedsNotification;InventoryItemData",
       "shortName": "NeedsNotification",
       "return": {
         "type": "Bool",
@@ -119,8 +146,8 @@
       "flags": 132,
       "params": [
         {
-          "type": "gamedataEquipmentArea",
-          "name": "type",
+          "type": "InventoryItemData",
+          "name": "newItem",
           "flags": 128
         }
       ]
@@ -326,6 +353,22 @@
         {
           "type": "handle:gameObject",
           "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldRarityForceNotification;InventoryItemData",
+      "shortName": "ShouldRarityForceNotification",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "newItem",
           "flags": 128
         }
       ]

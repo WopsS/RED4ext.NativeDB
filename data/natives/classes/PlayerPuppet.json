@@ -104,8 +104,38 @@
       "flags": 4431544352
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "itemLogBlackboard",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "interactionDataListener",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "popupIsModalListener",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiVendorContextListener",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiRadialContextistener",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "contactsActiveListener",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "currentVisibleTargetListener",
       "flags": 4431544352
     },
     {
@@ -184,9 +214,9 @@
       "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "CPOMissionDataBbId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "handle:VisibilityStatListener",
@@ -244,28 +274,13 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
-      "name": "combatStateListener",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
-      "name": "LocomotionStateListener",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
-      "name": "numberOfCombatantsListenerID",
-      "flags": 4297130016
+      "type": "array:handle:redCallbackObject",
+      "name": "callbackHandles",
+      "flags": 6583025696
     },
     {
       "type": "Int32",
       "name": "numberOfCombatants",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
-      "name": "zoneChangeListener",
       "flags": 4297130016
     },
     {
@@ -349,6 +364,16 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "isAimingAtFriendly",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isAimingAtChild",
+      "flags": 4297130016
+    },
+    {
       "type": "TweakDBID",
       "name": "coverRecordID",
       "flags": 4297130016
@@ -369,8 +394,13 @@
       "flags": 4297130016
     },
     {
-      "type": "Float",
-      "name": "lowHealthNextRumbleTime",
+      "type": "Bool",
+      "name": "critHealthRumblePlayed",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "critHealthRumbleDurationID",
       "flags": 4297130016
     },
     {
@@ -414,6 +444,11 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:PlayerCombatController",
+      "name": "combatController",
+      "flags": 4431347744
+    },
+    {
       "type": "array:TweakDBID",
       "name": "cachedGameplayRestrictions",
       "flags": 6583025696
@@ -452,6 +487,35 @@
         {
           "type": "whandle:PlayerPuppet",
           "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerPuppet::ChacheQuickHackList;PlayerPuppetarray<PlayerQuickhackData>",
+      "shortName": "ChacheQuickHackList",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "array:PlayerQuickhackData",
+          "name": "QHList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerPuppet::ChacheQuickHackListCleanup;GameObject",
+      "shortName": "ChacheQuickHackListCleanup",
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "object",
           "flags": 128
         }
       ]
@@ -913,6 +977,18 @@
       ]
     },
     {
+      "fullName": "EnableUIBlackboardListener;Bool",
+      "shortName": "EnableUIBlackboardListener",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "EvaluateApplyingReplacerGameplayRestrictions;",
       "shortName": "EvaluateApplyingReplacerGameplayRestrictions",
       "flags": 132
@@ -981,6 +1057,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetCachedQuickHackList;",
+      "shortName": "GetCachedQuickHackList",
+      "return": {
+        "type": "array:PlayerQuickhackData",
+        "flags": 64
+      },
+      "flags": 8708
     },
     {
       "fullName": "GetCombatExitTimestamp;",
@@ -1131,7 +1216,7 @@
       "fullName": "GetPS",
       "shortName": "GetPS",
       "return": {
-        "type": "handle:PlayerPuppetPS",
+        "type": "handle:gameObjectPS",
         "flags": 64
       },
       "flags": 8448
@@ -1212,6 +1297,24 @@
       "flags": 41476
     },
     {
+      "fullName": "GetStaminaPercUnsafe;",
+      "shortName": "GetStaminaPercUnsafe",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetStaminaValueUnsafe;",
+      "shortName": "GetStaminaValueUnsafe",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
       "fullName": "GetUnlockedVehiclesSize;",
       "shortName": "GetUnlockedVehiclesSize",
       "return": {
@@ -1276,6 +1379,24 @@
       "fullName": "InvalidateZone;",
       "shortName": "InvalidateZone",
       "flags": 132
+    },
+    {
+      "fullName": "IsAimingAtChild;",
+      "shortName": "IsAimingAtChild",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "IsAimingAtFriendly;",
+      "shortName": "IsAimingAtFriendly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
     },
     {
       "fullName": "IsCallingVehicleRestricted;",
@@ -1520,15 +1641,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnAttach",
-      "shortName": "OnAttach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
     },
     {
       "fullName": "OnAttitudeChanged",
@@ -1818,6 +1930,38 @@
         {
           "type": "Int32",
           "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCrouchDelayEvent",
+      "shortName": "OnCrouchDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:CrouchDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCurrentVisibleTargetChanged",
+      "shortName": "OnCurrentVisibleTargetChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetId",
           "flags": 128
         }
       ]
@@ -2201,6 +2345,22 @@
       ]
     },
     {
+      "fullName": "OnInvalidateCombatController",
+      "shortName": "OnInvalidateCombatController",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PlayerCombatControllerInvalidateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInvalidateVisionModeController",
       "shortName": "OnInvalidateVisionModeController",
       "return": {
@@ -2357,6 +2517,22 @@
       ]
     },
     {
+      "fullName": "OnLookAtObjectChangedEvent",
+      "shortName": "OnLookAtObjectChangedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gametargetingSystemLookAtObjectChangedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnMagFieldHitEvent",
       "shortName": "OnMagFieldHitEvent",
       "return": {
@@ -2447,6 +2623,22 @@
       "params": [
         {
           "type": "handle:ModifyOverlappedSecurityAreas",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMountingEvent",
+      "shortName": "OnMountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamemountingMountingEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2815,6 +3007,38 @@
       ]
     },
     {
+      "fullName": "OnSquadIsTrackedEvent",
+      "shortName": "OnSquadIsTrackedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AISquadIsTracked",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStartedBeingTrackedAsHostile",
+      "shortName": "OnStartedBeingTrackedAsHostile",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIStartedBeingTrackedAsHostile",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnStatusEffectApplied",
       "shortName": "OnStatusEffectApplied",
       "return": {
@@ -2841,6 +3065,22 @@
       "params": [
         {
           "type": "handle:gameeventsRemoveStatusEffect",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStopCritHealthRumble",
+      "shortName": "OnStopCritHealthRumble",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:StopCritHealthRumble",
           "name": "evt",
           "flags": 128
         }
@@ -2991,6 +3231,22 @@
       ]
     },
     {
+      "fullName": "OnUnmountingEvent",
+      "shortName": "OnUnmountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamemountingUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUpdateAutoRevealStatEvent",
       "shortName": "OnUpdateAutoRevealStatEvent",
       "return": {
@@ -3129,6 +3385,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "PlayCritHealthRumble;",
+      "shortName": "PlayCritHealthRumble",
+      "flags": 132
     },
     {
       "fullName": "PlayFootstepCameraShakeBasedOnProximity;HeavyFootstepEvent",
@@ -3294,11 +3555,6 @@
     {
       "fullName": "RegisterToFacts;",
       "shortName": "RegisterToFacts",
-      "flags": 132
-    },
-    {
-      "fullName": "RegisterUIBlackboardListener;",
-      "shortName": "RegisterUIBlackboardListener",
       "flags": 132
     },
     {
@@ -3553,6 +3809,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "StopCritHealthRumble;",
+      "shortName": "StopCritHealthRumble",
+      "flags": 132
     },
     {
       "fullName": "TriggerInspect;StringFloatFloatFloat",

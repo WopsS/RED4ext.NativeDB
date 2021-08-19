@@ -14,6 +14,31 @@
       "flags": 4297130017
     },
     {
+      "type": "CName",
+      "name": "transitToLoadingAnimName",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "transitToLoadingSlotAnimName",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "animDelayBetweenSlots",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "animDelayForMainSlot",
+      "flags": 4297130017
+    },
+    {
+      "type": "Bool",
+      "name": "enableLoadingTransition",
+      "flags": 4297130017
+    },
+    {
       "type": "whandle:inkMenuEventDispatcher",
       "name": "eventDispatcher",
       "flags": 4297130016
@@ -32,6 +57,16 @@
       "type": "whandle:ButtonHints",
       "name": "buttonHintsController",
       "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "saveToLoadIndex",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isInputDisabled",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -48,6 +83,18 @@
         {
           "type": "String",
           "name": "label",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LoadGameMainMenu;LoadListItem",
+      "shortName": "LoadGameMainMenu",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:LoadListItem",
+          "name": "controller",
           "flags": 128
         }
       ]
@@ -163,6 +210,22 @@
       ]
     },
     {
+      "fullName": "OnTransitionFinished",
+      "shortName": "OnTransitionFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -170,6 +233,52 @@
         "flags": 64
       },
       "flags": 264
+    },
+    {
+      "fullName": "PlayTransitionAnimOnButton;Int32Int32",
+      "shortName": "PlayTransitionAnimOnButton",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "distanceFromSource",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayTransitionAnimOnButton;Int32Float",
+      "shortName": "PlayTransitionAnimOnButton",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayTransitionAnimOnButtons;Int32",
+      "shortName": "PlayTransitionAnimOnButtons",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "sourceIndex",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetupLoadItems;array<String>",

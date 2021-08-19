@@ -1,0 +1,453 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "CraftingMainLogicController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "root",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemDetailsContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "leftListScrollHolder",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkVirtualCompoundWidgetReference",
+      "name": "virtualListContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "filterGroup",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "sortingButton",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "sortingDropdown",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "tooltipContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "itemName",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "itemQuality",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "progressBarContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "progressButtonContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "blockedText",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "ingredientsListContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "UIMenuNotificationType",
+      "name": "notificationType",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:CraftingItemTemplateClassifier",
+      "name": "classifier",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:CraftingDataView",
+      "name": "dataView",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:inkScriptableDataSourceWrapper",
+      "name": "dataSource",
+      "flags": 4431413280
+    },
+    {
+      "type": "whandle:inkVirtualGridController",
+      "name": "virtualListController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkScrollController",
+      "name": "leftListScrollController",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:whandle:IngredientListItemLogicController",
+      "name": "ingredientsControllerList",
+      "flags": 6583091232
+    },
+    {
+      "type": "Int32",
+      "name": "maxIngredientCount",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:RecipeData",
+      "name": "selectedRecipe",
+      "flags": 4431413280
+    },
+    {
+      "type": "InventoryItemData",
+      "name": "selectedItemData",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isCraftable",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:Int32",
+      "name": "filters",
+      "flags": 6583091232
+    },
+    {
+      "type": "whandle:ProgressBarButton",
+      "name": "progressButtonController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:InventoryItemDisplayController",
+      "name": "itemWeaponController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:InventoryItemDisplayController",
+      "name": "itemIngredientController",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "doPlayFilterSounds",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:CraftingMainGameController",
+      "name": "craftingGameController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:CraftingSystem",
+      "name": "craftingSystem",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameuiTooltipsManager",
+      "name": "tooltipsManager",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:ButtonHints",
+      "name": "buttonHintsController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:InventoryDataManagerV2",
+      "name": "inventoryManager",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:DropdownListController",
+      "name": "sortingController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:DropdownButtonController",
+      "name": "sortingButtonController",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isPanelOpen",
+      "flags": 4297195552
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CraftingMainLogicController::GetDropdownOption;ItemSortMode",
+      "shortName": "GetDropdownOption",
+      "return": {
+        "type": "handle:DropdownItemData",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ItemSortMode",
+          "name": "identifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CraftingMainLogicController::IsWeapon;gamedataEquipmentArea",
+      "shortName": "IsWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClosePanel;",
+      "shortName": "ClosePanel",
+      "flags": 516
+    },
+    {
+      "fullName": "Init;CraftingMainGameController",
+      "shortName": "Init",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:CraftingMainGameController",
+          "name": "craftingGameController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitVirtualList;",
+      "shortName": "InitVirtualList",
+      "flags": 260
+    },
+    {
+      "fullName": "OnButtonClick",
+      "shortName": "OnButtonClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDropdownItemClickedEvent",
+      "shortName": "OnDropdownItemClickedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DropdownItemClickedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFilterChange",
+      "shortName": "OnFilterChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkRadioGroupController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "selectedIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnIngedientControllerSpawned",
+      "shortName": "OnIngedientControllerSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemSelect",
+      "shortName": "OnItemSelect",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkVirtualCompoundItemController",
+          "name": "previous",
+          "flags": 128
+        },
+        {
+          "type": "handle:inkVirtualCompoundItemController",
+          "name": "next",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSortingButtonClicked",
+      "shortName": "OnSortingButtonClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OpenPanel;",
+      "shortName": "OpenPanel",
+      "flags": 516
+    },
+    {
+      "fullName": "RefreshListViewContent;InventoryItemData",
+      "shortName": "RefreshListViewContent",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetCraftingButton;String",
+      "shortName": "SetCraftingButton",
+      "flags": 260,
+      "params": [
+        {
+          "type": "String",
+          "name": "label",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetItemButtonHintsHoverOut;inkPointerEvent",
+      "shortName": "SetItemButtonHintsHoverOut",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetItemButtonHintsHoverOver;inkPointerEvent",
+      "shortName": "SetItemButtonHintsHoverOver",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupFilters;",
+      "shortName": "SetupFilters",
+      "flags": 256
+    },
+    {
+      "fullName": "SetupIngredientWidgets;",
+      "shortName": "SetupIngredientWidgets",
+      "flags": 256
+    },
+    {
+      "fullName": "SetupSortingDropdown;",
+      "shortName": "SetupSortingDropdown",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateItemPreview;CraftableItemLogicController",
+      "shortName": "UpdateItemPreview",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:CraftableItemLogicController",
+          "name": "craftableController",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

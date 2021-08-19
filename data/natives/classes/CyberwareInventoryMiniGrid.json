@@ -39,11 +39,6 @@
       "flags": 4297130016
     },
     {
-      "type": "Int32",
-      "name": "toEquipeSlotIndex",
-      "flags": 4297130016
-    },
-    {
       "type": "gamedataEquipmentArea",
       "name": "equipArea",
       "flags": 4297130016
@@ -59,7 +54,7 @@
       "flags": 4297130016
     },
     {
-      "type": "array:handle:InventoryItemDisplayController",
+      "type": "array:whandle:InventoryItemDisplayController",
       "name": "gridData",
       "flags": 6583025696
     }
@@ -94,7 +89,7 @@
       "fullName": "GetInventoryItemDisplays;",
       "shortName": "GetInventoryItemDisplays",
       "return": {
-        "type": "array:handle:InventoryItemDisplayController",
+        "type": "array:whandle:InventoryItemDisplayController",
         "flags": 64
       },
       "flags": 516
@@ -109,13 +104,20 @@
       "flags": 516
     },
     {
-      "fullName": "GetSlotToEquipe;",
+      "fullName": "GetSlotToEquipe;ItemID",
       "shortName": "GetSlotToEquipe",
       "return": {
         "type": "Int32",
         "flags": 64
       },
-      "flags": 516
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnInitialize",
@@ -207,11 +209,6 @@
       ]
     },
     {
-      "fullName": "SetNextEmptySlotToEquipe;",
-      "shortName": "SetNextEmptySlotToEquipe",
-      "flags": 516
-    },
-    {
       "fullName": "SetOrientation;inkEOrientation",
       "shortName": "SetOrientation",
       "flags": 516,
@@ -264,6 +261,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UnselectSlot;",
+      "shortName": "UnselectSlot",
+      "flags": 132
     },
     {
       "fullName": "UpdateData;gamedataEquipmentAreaarray<InventoryItemData>Int32CyberwareScreenType",

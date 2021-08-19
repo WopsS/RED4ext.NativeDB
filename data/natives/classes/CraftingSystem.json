@@ -31,6 +31,22 @@
   ],
   "funcs": [
     {
+      "fullName": "CraftingSystem::GetAmmoBulletAmount;TweakDBID",
+      "shortName": "GetAmmoBulletAmount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "ammoId",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CraftingSystem::GetInstance;GameInstance",
       "shortName": "GetInstance",
       "return": {
@@ -462,6 +478,27 @@
       ]
     },
     {
+      "fullName": "GetItemCraftingCost;Item_Recordarray<RecipeElement_Record>",
+      "shortName": "GetItemCraftingCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "record",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataRecipeElement_Record",
+          "name": "craftingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetItemCraftingCost;Item_Record",
       "shortName": "GetItemCraftingCost",
       "return": {
@@ -473,22 +510,6 @@
         {
           "type": "whandle:gamedataItem_Record",
           "name": "itemRecord",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetItemCraftingCost;array<RecipeElement_Record>",
-      "shortName": "GetItemCraftingCost",
-      "return": {
-        "type": "array:IngredientData",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "array:whandle:gamedataRecipeElement_Record",
-          "name": "craftingData",
           "flags": 128
         }
       ]
@@ -888,6 +909,18 @@
     {
       "fullName": "SetItemLevel;gameItemData",
       "shortName": "SetItemLevel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetItemQualityBasedOnPlayerSkill;gameItemData",
+      "shortName": "SetItemQualityBasedOnPlayerSkill",
       "flags": 132,
       "params": [
         {

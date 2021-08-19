@@ -2,6 +2,18 @@
   "parent": "LocomotionGroundDecisions",
   "name": "SprintDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "sprintPressed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "toggleSprintPressed",
+      "flags": 4297130016
+    }
+  ],
   "funcs": [
     {
       "fullName": "EnterCondition;StateContextStateGameScriptInterface",
@@ -46,13 +58,30 @@
       ]
     },
     {
-      "fullName": "ToChargeJump;StateContextStateGameScriptInterface",
-      "shortName": "ToChargeJump",
+      "fullName": "OnAction",
+      "shortName": "OnAction",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8448,
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 256,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -67,13 +96,9 @@
       ]
     },
     {
-      "fullName": "ToJump;StateContextStateGameScriptInterface",
-      "shortName": "ToJump",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8448,
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",

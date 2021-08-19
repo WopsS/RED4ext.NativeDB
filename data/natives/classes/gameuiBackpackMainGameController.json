@@ -89,7 +89,7 @@
       "flags": 6583025696
     },
     {
-      "type": "array:handle:CrafringMaterialItemController",
+      "type": "array:whandle:CrafringMaterialItemController",
       "name": "craftingMaterialsListItems",
       "flags": 6583025696
     },
@@ -99,14 +99,14 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "DisassembleBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "DisassembleBBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "handle:UI_EquipmentDef",
@@ -114,14 +114,14 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "EquippedBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "EquippedBBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "whandle:inkMenuEventDispatcher",
@@ -129,9 +129,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:BackpackFilterButtonController",
+      "type": "whandle:BackpackFilterButtonController",
       "name": "activeFilter",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:inkScriptableDataSourceWrapper",
@@ -231,28 +231,6 @@
   ],
   "funcs": [
     {
-      "fullName": "IsItemPreviewable",
-      "shortName": "IsItemPreviewable",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "index": 11755,
-      "flags": 1,
-      "params": [
-        {
-          "type": "whandle:gameItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isGarment",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "AddToDropQueue;ItemModParams",
       "shortName": "AddToDropQueue",
       "flags": 260,
@@ -296,34 +274,13 @@
       "flags": 132
     },
     {
-      "fullName": "EquipItem;InventoryItemDataInventoryItemDisplayController",
+      "fullName": "EquipItem;InventoryItemData",
       "shortName": "EquipItem",
       "flags": 516,
       "params": [
         {
           "type": "InventoryItemData",
           "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "display",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "GetComparisonState;InventoryItemData",
-      "shortName": "GetComparisonState",
-      "return": {
-        "type": "gameItemComparisonState",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "item",
           "flags": 128
         }
       ]
@@ -479,6 +436,27 @@
       ]
     },
     {
+      "fullName": "OnCraftingMaterialItemSpawned",
+      "shortName": "OnCraftingMaterialItemSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:BackpackCraftingMaterialItemCallbackData",
+          "name": "callbackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDisassembleComplete",
       "shortName": "OnDisassembleComplete",
       "return": {
@@ -506,6 +484,27 @@
         {
           "type": "handle:DropdownItemClickedEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFilterButtonSpawned",
+      "shortName": "OnFilterButtonSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:BackpackFilterButtonSpawnedCallbackData",
+          "name": "callbackData",
           "flags": 128
         }
       ]

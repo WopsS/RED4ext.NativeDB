@@ -164,6 +164,11 @@
       "flags": 4297326624
     },
     {
+      "type": "gameLootItemType",
+      "name": "lootItemType",
+      "flags": 4297326624
+    },
+    {
       "type": "String",
       "name": "iconPath",
       "flags": 4297326624
@@ -255,6 +260,32 @@
       ]
     },
     {
+      "fullName": "MinimalItemTooltipData::GetDefaultModAttachmentData;InventoryTooltipDataInt32InventoryItemAttachmentType",
+      "shortName": "GetDefaultModAttachmentData",
+      "return": {
+        "type": "handle:MinimalItemTooltipModAttachmentData",
+        "flags": 64
+      },
+      "flags": 134,
+      "params": [
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemAttachmentType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "MinimalItemTooltipData::GetDefaultModAttachmentData;BoolCNameTweakDBIDStringscript_ref<array<InventoryItemAbility>>InventoryItemAttachmentType",
       "shortName": "GetDefaultModAttachmentData",
       "return": {
@@ -296,27 +327,43 @@
       ]
     },
     {
-      "fullName": "MinimalItemTooltipData::GetDefaultModAttachmentData;InventoryTooltipDataInt32InventoryItemAttachmentType",
-      "shortName": "GetDefaultModAttachmentData",
+      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataInventoryDataManagerV2",
+      "shortName": "GetMinimalTooltipDataRequirements",
       "return": {
-        "type": "handle:MinimalItemTooltipModAttachmentData",
+        "type": "handle:MinimalItemTooltipDataRequirements",
         "flags": 64
       },
-      "flags": 134,
+      "flags": 518,
       "params": [
         {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryDataManagerV2",
+          "name": "dataManager",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataInventoryTooltipData",
+      "shortName": "GetMinimalTooltipDataRequirements",
+      "return": {
+        "type": "handle:MinimalItemTooltipDataRequirements",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
           "type": "handle:InventoryTooltipData",
-          "name": "data",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "gameInventoryItemAttachmentType",
-          "name": "type",
+          "name": "tooltipData",
           "flags": 128
         }
       ]
@@ -353,48 +400,6 @@
         {
           "type": "Int32",
           "name": "playerLevel",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataInventoryTooltipData",
-      "shortName": "GetMinimalTooltipDataRequirements",
-      "return": {
-        "type": "handle:MinimalItemTooltipDataRequirements",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:gameItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryTooltipData",
-          "name": "tooltipData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataInventoryDataManagerV2",
-      "shortName": "GetMinimalTooltipDataRequirements",
-      "return": {
-        "type": "handle:MinimalItemTooltipDataRequirements",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:gameItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryDataManagerV2",
-          "name": "dataManager",
           "flags": 128
         }
       ]

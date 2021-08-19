@@ -9,6 +9,26 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:AnimFeature_ProceduralIronsightData",
+      "name": "posAnimFeature",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:DefaultTransitionStatusEffectListener",
+      "name": "statusEffectListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameweaponObject",
+      "name": "weapon",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "executionOwner",
+      "flags": 4297130016
+    },
+    {
       "type": "Float",
       "name": "mouseZoomLevel",
       "flags": 4297130016
@@ -77,6 +97,26 @@
       "type": "Float",
       "name": "speed",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "itemChanged",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "firearmsNoUnequipNoSwitch",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "shootingRangeCompetition",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameAttachmentSlotsScriptListener",
+      "name": "attachmentSlotListener",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -166,6 +206,40 @@
       ]
     },
     {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnEnter;StateContextStateGameScriptInterface",
       "shortName": "OnEnter",
       "flags": 256,
@@ -200,6 +274,64 @@
       ]
     },
     {
+      "fullName": "OnItemEquipped;TweakDBIDItemID",
+      "shortName": "OnItemEquipped",
+      "flags": 512,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "slot",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemUnequipped;TweakDBIDItemID",
+      "shortName": "OnItemUnequipped",
+      "flags": 512,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "slot",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied;StatusEffect_Record",
+      "shortName": "OnStatusEffectApplied",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamedataStatusEffect_Record",
+          "name": "statusEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectRemoved;StatusEffect_Record",
+      "shortName": "OnStatusEffectRemoved",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamedataStatusEffect_Record",
+          "name": "statusEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUpdate;FloatStateContextStateGameScriptInterface",
       "shortName": "OnUpdate",
       "flags": 260,
@@ -217,6 +349,23 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayEffectOnHeldItems;StateGameScriptInterfaceCName",
+      "shortName": "PlayEffectOnHeldItems",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "effectName",
           "flags": 128
         }
       ]
@@ -289,23 +438,6 @@
       "shortName": "UpdateWeaponOffsetPosition",
       "flags": 260,
       "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateZoomSfx;StateContextStateGameScriptInterface",
-      "shortName": "UpdateZoomSfx",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",

@@ -89,6 +89,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gamedataAttack_Record",
+      "name": "missileAttackRecord",
+      "flags": 4297130016
+    },
+    {
       "type": "Float",
       "name": "timeToDestory",
       "flags": 4297130016
@@ -292,8 +297,8 @@
       ]
     },
     {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
+      "fullName": "OnHit",
+      "shortName": "OnHit",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -301,8 +306,8 @@
       "flags": 264,
       "params": [
         {
-          "type": "handle:gameprojectileSetUpEvent",
-          "name": "eventData",
+          "type": "handle:gameeventsHitEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -318,6 +323,22 @@
       "params": [
         {
           "type": "handle:gameprojectileLinearMovementEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProjectileInitialize",
+      "shortName": "OnProjectileInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileSetUpEvent",
           "name": "eventData",
           "flags": 128
         }

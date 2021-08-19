@@ -9,9 +9,9 @@
       "flags": 4297130017
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "abilitiesCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -19,12 +19,29 @@
       "flags": 4297130016
     },
     {
-      "type": "array:whandle:inkWidget",
-      "name": "abilityWidgets",
+      "type": "array:whandle:inkAsyncSpawnRequest",
+      "name": "asyncSpawnRequests",
       "flags": 6583025696
     }
   ],
   "funcs": [
+    {
+      "fullName": "ClearAllAsyncSpawnRequests;",
+      "shortName": "ClearAllAsyncSpawnRequests",
+      "flags": 132
+    },
+    {
+      "fullName": "ClearAsyncSpawnRequest;inkAsyncSpawnRequest",
+      "shortName": "ClearAsyncSpawnRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkAsyncSpawnRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnAbilitiesChanged",
       "shortName": "OnAbilitiesChanged",
@@ -37,6 +54,27 @@
         {
           "type": "Variant",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAbilitySpawned",
+      "shortName": "OnAbilitySpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
           "flags": 128
         }
       ]

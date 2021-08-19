@@ -240,7 +240,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:ExplosiveDeviceController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8320
@@ -267,7 +267,7 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:ExplosiveDeviceControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -354,15 +354,6 @@
       ]
     },
     {
-      "fullName": "OnDetach",
-      "shortName": "OnDetach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnExplosiveDeviceDelayedEvent",
       "shortName": "OnExplosiveDeviceDelayedEvent",
       "return": {
@@ -411,15 +402,6 @@
       ]
     },
     {
-      "fullName": "OnGameAttached",
-      "shortName": "OnGameAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnHit",
       "shortName": "OnHit",
       "return": {
@@ -430,6 +412,38 @@
       "params": [
         {
           "type": "handle:gameeventsHitEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostInitialize",
+      "shortName": "OnPostInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPostInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreUninitialize",
+      "shortName": "OnPreUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPreUninitializeEvent",
           "name": "evt",
           "flags": 128
         }

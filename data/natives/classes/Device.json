@@ -90,11 +90,6 @@
     },
     {
       "type": "Bool",
-      "name": "isLogicready",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
       "name": "isInsideLogicArea",
       "flags": 4297195552
     },
@@ -104,14 +99,14 @@
       "flags": 4431413280
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "ZoomUIListenerID",
-      "flags": 4297195552
+      "flags": 4431413280
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "ZoomStateMachineListenerID",
-      "flags": 4297195552
+      "flags": 4431413280
     },
     {
       "type": "TweakDBID",
@@ -154,9 +149,9 @@
       "flags": 4431413280
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "currentPlayerTargetCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -236,6 +231,11 @@
       "type": "DebuggerProperties",
       "name": "debugOptions",
       "flags": 4364304417
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "workspotActivator",
+      "flags": 4297195552
     }
   ],
   "funcs": [
@@ -1393,15 +1393,6 @@
       "flags": 8324
     },
     {
-      "fullName": "GetNetworkLinkSlotName;",
-      "shortName": "GetNetworkLinkSlotName",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "GetNetworkLinkSlotName;WorldTransform",
       "shortName": "GetNetworkLinkSlotName",
       "return": {
@@ -1416,6 +1407,15 @@
           "flags": 640
         }
       ]
+    },
+    {
+      "fullName": "GetNetworkLinkSlotName;",
+      "shortName": "GetNetworkLinkSlotName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 8704
     },
     {
       "fullName": "GetNetworkSecurityLevel;",
@@ -1675,15 +1675,6 @@
       "flags": 8448
     },
     {
-      "fullName": "HasAnyNetworkLink;",
-      "shortName": "HasAnyNetworkLink",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8452
-    },
-    {
       "fullName": "HasAnyNetworkLink;Bool",
       "shortName": "HasAnyNetworkLink",
       "return": {
@@ -1698,6 +1689,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "HasAnyNetworkLink;",
+      "shortName": "HasAnyNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8452
     },
     {
       "fullName": "HasAnyPlaystyle;",
@@ -1806,6 +1806,18 @@
       "fullName": "InitializeScanningData;",
       "shortName": "InitializeScanningData",
       "flags": 260
+    },
+    {
+      "fullName": "InitializeScanningDataTask;ScriptTaskData",
+      "shortName": "InitializeScanningDataTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "InitializeScreenDefinition;",
@@ -2046,15 +2058,6 @@
         "flags": 64
       },
       "flags": 8452
-    },
-    {
-      "fullName": "IsLogicReady;",
-      "shortName": "IsLogicReady",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "IsLookedAt;",
@@ -2893,6 +2896,22 @@
       "params": [
         {
           "type": "handle:PlayBinkEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayInDeviceCallbackEvent",
+      "shortName": "OnPlayInDeviceCallbackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamePlayInDeviceCallbackEvent",
           "name": "evt",
           "flags": 128
         }
@@ -4495,6 +4514,23 @@
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
+    },
+    {
+      "fullName": "ResolveGameplayStateByTask;",
+      "shortName": "ResolveGameplayStateByTask",
+      "flags": 260
+    },
+    {
+      "fullName": "ResolveGameplayStateTask;ScriptTaskData",
+      "shortName": "ResolveGameplayStateTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ResolveIllegalAction;GameObjectFloat",

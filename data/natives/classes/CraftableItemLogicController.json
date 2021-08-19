@@ -14,11 +14,6 @@
       "flags": 4297130016
     },
     {
-      "type": "Bool",
-      "name": "isSelected",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:ItemCraftingData",
       "name": "itemData",
       "flags": 4431544352
@@ -29,28 +24,17 @@
       "flags": 4431544352
     },
     {
+      "type": "Bool",
+      "name": "isSpawnInProgress",
+      "flags": 4297130016
+    },
+    {
       "type": "CName",
       "name": "displayToCreate",
       "flags": 4297130016
     }
   ],
   "funcs": [
-    {
-      "fullName": "IsWeapon;gamedataEquipmentArea",
-      "shortName": "IsWeapon",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
     {
       "fullName": "OnDataChanged;Variant",
       "shortName": "OnDataChanged",
@@ -59,6 +43,36 @@
         {
           "type": "Variant",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnSelected",
+      "shortName": "OnSelected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "discreteNav",
           "flags": 128
         }
       ]
@@ -85,9 +99,41 @@
       ]
     },
     {
+      "fullName": "OnToggledOff",
+      "shortName": "OnToggledOff",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggledOn",
+      "shortName": "OnToggledOn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SelectSlot;Bool",
       "shortName": "SelectSlot",
-      "flags": 516,
+      "flags": 132,
       "params": [
         {
           "type": "Bool",
@@ -95,6 +141,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UpdateControllerData;",
+      "shortName": "UpdateControllerData",
+      "flags": 132
     }
   ]
 }

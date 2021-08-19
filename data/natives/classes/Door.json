@@ -209,6 +209,11 @@
       "flags": 4297130016
     },
     {
+      "type": "CName",
+      "name": "componentName",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:PlayerPuppet",
       "name": "playerInWorkspot",
       "flags": 4297130016
@@ -238,22 +243,6 @@
       ]
     },
     {
-      "fullName": "AuthorizeUsers;array<Entity>",
-      "shortName": "AuthorizeUsers",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "array:handle:entEntity",
-          "name": "usersToAuthorize",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "AuthorizeUsers;array<Entity>GameObject",
       "shortName": "AuthorizeUsers",
       "return": {
@@ -271,6 +260,22 @@
           "type": "handle:gameObject",
           "name": "firstAuthorized",
           "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AuthorizeUsers;array<Entity>",
+      "shortName": "AuthorizeUsers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:handle:entEntity",
+          "name": "usersToAuthorize",
+          "flags": 128
         }
       ]
     },
@@ -405,6 +410,18 @@
       "flags": 132
     },
     {
+      "fullName": "EvaluateOffMeshLinksTask;ScriptTaskData",
+      "shortName": "EvaluateOffMeshLinksTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ExecuteDeviceStateOperation;",
       "shortName": "ExecuteDeviceStateOperation",
       "flags": 256
@@ -452,7 +469,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:DoorController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8320
@@ -461,7 +478,7 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:DoorControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -567,6 +584,15 @@
       "flags": 260
     },
     {
+      "fullName": "IsSomeoneAuthorizedNearby;",
+      "shortName": "IsSomeoneAuthorizedNearby",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
       "fullName": "IsSomeoneAuthorizedNearby;GameObject",
       "shortName": "IsSomeoneAuthorizedNearby",
       "return": {
@@ -581,15 +607,6 @@
           "flags": 640
         }
       ]
-    },
-    {
-      "fullName": "IsSomeoneAuthorizedNearby;",
-      "shortName": "IsSomeoneAuthorizedNearby",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260
     },
     {
       "fullName": "IsSomeoneInTrigger;",
@@ -902,6 +919,22 @@
       "params": [
         {
           "type": "handle:GameAttachedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayInDeviceCallbackEvent",
+      "shortName": "OnPlayInDeviceCallbackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamePlayInDeviceCallbackEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1296,6 +1329,18 @@
       "flags": 256
     },
     {
+      "fullName": "SetAppearanceTask;ScriptTaskData",
+      "shortName": "SetAppearanceTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetColor;ScriptLightSettings",
       "shortName": "SetColor",
       "flags": 132,
@@ -1308,12 +1353,12 @@
       ]
     },
     {
-      "fullName": "SetIsDoorInteractionActiveBB;InteractionEventBool",
+      "fullName": "SetIsDoorInteractionActiveBB;InteractionActivationEventBool",
       "shortName": "SetIsDoorInteractionActiveBB",
       "flags": 256,
       "params": [
         {
-          "type": "handle:gameinteractionsInteractionEvent",
+          "type": "handle:gameinteractionsInteractionActivationEvent",
           "name": "evt",
           "flags": 128
         },
@@ -1417,6 +1462,23 @@
       "fullName": "UpdateLight;",
       "shortName": "UpdateLight",
       "flags": 132
+    },
+    {
+      "fullName": "UpdateLightByTask;",
+      "shortName": "UpdateLightByTask",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateLightTask;ScriptTaskData",
+      "shortName": "UpdateLightTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "UpdatePortalLights;Bool",

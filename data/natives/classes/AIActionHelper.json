@@ -25,6 +25,27 @@
       ]
     },
     {
+      "fullName": "AIActionHelper::ActionDebugHelper;StringString",
+      "shortName": "ActionDebugHelper",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "String",
+          "name": "actionNameCheck",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AIActionHelper::ActionDebugHelper;StringEntityString",
       "shortName": "ActionDebugHelper",
       "return": {
@@ -41,27 +62,6 @@
         {
           "type": "whandle:entEntity",
           "name": "entity",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "actionName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AIActionHelper::ActionDebugHelper;StringString",
-      "shortName": "ActionDebugHelper",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "String",
-          "name": "actionNameCheck",
           "flags": 128
         },
         {
@@ -322,7 +322,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::GetAnimWrapperNameBasedOnItemTag;GameObjectItemID",
+      "fullName": "AIActionHelper::GetAnimWrapperNameBasedOnItemTag;ItemID",
       "shortName": "GetAnimWrapperNameBasedOnItemTag",
       "return": {
         "type": "CName",
@@ -330,11 +330,6 @@
       },
       "flags": 518,
       "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 128
-        },
         {
           "type": "gameItemID",
           "name": "itemID",
@@ -401,6 +396,32 @@
       ]
     },
     {
+      "fullName": "AIActionHelper::GetDistanceRangeFromRingType;AIRingType_RecordAIOptimalDistanceCond_RecordVector2",
+      "shortName": "GetDistanceRangeFromRingType",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gamedataAIRingType_Record",
+          "name": "ringRecord",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIOptimalDistanceCond_Record",
+          "name": "condition",
+          "flags": 128
+        },
+        {
+          "type": "Vector2",
+          "name": "distanceRange",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "AIActionHelper::GetDistanceRangeFromRingType;AIRingType_RecordMovementPolicy_RecordVector2",
       "shortName": "GetDistanceRangeFromRingType",
       "return": {
@@ -438,32 +459,6 @@
         {
           "type": "whandle:gamedataAIRingType_Record",
           "name": "ringRecord",
-          "flags": 128
-        },
-        {
-          "type": "Vector2",
-          "name": "distanceRange",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "AIActionHelper::GetDistanceRangeFromRingType;AIRingType_RecordAIOptimalDistanceCond_RecordVector2",
-      "shortName": "GetDistanceRangeFromRingType",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:gamedataAIRingType_Record",
-          "name": "ringRecord",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataAIOptimalDistanceCond_Record",
-          "name": "condition",
           "flags": 128
         },
         {
@@ -522,6 +517,22 @@
         {
           "type": "whandle:ScriptedPuppet",
           "name": "puppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::GetLatestActiveRingTypeRecordHelper;GameObject",
+      "shortName": "GetLatestActiveRingTypeRecordHelper",
+      "return": {
+        "type": "handle:gamedataAIRingType_Record",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "object",
           "flags": 128
         }
       ]
@@ -892,7 +903,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::PlayWeaponEffect;WeaponObjectCNameCName",
+      "fullName": "AIActionHelper::PlayWeaponEffect;WeaponObjectCName",
       "shortName": "PlayWeaponEffect",
       "flags": 518,
       "params": [
@@ -905,11 +916,6 @@
           "type": "CName",
           "name": "effectName",
           "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "eventTag",
-          "flags": 1152
         }
       ]
     },
@@ -1286,27 +1292,6 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectgamedataTriggerMode",
-      "shortName": "WeaponHasTriggerMode",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:gameweaponObject",
-          "name": "weapon",
-          "flags": 128
-        },
-        {
-          "type": "gamedataTriggerMode",
-          "name": "triggerMode",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectWeaponItem_RecordTriggerMode_Record",
       "shortName": "WeaponHasTriggerMode",
       "return": {
@@ -1349,6 +1334,27 @@
         {
           "type": "whandle:gamedataWeaponItem_Record",
           "name": "weaponRecord",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "triggerMode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectgamedataTriggerMode",
+      "shortName": "WeaponHasTriggerMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
           "flags": 128
         },
         {

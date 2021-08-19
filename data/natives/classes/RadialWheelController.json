@@ -34,9 +34,9 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:PointerController",
+      "type": "whandle:PointerController",
       "name": "pointer",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "Int32",
@@ -51,6 +51,11 @@
     {
       "type": "Bool",
       "name": "isActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "pendingRadialSlotAsyncSpawnCount",
       "flags": 4297130016
     },
     {
@@ -109,9 +114,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "quickSlotBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UI_QuickSlotsDataDef",
@@ -119,14 +124,14 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "axisInputCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "UISystemBB",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UI_SystemDef",
@@ -134,14 +139,14 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "isInMenuCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "equipmentUIBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UI_EquipmentDef",
@@ -149,9 +154,9 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "equipmentUICallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Int32",
@@ -696,6 +701,27 @@
       ]
     },
     {
+      "fullName": "OnSlotWidgetSpawned",
+      "shortName": "OnSlotWidgetSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -787,6 +813,23 @@
         {
           "type": "handle:WeaponRadialSlot",
           "name": "newActiveSlot",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupWidgetForSlot;inkWidgetRadialSlot",
+      "shortName": "SetupWidgetForSlot",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:RadialSlot",
+          "name": "slot",
           "flags": 128
         }
       ]

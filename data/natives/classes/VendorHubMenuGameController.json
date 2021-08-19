@@ -5,7 +5,12 @@
   "props": [
     {
       "type": "inkWidgetReference",
-      "name": "selectorWidget",
+      "name": "tabRootContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "tabRootRef",
       "flags": 4297130017
     },
     {
@@ -59,11 +64,6 @@
       "flags": 4297130017
     },
     {
-      "type": "whandle:hubSelectorSingleSmallCarouselController",
-      "name": "selectorCtrl",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:VendorDataManager",
       "name": "VendorDataManager",
       "flags": 4431347744
@@ -94,14 +94,19 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
-      "name": "VendorBlackboard",
-      "flags": 4431544352
+      "type": "whandle:TabRadioGroup",
+      "name": "tabRoot",
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
+      "name": "VendorBlackboard",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:gameIBlackboard",
       "name": "playerStatsBlackboard",
-      "flags": 4431544352
+      "flags": 4297326624
     },
     {
       "type": "handle:UI_VendorDef",
@@ -109,39 +114,39 @@
       "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "VendorUpdatedCallbackID",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "weightListener",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterLevelListener",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterCurrentXPListener",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterCredListener",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterCredPointsListener",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterCurrentHealthListener",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
       "type": "whandle:inkMenuEventDispatcher",
@@ -164,9 +169,9 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "storageBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -298,27 +303,6 @@
       "flags": 264
     },
     {
-      "fullName": "OnMenuChanged",
-      "shortName": "OnMenuChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnPlayerWeightUpdated",
       "shortName": "OnPlayerWeightUpdated",
       "return": {
@@ -374,6 +358,27 @@
         "flags": 64
       },
       "flags": 264
+    },
+    {
+      "fullName": "OnValueChanged",
+      "shortName": "OnValueChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkRadioGroupController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "selectedIndex",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnVendorUpdated",

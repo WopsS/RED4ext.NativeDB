@@ -2,6 +2,33 @@
   "parent": "InputContextTransitionDecisions",
   "name": "VisionContextDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "handle:redCallbackObject",
+      "name": "vehicleCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "focusCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "vehicleTransition",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isFocusing",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "visionHoldPressed",
+      "flags": 4297130016
+    }
+  ],
   "funcs": [
     {
       "fullName": "EnterCondition;StateContextStateGameScriptInterface",
@@ -20,6 +47,134 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleStateChanged",
+      "shortName": "OnVehicleStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVisionChanged",
+      "shortName": "OnVisionChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateNeedsToBeChecked;",
+      "shortName": "UpdateNeedsToBeChecked",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateVehicleStateValue;Int32",
+      "shortName": "UpdateVehicleStateValue",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateVisionAction;Float",
+      "shortName": "UpdateVisionAction",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateVisionValue;Int32",
+      "shortName": "UpdateVisionValue",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
           "flags": 128
         }
       ]

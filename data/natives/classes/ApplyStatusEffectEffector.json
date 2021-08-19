@@ -4,8 +4,8 @@
   "flags": 4,
   "props": [
     {
-      "type": "whandle:gameObject",
-      "name": "target",
+      "type": "entEntityID",
+      "name": "targetEntityID",
       "flags": 4297326624
     },
     {
@@ -65,12 +65,19 @@
       ]
     },
     {
-      "fullName": "ApplyStatusEffect;",
+      "fullName": "ApplyStatusEffect;GameInstance",
       "shortName": "ApplyStatusEffect",
-      "flags": 132
+      "flags": 132,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
     },
     {
-      "fullName": "GetInstigator;GameObject",
+      "fullName": "GetInstigator;GameInstance",
       "shortName": "GetInstigator",
       "return": {
         "type": "whandle:gameObject",
@@ -79,8 +86,8 @@
       "flags": 260,
       "params": [
         {
-          "type": "whandle:gameObject",
-          "name": "obj",
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
           "flags": 128
         }
       ]
@@ -120,9 +127,16 @@
       ]
     },
     {
-      "fullName": "RemoveStatusEffect;",
+      "fullName": "RemoveStatusEffect;GameInstance",
       "shortName": "RemoveStatusEffect",
-      "flags": 132
+      "flags": 132,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "RepeatedAction;GameObject",

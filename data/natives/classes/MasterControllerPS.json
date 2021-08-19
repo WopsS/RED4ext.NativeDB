@@ -63,18 +63,6 @@
       ]
     },
     {
-      "fullName": "FillAgentsList;array<PSOwnerData>",
-      "shortName": "FillAgentsList",
-      "flags": 41472,
-      "params": [
-        {
-          "type": "array:PSOwnerData",
-          "name": "agentsList",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "FillTakeOverChainBB;",
       "shortName": "FillTakeOverChainBB",
       "flags": 260
@@ -92,10 +80,26 @@
       ]
     },
     {
+      "fullName": "GetAttachedSlaveForPing;MasterControllerPS",
+      "shortName": "GetAttachedSlaveForPing",
+      "return": {
+        "type": "handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "handle:MasterControllerPS",
+          "name": "context",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:MasterDeviceBaseBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -150,6 +154,24 @@
       "shortName": "GetImmediateSlaves",
       "return": {
         "type": "array:handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetLazyDescendants;",
+      "shortName": "GetLazyDescendants",
+      "return": {
+        "type": "array:handle:gameLazyDevice",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLazySlaves;",
+      "shortName": "GetLazySlaves",
+      "return": {
+        "type": "array:handle:gameLazyDevice",
         "flags": 64
       },
       "flags": 8704
@@ -333,13 +355,23 @@
       "flags": 516
     },
     {
-      "fullName": "RefreshSlaves_Event;Bool",
+      "fullName": "RefreshPowerOnSlaves_Event;",
+      "shortName": "RefreshPowerOnSlaves_Event",
+      "flags": 516
+    },
+    {
+      "fullName": "RefreshSlaves_Event;BoolBool",
       "shortName": "RefreshSlaves_Event",
       "flags": 516,
       "params": [
         {
           "type": "Bool",
           "name": "onInitialize",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "force",
           "flags": 1152
         }
       ]
@@ -374,23 +406,6 @@
       ]
     },
     {
-      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardarray<PersistentID>",
-      "shortName": "RequestDeviceWidgetsUpdate",
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:gameIBlackboard",
-          "name": "blackboard",
-          "flags": 128
-        },
-        {
-          "type": "array:gamePersistentID",
-          "name": "devices",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "RequestDeviceWidgetsUpdate;IBlackboardPersistentID",
       "shortName": "RequestDeviceWidgetsUpdate",
       "flags": 512,
@@ -403,6 +418,23 @@
         {
           "type": "gamePersistentID",
           "name": "deviceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardarray<PersistentID>",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        },
+        {
+          "type": "array:gamePersistentID",
+          "name": "devices",
           "flags": 128
         }
       ]

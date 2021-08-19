@@ -9,14 +9,14 @@
       "flags": 4297130017
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "questCluesCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "scannerDataCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -34,12 +34,24 @@
       "flags": 4297130016
     },
     {
-      "type": "array:whandle:ScannerQuestClue",
-      "name": "Clues",
+      "type": "array:whandle:inkAsyncSpawnRequest",
+      "name": "asyncSpawnRequests",
       "flags": 6583025696
     }
   ],
   "funcs": [
+    {
+      "fullName": "ClearAsyncSpawnRequest;inkAsyncSpawnRequest",
+      "shortName": "ClearAsyncSpawnRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkAsyncSpawnRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -61,6 +73,27 @@
         {
           "type": "Variant",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEntrySpawned",
+      "shortName": "OnQuestEntrySpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
           "flags": 128
         }
       ]

@@ -44,9 +44,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "newAreablackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UI_MapDef",
@@ -54,14 +54,14 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "newAreaID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "tutorialBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UIGameDataDef",
@@ -69,14 +69,14 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "tutorialID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "tutorialDataID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -84,9 +84,9 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "customQuestNotificationblackBoardID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "handle:UI_CustomQuestNotificationDef",
@@ -94,9 +94,9 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "customQuestNotificationblackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "whandle:gameTransactionSystem",
@@ -109,14 +109,14 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "activeVehicleBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "mountBBConnectionId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -124,9 +124,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "blackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UI_SystemDef",
@@ -134,14 +134,14 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "uiSystemId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "trackedMappinId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "handle:gameuiGameSystemUI",
@@ -155,15 +155,6 @@
     }
   ],
   "funcs": [
-    {
-      "fullName": "GetID;",
-      "shortName": "GetID",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 33280
-    },
     {
       "fullName": "GetShardNotificationData;JournalOnscreen",
       "shortName": "GetShardNotificationData",
@@ -179,6 +170,193 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ProcessCrackableShardTutorial;",
+      "shortName": "ProcessCrackableShardTutorial",
+      "flags": 516
+    },
+    {
+      "fullName": "PushCrackableNotification;ItemIDJournalOnscreen",
+      "shortName": "PushCrackableNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameJournalOnscreen",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushNewContactNotification;StringStringCNameCNameGenericNotificationBaseAction",
+      "shortName": "PushNewContactNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "title",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "text",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "animation",
+          "flags": 128
+        },
+        {
+          "type": "handle:GenericNotificationBaseAction",
+          "name": "action",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PushNotification;StringStringCNameCNameGenericNotificationBaseAction",
+      "shortName": "PushNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "title",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "text",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "animation",
+          "flags": 128
+        },
+        {
+          "type": "handle:GenericNotificationBaseAction",
+          "name": "action",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PushNotification;JournalOnscreen",
+      "shortName": "PushNotification",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameJournalOnscreen",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushObjectiveQuestNotification;JournalEntry",
+      "shortName": "PushObjectiveQuestNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushQuestNotification;JournalQuestgameJournalEntryState",
+      "shortName": "PushQuestNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameJournalQuest",
+          "name": "questEntry",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalEntryState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushSMSNotification;JournalPhoneMessageGenericNotificationBaseAction",
+      "shortName": "PushSMSNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameJournalPhoneMessage",
+          "name": "msgEntry",
+          "flags": 128
+        },
+        {
+          "type": "handle:GenericNotificationBaseAction",
+          "name": "action",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShowContactUpdate;JournalEntrygameJournalEntryState",
+      "shortName": "ShowContactUpdate",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalEntryState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowNewMessage;JournalEntrygameJournalEntryState",
+      "shortName": "ShowNewMessage",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "entry",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalEntryState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetID;",
+      "shortName": "GetID",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33280
     },
     {
       "fullName": "GetShouldSaveState;",
@@ -460,184 +638,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "ProcessCrackableShardTutorial;",
-      "shortName": "ProcessCrackableShardTutorial",
-      "flags": 516
-    },
-    {
-      "fullName": "PushCrackableNotification;ItemIDJournalOnscreen",
-      "shortName": "PushCrackableNotification",
-      "flags": 516,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameJournalOnscreen",
-          "name": "entry",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushNewContactNotification;StringStringCNameCNameGenericNotificationBaseAction",
-      "shortName": "PushNewContactNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "String",
-          "name": "title",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "text",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "widget",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "animation",
-          "flags": 128
-        },
-        {
-          "type": "handle:GenericNotificationBaseAction",
-          "name": "action",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "PushNotification;StringStringCNameCNameGenericNotificationBaseAction",
-      "shortName": "PushNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "String",
-          "name": "title",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "text",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "widget",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "animation",
-          "flags": 128
-        },
-        {
-          "type": "handle:GenericNotificationBaseAction",
-          "name": "action",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "PushNotification;JournalOnscreen",
-      "shortName": "PushNotification",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:gameJournalOnscreen",
-          "name": "entry",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushObjectiveQuestNotification;JournalEntry",
-      "shortName": "PushObjectiveQuestNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameJournalEntry",
-          "name": "entry",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushQuestNotification;JournalQuestgameJournalEntryState",
-      "shortName": "PushQuestNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameJournalQuest",
-          "name": "questEntry",
-          "flags": 128
-        },
-        {
-          "type": "gameJournalEntryState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushSMSNotification;JournalPhoneMessageGenericNotificationBaseAction",
-      "shortName": "PushSMSNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameJournalPhoneMessage",
-          "name": "msgEntry",
-          "flags": 128
-        },
-        {
-          "type": "handle:GenericNotificationBaseAction",
-          "name": "action",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ShowContactUpdate;JournalEntrygameJournalEntryState",
-      "shortName": "ShowContactUpdate",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameJournalEntry",
-          "name": "entry",
-          "flags": 128
-        },
-        {
-          "type": "gameJournalEntryState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowNewMessage;JournalEntrygameJournalEntryState",
-      "shortName": "ShowNewMessage",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameJournalEntry",
-          "name": "entry",
-          "flags": 128
-        },
-        {
-          "type": "gameJournalEntryState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

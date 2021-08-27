@@ -4,54 +4,54 @@
   "flags": 4,
   "props": [
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "bbPlayerStats",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbPlayerEventId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "bbRightWeaponInfo",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbRightWeaponEventId",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:gameIBlackboard",
-      "name": "bbLeftWeaponInfo",
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "whandle:gameIBlackboard",
+      "name": "bbLeftWeaponInfo",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
       "name": "bbLeftWeaponEventId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbPSceneTierEventId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "visionStateBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "combatModeBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbQuickhacksMemeoryEventId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "inkWidgetPath",
@@ -265,7 +265,7 @@
     },
     {
       "type": "Int32",
-      "name": "maxQuickhackBars",
+      "name": "spawnedMemoryCells",
       "flags": 4297130016
     },
     {
@@ -309,24 +309,24 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "playerStatsBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "characterCurrentXPListener",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:gameIBlackboard",
-      "name": "levelUpBlackboard",
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
-      "name": "playerLevelUpListener",
+      "type": "whandle:gameIBlackboard",
+      "name": "levelUpBlackboard",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "playerLevelUpListener",
+      "flags": 4431347744
     },
     {
       "type": "Int32",
@@ -352,9 +352,34 @@
       "type": "handle:inkanimProxy",
       "name": "foldingAnimProxy",
       "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "memoryFillCells",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "memoryMaxCells",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "pendingRequests",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkAsyncSpawnRequest",
+      "name": "spawnTokens",
+      "flags": 6583025696
     }
   ],
   "funcs": [
+    {
+      "fullName": "AdjustRequest;",
+      "shortName": "AdjustRequest",
+      "flags": 32900
+    },
     {
       "fullName": "AnimateCharacterLevelUpdated;Int32Bool",
       "shortName": "AnimateCharacterLevelUpdated",
@@ -417,6 +442,91 @@
         "flags": 64
       },
       "flags": 8324
+    },
+    {
+      "fullName": "RegisterPSMListeners;GameObject",
+      "shortName": "RegisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetArmorProgress;FloatBool",
+      "shortName": "SetArmorProgress",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "normalizedValue",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "silent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHealthProgress;Float",
+      "shortName": "SetHealthProgress",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupQuickhacksMemoryBar;",
+      "shortName": "SetupQuickhacksMemoryBar",
+      "flags": 132
+    },
+    {
+      "fullName": "StartDamageFallDelay;",
+      "shortName": "StartDamageFallDelay",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterPSMListeners;GameObject",
+      "shortName": "UnregisterPSMListeners",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateGodModeVisibility;",
+      "shortName": "UpdateGodModeVisibility",
+      "flags": 516
+    },
+    {
+      "fullName": "UpdateMemoryBarData;",
+      "shortName": "UpdateMemoryBarData",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateQuickhacksMemoryBarSize;Int32",
+      "shortName": "UpdateQuickhacksMemoryBarSize",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "size",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnBuffListVisibilityChanged",
@@ -581,6 +691,27 @@
       ]
     },
     {
+      "fullName": "OnMemoryBarSpawned",
+      "shortName": "OnMemoryBarSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnPSMVisionStateChanged",
       "shortName": "OnPSMVisionStateChanged",
       "return": {
@@ -700,86 +831,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "RegisterPSMListeners;GameObject",
-      "shortName": "RegisterPSMListeners",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerObject",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetArmorProgress;FloatBool",
-      "shortName": "SetArmorProgress",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "Float",
-          "name": "normalizedValue",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "silent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetHealthProgress;Float",
-      "shortName": "SetHealthProgress",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Float",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetupQuickhacksMemoryBar;",
-      "shortName": "SetupQuickhacksMemoryBar",
-      "flags": 132
-    },
-    {
-      "fullName": "StartDamageFallDelay;",
-      "shortName": "StartDamageFallDelay",
-      "flags": 132
-    },
-    {
-      "fullName": "UnregisterPSMListeners;GameObject",
-      "shortName": "UnregisterPSMListeners",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerObject",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateGodModeVisibility;",
-      "shortName": "UpdateGodModeVisibility",
-      "flags": 516
-    },
-    {
-      "fullName": "UpdateQuickhacksMemoryBarSize;Int32",
-      "shortName": "UpdateQuickhacksMemoryBarSize",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "size",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

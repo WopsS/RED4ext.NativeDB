@@ -11,7 +11,7 @@
   ],
   "funcs": [
     {
-      "fullName": "CleanUpLadderState;StateContextStateGameScriptInterface",
+      "fullName": "CleanUpLadderState;StateContextStateGameScriptInterfaceBool",
       "shortName": "CleanUpLadderState",
       "flags": 260,
       "params": [
@@ -24,6 +24,11 @@
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "preserveScriptedCondition",
+          "flags": 1152
         }
       ]
     },
@@ -72,23 +77,6 @@
         "flags": 64
       },
       "flags": 8452,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnEnter;StateContextStateGameScriptInterface",
-      "shortName": "OnEnter",
-      "flags": 512,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -188,23 +176,6 @@
       ]
     },
     {
-      "fullName": "OnExit;StateContextStateGameScriptInterface",
-      "shortName": "OnExit",
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnExitToKnockdown;StateContextStateGameScriptInterface",
       "shortName": "OnExitToKnockdown",
       "flags": 260,
@@ -256,6 +227,40 @@
       ]
     },
     {
+      "fullName": "OnExitToLadderSlide;StateContextStateGameScriptInterface",
+      "shortName": "OnExitToLadderSlide",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitToLadderSprint;StateContextStateGameScriptInterface",
+      "shortName": "OnExitToLadderSprint",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnExitToStand;StateContextStateGameScriptInterface",
       "shortName": "OnExitToStand",
       "flags": 260,
@@ -276,6 +281,153 @@
       "fullName": "OnExitToStunned;StateContextStateGameScriptInterface",
       "shortName": "OnExitToStunned",
       "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCameraInputLockDuration;StateContext",
+      "shortName": "SetCameraInputLockDuration",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLadderEnterInProgress;StateContextBool",
+      "shortName": "SetLadderEnterInProgress",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UseLadderCameraContext;StateContextBool",
+      "shortName": "UseLadderCameraContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UseLadderClimbCameraContext;StateContextBool",
+      "shortName": "UseLadderClimbCameraContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UseLadderEnterClimbCameraContext;StateContextBool",
+      "shortName": "UseLadderEnterClimbCameraContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WantsToUseLadderClimbCameraContext;StateContextStateGameScriptInterface",
+      "shortName": "WantsToUseLadderClimbCameraContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEnter;StateContextStateGameScriptInterface",
+      "shortName": "OnEnter",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExit;StateContextStateGameScriptInterface",
+      "shortName": "OnExit",
+      "flags": 512,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -346,107 +498,6 @@
         {
           "type": "Int32",
           "name": "enterStyle",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetCameraInputLockDuration;StateContext",
-      "shortName": "SetCameraInputLockDuration",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetLadderEnterInProgress;StateContextBool",
-      "shortName": "SetLadderEnterInProgress",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UseLadderCameraContext;StateContextBool",
-      "shortName": "UseLadderCameraContext",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UseLadderClimbCameraContext;StateContextBool",
-      "shortName": "UseLadderClimbCameraContext",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UseLadderEnterClimbCameraContext;StateContextBool",
-      "shortName": "UseLadderEnterClimbCameraContext",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "WantsToUseLadderClimbCameraContext;StateContextStateGameScriptInterface",
-      "shortName": "WantsToUseLadderClimbCameraContext",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
           "flags": 128
         }
       ]

@@ -39,11 +39,6 @@
       "flags": 4297130016
     },
     {
-      "type": "Int32",
-      "name": "toEquipeSlotIndex",
-      "flags": 4297130016
-    },
-    {
       "type": "gamedataEquipmentArea",
       "name": "equipArea",
       "flags": 4297130016
@@ -59,7 +54,7 @@
       "flags": 4297130016
     },
     {
-      "type": "array:handle:InventoryItemDisplayController",
+      "type": "array:whandle:InventoryItemDisplayController",
       "name": "gridData",
       "flags": 6583025696
     }
@@ -94,7 +89,7 @@
       "fullName": "GetInventoryItemDisplays;",
       "shortName": "GetInventoryItemDisplays",
       "return": {
-        "type": "array:handle:InventoryItemDisplayController",
+        "type": "array:whandle:InventoryItemDisplayController",
         "flags": 64
       },
       "flags": 516
@@ -109,13 +104,164 @@
       "flags": 516
     },
     {
-      "fullName": "GetSlotToEquipe;",
+      "fullName": "GetSlotToEquipe;ItemID",
       "shortName": "GetSlotToEquipe",
       "return": {
         "type": "Int32",
         "flags": 64
       },
-      "flags": 516
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveElements;Int32",
+      "shortName": "RemoveElements",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "limit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SelectSlot;Int32",
+      "shortName": "SelectSlot",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetOrientation;inkEOrientation",
+      "shortName": "SetOrientation",
+      "flags": 516,
+      "params": [
+        {
+          "type": "inkEOrientation",
+          "name": "orientation",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupData;gamedataEquipmentAreaarray<InventoryItemData>Int32IScriptableCNameCyberwareScreenTypeBool",
+      "shortName": "SetupData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipArea",
+          "flags": 128
+        },
+        {
+          "type": "array:InventoryItemData",
+          "name": "playerEquipAreaInventory",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "count",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "parent",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "onRealeaseCallbackName",
+          "flags": 128
+        },
+        {
+          "type": "CyberwareScreenType",
+          "name": "screen",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasMods",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnselectSlot;",
+      "shortName": "UnselectSlot",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateData;gamedataEquipmentAreaarray<InventoryItemData>Int32CyberwareScreenType",
+      "shortName": "UpdateData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipArea",
+          "flags": 128
+        },
+        {
+          "type": "array:InventoryItemData",
+          "name": "playerEquipAreaInventory",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "count",
+          "flags": 1152
+        },
+        {
+          "type": "CyberwareScreenType",
+          "name": "screen",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTitle;String",
+      "shortName": "UpdateTitle",
+      "flags": 516,
+      "params": [
+        {
+          "type": "String",
+          "name": "label",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTitles;Int32CyberwareScreenTypeBool",
+      "shortName": "UpdateTitles",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "count",
+          "flags": 128
+        },
+        {
+          "type": "CyberwareScreenType",
+          "name": "screen",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasMods",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "OnInitialize",
@@ -181,150 +327,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "RemoveElements;Int32",
-      "shortName": "RemoveElements",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "limit",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SelectSlot;Int32",
-      "shortName": "SelectSlot",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetNextEmptySlotToEquipe;",
-      "shortName": "SetNextEmptySlotToEquipe",
-      "flags": 516
-    },
-    {
-      "fullName": "SetOrientation;inkEOrientation",
-      "shortName": "SetOrientation",
-      "flags": 516,
-      "params": [
-        {
-          "type": "inkEOrientation",
-          "name": "orientation",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetupData;gamedataEquipmentAreaarray<InventoryItemData>Int32IScriptableCNameCyberwareScreenTypeBool",
-      "shortName": "SetupData",
-      "flags": 516,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipArea",
-          "flags": 128
-        },
-        {
-          "type": "array:InventoryItemData",
-          "name": "playerEquipAreaInventory",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "count",
-          "flags": 128
-        },
-        {
-          "type": "handle:IScriptable",
-          "name": "parent",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "onRealeaseCallbackName",
-          "flags": 128
-        },
-        {
-          "type": "CyberwareScreenType",
-          "name": "screen",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "hasMods",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateData;gamedataEquipmentAreaarray<InventoryItemData>Int32CyberwareScreenType",
-      "shortName": "UpdateData",
-      "flags": 516,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipArea",
-          "flags": 128
-        },
-        {
-          "type": "array:InventoryItemData",
-          "name": "playerEquipAreaInventory",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "count",
-          "flags": 1152
-        },
-        {
-          "type": "CyberwareScreenType",
-          "name": "screen",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateTitle;String",
-      "shortName": "UpdateTitle",
-      "flags": 516,
-      "params": [
-        {
-          "type": "String",
-          "name": "label",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateTitles;Int32CyberwareScreenTypeBool",
-      "shortName": "UpdateTitles",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "count",
-          "flags": 128
-        },
-        {
-          "type": "CyberwareScreenType",
-          "name": "screen",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "hasMods",
-          "flags": 1152
-        }
-      ]
     }
   ]
 }

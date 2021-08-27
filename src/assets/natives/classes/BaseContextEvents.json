@@ -2,6 +2,13 @@
   "parent": "InputContextTransitionEvents",
   "name": "BaseContextEvents",
   "flags": 4,
+  "props": [
+    {
+      "type": "Int32",
+      "name": "slicingFrame",
+      "flags": 4297326624
+    }
+  ],
   "funcs": [
     {
       "fullName": "IsStateValidForExploration;StateContextStateGameScriptInterface",
@@ -11,23 +18,6 @@
         "flags": 64
       },
       "flags": 132,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnExit;StateContextStateGameScriptInterface",
-      "shortName": "OnExit",
-      "flags": 256,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -98,7 +88,7 @@
       ]
     },
     {
-      "fullName": "UpdateHints;StateContextStateGameScriptInterface",
+      "fullName": "UpdateHints;StateContextStateGameScriptInterfaceBool",
       "shortName": "UpdateHints",
       "flags": 260,
       "params": [
@@ -110,6 +100,11 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "sliced",
           "flags": 128
         }
       ]
@@ -152,6 +147,23 @@
       "fullName": "UpdateTerminalInputHints;StateContextStateGameScriptInterface",
       "shortName": "UpdateTerminalInputHints",
       "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExit;StateContextStateGameScriptInterface",
+      "shortName": "OnExit",
+      "flags": 256,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",

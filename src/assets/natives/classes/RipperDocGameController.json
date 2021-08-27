@@ -35,6 +35,16 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "defaultAnimationTab",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemAnimationTab",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "F_frontalCortexHoverTexture",
       "flags": 4297130017
     },
@@ -299,24 +309,24 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:CyberwareInventoryMiniGrid",
+      "type": "whandle:CyberwareInventoryMiniGrid",
       "name": "equipmentGrid",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:gameIBlackboard",
-      "name": "VendorBlackboard",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:gameIBlackboard",
-      "name": "equipmentBlackboard",
-      "flags": 4431347744
-    },
-    {
-      "type": "Uint32",
-      "name": "equipmentBlackboardCallback",
       "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "VendorBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "equipmentBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "equipmentBlackboardCallback",
+      "flags": 4431347744
     },
     {
       "type": "whandle:AGenericTooltipController",
@@ -334,9 +344,9 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:inkVirtualGridController",
+      "type": "whandle:inkVirtualGridController",
       "name": "virtualCyberwareListController",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:CyberwareTemplateClassifier",
@@ -364,13 +374,18 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:RipperdocIdPanel",
+      "type": "whandle:RipperdocIdPanel",
       "name": "ripperId",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:inkanimProxy",
       "name": "hoverAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "hoverOverAnimation",
       "flags": 4431347744
     },
     {
@@ -399,7 +414,7 @@
       "flags": 4431347744
     },
     {
-      "type": "array:handle:CyberwareInventoryMiniGrid",
+      "type": "array:whandle:CyberwareInventoryMiniGrid",
       "name": "cyberareGrids",
       "flags": 6583025696
     },
@@ -415,7 +430,7 @@
     },
     {
       "type": "Int32",
-      "name": "selectedPreviewSlot",
+      "name": "activeSlotIndex",
       "flags": 4297130016
     },
     {
@@ -507,6 +522,15 @@
       ]
     },
     {
+      "fullName": "GetEquippedCWList;",
+      "shortName": "GetEquippedCWList",
+      "return": {
+        "type": "array:InventoryItemData",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
       "fullName": "GetHoverAnimationTarget;gamedataEquipmentAreaBool",
       "shortName": "GetHoverAnimationTarget",
       "return": {
@@ -576,12 +600,375 @@
       ]
     },
     {
-      "fullName": "IsCyberdeck;InventoryItemData",
-      "shortName": "IsCyberdeck",
+      "fullName": "IsGenderFemale;",
+      "shortName": "IsGenderFemale",
       "return": {
         "type": "Bool",
         "flags": 64
       },
+      "flags": 132
+    },
+    {
+      "fullName": "IsTransitionAnimationPlaying;",
+      "shortName": "IsTransitionAnimationPlaying",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "OnIntro;",
+      "shortName": "OnIntro",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnItemBought;ItemIDgameItemData",
+      "shortName": "OnItemBought",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemSold;ItemID",
+      "shortName": "OnItemSold",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOutro;",
+      "shortName": "OnOutro",
+      "flags": 32900
+    },
+    {
+      "fullName": "OpenConfirmationPopup;InventoryItemDataInt32VendorConfirmationPopupTypeCName",
+      "shortName": "OpenConfirmationPopup",
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "price",
+          "flags": 128
+        },
+        {
+          "type": "VendorConfirmationPopupType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "listener",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenDefaultMode;",
+      "shortName": "OpenDefaultMode",
+      "flags": 132
+    },
+    {
+      "fullName": "OpenItemMode;",
+      "shortName": "OpenItemMode",
+      "flags": 132
+    },
+    {
+      "fullName": "PlayAnim;CNameCNameinkAnimOptions",
+      "shortName": "PlayAnim",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "animName",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "callBack",
+          "flags": 1152
+        },
+        {
+          "type": "inkanimPlaybackOptions",
+          "name": "playbackOptions",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PlayHoverAnimation;gamedataEquipmentArea",
+      "shortName": "PlayHoverAnimation",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayHoverOverAnimation;gamedataEquipmentArea",
+      "shortName": "PlayHoverOverAnimation",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayIntroAnimation;gamedataEquipmentAreaBool",
+      "shortName": "PlayIntroAnimation",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "female",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayOutroAnimation;gamedataEquipmentAreaBool",
+      "shortName": "PlayOutroAnimation",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "female",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PrepareCyberwareSlots;",
+      "shortName": "PrepareCyberwareSlots",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessRipperdocItemModeTutorial;",
+      "shortName": "ProcessRipperdocItemModeTutorial",
+      "flags": 260
+    },
+    {
+      "fullName": "ProcessRipperdocSlotsModeTutorial;",
+      "shortName": "ProcessRipperdocSlotsModeTutorial",
+      "flags": 260
+    },
+    {
+      "fullName": "RefreshUI;",
+      "shortName": "RefreshUI",
+      "flags": 132
+    },
+    {
+      "fullName": "RegisterBlackboard;GameObject",
+      "shortName": "RegisterBlackboard",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterInventoryListener;GameObject",
+      "shortName": "RegisterInventoryListener",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SelectSlot;Int32",
+      "shortName": "SelectSlot",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "newSlotIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDefaultModeButtonHints;",
+      "shortName": "SetDefaultModeButtonHints",
+      "flags": 132
+    },
+    {
+      "fullName": "SetEquipmentGrid;",
+      "shortName": "SetEquipmentGrid",
+      "flags": 132
+    },
+    {
+      "fullName": "SetFilters;",
+      "shortName": "SetFilters",
+      "flags": 132
+    },
+    {
+      "fullName": "SetInventoryCWList;",
+      "shortName": "SetInventoryCWList",
+      "flags": 132
+    },
+    {
+      "fullName": "SetInventoryItemButtonHintsHoverOut;",
+      "shortName": "SetInventoryItemButtonHintsHoverOut",
+      "flags": 132
+    },
+    {
+      "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemData",
+      "shortName": "SetInventoryItemButtonHintsHoverOver",
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "displayingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetItemModeButtonHints;",
+      "shortName": "SetItemModeButtonHints",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupSorting;",
+      "shortName": "SetupSorting",
+      "flags": 132
+    },
+    {
+      "fullName": "ShowCWTooltip;InventoryItemDataInventoryTooltipData",
+      "shortName": "ShowCWTooltip",
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "itemTooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnCWAreaGrid;gamedataEquipmentAreainkCompoundRefinkEHorizontalAlign",
+      "shortName": "SpawnCWAreaGrid",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipArea",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "parentRef",
+          "flags": 128
+        },
+        {
+          "type": "inkEHorizontalAlign",
+          "name": "align",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopAllAnimations;",
+      "shortName": "StopAllAnimations",
+      "flags": 132
+    },
+    {
+      "fullName": "SwapMode;RipperdocModes",
+      "shortName": "SwapMode",
+      "flags": 132,
+      "params": [
+        {
+          "type": "RipperdocModes",
+          "name": "mode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterBlackboard;",
+      "shortName": "UnregisterBlackboard",
+      "flags": 260
+    },
+    {
+      "fullName": "UnregisterInventoryListener;GameObject",
+      "shortName": "UnregisterInventoryListener",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateCWAreaGrid;gamedataEquipmentArea",
+      "shortName": "UpdateCWAreaGrid",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "selectedArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdatePlayerMoney;",
+      "shortName": "UpdatePlayerMoney",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateTooltipData;InventoryItemData",
+      "shortName": "UpdateTooltipData",
       "flags": 132,
       "params": [
         {
@@ -592,12 +979,8 @@
       ]
     },
     {
-      "fullName": "IsGenderFemale;",
-      "shortName": "IsGenderFemale",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
+      "fullName": "UpdateVendorMoney;",
+      "shortName": "UpdateVendorMoney",
       "flags": 132
     },
     {
@@ -617,8 +1000,8 @@
       ]
     },
     {
-      "fullName": "OnConfirmationPopupClosed",
-      "shortName": "OnConfirmationPopupClosed",
+      "fullName": "OnBuyConfirmationPopupClosed",
+      "shortName": "OnBuyConfirmationPopupClosed",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -764,23 +1147,17 @@
       "flags": 264
     },
     {
-      "fullName": "OnIntro;",
-      "shortName": "OnIntro",
-      "flags": 32900
-    },
-    {
-      "fullName": "OnItemBought;ItemIDgameItemData",
-      "shortName": "OnItemBought",
-      "flags": 516,
+      "fullName": "OnIntroPaperdollAnimationFinished",
+      "shortName": "OnIntroPaperdollAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
       "params": [
         {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameItemData",
-          "name": "itemData",
+          "type": "handle:inkanimProxy",
+          "name": "anim",
           "flags": 128
         }
       ]
@@ -802,9 +1179,20 @@
       ]
     },
     {
-      "fullName": "OnOutro;",
-      "shortName": "OnOutro",
-      "flags": 32900
+      "fullName": "OnOutroPaperdollAnimationFinished",
+      "shortName": "OnOutroPaperdollAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnPreviewCyberwareClick",
@@ -928,128 +1316,6 @@
       ]
     },
     {
-      "fullName": "OpenConfirmationPopup;InventoryItemDataInt32",
-      "shortName": "OpenConfirmationPopup",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "price",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OpenDefaultMode;",
-      "shortName": "OpenDefaultMode",
-      "flags": 132
-    },
-    {
-      "fullName": "OpenItemMode;",
-      "shortName": "OpenItemMode",
-      "flags": 132
-    },
-    {
-      "fullName": "PlayAnim;CNameCNameinkAnimOptions",
-      "shortName": "PlayAnim",
-      "flags": 132,
-      "params": [
-        {
-          "type": "CName",
-          "name": "animName",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "callBack",
-          "flags": 1152
-        },
-        {
-          "type": "inkanimPlaybackOptions",
-          "name": "playbackOptions",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "PlayHoverAnimation;gamedataEquipmentArea",
-      "shortName": "PlayHoverAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "area",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayHoverOverAnimation;gamedataEquipmentArea",
-      "shortName": "PlayHoverOverAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "area",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayIntroAnimation;gamedataEquipmentAreaBool",
-      "shortName": "PlayIntroAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "area",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "female",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayOutroAnimation;gamedataEquipmentAreaBool",
-      "shortName": "PlayOutroAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "area",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "female",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PrepareCyberwareSlots;",
-      "shortName": "PrepareCyberwareSlots",
-      "flags": 132
-    },
-    {
-      "fullName": "ProcessRipperdocItemModeTutorial;",
-      "shortName": "ProcessRipperdocItemModeTutorial",
-      "flags": 260
-    },
-    {
-      "fullName": "ProcessRipperdocSlotsModeTutorial;",
-      "shortName": "ProcessRipperdocSlotsModeTutorial",
-      "flags": 260
-    },
-    {
       "fullName": "ReadUICondition;gamedataUICondition",
       "shortName": "ReadUICondition",
       "return": {
@@ -1064,191 +1330,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "RefreshUI;",
-      "shortName": "RefreshUI",
-      "flags": 132
-    },
-    {
-      "fullName": "RegisterBlackboard;GameObject",
-      "shortName": "RegisterBlackboard",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "player",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RegisterInventoryListener;GameObject",
-      "shortName": "RegisterInventoryListener",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "player",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SelectSlot;Int32",
-      "shortName": "SelectSlot",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "newSlotIndex",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetDefaultModeButtonHints;",
-      "shortName": "SetDefaultModeButtonHints",
-      "flags": 132
-    },
-    {
-      "fullName": "SetEquipmentGrid;Int32",
-      "shortName": "SetEquipmentGrid",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "indexToSelect",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetFilters;",
-      "shortName": "SetFilters",
-      "flags": 132
-    },
-    {
-      "fullName": "SetInventoryCWList;",
-      "shortName": "SetInventoryCWList",
-      "flags": 132
-    },
-    {
-      "fullName": "SetInventoryItemButtonHintsHoverOut;",
-      "shortName": "SetInventoryItemButtonHintsHoverOut",
-      "flags": 132
-    },
-    {
-      "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemData",
-      "shortName": "SetInventoryItemButtonHintsHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "displayingData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetItemModeButtonHints;",
-      "shortName": "SetItemModeButtonHints",
-      "flags": 132
-    },
-    {
-      "fullName": "SetupSorting;",
-      "shortName": "SetupSorting",
-      "flags": 132
-    },
-    {
-      "fullName": "SpawnCWAreaGrid;gamedataEquipmentAreainkCompoundRefinkEHorizontalAlign",
-      "shortName": "SpawnCWAreaGrid",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipArea",
-          "flags": 128
-        },
-        {
-          "type": "inkCompoundWidgetReference",
-          "name": "parentRef",
-          "flags": 128
-        },
-        {
-          "type": "inkEHorizontalAlign",
-          "name": "align",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StopAllAnimations;",
-      "shortName": "StopAllAnimations",
-      "flags": 132
-    },
-    {
-      "fullName": "SwapMode;RipperdocModes",
-      "shortName": "SwapMode",
-      "flags": 132,
-      "params": [
-        {
-          "type": "RipperdocModes",
-          "name": "mode",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnregisterBlackboard;",
-      "shortName": "UnregisterBlackboard",
-      "flags": 260
-    },
-    {
-      "fullName": "UnregisterInventoryListener;GameObject",
-      "shortName": "UnregisterInventoryListener",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "player",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateCWAreaGrid;gamedataEquipmentArea",
-      "shortName": "UpdateCWAreaGrid",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "selectedArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdatePlayerMoney;",
-      "shortName": "UpdatePlayerMoney",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateTooltipData;InventoryItemData",
-      "shortName": "UpdateTooltipData",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateVendorMoney;",
-      "shortName": "UpdateVendorMoney",
-      "flags": 132
     }
   ]
 }

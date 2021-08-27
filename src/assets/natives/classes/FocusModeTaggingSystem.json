@@ -12,6 +12,11 @@
       "type": "Uint32",
       "name": "playerDetachedCallbackID",
       "flags": 4297130016
+    },
+    {
+      "type": "array:handle:redCallbackObject",
+      "name": "taggedListenerCallbacks",
+      "flags": 6583025696
     }
   ],
   "funcs": [
@@ -44,16 +49,12 @@
     {
       "fullName": "CleanupTaggedObjects;array<GameObject>",
       "shortName": "CleanupTaggedObjects",
-      "return": {
-        "type": "array:whandle:gameObject",
-        "flags": 64
-      },
       "flags": 8324,
       "params": [
         {
           "type": "array:whandle:gameObject",
           "name": "listToClean",
-          "flags": 128
+          "flags": 640
         }
       ]
     },
@@ -178,42 +179,6 @@
       "fullName": "NotifyNetworkSystem;",
       "shortName": "NotifyNetworkSystem",
       "flags": 132
-    },
-    {
-      "fullName": "OnActionWithOwner",
-      "shortName": "OnActionWithOwner",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "gameinputScriptListenerAction",
-          "name": "action",
-          "flags": 128
-        },
-        {
-          "type": "gameinputScriptListenerActionConsumer",
-          "name": "consumer",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAttach;",
-      "shortName": "OnAttach",
-      "flags": 128
-    },
-    {
-      "fullName": "OnDetach;",
-      "shortName": "OnDetach",
-      "flags": 128
     },
     {
       "fullName": "OnPlayerAttachedCallback;GameObject",
@@ -485,6 +450,42 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "OnActionWithOwner",
+      "shortName": "OnActionWithOwner",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 128
     }
   ]
 }

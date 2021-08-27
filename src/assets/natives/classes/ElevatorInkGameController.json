@@ -77,35 +77,74 @@
       "flags": 6583091233
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onChangeFloorListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onPlayerScannedListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onPausedChangeListener",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
     {
-      "fullName": "GetOwner;",
-      "shortName": "GetOwner",
-      "return": {
-        "type": "handle:LiftDevice",
-        "flags": 64
-      },
-      "flags": 256
-    },
-    {
       "fullName": "InitializeCurrentFloorName;",
       "shortName": "InitializeCurrentFloorName",
       "flags": 260
+    },
+    {
+      "fullName": "RefreshFloor;inkWidgetSActionWidgetPackageInt32Int32",
+      "shortName": "RefreshFloor",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "SActionWidgetPackage",
+          "name": "widgetData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "floorNumber",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "maxFloors",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentFloorOnUI;String",
+      "shortName": "SetCurrentFloorOnUI",
+      "flags": 516,
+      "params": [
+        {
+          "type": "String",
+          "name": "floorName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "handle:Device",
+        "flags": 64
+      },
+      "flags": 256
     },
     {
       "fullName": "OnActionWidgetSpawned",
@@ -189,33 +228,6 @@
       ]
     },
     {
-      "fullName": "RefreshFloor;inkWidgetSActionWidgetPackageInt32Int32",
-      "shortName": "RefreshFloor",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        },
-        {
-          "type": "SActionWidgetPackage",
-          "name": "widgetData",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "floorNumber",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "maxFloors",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "RegisterBlackboardCallbacks;IBlackboard",
       "shortName": "RegisterBlackboardCallbacks",
       "flags": 256,
@@ -223,18 +235,6 @@
         {
           "type": "handle:gameIBlackboard",
           "name": "blackboard",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetCurrentFloorOnUI;String",
-      "shortName": "SetCurrentFloorOnUI",
-      "flags": 516,
-      "params": [
-        {
-          "type": "String",
-          "name": "floorName",
           "flags": 128
         }
       ]

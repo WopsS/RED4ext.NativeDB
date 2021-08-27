@@ -1,7 +1,54 @@
 {
-  "parent": "WeaponTransition",
+  "parent": "WeaponReadyListenerTransition",
   "name": "PublicSafeDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "isSprinting",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inKereznikov",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inDangerousZone",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inFocusMode",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isInVehicleCombat",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isInVehTurret",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isAiming",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "rangedAttackPressed",
+      "flags": 4297130016
+    }
+  ],
   "funcs": [
     {
       "fullName": "EnterCondition;StateContextStateGameScriptInterface",
@@ -107,6 +154,167 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UpdateShouldOnEnterBeEnabled;",
+      "shortName": "UpdateShouldOnEnterBeEnabled",
+      "flags": 260
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCombatChanged",
+      "shortName": "OnCombatChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLocomotionChanged",
+      "shortName": "OnLocomotionChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpperBodyChanged",
+      "shortName": "OnUpperBodyChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleChanged",
+      "shortName": "OnVehicleChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVisionChanged",
+      "shortName": "OnVisionChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnZonesChanged",
+      "shortName": "OnZonesChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateWeaponReadyListenerReturnValue;",
+      "shortName": "UpdateWeaponReadyListenerReturnValue",
+      "flags": 256
     }
   ]
 }

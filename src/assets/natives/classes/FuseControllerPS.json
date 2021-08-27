@@ -45,66 +45,16 @@
   ],
   "funcs": [
     {
-      "fullName": "ActionToggleON;",
-      "shortName": "ActionToggleON",
-      "return": {
-        "type": "handle:ToggleON",
-        "flags": 64
-      },
-      "flags": 512
-    },
-    {
-      "fullName": "CutPowerOnSlaveDevices;",
+      "fullName": "CutPowerOnSlaveDevices;array<DeviceComponentPS>",
       "shortName": "CutPowerOnSlaveDevices",
-      "flags": 132
-    },
-    {
-      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
-      "shortName": "GetActions",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 512,
+      "flags": 132,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
-          "name": "outActions",
-          "flags": 640
-        },
-        {
-          "type": "gameGetActionsContext",
-          "name": "context",
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "GetBackgroundTextureTweakDBID;",
-      "shortName": "GetBackgroundTextureTweakDBID",
-      "return": {
-        "type": "TweakDBID",
-        "flags": 64
-      },
-      "flags": 33024
-    },
-    {
-      "fullName": "GetClearance",
-      "shortName": "GetClearance",
-      "return": {
-        "type": "handle:gamedeviceClearance",
-        "flags": 64
-      },
-      "flags": 8448
-    },
-    {
-      "fullName": "GetDeviceIconTweakDBID;",
-      "shortName": "GetDeviceIconTweakDBID",
-      "return": {
-        "type": "TweakDBID",
-        "flags": 64
-      },
-      "flags": 33024
     },
     {
       "fullName": "GetDeviceStateByCLS;",
@@ -114,15 +64,6 @@
         "flags": 64
       },
       "flags": 8708
-    },
-    {
-      "fullName": "GetExpectedSlaveState;",
-      "shortName": "GetExpectedSlaveState",
-      "return": {
-        "type": "EDeviceStatus",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "GetLightSwitchDelayValue;",
@@ -143,11 +84,6 @@
       "flags": 8708
     },
     {
-      "fullName": "Initialize;",
-      "shortName": "Initialize",
-      "flags": 256
-    },
-    {
       "fullName": "InitializeCLS;",
       "shortName": "InitializeCLS",
       "flags": 132
@@ -160,15 +96,6 @@
         "flags": 64
       },
       "flags": 8708
-    },
-    {
-      "fullName": "IsConnectedToCLS;",
-      "shortName": "IsConnectedToCLS",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "OnDealyedTimetableEvent;DelayedTimetableEvent",
@@ -219,6 +146,257 @@
       ]
     },
     {
+      "fullName": "OnRefreshCLSoNslaves;RefreshCLSOnSlavesEvent",
+      "shortName": "OnRefreshCLSoNslaves",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:RefreshCLSOnSlavesEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRefreshPowerOnSlavesEvent;RefreshPowerOnSlavesEvent",
+      "shortName": "OnRefreshPowerOnSlavesEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:RefreshPowerOnSlavesEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshCLSoNslaves;EDeviceStatusBoolarray<DeviceComponentPS>",
+      "shortName": "RefreshCLSoNslaves",
+      "flags": 132,
+      "params": [
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "restorePower",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshPowerOnSlaves;array<DeviceComponentPS>",
+      "shortName": "RefreshPowerOnSlaves",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshSlaves;array<DeviceComponentPS>Bool",
+      "shortName": "RefreshSlaves",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RestorePowerOnSlaveDevices;array<DeviceComponentPS>",
+      "shortName": "RestorePowerOnSlaveDevices",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendCLSRefreshByEvent;array<DeviceComponentPS>EDeviceStatusBoolFloat",
+      "shortName": "SendCLSRefreshByEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        },
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "restorePower",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendDeviceTimeTableEvent;EntityIDEDeviceStatusBool",
+      "shortName": "SendDeviceTimeTableEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "restorePower",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendDeviceTimeTableEventWithDelay;EntityIDEDeviceStatusBoolFloat",
+      "shortName": "SendDeviceTimeTableEventWithDelay",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "EDeviceStatus",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "restorePower",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionToggleON;",
+      "shortName": "ActionToggleON",
+      "return": {
+        "type": "handle:ToggleON",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetClearance",
+      "shortName": "GetClearance",
+      "return": {
+        "type": "handle:gamedeviceClearance",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetExpectedSlaveState;",
+      "shortName": "GetExpectedSlaveState",
+      "return": {
+        "type": "EDeviceStatus",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 256
+    },
+    {
+      "fullName": "IsConnectedToCLS;",
+      "shortName": "IsConnectedToCLS",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
       "fullName": "OnInstantiated",
       "shortName": "OnInstantiated",
       "return": {
@@ -254,38 +432,6 @@
       "params": [
         {
           "type": "handle:QuestForceON",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRefreshCLSoNslaves;RefreshCLSOnSlavesEvent",
-      "shortName": "OnRefreshCLSoNslaves",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:RefreshCLSOnSlavesEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRefreshPowerOnSlavesEvent;RefreshPowerOnSlavesEvent",
-      "shortName": "OnRefreshPowerOnSlavesEvent",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:RefreshPowerOnSlavesEvent",
           "name": "evt",
           "flags": 128
         }
@@ -391,131 +537,6 @@
       "fullName": "PowerDevice;",
       "shortName": "PowerDevice",
       "flags": 256
-    },
-    {
-      "fullName": "RefreshCLSoNslaves;EDeviceStatusBoolarray<DeviceComponentPS>",
-      "shortName": "RefreshCLSoNslaves",
-      "flags": 132,
-      "params": [
-        {
-          "type": "EDeviceStatus",
-          "name": "state",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "restorePower",
-          "flags": 128
-        },
-        {
-          "type": "array:handle:gameDeviceComponentPS",
-          "name": "devices",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RefreshPowerOnSlaves;",
-      "shortName": "RefreshPowerOnSlaves",
-      "flags": 132
-    },
-    {
-      "fullName": "RefreshPowerOnSlaves_Event;",
-      "shortName": "RefreshPowerOnSlaves_Event",
-      "flags": 516
-    },
-    {
-      "fullName": "RefreshSlaves;Bool",
-      "shortName": "RefreshSlaves",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "force",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "RestorePowerOnSlaveDevices;",
-      "shortName": "RestorePowerOnSlaveDevices",
-      "flags": 132
-    },
-    {
-      "fullName": "SendCLSRefreshByEvent;array<DeviceComponentPS>EDeviceStatusBoolFloat",
-      "shortName": "SendCLSRefreshByEvent",
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:handle:gameDeviceComponentPS",
-          "name": "devices",
-          "flags": 128
-        },
-        {
-          "type": "EDeviceStatus",
-          "name": "state",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "restorePower",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendDeviceTimeTableEvent;EntityIDEDeviceStatusBool",
-      "shortName": "SendDeviceTimeTableEvent",
-      "flags": 132,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "targetID",
-          "flags": 128
-        },
-        {
-          "type": "EDeviceStatus",
-          "name": "state",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "restorePower",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendDeviceTimeTableEventWithDelay;EntityIDEDeviceStatusBoolFloat",
-      "shortName": "SendDeviceTimeTableEventWithDelay",
-      "flags": 132,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "targetID",
-          "flags": 128
-        },
-        {
-          "type": "EDeviceStatus",
-          "name": "state",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "restorePower",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "UnpowerDevice;",

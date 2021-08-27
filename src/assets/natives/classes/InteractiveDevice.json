@@ -49,17 +49,12 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "actionRestrictionCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
-    {
-      "fullName": "ActivateDevice;",
-      "shortName": "ActivateDevice",
-      "flags": 256
-    },
     {
       "fullName": "CreateObjectActionsCallbackController;Entity",
       "shortName": "CreateObjectActionsCallbackController",
@@ -73,6 +68,129 @@
       ]
     },
     {
+      "fullName": "DestroyObjectActionsCallbackController;",
+      "shortName": "DestroyObjectActionsCallbackController",
+      "flags": 132
+    },
+    {
+      "fullName": "EstimateIfPlayerEntersOrLeaves;InteractionActivationEvent",
+      "shortName": "EstimateIfPlayerEntersOrLeaves",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameinteractionsInteractionActivationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerStateMachineBB;GameObject",
+      "shortName": "GetPlayerStateMachineBB",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "requester",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PrintWorldSpaceDebug;",
+      "shortName": "PrintWorldSpaceDebug",
+      "flags": 132
+    },
+    {
+      "fullName": "RefreshInteraction;gamedeviceRequestTypeGameObject",
+      "shortName": "RefreshInteraction",
+      "flags": 260,
+      "params": [
+        {
+          "type": "gamedeviceRequestType",
+          "name": "requestType",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "executor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshInteractionTask;ScriptTaskData",
+      "shortName": "RefreshInteractionTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterActionRestrictionCallback;",
+      "shortName": "RegisterActionRestrictionCallback",
+      "flags": 132
+    },
+    {
+      "fullName": "RequestDebuggerRegistration;ScriptedPuppet",
+      "shortName": "RequestDebuggerRegistration",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "activator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleDirectLayer;Bool",
+      "shortName": "ToggleDirectLayer",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "input",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleLogicLayer;Bool",
+      "shortName": "ToggleLogicLayer",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "input",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterActionRestrictionCallback;",
+      "shortName": "UnregisterActionRestrictionCallback",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateDebugInfo;",
+      "shortName": "UpdateDebugInfo",
+      "flags": 132
+    },
+    {
+      "fullName": "ActivateDevice;",
+      "shortName": "ActivateDevice",
+      "flags": 256
+    },
+    {
       "fullName": "CutPower;",
       "shortName": "CutPower",
       "flags": 256
@@ -83,11 +201,6 @@
       "flags": 256
     },
     {
-      "fullName": "DestroyObjectActionsCallbackController;",
-      "shortName": "DestroyObjectActionsCallbackController",
-      "flags": 132
-    },
-    {
       "fullName": "DetermineInteractionState;GetActionsContext",
       "shortName": "DetermineInteractionState",
       "flags": 256,
@@ -96,18 +209,6 @@
           "type": "gameGetActionsContext",
           "name": "context",
           "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "EstimateIfPlayerEntersOrLeaves;InteractionEvent",
-      "shortName": "EstimateIfPlayerEntersOrLeaves",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameinteractionsInteractionEvent",
-          "name": "evt",
-          "flags": 128
         }
       ]
     },
@@ -128,22 +229,6 @@
         "flags": 64
       },
       "flags": 8704
-    },
-    {
-      "fullName": "GetPlayerStateMachineBB;GameObject",
-      "shortName": "GetPlayerStateMachineBB",
-      "return": {
-        "type": "handle:gameIBlackboard",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "requester",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "HasAnyDirectInteractionActive;",
@@ -301,7 +386,7 @@
       "flags": 264,
       "params": [
         {
-          "type": "handle:gameinteractionsInteractionEvent",
+          "type": "handle:gameinteractionsInteractionActivationEvent",
           "name": "evt",
           "flags": 128
         }
@@ -473,28 +558,6 @@
       "flags": 256
     },
     {
-      "fullName": "PrintWorldSpaceDebug;",
-      "shortName": "PrintWorldSpaceDebug",
-      "flags": 132
-    },
-    {
-      "fullName": "RefreshInteraction;gamedeviceRequestTypeGameObject",
-      "shortName": "RefreshInteraction",
-      "flags": 260,
-      "params": [
-        {
-          "type": "gamedeviceRequestType",
-          "name": "requestType",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "executor",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "RefreshUI;Bool",
       "shortName": "RefreshUI",
       "flags": 256,
@@ -503,23 +566,6 @@
           "type": "Bool",
           "name": "isDelayed",
           "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "RegisterActionRestrictionCallback;",
-      "shortName": "RegisterActionRestrictionCallback",
-      "flags": 132
-    },
-    {
-      "fullName": "RequestDebuggerRegistration;ScriptedPuppet",
-      "shortName": "RequestDebuggerRegistration",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:ScriptedPuppet",
-          "name": "activator",
-          "flags": 128
         }
       ]
     },
@@ -541,12 +587,12 @@
       ]
     },
     {
-      "fullName": "SetIsDoorInteractionActiveBB;InteractionEventBool",
+      "fullName": "SetIsDoorInteractionActiveBB;InteractionActivationEventBool",
       "shortName": "SetIsDoorInteractionActiveBB",
       "flags": 256,
       "params": [
         {
-          "type": "handle:gameinteractionsInteractionEvent",
+          "type": "handle:gameinteractionsInteractionActivationEvent",
           "name": "evt",
           "flags": 128
         },
@@ -568,30 +614,6 @@
       "flags": 33024
     },
     {
-      "fullName": "ToggleDirectLayer;Bool",
-      "shortName": "ToggleDirectLayer",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "input",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ToggleLogicLayer;Bool",
-      "shortName": "ToggleLogicLayer",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "input",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "TurnOffDevice;",
       "shortName": "TurnOffDevice",
       "flags": 256
@@ -610,16 +632,6 @@
       "fullName": "TurnOnIndicator;",
       "shortName": "TurnOnIndicator",
       "flags": 256
-    },
-    {
-      "fullName": "UnregisterActionRestrictionCallback;",
-      "shortName": "UnregisterActionRestrictionCallback",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateDebugInfo;",
-      "shortName": "UpdateDebugInfo",
-      "flags": 132
     },
     {
       "fullName": "UpdateDeviceState;Bool",

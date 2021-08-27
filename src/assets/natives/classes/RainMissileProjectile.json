@@ -89,6 +89,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gamedataAttack_Record",
+      "name": "missileAttackRecord",
+      "flags": 4297130016
+    },
+    {
       "type": "Float",
       "name": "timeToDestory",
       "flags": 4297130016
@@ -216,6 +221,57 @@
       ]
     },
     {
+      "fullName": "OnCollideWithEntity;Vector4",
+      "shortName": "OnCollideWithEntity",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "projectilePosition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnLandVFXs;FxResourceVector4",
+      "shortName": "SpawnLandVFXs",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameFxResource",
+          "name": "fx",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "fxposition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartPhase1;Vector4",
+      "shortName": "StartPhase1",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "targetPos",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartPhase2;",
+      "shortName": "StartPhase2",
+      "flags": 260
+    },
+    {
+      "fullName": "StartTrailEffect;",
+      "shortName": "StartTrailEffect",
+      "flags": 132
+    },
+    {
       "fullName": "OnAcceleratedMovement",
       "shortName": "OnAcceleratedMovement",
       "return": {
@@ -227,18 +283,6 @@
         {
           "type": "handle:gameprojectileAcceleratedMovementEvent",
           "name": "eventData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnCollideWithEntity;Vector4",
-      "shortName": "OnCollideWithEntity",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "projectilePosition",
           "flags": 128
         }
       ]
@@ -292,8 +336,8 @@
       ]
     },
     {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
+      "fullName": "OnHit",
+      "shortName": "OnHit",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -301,8 +345,8 @@
       "flags": 264,
       "params": [
         {
-          "type": "handle:gameprojectileSetUpEvent",
-          "name": "eventData",
+          "type": "handle:gameeventsHitEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -318,6 +362,22 @@
       "params": [
         {
           "type": "handle:gameprojectileLinearMovementEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProjectileInitialize",
+      "shortName": "OnProjectileInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameprojectileSetUpEvent",
           "name": "eventData",
           "flags": 128
         }
@@ -402,45 +462,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "SpawnLandVFXs;FxResourceVector4",
-      "shortName": "SpawnLandVFXs",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameFxResource",
-          "name": "fx",
-          "flags": 128
-        },
-        {
-          "type": "Vector4",
-          "name": "fxposition",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartPhase1;Vector4",
-      "shortName": "StartPhase1",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "targetPos",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartPhase2;",
-      "shortName": "StartPhase2",
-      "flags": 260
-    },
-    {
-      "fullName": "StartTrailEffect;",
-      "shortName": "StartTrailEffect",
-      "flags": 132
     }
   ]
 }

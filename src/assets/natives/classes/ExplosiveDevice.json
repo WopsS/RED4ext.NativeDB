@@ -96,15 +96,6 @@
       "flags": 132
     },
     {
-      "fullName": "CanOverrideNetworkContext;",
-      "shortName": "CanOverrideNetworkContext",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "CreateFxInstance;FxResourceWorldTransform",
       "shortName": "CreateFxInstance",
       "return": {
@@ -121,31 +112,6 @@
         {
           "type": "WorldTransform",
           "name": "transform",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DeterminGameplayRole;",
-      "shortName": "DeterminGameplayRole",
-      "return": {
-        "type": "EGameplayRole",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "DeterminGameplayRoleMappinRange;SDeviceMappinData",
-      "shortName": "DeterminGameplayRoleMappinRange",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "SDeviceMappinData",
-          "name": "data",
           "flags": 128
         }
       ]
@@ -237,10 +203,162 @@
       ]
     },
     {
+      "fullName": "InitializeHealthDecay;FloatFloat",
+      "shortName": "InitializeHealthDecay",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "health",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KillAllFxInstances;",
+      "shortName": "KillAllFxInstances",
+      "flags": 260
+    },
+    {
+      "fullName": "RemoveEnvironmentalHazardStimuli;",
+      "shortName": "RemoveEnvironmentalHazardStimuli",
+      "flags": 132
+    },
+    {
+      "fullName": "SendSwapMeshDelayedEvent;Float",
+      "shortName": "SendSwapMeshDelayedEvent",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnVFXs;array<CName>",
+      "shortName": "SpawnVFXs",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:CName",
+          "name": "fxEventName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnVFXs;FxResourceVector4Vector4",
+      "shortName": "SpawnVFXs",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameFxResource",
+          "name": "fx",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "newPosition",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "hitDirection",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "StartExplosionPipeline;GameObjectFloat",
+      "shortName": "StartExplosionPipeline",
+      "flags": 260,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "additionalDelays",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleComponentsON_OFF;Bool",
+      "shortName": "ToggleComponentsON_OFF",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleLightsON_OFF;Bool",
+      "shortName": "ToggleLightsON_OFF",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanOverrideNetworkContext;",
+      "shortName": "CanOverrideNetworkContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "DeterminGameplayRoleMappinRange;SDeviceMappinData",
+      "shortName": "DeterminGameplayRoleMappinRange",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "SDeviceMappinData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:ExplosiveDeviceController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8320
@@ -267,7 +385,7 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:ExplosiveDeviceControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -291,23 +409,6 @@
       "flags": 8704
     },
     {
-      "fullName": "InitializeHealthDecay;FloatFloat",
-      "shortName": "InitializeHealthDecay",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Float",
-          "name": "health",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "IsExplosive;",
       "shortName": "IsExplosive",
       "return": {
@@ -315,11 +416,6 @@
         "flags": 64
       },
       "flags": 41472
-    },
-    {
-      "fullName": "KillAllFxInstances;",
-      "shortName": "KillAllFxInstances",
-      "flags": 260
     },
     {
       "fullName": "OnDamageReceived",
@@ -352,15 +448,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnDetach",
-      "shortName": "OnDetach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
     },
     {
       "fullName": "OnExplosiveDeviceDelayedEvent",
@@ -411,15 +498,6 @@
       ]
     },
     {
-      "fullName": "OnGameAttached",
-      "shortName": "OnGameAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnHit",
       "shortName": "OnHit",
       "return": {
@@ -430,6 +508,38 @@
       "params": [
         {
           "type": "handle:gameeventsHitEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostInitialize",
+      "shortName": "OnPostInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPostInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreUninitialize",
+      "shortName": "OnPreUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPreUninitializeEvent",
           "name": "evt",
           "flags": 128
         }
@@ -564,64 +674,9 @@
       ]
     },
     {
-      "fullName": "RemoveEnvironmentalHazardStimuli;",
-      "shortName": "RemoveEnvironmentalHazardStimuli",
-      "flags": 132
-    },
-    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
-    },
-    {
-      "fullName": "SendSwapMeshDelayedEvent;Float",
-      "shortName": "SendSwapMeshDelayedEvent",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnVFXs;array<CName>",
-      "shortName": "SpawnVFXs",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:CName",
-          "name": "fxEventName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnVFXs;FxResourceVector4Vector4",
-      "shortName": "SpawnVFXs",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameFxResource",
-          "name": "fx",
-          "flags": 128
-        },
-        {
-          "type": "Vector4",
-          "name": "newPosition",
-          "flags": 1152
-        },
-        {
-          "type": "Vector4",
-          "name": "hitDirection",
-          "flags": 1152
-        }
-      ]
     },
     {
       "fullName": "StartDistraction;Bool",
@@ -636,50 +691,9 @@
       ]
     },
     {
-      "fullName": "StartExplosionPipeline;GameObjectFloat",
-      "shortName": "StartExplosionPipeline",
-      "flags": 260,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "instigator",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "additionalDelays",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "StopDistraction;",
       "shortName": "StopDistraction",
       "flags": 256
-    },
-    {
-      "fullName": "ToggleComponentsON_OFF;Bool",
-      "shortName": "ToggleComponentsON_OFF",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "visible",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ToggleLightsON_OFF;Bool",
-      "shortName": "ToggleLightsON_OFF",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "on",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "ToggleVisibility;Bool",

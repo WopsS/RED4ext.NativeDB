@@ -24,24 +24,24 @@
       "flags": 6583091232
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "isDeviceWorking_BBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "activeDevice_BBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "deviceChain_BBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "chainLocked_BBID",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -70,27 +70,6 @@
       "fullName": "ClearControlledDevicesStack;",
       "shortName": "ClearControlledDevicesStack",
       "flags": 132
-    },
-    {
-      "fullName": "CreateControlledDeviceWidget;inkWidgetSWidgetPackage",
-      "shortName": "CreateControlledDeviceWidget",
-      "return": {
-        "type": "whandle:inkWidget",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "parentWidget",
-          "flags": 128
-        },
-        {
-          "type": "SWidgetPackage",
-          "name": "widgetData",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "CreateSwitchCameraHint;Bool",
@@ -177,6 +156,28 @@
       ]
     },
     {
+      "fullName": "RegisterBlackboardCallbacks;",
+      "shortName": "RegisterBlackboardCallbacks",
+      "flags": 132
+    },
+    {
+      "fullName": "SetRootVisibility;Bool",
+      "shortName": "SetRootVisibility",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnRegisterBlackboardCallbacks;",
+      "shortName": "UnRegisterBlackboardCallbacks",
+      "flags": 132
+    },
+    {
       "fullName": "OnControlledDeviceChanged",
       "shortName": "OnControlledDeviceChanged",
       "return": {
@@ -225,6 +226,27 @@
       ]
     },
     {
+      "fullName": "OnDeviceSpawned",
+      "shortName": "OnDeviceSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -257,28 +279,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "RegisterBlackboardCallbacks;",
-      "shortName": "RegisterBlackboardCallbacks",
-      "flags": 132
-    },
-    {
-      "fullName": "SetRootVisibility;Bool",
-      "shortName": "SetRootVisibility",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isVisible",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnRegisterBlackboardCallbacks;",
-      "shortName": "UnRegisterBlackboardCallbacks",
-      "flags": 132
     },
     {
       "fullName": "UpdateControlledDevicesWidgets;array<SWidgetPackage>",

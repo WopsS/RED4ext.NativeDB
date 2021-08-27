@@ -99,29 +99,29 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "weaponlocalBB",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "bbcharge",
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
-      "name": "bbcharge",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbmagazineAmmoCapacity",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbmagazineAmmoCount",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbcurrentFireMode",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Int32",
@@ -154,14 +154,14 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbNPCStatsInfo",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "currentObstructedTargetBBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "whandle:gameObject",
@@ -206,23 +206,6 @@
   ],
   "funcs": [
     {
-      "fullName": "ApplyCrosshairGUIState;CNameEntity",
-      "shortName": "ApplyCrosshairGUIState",
-      "flags": 256,
-      "params": [
-        {
-          "type": "CName",
-          "name": "state",
-          "flags": 128
-        },
-        {
-          "type": "handle:entEntity",
-          "name": "aimedAtEntity",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ColapseCrosshair;BoolFloat",
       "shortName": "ColapseCrosshair",
       "flags": 260,
@@ -252,6 +235,110 @@
         {
           "type": "Float",
           "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HideCenterPart;Float",
+      "shortName": "HideCenterPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAmmoCapacityChanged;Uint32",
+      "shortName": "OnAmmoCapacityChanged",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAmmoCountChanged;Uint32",
+      "shortName": "OnAmmoCountChanged",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChargeChanged;Float",
+      "shortName": "OnChargeChanged",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "charge",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHide;",
+      "shortName": "OnHide",
+      "flags": 132
+    },
+    {
+      "fullName": "OnShow;",
+      "shortName": "OnShow",
+      "flags": 132
+    },
+    {
+      "fullName": "OnTargetsChanged;",
+      "shortName": "OnTargetsChanged",
+      "flags": 132
+    },
+    {
+      "fullName": "OnTriggerModeChanged;Variant",
+      "shortName": "OnTriggerModeChanged",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowCenterPart;Float",
+      "shortName": "ShowCenterPart",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ApplyCrosshairGUIState;CNameEntity",
+      "shortName": "ApplyCrosshairGUIState",
+      "flags": 256,
+      "params": [
+        {
+          "type": "CName",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "aimedAtEntity",
           "flags": 128
         }
       ]
@@ -291,42 +378,6 @@
       "flags": 512
     },
     {
-      "fullName": "HideCenterPart;Float",
-      "shortName": "HideCenterPart",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAmmoCapacityChanged;Uint32",
-      "shortName": "OnAmmoCapacityChanged",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Uint32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAmmoCountChanged;Uint32",
-      "shortName": "OnAmmoCountChanged",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Uint32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnBulletSpreadChanged",
       "shortName": "OnBulletSpreadChanged",
       "return": {
@@ -338,18 +389,6 @@
         {
           "type": "Vector2",
           "name": "spread",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnChargeChanged;Float",
-      "shortName": "OnChargeChanged",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Float",
-          "name": "charge",
           "flags": 128
         }
       ]
@@ -387,11 +426,6 @@
       ]
     },
     {
-      "fullName": "OnHide;",
-      "shortName": "OnHide",
-      "flags": 132
-    },
-    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -417,11 +451,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "OnShow;",
-      "shortName": "OnShow",
-      "flags": 132
     },
     {
       "fullName": "OnState_Aim;",
@@ -459,23 +488,6 @@
       "flags": 256
     },
     {
-      "fullName": "OnTargetsChanged;",
-      "shortName": "OnTargetsChanged",
-      "flags": 132
-    },
-    {
-      "fullName": "OnTriggerModeChanged;Variant",
-      "shortName": "OnTriggerModeChanged",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -483,18 +495,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "ShowCenterPart;Float",
-      "shortName": "ShowCenterPart",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

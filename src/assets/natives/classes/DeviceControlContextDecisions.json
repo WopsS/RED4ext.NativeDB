@@ -2,15 +2,18 @@
   "parent": "InputContextTransitionDecisions",
   "name": "DeviceControlContextDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "handle:redCallbackObject",
+      "name": "callbackID",
+      "flags": 4431347744
+    }
+  ],
   "funcs": [
     {
-      "fullName": "EnterCondition;StateContextStateGameScriptInterface",
-      "shortName": "EnterCondition",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8448,
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 260,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -20,6 +23,60 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnterCondition;StateContextStateGameScriptInterface",
+      "shortName": "EnterCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnControllingDeviceChange",
+      "shortName": "OnControllingDeviceChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
           "flags": 128
         }
       ]

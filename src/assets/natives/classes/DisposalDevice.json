@@ -14,9 +14,9 @@
       "flags": 4297195552
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "playerStateMachineBlackboard",
-      "flags": 4431413280
+      "flags": 4297195552
     },
     {
       "type": "array:CName",
@@ -82,6 +82,16 @@
       "type": "Float",
       "name": "workspotDuration",
       "flags": 4297195552
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnTakedownChangedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnCarryingChangedCallback",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -112,47 +122,6 @@
         {
           "type": "WorldTransform",
           "name": "transform",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DeterminGameplayRole;",
-      "shortName": "DeterminGameplayRole",
-      "return": {
-        "type": "EGameplayRole",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "DeterminGameplayRoleMappinRange;SDeviceMappinData",
-      "shortName": "DeterminGameplayRoleMappinRange",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "SDeviceMappinData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
-      "shortName": "DeterminGameplayRoleMappinVisuaState",
-      "return": {
-        "type": "EMappinVisualState",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "SDeviceMappinData",
-          "name": "data",
           "flags": 128
         }
       ]
@@ -220,10 +189,141 @@
       ]
     },
     {
+      "fullName": "HideNPCPermanently;",
+      "shortName": "HideNPCPermanently",
+      "flags": 132
+    },
+    {
+      "fullName": "InitializeAlreadyUsedDevice;",
+      "shortName": "InitializeAlreadyUsedDevice",
+      "flags": 260
+    },
+    {
+      "fullName": "PlayTransformAnim;CName",
+      "shortName": "PlayTransformAnim",
+      "flags": 260,
+      "params": [
+        {
+          "type": "CName",
+          "name": "animationName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendRefreshInteractionEvent;",
+      "shortName": "SendRefreshInteractionEvent",
+      "flags": 260
+    },
+    {
+      "fullName": "SetNpcIsDisposedBlackboard;",
+      "shortName": "SetNpcIsDisposedBlackboard",
+      "flags": 132
+    },
+    {
+      "fullName": "SetTakedownCameraAnimFeature;Int32",
+      "shortName": "SetTakedownCameraAnimFeature",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnVFXs;FxResource",
+      "shortName": "SpawnVFXs",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameFxResource",
+          "name": "fx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartExplosionPipeline;GameObjectFloat",
+      "shortName": "StartExplosionPipeline",
+      "flags": 260,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "additionalDelays",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TakedownAndDispose;Bool",
+      "shortName": "TakedownAndDispose",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isNonlethal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateLightAppearance;",
+      "shortName": "UpdateLightAppearance",
+      "flags": 132
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "DeterminGameplayRoleMappinRange;SDeviceMappinData",
+      "shortName": "DeterminGameplayRoleMappinRange",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "SDeviceMappinData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
+      "shortName": "DeterminGameplayRoleMappinVisuaState",
+      "return": {
+        "type": "EMappinVisualState",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "SDeviceMappinData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:DisposalDeviceControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -245,16 +345,6 @@
         "flags": 64
       },
       "flags": 8704
-    },
-    {
-      "fullName": "HideNPCPermanently;",
-      "shortName": "HideNPCPermanently",
-      "flags": 132
-    },
-    {
-      "fullName": "InitializeAlreadyUsedDevice;",
-      "shortName": "InitializeAlreadyUsedDevice",
-      "flags": 260
     },
     {
       "fullName": "IsBodyDisposalPossible;",
@@ -559,67 +649,9 @@
       ]
     },
     {
-      "fullName": "PlayTransformAnim;CName",
-      "shortName": "PlayTransformAnim",
-      "flags": 260,
-      "params": [
-        {
-          "type": "CName",
-          "name": "animationName",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
-    },
-    {
-      "fullName": "SendRefreshInteractionEvent;",
-      "shortName": "SendRefreshInteractionEvent",
-      "flags": 260
-    },
-    {
-      "fullName": "SetTakedownCameraAnimFeature;Int32",
-      "shortName": "SetTakedownCameraAnimFeature",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnVFXs;FxResource",
-      "shortName": "SpawnVFXs",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameFxResource",
-          "name": "fx",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartExplosionPipeline;GameObjectFloat",
-      "shortName": "StartExplosionPipeline",
-      "flags": 260,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "instigator",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "additionalDelays",
-          "flags": 1152
-        }
-      ]
     },
     {
       "fullName": "StartGlitching;EGlitchStateFloat",
@@ -642,23 +674,6 @@
       "fullName": "StopGlitching;",
       "shortName": "StopGlitching",
       "flags": 256
-    },
-    {
-      "fullName": "TakedownAndDispose;Bool",
-      "shortName": "TakedownAndDispose",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isNonlethal",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateLightAppearance;",
-      "shortName": "UpdateLightAppearance",
-      "flags": 132
     }
   ]
 }

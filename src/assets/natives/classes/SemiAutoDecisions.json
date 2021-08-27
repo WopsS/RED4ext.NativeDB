@@ -2,6 +2,13 @@
   "parent": "WeaponTransition",
   "name": "SemiAutoDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "handle:redCallbackObject",
+      "name": "callBackID",
+      "flags": 4431544352
+    }
+  ],
   "funcs": [
     {
       "fullName": "EnterCondition;StateContextStateGameScriptInterface",
@@ -25,6 +32,64 @@
       ]
     },
     {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForcedShoot;Bool",
+      "shortName": "OnQuestForcedShoot",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRangeAttackInput;Float",
+      "shortName": "OnRangeAttackInput",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ToShoot;StateContextStateGameScriptInterface",
       "shortName": "ToShoot",
       "return": {
@@ -41,6 +106,27 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
           "flags": 128
         }
       ]

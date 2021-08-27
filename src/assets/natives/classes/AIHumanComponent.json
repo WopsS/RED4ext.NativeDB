@@ -9,34 +9,34 @@
       "flags": 6627016705
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "shootingBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "gadgetBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "coverBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "actionBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "patrolBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "alertedPatrolBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "Uint32",
@@ -104,6 +104,11 @@
       "flags": 4297130016
     },
     {
+      "type": "handle:gamedataGameplayAbility_Record",
+      "name": "kerenzikovAbilityRecord",
+      "flags": 4431347744
+    },
+    {
       "type": "Uint32",
       "name": "highLevelCb",
       "flags": 4297130016
@@ -158,27 +163,6 @@
       ]
     },
     {
-      "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetMountingSlotId",
-      "shortName": "GetLastUsedVehicleSlot",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "gamemountingMountingSlotId",
-          "name": "vehicleSlot",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetCName",
       "shortName": "GetLastUsedVehicleSlot",
       "return": {
@@ -195,6 +179,27 @@
         {
           "type": "CName",
           "name": "vehicleSlotName",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetMountingSlotId",
+      "shortName": "GetLastUsedVehicleSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamemountingMountingSlotId",
+          "name": "vehicleSlot",
           "flags": 640
         }
       ]
@@ -244,7 +249,7 @@
         "type": "entEntityID",
         "flags": 64
       },
-      "index": 10057,
+      "index": 10149,
       "flags": 8193
     },
     {
@@ -254,7 +259,7 @@
         "type": "gamemountingMountingSlotId",
         "flags": 64
       },
-      "index": 10058,
+      "index": 10150,
       "flags": 8193
     },
     {
@@ -264,7 +269,7 @@
         "type": "moveMovementParameters",
         "flags": 64
       },
-      "index": 10053,
+      "index": 10145,
       "flags": 1,
       "params": [
         {
@@ -281,7 +286,7 @@
         "type": "gamedataNPCRarity",
         "flags": 64
       },
-      "index": 10055,
+      "index": 10147,
       "flags": 8193
     },
     {
@@ -291,7 +296,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10059,
+      "index": 10151,
       "flags": 8193
     },
     {
@@ -301,13 +306,13 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10056,
+      "index": 10148,
       "flags": 8193
     },
     {
       "fullName": "SetMovementParams",
       "shortName": "SetMovementParams",
-      "index": 10052,
+      "index": 10144,
       "flags": 1,
       "params": [
         {
@@ -324,7 +329,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10054,
+      "index": 10146,
       "flags": 1,
       "params": [
         {
@@ -760,22 +765,6 @@
       ]
     },
     {
-      "fullName": "OnAnimParamsEvent",
-      "shortName": "OnAnimParamsEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:entAnimParamsEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnAttach;",
       "shortName": "OnAttach",
       "flags": 132
@@ -798,6 +787,135 @@
         {
           "type": "AICommandState",
           "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 132
+    },
+    {
+      "fullName": "OnSignalCombatQueriesRequest;Uint16Bool",
+      "shortName": "OnSignalCombatQueriesRequest",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Uint16",
+          "name": "signalId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "newValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSignalCommandSignal;Uint16Bool",
+      "shortName": "OnSignalCommandSignal",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Uint16",
+          "name": "signalId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "newValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetBehaviorCoverArguments;",
+      "shortName": "ResetBehaviorCoverArguments",
+      "flags": 132
+    },
+    {
+      "fullName": "StartGrenadeThrowQuery;GameObject",
+      "shortName": "StartGrenadeThrowQuery",
+      "flags": 8324,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TrackActionCommandID;script_ref<array<CName>>",
+      "shortName": "TrackActionCommandID",
+      "flags": 132,
+      "params": [
+        {
+          "type": "script_ref:array:CName",
+          "name": "commandClassNames",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryBulletDodgeOpportunity;",
+      "shortName": "TryBulletDodgeOpportunity",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "UpdateMyAttackBlockedCount;Bool",
+      "shortName": "UpdateMyAttackBlockedCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "resetBB",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMyAttackDodgedCount;Bool",
+      "shortName": "UpdateMyAttackDodgedCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "resetBB",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateMyAttackParriedCount;Bool",
+      "shortName": "UpdateMyAttackParriedCount",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "resetBB",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAnimParamsEvent",
+      "shortName": "OnAnimParamsEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entAnimParamsEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -849,11 +967,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnDetach;",
-      "shortName": "OnDetach",
-      "flags": 132
     },
     {
       "fullName": "OnEnemyThreatDetected",
@@ -952,40 +1065,6 @@
       ]
     },
     {
-      "fullName": "OnSignalCombatQueriesRequest;Uint16Bool",
-      "shortName": "OnSignalCombatQueriesRequest",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Uint16",
-          "name": "signalId",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "newValue",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSignalCommandSignal;Uint16Bool",
-      "shortName": "OnSignalCommandSignal",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Uint16",
-          "name": "signalId",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "newValue",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnStartGrenadeThrowQueryEvent",
       "shortName": "OnStartGrenadeThrowQueryEvent",
       "return": {
@@ -1061,80 +1140,6 @@
         {
           "type": "handle:gameMountAIEvent",
           "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResetBehaviorCoverArguments;",
-      "shortName": "ResetBehaviorCoverArguments",
-      "flags": 132
-    },
-    {
-      "fullName": "StartGrenadeThrowQuery;GameObject",
-      "shortName": "StartGrenadeThrowQuery",
-      "flags": 8324,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TrackActionCommandID;script_ref<array<CName>>",
-      "shortName": "TrackActionCommandID",
-      "flags": 132,
-      "params": [
-        {
-          "type": "script_ref:array:CName",
-          "name": "commandClassNames",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TryBulletDodgeOpportunity;",
-      "shortName": "TryBulletDodgeOpportunity",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "UpdateMyAttackBlockedCount;Bool",
-      "shortName": "UpdateMyAttackBlockedCount",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "resetBB",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateMyAttackDodgedCount;Bool",
-      "shortName": "UpdateMyAttackDodgedCount",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "resetBB",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateMyAttackParriedCount;Bool",
-      "shortName": "UpdateMyAttackParriedCount",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "resetBB",
           "flags": 128
         }
       ]

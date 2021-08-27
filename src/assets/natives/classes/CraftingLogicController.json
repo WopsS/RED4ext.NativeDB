@@ -1,0 +1,467 @@
+{
+  "parent": "CraftingMainLogicController",
+  "name": "CraftingLogicController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "ingredientsWeaponContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemPreviewContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "weaponPreviewContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "perkNotificationContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "perkNotificationText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "perkIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:AGenericTooltipController",
+      "name": "itemTooltipController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:AGenericTooltipController",
+      "name": "quickHackTooltipController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:InventoryTooltipData",
+      "name": "tooltipData",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:InventoryWeaponDisplayController",
+      "name": "ingredientWeaponController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:InventoryWeaponDisplayController",
+      "name": "ingredientClothingController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameItemData",
+      "name": "selectedItemGameData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "quantityPickerPopupToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:CraftBook",
+      "name": "playerCraftBook",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "CraftItem;RecipeDataInt32",
+      "shortName": "CraftItem",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RecipeData",
+          "name": "selectedRecipe",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DryMakeItem;RecipeData",
+      "shortName": "DryMakeItem",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RecipeData",
+          "name": "selectedRecipe",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInventoryItemDataFromRecord;Item_Record",
+      "shortName": "GetInventoryItemDataFromRecord",
+      "return": {
+        "type": "InventoryItemData",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRecipeOutcomeTooltip;RecipeDataInventoryItemDatagameItemData",
+      "shortName": "GetRecipeOutcomeTooltip",
+      "return": {
+        "type": "handle:InventoryTooltipData",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RecipeData",
+          "name": "recipeData",
+          "flags": 128
+        },
+        {
+          "type": "InventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameItemData",
+          "name": "gameData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRecipesList;",
+      "shortName": "GetRecipesList",
+      "return": {
+        "type": "array:handle:IScriptable",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "IsProgramInInventory;Item_Record",
+      "shortName": "IsProgramInInventory",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenQuantityPicker;InventoryItemDataInt32",
+      "shortName": "OpenQuantityPicker",
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "maxQuantity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPerkNotification;",
+      "shortName": "SetPerkNotification",
+      "flags": 132
+    },
+    {
+      "fullName": "SetQualityHeader;",
+      "shortName": "SetQualityHeader",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupIngredients;array<IngredientData>Int32",
+      "shortName": "SetupIngredients",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:IngredientData",
+          "name": "ingredient",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "itemAmount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateRecipePreviewPanel;RecipeData",
+      "shortName": "UpdateRecipePreviewPanel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RecipeData",
+          "name": "selectedRecipe",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTooltipData;",
+      "shortName": "UpdateTooltipData",
+      "flags": 132
+    },
+    {
+      "fullName": "Init;CraftingMainGameController",
+      "shortName": "Init",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:CraftingMainGameController",
+          "name": "craftingGameController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnClothingControllerSpawned",
+      "shortName": "OnClothingControllerSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisplayHoverOut",
+      "shortName": "OnDisplayHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOutEvent",
+          "name": "hoverOutEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisplayHoverOver",
+      "shortName": "OnDisplayHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOverEvent",
+          "name": "hoverOverEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoldFinished",
+      "shortName": "OnHoldFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ProgressBarFinishedProccess",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemDisplayHoverOver",
+      "shortName": "OnItemDisplayHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOverEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemTooltipSpawned",
+      "shortName": "OnItemTooltipSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuantityPickerEvent",
+      "shortName": "OnQuantityPickerEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuickHackTooltipSpawned",
+      "shortName": "OnQuickHackTooltipSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnWeaponControllerSpawned",
+      "shortName": "OnWeaponControllerSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshListViewContent;InventoryItemData",
+      "shortName": "RefreshListViewContent",
+      "flags": 512,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetItemButtonHintsHoverOver;inkPointerEvent",
+      "shortName": "SetItemButtonHintsHoverOver",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupFilters;",
+      "shortName": "SetupFilters",
+      "flags": 256
+    },
+    {
+      "fullName": "SetupIngredientWidgets;",
+      "shortName": "SetupIngredientWidgets",
+      "flags": 256
+    },
+    {
+      "fullName": "UpdateItemPreview;CraftableItemLogicController",
+      "shortName": "UpdateItemPreview",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:CraftableItemLogicController",
+          "name": "craftableController",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

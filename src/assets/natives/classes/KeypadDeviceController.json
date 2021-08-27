@@ -61,7 +61,7 @@
   ],
   "funcs": [
     {
-      "fullName": "AddKeypadButtons;inkWidgetInt32",
+      "fullName": "AddKeypadButtons;inkWidgetInt32SDeviceWidgetPackageDeviceInkGameControllerBase",
       "shortName": "AddKeypadButtons",
       "flags": 132,
       "params": [
@@ -73,6 +73,16 @@
         {
           "type": "Int32",
           "name": "rowNumber",
+          "flags": 128
+        },
+        {
+          "type": "SDeviceWidgetPackage",
+          "name": "widgetData",
+          "flags": 128
+        },
+        {
+          "type": "handle:DeviceInkGameControllerBase",
+          "name": "gameController",
           "flags": 128
         }
       ]
@@ -97,6 +107,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "RefreshActionButtons;",
+      "shortName": "RefreshActionButtons",
+      "flags": 132
     },
     {
       "fullName": "Initialize;DeviceInkGameControllerBaseSDeviceWidgetPackage",
@@ -125,6 +140,27 @@
       "flags": 264
     },
     {
+      "fullName": "OnKeypadButtonWidgetSpawned",
+      "shortName": "OnKeypadButtonWidgetSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnMouseButtonReleased",
       "shortName": "OnMouseButtonReleased",
       "return": {
@@ -139,11 +175,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "RefreshActionButtons;",
-      "shortName": "RefreshActionButtons",
-      "flags": 132
     },
     {
       "fullName": "ResolveAction;SActionWidgetPackage",

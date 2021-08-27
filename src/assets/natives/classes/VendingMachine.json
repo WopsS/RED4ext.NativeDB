@@ -43,21 +43,21 @@
       ]
     },
     {
-      "fullName": "BuyItems;BuyRequest",
-      "shortName": "BuyItems",
-      "flags": 256,
+      "fullName": "AttachVendor;",
+      "shortName": "AttachVendor",
+      "flags": 260
+    },
+    {
+      "fullName": "AttachVendorTask;ScriptTaskData",
+      "shortName": "AttachVendorTask",
+      "flags": 260,
       "params": [
         {
-          "type": "handle:BuyRequest",
-          "name": "request",
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "CreateBlackboard;",
-      "shortName": "CreateBlackboard",
-      "flags": 256
     },
     {
       "fullName": "CreateBuyRequest;ItemID",
@@ -74,32 +74,6 @@
           "flags": 1152
         }
       ]
-    },
-    {
-      "fullName": "CreateDispenseRequest;BoolItemID",
-      "shortName": "CreateDispenseRequest",
-      "return": {
-        "type": "handle:DispenseRequest",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "shouldPay",
-          "flags": 128
-        },
-        {
-          "type": "gameItemID",
-          "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DeactivateDevice;",
-      "shortName": "DeactivateDevice",
-      "flags": 256
     },
     {
       "fullName": "DelayHackedEvent;FloatItemID",
@@ -146,6 +120,127 @@
       ]
     },
     {
+      "fullName": "GetGlitchData;EGlitchState",
+      "shortName": "GetGlitchData",
+      "return": {
+        "type": "GlitchData",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "EGlitchState",
+          "name": "glitchState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RandomizePosition;",
+      "shortName": "RandomizePosition",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "SendDataToUIBlackboard;PaymentStatus",
+      "shortName": "SendDataToUIBlackboard",
+      "flags": 260,
+      "params": [
+        {
+          "type": "PaymentStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendSoldOutToUIBlackboard;Bool",
+      "shortName": "SendSoldOutToUIBlackboard",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "soldOut",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SimpleGlitch;Bool",
+      "shortName": "SimpleGlitch",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartShortGlitch;",
+      "shortName": "StartShortGlitch",
+      "flags": 132
+    },
+    {
+      "fullName": "ToggleLights;Bool",
+      "shortName": "ToggleLights",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuyItems;BuyRequest",
+      "shortName": "BuyItems",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:BuyRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateBlackboard;",
+      "shortName": "CreateBlackboard",
+      "flags": 256
+    },
+    {
+      "fullName": "CreateDispenseRequest;BoolItemID",
+      "shortName": "CreateDispenseRequest",
+      "return": {
+        "type": "handle:DispenseRequest",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldPay",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateDevice;",
+      "shortName": "DeactivateDevice",
+      "flags": 256
+    },
+    {
       "fullName": "DeterminGameplayRole;",
       "shortName": "DeterminGameplayRole",
       "return": {
@@ -170,7 +265,7 @@
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:VendingMachineDeviceBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -179,7 +274,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:VendingMachineController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8448
@@ -188,26 +283,10 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:VendingMachineControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
-    },
-    {
-      "fullName": "GetGlitchData;EGlitchState",
-      "shortName": "GetGlitchData",
-      "return": {
-        "type": "GlitchData",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "EGlitchState",
-          "name": "glitchState",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "GetJunkItem;",
@@ -412,54 +491,9 @@
       "flags": 256
     },
     {
-      "fullName": "RandomizePosition;",
-      "shortName": "RandomizePosition",
-      "return": {
-        "type": "Vector4",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
-    },
-    {
-      "fullName": "SendDataToUIBlackboard;PaymentStatus",
-      "shortName": "SendDataToUIBlackboard",
-      "flags": 260,
-      "params": [
-        {
-          "type": "PaymentStatus",
-          "name": "status",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendSoldOutToUIBlackboard;Bool",
-      "shortName": "SendSoldOutToUIBlackboard",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "soldOut",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SimpleGlitch;Bool",
-      "shortName": "SimpleGlitch",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "on",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "StartGlitching;EGlitchStateFloat",
@@ -479,26 +513,9 @@
       ]
     },
     {
-      "fullName": "StartShortGlitch;",
-      "shortName": "StartShortGlitch",
-      "flags": 132
-    },
-    {
       "fullName": "StopGlitching;",
       "shortName": "StopGlitching",
       "flags": 256
-    },
-    {
-      "fullName": "ToggleLights;Bool",
-      "shortName": "ToggleLights",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "on",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "TurnOffDevice;",

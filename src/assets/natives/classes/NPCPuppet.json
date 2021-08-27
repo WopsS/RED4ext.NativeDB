@@ -135,6 +135,11 @@
     },
     {
       "type": "Bool",
+      "name": "disableRagdollAfterRecovery",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
       "name": "isNotVisible",
       "flags": 4297130016
     },
@@ -194,24 +199,24 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "upperBodyStateCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "leftCyberwareStateCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "meleeStateCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "combatGadgetStateCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -329,7 +334,7 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameConstantStatModifierData",
+      "type": "handle:gameConstantStatModifierData_Deprecated",
       "name": "hackingResistanceMod",
       "flags": 4431347744
     },
@@ -821,7 +826,7 @@
       "flags": 8708,
       "params": [
         {
-          "type": "NPCstubData",
+          "type": "gameNPCstubData",
           "name": "data",
           "flags": 128
         }
@@ -831,20 +836,6 @@
       "fullName": "ClearDefeatAndImmortality;",
       "shortName": "ClearDefeatAndImmortality",
       "flags": 516
-    },
-    {
-      "fullName": "CompileScannerChunks;",
-      "shortName": "CompileScannerChunks",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "CreateListeners;",
-      "shortName": "CreateListeners",
-      "flags": 256
     },
     {
       "fullName": "Debug_Ragdoll;",
@@ -1038,15 +1029,6 @@
       "flags": 516
     },
     {
-      "fullName": "GetPS",
-      "shortName": "GetPS",
-      "return": {
-        "type": "handle:ScriptedPuppetPS",
-        "flags": 64
-      },
-      "flags": 8448
-    },
-    {
       "fullName": "GetPlayerID;",
       "shortName": "GetPlayerID",
       "return": {
@@ -1154,13 +1136,28 @@
       ]
     },
     {
-      "fullName": "HasHeadUnderwater;",
-      "shortName": "HasHeadUnderwater",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
+      "fullName": "HandleRagdollOnDeath;Bool",
+      "shortName": "HandleRagdollOnDeath",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "handleUncontrolledMovement",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleRagdollOnDeathByEvent;Bool",
+      "shortName": "HandleRagdollOnDeathByEvent",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "handleUncontrolledMovement",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "HasLastHitFlag;hitFlag",
@@ -1182,6 +1179,11 @@
       "fullName": "InitThreatsCurves;",
       "shortName": "InitThreatsCurves",
       "flags": 132
+    },
+    {
+      "fullName": "InitializeNPCManager;",
+      "shortName": "InitializeNPCManager",
+      "flags": 260
     },
     {
       "fullName": "IsAboutToBeDefeated;",
@@ -1218,15 +1220,6 @@
       ]
     },
     {
-      "fullName": "IsDead;",
-      "shortName": "IsDead",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "IsDefeatMechanicActive;",
       "shortName": "IsDefeatMechanicActive",
       "return": {
@@ -1243,40 +1236,6 @@
         "flags": 64
       },
       "flags": 260
-    },
-    {
-      "fullName": "IsIncapacitated;",
-      "shortName": "IsIncapacitated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsNPC;",
-      "shortName": "IsNPC",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "IsOutsideOfNavmesh;Vector4",
-      "shortName": "IsOutsideOfNavmesh",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "currentPosition",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "IsOutsideOfNavmesh;Vector4Vector4",
@@ -1296,6 +1255,22 @@
           "type": "Vector4",
           "name": "navmeshPoint",
           "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsOutsideOfNavmesh;Vector4",
+      "shortName": "IsOutsideOfNavmesh",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "currentPosition",
+          "flags": 128
         }
       ]
     },
@@ -1328,15 +1303,6 @@
         "flags": 64
       },
       "flags": 260
-    },
-    {
-      "fullName": "IsPlayerCompanion;",
-      "shortName": "IsPlayerCompanion",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "IsPointOnStaticMesh;Vector4Vector4",
@@ -1414,28 +1380,6 @@
       "flags": 260
     },
     {
-      "fullName": "Kill;GameObjectBoolBool",
-      "shortName": "Kill",
-      "flags": 512,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "instigator",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "skipNPCDeathAnim",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "disableNPCRagdoll",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "KillIfUnderwater;",
       "shortName": "KillIfUnderwater",
       "return": {
@@ -1463,6 +1407,866 @@
       "fullName": "MountingStartDisableComponents;",
       "shortName": "MountingStartDisableComponents",
       "flags": 516
+    },
+    {
+      "fullName": "OnDefeatedWithRecoverStatusEffectApplied;",
+      "shortName": "OnDefeatedWithRecoverStatusEffectApplied",
+      "flags": 260
+    },
+    {
+      "fullName": "OnDefeatedWithRecoverStatusEffectRemoved;",
+      "shortName": "OnDefeatedWithRecoverStatusEffectRemoved",
+      "flags": 260
+    },
+    {
+      "fullName": "OnGodModeChanged;",
+      "shortName": "OnGodModeChanged",
+      "flags": 516
+    },
+    {
+      "fullName": "OnHitAnimation;gameHitEvent",
+      "shortName": "OnHitAnimation",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHitSounds;gameHitEvent",
+      "shortName": "OnHitSounds",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHitUI;gameHitEvent",
+      "shortName": "OnHitUI",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHittingPlayer;GameObjectFloat",
+      "shortName": "OnHittingPlayer",
+      "flags": 516,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "damageInflicted",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuickHackEffectApplied;ApplyStatusEffectEvent",
+      "shortName": "OnQuickHackEffectApplied",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuickHackEffectRemoved;RemoveStatusEffect",
+      "shortName": "OnQuickHackEffectRemoved",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsRemoveStatusEffect",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSignalOnUnstoppableStateSignal;Uint16BoolOnUnstoppableStateSignal",
+      "shortName": "OnSignalOnUnstoppableStateSignal",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Uint16",
+          "name": "signalId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "newValue",
+          "flags": 128
+        },
+        {
+          "type": "handle:OnUnstoppableStateSignal",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUncontrolledMovementStatusEffectAdded;ApplyStatusEffectEvent",
+      "shortName": "OnUncontrolledMovementStatusEffectAdded",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUncontrolledMovementStatusEffectRemoved;",
+      "shortName": "OnUncontrolledMovementStatusEffectRemoved",
+      "flags": 260
+    },
+    {
+      "fullName": "PlayImpactSound;",
+      "shortName": "PlayImpactSound",
+      "flags": 132
+    },
+    {
+      "fullName": "PlayVOOnPlayerOrPlayerCompanion;GameObject",
+      "shortName": "PlayVOOnPlayerOrPlayerCompanion",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayVOOnSquadMembers;Bool",
+      "shortName": "PlayVOOnSquadMembers",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isPlayer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PrepareVendor;",
+      "shortName": "PrepareVendor",
+      "flags": 260
+    },
+    {
+      "fullName": "PrepareVendorTask;ScriptTaskData",
+      "shortName": "PrepareVendorTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessAndroidIncapacitated;",
+      "shortName": "ProcessAndroidIncapacitated",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessDoTAttackData;",
+      "shortName": "ProcessDoTAttackData",
+      "flags": 132
+    },
+    {
+      "fullName": "ProcessStatusEffectApplication;ApplyStatusEffectEvent",
+      "shortName": "ProcessStatusEffectApplication",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReevaluatEAIThreatCalculationType;",
+      "shortName": "ReevaluatEAIThreatCalculationType",
+      "flags": 516
+    },
+    {
+      "fullName": "ReevaluateQuickHackPerkRewardsForPlayer;",
+      "shortName": "ReevaluateQuickHackPerkRewardsForPlayer",
+      "flags": 132
+    },
+    {
+      "fullName": "RegisterCallbacks;",
+      "shortName": "RegisterCallbacks",
+      "flags": 260
+    },
+    {
+      "fullName": "RegisterCallbacksForReactions;",
+      "shortName": "RegisterCallbacksForReactions",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestHitReaction;gameHitEvent",
+      "shortName": "RequestHitReaction",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetCompanionRoleCacheTimeStamp;",
+      "shortName": "ResetCompanionRoleCacheTimeStamp",
+      "flags": 516
+    },
+    {
+      "fullName": "ResolveReactiOnLookedAt;Bool",
+      "shortName": "ResolveReactiOnLookedAt",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isLookedAt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SearchForNonlethalFlag;",
+      "shortName": "SearchForNonlethalFlag",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "SendAfterDeathOrDefeatEvent;",
+      "shortName": "SendAfterDeathOrDefeatEvent",
+      "flags": 132
+    },
+    {
+      "fullName": "SendDataTrackingEvent;BoolBool",
+      "shortName": "SendDataTrackingEvent",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "defeated",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "nonLethal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendRevealStateToAllWeakspots;ERevealState",
+      "shortName": "SendRevealStateToAllWeakspots",
+      "flags": 260,
+      "params": [
+        {
+          "type": "ERevealState",
+          "name": "revealState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendStatusEffectSignal;Floatarray<CName>array<EAIGateSignalFlags>TweakDBIDFloatFloat",
+      "shortName": "SendStatusEffectSignal",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "priority",
+          "flags": 128
+        },
+        {
+          "type": "array:CName",
+          "name": "tags",
+          "flags": 128
+        },
+        {
+          "type": "array:EAIGateSignalFlags",
+          "name": "flags",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "statusEffectID",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "repeatSignalDelay",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "remainingStatusEffectDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAnimWrapperWeightBasedOnFaction;",
+      "shortName": "SetAnimWrapperWeightBasedOnFaction",
+      "flags": 132
+    },
+    {
+      "fullName": "SetAnimWrappersOnItem;ItemObjectTweakDBID",
+      "shortName": "SetAnimWrappersOnItem",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemObject",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBounty;Bounty",
+      "shortName": "SetBounty",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bounty",
+          "name": "bounty",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBountyAwarded;Bool",
+      "shortName": "SetBountyAwarded",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "awarded",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDetectionPercentage;Float",
+      "shortName": "SetDetectionPercentage",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "percent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDisableRagdoll;BoolBoolBool",
+      "shortName": "SetDisableRagdoll",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "disableRagdoll",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "leaveRagdollEnabled",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetHitEventData;gameHitEventFloatFloatFloat",
+      "shortName": "SetHitEventData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "hitReactionFactor",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "hitWoundsFactor",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "hitDismembermentFactor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsDefeatMechanicActive;BoolBool",
+      "shortName": "SetIsDefeatMechanicActive",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isDefeatMechanicActive",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isInitialisation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetMyKiller;GameObject",
+      "shortName": "SetMyKiller",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "killer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPuppetTargetingPlayer;Bool",
+      "shortName": "SetPuppetTargetingPlayer",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isTargeting",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetRandomAnimWrappersForLocomotion;",
+      "shortName": "SetRandomAnimWrappersForLocomotion",
+      "flags": 132
+    },
+    {
+      "fullName": "SetWeaponFx;",
+      "shortName": "SetWeaponFx",
+      "flags": 132
+    },
+    {
+      "fullName": "ShouldDelayStatusEffectApplication;ApplyStatusEffectEvent",
+      "shortName": "ShouldDelayStatusEffectApplication",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldRequestHitReaction;gameHitEvent",
+      "shortName": "ShouldRequestHitReaction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldTripVictim;NPCPuppet",
+      "shortName": "ShouldTripVictim",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:NPCPuppet",
+          "name": "victim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnHitVisualEffect;CName",
+      "shortName": "SpawnHitVisualEffect",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "n",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnRagdollBumpAttack;Vector4",
+      "shortName": "SpawnRagdollBumpAttack",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "position",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnRagdollFloorSplash;RagdollImpactPointData",
+      "shortName": "SpawnRagdollFloorSplash",
+      "flags": 260,
+      "params": [
+        {
+          "type": "entRagdollImpactPointData",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnRagdollSplatter;RagdollImpactPointDataBool",
+      "shortName": "SpawnRagdollSplatter",
+      "flags": 260,
+      "params": [
+        {
+          "type": "entRagdollImpactPointData",
+          "name": "impactData",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDead",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnVehicleBumpAttack;VehicleObjectGameObject",
+      "shortName": "SpawnVehicleBumpAttack",
+      "flags": 260,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartRagdollImpactAttack;RagdollDamagePollData",
+      "shortName": "StartRagdollImpactAttack",
+      "flags": 260,
+      "params": [
+        {
+          "type": "RagdollDamagePollData",
+          "name": "impactData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SwitchTargetPlayerTrackedAccuracy;Bool",
+      "shortName": "SwitchTargetPlayerTrackedAccuracy",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "freeze",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SwitchTargetPlayerTrackedAccuracy;TargetTrackerComponentBool",
+      "shortName": "SwitchTargetPlayerTrackedAccuracy",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:AITargetTrackerComponent",
+          "name": "ttc",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "freeze",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerDefeatedBehavior;ApplyStatusEffectEvent",
+      "shortName": "TriggerDefeatedBehavior",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerPendingSEEvent;",
+      "shortName": "TriggerPendingSEEvent",
+      "flags": 132
+    },
+    {
+      "fullName": "TriggerRagdollBehavior;",
+      "shortName": "TriggerRagdollBehavior",
+      "flags": 260
+    },
+    {
+      "fullName": "TriggerRagdollBehaviorEnd;",
+      "shortName": "TriggerRagdollBehaviorEnd",
+      "flags": 260
+    },
+    {
+      "fullName": "TriggerStatusEffectBehavior;ApplyStatusEffectEventBool",
+      "shortName": "TriggerStatusEffectBehavior",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "alwaysTrigger",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TryRepeatStatusEffectSignal;Floatarray<CName>array<EAIGateSignalFlags>TweakDBIDFloatFloat",
+      "shortName": "TryRepeatStatusEffectSignal",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "priority",
+          "flags": 128
+        },
+        {
+          "type": "array:CName",
+          "name": "tags",
+          "flags": 128
+        },
+        {
+          "type": "array:EAIGateSignalFlags",
+          "name": "flags",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "statusEffectID",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "repeatSignalDelay",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "remainingStatusEffectDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TutorialAddIllegalActionFact;",
+      "shortName": "TutorialAddIllegalActionFact",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterCallbacksForReactions;",
+      "shortName": "UnregisterCallbacksForReactions",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateAnimgraphRagdollState;Bool",
+      "shortName": "UpdateAnimgraphRagdollState",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isActive",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateCollisionState;",
+      "shortName": "UpdateCollisionState",
+      "flags": 516
+    },
+    {
+      "fullName": "WasJustKilledOrDefeated;",
+      "shortName": "WasJustKilledOrDefeated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "CompileScannerChunks;",
+      "shortName": "CompileScannerChunks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "CreateListeners;",
+      "shortName": "CreateListeners",
+      "flags": 256
+    },
+    {
+      "fullName": "GetPS",
+      "shortName": "GetPS",
+      "return": {
+        "type": "handle:gameObjectPS",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "HasHeadUnderwater;",
+      "shortName": "HasHeadUnderwater",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsDead;",
+      "shortName": "IsDead",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsIncapacitated;",
+      "shortName": "IsIncapacitated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsNPC;",
+      "shortName": "IsNPC",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsPlayerCompanion;",
+      "shortName": "IsPlayerCompanion",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "Kill;GameObjectBoolBool",
+      "shortName": "Kill",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "skipNPCDeathAnim",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "disableNPCRagdoll",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "OnAIThreatCalculationEvent",
@@ -1753,16 +2557,6 @@
       ]
     },
     {
-      "fullName": "OnDefeatedWithRecoverStatusEffectApplied;",
-      "shortName": "OnDefeatedWithRecoverStatusEffectApplied",
-      "flags": 260
-    },
-    {
-      "fullName": "OnDefeatedWithRecoverStatusEffectRemoved;",
-      "shortName": "OnDefeatedWithRecoverStatusEffectRemoved",
-      "flags": 260
-    },
-    {
       "fullName": "OnDelayedSEReactionEvent",
       "shortName": "OnDelayedSEReactionEvent",
       "return": {
@@ -1941,11 +2735,6 @@
       "flags": 264
     },
     {
-      "fullName": "OnGodModeChanged;",
-      "shortName": "OnGodModeChanged",
-      "flags": 516
-    },
-    {
       "fullName": "OnGrappleTargetDeadEnableRagdollWithDelay",
       "shortName": "OnGrappleTargetDeadEnableRagdollWithDelay",
       "return": {
@@ -1956,6 +2745,22 @@
       "params": [
         {
           "type": "handle:RagdollToggleDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHandleRagdollOnDeath",
+      "shortName": "OnHandleRagdollOnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:HandleRagdollOnDeathEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1994,42 +2799,6 @@
       ]
     },
     {
-      "fullName": "OnHitAnimation;gameHitEvent",
-      "shortName": "OnHitAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hitEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHitSounds;gameHitEvent",
-      "shortName": "OnHitSounds",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hitEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHitUI;gameHitEvent",
-      "shortName": "OnHitUI",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hitEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnHitVFX;gameHitEvent",
       "shortName": "OnHitVFX",
       "flags": 256,
@@ -2037,23 +2806,6 @@
         {
           "type": "handle:gameeventsHitEvent",
           "name": "hitEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHittingPlayer;GameObjectFloat",
-      "shortName": "OnHittingPlayer",
-      "flags": 516,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "damageInflicted",
           "flags": 128
         }
       ]
@@ -2192,6 +2944,22 @@
       ]
     },
     {
+      "fullName": "OnPostInitialize",
+      "shortName": "OnPostInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPostInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnPotentialDeath",
       "shortName": "OnPotentialDeath",
       "return": {
@@ -2208,6 +2976,22 @@
       ]
     },
     {
+      "fullName": "OnPreUninitialize",
+      "shortName": "OnPreUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPreUninitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnPreloadAnimationsEvent",
       "shortName": "OnPreloadAnimationsEvent",
       "return": {
@@ -2218,30 +3002,6 @@
       "params": [
         {
           "type": "handle:PreloadAnimationsEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuickHackEffectApplied;ApplyStatusEffectEvent",
-      "shortName": "OnQuickHackEffectApplied",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuickHackEffectRemoved;RemoveStatusEffect",
-      "shortName": "OnQuickHackEffectRemoved",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsRemoveStatusEffect",
           "name": "evt",
           "flags": 128
         }
@@ -2445,6 +3205,22 @@
       ]
     },
     {
+      "fullName": "OnSetBountyAwardedEvent",
+      "shortName": "OnSetBountyAwardedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:SetBountyAwardedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetBountyObjectEvent",
       "shortName": "OnSetBountyObjectEvent",
       "return": {
@@ -2536,28 +3312,6 @@
         {
           "type": "handle:gameSetupWorkspotActionEvent",
           "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSignalOnUnstoppableStateSignal;Uint16BoolOnUnstoppableStateSignal",
-      "shortName": "OnSignalOnUnstoppableStateSignal",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Uint16",
-          "name": "signalId",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "newValue",
-          "flags": 128
-        },
-        {
-          "type": "handle:OnUnstoppableStateSignal",
-          "name": "userData",
           "flags": 128
         }
       ]
@@ -2675,23 +3429,6 @@
       ]
     },
     {
-      "fullName": "OnUncontrolledMovementStatusEffectAdded;ApplyStatusEffectEvent",
-      "shortName": "OnUncontrolledMovementStatusEffectAdded",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUncontrolledMovementStatusEffectRemoved;",
-      "shortName": "OnUncontrolledMovementStatusEffectRemoved",
-      "flags": 260
-    },
-    {
       "fullName": "On_TEMP_TestNPCOutsideNavmeshEvent",
       "shortName": "On_TEMP_TestNPCOutsideNavmeshEvent",
       "return": {
@@ -2708,465 +3445,9 @@
       ]
     },
     {
-      "fullName": "PlayImpactSound;",
-      "shortName": "PlayImpactSound",
-      "flags": 132
-    },
-    {
-      "fullName": "PlayVOOnPlayerOrPlayerCompanion;GameObject",
-      "shortName": "PlayVOOnPlayerOrPlayerCompanion",
-      "flags": 8452,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "instigator",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayVOOnSquadMembers;Bool",
-      "shortName": "PlayVOOnSquadMembers",
-      "flags": 8452,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isPlayer",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PrepareVendor;",
-      "shortName": "PrepareVendor",
-      "flags": 260
-    },
-    {
-      "fullName": "ProcessAndroidIncapacitated;",
-      "shortName": "ProcessAndroidIncapacitated",
-      "flags": 132
-    },
-    {
-      "fullName": "ProcessDoTAttackData;",
-      "shortName": "ProcessDoTAttackData",
-      "flags": 132
-    },
-    {
-      "fullName": "ProcessStatusEffectApplication;ApplyStatusEffectEvent",
-      "shortName": "ProcessStatusEffectApplication",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReevaluatEAIThreatCalculationType;",
-      "shortName": "ReevaluatEAIThreatCalculationType",
-      "flags": 516
-    },
-    {
-      "fullName": "ReevaluateQuickHackPerkRewardsForPlayer;",
-      "shortName": "ReevaluateQuickHackPerkRewardsForPlayer",
-      "flags": 132
-    },
-    {
-      "fullName": "RegisterCallbacks;",
-      "shortName": "RegisterCallbacks",
-      "flags": 260
-    },
-    {
-      "fullName": "RegisterCallbacksForReactions;",
-      "shortName": "RegisterCallbacksForReactions",
-      "flags": 260
-    },
-    {
       "fullName": "RemoveListeners;",
       "shortName": "RemoveListeners",
       "flags": 256
-    },
-    {
-      "fullName": "RequestHitReaction;gameHitEvent",
-      "shortName": "RequestHitReaction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hitEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResetCompanionRoleCacheTimeStamp;",
-      "shortName": "ResetCompanionRoleCacheTimeStamp",
-      "flags": 516
-    },
-    {
-      "fullName": "ResolveReactiOnLookedAt;Bool",
-      "shortName": "ResolveReactiOnLookedAt",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isLookedAt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SearchForNonlethalFlag;",
-      "shortName": "SearchForNonlethalFlag",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "SendAfterDeathOrDefeatEvent;",
-      "shortName": "SendAfterDeathOrDefeatEvent",
-      "flags": 132
-    },
-    {
-      "fullName": "SendDataTrackingEvent;BoolBool",
-      "shortName": "SendDataTrackingEvent",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "defeated",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "nonLethal",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendRevealStateToAllWeakspots;ERevealState",
-      "shortName": "SendRevealStateToAllWeakspots",
-      "flags": 260,
-      "params": [
-        {
-          "type": "ERevealState",
-          "name": "revealState",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendStatusEffectSignal;Floatarray<CName>array<EAIGateSignalFlags>TweakDBIDFloatFloat",
-      "shortName": "SendStatusEffectSignal",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Float",
-          "name": "priority",
-          "flags": 128
-        },
-        {
-          "type": "array:CName",
-          "name": "tags",
-          "flags": 128
-        },
-        {
-          "type": "array:EAIGateSignalFlags",
-          "name": "flags",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "statusEffectID",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "repeatSignalDelay",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "remainingStatusEffectDuration",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetAnimWrapperWeightBasedOnFaction;",
-      "shortName": "SetAnimWrapperWeightBasedOnFaction",
-      "flags": 132
-    },
-    {
-      "fullName": "SetAnimWrappersOnItem;ItemObjectTweakDBID",
-      "shortName": "SetAnimWrappersOnItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameItemObject",
-          "name": "item",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "slotID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetBounty;Bounty",
-      "shortName": "SetBounty",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bounty",
-          "name": "bounty",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetBountyAwarded;",
-      "shortName": "SetBountyAwarded",
-      "flags": 516
-    },
-    {
-      "fullName": "SetDetectionPercentage;Float",
-      "shortName": "SetDetectionPercentage",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Float",
-          "name": "percent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetDisableRagdoll;Bool",
-      "shortName": "SetDisableRagdoll",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "disableRagdoll",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetHitEventData;gameHitEventFloatFloatFloat",
-      "shortName": "SetHitEventData",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hitEvent",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "hitReactionFactor",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "hitWoundsFactor",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "hitDismembermentFactor",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetIsDefeatMechanicActive;BoolBool",
-      "shortName": "SetIsDefeatMechanicActive",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isDefeatMechanicActive",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isInitialisation",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SetMyKiller;GameObject",
-      "shortName": "SetMyKiller",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "killer",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetPuppetTargetingPlayer;Bool",
-      "shortName": "SetPuppetTargetingPlayer",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isTargeting",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetRandomAnimWrappersForLocomotion;",
-      "shortName": "SetRandomAnimWrappersForLocomotion",
-      "flags": 132
-    },
-    {
-      "fullName": "SetWeaponFx;",
-      "shortName": "SetWeaponFx",
-      "flags": 132
-    },
-    {
-      "fullName": "ShouldDelayStatusEffectApplication;ApplyStatusEffectEvent",
-      "shortName": "ShouldDelayStatusEffectApplication",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldRequestHitReaction;gameHitEvent",
-      "shortName": "ShouldRequestHitReaction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hitEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldTripVictim;NPCPuppet",
-      "shortName": "ShouldTripVictim",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:NPCPuppet",
-          "name": "victim",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnHitVisualEffect;CName",
-      "shortName": "SpawnHitVisualEffect",
-      "flags": 132,
-      "params": [
-        {
-          "type": "CName",
-          "name": "n",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnRagdollBumpAttack;Vector4",
-      "shortName": "SpawnRagdollBumpAttack",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "position",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnRagdollFloorSplash;RagdollImpactPointData",
-      "shortName": "SpawnRagdollFloorSplash",
-      "flags": 260,
-      "params": [
-        {
-          "type": "entRagdollImpactPointData",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnRagdollSplatter;RagdollImpactPointDataBool",
-      "shortName": "SpawnRagdollSplatter",
-      "flags": 260,
-      "params": [
-        {
-          "type": "entRagdollImpactPointData",
-          "name": "impactData",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isDead",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnVehicleBumpAttack;VehicleObjectGameObject",
-      "shortName": "SpawnVehicleBumpAttack",
-      "flags": 260,
-      "params": [
-        {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "player",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartRagdollImpactAttack;RagdollDamagePollData",
-      "shortName": "StartRagdollImpactAttack",
-      "flags": 260,
-      "params": [
-        {
-          "type": "RagdollDamagePollData",
-          "name": "impactData",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "StopStatusEffectSFX;RemoveStatusEffect",
@@ -3193,168 +3474,9 @@
       ]
     },
     {
-      "fullName": "SwitchTargetPlayerTrackedAccuracy;TargetTrackerComponentBool",
-      "shortName": "SwitchTargetPlayerTrackedAccuracy",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:AITargetTrackerComponent",
-          "name": "ttc",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "freeze",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SwitchTargetPlayerTrackedAccuracy;Bool",
-      "shortName": "SwitchTargetPlayerTrackedAccuracy",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "freeze",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerDefeatedBehavior;ApplyStatusEffectEvent",
-      "shortName": "TriggerDefeatedBehavior",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerPendingSEEvent;",
-      "shortName": "TriggerPendingSEEvent",
-      "flags": 132
-    },
-    {
-      "fullName": "TriggerRagdollBehavior;",
-      "shortName": "TriggerRagdollBehavior",
-      "flags": 260
-    },
-    {
-      "fullName": "TriggerRagdollBehaviorEnd;",
-      "shortName": "TriggerRagdollBehaviorEnd",
-      "flags": 260
-    },
-    {
-      "fullName": "TriggerStatusEffectBehavior;ApplyStatusEffectEventBool",
-      "shortName": "TriggerStatusEffectBehavior",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "alwaysTrigger",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "TryRepeatStatusEffectSignal;Floatarray<CName>array<EAIGateSignalFlags>TweakDBIDFloatFloat",
-      "shortName": "TryRepeatStatusEffectSignal",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Float",
-          "name": "priority",
-          "flags": 128
-        },
-        {
-          "type": "array:CName",
-          "name": "tags",
-          "flags": 128
-        },
-        {
-          "type": "array:EAIGateSignalFlags",
-          "name": "flags",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "statusEffectID",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "repeatSignalDelay",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "remainingStatusEffectDuration",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TutorialAddIllegalActionFact;",
-      "shortName": "TutorialAddIllegalActionFact",
-      "flags": 132
-    },
-    {
-      "fullName": "UnregisterCallbacksForReactions;",
-      "shortName": "UnregisterCallbacksForReactions",
-      "flags": 260
-    },
-    {
       "fullName": "UpdateAdditionalScanningData;",
       "shortName": "UpdateAdditionalScanningData",
       "flags": 512
-    },
-    {
-      "fullName": "UpdateAnimgraphRagdollState;Bool",
-      "shortName": "UpdateAnimgraphRagdollState",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isActive",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateCollisionState;",
-      "shortName": "UpdateCollisionState",
-      "flags": 516
-    },
-    {
-      "fullName": "WasJustKilledOrDefeated;",
-      "shortName": "WasJustKilledOrDefeated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "test;",
-      "shortName": "test",
-      "flags": 32900
     }
   ]
 }

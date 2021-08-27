@@ -2,28 +2,24 @@
   "parent": "LocomotionAirDecisions",
   "name": "AirHoverDecisions",
   "flags": 4,
-  "funcs": [
+  "props": [
     {
-      "fullName": "EnterCondition;StateContextStateGameScriptInterface",
-      "shortName": "EnterCondition",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8448,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
+      "type": "whandle:gameObject",
+      "name": "executionOwner",
+      "flags": 4297130016
     },
+    {
+      "type": "handle:DefaultTransitionStatusEffectListener",
+      "name": "statusEffectListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "hasStatusEffect",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
     {
       "fullName": "IsDistanceToGroundAcceptable;StateContextStateGameScriptInterface",
       "shortName": "IsDistanceToGroundAcceptable",
@@ -67,6 +63,23 @@
       ]
     },
     {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ToSuperheroFall;StateContextStateGameScriptInterface",
       "shortName": "ToSuperheroFall",
       "return": {
@@ -83,6 +96,73 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateHasStatusEffect;",
+      "shortName": "UpdateHasStatusEffect",
+      "flags": 260
+    },
+    {
+      "fullName": "EnterCondition;StateContextStateGameScriptInterface",
+      "shortName": "EnterCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8448,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied;StatusEffect_Record",
+      "shortName": "OnStatusEffectApplied",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamedataStatusEffect_Record",
+          "name": "statusEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectRemoved;StatusEffect_Record",
+      "shortName": "OnStatusEffectRemoved",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamedataStatusEffect_Record",
+          "name": "statusEffect",
           "flags": 128
         }
       ]

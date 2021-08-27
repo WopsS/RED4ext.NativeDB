@@ -69,6 +69,16 @@
       "flags": 4297130016
     },
     {
+      "type": "Int32",
+      "name": "spawnedDigits",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "spawnedAccumulatedDigitsDigits",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:gameIBlackboard",
       "name": "damageInfoBB",
       "flags": 4297130016
@@ -79,24 +89,24 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "damageListBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBWeaponListBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "damageDigitsModeBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "damageDigitsStickingModeBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -145,6 +155,58 @@
       "flags": 132
     },
     {
+      "fullName": "RegisterDigitsToQueue;",
+      "shortName": "RegisterDigitsToQueue",
+      "flags": 132
+    },
+    {
+      "fullName": "ShowDamageFloater;DamageInfo",
+      "shortName": "ShowDamageFloater",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameuiDamageInfo",
+          "name": "damageInfo",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateDamageDigitsMode;",
+      "shortName": "UpdateDamageDigitsMode",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateDamageDigitsStickingMode;",
+      "shortName": "UpdateDamageDigitsStickingMode",
+      "flags": 132
+    },
+    {
+      "fullName": "OnAccumulatedDamageDigitSpawned",
+      "shortName": "OnAccumulatedDamageDigitSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDamageAdded",
       "shortName": "OnDamageAdded",
       "return": {
@@ -156,6 +218,27 @@
         {
           "type": "Variant",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDamageDigitSpawned",
+      "shortName": "OnDamageDigitSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
           "flags": 128
         }
       ]
@@ -273,32 +356,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "ShowDamageFloater;DamageInfo",
-      "shortName": "ShowDamageFloater",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameuiDamageInfo",
-          "name": "damageInfo",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateDamageDigitsMode;",
-      "shortName": "UpdateDamageDigitsMode",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateDamageDigitsStickingMode;",
-      "shortName": "UpdateDamageDigitsStickingMode",
-      "flags": 132
     }
   ]
 }

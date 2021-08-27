@@ -2,6 +2,23 @@
   "parent": "WeaponTransition",
   "name": "ChargeDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "handle:redCallbackObject",
+      "name": "callbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "triggerModeCorrect",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inputPressed",
+      "flags": 4297130016
+    }
+  ],
   "funcs": [
     {
       "fullName": "EnterCondition;StateContextStateGameScriptInterface",
@@ -11,6 +28,40 @@
         "flags": 64
       },
       "flags": 8452,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -62,6 +113,72 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateOnEnterConditionEnabled;",
+      "shortName": "UpdateOnEnterConditionEnabled",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateRangedAttackInput;Float",
+      "shortName": "UpdateRangedAttackInput",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTriggerMode;gamedataTriggerMode",
+      "shortName": "UpdateTriggerMode",
+      "flags": 260,
+      "params": [
+        {
+          "type": "gamedataTriggerMode",
+          "name": "modeType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTriggerModeChanged",
+      "shortName": "OnTriggerModeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
           "flags": 128
         }
       ]

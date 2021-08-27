@@ -56,54 +56,6 @@
       ]
     },
     {
-      "fullName": "ActionDemolition;GetActionsContext",
-      "shortName": "ActionDemolition",
-      "return": {
-        "type": "handle:ActionDemolition",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "gameGetActionsContext",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActionEngineering;GetActionsContext",
-      "shortName": "ActionEngineering",
-      "return": {
-        "type": "handle:ActionEngineering",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "gameGetActionsContext",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActionHacking;GetActionsContext",
-      "shortName": "ActionHacking",
-      "return": {
-        "type": "handle:ActionHacking",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "gameGetActionsContext",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ActionQuestCustomAction;",
       "shortName": "ActionQuestCustomAction",
       "return": {
@@ -161,6 +113,291 @@
       ]
     },
     {
+      "fullName": "GetPerformedCustomActionsStorage;",
+      "shortName": "GetPerformedCustomActionsStorage",
+      "return": {
+        "type": "array:CName",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetRecordName;DeviceAction",
+      "shortName": "GetRecordName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gamedeviceAction",
+          "name": "inputAction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSkillCheckActionDisplayName;ActionSkillCheck",
+      "shortName": "GetSkillCheckActionDisplayName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ActionSkillCheck",
+          "name": "skillAction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasCustomActionStored;CName",
+      "shortName": "HasCustomActionStored",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "CName",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeQuestDBCallbacksForCustomActions;",
+      "shortName": "InitializeQuestDBCallbacksForCustomActions",
+      "flags": 516
+    },
+    {
+      "fullName": "OnQuestCustomAction;QuestCustomAction",
+      "shortName": "OnQuestCustomAction",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestCustomAction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestToggleCustomAction;QuestToggleCustomAction",
+      "shortName": "OnQuestToggleCustomAction",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestToggleCustomAction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleCustomActionEvent;ToggleCustomActionEvent",
+      "shortName": "OnToggleCustomActionEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ToggleCustomActionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetPerformedCustomActionsStorage;",
+      "shortName": "ResetPerformedCustomActionsStorage",
+      "flags": 516
+    },
+    {
+      "fullName": "ResolveCustomAction;CName",
+      "shortName": "ResolveCustomAction",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveCustomActionOperation;CustomDeviceAction",
+      "shortName": "ResolveCustomActionOperation",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:CustomDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveFactOnCustomAction;CName",
+      "shortName": "ResolveFactOnCustomAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "factName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveFactOnCustomActionByIndex;Int32",
+      "shortName": "ResolveFactOnCustomActionByIndex",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveSkillCheckAction;ActionSkillCheck",
+      "shortName": "ResolveSkillCheckAction",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ActionSkillCheck",
+          "name": "skillAction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StorePerformedCustomActionID;CName",
+      "shortName": "StorePerformedCustomActionID",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "ID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleCustomAction;CNameBool",
+      "shortName": "ToggleCustomAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnInitializeQuestDBCallbacksForCustomActions;",
+      "shortName": "UnInitializeQuestDBCallbacksForCustomActions",
+      "flags": 516
+    },
+    {
+      "fullName": "WasCustomActionPerformed;CName",
+      "shortName": "WasCustomActionPerformed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 25092,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionDemolition;GetActionsContext",
+      "shortName": "ActionDemolition",
+      "return": {
+        "type": "handle:ActionDemolition",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionEngineering;GetActionsContext",
+      "shortName": "ActionEngineering",
+      "return": {
+        "type": "handle:ActionEngineering",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionHacking;GetActionsContext",
+      "shortName": "ActionHacking",
+      "return": {
+        "type": "handle:ActionHacking",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CanCreateAnyQuickHackActions;",
       "shortName": "CanCreateAnyQuickHackActions",
       "return": {
@@ -181,7 +418,7 @@
     {
       "fullName": "GameAttached;",
       "shortName": "GameAttached",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "GetActions;array<DeviceAction>GetActionsContext",
@@ -221,13 +458,20 @@
       ]
     },
     {
-      "fullName": "GetPerformedCustomActionsStorage;",
-      "shortName": "GetPerformedCustomActionsStorage",
+      "fullName": "GetQuestActionByName;CName",
+      "shortName": "GetQuestActionByName",
       "return": {
-        "type": "array:CName",
+        "type": "handle:gamedeviceAction",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 512,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
@@ -264,38 +508,6 @@
       ]
     },
     {
-      "fullName": "GetRecordName;DeviceAction",
-      "shortName": "GetRecordName",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gamedeviceAction",
-          "name": "inputAction",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetSkillCheckActionDisplayName;ActionSkillCheck",
-      "shortName": "GetSkillCheckActionDisplayName",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:ActionSkillCheck",
-          "name": "skillAction",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetSpiderbotActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetSpiderbotActions",
       "flags": 256,
@@ -322,25 +534,9 @@
       "flags": 512
     },
     {
-      "fullName": "HasCustomActionStored;CName",
-      "shortName": "HasCustomActionStored",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "CName",
-          "name": "ID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "InitializeQuestDBCallbacksForCustomActions;",
-      "shortName": "InitializeQuestDBCallbacksForCustomActions",
-      "flags": 516
+      "fullName": "LogicReady;",
+      "shortName": "LogicReady",
+      "flags": 256
     },
     {
       "fullName": "OnActionDemolition;ActionDemolition",
@@ -416,59 +612,6 @@
       "flags": 264
     },
     {
-      "fullName": "OnQuestCustomAction;QuestCustomAction",
-      "shortName": "OnQuestCustomAction",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestCustomAction",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestToggleCustomAction;QuestToggleCustomAction",
-      "shortName": "OnQuestToggleCustomAction",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestToggleCustomAction",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnToggleCustomActionEvent;ToggleCustomActionEvent",
-      "shortName": "OnToggleCustomActionEvent",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:ToggleCustomActionEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResetPerformedCustomActionsStorage;",
-      "shortName": "ResetPerformedCustomActionsStorage",
-      "flags": 516
-    },
-    {
       "fullName": "ResolveActionHackingCompleted;ActionHacking",
       "shortName": "ResolveActionHackingCompleted",
       "flags": 256,
@@ -488,108 +631,6 @@
         {
           "type": "handle:ScriptableDeviceAction",
           "name": "action",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveCustomAction;CName",
-      "shortName": "ResolveCustomAction",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "actionID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveCustomActionOperation;CustomDeviceAction",
-      "shortName": "ResolveCustomActionOperation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:CustomDeviceAction",
-          "name": "action",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveFactOnCustomAction;CName",
-      "shortName": "ResolveFactOnCustomAction",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "factName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveSkillCheckAction;ActionSkillCheck",
-      "shortName": "ResolveSkillCheckAction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:ActionSkillCheck",
-          "name": "skillAction",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StorePerformedCustomActionID;CName",
-      "shortName": "StorePerformedCustomActionID",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "ID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ToggleCustomAction;CNameBool",
-      "shortName": "ToggleCustomAction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "CName",
-          "name": "actionID",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "enable",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnInitializeQuestDBCallbacksForCustomActions;",
-      "shortName": "UnInitializeQuestDBCallbacksForCustomActions",
-      "flags": 516
-    },
-    {
-      "fullName": "WasCustomActionPerformed;CName",
-      "shortName": "WasCustomActionPerformed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 25092,
-      "params": [
-        {
-          "type": "CName",
-          "name": "actionID",
           "flags": 128
         }
       ]

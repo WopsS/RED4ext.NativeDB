@@ -9,9 +9,9 @@
       "flags": 4297195553
     },
     {
-      "type": "handle:LinkController",
+      "type": "whandle:LinkController",
       "name": "homeButtonCoontroller",
-      "flags": 4431413281
+      "flags": 4297195553
     },
     {
       "type": "inkTextWidgetReference",
@@ -39,9 +39,9 @@
       "flags": 4297195553
     },
     {
-      "type": "handle:BrowserGameController",
+      "type": "whandle:BrowserGameController",
       "name": "gameController",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "array:whandle:gameJournalInternetPage",
@@ -49,7 +49,7 @@
       "flags": 6583025696
     },
     {
-      "type": "String",
+      "type": "whandle:gameJournalInternetPage",
       "name": "currentRequestedPage",
       "flags": 4297130016
     },
@@ -96,18 +96,13 @@
       ]
     },
     {
-      "fullName": "LoadWebPage;StringJournalManager",
+      "fullName": "LoadWebPage;String",
       "shortName": "LoadWebPage",
       "flags": 132,
       "params": [
         {
           "type": "String",
           "name": "address",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameJournalManager",
-          "name": "journalManager",
           "flags": 128
         }
       ]
@@ -119,22 +114,6 @@
       "params": [
         {
           "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnProcessLinkPressed",
-      "shortName": "OnProcessLinkPressed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
           "name": "e",
           "flags": 128
         }
@@ -201,6 +180,64 @@
       "fullName": "UnloadCurrentWebsite;",
       "shortName": "UnloadCurrentWebsite",
       "flags": 132
+    },
+    {
+      "fullName": "OnPageSpawned",
+      "shortName": "OnPageSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProcessLinkPressed",
+      "shortName": "OnProcessLinkPressed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpinnerSpawned",
+      "shortName": "OnSpinnerSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

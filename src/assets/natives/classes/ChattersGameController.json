@@ -54,14 +54,39 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbPSceneTierEventId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Int32",
       "name": "sceneTier",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnNameplateEntityChangedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnNameplateOffsetChangedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnNameplateVisibilityChangedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnScannerModeChangedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnOnDialogsDataCallback",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -76,27 +101,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "CreateLine;LineSpawnData",
-      "shortName": "CreateLine",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:LineSpawnData",
-          "name": "lineSpawnData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetTextSizeSettigId;",
-      "shortName": "GetTextSizeSettigId",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 33024
     },
     {
       "fullName": "IsBroadcastBlockedByMainDialogue;",
@@ -138,6 +142,114 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "OnNameplateChanged;",
+      "shortName": "OnNameplateChanged",
+      "flags": 132
+    },
+    {
+      "fullName": "OnNameplateEntityChanged;Variant",
+      "shortName": "OnNameplateEntityChanged",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "vrt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNameplateOffsetChanged;Float",
+      "shortName": "OnNameplateOffsetChanged",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Float",
+          "name": "vrt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNameplateVisibilityChanged;Bool",
+      "shortName": "OnNameplateVisibilityChanged",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visibility",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartScreenProjection;inkWidgetBool",
+      "shortName": "StartScreenProjection",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "lineWidget",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDevice",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopScreenProjection;inkWidget",
+      "shortName": "StopScreenProjection",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "lineWidget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateChattersNameplateData;EntityIDBool",
+      "shortName": "UpdateChattersNameplateData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateLine;LineSpawnData",
+      "shortName": "CreateLine",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:LineSpawnData",
+          "name": "lineSpawnData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTextSizeSettigId;",
+      "shortName": "GetTextSizeSettigId",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "OnDialogsData",
@@ -187,47 +299,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "OnNameplateChanged;",
-      "shortName": "OnNameplateChanged",
-      "flags": 132
-    },
-    {
-      "fullName": "OnNameplateEntityChanged;Variant",
-      "shortName": "OnNameplateEntityChanged",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "vrt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnNameplateOffsetChanged;Float",
-      "shortName": "OnNameplateOffsetChanged",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Float",
-          "name": "vrt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnNameplateVisibilityChanged;Bool",
-      "shortName": "OnNameplateVisibilityChanged",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "visibility",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "OnNameplateVisibleEvent",
@@ -359,6 +430,18 @@
       "flags": 264
     },
     {
+      "fullName": "SetChattersForeignLinesVisibilitySetting;Bool",
+      "shortName": "SetChattersForeignLinesVisibilitySetting",
+      "flags": 256,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetChattersVisibilitySetting;Bool",
       "shortName": "SetChattersVisibilitySetting",
       "flags": 256,
@@ -404,47 +487,13 @@
       ]
     },
     {
-      "fullName": "StartScreenProjection;inkWidgetBool",
-      "shortName": "StartScreenProjection",
-      "flags": 132,
+      "fullName": "ShowKiroshiSettings;Bool",
+      "shortName": "ShowKiroshiSettings",
+      "flags": 256,
       "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "lineWidget",
-          "flags": 128
-        },
         {
           "type": "Bool",
-          "name": "isDevice",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StopScreenProjection;inkWidget",
-      "shortName": "StopScreenProjection",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "lineWidget",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateChattersNameplateData;EntityIDBool",
-      "shortName": "UpdateChattersNameplateData",
-      "flags": 132,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "entID",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isVisible",
+          "name": "value",
           "flags": 128
         }
       ]

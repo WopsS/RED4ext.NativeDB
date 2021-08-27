@@ -44,9 +44,9 @@
       "flags": 4297195552
     },
     {
-      "type": "handle:InventoryItemDisplayController",
+      "type": "whandle:InventoryItemDisplayController",
       "name": "itemDisplay",
-      "flags": 4431413280
+      "flags": 4297195552
     },
     {
       "type": "Int32",
@@ -54,9 +54,9 @@
       "flags": 4297195552
     },
     {
-      "type": "handle:InventoryItemDisplayController",
+      "type": "whandle:InventoryItemDisplayController",
       "name": "selectedItem",
-      "flags": 4431413280
+      "flags": 4297195552
     },
     {
       "type": "whandle:gameuiTooltipsManager",
@@ -72,27 +72,27 @@
       "params": [
         {
           "type": "whandle:PlayerPuppet",
-          "name": "player",
+          "name": "playerArg",
           "flags": 128
         },
         {
           "type": "handle:InventoryDataManagerV2",
-          "name": "inventoryDataManager",
+          "name": "inventoryDataManagerArg",
           "flags": 128
         },
         {
           "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
+          "name": "equipmentAreaArg",
           "flags": 128
         },
         {
           "type": "Int32",
-          "name": "slotIndex",
+          "name": "slotIndexArg",
           "flags": 1152
         },
         {
           "type": "whandle:gameuiTooltipsManager",
-          "name": "tooltipsManager",
+          "name": "tooltipsManagerArg",
           "flags": 1152
         }
       ]
@@ -119,6 +119,129 @@
       "flags": 132
     },
     {
+      "fullName": "GetEquipmentArea;",
+      "shortName": "GetEquipmentArea",
+      "return": {
+        "type": "gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetInventoryItemDisplayControllerFromTarget;inkPointerEvent",
+      "shortName": "GetInventoryItemDisplayControllerFromTarget",
+      "return": {
+        "type": "handle:InventoryItemDisplayController",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSelectedItem;",
+      "shortName": "GetSelectedItem",
+      "return": {
+        "type": "handle:InventoryItemDisplayController",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "GetSlotIndex;",
+      "shortName": "GetSlotIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "HideTooltips;",
+      "shortName": "HideTooltips",
+      "flags": 132
+    },
+    {
+      "fullName": "SetInventoryItemTooltipHoverOver;InventoryItemDataInventoryItemDisplayController",
+      "shortName": "SetInventoryItemTooltipHoverOver",
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
+      "shortName": "ShowNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "UIMenuNotificationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipForItemData;InventoryItemDataInventoryItemDisplayController",
+      "shortName": "ShowTooltipForItemData",
+      "flags": 132,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "inspectedItemData",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipItem;InventoryItemDisplayController",
+      "shortName": "UnequipItem",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipItemMods;InventoryItemDisplayController",
+      "shortName": "UnequipItemMods",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ForceDisplayLabel;",
       "shortName": "ForceDisplayLabel",
       "return": {
@@ -137,15 +260,6 @@
       "flags": 256
     },
     {
-      "fullName": "GetEquipmentArea;",
-      "shortName": "GetEquipmentArea",
-      "return": {
-        "type": "gamedataEquipmentArea",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
       "fullName": "GetIntroAnimation;",
       "shortName": "GetIntroAnimation",
       "return": {
@@ -153,22 +267,6 @@
         "flags": 64
       },
       "flags": 33024
-    },
-    {
-      "fullName": "GetInventoryItemDisplayControllerFromTarget;inkPointerEvent",
-      "shortName": "GetInventoryItemDisplayControllerFromTarget",
-      "return": {
-        "type": "handle:InventoryItemDisplayController",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "GetModifiedItem;",
@@ -198,15 +296,6 @@
       "flags": 512
     },
     {
-      "fullName": "GetSelectedItem;",
-      "shortName": "GetSelectedItem",
-      "return": {
-        "type": "handle:InventoryItemDisplayController",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
       "fullName": "GetSelectedSlotID;",
       "shortName": "GetSelectedSlotID",
       "return": {
@@ -225,15 +314,6 @@
       "flags": 33024
     },
     {
-      "fullName": "GetSlotIndex;",
-      "shortName": "GetSlotIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
       "fullName": "GetSlots;",
       "shortName": "GetSlots",
       "return": {
@@ -241,11 +321,6 @@
         "flags": 64
       },
       "flags": 256
-    },
-    {
-      "fullName": "HideTooltips;",
-      "shortName": "HideTooltips",
-      "flags": 132
     },
     {
       "fullName": "IsAttachmentItem;InventoryItemData",
@@ -339,81 +414,6 @@
         "flags": 64
       },
       "flags": 512
-    },
-    {
-      "fullName": "SetInventoryItemTooltipHoverOver;InventoryItemDataInventoryItemDisplayController",
-      "shortName": "SetInventoryItemTooltipHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
-      "shortName": "ShowNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gameInstance",
-          "flags": 128
-        },
-        {
-          "type": "UIMenuNotificationType",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowTooltipForItemData;InventoryItemDataInventoryItemDisplayController",
-      "shortName": "ShowTooltipForItemData",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "inspectedItemData",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "UnequipItem;InventoryItemDisplayController",
-      "shortName": "UnequipItem",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnequipItemMods;InventoryItemDisplayController",
-      "shortName": "UnequipItemMods",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

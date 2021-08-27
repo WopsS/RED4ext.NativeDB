@@ -2,6 +2,23 @@
   "parent": "DefaultTransition",
   "name": "LocomotionTransition",
   "flags": 5,
+  "props": [
+    {
+      "type": "TweakDBID",
+      "name": "ownerRecordId",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint64",
+      "name": "statModifierGroupId",
+      "flags": 4297326624
+    },
+    {
+      "type": "String",
+      "name": "statModifierTDBNameDefault",
+      "flags": 4297326624
+    }
+  ],
   "funcs": [
     {
       "fullName": "AddImpulse;StateContextVector4",
@@ -38,35 +55,6 @@
         {
           "type": "Float",
           "name": "impulse",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AddModifierGroupForState;StateGameScriptInterface",
-      "shortName": "AddModifierGroupForState",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AddModifierGroupWithName;StateGameScriptInterfaceString",
-      "shortName": "AddModifierGroupWithName",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "modifierTDBName",
           "flags": 128
         }
       ]
@@ -188,15 +176,10 @@
       ]
     },
     {
-      "fullName": "GetStateDefaultLocomotionParameters;StateGameScriptInterfaceLocomotionParameters",
+      "fullName": "GetStateDefaultLocomotionParameters;LocomotionParameters",
       "shortName": "GetStateDefaultLocomotionParameters",
       "flags": 8452,
       "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
         {
           "type": "handle:gamestateMachineparameterTypeActionLocomotionParameters",
           "name": "locomotionParameters",
@@ -247,27 +230,6 @@
       ]
     },
     {
-      "fullName": "InternalEnterCondition;StateContextStateGameScriptInterface",
-      "shortName": "InternalEnterCondition",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8448,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "IsAiming;StateContextStateGameScriptInterface",
       "shortName": "IsAiming",
       "return": {
@@ -284,32 +246,6 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsCurrentFallSpeed;StateContextStateGameScriptInterfaceFloat",
-      "shortName": "IsCurrentFallSpeed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8452,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "fallSpeedThreshold",
           "flags": 128
         }
       ]
@@ -421,23 +357,6 @@
       ]
     },
     {
-      "fullName": "OnForcedExit;StateContextStateGameScriptInterface",
-      "shortName": "OnForcedExit",
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "PlayRumbleBasedOnDodgeDirection;StateContextStateGameScriptInterface",
       "shortName": "PlayRumbleBasedOnDodgeDirection",
       "flags": 260,
@@ -472,13 +391,13 @@
       ]
     },
     {
-      "fullName": "RemoveModifierGroupForState;StateGameScriptInterface",
-      "shortName": "RemoveModifierGroupForState",
+      "fullName": "ResetFallingParameters;StateContext",
+      "shortName": "ResetFallingParameters",
       "flags": 260,
       "params": [
         {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
           "flags": 128
         }
       ]
@@ -492,23 +411,6 @@
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetCustomLocomotionParameters;StateGameScriptInterfaceLocomotionParameters",
-      "shortName": "SetCustomLocomotionParameters",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineparameterTypeActionLocomotionParameters",
-          "name": "locomotionParameters",
-          "flags": 640
         }
       ]
     },
@@ -530,25 +432,9 @@
       ]
     },
     {
-      "fullName": "SetLocomotionCameraParameters;StateContext",
+      "fullName": "SetLocomotionCameraParameters;StateContextStateGameScriptInterface",
       "shortName": "SetLocomotionCameraParameters",
       "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetLocomotionParameters;StateContextStateGameScriptInterface",
-      "shortName": "SetLocomotionParameters",
-      "return": {
-        "type": "handle:gamestateMachineparameterTypeActionLocomotionParameters",
-        "flags": 64
-      },
-      "flags": 512,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -559,6 +445,23 @@
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetModifierGroupForState;StateGameScriptInterfaceString",
+      "shortName": "SetModifierGroupForState",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "statModifierTDBName",
+          "flags": 1152
         }
       ]
     },
@@ -647,6 +550,82 @@
         "flags": 64
       },
       "flags": 8452,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InternalEnterCondition;StateContextStateGameScriptInterface",
+      "shortName": "InternalEnterCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8448,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForcedExit;StateContextStateGameScriptInterface",
+      "shortName": "OnForcedExit",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLocomotionParameters;StateContextStateGameScriptInterface",
+      "shortName": "SetLocomotionParameters",
+      "return": {
+        "type": "handle:gamestateMachineparameterTypeActionLocomotionParameters",
+        "flags": 64
+      },
+      "flags": 512,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",

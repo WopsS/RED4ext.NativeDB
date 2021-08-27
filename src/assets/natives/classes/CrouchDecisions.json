@@ -2,7 +2,66 @@
   "parent": "LocomotionGroundDecisions",
   "name": "CrouchDecisions",
   "flags": 4,
+  "props": [
+    {
+      "type": "whandle:GameplaySettingsSystem",
+      "name": "gameplaySettings",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "executionOwner",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "callbackID",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:DefaultTransitionStatusEffectListener",
+      "name": "statusEffectListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "crouchPressed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "toggleCrouchPressed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "forcedCrouch",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "controllingDevice",
+      "flags": 4297130016
+    }
+  ],
   "funcs": [
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "EnterCondition;StateContextStateGameScriptInterface",
       "shortName": "EnterCondition",
@@ -41,6 +100,84 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;StateContextStateGameScriptInterface",
+      "shortName": "OnAttach",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnControllingDeviceChange",
+      "shortName": "OnControllingDeviceChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied;StatusEffect_Record",
+      "shortName": "OnStatusEffectApplied",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamedataStatusEffect_Record",
+          "name": "statusEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectRemoved;StatusEffect_Record",
+      "shortName": "OnStatusEffectRemoved",
+      "flags": 512,
+      "params": [
+        {
+          "type": "whandle:gamedataStatusEffect_Record",
+          "name": "statusEffect",
           "flags": 128
         }
       ]

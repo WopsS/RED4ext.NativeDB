@@ -129,6 +129,11 @@
       "flags": 4297130016
     },
     {
+      "type": "handle:redCallbackObject",
+      "name": "taggedListenerCallback",
+      "flags": 4431347744
+    },
+    {
       "type": "array:handle:gameLightComponent",
       "name": "lightScanRefs",
       "flags": 6583091232
@@ -398,23 +403,18 @@
       ]
     },
     {
-      "fullName": "ApplyAnimFeatureToReplicate;GameObjectCNameAnimFeature",
-      "shortName": "ApplyAnimFeatureToReplicate",
-      "flags": 512,
+      "fullName": "AddTaggedListener;GameObjectCName",
+      "shortName": "AddTaggedListener",
+      "flags": 132,
       "params": [
         {
           "type": "handle:gameObject",
-          "name": "obj",
+          "name": "object",
           "flags": 128
         },
         {
           "type": "CName",
-          "name": "inputName",
-          "flags": 128
-        },
-        {
-          "type": "handle:animAnimFeature",
-          "name": "value",
+          "name": "funcName",
           "flags": 128
         }
       ]
@@ -627,33 +627,6 @@
       "flags": 8708
     },
     {
-      "fullName": "GetAttitudeAgent;",
-      "shortName": "GetAttitudeAgent",
-      "return": {
-        "type": "handle:gameAttitudeAgent",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetController;",
-      "shortName": "GetController",
-      "return": {
-        "type": "handle:SensorDeviceController",
-        "flags": 64
-      },
-      "flags": 8320
-    },
-    {
-      "fullName": "GetCurrentOutline;",
-      "shortName": "GetCurrentOutline",
-      "return": {
-        "type": "EFocusOutlineType",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "GetCurrentTargets;",
       "shortName": "GetCurrentTargets",
       "return": {
@@ -670,15 +643,6 @@
         "flags": 64
       },
       "flags": 8708
-    },
-    {
-      "fullName": "GetDefaultHighlight;",
-      "shortName": "GetDefaultHighlight",
-      "return": {
-        "type": "handle:FocusForcedHighlightData",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "GetDetectionFactor;",
@@ -699,15 +663,6 @@
       "flags": 8708
     },
     {
-      "fullName": "GetDevicePS;",
-      "shortName": "GetDevicePS",
-      "return": {
-        "type": "handle:SensorDeviceControllerPS",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "GetForcedTargetObject;",
       "shortName": "GetForcedTargetObject",
       "return": {
@@ -715,22 +670,6 @@
         "flags": 64
       },
       "flags": 132
-    },
-    {
-      "fullName": "GetHitSourcePosition;EntityID",
-      "shortName": "GetHitSourcePosition",
-      "return": {
-        "type": "Vector4",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "hitSourceEntityID",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "GetPotentialHitSourcePosition;EntityID",
@@ -776,15 +715,6 @@
       "flags": 132
     },
     {
-      "fullName": "GetSensesComponent;",
-      "shortName": "GetSensesComponent",
-      "return": {
-        "type": "handle:senseComponent",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "GetSensorDeviceState;",
       "shortName": "GetSensorDeviceState",
       "return": {
@@ -792,15 +722,6 @@
         "flags": 64
       },
       "flags": 8708
-    },
-    {
-      "fullName": "GetTargetTrackerComponent;",
-      "shortName": "GetTargetTrackerComponent",
-      "return": {
-        "type": "handle:AITargetTrackerComponent",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "GetTargets;",
@@ -819,6 +740,28 @@
         "flags": 64
       },
       "flags": 8708
+    },
+    {
+      "fullName": "HandleSecuritySystemOutput;",
+      "shortName": "HandleSecuritySystemOutput",
+      "flags": 260
+    },
+    {
+      "fullName": "HandleSecuritySystemOutputByTask;",
+      "shortName": "HandleSecuritySystemOutputByTask",
+      "flags": 260
+    },
+    {
+      "fullName": "HandleSecuritySystemOutputTask;ScriptTaskData",
+      "shortName": "HandleSecuritySystemOutputTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "HasEntityPlayerAttitudeGroup;",
@@ -849,6 +792,18 @@
       "flags": 260
     },
     {
+      "fullName": "InitializeLightsTask;ScriptTaskData",
+      "shortName": "InitializeLightsTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsCurrentTargetOutOfSenseRange;GameObject",
       "shortName": "IsCurrentTargetOutOfSenseRange",
       "return": {
@@ -865,24 +820,6 @@
       ]
     },
     {
-      "fullName": "IsExplosive;",
-      "shortName": "IsExplosive",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "IsGameplayRelevant;",
-      "shortName": "IsGameplayRelevant",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
       "fullName": "IsPlayerSafeTargetLock;",
       "shortName": "IsPlayerSafeTargetLock",
       "return": {
@@ -890,33 +827,6 @@
         "flags": 64
       },
       "flags": 8708
-    },
-    {
-      "fullName": "IsPrevention;",
-      "shortName": "IsPrevention",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsSensor;",
-      "shortName": "IsSensor",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "IsSurveillanceCamera;",
-      "shortName": "IsSurveillanceCamera",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
     },
     {
       "fullName": "IsTargetForcedFromTagKill;",
@@ -1003,6 +913,554 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "OneShotLookAtPosition;Vector4Bool",
+      "shortName": "OneShotLookAtPosition",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "targetPos",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forcedLook",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RecognizeTarget;GameObjectBool",
+      "shortName": "RecognizeTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "newObject",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "questForcedIntresting",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ReevaluateTargets;",
+      "shortName": "ReevaluateTargets",
+      "flags": 516
+    },
+    {
+      "fullName": "RegisterListenerOnTargetHP;GameObject",
+      "shortName": "RegisterListenerOnTargetHP",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveAllTargets;",
+      "shortName": "RemoveAllTargets",
+      "flags": 516
+    },
+    {
+      "fullName": "RemoveLink;",
+      "shortName": "RemoveLink",
+      "flags": 516
+    },
+    {
+      "fullName": "RemoveLinkedStatusEffects;",
+      "shortName": "RemoveLinkedStatusEffects",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "RemoveLinkedStatusEffectsFromTarget;EntityID",
+      "shortName": "RemoveLinkedStatusEffectsFromTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetRotation;",
+      "shortName": "ResetRotation",
+      "flags": 516
+    },
+    {
+      "fullName": "ResolveConnectionWithSecuritySystem;",
+      "shortName": "ResolveConnectionWithSecuritySystem",
+      "flags": 260
+    },
+    {
+      "fullName": "ResolveConnectionWithSecuritySystemByTask;",
+      "shortName": "ResolveConnectionWithSecuritySystemByTask",
+      "flags": 260
+    },
+    {
+      "fullName": "ResolveConnectionWithSecuritySystemTask;ScriptTaskData",
+      "shortName": "ResolveConnectionWithSecuritySystemTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveLogicIDLE;",
+      "shortName": "ResolveLogicIDLE",
+      "flags": 132
+    },
+    {
+      "fullName": "ResolveLogicJAMMER;",
+      "shortName": "ResolveLogicJAMMER",
+      "flags": 132
+    },
+    {
+      "fullName": "ResolveLogicLOSETARGET;Int32",
+      "shortName": "ResolveLogicLOSETARGET",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "iterator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveLogicREPRIMEND;",
+      "shortName": "ResolveLogicREPRIMEND",
+      "flags": 132
+    },
+    {
+      "fullName": "ResolveLogicTARGETLOCK;",
+      "shortName": "ResolveLogicTARGETLOCK",
+      "flags": 132
+    },
+    {
+      "fullName": "ResolveLogicTARGETRECEIVED;Int32",
+      "shortName": "ResolveLogicTARGETRECEIVED",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "iterator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RevertTepmoraryAttitude;",
+      "shortName": "RevertTepmoraryAttitude",
+      "flags": 132
+    },
+    {
+      "fullName": "RunGameEffect;EffectInstanceEffectRefCNameFloat",
+      "shortName": "RunGameEffect",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameEffectInstance",
+          "name": "effectInstance",
+          "flags": 640
+        },
+        {
+          "type": "gameEffectRef",
+          "name": "effectRef",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "slotName",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "range",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RunVisionConeGameEffect;",
+      "shortName": "RunVisionConeGameEffect",
+      "flags": 132
+    },
+    {
+      "fullName": "SendDefaultSSNotification;GameObjectBool",
+      "shortName": "SendDefaultSSNotification",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "securityIntresting",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendReprimandInstructionToSecuritySystem;",
+      "shortName": "SendReprimandInstructionToSecuritySystem",
+      "flags": 260
+    },
+    {
+      "fullName": "SenseLoseTarget;GameObject",
+      "shortName": "SenseLoseTarget",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDetectionMultiplier;Float",
+      "shortName": "SetDetectionMultiplier",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Float",
+          "name": "multiplier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasSupport;Bool",
+      "shortName": "SetHasSupport",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHostileTowardsPlayerHostiles;",
+      "shortName": "SetHostileTowardsPlayerHostiles",
+      "flags": 260
+    },
+    {
+      "fullName": "SetSenseObjectType;gamedataSenseObjectType",
+      "shortName": "SetSenseObjectType",
+      "flags": 516,
+      "params": [
+        {
+          "type": "gamedataSenseObjectType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSensePresetBasedOnSSState;",
+      "shortName": "SetSensePresetBasedOnSSState",
+      "flags": 132
+    },
+    {
+      "fullName": "SetupLookAtProperties;TweakDBIDVector4GameObject",
+      "shortName": "SetupLookAtProperties",
+      "return": {
+        "type": "handle:entLookAtAddEvent",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "recordID",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "position",
+          "flags": 1152
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "otherTarget",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "StartBehaviourResolve;ESensorDeviceStates",
+      "shortName": "StartBehaviourResolve",
+      "flags": 132,
+      "params": [
+        {
+          "type": "ESensorDeviceStates",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartReprimand;",
+      "shortName": "StartReprimand",
+      "flags": 132
+    },
+    {
+      "fullName": "SyncRotationWithAnimGraph;",
+      "shortName": "SyncRotationWithAnimGraph",
+      "flags": 516
+    },
+    {
+      "fullName": "TCSMeshToggle;Bool",
+      "shortName": "TCSMeshToggle",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TerminateGameEffect;EffectInstance",
+      "shortName": "TerminateGameEffect",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameEffectInstance",
+          "name": "effectInstance",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleActiveEffect;Bool",
+      "shortName": "ToggleActiveEffect",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "active",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOffSenseComponent;",
+      "shortName": "TurnOffSenseComponent",
+      "flags": 132
+    },
+    {
+      "fullName": "UnregisterListenerOnTargetHP;GameObjectTargetedObjectDeathListener",
+      "shortName": "UnregisterListenerOnTargetHP",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "listeningObject",
+          "flags": 128
+        },
+        {
+          "type": "handle:TargetedObjectDeathListener",
+          "name": "listener",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterListenerOnTargetHP;GameObjectGameObject",
+      "shortName": "UnregisterListenerOnTargetHP",
+      "flags": 260,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "listeningObject",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "lostObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateAnimFeatureWakeState;",
+      "shortName": "UpdateAnimFeatureWakeState",
+      "flags": 132
+    },
+    {
+      "fullName": "ApplyAnimFeatureToReplicate;GameObjectCNameAnimFeature",
+      "shortName": "ApplyAnimFeatureToReplicate",
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "inputName",
+          "flags": 128
+        },
+        {
+          "type": "handle:animAnimFeature",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttitudeAgent;",
+      "shortName": "GetAttitudeAgent",
+      "return": {
+        "type": "handle:gameAttitudeAgent",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:ScriptableDC",
+        "flags": 64
+      },
+      "flags": 8320
+    },
+    {
+      "fullName": "GetCurrentOutline;",
+      "shortName": "GetCurrentOutline",
+      "return": {
+        "type": "EFocusOutlineType",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetDefaultHighlight;",
+      "shortName": "GetDefaultHighlight",
+      "return": {
+        "type": "handle:FocusForcedHighlightData",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:ScriptableDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetHitSourcePosition;EntityID",
+      "shortName": "GetHitSourcePosition",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "hitSourceEntityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSensesComponent;",
+      "shortName": "GetSensesComponent",
+      "return": {
+        "type": "handle:senseComponent",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetTargetTrackerComponent;",
+      "shortName": "GetTargetTrackerComponent",
+      "return": {
+        "type": "handle:AITargetTrackerComponent",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsExplosive;",
+      "shortName": "IsExplosive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsGameplayRelevant;",
+      "shortName": "IsGameplayRelevant",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsPrevention;",
+      "shortName": "IsPrevention",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsSensor;",
+      "shortName": "IsSensor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsSurveillanceCamera;",
+      "shortName": "IsSurveillanceCamera",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "OnAllValidTargetsDisappears;",
@@ -1206,6 +1664,38 @@
       "params": [
         {
           "type": "handle:senseOnRemoveDetection",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostInitialize",
+      "shortName": "OnPostInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPostInitializeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreUninitialize",
+      "shortName": "OnPreUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:entPreUninitializeEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1764,23 +2254,6 @@
       ]
     },
     {
-      "fullName": "OneShotLookAtPosition;Vector4Bool",
-      "shortName": "OneShotLookAtPosition",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "targetPos",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "forcedLook",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "OverrideLookAtSetupHor;LookAtAddEvent",
       "shortName": "OverrideLookAtSetupHor",
       "flags": 33024,
@@ -1805,203 +2278,14 @@
       ]
     },
     {
-      "fullName": "RecognizeTarget;GameObjectBool",
-      "shortName": "RecognizeTarget",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "newObject",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "questForcedIntresting",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ReevaluateTargets;",
-      "shortName": "ReevaluateTargets",
-      "flags": 516
-    },
-    {
-      "fullName": "RegisterListenerOnTargetHP;GameObject",
-      "shortName": "RegisterListenerOnTargetHP",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RemoveAllTargets;",
-      "shortName": "RemoveAllTargets",
-      "flags": 516
-    },
-    {
-      "fullName": "RemoveLink;",
-      "shortName": "RemoveLink",
-      "flags": 516
-    },
-    {
-      "fullName": "RemoveLinkedStatusEffects;",
-      "shortName": "RemoveLinkedStatusEffects",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "RemoveLinkedStatusEffectsFromTarget;EntityID",
-      "shortName": "RemoveLinkedStatusEffectsFromTarget",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "sourceID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResetRotation;",
-      "shortName": "ResetRotation",
-      "flags": 516
-    },
-    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
     },
     {
-      "fullName": "ResolveLogicIDLE;",
-      "shortName": "ResolveLogicIDLE",
-      "flags": 132
-    },
-    {
-      "fullName": "ResolveLogicJAMMER;",
-      "shortName": "ResolveLogicJAMMER",
-      "flags": 132
-    },
-    {
-      "fullName": "ResolveLogicLOSETARGET;Int32",
-      "shortName": "ResolveLogicLOSETARGET",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "iterator",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveLogicREPRIMEND;",
-      "shortName": "ResolveLogicREPRIMEND",
-      "flags": 132
-    },
-    {
-      "fullName": "ResolveLogicTARGETLOCK;",
-      "shortName": "ResolveLogicTARGETLOCK",
-      "flags": 132
-    },
-    {
-      "fullName": "ResolveLogicTARGETRECEIVED;Int32",
-      "shortName": "ResolveLogicTARGETRECEIVED",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "iterator",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RevertTepmoraryAttitude;",
-      "shortName": "RevertTepmoraryAttitude",
-      "flags": 132
-    },
-    {
-      "fullName": "RunGameEffect;EffectInstanceEffectRefCNameFloat",
-      "shortName": "RunGameEffect",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameEffectInstance",
-          "name": "effectInstance",
-          "flags": 640
-        },
-        {
-          "type": "gameEffectRef",
-          "name": "effectRef",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "slotName",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "range",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RunVisionConeGameEffect;",
-      "shortName": "RunVisionConeGameEffect",
-      "flags": 132
-    },
-    {
-      "fullName": "SendDefaultSSNotification;GameObjectBool",
-      "shortName": "SendDefaultSSNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "securityIntresting",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SendDisableAreaIndicatorEvent;",
       "shortName": "SendDisableAreaIndicatorEvent",
       "flags": 256
-    },
-    {
-      "fullName": "SendReprimandInstructionToSecuritySystem;",
-      "shortName": "SendReprimandInstructionToSecuritySystem",
-      "flags": 260
-    },
-    {
-      "fullName": "SenseLoseTarget;GameObject",
-      "shortName": "SenseLoseTarget",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "SetAsIntrestingTarget;GameObject",
@@ -2018,35 +2302,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "SetDetectionMultiplier;Float",
-      "shortName": "SetDetectionMultiplier",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Float",
-          "name": "multiplier",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetHasSupport;Bool",
-      "shortName": "SetHasSupport",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetHostileTowardsPlayerHostiles;",
-      "shortName": "SetHostileTowardsPlayerHostiles",
-      "flags": 260
     },
     {
       "fullName": "SetLookAtPositionProviderOnFollowedTarget;LookAtAddEventGameObject",
@@ -2066,61 +2321,6 @@
       ]
     },
     {
-      "fullName": "SetSenseObjectType;gamedataSenseObjectType",
-      "shortName": "SetSenseObjectType",
-      "flags": 516,
-      "params": [
-        {
-          "type": "gamedataSenseObjectType",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetSensePresetBasedOnSSState;",
-      "shortName": "SetSensePresetBasedOnSSState",
-      "flags": 132
-    },
-    {
-      "fullName": "SetupLookAtProperties;TweakDBIDVector4GameObject",
-      "shortName": "SetupLookAtProperties",
-      "return": {
-        "type": "handle:entLookAtAddEvent",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "TweakDBID",
-          "name": "recordID",
-          "flags": 128
-        },
-        {
-          "type": "Vector4",
-          "name": "position",
-          "flags": 1152
-        },
-        {
-          "type": "handle:gameObject",
-          "name": "otherTarget",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "StartBehaviourResolve;ESensorDeviceStates",
-      "shortName": "StartBehaviourResolve",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ESensorDeviceStates",
-          "name": "newState",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "StartLockingTarget;Float",
       "shortName": "StartLockingTarget",
       "flags": 256,
@@ -2128,52 +2328,6 @@
         {
           "type": "Float",
           "name": "lockingTime",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartReprimand;",
-      "shortName": "StartReprimand",
-      "flags": 132
-    },
-    {
-      "fullName": "SyncRotationWithAnimGraph;",
-      "shortName": "SyncRotationWithAnimGraph",
-      "flags": 516
-    },
-    {
-      "fullName": "TCSMeshToggle;Bool",
-      "shortName": "TCSMeshToggle",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isVisible",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TerminateGameEffect;EffectInstance",
-      "shortName": "TerminateGameEffect",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameEffectInstance",
-          "name": "effectInstance",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "ToggleActiveEffect;Bool",
-      "shortName": "ToggleActiveEffect",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "active",
           "flags": 128
         }
       ]
@@ -2196,53 +2350,9 @@
       "flags": 256
     },
     {
-      "fullName": "TurnOffSenseComponent;",
-      "shortName": "TurnOffSenseComponent",
-      "flags": 132
-    },
-    {
       "fullName": "TurnOnDevice;",
       "shortName": "TurnOnDevice",
       "flags": 256
-    },
-    {
-      "fullName": "UnregisterListenerOnTargetHP;GameObjectTargetedObjectDeathListener",
-      "shortName": "UnregisterListenerOnTargetHP",
-      "flags": 8708,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "listeningObject",
-          "flags": 128
-        },
-        {
-          "type": "handle:TargetedObjectDeathListener",
-          "name": "listener",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnregisterListenerOnTargetHP;GameObjectGameObject",
-      "shortName": "UnregisterListenerOnTargetHP",
-      "flags": 260,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "listeningObject",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "lostObject",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateAnimFeatureWakeState;",
-      "shortName": "UpdateAnimFeatureWakeState",
-      "flags": 132
     }
   ]
 }

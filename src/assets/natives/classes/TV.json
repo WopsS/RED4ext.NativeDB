@@ -51,46 +51,6 @@
   ],
   "funcs": [
     {
-      "fullName": "ApplyActiveStatusEffect;EntityIDTweakDBID",
-      "shortName": "ApplyActiveStatusEffect",
-      "flags": 256,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "statusEffect",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CreateBlackboard;",
-      "shortName": "CreateBlackboard",
-      "flags": 256
-    },
-    {
-      "fullName": "DeterminGameplayRole;",
-      "shortName": "DeterminGameplayRole",
-      "return": {
-        "type": "EGameplayRole",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "GetBlackboardDef;",
-      "shortName": "GetBlackboardDef",
-      "return": {
-        "type": "handle:TVDeviceBlackboardDef",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "GetBroadcastGlitchVideoPath;",
       "shortName": "GetBroadcastGlitchVideoPath",
       "return": {
@@ -148,15 +108,6 @@
       ]
     },
     {
-      "fullName": "GetController;",
-      "shortName": "GetController",
-      "return": {
-        "type": "handle:TVController",
-        "flags": 64
-      },
-      "flags": 8448
-    },
-    {
       "fullName": "GetDefaultGlitchVideoPath;",
       "shortName": "GetDefaultGlitchVideoPath",
       "return": {
@@ -164,15 +115,6 @@
         "flags": 64
       },
       "flags": 8708
-    },
-    {
-      "fullName": "GetDevicePS;",
-      "shortName": "GetDevicePS",
-      "return": {
-        "type": "handle:TVControllerPS",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "GetGlobalTVChannels;",
@@ -184,15 +126,6 @@
       "flags": 8708
     },
     {
-      "fullName": "IsDeviceMovableScript;",
-      "shortName": "IsDeviceMovableScript",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 256
-    },
-    {
       "fullName": "IsInteractive;",
       "shortName": "IsInteractive",
       "return": {
@@ -200,6 +133,114 @@
         "flags": 64
       },
       "flags": 8708
+    },
+    {
+      "fullName": "SelectChannel;Int32",
+      "shortName": "SelectChannel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "currentChannelIDX",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SelectChannel;String",
+      "shortName": "SelectChannel",
+      "flags": 132,
+      "params": [
+        {
+          "type": "String",
+          "name": "channelName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartShortGlitch;",
+      "shortName": "StartShortGlitch",
+      "flags": 132
+    },
+    {
+      "fullName": "ToggleSoundEmmiter;Bool",
+      "shortName": "ToggleSoundEmmiter",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "mute",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ApplyActiveStatusEffect;EntityIDTweakDBID",
+      "shortName": "ApplyActiveStatusEffect",
+      "flags": 256,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "statusEffect",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateBlackboard;",
+      "shortName": "CreateBlackboard",
+      "flags": 256
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetBlackboardDef;",
+      "shortName": "GetBlackboardDef",
+      "return": {
+        "type": "handle:DeviceBaseBlackboardDef",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:ScriptableDC",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:ScriptableDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "IsDeviceMovableScript;",
+      "shortName": "IsDeviceMovableScript",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 256
     },
     {
       "fullName": "IsReadyForUI;",
@@ -454,30 +495,6 @@
       "flags": 256
     },
     {
-      "fullName": "SelectChannel;Int32",
-      "shortName": "SelectChannel",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "currentChannelIDX",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SelectChannel;String",
-      "shortName": "SelectChannel",
-      "flags": 132,
-      "params": [
-        {
-          "type": "String",
-          "name": "channelName",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "StartGlitching;EGlitchStateFloat",
       "shortName": "StartGlitching",
       "flags": 256,
@@ -495,26 +512,9 @@
       ]
     },
     {
-      "fullName": "StartShortGlitch;",
-      "shortName": "StartShortGlitch",
-      "flags": 132
-    },
-    {
       "fullName": "StopGlitching;",
       "shortName": "StopGlitching",
       "flags": 256
-    },
-    {
-      "fullName": "ToggleSoundEmmiter;Bool",
-      "shortName": "ToggleSoundEmmiter",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "mute",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "TurnOffDevice;",

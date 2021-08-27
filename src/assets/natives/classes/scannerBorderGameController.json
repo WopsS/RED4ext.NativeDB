@@ -60,11 +60,6 @@
     },
     {
       "type": "inkCompoundWidgetReference",
-      "name": "insideCrosshair",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkCompoundWidgetReference",
       "name": "scannerBarWidget",
       "flags": 4297130017
     },
@@ -79,39 +74,9 @@
       "flags": 4297130017
     },
     {
-      "type": "inkCanvasWidgetReference",
-      "name": "DeviceFluff1",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkCanvasWidgetReference",
-      "name": "DeviceFluff2",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkCanvasWidgetReference",
-      "name": "DeviceFluff3",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkFlexWidgetReference",
-      "name": "DeviceFluff4",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkFlexWidgetReference",
-      "name": "DeviceFluff5",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkHorizontalPanelWidgetReference",
-      "name": "DeviceFluff6",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkImageWidgetReference",
-      "name": "DeviceFluff7",
-      "flags": 4297130017
+      "type": "array:inkWidgetReference",
+      "name": "deviceFluffs",
+      "flags": 6583025697
     },
     {
       "type": "handle:inkanimProxy",
@@ -229,69 +194,69 @@
       "flags": 6583025696
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "scanBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "psmBlackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "tcsBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "BBID_ScanObject",
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
-      "name": "BBID_ScanObject",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBID_ScanObject_Data",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBID_ScanObject_Position",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBID_ScanState",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBID_ProgressNum",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBID_ProgressText",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "BBID_ExclusiveFocus",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "PSM_BBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "tcs_BBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "VisionStateBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -317,6 +282,48 @@
         "flags": 64
       },
       "flags": 132
+    },
+    {
+      "fullName": "PlayLockAnimation;Bool",
+      "shortName": "PlayLockAnimation",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "showAnim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveState;",
+      "shortName": "ResolveState",
+      "flags": 132
+    },
+    {
+      "fullName": "ShouldShowScanner;",
+      "shortName": "ShouldShowScanner",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "ShouldShowScanner;GameObject",
+      "shortName": "ShouldShowScanner",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "currentTargetObject",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnChangeControlledDevice",
@@ -543,48 +550,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "PlayLockAnimation;Bool",
-      "shortName": "PlayLockAnimation",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "showAnim",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveState;",
-      "shortName": "ResolveState",
-      "flags": 132
-    },
-    {
-      "fullName": "ShouldShowScanner;",
-      "shortName": "ShouldShowScanner",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "ShouldShowScanner;GameObject",
-      "shortName": "ShouldShowScanner",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "currentTargetObject",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

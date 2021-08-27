@@ -19,14 +19,14 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "crosshairStateBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bulletSpreedBlackboardId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Uint32",
@@ -54,19 +54,19 @@
       "flags": 4297195552
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "currentAimTargetBBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "targetDistanceBBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "targetAttitudeBBID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "whandle:entEntity",
@@ -92,7 +92,7 @@
         "type": "handle:gameItemObject",
         "flags": 64
       },
-      "index": 11777,
+      "index": 11971,
       "flags": 1
     },
     {
@@ -102,7 +102,7 @@
         "type": "handle:gameIBlackboard",
         "flags": 64
       },
-      "index": 11776,
+      "index": 11970,
       "flags": 1
     },
     {
@@ -112,7 +112,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "index": 11775,
+      "index": 11969,
       "flags": 1
     },
     {
@@ -122,7 +122,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11778,
+      "index": 11972,
       "flags": 1,
       "params": [
         {
@@ -131,6 +131,85 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetCurrentCrosshairGUIState;",
+      "shortName": "GetCurrentCrosshairGUIState",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "GetGame;",
+      "shortName": "GetGame",
+      "return": {
+        "type": "ScriptGameInstance",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "GetUIActiveWeaponBlackboard;",
+      "shortName": "GetUIActiveWeaponBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "GetVisionState;",
+      "shortName": "GetVisionState",
+      "return": {
+        "type": "gamePSMVision",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "IsActive;",
+      "shortName": "IsActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "QueueCrosshairRefresh;",
+      "shortName": "QueueCrosshairRefresh",
+      "flags": 516
+    },
+    {
+      "fullName": "RegisterTargetCallbacks;Bool",
+      "shortName": "RegisterTargetCallbacks",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "register",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateCrosshairGUIState;Bool",
+      "shortName": "UpdateCrosshairGUIState",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateCrosshairState;",
+      "shortName": "UpdateCrosshairState",
+      "flags": 260
     },
     {
       "fullName": "ApplyCrosshairGUIState;CNameEntity",
@@ -159,15 +238,6 @@
       "flags": 256
     },
     {
-      "fullName": "GetCurrentCrosshairGUIState;",
-      "shortName": "GetCurrentCrosshairGUIState",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
       "fullName": "GetDistanceToTarget;",
       "shortName": "GetDistanceToTarget",
       "return": {
@@ -175,15 +245,6 @@
         "flags": 64
       },
       "flags": 256
-    },
-    {
-      "fullName": "GetGame;",
-      "shortName": "GetGame",
-      "return": {
-        "type": "ScriptGameInstance",
-        "flags": 64
-      },
-      "flags": 260
     },
     {
       "fullName": "GetIntroAnimation;Bool",
@@ -209,33 +270,6 @@
         "flags": 64
       },
       "flags": 33280
-    },
-    {
-      "fullName": "GetUIActiveWeaponBlackboard;",
-      "shortName": "GetUIActiveWeaponBlackboard",
-      "return": {
-        "type": "handle:gameIBlackboard",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
-      "fullName": "GetVisionState;",
-      "shortName": "GetVisionState",
-      "return": {
-        "type": "gamePSMVision",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
-      "fullName": "IsActive;",
-      "shortName": "IsActive",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260
     },
     {
       "fullName": "OnBulletSpreadChanged",
@@ -473,40 +507,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "QueueCrosshairRefresh;",
-      "shortName": "QueueCrosshairRefresh",
-      "flags": 516
-    },
-    {
-      "fullName": "RegisterTargetCallbacks;Bool",
-      "shortName": "RegisterTargetCallbacks",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "register",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateCrosshairGUIState;Bool",
-      "shortName": "UpdateCrosshairGUIState",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "force",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateCrosshairState;",
-      "shortName": "UpdateCrosshairState",
-      "flags": 260
     }
   ]
 }

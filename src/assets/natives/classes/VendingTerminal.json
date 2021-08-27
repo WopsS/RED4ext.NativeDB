@@ -21,11 +21,6 @@
   ],
   "funcs": [
     {
-      "fullName": "CreateBlackboard;",
-      "shortName": "CreateBlackboard",
-      "flags": 256
-    },
-    {
       "fullName": "DelayVendingMachineEvent;FloatItemID",
       "shortName": "DelayVendingMachineEvent",
       "flags": 260,
@@ -43,10 +38,32 @@
       ]
     },
     {
+      "fullName": "SendDataToUIBlackboard;StringString",
+      "shortName": "SendDataToUIBlackboard",
+      "flags": 260,
+      "params": [
+        {
+          "type": "String",
+          "name": "TopText",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "BottomText",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateBlackboard;",
+      "shortName": "CreateBlackboard",
+      "flags": 256
+    },
+    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:VendingMachineDeviceBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -55,7 +72,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:VendingTerminalController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8448
@@ -64,7 +81,7 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:VendingTerminalControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -236,23 +253,6 @@
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
-    },
-    {
-      "fullName": "SendDataToUIBlackboard;StringString",
-      "shortName": "SendDataToUIBlackboard",
-      "flags": 260,
-      "params": [
-        {
-          "type": "String",
-          "name": "TopText",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "BottomText",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

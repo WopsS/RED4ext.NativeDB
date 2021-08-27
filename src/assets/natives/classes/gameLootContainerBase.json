@@ -24,6 +24,11 @@
       "flags": 6694125569
     },
     {
+      "type": "Bool",
+      "name": "wasLootInitalized",
+      "flags": 6627016704
+    },
+    {
       "type": "gamedataQuality",
       "name": "lootQuality",
       "flags": 4297195552
@@ -31,11 +36,6 @@
     {
       "type": "Bool",
       "name": "hasQuestItems",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
-      "name": "wasLootInitalized",
       "flags": 4297130016
     },
     {
@@ -62,7 +62,7 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "index": 10399,
+      "index": 10497,
       "flags": 8193
     },
     {
@@ -72,7 +72,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10398,
+      "index": 10496,
       "flags": 8193
     },
     {
@@ -82,8 +82,74 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10397,
+      "index": 10495,
       "flags": 8193
+    },
+    {
+      "fullName": "IsLogicReady",
+      "shortName": "IsLogicReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 10498,
+      "flags": 8193
+    },
+    {
+      "fullName": "EvaluateLootQuality;",
+      "shortName": "EvaluateLootQuality",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 132
+    },
+    {
+      "fullName": "EvaluateLootQualityEvent;",
+      "shortName": "EvaluateLootQualityEvent",
+      "flags": 260
+    },
+    {
+      "fullName": "EvaluateLootQualityTask;ScriptTaskData",
+      "shortName": "EvaluateLootQualityTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasValidLootQuality;",
+      "shortName": "HasValidLootQuality",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "IsDisabled;",
+      "shortName": "IsDisabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "ToggleLootHighlight;Bool",
+      "shortName": "ToggleLootHighlight",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DeterminGameplayRole;",
@@ -111,18 +177,9 @@
       ]
     },
     {
-      "fullName": "EvaluateLootQuality;",
-      "shortName": "EvaluateLootQuality",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "EvaluateLootQualityEvent;",
-      "shortName": "EvaluateLootQualityEvent",
-      "flags": 260
+      "fullName": "EvaluateLootQualityByTask;",
+      "shortName": "EvaluateLootQualityByTask",
+      "flags": 256
     },
     {
       "fullName": "GetCurrentOutline;",
@@ -164,19 +221,10 @@
       "fullName": "GetPS",
       "shortName": "GetPS",
       "return": {
-        "type": "handle:gameLootContainerBasePS",
+        "type": "handle:gameObjectPS",
         "flags": 64
       },
       "flags": 8448
-    },
-    {
-      "fullName": "HasValidLootQuality;",
-      "shortName": "HasValidLootQuality",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
     },
     {
       "fullName": "IsContainer;",
@@ -188,26 +236,8 @@
       "flags": 8704
     },
     {
-      "fullName": "IsDisabled;",
-      "shortName": "IsDisabled",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
       "fullName": "IsInIconForcedVisibilityRange;",
       "shortName": "IsInIconForcedVisibilityRange",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsLogicReady;",
-      "shortName": "IsLogicReady",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -385,18 +415,6 @@
         "flags": 64
       },
       "flags": 8448
-    },
-    {
-      "fullName": "ToggleLootHighlight;Bool",
-      "shortName": "ToggleLootHighlight",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "enable",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

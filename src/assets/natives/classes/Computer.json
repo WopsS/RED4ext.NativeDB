@@ -46,11 +46,6 @@
       "flags": 132
     },
     {
-      "fullName": "CreateBlackboard;",
-      "shortName": "CreateBlackboard",
-      "flags": 256
-    },
-    {
       "fullName": "DecryptFile;SDocumentAdress",
       "shortName": "DecryptFile",
       "flags": 132,
@@ -75,45 +70,9 @@
       ]
     },
     {
-      "fullName": "DeterminGameplayRole;",
-      "shortName": "DeterminGameplayRole",
-      "return": {
-        "type": "EGameplayRole",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
       "fullName": "DetermineActivationState;",
       "shortName": "DetermineActivationState",
       "flags": 132
-    },
-    {
-      "fullName": "GetBlackboardDef;",
-      "shortName": "GetBlackboardDef",
-      "return": {
-        "type": "handle:ComputerDeviceBlackboardDef",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetController;",
-      "shortName": "GetController",
-      "return": {
-        "type": "handle:ComputerController",
-        "flags": 64
-      },
-      "flags": 8320
-    },
-    {
-      "fullName": "GetDevicePS;",
-      "shortName": "GetDevicePS",
-      "return": {
-        "type": "handle:ComputerControllerPS",
-        "flags": 64
-      },
-      "flags": 8704
     },
     {
       "fullName": "GetInitialMenuType;",
@@ -130,11 +89,6 @@
       "flags": 132
     },
     {
-      "fullName": "InitializeScreenDefinition;",
-      "shortName": "InitializeScreenDefinition",
-      "flags": 128
-    },
-    {
       "fullName": "IsInSleepMode;",
       "shortName": "IsInSleepMode",
       "return": {
@@ -142,6 +96,117 @@
         "flags": 64
       },
       "flags": 8708
+    },
+    {
+      "fullName": "ReadFile;SDocumentAdress",
+      "shortName": "ReadFile",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "fileAdress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReadMail;SDocumentAdress",
+      "shortName": "ReadMail",
+      "flags": 132,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "fileAdress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestBannerWidgetsUpdate;IBlackboard",
+      "shortName": "RequestBannerWidgetsUpdate",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveAnimationState;EComputerAnimationState",
+      "shortName": "ResolveAnimationState",
+      "flags": 132,
+      "params": [
+        {
+          "type": "EComputerAnimationState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopBannerWidgetsUpdate;",
+      "shortName": "StopBannerWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "TransformAnimActivate;Bool",
+      "shortName": "TransformAnimActivate",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "activate",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateBlackboard;",
+      "shortName": "CreateBlackboard",
+      "flags": 256
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetBlackboardDef;",
+      "shortName": "GetBlackboardDef",
+      "return": {
+        "type": "handle:DeviceBaseBlackboardDef",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:ScriptableDC",
+        "flags": 64
+      },
+      "flags": 8320
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:ScriptableDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8704
+    },
+    {
+      "fullName": "InitializeScreenDefinition;",
+      "shortName": "InitializeScreenDefinition",
+      "flags": 128
     },
     {
       "fullName": "OnActivateDevice",
@@ -416,42 +481,6 @@
       ]
     },
     {
-      "fullName": "ReadFile;SDocumentAdress",
-      "shortName": "ReadFile",
-      "flags": 132,
-      "params": [
-        {
-          "type": "SDocumentAdress",
-          "name": "fileAdress",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReadMail;SDocumentAdress",
-      "shortName": "ReadMail",
-      "flags": 132,
-      "params": [
-        {
-          "type": "SDocumentAdress",
-          "name": "fileAdress",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestBannerWidgetsUpdate;IBlackboard",
-      "shortName": "RequestBannerWidgetsUpdate",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameIBlackboard",
-          "name": "blackboard",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ResavePersistentData;PersistentState",
       "shortName": "ResavePersistentData",
       "return": {
@@ -468,18 +497,6 @@
       ]
     },
     {
-      "fullName": "ResolveAnimationState;EComputerAnimationState",
-      "shortName": "ResolveAnimationState",
-      "flags": 132,
-      "params": [
-        {
-          "type": "EComputerAnimationState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 256
@@ -490,8 +507,8 @@
       "flags": 256
     },
     {
-      "fullName": "ShouldExitZoomOnAuthorization;",
-      "shortName": "ShouldExitZoomOnAuthorization",
+      "fullName": "ShouldAlwasyRefreshUIInLogicAra;",
+      "shortName": "ShouldAlwasyRefreshUIInLogicAra",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -499,21 +516,13 @@
       "flags": 33024
     },
     {
-      "fullName": "StopBannerWidgetsUpdate;",
-      "shortName": "StopBannerWidgetsUpdate",
-      "flags": 260
-    },
-    {
-      "fullName": "TransformAnimActivate;Bool",
-      "shortName": "TransformAnimActivate",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "activate",
-          "flags": 128
-        }
-      ]
+      "fullName": "ShouldExitZoomOnAuthorization;",
+      "shortName": "ShouldExitZoomOnAuthorization",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "TurnOffDevice;",

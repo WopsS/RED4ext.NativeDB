@@ -29,14 +29,19 @@
       "flags": 6583025696
     },
     {
-      "type": "handle:gameIBlackboard",
-      "name": "bbInteraction",
-      "flags": 4431347744
+      "type": "array:handle:redCallbackObject",
+      "name": "widgetsCallbacks",
+      "flags": 6583025696
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
+      "name": "bbInteraction",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
       "name": "bbPlayerStateMachine",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UIInteractionsDef",
@@ -44,19 +49,19 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "updateInteractionId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "activeHubListenerId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "contactsActiveListenerId",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Int32",
@@ -79,9 +84,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:DialogChoiceTimerController",
+      "type": "whandle:DialogChoiceTimerController",
       "name": "progressBar",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "Bool",
@@ -89,9 +94,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "bb",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:UIInteractionsDef",
@@ -99,9 +104,29 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbLastAttemptedChoiceCallbackId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnZoneChangeCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "Int32",
+      "name": "pendingRequests",
       "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkAsyncSpawnRequest",
+      "name": "spawnTokens",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:gameinteractionsvisInteractionChoiceData",
+      "name": "currentOptions",
+      "flags": 6583025696
     }
   ],
   "funcs": [
@@ -152,6 +177,16 @@
       ]
     },
     {
+      "fullName": "UpadateChoiceData;",
+      "shortName": "UpadateChoiceData",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateVisibility;",
+      "shortName": "UpdateVisibility",
+      "flags": 132
+    },
+    {
       "fullName": "OnChangeActiveVisualizer",
       "shortName": "OnChangeActiveVisualizer",
       "return": {
@@ -175,6 +210,27 @@
         "flags": 64
       },
       "flags": 264
+    },
+    {
+      "fullName": "OnItemSpawned",
+      "shortName": "OnItemSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "newItem",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnLastAttemptedChoice",
@@ -232,11 +288,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "UpdateVisibility;",
-      "shortName": "UpdateVisibility",
-      "flags": 132
     }
   ]
 }

@@ -29,24 +29,24 @@
       "flags": 6583025696
     },
     {
-      "type": "array:handle:SingleCooldownManager",
+      "type": "array:whandle:SingleCooldownManager",
       "name": "cooldownPool",
       "flags": 6583025696
     },
     {
-      "type": "array:handle:SingleCooldownManager",
+      "type": "array:whandle:SingleCooldownManager",
       "name": "matchBuffer",
       "flags": 6583025696
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "buffsCallback",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "debuffsCallback",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "handle:UI_PlayerBioMonitorDef",
@@ -54,9 +54,9 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameIBlackboard",
+      "type": "whandle:gameIBlackboard",
       "name": "blackboard",
-      "flags": 4431347744
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -92,6 +92,30 @@
         "flags": 64
       },
       "flags": 132
+    },
+    {
+      "fullName": "ParseBuffList;array<UIBuffInfo>",
+      "shortName": "ParseBuffList",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:UIBuffInfo",
+          "name": "buffList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestCooldownVisualization;UIBuffInfo",
+      "shortName": "RequestCooldownVisualization",
+      "flags": 516,
+      "params": [
+        {
+          "type": "UIBuffInfo",
+          "name": "buffData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnCooldownUpdate",
@@ -142,30 +166,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "ParseBuffList;array<UIBuffInfo>",
-      "shortName": "ParseBuffList",
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:UIBuffInfo",
-          "name": "buffList",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestCooldownVisualization;UIBuffInfo",
-      "shortName": "RequestCooldownVisualization",
-      "flags": 516,
-      "params": [
-        {
-          "type": "UIBuffInfo",
-          "name": "buffData",
-          "flags": 128
-        }
-      ]
     }
   ]
 }

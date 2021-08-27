@@ -50,24 +50,24 @@
       "flags": 4297195552
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onRefreshListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onActionWidgetsUpdateListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onDeviceWidgetsUpdateListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onBreadcrumbBarUpdateListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -241,18 +241,6 @@
       ]
     },
     {
-      "fullName": "ExecuteDeviceActions;DeviceActionWidgetControllerBase",
-      "shortName": "ExecuteDeviceActions",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:DeviceActionWidgetControllerBase",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetActionWidget;SActionWidgetPackage",
       "shortName": "GetActionWidget",
       "return": {
@@ -397,15 +385,6 @@
       ]
     },
     {
-      "fullName": "GetOwner;",
-      "shortName": "GetOwner",
-      "return": {
-        "type": "handle:Device",
-        "flags": 64
-      },
-      "flags": 256
-    },
-    {
       "fullName": "GetScreenDefinition;",
       "shortName": "GetScreenDefinition",
       "return": {
@@ -547,6 +526,151 @@
         "flags": 64
       },
       "flags": 260
+    },
+    {
+      "fullName": "RequestActionWidgetsUpdate;",
+      "shortName": "RequestActionWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestBeadcrumbBarUpdate;SBreadCrumbUpdateData",
+      "shortName": "RequestBeadcrumbBarUpdate",
+      "flags": 260,
+      "params": [
+        {
+          "type": "SBreadCrumbUpdateData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestDeviceWidgetsUpdate;",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestUIRefresh;CName",
+      "shortName": "RequestUIRefresh",
+      "flags": 260,
+      "params": [
+        {
+          "type": "CName",
+          "name": "context",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetActiveBreadcrumbElement;SBreadcrumbElementData",
+      "shortName": "SetActiveBreadcrumbElement",
+      "flags": 260,
+      "params": [
+        {
+          "type": "SBreadcrumbElementData",
+          "name": "element",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUICameraZoomState;Bool",
+      "shortName": "SetUICameraZoomState",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hasUICameraZoom",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerAnimationByName;CNameEInkAnimationPlaybackOptioninkWidgetPlaybackOptionsUpdateData",
+      "shortName": "TriggerAnimationByName",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "animName",
+          "flags": 128
+        },
+        {
+          "type": "EInkAnimationPlaybackOption",
+          "name": "playbackOption",
+          "flags": 128
+        },
+        {
+          "type": "handle:inkWidget",
+          "name": "targetWidget",
+          "flags": 1152
+        },
+        {
+          "type": "handle:PlaybackOptionsUpdateData",
+          "name": "playbackOptionsOverrideData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateActionWidgetData;SActionWidgetPackageInt32",
+      "shortName": "UpdateActionWidgetData",
+      "flags": 260,
+      "params": [
+        {
+          "type": "SActionWidgetPackage",
+          "name": "widgetData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateDeviceWidgetData;SDeviceWidgetPackageInt32",
+      "shortName": "UpdateDeviceWidgetData",
+      "flags": 260,
+      "params": [
+        {
+          "type": "SDeviceWidgetPackage",
+          "name": "widgetData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateUnstreamedUI;",
+      "shortName": "UpdateUnstreamedUI",
+      "flags": 260
+    },
+    {
+      "fullName": "ExecuteDeviceActions;DeviceActionWidgetControllerBase",
+      "shortName": "ExecuteDeviceActions",
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:DeviceActionWidgetControllerBase",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "handle:Device",
+        "flags": 64
+      },
+      "flags": 256
     },
     {
       "fullName": "OnActionWidgetSpawned",
@@ -809,67 +933,9 @@
       ]
     },
     {
-      "fullName": "RequestActionWidgetsUpdate;",
-      "shortName": "RequestActionWidgetsUpdate",
-      "flags": 260
-    },
-    {
-      "fullName": "RequestBeadcrumbBarUpdate;SBreadCrumbUpdateData",
-      "shortName": "RequestBeadcrumbBarUpdate",
-      "flags": 260,
-      "params": [
-        {
-          "type": "SBreadCrumbUpdateData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestDeviceWidgetsUpdate;",
-      "shortName": "RequestDeviceWidgetsUpdate",
-      "flags": 260
-    },
-    {
-      "fullName": "RequestUIRefresh;CName",
-      "shortName": "RequestUIRefresh",
-      "flags": 260,
-      "params": [
-        {
-          "type": "CName",
-          "name": "context",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "ResolveBreadcrumbLevel;",
       "shortName": "ResolveBreadcrumbLevel",
       "flags": 33024
-    },
-    {
-      "fullName": "SetActiveBreadcrumbElement;SBreadcrumbElementData",
-      "shortName": "SetActiveBreadcrumbElement",
-      "flags": 260,
-      "params": [
-        {
-          "type": "SBreadcrumbElementData",
-          "name": "element",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetUICameraZoomState;Bool",
-      "shortName": "SetUICameraZoomState",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "hasUICameraZoom",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "SetupWidgets;",
@@ -894,33 +960,6 @@
       "flags": 32896
     },
     {
-      "fullName": "TriggerAnimationByName;CNameEInkAnimationPlaybackOptioninkWidgetPlaybackOptionsUpdateData",
-      "shortName": "TriggerAnimationByName",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "animName",
-          "flags": 128
-        },
-        {
-          "type": "EInkAnimationPlaybackOption",
-          "name": "playbackOption",
-          "flags": 128
-        },
-        {
-          "type": "handle:inkWidget",
-          "name": "targetWidget",
-          "flags": 1152
-        },
-        {
-          "type": "handle:PlaybackOptionsUpdateData",
-          "name": "playbackOptionsOverrideData",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "UnRegisterBlackboardCallbacks;IBlackboard",
       "shortName": "UnRegisterBlackboardCallbacks",
       "flags": 256,
@@ -928,23 +967,6 @@
         {
           "type": "handle:gameIBlackboard",
           "name": "blackboard",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateActionWidgetData;SActionWidgetPackageInt32",
-      "shortName": "UpdateActionWidgetData",
-      "flags": 260,
-      "params": [
-        {
-          "type": "SActionWidgetPackage",
-          "name": "widgetData",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "index",
           "flags": 128
         }
       ]
@@ -974,23 +996,6 @@
       ]
     },
     {
-      "fullName": "UpdateDeviceWidgetData;SDeviceWidgetPackageInt32",
-      "shortName": "UpdateDeviceWidgetData",
-      "flags": 260,
-      "params": [
-        {
-          "type": "SDeviceWidgetPackage",
-          "name": "widgetData",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "UpdateDeviceWidgets;array<SDeviceWidgetPackage>",
       "shortName": "UpdateDeviceWidgets",
       "flags": 512,
@@ -1001,11 +1006,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "UpdateUnstreamedUI;",
-      "shortName": "UpdateUnstreamedUI",
-      "flags": 260
     }
   ]
 }

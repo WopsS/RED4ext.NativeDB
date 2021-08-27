@@ -40,24 +40,6 @@
       "flags": 8452
     },
     {
-      "fullName": "ActionNextStation;",
-      "shortName": "ActionNextStation",
-      "return": {
-        "type": "handle:NextStation",
-        "flags": 64
-      },
-      "flags": 512
-    },
-    {
-      "fullName": "ActionPreviousStation;",
-      "shortName": "ActionPreviousStation",
-      "return": {
-        "type": "handle:PreviousStation",
-        "flags": 64
-      },
-      "flags": 512
-    },
-    {
       "fullName": "ActionQuestDisableInteraction;",
       "shortName": "ActionQuestDisableInteraction",
       "return": {
@@ -83,6 +65,99 @@
         "flags": 64
       },
       "flags": 260
+    },
+    {
+      "fullName": "GetActiveStationName;",
+      "shortName": "GetActiveStationName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetPreviousStationIndex;",
+      "shortName": "GetPreviousStationIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetQuickHackDistractionActions;",
+      "shortName": "GetQuickHackDistractionActions",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnQuestSetChannel;QuestSetChannel",
+      "shortName": "OnQuestSetChannel",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:QuestSetChannel",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PassChannelName;String",
+      "shortName": "PassChannelName",
+      "flags": 516,
+      "params": [
+        {
+          "type": "String",
+          "name": "channelName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushPersistentData;MediaDeviceData",
+      "shortName": "PushPersistentData",
+      "flags": 516,
+      "params": [
+        {
+          "type": "MediaDeviceData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetActiveStationIndex;Int32",
+      "shortName": "SetActiveStationIndex",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "stationIDX",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionNextStation;",
+      "shortName": "ActionNextStation",
+      "return": {
+        "type": "handle:NextStation",
+        "flags": 64
+      },
+      "flags": 512
+    },
+    {
+      "fullName": "ActionPreviousStation;",
+      "shortName": "ActionPreviousStation",
+      "return": {
+        "type": "handle:PreviousStation",
+        "flags": 64
+      },
+      "flags": 512
     },
     {
       "fullName": "ActionThumbnailUI;",
@@ -124,19 +199,10 @@
       "flags": 512
     },
     {
-      "fullName": "GetActiveStationName;",
-      "shortName": "GetActiveStationName",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
       "fullName": "GetDeviceStatusAction;",
       "shortName": "GetDeviceStatusAction",
       "return": {
-        "type": "handle:MediaDeviceStatus",
+        "type": "handle:BaseDeviceStatus",
         "flags": 64
       },
       "flags": 8704
@@ -149,15 +215,6 @@
         "flags": 64
       },
       "flags": 8704
-    },
-    {
-      "fullName": "GetPreviousStationIndex;",
-      "shortName": "GetPreviousStationIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708
     },
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
@@ -175,11 +232,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "GetQuickHackDistractionActions;",
-      "shortName": "GetQuickHackDistractionActions",
-      "flags": 32900
     },
     {
       "fullName": "OnNextStation;NextStation",
@@ -241,58 +293,6 @@
         {
           "type": "handle:QuestEnableInteraction",
           "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestSetChannel;QuestSetChannel",
-      "shortName": "OnQuestSetChannel",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestSetChannel",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PassChannelName;String",
-      "shortName": "PassChannelName",
-      "flags": 516,
-      "params": [
-        {
-          "type": "String",
-          "name": "channelName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushPersistentData;MediaDeviceData",
-      "shortName": "PushPersistentData",
-      "flags": 516,
-      "params": [
-        {
-          "type": "MediaDeviceData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetActiveStationIndex;Int32",
-      "shortName": "SetActiveStationIndex",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "stationIDX",
           "flags": 128
         }
       ]

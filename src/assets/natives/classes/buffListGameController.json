@@ -9,19 +9,19 @@
       "flags": 4297130017
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "bbBuffList",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
-      "name": "bbDeBuffList",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:gameIBlackboard",
-      "name": "uiBlackboard",
       "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "bbDeBuffList",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "uiBlackboard",
+      "flags": 4297130016
     },
     {
       "type": "array:gameuiBuffInfo",
@@ -42,9 +42,46 @@
       "type": "whandle:gameuiGameSystemUI",
       "name": "UISystem",
       "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "pendingRequests",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "SendVisibilityUpdate;BoolBool",
+      "shortName": "SendVisibilityUpdate",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "oldVisible",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "nowVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateBuffDebuffList;",
+      "shortName": "UpdateBuffDebuffList",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateBuffs;",
+      "shortName": "UpdateBuffs",
+      "flags": 132
+    },
+    {
+      "fullName": "UpdateVisibility;",
+      "shortName": "UpdateVisibility",
+      "flags": 132
+    },
     {
       "fullName": "OnBuffDataChanged",
       "shortName": "OnBuffDataChanged",
@@ -57,6 +94,27 @@
         {
           "type": "Variant",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBuffSpawned",
+      "shortName": "OnBuffSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "newItem",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
           "flags": 128
         }
       ]
@@ -110,38 +168,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "SendVisibilityUpdate;BoolBool",
-      "shortName": "SendVisibilityUpdate",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "oldVisible",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "nowVisible",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateBuffDebuffList;",
-      "shortName": "UpdateBuffDebuffList",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateBuffs;",
-      "shortName": "UpdateBuffs",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateVisibility;",
-      "shortName": "UpdateVisibility",
-      "flags": 132
     }
   ]
 }

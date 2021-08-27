@@ -79,6 +79,11 @@
       "flags": 4297195552
     },
     {
+      "type": "gameDelayID",
+      "name": "queueFailDetonationDelayID",
+      "flags": 4297195552
+    },
+    {
       "type": "Float",
       "name": "delayToDetonate",
       "flags": 4297195552
@@ -86,11 +91,6 @@
     {
       "type": "Bool",
       "name": "detonationTimerActive",
-      "flags": 4297195552
-    },
-    {
-      "type": "Vector4",
-      "name": "lastHitNormal",
       "flags": 4297195552
     },
     {
@@ -254,11 +254,6 @@
       "flags": 4431413280
     },
     {
-      "type": "gamedataGrenadeDeliveryMethodType",
-      "name": "deliveryMethod",
-      "flags": 4297195552
-    },
-    {
       "type": "gameFxResource",
       "name": "additionalEffect",
       "flags": 4297130017
@@ -366,18 +361,6 @@
         "flags": 64
       },
       "flags": 260
-    },
-    {
-      "fullName": "Detonate;Vector4",
-      "shortName": "Detonate",
-      "flags": 256,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "hitNormal",
-          "flags": 1152
-        }
-      ]
     },
     {
       "fullName": "DrillThrough;gameprojectileHitInstance",
@@ -528,15 +511,6 @@
       ]
     },
     {
-      "fullName": "GetShootCollisionSize;",
-      "shortName": "GetShootCollisionSize",
-      "return": {
-        "type": "Vector4",
-        "flags": 64
-      },
-      "flags": 33024
-    },
-    {
       "fullName": "GetUser;",
       "shortName": "GetUser",
       "return": {
@@ -549,22 +523,6 @@
       "fullName": "InitializeRotation;",
       "shortName": "InitializeRotation",
       "flags": 132
-    },
-    {
-      "fullName": "IsGrenadeOfType;EGrenadeType",
-      "shortName": "IsGrenadeOfType",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "EGrenadeType",
-          "name": "compareType",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "MultiplayerCanRelease;",
@@ -583,6 +541,382 @@
         {
           "type": "handle:GrenadeTrackerTargetAcquiredEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnServerTick;gameprojectileTickEvent",
+      "shortName": "OnServerTick",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameprojectileTickEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayLaserSlotAnimation;Int32",
+      "shortName": "PlayLaserSlotAnimation",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayNPCGrenadeBeepSound;",
+      "shortName": "PlayNPCGrenadeBeepSound",
+      "flags": 260
+    },
+    {
+      "fullName": "PlayStickyGrenadeLongBeepSound;",
+      "shortName": "PlayStickyGrenadeLongBeepSound",
+      "flags": 260
+    },
+    {
+      "fullName": "PlayStickyGrenadeShortBeepSound;",
+      "shortName": "PlayStickyGrenadeShortBeepSound",
+      "flags": 260
+    },
+    {
+      "fullName": "PreloadAttackResources;",
+      "shortName": "PreloadAttackResources",
+      "flags": 260
+    },
+    {
+      "fullName": "ProcessProximityTargets;",
+      "shortName": "ProcessProximityTargets",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "QueueFailDetonation;",
+      "shortName": "QueueFailDetonation",
+      "flags": 260
+    },
+    {
+      "fullName": "QueueSmartTrajectory;Float",
+      "shortName": "QueueSmartTrajectory",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Release;Bool",
+      "shortName": "Release",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isInstant",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseAttackResources;",
+      "shortName": "ReleaseAttackResources",
+      "flags": 260
+    },
+    {
+      "fullName": "RemoveGrenadeLandedStimuli;",
+      "shortName": "RemoveGrenadeLandedStimuli",
+      "flags": 260
+    },
+    {
+      "fullName": "RequestGrenadeRelease;Float",
+      "shortName": "RequestGrenadeRelease",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendCombatGadgetIsAliveFeature;",
+      "shortName": "SendCombatGadgetIsAliveFeature",
+      "flags": 260
+    },
+    {
+      "fullName": "SetCanBeShot;Bool",
+      "shortName": "SetCanBeShot",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "canBeShot",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetThrowableAnimFeatureOnGrenade;Int32GameObject",
+      "shortName": "SetThrowableAnimFeatureOnGrenade",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "newState",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTracking;Bool",
+      "shortName": "SetTracking",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupDeliveryMethodMesh;",
+      "shortName": "SetupDeliveryMethodMesh",
+      "flags": 260
+    },
+    {
+      "fullName": "ShouldUsePlayerAttack;",
+      "shortName": "ShouldUsePlayerAttack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 260
+    },
+    {
+      "fullName": "SpawnAttack;Attack_RecordFloatFloatVector4Vector4",
+      "shortName": "SpawnAttack",
+      "return": {
+        "type": "handle:gameEffectInstance",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamedataAttack_Record",
+          "name": "attackRecord",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "range",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "hitNormal",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "position",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnEffectFromLibrary;CName",
+      "shortName": "SpawnEffectFromLibrary",
+      "flags": 260,
+      "params": [
+        {
+          "type": "CName",
+          "name": "key",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnLaserAttack;Attack_RecordInt32FloatFloatBoolFloat",
+      "shortName": "SpawnLaserAttack",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamedataAttack_Record",
+          "name": "attackRecord",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfLasers",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "range",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "playSlotAnimation",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delayPerLaser",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnLaserAttackSingle;Attack_RecordFloatFloatInt32Bool",
+      "shortName": "SpawnLaserAttackSingle",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamedataAttack_Record",
+          "name": "attackRecord",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "range",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "playSlotAnimation",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnOnPuppetCollisionAttack;Attack_RecordScriptedPuppet",
+      "shortName": "SpawnOnPuppetCollisionAttack",
+      "return": {
+        "type": "handle:gameEffectInstance",
+        "flags": 64
+      },
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gamedataAttack_Record",
+          "name": "attackRecord",
+          "flags": 128
+        },
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "targetEntity",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "StopCuttingGrenadeAttack;",
+      "shortName": "StopCuttingGrenadeAttack",
+      "flags": 260
+    },
+    {
+      "fullName": "StopNPCGrenadeBeepSound;",
+      "shortName": "StopNPCGrenadeBeepSound",
+      "flags": 260
+    },
+    {
+      "fullName": "StopStickyGrenadeSounds;",
+      "shortName": "StopStickyGrenadeSounds",
+      "flags": 260
+    },
+    {
+      "fullName": "TerminateCuttingGrenadeAttack;",
+      "shortName": "TerminateCuttingGrenadeAttack",
+      "flags": 260
+    },
+    {
+      "fullName": "TriggerGrenadeLandedStimuli;Bool",
+      "shortName": "TriggerGrenadeLandedStimuli",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hasLifeTime",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerStimuli;",
+      "shortName": "TriggerStimuli",
+      "flags": 260
+    },
+    {
+      "fullName": "Detonate;Vector4",
+      "shortName": "Detonate",
+      "flags": 256,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "hitNormal",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetShootCollisionSize;",
+      "shortName": "GetShootCollisionSize",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "IsGrenadeOfType;EGrenadeType",
+      "shortName": "IsGrenadeOfType",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "EGrenadeType",
+          "name": "compareType",
           "flags": 128
         }
       ]
@@ -773,8 +1107,8 @@
       ]
     },
     {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
+      "fullName": "OnProjectileInitialize",
+      "shortName": "OnProjectileInitialize",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -816,18 +1150,6 @@
         {
           "type": "entEntityRequestComponentsInterface",
           "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnServerTick;gameprojectileTickEvent",
-      "shortName": "OnServerTick",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameprojectileTickEvent",
-          "name": "eventData",
           "flags": 128
         }
       ]
@@ -993,209 +1315,9 @@
       ]
     },
     {
-      "fullName": "PlayLaserSlotAnimation;Int32",
-      "shortName": "PlayLaserSlotAnimation",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayNPCGrenadeBeepSound;",
-      "shortName": "PlayNPCGrenadeBeepSound",
-      "flags": 260
-    },
-    {
-      "fullName": "PlayStickyGrenadeLongBeepSound;",
-      "shortName": "PlayStickyGrenadeLongBeepSound",
-      "flags": 260
-    },
-    {
-      "fullName": "PlayStickyGrenadeShortBeepSound;",
-      "shortName": "PlayStickyGrenadeShortBeepSound",
-      "flags": 260
-    },
-    {
-      "fullName": "PreloadAttackResources;",
-      "shortName": "PreloadAttackResources",
-      "flags": 260
-    },
-    {
-      "fullName": "ProcessProximityTargets;",
-      "shortName": "ProcessProximityTargets",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
-      "fullName": "QueueFailDetonation;",
-      "shortName": "QueueFailDetonation",
-      "flags": 260
-    },
-    {
-      "fullName": "QueueSmartTrajectory;Float",
-      "shortName": "QueueSmartTrajectory",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "Release;Bool",
-      "shortName": "Release",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isInstant",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ReleaseAttackResources;",
-      "shortName": "ReleaseAttackResources",
-      "flags": 260
-    },
-    {
-      "fullName": "RemoveGrenadeLandedStimuli;",
-      "shortName": "RemoveGrenadeLandedStimuli",
-      "flags": 260
-    },
-    {
-      "fullName": "RequestGrenadeRelease;Float",
-      "shortName": "RequestGrenadeRelease",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "Reset;",
       "shortName": "Reset",
       "flags": 256
-    },
-    {
-      "fullName": "SendCombatGadgetIsAliveFeature;",
-      "shortName": "SendCombatGadgetIsAliveFeature",
-      "flags": 260
-    },
-    {
-      "fullName": "SetCanBeShot;Bool",
-      "shortName": "SetCanBeShot",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "canBeShot",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetThrowableAnimFeatureOnGrenade;Int32GameObject",
-      "shortName": "SetThrowableAnimFeatureOnGrenade",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "newState",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetTracking;Bool",
-      "shortName": "SetTracking",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetupDeliveryMethodMesh;",
-      "shortName": "SetupDeliveryMethodMesh",
-      "flags": 260
-    },
-    {
-      "fullName": "ShouldUsePlayerAttack;",
-      "shortName": "ShouldUsePlayerAttack",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
-      "fullName": "SpawnAttack;Attack_RecordFloatFloatVector4Vector4",
-      "shortName": "SpawnAttack",
-      "return": {
-        "type": "handle:gameEffectInstance",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamedataAttack_Record",
-          "name": "attackRecord",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "range",
-          "flags": 1152
-        },
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 1152
-        },
-        {
-          "type": "Vector4",
-          "name": "hitNormal",
-          "flags": 1152
-        },
-        {
-          "type": "Vector4",
-          "name": "position",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnEffectFromLibrary;CName",
-      "shortName": "SpawnEffectFromLibrary",
-      "flags": 260,
-      "params": [
-        {
-          "type": "CName",
-          "name": "key",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "SpawnEffectOnGround;FxResource",
@@ -1210,96 +1332,6 @@
       ]
     },
     {
-      "fullName": "SpawnLaserAttack;Attack_RecordInt32FloatFloatBoolFloat",
-      "shortName": "SpawnLaserAttack",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamedataAttack_Record",
-          "name": "attackRecord",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "numberOfLasers",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "range",
-          "flags": 1152
-        },
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "playSlotAnimation",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "delayPerLaser",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnLaserAttackSingle;Attack_RecordFloatFloatInt32Bool",
-      "shortName": "SpawnLaserAttackSingle",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamedataAttack_Record",
-          "name": "attackRecord",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "range",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "playSlotAnimation",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpawnOnPuppetCollisionAttack;Attack_RecordScriptedPuppet",
-      "shortName": "SpawnOnPuppetCollisionAttack",
-      "return": {
-        "type": "handle:gameEffectInstance",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gamedataAttack_Record",
-          "name": "attackRecord",
-          "flags": 128
-        },
-        {
-          "type": "handle:ScriptedPuppet",
-          "name": "targetEntity",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "SpawnPiercingExplosion;",
       "shortName": "SpawnPiercingExplosion",
       "flags": 256
@@ -1308,43 +1340,6 @@
       "fullName": "SpawnVisualEffectsOnDetonation;",
       "shortName": "SpawnVisualEffectsOnDetonation",
       "flags": 256
-    },
-    {
-      "fullName": "StopCuttingGrenadeAttack;",
-      "shortName": "StopCuttingGrenadeAttack",
-      "flags": 260
-    },
-    {
-      "fullName": "StopNPCGrenadeBeepSound;",
-      "shortName": "StopNPCGrenadeBeepSound",
-      "flags": 260
-    },
-    {
-      "fullName": "StopStickyGrenadeSounds;",
-      "shortName": "StopStickyGrenadeSounds",
-      "flags": 260
-    },
-    {
-      "fullName": "TerminateCuttingGrenadeAttack;",
-      "shortName": "TerminateCuttingGrenadeAttack",
-      "flags": 260
-    },
-    {
-      "fullName": "TriggerGrenadeLandedStimuli;Bool",
-      "shortName": "TriggerGrenadeLandedStimuli",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "hasLifeTime",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerStimuli;",
-      "shortName": "TriggerStimuli",
-      "flags": 260
     }
   ]
 }

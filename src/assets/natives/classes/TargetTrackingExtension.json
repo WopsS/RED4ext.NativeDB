@@ -22,11 +22,26 @@
       "type": "ThreatPersistanceMemory",
       "name": "threatPersistanceMemory",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hasBeenSeenByPlayer",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "canBeAddedToBossHealthbar",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerPuppet",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
-      "fullName": "TargetTrackingExtension::Get;ScriptExecutionContextTargetTrackerComponent",
+      "fullName": "TargetTrackingExtension::Get;ScriptedPuppetTargetTrackingExtension",
       "shortName": "Get",
       "return": {
         "type": "Bool",
@@ -35,12 +50,12 @@
       "flags": 518,
       "params": [
         {
-          "type": "AIbehaviorScriptExecutionContext",
-          "name": "context",
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
           "flags": 128
         },
         {
-          "type": "whandle:AITargetTrackerComponent",
+          "type": "whandle:TargetTrackingExtension",
           "name": "targetTracker",
           "flags": 640
         }
@@ -68,29 +83,8 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::Get;ScriptedPuppetTargetTrackingExtension",
+      "fullName": "TargetTrackingExtension::Get;ScriptExecutionContextTargetTrackerComponent",
       "shortName": "Get",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "puppet",
-          "flags": 128
-        },
-        {
-          "type": "whandle:TargetTrackingExtension",
-          "name": "targetTracker",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "TargetTrackingExtension::GetHostileThreats;ScriptExecutionContextBoolarray<TrackedLocation>",
-      "shortName": "GetHostileThreats",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -103,13 +97,8 @@
           "flags": 128
         },
         {
-          "type": "Bool",
-          "name": "visible",
-          "flags": 128
-        },
-        {
-          "type": "array:AITrackedLocation",
-          "name": "trackedLocations",
+          "type": "whandle:AITargetTrackerComponent",
+          "name": "targetTracker",
           "flags": 640
         }
       ]
@@ -126,6 +115,32 @@
         {
           "type": "whandle:ScriptedPuppet",
           "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        },
+        {
+          "type": "array:AITrackedLocation",
+          "name": "trackedLocations",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "TargetTrackingExtension::GetHostileThreats;ScriptExecutionContextBoolarray<TrackedLocation>",
+      "shortName": "GetHostileThreats",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
           "flags": 128
         },
         {
@@ -209,7 +224,7 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptExecutionContextEntityTrackedLocation",
+      "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptedPuppetEntityTrackedLocation",
       "shortName": "GetTrackedLocation",
       "return": {
         "type": "Bool",
@@ -218,8 +233,8 @@
       "flags": 518,
       "params": [
         {
-          "type": "AIbehaviorScriptExecutionContext",
-          "name": "context",
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
           "flags": 128
         },
         {
@@ -235,7 +250,7 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptedPuppetEntityTrackedLocation",
+      "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptExecutionContextEntityTrackedLocation",
       "shortName": "GetTrackedLocation",
       "return": {
         "type": "Bool",
@@ -244,8 +259,8 @@
       "flags": 518,
       "params": [
         {
-          "type": "whandle:ScriptedPuppet",
-          "name": "puppet",
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
           "flags": 128
         },
         {
@@ -435,6 +450,18 @@
       ]
     },
     {
+      "fullName": "AddPotentialBossTarget;GameObject",
+      "shortName": "AddPotentialBossTarget",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetDroppedThreat;GameInstanceDroppedThreatData",
       "shortName": "GetDroppedThreat",
       "return": {
@@ -472,70 +499,6 @@
       ]
     },
     {
-      "fullName": "OnEnemyPushedToSquad",
-      "shortName": "OnEnemyPushedToSquad",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIEnemyPushedToSquad",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnEnemyThreatDetected",
-      "shortName": "OnEnemyThreatDetected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIEnemyThreatDetected",
-          "name": "th",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHostJoinedSquad",
-      "shortName": "OnHostJoinedSquad",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIHostJoinedSquad",
-          "name": "th",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHostLeftSquad",
-      "shortName": "OnHostLeftSquad",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIHostLeftSquad",
-          "name": "th",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnHostileThreatAdded;EntityEntity",
       "shortName": "OnHostileThreatAdded",
       "flags": 260,
@@ -548,118 +511,6 @@
         {
           "type": "whandle:entEntity",
           "name": "threat",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHostileThreatDetected",
-      "shortName": "OnHostileThreatDetected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIHostileThreatDetected",
-          "name": "th",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnNewThreat",
-      "shortName": "OnNewThreat",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AINewThreat",
-          "name": "th",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPlayerHostileThreatDetected",
-      "shortName": "OnPlayerHostileThreatDetected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:PlayerHostileThreatDetected",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPullSquadSyncRequest",
-      "shortName": "OnPullSquadSyncRequest",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:PullSquadSyncRequest",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetThreatsPersistenceRequest",
-      "shortName": "OnSetThreatsPersistenceRequest",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetThreatsPersistenceRequest",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSquadmateDeath",
-      "shortName": "OnSquadmateDeath",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:OnSquadmateDied",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnThreatRemoved",
-      "shortName": "OnThreatRemoved",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIThreatRemoved",
-          "name": "th",
           "flags": 128
         }
       ]
@@ -792,6 +643,198 @@
         {
           "type": "whandle:entEntity",
           "name": "threat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEnemyPushedToSquad",
+      "shortName": "OnEnemyPushedToSquad",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIEnemyPushedToSquad",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEnemyThreatDetected",
+      "shortName": "OnEnemyThreatDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIEnemyThreatDetected",
+          "name": "th",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHostJoinedSquad",
+      "shortName": "OnHostJoinedSquad",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIHostJoinedSquad",
+          "name": "th",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHostLeftSquad",
+      "shortName": "OnHostLeftSquad",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIHostLeftSquad",
+          "name": "th",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHostileThreatDetected",
+      "shortName": "OnHostileThreatDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIHostileThreatDetected",
+          "name": "th",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNewThreat",
+      "shortName": "OnNewThreat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AINewThreat",
+          "name": "th",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerHostileThreatDetected",
+      "shortName": "OnPlayerHostileThreatDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PlayerHostileThreatDetected",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPullSquadSyncRequest",
+      "shortName": "OnPullSquadSyncRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PullSquadSyncRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSeenByPlayerEvent",
+      "shortName": "OnSeenByPlayerEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsProperlySeenByPlayerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetThreatsPersistenceRequest",
+      "shortName": "OnSetThreatsPersistenceRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:SetThreatsPersistenceRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSquadmateDeath",
+      "shortName": "OnSquadmateDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:OnSquadmateDied",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnThreatRemoved",
+      "shortName": "OnThreatRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:AIThreatRemoved",
+          "name": "th",
           "flags": 128
         }
       ]

@@ -137,15 +137,6 @@
   ],
   "funcs": [
     {
-      "fullName": "ActionForceIgnoreTargets;",
-      "shortName": "ActionForceIgnoreTargets",
-      "return": {
-        "type": "handle:ForceIgnoreTargets",
-        "flags": 64
-      },
-      "flags": 256
-    },
-    {
       "fullName": "ActionQuestFollowTarget;",
       "shortName": "ActionQuestFollowTarget",
       "return": {
@@ -234,24 +225,6 @@
         "flags": 64
       },
       "flags": 260
-    },
-    {
-      "fullName": "ActionQuickHackToggleON;",
-      "shortName": "ActionQuickHackToggleON",
-      "return": {
-        "type": "handle:QuickHackToggleON",
-        "flags": 64
-      },
-      "flags": 256
-    },
-    {
-      "fullName": "ActionSetDeviceTagKillMode;",
-      "shortName": "ActionSetDeviceTagKillMode",
-      "return": {
-        "type": "handle:SetDeviceTagKillMode",
-        "flags": 64
-      },
-      "flags": 256
     },
     {
       "fullName": "CanTagEnemies;",
@@ -561,15 +534,6 @@
         "flags": 64
       },
       "flags": 260
-    },
-    {
-      "fullName": "IsDetectingDebug;",
-      "shortName": "IsDetectingDebug",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
     },
     {
       "fullName": "IsIdleForced;",
@@ -894,22 +858,6 @@
       ]
     },
     {
-      "fullName": "OnSecurityAreaCrossingPerimeter;SecurityAreaCrossingPerimeter",
-      "shortName": "OnSecurityAreaCrossingPerimeter",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:SecurityAreaCrossingPerimeter",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnSecuritySystemDisabled;SecuritySystemDisabled",
       "shortName": "OnSecuritySystemDisabled",
       "return": {
@@ -942,16 +890,16 @@
       ]
     },
     {
-      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
-      "shortName": "OnSecuritySystemOutput",
+      "fullName": "OnSecuritySystemSupport;ReactoToPreventionSystem",
+      "shortName": "OnSecuritySystemSupport",
       "return": {
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 260,
       "params": [
         {
-          "type": "handle:SecuritySystemOutput",
+          "type": "handle:ReactoToPreventionSystem",
           "name": "evt",
           "flags": 128
         }
@@ -990,22 +938,6 @@
       ]
     },
     {
-      "fullName": "OnSetDeviceAttitude;SetDeviceAttitude",
-      "shortName": "OnSetDeviceAttitude",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:SetDeviceAttitude",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnSetDeviceTagKillMode;SetDeviceTagKillMode",
       "shortName": "OnSetDeviceTagKillMode",
       "return": {
@@ -1036,27 +968,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
-      "shortName": "OnTargetAssessmentRequest",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 33280,
-      "params": [
-        {
-          "type": "handle:TargetAssessmentRequest",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PerformRestart;",
-      "shortName": "PerformRestart",
-      "flags": 256
     },
     {
       "fullName": "QuestReleaseCurrentObject;",
@@ -1206,6 +1117,111 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ActionForceIgnoreTargets;",
+      "shortName": "ActionForceIgnoreTargets",
+      "return": {
+        "type": "handle:ForceIgnoreTargets",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "ActionQuickHackToggleON;",
+      "shortName": "ActionQuickHackToggleON",
+      "return": {
+        "type": "handle:QuickHackToggleON",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "ActionSetDeviceTagKillMode;",
+      "shortName": "ActionSetDeviceTagKillMode",
+      "return": {
+        "type": "handle:SetDeviceTagKillMode",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
+      "fullName": "IsDetectingDebug;",
+      "shortName": "IsDetectingDebug",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "OnSecurityAreaCrossingPerimeter;SecurityAreaCrossingPerimeter",
+      "shortName": "OnSecurityAreaCrossingPerimeter",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecurityAreaCrossingPerimeter",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
+      "shortName": "OnSecuritySystemOutput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDeviceAttitude;SetDeviceAttitude",
+      "shortName": "OnSetDeviceAttitude",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
+      "shortName": "OnTargetAssessmentRequest",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:TargetAssessmentRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PerformRestart;",
+      "shortName": "PerformRestart",
+      "flags": 256
     }
   ]
 }

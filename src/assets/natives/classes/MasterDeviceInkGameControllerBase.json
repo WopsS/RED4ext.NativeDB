@@ -9,9 +9,9 @@
       "flags": 6583091232
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onThumbnailWidgetsUpdateListener",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -85,15 +85,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "GetOwner;",
-      "shortName": "GetOwner",
-      "return": {
-        "type": "handle:InteractiveMasterDevice",
-        "flags": 64
-      },
-      "flags": 256
     },
     {
       "fullName": "GetThumbnailWidget;SThumbnailWidgetPackage",
@@ -198,6 +189,61 @@
       ]
     },
     {
+      "fullName": "RequestDeviceWidgetsUpdate;array<PersistentID>",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 260,
+      "params": [
+        {
+          "type": "array:gamePersistentID",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestDeviceWidgetsUpdate;PersistentID",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 260,
+      "params": [
+        {
+          "type": "gamePersistentID",
+          "name": "device",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestThumbnailWidgetsUpdate;",
+      "shortName": "RequestThumbnailWidgetsUpdate",
+      "flags": 260
+    },
+    {
+      "fullName": "UpdateThumbnailWidgetData;SThumbnailWidgetPackageInt32",
+      "shortName": "UpdateThumbnailWidgetData",
+      "flags": 260,
+      "params": [
+        {
+          "type": "SThumbnailWidgetPackage",
+          "name": "widgetData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "handle:Device",
+        "flags": 64
+      },
+      "flags": 256
+    },
+    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -293,35 +339,6 @@
       ]
     },
     {
-      "fullName": "RequestDeviceWidgetsUpdate;array<PersistentID>",
-      "shortName": "RequestDeviceWidgetsUpdate",
-      "flags": 260,
-      "params": [
-        {
-          "type": "array:gamePersistentID",
-          "name": "devices",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestDeviceWidgetsUpdate;PersistentID",
-      "shortName": "RequestDeviceWidgetsUpdate",
-      "flags": 260,
-      "params": [
-        {
-          "type": "gamePersistentID",
-          "name": "device",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestThumbnailWidgetsUpdate;",
-      "shortName": "RequestThumbnailWidgetsUpdate",
-      "flags": 260
-    },
-    {
       "fullName": "UnRegisterBlackboardCallbacks;IBlackboard",
       "shortName": "UnRegisterBlackboardCallbacks",
       "flags": 256,
@@ -353,23 +370,6 @@
         {
           "type": "array:SDeviceWidgetPackage",
           "name": "widgetsData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateThumbnailWidgetData;SThumbnailWidgetPackageInt32",
-      "shortName": "UpdateThumbnailWidgetData",
-      "flags": 260,
-      "params": [
-        {
-          "type": "SThumbnailWidgetPackage",
-          "name": "widgetData",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "index",
           "flags": 128
         }
       ]

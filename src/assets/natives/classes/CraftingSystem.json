@@ -31,6 +31,22 @@
   ],
   "funcs": [
     {
+      "fullName": "CraftingSystem::GetAmmoBulletAmount;TweakDBID",
+      "shortName": "GetAmmoBulletAmount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "ammoId",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CraftingSystem::GetInstance;GameInstance",
       "shortName": "GetInstance",
       "return": {
@@ -462,6 +478,27 @@
       ]
     },
     {
+      "fullName": "GetItemCraftingCost;Item_Recordarray<RecipeElement_Record>",
+      "shortName": "GetItemCraftingCost",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "record",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataRecipeElement_Record",
+          "name": "craftingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetItemCraftingCost;Item_Record",
       "shortName": "GetItemCraftingCost",
       "return": {
@@ -473,22 +510,6 @@
         {
           "type": "whandle:gamedataItem_Record",
           "name": "itemRecord",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetItemCraftingCost;array<RecipeElement_Record>",
-      "shortName": "GetItemCraftingCost",
-      "return": {
-        "type": "array:IngredientData",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "array:whandle:gamedataRecipeElement_Record",
-          "name": "craftingData",
           "flags": 128
         }
       ]
@@ -663,11 +684,6 @@
       ]
     },
     {
-      "fullName": "OnAttach;",
-      "shortName": "OnAttach",
-      "flags": 128
-    },
-    {
       "fullName": "OnCraftItemRequest;CraftItemRequest",
       "shortName": "OnCraftItemRequest",
       "flags": 132,
@@ -723,23 +739,6 @@
         {
           "type": "handle:gamePlayerDetachRequest",
           "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRestored;Int32Int32",
-      "shortName": "OnRestored",
-      "flags": 128,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "saveVersion",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "gameVersion",
           "flags": 128
         }
       ]
@@ -898,6 +897,18 @@
       ]
     },
     {
+      "fullName": "SetItemQualityBasedOnPlayerSkill;gameItemData",
+      "shortName": "SetItemQualityBasedOnPlayerSkill",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "UpdateBlackboard;CraftingCommandsItemIDarray<IngredientData>",
       "shortName": "UpdateBlackboard",
       "flags": 8324,
@@ -932,6 +943,28 @@
         {
           "type": "gameItemID",
           "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnRestored;Int32Int32",
+      "shortName": "OnRestored",
+      "flags": 128,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "saveVersion",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "gameVersion",
           "flags": 128
         }
       ]

@@ -84,19 +84,19 @@
       "flags": 4297326624
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "vehicleTPPCallbackID",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "vehicleSpeedCallbackID",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "vehicleRPMCallbackID",
-      "flags": 4297326624
+      "flags": 4431544352
     },
     {
       "type": "Bool",
@@ -167,6 +167,11 @@
       "type": "handle:gameObjectActionsCallbackController",
       "name": "objectActionsCallbackCtrl",
       "flags": 4431544352
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "trunkNpcBody",
+      "flags": 4297326624
     },
     {
       "type": "whandle:PlayerPuppet",
@@ -260,6 +265,27 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::CheckVehicleDesiredTag;VehicleObjectCName",
+      "shortName": "CheckVehicleDesiredTag",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "desiredTag",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::CheckVehicleDesiredTag;GameInstanceGameObjectCName",
       "shortName": "CheckVehicleDesiredTag",
       "return": {
@@ -276,27 +302,6 @@
         {
           "type": "whandle:gameObject",
           "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "desiredTag",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "VehicleComponent::CheckVehicleDesiredTag;VehicleObjectCName",
-      "shortName": "CheckVehicleDesiredTag",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
           "flags": 128
         },
         {
@@ -588,32 +593,6 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::GetVehicle;GameInstanceGameObjectVehicleObject",
-      "shortName": "GetVehicle",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gi",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "VehicleComponent::GetVehicle;GameInstanceGameObjectGameObject",
       "shortName": "GetVehicle",
       "return": {
@@ -640,8 +619,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::GetVehicleAllowsCombat;GameInstanceGameObject",
-      "shortName": "GetVehicleAllowsCombat",
+      "fullName": "VehicleComponent::GetVehicle;GameInstanceGameObjectVehicleObject",
+      "shortName": "GetVehicle",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -656,6 +635,32 @@
         {
           "type": "whandle:gameObject",
           "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::GetVehicleAllowsCombat;GameInstanceVehicleObject",
+      "shortName": "GetVehicleAllowsCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
           "flags": 128
         }
       ]
@@ -817,6 +822,27 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::GetVehicleRecord;VehicleObjectVehicle_Record",
+      "shortName": "GetVehicleRecord",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataVehicle_Record",
+          "name": "vehicleRecord",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::GetVehicleRecord;GameInstanceGameObjectVehicle_Record",
       "shortName": "GetVehicleRecord",
       "return": {
@@ -833,27 +859,6 @@
         {
           "type": "whandle:gameObject",
           "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamedataVehicle_Record",
-          "name": "vehicleRecord",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "VehicleComponent::GetVehicleRecord;VehicleObjectVehicle_Record",
-      "shortName": "GetVehicleRecord",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
           "flags": 128
         },
         {
@@ -1068,27 +1073,6 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::IsDriver;GameInstanceEntityID",
-      "shortName": "IsDriver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gi",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "ownerID",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "VehicleComponent::IsDriver;GameInstanceGameObject",
       "shortName": "IsDriver",
       "return": {
@@ -1105,6 +1089,27 @@
         {
           "type": "whandle:gameObject",
           "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::IsDriver;GameInstanceEntityID",
+      "shortName": "IsDriver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ownerID",
           "flags": 128
         }
       ]
@@ -1277,32 +1282,6 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::IsSlotOccupiedByActivePassenger;GameInstanceEntityIDMountingSlotId",
-      "shortName": "IsSlotOccupiedByActivePassenger",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gi",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "vehicleID",
-          "flags": 128
-        },
-        {
-          "type": "gamemountingMountingSlotId",
-          "name": "vehicleSlotID",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "VehicleComponent::IsSlotOccupiedByActivePassenger;GameInstanceEntityIDCName",
       "shortName": "IsSlotOccupiedByActivePassenger",
       "return": {
@@ -1324,6 +1303,32 @@
         {
           "type": "CName",
           "name": "slotName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::IsSlotOccupiedByActivePassenger;GameInstanceEntityIDMountingSlotId",
+      "shortName": "IsSlotOccupiedByActivePassenger",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        },
+        {
+          "type": "gamemountingMountingSlotId",
+          "name": "vehicleSlotID",
           "flags": 128
         }
       ]
@@ -1469,37 +1474,6 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::QueueEventToAllPassengers;GameInstanceVehicleObjectEventFloat",
-      "shortName": "QueueEventToAllPassengers",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gi",
-          "flags": 128
-        },
-        {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
-          "flags": 128
-        },
-        {
-          "type": "handle:redEvent",
-          "name": "evt",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "VehicleComponent::QueueEventToAllPassengers;GameInstanceEntityIDEventFloat",
       "shortName": "QueueEventToAllPassengers",
       "return": {
@@ -1516,6 +1490,37 @@
         {
           "type": "entEntityID",
           "name": "vehicleID",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::QueueEventToAllPassengers;GameInstanceVehicleObjectEventFloat",
+      "shortName": "QueueEventToAllPassengers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 518,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
           "flags": 128
         },
         {
@@ -1977,23 +1982,6 @@
       "flags": 132
     },
     {
-      "fullName": "ExecuteAction;InteractionChoiceGameObject",
-      "shortName": "ExecuteAction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameinteractionsChoice",
-          "name": "choice",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "executor",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ExecuteAction;DeviceActionGameObject",
       "shortName": "ExecuteAction",
       "flags": 132,
@@ -2011,6 +1999,23 @@
       ]
     },
     {
+      "fullName": "ExecuteAction;InteractionChoiceGameObject",
+      "shortName": "ExecuteAction",
+      "flags": 132,
+      "params": [
+        {
+          "type": "gameinteractionsChoice",
+          "name": "choice",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "executor",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ExplodeVehicle;GameObject",
       "shortName": "ExplodeVehicle",
       "flags": 132,
@@ -2021,6 +2026,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "FinishTrunkBodyPickup;",
+      "shortName": "FinishTrunkBodyPickup",
+      "flags": 516
     },
     {
       "fullName": "GetAnimEventName;VehicleDoorStateEVehicleDoor",
@@ -2083,15 +2093,6 @@
         "flags": 64
       },
       "flags": 260
-    },
-    {
-      "fullName": "GetPS",
-      "shortName": "GetPS",
-      "return": {
-        "type": "handle:VehicleComponentPS",
-        "flags": 64
-      },
-      "flags": 8448
     },
     {
       "fullName": "GetVehicle;",
@@ -2180,169 +2181,60 @@
       "flags": 132
     },
     {
-      "fullName": "OnAction",
-      "shortName": "OnAction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "fullName": "ManageAdditionalAnimFeatures;GameObjectBool",
+      "shortName": "ManageAdditionalAnimFeatures",
+      "flags": 260,
       "params": [
         {
-          "type": "gameinputScriptListenerAction",
-          "name": "action",
+          "type": "handle:gameObject",
+          "name": "object",
           "flags": 128
         },
         {
-          "type": "gameinputScriptListenerActionConsumer",
-          "name": "consumer",
+          "type": "Bool",
+          "name": "value",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnActionDemolition",
-      "shortName": "OnActionDemolition",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "fullName": "MountBodyToPlayer;GameObject",
+      "shortName": "MountBodyToPlayer",
+      "flags": 132,
       "params": [
         {
-          "type": "handle:ActionDemolition",
-          "name": "evt",
+          "type": "whandle:gameObject",
+          "name": "npcBody",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnActionEngineering",
-      "shortName": "OnActionEngineering",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "fullName": "MountEntityToSlot;EntityIDEntityIDCName",
+      "shortName": "MountEntityToSlot",
+      "flags": 260,
       "params": [
         {
-          "type": "handle:ActionEngineering",
-          "name": "evt",
+          "type": "entEntityID",
+          "name": "parentID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "childId",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "slot",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnChangeState",
-      "shortName": "OnChangeState",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleChangeStateEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnCloseHood",
-      "shortName": "OnCloseHood",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleCloseHood",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnCloseTrunk",
-      "shortName": "OnCloseTrunk",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleCloseTrunk",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDeath",
-      "shortName": "OnDeath",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameeventsDeathEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDisableAlarm",
-      "shortName": "OnDisableAlarm",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:DisableAlarmEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnFactChangedEvent",
-      "shortName": "OnFactChangedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameFactChangedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnForceCarAlarm",
-      "shortName": "OnForceCarAlarm",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ForceCarAlarm",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
+      "fullName": "MountNpcBodyToTrunk;",
+      "shortName": "MountNpcBodyToTrunk",
+      "flags": 516
     },
     {
       "fullName": "OnGameAttach;",
@@ -2355,262 +2247,6 @@
       "flags": 132
     },
     {
-      "fullName": "OnGridDestruction",
-      "shortName": "OnGridDestruction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleGridDestructionEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHUDInstruction",
-      "shortName": "OnHUDInstruction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:HUDInstruction",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHasVehicleBeenFlippedOverForSomeTimeEvent",
-      "shortName": "OnHasVehicleBeenFlippedOverForSomeTimeEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleHasVehicleBeenFlippedOverForSomeTimeEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInteractionActivated",
-      "shortName": "OnInteractionActivated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameinteractionsInteractionEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInteractionUsed",
-      "shortName": "OnInteractionUsed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameinteractionsChoiceEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnMinutePassedEvent",
-      "shortName": "OnMinutePassedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:MinutePassedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnMountingEvent",
-      "shortName": "OnMountingEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gamemountingMountingEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnObjectActionRefreshEvent",
-      "shortName": "OnObjectActionRefreshEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameObjectActionRefreshEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnOpenHood",
-      "shortName": "OnOpenHood",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleOpenHood",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnOpenTrunk",
-      "shortName": "OnOpenTrunk",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleOpenTrunk",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetIgnoreAutoDoorCloseEvent",
-      "shortName": "OnSetIgnoreAutoDoorCloseEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetIgnoreAutoDoorCloseEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSummonFinishedEvent",
-      "shortName": "OnSummonFinishedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleSummonFinishedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSummonStartedEvent",
-      "shortName": "OnSummonStartedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleSummonStartedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnToggleDoorInteractionEvent",
-      "shortName": "OnToggleDoorInteractionEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ToggleDoorInteractionEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUnmountingEvent",
-      "shortName": "OnUnmountingEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gamemountingUnmountingEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleBodyDisposalPerformedEvent",
-      "shortName": "OnVehicleBodyDisposalPerformedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleBodyDisposalPerformedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnVehicleCameraChange;Bool",
       "shortName": "OnVehicleCameraChange",
       "flags": 260,
@@ -2618,486 +2254,6 @@
         {
           "type": "Bool",
           "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleCrystalDomeMeshVisibilityDelayEvent",
-      "shortName": "OnVehicleCrystalDomeMeshVisibilityDelayEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleCrystalDomeMeshVisibilityDelayEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleCrystalDomeOffDelayEvent",
-      "shortName": "OnVehicleCrystalDomeOffDelayEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleCrystalDomeOffDelayEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleCrystalDomeOnDelayEvent",
-      "shortName": "OnVehicleCrystalDomeOnDelayEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleCrystalDomeOnDelayEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleCycleLightsEvent",
-      "shortName": "OnVehicleCycleLightsEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleCycleLightsEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDamageStageTurnOffEvent",
-      "shortName": "OnVehicleDamageStageTurnOffEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDamageStageTurnOffEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDoorClose",
-      "shortName": "OnVehicleDoorClose",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDoorClose",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDoorInteraction",
-      "shortName": "OnVehicleDoorInteraction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDoorInteraction",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDoorInteractionStateChange",
-      "shortName": "OnVehicleDoorInteractionStateChange",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDoorInteractionStateChange",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDoorOpen",
-      "shortName": "OnVehicleDoorOpen",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDoorOpen",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDumpBody",
-      "shortName": "OnVehicleDumpBody",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDumpBody",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleDumpBodyDelayEvent",
-      "shortName": "OnVehicleDumpBodyDelayEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleDumpBodyDelayEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleExternalDoorRequestEvent",
-      "shortName": "OnVehicleExternalDoorRequestEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleExternalDoorRequestEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleExternalWindowRequestEvent",
-      "shortName": "OnVehicleExternalWindowRequestEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleExternalWindowRequestEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleFinishedMountingEvent",
-      "shortName": "OnVehicleFinishedMountingEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleFinishedMountingEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleFlippedOverEvent",
-      "shortName": "OnVehicleFlippedOverEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleFlippedOverEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleForceOccupantOut",
-      "shortName": "OnVehicleForceOccupantOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleForceOccupantOut",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleHornOffDelayEvent",
-      "shortName": "OnVehicleHornOffDelayEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleHornOffDelayEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleHornProbEvent",
-      "shortName": "OnVehicleHornProbEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleHornProbsEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleLightQuestToggleEvent",
-      "shortName": "OnVehicleLightQuestToggleEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleLightQuestToggleEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleLightSetupEvent",
-      "shortName": "OnVehicleLightSetupEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleLightSetupEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleOnPartDetached",
-      "shortName": "OnVehicleOnPartDetached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleOnPartDetachedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehiclePlayerTrunk",
-      "shortName": "OnVehiclePlayerTrunk",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehiclePlayerTrunk",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestAVThrusterEvent",
-      "shortName": "OnVehicleQuestAVThrusterEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestAVThrusterEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestCrystalDomeEvent",
-      "shortName": "OnVehicleQuestCrystalDomeEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestCrystalDomeEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestDoorLocked",
-      "shortName": "OnVehicleQuestDoorLocked",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:VehicleQuestDoorLocked",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestHornEvent",
-      "shortName": "OnVehicleQuestHornEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestHornEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestSirenEvent",
-      "shortName": "OnVehicleQuestSirenEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestSirenEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestToggleEngineEvent",
-      "shortName": "OnVehicleQuestToggleEngineEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestToggleEngineEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestVisualDestructionEvent",
-      "shortName": "OnVehicleQuestVisualDestructionEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestVisualDestructionEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleQuestWindowDestructionEvent",
-      "shortName": "OnVehicleQuestWindowDestructionEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleQuestWindowDestructionEvent",
-          "name": "evt",
           "flags": 128
         }
       ]
@@ -3115,118 +2271,6 @@
       ]
     },
     {
-      "fullName": "OnVehicleRaceClockUpdateEvent",
-      "shortName": "OnVehicleRaceClockUpdateEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleRaceClockUpdateEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleRaceQuestEvent",
-      "shortName": "OnVehicleRaceQuestEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleRaceQuestEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleRadioEvent",
-      "shortName": "OnVehicleRadioEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleRadioEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleRadioTierEvent",
-      "shortName": "OnVehicleRadioTierEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleRadioTierEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleRepairEvent",
-      "shortName": "OnVehicleRepairEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleRepairEvent",
-          "name": "re",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleSeatReservationEvent",
-      "shortName": "OnVehicleSeatReservationEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:VehicleSeatReservationEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleSirenDelayEvent",
-      "shortName": "OnVehicleSirenDelayEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleSirenDelayEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnVehicleSpeedChange;Float",
       "shortName": "OnVehicleSpeedChange",
       "flags": 260,
@@ -3234,102 +2278,6 @@
         {
           "type": "Float",
           "name": "speed",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleStartedMountingEvent",
-      "shortName": "OnVehicleStartedMountingEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleStartedMountingEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleStartedUnmountingEvent",
-      "shortName": "OnVehicleStartedUnmountingEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:VehicleStartedUnmountingEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleTakeBody",
-      "shortName": "OnVehicleTakeBody",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleTakeBody",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleWaterEvent",
-      "shortName": "OnVehicleWaterEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:vehicleWaterEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleWindowClose",
-      "shortName": "OnVehicleWindowClose",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleWindowClose",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVehicleWindowOpen",
-      "shortName": "OnVehicleWindowOpen",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:VehicleWindowOpen",
-          "name": "evt",
           "flags": 128
         }
       ]
@@ -3838,6 +2786,1156 @@
       "fullName": "VehicleVisualDestructionSetup;",
       "shortName": "VehicleVisualDestructionSetup",
       "flags": 132
+    },
+    {
+      "fullName": "GetPS",
+      "shortName": "GetPS",
+      "return": {
+        "type": "handle:gameComponentPS",
+        "flags": 64
+      },
+      "flags": 8448
+    },
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActionDemolition",
+      "shortName": "OnActionDemolition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ActionDemolition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActionEngineering",
+      "shortName": "OnActionEngineering",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChangeState",
+      "shortName": "OnChangeState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleChangeStateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseHood",
+      "shortName": "OnCloseHood",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleCloseHood",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseTrunk",
+      "shortName": "OnCloseTrunk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleCloseTrunk",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeath",
+      "shortName": "OnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisableAlarm",
+      "shortName": "OnDisableAlarm",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DisableAlarmEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDumpBodyWorkspotDelayEvent",
+      "shortName": "OnDumpBodyWorkspotDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:DumpBodyWorkspotDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFactChangedEvent",
+      "shortName": "OnFactChangedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameFactChangedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceCarAlarm",
+      "shortName": "OnForceCarAlarm",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ForceCarAlarm",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGridDestruction",
+      "shortName": "OnGridDestruction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleGridDestructionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHUDInstruction",
+      "shortName": "OnHUDInstruction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:HUDInstruction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHasVehicleBeenFlippedOverForSomeTimeEvent",
+      "shortName": "OnHasVehicleBeenFlippedOverForSomeTimeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleHasVehicleBeenFlippedOverForSomeTimeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInteractionActivated",
+      "shortName": "OnInteractionActivated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameinteractionsInteractionActivationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInteractionUsed",
+      "shortName": "OnInteractionUsed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameinteractionsChoiceEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMinutePassedEvent",
+      "shortName": "OnMinutePassedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:MinutePassedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMountingEvent",
+      "shortName": "OnMountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamemountingMountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnObjectActionRefreshEvent",
+      "shortName": "OnObjectActionRefreshEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameObjectActionRefreshEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenHood",
+      "shortName": "OnOpenHood",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleOpenHood",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenTrunk",
+      "shortName": "OnOpenTrunk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleOpenTrunk",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPickupBodyWorkspotDelayEvent",
+      "shortName": "OnPickupBodyWorkspotDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:PickupBodyWorkspotDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetIgnoreAutoDoorCloseEvent",
+      "shortName": "OnSetIgnoreAutoDoorCloseEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:SetIgnoreAutoDoorCloseEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSummonFinishedEvent",
+      "shortName": "OnSummonFinishedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleSummonFinishedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSummonStartedEvent",
+      "shortName": "OnSummonStartedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleSummonStartedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleDoorInteractionEvent",
+      "shortName": "OnToggleDoorInteractionEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:ToggleDoorInteractionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnmountingEvent",
+      "shortName": "OnUnmountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gamemountingUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleBodyDisposalPerformedEvent",
+      "shortName": "OnVehicleBodyDisposalPerformedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleBodyDisposalPerformedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleCrystalDomeMeshVisibilityDelayEvent",
+      "shortName": "OnVehicleCrystalDomeMeshVisibilityDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleCrystalDomeMeshVisibilityDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleCrystalDomeOffDelayEvent",
+      "shortName": "OnVehicleCrystalDomeOffDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleCrystalDomeOffDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleCrystalDomeOnDelayEvent",
+      "shortName": "OnVehicleCrystalDomeOnDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleCrystalDomeOnDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleCycleLightsEvent",
+      "shortName": "OnVehicleCycleLightsEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleCycleLightsEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDamageStageTurnOffEvent",
+      "shortName": "OnVehicleDamageStageTurnOffEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDamageStageTurnOffEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorClose",
+      "shortName": "OnVehicleDoorClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDoorClose",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorInteraction",
+      "shortName": "OnVehicleDoorInteraction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDoorInteraction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorInteractionStateChange",
+      "shortName": "OnVehicleDoorInteractionStateChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDoorInteractionStateChange",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDoorOpen",
+      "shortName": "OnVehicleDoorOpen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDoorOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDumpBody",
+      "shortName": "OnVehicleDumpBody",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDumpBody",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDumpBodyCloseTrunkEvent",
+      "shortName": "OnVehicleDumpBodyCloseTrunkEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleDumpBodyCloseTrunkEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleExternalDoorRequestEvent",
+      "shortName": "OnVehicleExternalDoorRequestEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleExternalDoorRequestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleExternalWindowRequestEvent",
+      "shortName": "OnVehicleExternalWindowRequestEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleExternalWindowRequestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleFinishedMountingEvent",
+      "shortName": "OnVehicleFinishedMountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleFinishedMountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleFlippedOverEvent",
+      "shortName": "OnVehicleFlippedOverEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleFlippedOverEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleForceOccupantOut",
+      "shortName": "OnVehicleForceOccupantOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleForceOccupantOut",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleHornOffDelayEvent",
+      "shortName": "OnVehicleHornOffDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleHornOffDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleHornProbEvent",
+      "shortName": "OnVehicleHornProbEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleHornProbsEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleLightQuestToggleEvent",
+      "shortName": "OnVehicleLightQuestToggleEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleLightQuestToggleEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleLightSetupEvent",
+      "shortName": "OnVehicleLightSetupEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleLightSetupEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleOnPartDetached",
+      "shortName": "OnVehicleOnPartDetached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleOnPartDetachedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehiclePlayerTrunk",
+      "shortName": "OnVehiclePlayerTrunk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehiclePlayerTrunk",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestAVThrusterEvent",
+      "shortName": "OnVehicleQuestAVThrusterEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestAVThrusterEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestCrystalDomeEvent",
+      "shortName": "OnVehicleQuestCrystalDomeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestCrystalDomeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestDoorLocked",
+      "shortName": "OnVehicleQuestDoorLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleQuestDoorLocked",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestHornEvent",
+      "shortName": "OnVehicleQuestHornEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestHornEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestSirenEvent",
+      "shortName": "OnVehicleQuestSirenEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestSirenEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestToggleEngineEvent",
+      "shortName": "OnVehicleQuestToggleEngineEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestToggleEngineEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestVisualDestructionEvent",
+      "shortName": "OnVehicleQuestVisualDestructionEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestVisualDestructionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestWindowDestructionEvent",
+      "shortName": "OnVehicleQuestWindowDestructionEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleQuestWindowDestructionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRaceClockUpdateEvent",
+      "shortName": "OnVehicleRaceClockUpdateEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleRaceClockUpdateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRaceQuestEvent",
+      "shortName": "OnVehicleRaceQuestEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleRaceQuestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRadioEvent",
+      "shortName": "OnVehicleRadioEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleRadioEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRadioTierEvent",
+      "shortName": "OnVehicleRadioTierEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleRadioTierEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRepairEvent",
+      "shortName": "OnVehicleRepairEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleRepairEvent",
+          "name": "re",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleSeatReservationEvent",
+      "shortName": "OnVehicleSeatReservationEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleSeatReservationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleSirenDelayEvent",
+      "shortName": "OnVehicleSirenDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleSirenDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleStartedMountingEvent",
+      "shortName": "OnVehicleStartedMountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleStartedMountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleStartedUnmountingEvent",
+      "shortName": "OnVehicleStartedUnmountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleStartedUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleTakeBody",
+      "shortName": "OnVehicleTakeBody",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleTakeBody",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleWaterEvent",
+      "shortName": "OnVehicleWaterEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:vehicleWaterEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleWindowClose",
+      "shortName": "OnVehicleWindowClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleWindowClose",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleWindowOpen",
+      "shortName": "OnVehicleWindowOpen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:VehicleWindowOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

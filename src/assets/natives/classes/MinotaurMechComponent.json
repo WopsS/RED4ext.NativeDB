@@ -29,6 +29,11 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:entSimpleColliderComponent",
+      "name": "npcSystemCollapseCollisionComponent",
+      "flags": 4431347744
+    },
+    {
       "type": "MechanicalScanType",
       "name": "currentScanType",
       "flags": 4297130016
@@ -41,8 +46,33 @@
   ],
   "funcs": [
     {
+      "fullName": "DisableWeapons;",
+      "shortName": "DisableWeapons",
+      "flags": 516
+    },
+    {
+      "fullName": "EnableSystemCollapse;",
+      "shortName": "EnableSystemCollapse",
+      "flags": 516
+    },
+    {
+      "fullName": "EnableWeapons;",
+      "shortName": "EnableWeapons",
+      "flags": 516
+    },
+    {
       "fullName": "FireAttack;",
       "shortName": "FireAttack",
+      "flags": 516
+    },
+    {
+      "fullName": "OnGameAttach;",
+      "shortName": "OnGameAttach",
+      "flags": 516
+    },
+    {
+      "fullName": "OnGameDetach;",
+      "shortName": "OnGameDetach",
       "flags": 516
     },
     {
@@ -76,16 +106,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnGameAttach;",
-      "shortName": "OnGameAttach",
-      "flags": 516
-    },
-    {
-      "fullName": "OnGameDetach;",
-      "shortName": "OnGameDetach",
-      "flags": 516
     },
     {
       "fullName": "OnMinotaurDeath",
@@ -130,6 +150,22 @@
       "params": [
         {
           "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectRemoved",
+      "shortName": "OnStatusEffectRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:gameeventsRemoveStatusEffect",
           "name": "evt",
           "flags": 128
         }

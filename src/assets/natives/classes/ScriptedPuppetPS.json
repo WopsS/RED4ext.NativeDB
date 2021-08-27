@@ -357,37 +357,6 @@
       ]
     },
     {
-      "fullName": "GenerateContext;gamedeviceRequestTypeClearanceGameObjectEntityID",
-      "shortName": "GenerateContext",
-      "return": {
-        "type": "gameGetActionsContext",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "gamedeviceRequestType",
-          "name": "requestType",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamedeviceClearance",
-          "name": "providedClearance",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameObject",
-          "name": "providedProcessInitiator",
-          "flags": 1152
-        },
-        {
-          "type": "entEntityID",
-          "name": "providedRequestor",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "GetAccessPoint;",
       "shortName": "GetAccessPoint",
       "return": {
@@ -397,7 +366,7 @@
       "flags": 8708
     },
     {
-      "fullName": "GetAction;TweakDBID",
+      "fullName": "GetAction;ObjectAction_Record",
       "shortName": "GetAction",
       "return": {
         "type": "handle:PuppetAction",
@@ -406,8 +375,8 @@
       "flags": 8452,
       "params": [
         {
-          "type": "TweakDBID",
-          "name": "id",
+          "type": "whandle:gamedataObjectAction_Record",
+          "name": "actionRecord",
           "flags": 128
         }
       ]
@@ -422,7 +391,7 @@
       "flags": 8708
     },
     {
-      "fullName": "GetAllChoices;array<ObjectAction_Record>GetActionsContextarray<InteractionChoice>",
+      "fullName": "GetAllChoices;array<ObjectAction_Record>GetActionsContextarray<PuppetAction>",
       "shortName": "GetAllChoices",
       "flags": 8708,
       "params": [
@@ -437,8 +406,8 @@
           "flags": 128
         },
         {
-          "type": "array:gameinteractionsChoice",
-          "name": "choices",
+          "type": "array:handle:PuppetAction",
+          "name": "puppetActions",
           "flags": 640
         }
       ]
@@ -874,15 +843,6 @@
       ]
     },
     {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnObjectAction;ScriptableDeviceAction",
       "shortName": "OnObjectAction",
       "return": {
@@ -1007,7 +967,7 @@
       ]
     },
     {
-      "fullName": "PushChoicesToInteractionComponent;InteractionComponentGetActionsContextarray<InteractionChoice>",
+      "fullName": "PushChoicesToInteractionComponent;InteractionComponentGetActionsContextscript_ref<array<InteractionChoice>>",
       "shortName": "PushChoicesToInteractionComponent",
       "flags": 132,
       "params": [
@@ -1022,7 +982,7 @@
           "flags": 128
         },
         {
-          "type": "array:gameinteractionsChoice",
+          "type": "script_ref:array:gameinteractionsChoice",
           "name": "choices",
           "flags": 128
         }
@@ -1165,6 +1125,46 @@
         "flags": 64
       },
       "flags": 8708
+    },
+    {
+      "fullName": "GenerateContext;gamedeviceRequestTypeClearanceGameObjectEntityID",
+      "shortName": "GenerateContext",
+      "return": {
+        "type": "gameGetActionsContext",
+        "flags": 64
+      },
+      "flags": 512,
+      "params": [
+        {
+          "type": "gamedeviceRequestType",
+          "name": "requestType",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedeviceClearance",
+          "name": "providedClearance",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "providedProcessInitiator",
+          "flags": 1152
+        },
+        {
+          "type": "entEntityID",
+          "name": "providedRequestor",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
     }
   ]
 }

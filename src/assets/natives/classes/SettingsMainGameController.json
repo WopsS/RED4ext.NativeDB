@@ -59,6 +59,16 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "previousButtonHint",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "nextButtonHint",
+      "flags": 4297130017
+    },
+    {
       "type": "whandle:inkMenuEventDispatcher",
       "name": "menuEventDispatcher",
       "flags": 4297130016
@@ -126,6 +136,11 @@
     {
       "type": "Bool",
       "name": "resetSettingsRequest",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isDlcSettings",
       "flags": 4297130016
     },
     {
@@ -213,6 +228,121 @@
     {
       "fullName": "OnApplyButton;",
       "shortName": "OnApplyButton",
+      "flags": 132
+    },
+    {
+      "fullName": "OnResetButton;",
+      "shortName": "OnResetButton",
+      "flags": 132
+    },
+    {
+      "fullName": "OnSettingsNotify;ConfigNotificationType",
+      "shortName": "OnSettingsNotify",
+      "flags": 516,
+      "params": [
+        {
+          "type": "InGameConfigNotificationType",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVarModified;CNameCNameConfigVarTypeConfigChangeReason",
+      "shortName": "OnVarModified",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "groupPath",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "varName",
+          "flags": 128
+        },
+        {
+          "type": "InGameConfigVarType",
+          "name": "varType",
+          "flags": 128
+        },
+        {
+          "type": "InGameConfigChangeReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateCategories;Int32",
+      "shortName": "PopulateCategories",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "idx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateCategorySettingsOptions;Int32",
+      "shortName": "PopulateCategorySettingsOptions",
+      "flags": 132,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "idx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateHints;",
+      "shortName": "PopulateHints",
+      "flags": 132
+    },
+    {
+      "fullName": "PopulateOptions;array<ConfigVar>",
+      "shortName": "PopulateOptions",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:handle:userSettingsVar",
+          "name": "options",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateSettingsData;",
+      "shortName": "PopulateSettingsData",
+      "flags": 132
+    },
+    {
+      "fullName": "RequestClose;",
+      "shortName": "RequestClose",
+      "flags": 132
+    },
+    {
+      "fullName": "RequestRestoreDefaults;",
+      "shortName": "RequestRestoreDefaults",
+      "flags": 132
+    },
+    {
+      "fullName": "ShowBrightnessScreen;",
+      "shortName": "ShowBrightnessScreen",
+      "flags": 132
+    },
+    {
+      "fullName": "ShowControllerScreen;",
+      "shortName": "ShowControllerScreen",
+      "flags": 132
+    },
+    {
+      "fullName": "ShowHDRScreen;",
+      "shortName": "ShowHDRScreen",
       "flags": 132
     },
     {
@@ -374,11 +504,6 @@
       ]
     },
     {
-      "fullName": "OnResetButton;",
-      "shortName": "OnResetButton",
-      "flags": 132
-    },
-    {
       "fullName": "OnResetButtonReleased",
       "shortName": "OnResetButtonReleased",
       "return": {
@@ -406,6 +531,22 @@
         {
           "type": "whandle:inkMenuEventDispatcher",
           "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetUserData",
+      "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
           "flags": 128
         }
       ]
@@ -443,18 +584,6 @@
       ]
     },
     {
-      "fullName": "OnSettingsNotify;ConfigNotificationType",
-      "shortName": "OnSettingsNotify",
-      "flags": 516,
-      "params": [
-        {
-          "type": "InGameConfigNotificationType",
-          "name": "status",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -462,104 +591,6 @@
         "flags": 64
       },
       "flags": 264
-    },
-    {
-      "fullName": "OnVarModified;CNameCNameConfigVarTypeConfigChangeReason",
-      "shortName": "OnVarModified",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "groupPath",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "varName",
-          "flags": 128
-        },
-        {
-          "type": "InGameConfigVarType",
-          "name": "varType",
-          "flags": 128
-        },
-        {
-          "type": "InGameConfigChangeReason",
-          "name": "reason",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PopulateCategories;Int32",
-      "shortName": "PopulateCategories",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "idx",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PopulateCategorySettingsOptions;Int32",
-      "shortName": "PopulateCategorySettingsOptions",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "idx",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PopulateHints;",
-      "shortName": "PopulateHints",
-      "flags": 132
-    },
-    {
-      "fullName": "PopulateOptions;array<ConfigVar>",
-      "shortName": "PopulateOptions",
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:handle:userSettingsVar",
-          "name": "options",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PopulateSettingsData;",
-      "shortName": "PopulateSettingsData",
-      "flags": 132
-    },
-    {
-      "fullName": "RequestClose;",
-      "shortName": "RequestClose",
-      "flags": 132
-    },
-    {
-      "fullName": "RequestRestoreDefaults;",
-      "shortName": "RequestRestoreDefaults",
-      "flags": 132
-    },
-    {
-      "fullName": "ShowBrightnessScreen;",
-      "shortName": "ShowBrightnessScreen",
-      "flags": 132
-    },
-    {
-      "fullName": "ShowControllerScreen;",
-      "shortName": "ShowControllerScreen",
-      "flags": 132
-    },
-    {
-      "fullName": "ShowHDRScreen;",
-      "shortName": "ShowHDRScreen",
-      "flags": 132
     }
   ]
 }

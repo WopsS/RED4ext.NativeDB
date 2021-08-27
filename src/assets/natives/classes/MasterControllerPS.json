@@ -11,32 +11,6 @@
   ],
   "funcs": [
     {
-      "fullName": "CacheDevices;",
-      "shortName": "CacheDevices",
-      "flags": 33024
-    },
-    {
-      "fullName": "DetermineGameplayViability;GetActionsContextBool",
-      "shortName": "DetermineGameplayViability",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "gameGetActionsContext",
-          "name": "context",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "hasActiveActions",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ExtractActionFromSlave;DeviceComponentPSCNameDeviceAction",
       "shortName": "ExtractActionFromSlave",
       "return": {
@@ -63,18 +37,6 @@
       ]
     },
     {
-      "fullName": "FillAgentsList;array<PSOwnerData>",
-      "shortName": "FillAgentsList",
-      "flags": 41472,
-      "params": [
-        {
-          "type": "array:PSOwnerData",
-          "name": "agentsList",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "FillTakeOverChainBB;",
       "shortName": "FillTakeOverChainBB",
       "flags": 260
@@ -92,10 +54,197 @@
       ]
     },
     {
+      "fullName": "GetImmediateDescendants;",
+      "shortName": "GetImmediateDescendants",
+      "return": {
+        "type": "array:handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetLazyDescendants;",
+      "shortName": "GetLazyDescendants",
+      "return": {
+        "type": "array:handle:gameLazyDevice",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetPuppets;",
+      "shortName": "GetPuppets",
+      "return": {
+        "type": "array:handle:PuppetDeviceLinkPS",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
+      "fullName": "GetQuickHacksFromSlave;array<DeviceAction>GetActionsContext",
+      "shortName": "GetQuickHacksFromSlave",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NetrunnerGiveConnectedDevices;",
+      "shortName": "NetrunnerGiveConnectedDevices",
+      "return": {
+        "type": "array:handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 516
+    },
+    {
+      "fullName": "RefreshDefaultHighlightOnSlaves;",
+      "shortName": "RefreshDefaultHighlightOnSlaves",
+      "flags": 516
+    },
+    {
+      "fullName": "RefreshPowerOnSlaves_Event;",
+      "shortName": "RefreshPowerOnSlaves_Event",
+      "flags": 516
+    },
+    {
+      "fullName": "RefreshSlaves_Event;BoolBool",
+      "shortName": "RefreshSlaves_Event",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "onInitialize",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RequestAllDevicesWidgetsUpdate;IBlackboard",
+      "shortName": "RequestAllDevicesWidgetsUpdate",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestAreaEffectVisualisationUpdateOnSlaves;CNameBool",
+      "shortName": "RequestAreaEffectVisualisationUpdateOnSlaves",
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "areaEffectID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendActionsToAllSlaves;array<ScriptableDeviceAction>",
+      "shortName": "SendActionsToAllSlaves",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "array:handle:ScriptableDeviceAction",
+          "name": "actions",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendEventToAllSlaves;Event",
+      "shortName": "SendEventToAllSlaves",
+      "flags": 8452,
+      "params": [
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSlavesAsQuestImportant;Bool",
+      "shortName": "SetSlavesAsQuestImportant",
+      "flags": 516,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isImportant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CacheDevices;",
+      "shortName": "CacheDevices",
+      "flags": 33024
+    },
+    {
+      "fullName": "DetermineGameplayViability;GetActionsContextBool",
+      "shortName": "DetermineGameplayViability",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 256,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasActiveActions",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttachedSlaveForPing;MasterControllerPS",
+      "shortName": "GetAttachedSlaveForPing",
+      "return": {
+        "type": "handle:gameDeviceComponentPS",
+        "flags": 64
+      },
+      "flags": 8704,
+      "params": [
+        {
+          "type": "handle:MasterControllerPS",
+          "name": "context",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:MasterDeviceBaseBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -137,15 +286,6 @@
       "flags": 8704
     },
     {
-      "fullName": "GetImmediateDescendants;",
-      "shortName": "GetImmediateDescendants",
-      "return": {
-        "type": "array:handle:gameDeviceComponentPS",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
       "fullName": "GetImmediateSlaves;",
       "shortName": "GetImmediateSlaves",
       "return": {
@@ -155,30 +295,13 @@
       "flags": 8704
     },
     {
-      "fullName": "GetPuppets;",
-      "shortName": "GetPuppets",
+      "fullName": "GetLazySlaves;",
+      "shortName": "GetLazySlaves",
       "return": {
-        "type": "array:handle:PuppetDeviceLinkPS",
+        "type": "array:handle:gameLazyDevice",
         "flags": 64
       },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetQuickHacksFromSlave;array<DeviceAction>GetActionsContext",
-      "shortName": "GetQuickHacksFromSlave",
-      "flags": 8452,
-      "params": [
-        {
-          "type": "array:handle:gamedeviceAction",
-          "name": "outActions",
-          "flags": 640
-        },
-        {
-          "type": "gameGetActionsContext",
-          "name": "context",
-          "flags": 128
-        }
-      ]
+      "flags": 8704
     },
     {
       "fullName": "GetSlaveDeviceWidget;PersistentID",
@@ -236,15 +359,6 @@
         "flags": 64
       },
       "flags": 41472
-    },
-    {
-      "fullName": "NetrunnerGiveConnectedDevices;",
-      "shortName": "NetrunnerGiveConnectedDevices",
-      "return": {
-        "type": "array:handle:gameDeviceComponentPS",
-        "flags": 64
-      },
-      "flags": 516
     },
     {
       "fullName": "OnDeviceDynamicConnectionChange;DeviceDynamicConnectionChange",
@@ -323,52 +437,6 @@
         {
           "type": "handle:RequestThumbnailWidgetsUpdateEvent",
           "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RefreshDefaultHighlightOnSlaves;",
-      "shortName": "RefreshDefaultHighlightOnSlaves",
-      "flags": 516
-    },
-    {
-      "fullName": "RefreshSlaves_Event;Bool",
-      "shortName": "RefreshSlaves_Event",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "onInitialize",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "RequestAllDevicesWidgetsUpdate;IBlackboard",
-      "shortName": "RequestAllDevicesWidgetsUpdate",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:gameIBlackboard",
-          "name": "blackboard",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestAreaEffectVisualisationUpdateOnSlaves;CNameBool",
-      "shortName": "RequestAreaEffectVisualisationUpdateOnSlaves",
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "areaEffectID",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "show",
           "flags": 128
         }
       ]
@@ -474,42 +542,6 @@
         {
           "type": "handle:ScriptableDeviceAction",
           "name": "action",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendActionsToAllSlaves;array<ScriptableDeviceAction>",
-      "shortName": "SendActionsToAllSlaves",
-      "flags": 8452,
-      "params": [
-        {
-          "type": "array:handle:ScriptableDeviceAction",
-          "name": "actions",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendEventToAllSlaves;Event",
-      "shortName": "SendEventToAllSlaves",
-      "flags": 8452,
-      "params": [
-        {
-          "type": "handle:redEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetSlavesAsQuestImportant;Bool",
-      "shortName": "SetSlavesAsQuestImportant",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isImportant",
           "flags": 128
         }
       ]

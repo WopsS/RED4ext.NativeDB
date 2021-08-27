@@ -4,6 +4,40 @@
   "flags": 4,
   "funcs": [
     {
+      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardarray<PersistentID>",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        },
+        {
+          "type": "array:gamePersistentID",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardPersistentID",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        },
+        {
+          "type": "gamePersistentID",
+          "name": "deviceID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CreateBlackboard;",
       "shortName": "CreateBlackboard",
       "flags": 256
@@ -12,7 +46,7 @@
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:MasterDeviceBaseBlackboardDef",
+        "type": "handle:DeviceBaseBlackboardDef",
         "flags": 64
       },
       "flags": 8704
@@ -30,7 +64,7 @@
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:MasterController",
+        "type": "handle:ScriptableDC",
         "flags": 64
       },
       "flags": 8448
@@ -48,7 +82,7 @@
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:MasterControllerPS",
+        "type": "handle:ScriptableDeviceComponentPS",
         "flags": 64
       },
       "flags": 8704
@@ -198,40 +232,6 @@
         {
           "type": "entEntityResolveComponentsInterface",
           "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardarray<PersistentID>",
-      "shortName": "RequestDeviceWidgetsUpdate",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameIBlackboard",
-          "name": "blackboard",
-          "flags": 128
-        },
-        {
-          "type": "array:gamePersistentID",
-          "name": "devices",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardPersistentID",
-      "shortName": "RequestDeviceWidgetsUpdate",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameIBlackboard",
-          "name": "blackboard",
-          "flags": 128
-        },
-        {
-          "type": "gamePersistentID",
-          "name": "deviceID",
           "flags": 128
         }
       ]

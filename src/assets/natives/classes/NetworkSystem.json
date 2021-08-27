@@ -19,14 +19,14 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "visionModeChangedCallback",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "focusModeToggleCallback",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "Uint32",
@@ -34,9 +34,9 @@
       "flags": 4297130016
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "currentPlayerTargetCallbackID",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
       "type": "entEntityID",
@@ -84,6 +84,11 @@
       "flags": 6583025696
     },
     {
+      "type": "array:CName",
+      "name": "pingedSquads",
+      "flags": 6583025696
+    },
+    {
       "type": "Int32",
       "name": "pingLinksCounter",
       "flags": 4297130016
@@ -117,9 +122,64 @@
       "type": "Int32",
       "name": "debugQueryNumber",
       "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "activateLinksDelayID",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "deactivateLinksDelayID",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "NetworkSystem::GetMaxLinksDeactivatedAtOnce;",
+      "shortName": "GetMaxLinksDeactivatedAtOnce",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902
+    },
+    {
+      "fullName": "NetworkSystem::GetMaxLinksDrawnAtOnce;",
+      "shortName": "GetMaxLinksDrawnAtOnce",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902
+    },
+    {
+      "fullName": "NetworkSystem::GetMaxLinksDrawnInTotal;",
+      "shortName": "GetMaxLinksDrawnInTotal",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902
+    },
+    {
+      "fullName": "NetworkSystem::GetMaxLinksRegisteredAtOnce;",
+      "shortName": "GetMaxLinksRegisteredAtOnce",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902
+    },
+    {
+      "fullName": "NetworkSystem::GetMaximumNumberOfFreeLinksPerTarget;",
+      "shortName": "GetMaximumNumberOfFreeLinksPerTarget",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902
+    },
     {
       "fullName": "NetworkSystem::QuickHacksExposedByDefault;GameInstance",
       "shortName": "QuickHacksExposedByDefault",
@@ -177,6 +237,42 @@
         {
           "type": "Int32",
           "name": "linkIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActivateNetworkLinkByTask;Int32",
+      "shortName": "ActivateNetworkLinkByTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "linkIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActivateNetworkLinkTask;ScriptTaskData",
+      "shortName": "ActivateNetworkLinkTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActivateNetworkLinks;array<Int32>",
+      "shortName": "ActivateNetworkLinks",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:Int32",
+          "name": "toActivate",
           "flags": 128
         }
       ]
@@ -248,6 +344,18 @@
       ]
     },
     {
+      "fullName": "AddPingedSquad;CName",
+      "shortName": "AddPingedSquad",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "squadName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AllowSimultanousPinging;",
       "shortName": "AllowSimultanousPinging",
       "return": {
@@ -271,6 +379,11 @@
     {
       "fullName": "CleanNetwork;",
       "shortName": "CleanNetwork",
+      "flags": 132
+    },
+    {
+      "fullName": "ClearPingedSquads;",
+      "shortName": "ClearPingedSquads",
       "flags": 132
     },
     {
@@ -458,6 +571,52 @@
       ]
     },
     {
+      "fullName": "DeactivateNetworkLinkByTask;Int32Bool",
+      "shortName": "DeactivateNetworkLinkByTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "linkIndex",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateNetworkLinkTask;ScriptTaskData",
+      "shortName": "DeactivateNetworkLinkTask",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateNetworkLinks;array<Int32>Bool",
+      "shortName": "DeactivateNetworkLinks",
+      "flags": 132,
+      "params": [
+        {
+          "type": "array:Int32",
+          "name": "toDeactivate",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DecreasePingLinbksCounter;",
       "shortName": "DecreasePingLinbksCounter",
       "flags": 132
@@ -490,18 +649,6 @@
         {
           "type": "Int32",
           "name": "linkIndex",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DrawNetworkBeam;SNetworkLinkData",
-      "shortName": "DrawNetworkBeam",
-      "flags": 132,
-      "params": [
-        {
-          "type": "SNetworkLinkData",
-          "name": "linkData",
           "flags": 128
         }
       ]
@@ -779,15 +926,6 @@
       "flags": 41092
     },
     {
-      "fullName": "GetMaximumNumberOfFreeLinksPerTarget;",
-      "shortName": "GetMaximumNumberOfFreeLinksPerTarget",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 41092
-    },
-    {
       "fullName": "GetNetworkBeam;SNetworkLinkData",
       "shortName": "GetNetworkBeam",
       "return": {
@@ -953,6 +1091,27 @@
       ]
     },
     {
+      "fullName": "GetRandomPointOnSphere;Vector4Float",
+      "shortName": "GetRandomPointOnSphere",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 132,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "sphereCentre",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetRandomPointOnSphere;Vector4FloatInt32",
       "shortName": "GetRandomPointOnSphere",
       "return": {
@@ -974,27 +1133,6 @@
         {
           "type": "Int32",
           "name": "slice",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetRandomPointOnSphere;Vector4Float",
-      "shortName": "GetRandomPointOnSphere",
-      "return": {
-        "type": "Vector4",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "Vector4",
-          "name": "sphereCentre",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "radius",
           "flags": 128
         }
       ]
@@ -1240,7 +1378,7 @@
       ]
     },
     {
-      "fullName": "HasNetworkLink;SNetworkLinkDataInt32",
+      "fullName": "HasNetworkLink;EntityID",
       "shortName": "HasNetworkLink",
       "return": {
         "type": "Bool",
@@ -1249,14 +1387,9 @@
       "flags": 8708,
       "params": [
         {
-          "type": "SNetworkLinkData",
-          "name": "linkData",
+          "type": "entEntityID",
+          "name": "ID",
           "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 640
         }
       ]
     },
@@ -1308,22 +1441,6 @@
       ]
     },
     {
-      "fullName": "HasNetworkLink;EntityID",
-      "shortName": "HasNetworkLink",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "ID",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "HasNetworkLink;SNetworkLinkData",
       "shortName": "HasNetworkLink",
       "return": {
@@ -1336,6 +1453,27 @@
           "type": "SNetworkLinkData",
           "name": "linkData",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNetworkLink;SNetworkLinkDataInt32",
+      "shortName": "HasNetworkLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "SNetworkLinkData",
+          "name": "linkData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 640
         }
       ]
     },
@@ -1541,6 +1679,22 @@
       ]
     },
     {
+      "fullName": "IsSquadMarkedWithPing;CName",
+      "shortName": "IsSquadMarkedWithPing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "squadName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsTagged;EntityID",
       "shortName": "IsTagged",
       "return": {
@@ -1658,9 +1812,40 @@
       "flags": 132
     },
     {
-      "fullName": "OnAttach;",
-      "shortName": "OnAttach",
-      "flags": 128
+      "fullName": "OnActivateNetworkLinksRequest;ActivateLinksRequest",
+      "shortName": "OnActivateNetworkLinksRequest",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:ActivateLinksRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAddPingedSquadRequest;AddPingedSquadRequest",
+      "shortName": "OnAddPingedSquadRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:AddPingedSquadRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnClearPingedSquadRequest;ClearPingedSquadRequest",
+      "shortName": "OnClearPingedSquadRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:ClearPingedSquadRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnDeactivateAllNetworkLinksRequest;DeactivateAllNetworkLinksRequest",
@@ -1675,9 +1860,16 @@
       ]
     },
     {
-      "fullName": "OnDetach;",
-      "shortName": "OnDetach",
-      "flags": 128
+      "fullName": "OnDeactivateLinksRequest;DeactivateLinksRequest",
+      "shortName": "OnDeactivateLinksRequest",
+      "flags": 260,
+      "params": [
+        {
+          "type": "handle:DeactivateLinksRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnEvaluateVisionModeRequest;EvaluateVisionModeRequest",
@@ -1687,22 +1879,6 @@
         {
           "type": "handle:EvaluateVisionModeRequest",
           "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnFocusModeToggle",
-      "shortName": "OnFocusModeToggle",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
           "flags": 128
         }
       ]
@@ -1744,22 +1920,6 @@
       ]
     },
     {
-      "fullName": "OnPlayerTargetChanged",
-      "shortName": "OnPlayerTargetChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnRegisterNetworkLinkRequest;RegisterNetworkLinkRequest",
       "shortName": "OnRegisterNetworkLinkRequest",
       "flags": 132,
@@ -1778,6 +1938,18 @@
       "params": [
         {
           "type": "handle:RegisterPingNetworkLinkRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemovePingedSquadRequest;RemovePingedSquadRequest",
+      "shortName": "OnRemovePingedSquadRequest",
+      "flags": 132,
+      "params": [
+        {
+          "type": "handle:RemovePingedSquadRequest",
           "name": "request",
           "flags": 128
         }
@@ -1887,22 +2059,6 @@
         {
           "type": "handle:UpdateNetworkVisualisationRequest",
           "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVisionModeChanged",
-      "shortName": "OnVisionModeChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
           "flags": 128
         }
       ]
@@ -2223,6 +2379,18 @@
       ]
     },
     {
+      "fullName": "RemovePingedSquad;CName",
+      "shortName": "RemovePingedSquad",
+      "flags": 132,
+      "params": [
+        {
+          "type": "CName",
+          "name": "squadName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ResolveConnectionHighlight;BoolSNetworkLinkData",
       "shortName": "ResolveConnectionHighlight",
       "flags": 132,
@@ -2308,7 +2476,7 @@
       ]
     },
     {
-      "fullName": "SendRevealNetworkEvent;EntityIDFloat",
+      "fullName": "SendRevealNetworkEvent;EntityIDBoolFloat",
       "shortName": "SendRevealNetworkEvent",
       "flags": 132,
       "params": [
@@ -2316,6 +2484,11 @@
           "type": "entEntityID",
           "name": "target",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "nextFrame",
+          "flags": 1152
         },
         {
           "type": "Float",
@@ -2488,6 +2661,64 @@
       "fullName": "UpdateNetworkVisualisation;",
       "shortName": "UpdateNetworkVisualisation",
       "flags": 132
+    },
+    {
+      "fullName": "OnAttach;",
+      "shortName": "OnAttach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 128
+    },
+    {
+      "fullName": "OnFocusModeToggle",
+      "shortName": "OnFocusModeToggle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerTargetChanged",
+      "shortName": "OnPlayerTargetChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVisionModeChanged",
+      "shortName": "OnVisionModeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

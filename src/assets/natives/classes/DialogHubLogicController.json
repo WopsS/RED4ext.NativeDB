@@ -69,14 +69,14 @@
       "flags": 4297130016
     },
     {
-      "type": "array:handle:DialogChoiceLogicController",
+      "type": "array:whandle:DialogChoiceLogicController",
       "name": "itemControllers",
       "flags": 6583025696
     },
     {
-      "type": "handle:DialogChoiceTimerController",
+      "type": "whandle:DialogChoiceTimerController",
       "name": "progressBar",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "Bool",
@@ -137,6 +137,21 @@
       "type": "handle:inkanimMarginInterpolator",
       "name": "selectBgMarginInterp",
       "flags": 4431544352
+    },
+    {
+      "type": "DialogHubData",
+      "name": "dialogHubData",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "pendingRequests",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkAsyncSpawnRequest",
+      "name": "spawnTokens",
+      "flags": 6583025696
     }
   ],
   "funcs": [
@@ -160,15 +175,6 @@
         "flags": 64
       },
       "flags": 516
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
     },
     {
       "fullName": "OnMenuVisibilityChange;Bool",
@@ -281,6 +287,11 @@
       ]
     },
     {
+      "fullName": "UpdateDialogHubData;",
+      "shortName": "UpdateDialogHubData",
+      "flags": 132
+    },
+    {
       "fullName": "WasTimed;",
       "shortName": "WasTimed",
       "return": {
@@ -288,6 +299,36 @@
         "flags": 64
       },
       "flags": 516
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnItemSpawned",
+      "shortName": "OnItemSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "newItem",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

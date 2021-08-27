@@ -39,14 +39,14 @@
       "flags": 4297195552
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onGlitchingStateChangedListener",
-      "flags": 4297130016
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
+      "type": "handle:redCallbackObject",
       "name": "onMessegeChangedListener",
-      "flags": 4297130016
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -65,15 +65,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "GetOwner;",
-      "shortName": "GetOwner",
-      "return": {
-        "type": "handle:LcdScreen",
-        "flags": 64
-      },
-      "flags": 256
     },
     {
       "fullName": "InitializeCustomNumber;BoolInt32",
@@ -103,6 +94,103 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "PlayVideo;ResRefBoolCName",
+      "shortName": "PlayVideo",
+      "flags": 516,
+      "params": [
+        {
+          "type": "redResourceReferenceScriptToken",
+          "name": "videoPath",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "looped",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "audioEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBackgroundTexture;inkImageTweakDBID",
+      "shortName": "SetBackgroundTexture",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkImageWidget",
+          "name": "imageWidget",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "textureID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBackgroundTexture;inkImageUIIcon_Record",
+      "shortName": "SetBackgroundTexture",
+      "flags": 132,
+      "params": [
+        {
+          "type": "whandle:inkImageWidget",
+          "name": "imageWidget",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataUIIcon_Record",
+          "name": "textureRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetBackgroundTexture;inkImageRefUIIcon_Record",
+      "shortName": "SetBackgroundTexture",
+      "flags": 132,
+      "params": [
+        {
+          "type": "inkImageWidgetReference",
+          "name": "imageWidgetRef",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataUIIcon_Record",
+          "name": "textureRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopVideo;",
+      "shortName": "StopVideo",
+      "flags": 516
+    },
+    {
+      "fullName": "TurnOff;",
+      "shortName": "TurnOff",
+      "flags": 516
+    },
+    {
+      "fullName": "TurnOn;",
+      "shortName": "TurnOn",
+      "flags": 516
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "handle:Device",
+        "flags": 64
+      },
+      "flags": 256
     },
     {
       "fullName": "OnActionWidgetsUpdate",
@@ -162,28 +250,6 @@
       "flags": 264
     },
     {
-      "fullName": "PlayVideo;ResRefBoolCName",
-      "shortName": "PlayVideo",
-      "flags": 516,
-      "params": [
-        {
-          "type": "redResourceReferenceScriptToken",
-          "name": "videoPath",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "looped",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "audioEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "Refresh;EDeviceStatus",
       "shortName": "Refresh",
       "flags": 512,
@@ -220,57 +286,6 @@
       ]
     },
     {
-      "fullName": "SetBackgroundTexture;inkImageTweakDBID",
-      "shortName": "SetBackgroundTexture",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:inkImageWidget",
-          "name": "imageWidget",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "textureID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetBackgroundTexture;inkImageUIIcon_Record",
-      "shortName": "SetBackgroundTexture",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:inkImageWidget",
-          "name": "imageWidget",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataUIIcon_Record",
-          "name": "textureRecord",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetBackgroundTexture;inkImageRefUIIcon_Record",
-      "shortName": "SetBackgroundTexture",
-      "flags": 132,
-      "params": [
-        {
-          "type": "inkImageWidgetReference",
-          "name": "imageWidgetRef",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataUIIcon_Record",
-          "name": "textureRecord",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SetupWidgets;",
       "shortName": "SetupWidgets",
       "flags": 256
@@ -291,21 +306,6 @@
       "fullName": "StopGlitchingScreen;",
       "shortName": "StopGlitchingScreen",
       "flags": 128
-    },
-    {
-      "fullName": "StopVideo;",
-      "shortName": "StopVideo",
-      "flags": 516
-    },
-    {
-      "fullName": "TurnOff;",
-      "shortName": "TurnOff",
-      "flags": 516
-    },
-    {
-      "fullName": "TurnOn;",
-      "shortName": "TurnOn",
-      "flags": 516
     },
     {
       "fullName": "UnRegisterBlackboardCallbacks;IBlackboard",

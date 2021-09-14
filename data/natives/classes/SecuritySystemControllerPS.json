@@ -151,6 +151,15 @@
   ],
   "funcs": [
     {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
       "fullName": "ActionFullSystemRestart;",
       "shortName": "ActionFullSystemRestart",
       "return": {
@@ -260,6 +269,23 @@
       ]
     },
     {
+      "fullName": "AuthorizeUser;EntityIDESecurityAccessLevel",
+      "shortName": "AuthorizeUser",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "user",
+          "flags": 128
+        },
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AuthorizeUser;EntityIDCName",
       "shortName": "AuthorizeUser",
       "return": {
@@ -277,23 +303,6 @@
           "type": "CName",
           "name": "password",
           "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "AuthorizeUser;EntityIDESecurityAccessLevel",
-      "shortName": "AuthorizeUser",
-      "flags": 8708,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "user",
-          "flags": 128
-        },
-        {
-          "type": "ESecurityAccessLevel",
-          "name": "level",
-          "flags": 128
         }
       ]
     },
@@ -554,22 +563,6 @@
       "flags": 8324
     },
     {
-      "fullName": "GetAttitudeTowards;EntityID",
-      "shortName": "GetAttitudeTowards",
-      "return": {
-        "type": "EAIAttitude",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetAttitudeTowards;CName",
       "shortName": "GetAttitudeTowards",
       "return": {
@@ -581,6 +574,22 @@
         {
           "type": "CName",
           "name": "otherGroup",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttitudeTowards;EntityID",
+      "shortName": "GetAttitudeTowards",
+      "return": {
+        "type": "EAIAttitude",
+        "flags": 64
+      },
+      "flags": 8324,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "target",
           "flags": 128
         }
       ]
@@ -654,6 +663,22 @@
       ]
     },
     {
+      "fullName": "GetMostDangerousSecurityAreaForEntityID;EntityID",
+      "shortName": "GetMostDangerousSecurityAreaForEntityID",
+      "return": {
+        "type": "handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetMostDangerousSecurityAreaForEntityID;GameObject",
       "shortName": "GetMostDangerousSecurityAreaForEntityID",
       "return": {
@@ -670,17 +695,17 @@
       ]
     },
     {
-      "fullName": "GetMostDangerousSecurityAreaForEntityID;EntityID",
-      "shortName": "GetMostDangerousSecurityAreaForEntityID",
+      "fullName": "GetOverlappingAreas;SecuritySystemInput",
+      "shortName": "GetOverlappingAreas",
       "return": {
-        "type": "handle:SecurityAreaControllerPS",
+        "type": "array:handle:SecurityAreaControllerPS",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 8324,
       "params": [
         {
-          "type": "entEntityID",
-          "name": "entityID",
+          "type": "handle:SecuritySystemInput",
+          "name": "input",
           "flags": 128
         }
       ]
@@ -702,22 +727,6 @@
         {
           "type": "array:handle:SecurityAreaControllerPS",
           "name": "bunch2",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetOverlappingAreas;SecuritySystemInput",
-      "shortName": "GetOverlappingAreas",
-      "return": {
-        "type": "array:handle:SecurityAreaControllerPS",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "handle:SecuritySystemInput",
-          "name": "input",
           "flags": 128
         }
       ]
@@ -1054,27 +1063,6 @@
       ]
     },
     {
-      "fullName": "IsEntityBlacklistedForAtLeast;GameObjectBlacklistReason",
-      "shortName": "IsEntityBlacklistedForAtLeast",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "go",
-          "flags": 128
-        },
-        {
-          "type": "BlacklistReason",
-          "name": "reason",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "IsEntityBlacklistedForAtLeast;EntityIDBlacklistReason",
       "shortName": "IsEntityBlacklistedForAtLeast",
       "return": {
@@ -1086,6 +1074,27 @@
         {
           "type": "entEntityID",
           "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "BlacklistReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEntityBlacklistedForAtLeast;GameObjectBlacklistReason",
+      "shortName": "IsEntityBlacklistedForAtLeast",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "go",
           "flags": 128
         },
         {
@@ -1276,7 +1285,7 @@
       "flags": 8708
     },
     {
-      "fullName": "IsUserAuthorized;GameObjectESecurityAccessLevel",
+      "fullName": "IsUserAuthorized;EntityIDESecurityAccessLevel",
       "shortName": "IsUserAuthorized",
       "return": {
         "type": "Bool",
@@ -1285,7 +1294,7 @@
       "flags": 8708,
       "params": [
         {
-          "type": "handle:gameObject",
+          "type": "entEntityID",
           "name": "user",
           "flags": 128
         },
@@ -1297,7 +1306,7 @@
       ]
     },
     {
-      "fullName": "IsUserAuthorized;EntityIDESecurityAccessLevel",
+      "fullName": "IsUserAuthorized;GameObjectESecurityAccessLevel",
       "shortName": "IsUserAuthorized",
       "return": {
         "type": "Bool",
@@ -1306,7 +1315,7 @@
       "flags": 8708,
       "params": [
         {
-          "type": "entEntityID",
+          "type": "handle:gameObject",
           "name": "user",
           "flags": 128
         },
@@ -1554,15 +1563,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
     },
     {
       "fullName": "OnMadnessDebuff;MadnessDebuff",
@@ -2128,18 +2128,6 @@
       ]
     },
     {
-      "fullName": "RemoveFromBlacklist;GameObject",
-      "shortName": "RemoveFromBlacklist",
-      "flags": 8708,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "go",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "RemoveFromBlacklist;EntityID",
       "shortName": "RemoveFromBlacklist",
       "flags": 8324,
@@ -2147,6 +2135,18 @@
         {
           "type": "entEntityID",
           "name": "entityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveFromBlacklist;GameObject",
+      "shortName": "RemoveFromBlacklist",
+      "flags": 8708,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "go",
           "flags": 128
         }
       ]

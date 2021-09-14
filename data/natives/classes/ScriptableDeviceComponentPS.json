@@ -466,6 +466,31 @@
       ]
     },
     {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264
+    },
+    {
+      "fullName": "OnRevokeQuickHackAccess",
+      "shortName": "OnRevokeQuickHackAccess",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 264,
+      "params": [
+        {
+          "type": "handle:RevokeQuickHackAccess",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ActionActivateDevice;",
       "shortName": "ActionActivateDevice",
       "return": {
@@ -1693,6 +1718,23 @@
       ]
     },
     {
+      "fullName": "DisconnectPersonalLink;ScriptableDeviceActionBool",
+      "shortName": "DisconnectPersonalLink",
+      "flags": 516,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isForcedByQuest",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "DisconnectPersonalLink;GameObjectCNameBool",
       "shortName": "DisconnectPersonalLink",
       "flags": 516,
@@ -1705,23 +1747,6 @@
         {
           "type": "CName",
           "name": "layer",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isForcedByQuest",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "DisconnectPersonalLink;ScriptableDeviceActionBool",
-      "shortName": "DisconnectPersonalLink",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:ScriptableDeviceAction",
-          "name": "evt",
           "flags": 128
         },
         {
@@ -2165,27 +2190,6 @@
       ]
     },
     {
-      "fullName": "GetActionByName;CNameEntityID",
-      "shortName": "GetActionByName",
-      "return": {
-        "type": "handle:gamedeviceAction",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "CName",
-          "name": "actionName",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "entityID",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "GetActionByName;CNameGetActionsContext",
       "shortName": "GetActionByName",
       "return": {
@@ -2203,6 +2207,27 @@
           "type": "gameGetActionsContext",
           "name": "context",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetActionByName;CNameEntityID",
+      "shortName": "GetActionByName",
+      "return": {
+        "type": "handle:gamedeviceAction",
+        "flags": 64
+      },
+      "flags": 516,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 1152
         }
       ]
     },
@@ -3038,6 +3063,15 @@
       ]
     },
     {
+      "fullName": "GetSecurityAreasWithUsersInside;",
+      "shortName": "GetSecurityAreasWithUsersInside",
+      "return": {
+        "type": "array:handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 8708
+    },
+    {
       "fullName": "GetSecurityAreasWithUsersInside;array<AreaEntry>",
       "shortName": "GetSecurityAreasWithUsersInside",
       "return": {
@@ -3052,15 +3086,6 @@
           "flags": 640
         }
       ]
-    },
-    {
-      "fullName": "GetSecurityAreasWithUsersInside;",
-      "shortName": "GetSecurityAreasWithUsersInside",
-      "return": {
-        "type": "array:handle:SecurityAreaControllerPS",
-        "flags": 64
-      },
-      "flags": 8708
     },
     {
       "fullName": "GetSkillCheckContainer;",
@@ -4537,15 +4562,6 @@
       ]
     },
     {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnLogicReady;SetLogicReadyEvent",
       "shortName": "OnLogicReady",
       "return": {
@@ -5321,22 +5337,6 @@
       "params": [
         {
           "type": "handle:RevealNetworkGridEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRevokeQuickHackAccess",
-      "shortName": "OnRevokeQuickHackAccess",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:RevokeQuickHackAccess",
           "name": "evt",
           "flags": 128
         }
@@ -6914,6 +6914,22 @@
       "flags": 256
     },
     {
+      "fullName": "WasActionPerformed;CName",
+      "shortName": "WasActionPerformed",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 8708,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "WasActionPerformed;CNameEActionContext",
       "shortName": "WasActionPerformed",
       "return": {
@@ -6930,22 +6946,6 @@
         {
           "type": "EActionContext",
           "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "WasActionPerformed;CName",
-      "shortName": "WasActionPerformed",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "CName",
-          "name": "actionID",
           "flags": 128
         }
       ]

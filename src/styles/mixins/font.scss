@@ -28,23 +28,22 @@ $weights: (
   }
 
   $root: '../../assets/fonts';
-  $dir: to-lower-case(str-replace($family, ' ', '-'));
+  $dir: string.to-lower-case(str-replace($family, ' ', '-'));
   $file-prefix: str-replace($family, ' ', '');
 
   @each $variant in $variants {
-    $weight: map-get($weights, $variant);
+    $weight: map.get($weights, $variant);
     $src: null;
 
     @each $ext in $exts {
       $variant: capitalize($variant);
-
       $url: '#{$root}/#{$dir}/#{$file-prefix}-#{$variant}.#{$ext}';
-      $src: append($src, url($url) format($ext), comma);
+      $src: list.append(url($url) format($ext), comma);
     }
 
     @font-face {
       font-display: swap;
-      font-family: quote($family);
+      font-family: $family;
       font-style: normal;
       font-weight: $weight;
       src: $src;
@@ -66,16 +65,15 @@ $weights: (
   $exts: 'woff2' 'woff'
 ) {
   $root: '../../assets/fonts';
-  $dir: to-lower-case(str-replace($family, ' ', '-'));
+  $dir: string.to-lower-case(str-replace($family, ' ', '-'));
   $file-prefix: str-replace($family, ' ', '');
-
-  $min-weight: map-get($weights, $min-weight);
-  $max-weight: map-get($weights, $max-weight);
+  $min-weight: map.get($weights, $min-weight);
+  $max-weight: map.get($weights, $max-weight);
 
   // Append prefix to family.
   $family: '#{$family} #{$suffix}';
-
   $src: null;
+
   @each $ext in $exts {
     $url: '#{$root}/#{$dir}/#{$file-prefix}';
     @if $suffix {
@@ -84,13 +82,13 @@ $weights: (
     }
 
     $url: '#{$url}.#{$ext}';
-    $src: append($src, url($url) format($ext), comma);
+    $src: list.append($src, url($url) format($ext), comma);
   }
 
   @supports (font-variation-settings: normal) {
     @font-face {
       font-display: swap;
-      font-family: quote($family);
+      font-family: $family;
       font-style: normal;
       font-weight: $min-weight $max-weight;
       src: $src;

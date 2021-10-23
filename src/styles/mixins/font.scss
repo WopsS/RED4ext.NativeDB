@@ -42,7 +42,7 @@ $weights: (
     @each $ext in $exts {
       $variant: capitalize($variant);
       $url: '#{$root}/#{$dir}/#{$file-prefix}-#{$variant}.#{$ext}';
-      $src: list.append(url($url) format($ext), comma);
+      $src: list.append($src, url($url) format($ext), comma);
     }
 
     @font-face {

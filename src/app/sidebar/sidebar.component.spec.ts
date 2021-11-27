@@ -1,4 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
+import { RouterTestingModule } from "@angular/router/testing";
+import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { SidebarComponent } from "./sidebar.component";
@@ -9,7 +11,7 @@ describe("SidebarComponent", () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [HttpClientModule],
+            imports: [HttpClientModule, RouterTestingModule, ScrollingModule],
             declarations: [SidebarComponent]
         }).compileComponents();
     });

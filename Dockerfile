@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:14-alpine as builder
 
 ARG MEILISEARCH_HOST
 ARG MEILISEARCH_PUBLIC_KEY
@@ -13,7 +13,7 @@ RUN npm install && \
     npm run build && \
     npm install --production
 
-FROM node:alpine as runner
+FROM node:14-alpine as runner
 
 ENV NODE_ENV production
 WORKDIR /app

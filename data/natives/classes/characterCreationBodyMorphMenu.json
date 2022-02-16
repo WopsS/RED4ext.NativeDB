@@ -49,8 +49,18 @@
       "flags": 4297326625
     },
     {
+      "type": "inkTextWidgetReference",
+      "name": "previousPageBtnText",
+      "flags": 4297326625
+    },
+    {
       "type": "inkImageWidgetReference",
       "name": "nextPageBtnBg",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "nextPageBtnText",
       "flags": 4297326625
     },
     {
@@ -71,6 +81,11 @@
     {
       "type": "inkWidgetReference",
       "name": "ConfirmationCloseBtn",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "presetsLabel",
       "flags": 4297326625
     },
     {
@@ -182,6 +197,16 @@
       "type": "whandle:inkWidget",
       "name": "cachedCursor",
       "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "updatingFinalizedState",
+      "flags": 4297326624
+    },
+    {
+      "type": "gameuiCharacterCustomizationEditTag",
+      "name": "editMode",
+      "flags": 4297326624
     }
   ],
   "funcs": [
@@ -192,7 +217,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationSystem_OnAppearanceSwitchedEvent",
@@ -208,10 +233,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCancelFinalizedStateUpdate",
+      "shortName": "OnCancelFinalizedStateUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnCancelFinalizedStateUpdateEvent",
           "name": "evt",
           "flags": 128
         }
@@ -224,7 +265,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkWidget",
@@ -240,7 +281,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -256,7 +297,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkWidget",
@@ -272,7 +313,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkWidget",
@@ -288,7 +329,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -304,7 +345,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -320,7 +361,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -336,7 +377,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -352,7 +393,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -368,7 +409,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -384,7 +425,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -400,7 +441,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -416,7 +457,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -432,7 +473,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -448,7 +489,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -464,7 +505,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -480,7 +521,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -496,7 +537,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -512,7 +553,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -528,7 +569,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -544,7 +585,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -560,7 +601,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnInitializeOptionsList",
@@ -569,7 +610,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationSystem_OnInitializeOptionsListEvent",
@@ -585,7 +626,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkanimProxy",
@@ -601,7 +642,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -617,7 +658,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:NextFrameEvent",
@@ -633,7 +674,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationSystem_OnOptionUpdatedEvent",
@@ -649,7 +690,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -665,7 +706,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -681,11 +722,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
           "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPresetAppliedEvent",
+      "shortName": "OnPresetAppliedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnPresetAppliedEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -697,7 +754,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -713,7 +770,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -729,7 +786,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationSystem_OnRandomizeCompleteEvent",
@@ -739,17 +796,33 @@
       ]
     },
     {
-      "fullName": "OnReInitializeOptionsList",
-      "shortName": "OnReInitializeOptionsList",
+      "fullName": "OnReFinalizeComplete",
+      "shortName": "OnReFinalizeComplete",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
-          "type": "handle:gameuiCharacterCustomizationSystem_OnPresetAppliedEvent",
+          "type": "handle:gameuiCharacterCustomizationSystem_OnReFinalizeStateCompleteEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRelease",
+      "shortName": "OnRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
           "flags": 128
         }
       ]
@@ -761,7 +834,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IScriptable",
@@ -777,7 +850,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkWidget",
@@ -793,7 +866,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnVoiceOverSwitched",
@@ -802,7 +875,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkWidget",
@@ -814,7 +887,7 @@
     {
       "fullName": "ApplyUIPreset;CNameBool",
       "shortName": "ApplyUIPreset",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -829,13 +902,23 @@
       ]
     },
     {
+      "fullName": "ConfirmBackConfirmation;",
+      "shortName": "ConfirmBackConfirmation",
+      "flags": 33284
+    },
+    {
+      "fullName": "ConfirmCustomizedCharacter;",
+      "shortName": "ConfirmCustomizedCharacter",
+      "flags": 33284
+    },
+    {
       "fullName": "CreateEntry;CharacterCustomizationOption",
       "shortName": "CreateEntry",
       "return": {
         "type": "whandle:inkWidget",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationOption",
@@ -847,7 +930,7 @@
     {
       "fullName": "CreateVoiceOverSwitcher;",
       "shortName": "CreateVoiceOverSwitcher",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetSlotName;CharacterCustomizationOption",
@@ -856,7 +939,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationOption",
@@ -868,7 +951,7 @@
     {
       "fullName": "HideColorPicker;Int32",
       "shortName": "HideColorPicker",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -880,32 +963,32 @@
     {
       "fullName": "HideConfirmation;",
       "shortName": "HideConfirmation",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "InitializeList;",
       "shortName": "InitializeList",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "NextMenu;",
       "shortName": "NextMenu",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "OnIntro;",
       "shortName": "OnIntro",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "OnOutro;",
       "shortName": "OnOutro",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "PlayAnim;CNameCNameinkAnimProxy",
       "shortName": "PlayAnim",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -927,17 +1010,22 @@
     {
       "fullName": "PriorMenu;",
       "shortName": "PriorMenu",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "ReInitializeOptionsList;",
+      "shortName": "ReInitializeOptionsList",
+      "flags": 33284
     },
     {
       "fullName": "RefreshList;",
       "shortName": "RefreshList",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ShowConfirmation;",
       "shortName": "ShowConfirmation",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "UpdateOption;Int32CharacterCustomizationOptionCharacterCustomizationOption",
@@ -946,7 +1034,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -972,7 +1060,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     }
   ]
 }

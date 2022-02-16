@@ -24,6 +24,21 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "hasGracefulInterruptionConditions",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "gracefulInterruptionCheckRandomizedInterval",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "gracefullyInterrupted",
+      "flags": 4297195552
+    },
+    {
       "type": "EAIActionPhase",
       "name": "actionPhase",
       "flags": 4297130016
@@ -99,6 +114,41 @@
       "flags": 4297130016
     },
     {
+      "type": "Int32",
+      "name": "phaseSubActionsCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "generalSubActionsCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "repeatPhaseConditionsCount",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "tickForActionDurationOnly",
+      "flags": 4297130016
+    },
+    {
+      "type": "EAIActionPhase",
+      "name": "tickForActionDurationActivePhase",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hasTicketDeactivationConditions",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isActionImmediate",
+      "flags": 4297130016
+    },
+    {
       "type": "Bool",
       "name": "lookatActivated",
       "flags": 4297130016
@@ -125,11 +175,6 @@
     },
     {
       "type": "Bool",
-      "name": "gracefullyInterrupted",
-      "flags": 4297195552
-    },
-    {
-      "type": "Bool",
       "name": "initializedAfterActivation",
       "flags": 4297130016
     },
@@ -141,9 +186,21 @@
   ],
   "funcs": [
     {
+      "fullName": "ActionUpdateIntervalCheck;ScriptExecutionContext",
+      "shortName": "ActionUpdateIntervalCheck",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Activate;ScriptExecutionContext",
       "shortName": "Activate",
-      "flags": 256,
+      "flags": 34048,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -155,7 +212,7 @@
     {
       "fullName": "ActivateAnimData;ScriptExecutionContext",
       "shortName": "ActivateAnimData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -167,7 +224,7 @@
     {
       "fullName": "ActivateAnimationWrapperOverrides;ScriptExecutionContext",
       "shortName": "ActivateAnimationWrapperOverrides",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -179,7 +236,7 @@
     {
       "fullName": "ActivateGeneralSubActions;ScriptExecutionContext",
       "shortName": "ActivateGeneralSubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -191,7 +248,7 @@
     {
       "fullName": "ActivateLookat;ScriptExecutionContext",
       "shortName": "ActivateLookat",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -203,7 +260,7 @@
     {
       "fullName": "ActivateLoopSubActions;ScriptExecutionContext",
       "shortName": "ActivateLoopSubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -215,7 +272,7 @@
     {
       "fullName": "ActivateRecoverySubActions;ScriptExecutionContext",
       "shortName": "ActivateRecoverySubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -227,7 +284,7 @@
     {
       "fullName": "ActivateStartupSubActions;ScriptExecutionContext",
       "shortName": "ActivateStartupSubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -239,7 +296,7 @@
     {
       "fullName": "CalculatePhaseDuration;ScriptExecutionContextFloat",
       "shortName": "CalculatePhaseDuration",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -256,7 +313,7 @@
     {
       "fullName": "ChangeNPCState;ScriptExecutionContext",
       "shortName": "ChangeNPCState",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -272,7 +329,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -289,7 +346,11 @@
     {
       "fullName": "ChangeToNextPhase;ScriptExecutionContext",
       "shortName": "ChangeToNextPhase",
-      "flags": 132,
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -301,7 +362,7 @@
     {
       "fullName": "ChildCompleted;ScriptExecutionContextAIbehaviorCompletionStatus",
       "shortName": "ChildCompleted",
-      "flags": 256,
+      "flags": 34048,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -318,7 +379,7 @@
     {
       "fullName": "Deactivate;ScriptExecutionContext",
       "shortName": "Deactivate",
-      "flags": 256,
+      "flags": 34048,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -330,7 +391,7 @@
     {
       "fullName": "DeactivateAnimData;ScriptExecutionContext",
       "shortName": "DeactivateAnimData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -342,7 +403,7 @@
     {
       "fullName": "DeactivateAnimationWrapperOverrides;ScriptExecutionContext",
       "shortName": "DeactivateAnimationWrapperOverrides",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -354,7 +415,7 @@
     {
       "fullName": "DeactivateGeneralSubActions;ScriptExecutionContextFloat",
       "shortName": "DeactivateGeneralSubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -371,7 +432,7 @@
     {
       "fullName": "DeactivateLookat;ScriptExecutionContext",
       "shortName": "DeactivateLookat",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -383,7 +444,7 @@
     {
       "fullName": "DeactivateLoopSubActions;ScriptExecutionContextFloat",
       "shortName": "DeactivateLoopSubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -400,7 +461,7 @@
     {
       "fullName": "DeactivateRecoverySubActions;ScriptExecutionContextFloat",
       "shortName": "DeactivateRecoverySubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -417,7 +478,7 @@
     {
       "fullName": "DeactivateStartupSubActions;ScriptExecutionContextFloat",
       "shortName": "DeactivateStartupSubActions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -432,13 +493,31 @@
       ]
     },
     {
+      "fullName": "Debug_GetBaseActionId;",
+      "shortName": "Debug_GetBaseActionId",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 32896
+    },
+    {
+      "fullName": "Debug_GetCompositeId;",
+      "shortName": "Debug_GetCompositeId",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 32896
+    },
+    {
       "fullName": "GetActionDuration;ScriptExecutionContext",
       "shortName": "GetActionDuration",
       "return": {
         "type": "Float",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -485,7 +564,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetAnimDirection;ScriptExecutionContextAIActionAnimDirection_Record",
@@ -494,7 +573,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -515,7 +594,7 @@
         "type": "handle:animAnimFeature_AIAction",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -531,7 +610,7 @@
         "type": "String",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -547,7 +626,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -563,7 +642,7 @@
         "type": "gameActionAnimationSlideParams",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -584,7 +663,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -604,13 +683,22 @@
       ]
     },
     {
-      "fullName": "GetTotalActionDuration;ScriptExecutionContext",
+      "fullName": "GetTotalActionDuration;",
       "shortName": "GetTotalActionDuration",
       "return": {
         "type": "Float",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900
+    },
+    {
+      "fullName": "HasTicketDeactivationCondition;ScriptExecutionContext",
+      "shortName": "HasTicketDeactivationCondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -622,7 +710,7 @@
     {
       "fullName": "Initialize;ScriptExecutionContext",
       "shortName": "Initialize",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -632,9 +720,18 @@
       ]
     },
     {
+      "fullName": "IsActionImmediate;",
+      "shortName": "IsActionImmediate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "OnPhaseEnded;ScriptExecutionContextFloat",
       "shortName": "OnPhaseEnded",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -651,7 +748,7 @@
     {
       "fullName": "OnPhaseStarted;ScriptExecutionContext",
       "shortName": "OnPhaseStarted",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -663,7 +760,7 @@
     {
       "fullName": "PlayAnimationOnSlot;ScriptExecutionContextAnimFeature_AIAction",
       "shortName": "PlayAnimationOnSlot",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -680,7 +777,7 @@
     {
       "fullName": "ReactOnAllPhaseSubActionsCompleted;ScriptExecutionContext",
       "shortName": "ReactOnAllPhaseSubActionsCompleted",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -696,7 +793,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -712,7 +809,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -724,7 +821,7 @@
     {
       "fullName": "ResetNPCState;ScriptExecutionContext",
       "shortName": "ResetNPCState",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -740,7 +837,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -752,7 +849,7 @@
     {
       "fullName": "SendAnimData;ScriptExecutionContext",
       "shortName": "SendAnimData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -764,7 +861,7 @@
     {
       "fullName": "SetAnimationWrapperOverrides;ScriptExecutionContextFloat",
       "shortName": "SetAnimationWrapperOverrides",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -779,9 +876,31 @@
       ]
     },
     {
+      "fullName": "SetPhaseUpdateInterval;ScriptExecutionContextAIbehaviorUpdateOutcomeAIbehaviorUpdateOutcome",
+      "shortName": "SetPhaseUpdateInterval",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "AIbehaviorUpdateOutcome",
+          "name": "subActionsOutcome",
+          "flags": 128
+        },
+        {
+          "type": "AIbehaviorUpdateOutcome",
+          "name": "generalSubActionsOutcome",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "StartActionTimeStamp;ScriptExecutionContext",
       "shortName": "StartActionTimeStamp",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -793,7 +912,7 @@
     {
       "fullName": "StartCooldowns;ScriptExecutionContext",
       "shortName": "StartCooldowns",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -805,7 +924,7 @@
     {
       "fullName": "TrackCommands;ScriptExecutionContextBool",
       "shortName": "TrackCommands",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -826,7 +945,7 @@
         "type": "AIbehaviorUpdateOutcome",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 34048,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -836,13 +955,13 @@
       ]
     },
     {
-      "fullName": "UpdateActivePhase;ScriptExecutionContextAIbehaviorUpdateOutcome",
+      "fullName": "UpdateActivePhase;ScriptExecutionContextAIbehaviorUpdateOutcomeBool",
       "shortName": "UpdateActivePhase",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -852,6 +971,11 @@
         {
           "type": "AIbehaviorUpdateOutcome",
           "name": "subActionsOutcome",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "phaseChanged",
           "flags": 640
         }
       ]
@@ -863,7 +987,7 @@
         "type": "AIbehaviorUpdateOutcome",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -884,7 +1008,7 @@
         "type": "AIbehaviorUpdateOutcome",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -910,7 +1034,7 @@
         "type": "AIbehaviorUpdateOutcome",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -936,7 +1060,7 @@
         "type": "AIbehaviorUpdateOutcome",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -956,18 +1080,23 @@
       ]
     },
     {
-      "fullName": "UpdateSubActions;ScriptExecutionContext",
+      "fullName": "UpdateSubActions;ScriptExecutionContextAIbehaviorUpdateOutcome",
       "shortName": "UpdateSubActions",
       "return": {
         "type": "AIbehaviorUpdateOutcome",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
           "name": "context",
           "flags": 128
+        },
+        {
+          "type": "AIbehaviorUpdateOutcome",
+          "name": "generalResult",
+          "flags": 640
         }
       ]
     },
@@ -978,7 +1107,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "WaitForAnimToLoad;ScriptExecutionContext",
@@ -987,7 +1116,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -999,7 +1128,7 @@
     {
       "fullName": "WeaponOverride;ScriptExecutionContextInt32",
       "shortName": "WeaponOverride",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",

@@ -1,0 +1,328 @@
+{
+  "parent": "inkSelectorController",
+  "name": "hubStaticSelectorController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "leftArrowWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "rightArrowWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "container",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "line",
+      "flags": 4297195553
+    },
+    {
+      "type": "whandle:inkInputDisplayController",
+      "name": "leftArrowController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkInputDisplayController",
+      "name": "rightArrowController",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:MenuData",
+      "name": "data",
+      "flags": 6583091232
+    },
+    {
+      "type": "array:whandle:HubMenuLabelContentContainer",
+      "name": "widgetsControllers",
+      "flags": 6583091232
+    },
+    {
+      "type": "Int32",
+      "name": "currentIndex",
+      "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "currentParent",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:MenuData",
+      "name": "currentData",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "lineTranslationAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "lineSizeAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "instantLineUpdateRequested",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "animationsRetryDiv",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "debugText",
+      "flags": 4297130017
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnArrangeChildrenComplete",
+      "shortName": "OnArrangeChildrenComplete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnLineAnimationFinished",
+      "shortName": "OnLineAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuLabelClick",
+      "shortName": "OnMenuLabelClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostArrange",
+      "shortName": "OnPostArrange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:hubStaticSelectorPostArrangeEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSelectionChanged",
+      "shortName": "OnSelectionChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AnimateLineSize;inkWidgetFloatFloat",
+      "shortName": "AnimateLineSize",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "targetWidth",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AnimateLineTranslation;inkWidgetFloatFloat",
+      "shortName": "AnimateLineTranslation",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "targetX",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMenusByParent;Int32",
+      "shortName": "GetMenusByParent",
+      "return": {
+        "type": "array:MenuData",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "identifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ScrollTo;MenuData",
+      "shortName": "ScrollTo",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "MenuData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupMenu;array<MenuData>Int32",
+      "shortName": "SetupMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:MenuData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "startIdentifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupMenuValues;array<MenuData>MenuData",
+      "shortName": "SetupMenuValues",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:MenuData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "MenuData",
+          "name": "currentElement",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupWidgets;array<MenuData>",
+      "shortName": "SetupWidgets",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:MenuData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateArrowsVisibility;",
+      "shortName": "UpdateArrowsVisibility",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateHightlight;Int32Bool",
+      "shortName": "UpdateHightlight",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateLabelsStates;Int32",
+      "shortName": "UpdateLabelsStates",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "currentIndex",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

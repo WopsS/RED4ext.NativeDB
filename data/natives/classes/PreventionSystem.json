@@ -44,6 +44,11 @@
       "flags": 4297130016
     },
     {
+      "type": "EPreventionHeatStage",
+      "name": "tempForcedheatStage",
+      "flags": 4297130016
+    },
+    {
       "type": "array:gamePersistentID",
       "name": "playerIsInSecurityArea",
       "flags": 6583025696
@@ -139,8 +144,23 @@
       "flags": 4297130016
     },
     {
+      "type": "gameDelayID",
+      "name": "blinkingStatusDelayID",
+      "flags": 4297130016
+    },
+    {
       "type": "Bool",
       "name": "deescalationZeroCheck",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "blinkingStatusDeescalationCheck",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "vehicleSpawnDelayID",
       "flags": 4297130016
     },
     {
@@ -274,6 +294,16 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "reconDestroyed",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isHidingFromPolice",
+      "flags": 4297130016
+    },
+    {
       "type": "array:whandle:vehicleBaseObject",
       "name": "vehicles",
       "flags": 6583025696
@@ -297,7 +327,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -307,9 +337,21 @@
       ]
     },
     {
+      "fullName": "PreventionSystem::ChasePlayer;VehicleObject",
+      "shortName": "ChasePlayer",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PreventionSystem::CombatStartedRequestToPreventionSystem;GameInstanceGameObject",
       "shortName": "CombatStartedRequestToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -326,7 +368,7 @@
     {
       "fullName": "PreventionSystem::CreateNewDamageRequest;GameInstanceGameObjectFloat",
       "shortName": "CreateNewDamageRequest",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -348,7 +390,7 @@
     {
       "fullName": "PreventionSystem::CrimeWitnessRequestToPreventionSystem;GameInstanceVector4",
       "shortName": "CrimeWitnessRequestToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -365,7 +407,7 @@
     {
       "fullName": "PreventionSystem::DelayedSpawnUnitRequest;GameInstanceTweakDBIDUint32WorldTransformFloat",
       "shortName": "DelayedSpawnUnitRequest",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -397,7 +439,7 @@
     {
       "fullName": "PreventionSystem::InjectPlayerAsPoliceTarget;ScriptedPuppet",
       "shortName": "InjectPlayerAsPoliceTarget",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "handle:ScriptedPuppet",
@@ -413,7 +455,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -425,7 +467,7 @@
     {
       "fullName": "PreventionSystem::PreventionBountyResetRequest;GameInstance",
       "shortName": "PreventionBountyResetRequest",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -437,7 +479,7 @@
     {
       "fullName": "PreventionSystem::PreventionPoliceSecuritySystemRequest;GameInstancePersistentID",
       "shortName": "PreventionPoliceSecuritySystemRequest",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -454,7 +496,7 @@
     {
       "fullName": "PreventionSystem::PreventionSecurityAreaEnterRequest;GameInstanceBoolPersistentID",
       "shortName": "PreventionSecurityAreaEnterRequest",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -480,7 +522,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -502,7 +544,7 @@
     {
       "fullName": "PreventionSystem::RegisterAsViewerToPreventionSystem;GameInstanceGameObject",
       "shortName": "RegisterAsViewerToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -519,7 +561,7 @@
     {
       "fullName": "PreventionSystem::RegisterPoliceUnit;GameInstanceScriptedPuppet",
       "shortName": "RegisterPoliceUnit",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -536,7 +578,7 @@
     {
       "fullName": "PreventionSystem::RegisterPoliceVehicle;GameInstanceVehicleObject",
       "shortName": "RegisterPoliceVehicle",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -553,7 +595,7 @@
     {
       "fullName": "PreventionSystem::RegisterToPreventionSystem;GameInstanceDevice",
       "shortName": "RegisterToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -574,7 +616,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:ScriptedPuppet",
@@ -590,7 +632,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:ScriptedPuppet",
@@ -606,7 +648,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:ScriptedPuppet",
@@ -622,7 +664,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -634,7 +676,7 @@
     {
       "fullName": "PreventionSystem::ShowMessage;GameInstanceStringFloat",
       "shortName": "ShowMessage",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -656,7 +698,7 @@
     {
       "fullName": "PreventionSystem::UnRegisterAsViewerToPreventionSystem;GameInstanceGameObject",
       "shortName": "UnRegisterAsViewerToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -673,7 +715,7 @@
     {
       "fullName": "PreventionSystem::UnRegisterToPreventionSystem;GameInstanceDevice",
       "shortName": "UnRegisterToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -688,9 +730,25 @@
       ]
     },
     {
+      "fullName": "PreventionSystem::VehicleRegistered;VehicleObject",
+      "shortName": "VehicleRegistered",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PreventionSystem::VehicleStolenRequestToPreventionSystem;VehicleObjectGameObject",
       "shortName": "VehicleStolenRequestToPreventionSystem",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:vehicleBaseObject",
@@ -711,7 +769,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -727,7 +785,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Int32",
@@ -743,7 +801,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Int32",
@@ -755,12 +813,12 @@
     {
       "fullName": "ActivatePreventionInputLock;",
       "shortName": "ActivatePreventionInputLock",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "AddGeneralPercent;Float",
       "shortName": "AddGeneralPercent",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Float",
@@ -776,7 +834,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "entEntityID",
@@ -792,7 +850,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "CalculateDeescalationPercent;",
@@ -801,12 +859,12 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CalculateDeescaletion;",
       "shortName": "CalculateDeescaletion",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CanPreventionReactToInput;",
@@ -815,22 +873,22 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "CancelAllDelayedEvents;",
       "shortName": "CancelAllDelayedEvents",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CancelPreventionTickRequest;",
       "shortName": "CancelPreventionTickRequest",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CancelSecurityAreaResetRequest;",
       "shortName": "CancelSecurityAreaResetRequest",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CancelSpawnDelay;",
@@ -839,12 +897,21 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
+    },
+    {
+      "fullName": "CancelVehicleSpawnDelay;",
+      "shortName": "CancelVehicleSpawnDelay",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
     },
     {
       "fullName": "ChangeAgentsAttitude;EAIAttitude",
       "shortName": "ChangeAgentsAttitude",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EAIAttitude",
@@ -856,7 +923,7 @@
     {
       "fullName": "ChangeAttitude;GameObjectGameObjectEAIAttitude",
       "shortName": "ChangeAttitude",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -882,12 +949,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CheckLastCrimeDistanceToPlayer;",
       "shortName": "CheckLastCrimeDistanceToPlayer",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CheckifNewPointIsCloserThanPrevious;Vector4Vector4",
@@ -896,7 +963,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Vector4",
@@ -913,7 +980,7 @@
     {
       "fullName": "CreateCrowdNullArea;Vector4",
       "shortName": "CreateCrowdNullArea",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Vector4",
@@ -925,12 +992,12 @@
     {
       "fullName": "DamageChange;",
       "shortName": "DamageChange",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "DespawnAllPolice;",
       "shortName": "DespawnAllPolice",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetBlinkThreshold;",
@@ -939,7 +1006,16 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetBlinkingStarsDurationTime;",
+      "shortName": "GetBlinkingStarsDurationTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetCharacterRecordFromPool;array<PreventionUnitPoolData_Record>TweakDBID",
@@ -948,7 +1024,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:whandle:gamedataPreventionUnitPoolData_Record",
@@ -969,7 +1045,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetDeescalationTime;",
@@ -978,7 +1054,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetExteriorSpawnDelay;",
@@ -987,7 +1063,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetFallbackUnitSpawnData;EPreventionHeatStageTweakDBIDFloatInt32",
@@ -996,7 +1072,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1023,7 +1099,7 @@
     {
       "fullName": "GetFindSpawnPointsOrigin;Vector4Vector4",
       "shortName": "GetFindSpawnPointsOrigin",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Vector4",
@@ -1040,7 +1116,7 @@
     {
       "fullName": "GetFindSpawnPointsOriginsData;array<SpawnOriginData>",
       "shortName": "GetFindSpawnPointsOriginsData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:SpawnOriginData",
@@ -1056,7 +1132,7 @@
         "type": "ScriptGameInstance",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetGameTimeStamp;",
@@ -1065,7 +1141,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetGeneralPercent;",
@@ -1074,7 +1150,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetHeatStage;",
@@ -1083,7 +1159,7 @@
         "type": "EPreventionHeatStage",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetInputLockOverrideThreshold;",
@@ -1092,7 +1168,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetInteriorSpawnDelay;",
@@ -1101,7 +1177,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetNewDamageValue;",
@@ -1110,7 +1186,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetNonAggressiveReactionMultipler;",
@@ -1119,7 +1195,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetPartGeneralPercent;",
@@ -1128,7 +1204,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetPreventionInputLockTime;",
@@ -1137,7 +1213,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetSafeDistance;",
@@ -1146,7 +1222,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetSpawnDataFromHeatStage;EPreventionHeatStagearray<TweakDBID>Vector2Uint32FloatBool",
@@ -1155,7 +1231,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1196,7 +1272,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetTimeBetweenStamp;Float",
@@ -1205,7 +1281,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Float",
@@ -1221,7 +1297,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1238,7 +1314,7 @@
     {
       "fullName": "HasViewersChanged;Bool",
       "shortName": "HasViewersChanged",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -1250,7 +1326,7 @@
     {
       "fullName": "HeatPipeline;Bool",
       "shortName": "HeatPipeline",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -1266,7 +1342,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "IsPreventionInputLocked;",
@@ -1275,7 +1351,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "IsSavingLocked;",
@@ -1284,7 +1360,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 128
+      "flags": 33920
     },
     {
       "fullName": "IsSystemDissabled;",
@@ -1293,43 +1369,17 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
-      "fullName": "IsVehicleValid;VehicleObjectCName",
+      "fullName": "IsVehicleValid;VehicleObject",
       "shortName": "IsVehicleValid",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
-        {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "slotName",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "MountVehicle;ScriptedPuppetVehicleObject",
-      "shortName": "MountVehicle",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "unit",
-          "flags": 128
-        },
         {
           "type": "whandle:vehicleBaseObject",
           "name": "vehicle",
@@ -1340,12 +1390,12 @@
     {
       "fullName": "OnAttach;",
       "shortName": "OnAttach",
-      "flags": 128
+      "flags": 33920
     },
     {
       "fullName": "OnBountyResetRequest;BountyResetRequest",
       "shortName": "OnBountyResetRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:BountyResetRequest",
@@ -1357,7 +1407,7 @@
     {
       "fullName": "OnCombatStartedRequest;PreventionCombatStartedRequest",
       "shortName": "OnCombatStartedRequest",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:PreventionCombatStartedRequest",
@@ -1369,7 +1419,7 @@
     {
       "fullName": "OnCrimeWitnessRequest;PreventionCrimeWitnessRequest",
       "shortName": "OnCrimeWitnessRequest",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:PreventionCrimeWitnessRequest",
@@ -1381,7 +1431,7 @@
     {
       "fullName": "OnDamageInput;PreventionDamageRequest",
       "shortName": "OnDamageInput",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:PreventionDamageRequest",
@@ -1393,7 +1443,7 @@
     {
       "fullName": "OnDeescalationZero;PreventionDelayedZeroRequest",
       "shortName": "OnDeescalationZero",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:PreventionDelayedZeroRequest",
@@ -1403,9 +1453,21 @@
       ]
     },
     {
+      "fullName": "OnDelayedSpawnRequest;PreventionDelayedVehicleSpawnRequest",
+      "shortName": "OnDelayedSpawnRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PreventionDelayedVehicleSpawnRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDelayedSpawnRequest;PreventionDelayedSpawnRequest",
       "shortName": "OnDelayedSpawnRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:PreventionDelayedSpawnRequest",
@@ -1417,12 +1479,12 @@
     {
       "fullName": "OnDetach;",
       "shortName": "OnDetach",
-      "flags": 128
+      "flags": 33920
     },
     {
       "fullName": "OnDistrictAreaEntered;DistrictEnteredEvent",
       "shortName": "OnDistrictAreaEntered",
-      "flags": 132,
+      "flags": 33924,
       "params": [
         {
           "type": "handle:gamemappinsDistrictEnteredEvent",
@@ -1434,7 +1496,7 @@
     {
       "fullName": "OnHeatChanged;Bool",
       "shortName": "OnHeatChanged",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -1446,7 +1508,7 @@
     {
       "fullName": "OnPreventionConsoleInstructionRequest;PreventionConsoleInstructionRequest",
       "shortName": "OnPreventionConsoleInstructionRequest",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:PreventionConsoleInstructionRequest",
@@ -1458,7 +1520,7 @@
     {
       "fullName": "OnPreventionPoliceSecuritySystemRequest;PreventionPoliceSecuritySystemRequest",
       "shortName": "OnPreventionPoliceSecuritySystemRequest",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:PreventionPoliceSecuritySystemRequest",
@@ -1470,7 +1532,7 @@
     {
       "fullName": "OnPreventionSecurityAreaRequest;PreventionSecurityAreaRequest",
       "shortName": "OnPreventionSecurityAreaRequest",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:PreventionSecurityAreaRequest",
@@ -1482,7 +1544,7 @@
     {
       "fullName": "OnPreventionTickRequest;PreventionTickRequest",
       "shortName": "OnPreventionTickRequest",
-      "flags": 132,
+      "flags": 33924,
       "params": [
         {
           "type": "handle:PreventionTickRequest",
@@ -1494,7 +1556,7 @@
     {
       "fullName": "OnRefreshDistrict;RefreshDistrictRequest",
       "shortName": "OnRefreshDistrict",
-      "flags": 132,
+      "flags": 33924,
       "params": [
         {
           "type": "handle:RefreshDistrictRequest",
@@ -1506,7 +1568,7 @@
     {
       "fullName": "OnRegisterRequest;PreventionRegisterRequest",
       "shortName": "OnRegisterRequest",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:PreventionRegisterRequest",
@@ -1516,21 +1578,9 @@
       ]
     },
     {
-      "fullName": "OnRegisterUnit;RegisterUnitRequest",
-      "shortName": "OnRegisterUnit",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:RegisterUnitRequest",
-          "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnRegisterVehicle;RegisterVehicleRequest",
       "shortName": "OnRegisterVehicle",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:RegisterVehicleRequest",
@@ -1542,7 +1592,7 @@
     {
       "fullName": "OnRestored;Int32Int32",
       "shortName": "OnRestored",
-      "flags": 128,
+      "flags": 33920,
       "params": [
         {
           "type": "Int32",
@@ -1559,7 +1609,7 @@
     {
       "fullName": "OnSecurityAreaResetRequest;SecurityAreaResetRequest",
       "shortName": "OnSecurityAreaResetRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:SecurityAreaResetRequest",
@@ -1569,9 +1619,21 @@
       ]
     },
     {
+      "fullName": "OnSetWantedLevel;SetWantedLevel",
+      "shortName": "OnSetWantedLevel",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SetWantedLevel",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSpawnUnitDelayRequest;PreventionDelayedSpawnUnitRequest",
       "shortName": "OnSpawnUnitDelayRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:PreventionDelayedSpawnUnitRequest",
@@ -1583,7 +1645,7 @@
     {
       "fullName": "OnTogglePreventionSystem;TogglePreventionSystem",
       "shortName": "OnTogglePreventionSystem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:TogglePreventionSystem",
@@ -1595,7 +1657,7 @@
     {
       "fullName": "OnUnlockPreventionInputRequest;UnlockPreventionInputRequest",
       "shortName": "OnUnlockPreventionInputRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:UnlockPreventionInputRequest",
@@ -1607,7 +1669,7 @@
     {
       "fullName": "OnVehicleStolenRequest;PreventionVehicleStolenRequest",
       "shortName": "OnVehicleStolenRequest",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:PreventionVehicleStolenRequest",
@@ -1619,7 +1681,7 @@
     {
       "fullName": "OnViewerRequest;PreventionVisibilityRequest",
       "shortName": "OnViewerRequest",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:PreventionVisibilityRequest",
@@ -1631,12 +1693,12 @@
     {
       "fullName": "OnViewersStateChanged;",
       "shortName": "OnViewersStateChanged",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "PlayerAttachedCallback;GameObject",
       "shortName": "PlayerAttachedCallback",
-      "flags": 132,
+      "flags": 33924,
       "params": [
         {
           "type": "handle:gameObject",
@@ -1648,7 +1710,7 @@
     {
       "fullName": "PlayerDetachedCallback;GameObject",
       "shortName": "PlayerDetachedCallback",
-      "flags": 132,
+      "flags": 33924,
       "params": [
         {
           "type": "handle:gameObject",
@@ -1660,62 +1722,62 @@
     {
       "fullName": "PostDamageChange;",
       "shortName": "PostDamageChange",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "PreDamageChange;",
       "shortName": "PreDamageChange",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ReevaluateSecurityAreaReset;",
       "shortName": "ReevaluateSecurityAreaReset",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebug;",
       "shortName": "RefreshDebug",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugDistanceInfo;",
       "shortName": "RefreshDebugDistanceInfo",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugDistrictInfo;",
       "shortName": "RefreshDebugDistrictInfo",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugEvents;",
       "shortName": "RefreshDebugEvents",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugLockSources;",
       "shortName": "RefreshDebugLockSources",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugProcessInfo;",
       "shortName": "RefreshDebugProcessInfo",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugRemoveAllLockSources;",
       "shortName": "RefreshDebugRemoveAllLockSources",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshDebugSecAreaInfo;",
       "shortName": "RefreshDebugSecAreaInfo",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "Register;CNamePersistentState",
       "shortName": "Register",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CName",
@@ -1732,27 +1794,27 @@
     {
       "fullName": "RegisterToBBCalls;",
       "shortName": "RegisterToBBCalls",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RemovePlayerFromSecuritySystemBlacklist;",
       "shortName": "RemovePlayerFromSecuritySystemBlacklist",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RemovePreventionInputLock;",
       "shortName": "RemovePreventionInputLock",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ResetDeescalationZero;",
       "shortName": "ResetDeescalationZero",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ResolveBlinkingStack;CNameBool",
       "shortName": "ResolveBlinkingStack",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CName",
@@ -1769,34 +1831,39 @@
     {
       "fullName": "RestoreDefaultConfig;",
       "shortName": "RestoreDefaultConfig",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RestoreDefaultPreset;",
       "shortName": "RestoreDefaultPreset",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RisePoliceProbability;",
       "shortName": "RisePoliceProbability",
-      "flags": 132
+      "flags": 32900
     },
     {
-      "fullName": "SendInternalSystem;Float",
+      "fullName": "SendInternalSystem;FloatEPreventionHeatStage",
       "shortName": "SendInternalSystem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Float",
           "name": "damageValue",
           "flags": 128
+        },
+        {
+          "type": "EPreventionHeatStage",
+          "name": "heatStage",
+          "flags": 1152
         }
       ]
     },
     {
       "fullName": "SetAgentsSupport;Bool",
       "shortName": "SetAgentsSupport",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -1812,7 +1879,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1824,7 +1891,7 @@
     {
       "fullName": "SetNewDamageValue;Float",
       "shortName": "SetNewDamageValue",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Float",
@@ -1836,7 +1903,7 @@
     {
       "fullName": "SetNewLastBodyPosition;Vector4",
       "shortName": "SetNewLastBodyPosition",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Vector4",
@@ -1848,7 +1915,7 @@
     {
       "fullName": "SetNewLastCrimePoint;Vector4",
       "shortName": "SetNewLastCrimePoint",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Vector4",
@@ -1860,7 +1927,7 @@
     {
       "fullName": "SetPartGeneralPercent;Float",
       "shortName": "SetPartGeneralPercent",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Float",
@@ -1872,7 +1939,7 @@
     {
       "fullName": "SetSingleAgentSupport;PersistentStateBool",
       "shortName": "SetSingleAgentSupport",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:gamePersistentState",
@@ -1889,7 +1956,7 @@
     {
       "fullName": "SetWantedLevelFact;Int32",
       "shortName": "SetWantedLevelFact",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -1905,7 +1972,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "ShouldSkipSpawning;ScriptedPuppet",
@@ -1914,7 +1981,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:ScriptedPuppet",
@@ -1935,7 +2002,7 @@
     {
       "fullName": "SpawnPipeline;EPreventionHeatStageFloat",
       "shortName": "SpawnPipeline",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1952,7 +2019,7 @@
     {
       "fullName": "SpawnPolice;EPreventionHeatStage",
       "shortName": "SpawnPolice",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1964,7 +2031,7 @@
     {
       "fullName": "SpawnPoliceVehicle;EPreventionHeatStage",
       "shortName": "SpawnPoliceVehicle",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1974,9 +2041,26 @@
       ]
     },
     {
+      "fullName": "SpawnPoliceVehicleWithDelay;EPreventionHeatStageFloat",
+      "shortName": "SpawnPoliceVehicleWithDelay",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "EPreventionHeatStage",
+          "name": "heatStage",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SpawnPoliceWithDelay;EPreventionHeatStageFloat",
       "shortName": "SpawnPoliceWithDelay",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EPreventionHeatStage",
@@ -1997,7 +2081,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:Vector4",
@@ -2022,24 +2106,29 @@
       ]
     },
     {
+      "fullName": "StartBlinkingStatusDeescalation;",
+      "shortName": "StartBlinkingStatusDeescalation",
+      "flags": 32900
+    },
+    {
       "fullName": "StartDeescalationZero;",
       "shortName": "StartDeescalationZero",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "StartPipeline;",
       "shortName": "StartPipeline",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "StartPreventionTickRequest;",
       "shortName": "StartPreventionTickRequest",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "StartSecurityAreaResetRequest;Float",
       "shortName": "StartSecurityAreaResetRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Float",
@@ -2049,19 +2138,24 @@
       ]
     },
     {
+      "fullName": "StopBlinkingStatusDeescalation;",
+      "shortName": "StopBlinkingStatusDeescalation",
+      "flags": 32900
+    },
+    {
       "fullName": "StopDeescalationZero;",
       "shortName": "StopDeescalationZero",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "TutorialAddPoliceSystemFact;",
       "shortName": "TutorialAddPoliceSystemFact",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "UnRegister;CNamePersistentState",
       "shortName": "UnRegister",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CName",
@@ -2078,12 +2172,12 @@
     {
       "fullName": "UnregisterBBCalls;",
       "shortName": "UnregisterBBCalls",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "UpdateVehicles;",
       "shortName": "UpdateVehicles",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "UpdateViewers;",
@@ -2092,12 +2186,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ViewerRegister;GameObject",
       "shortName": "ViewerRegister",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -2109,7 +2203,7 @@
     {
       "fullName": "ViewerUnRegister;GameObject",
       "shortName": "ViewerUnRegister",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -2121,7 +2215,7 @@
     {
       "fullName": "WakeUpAgent;PersistentStateBool",
       "shortName": "WakeUpAgent",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:gamePersistentState",
@@ -2138,7 +2232,7 @@
     {
       "fullName": "WakeUpAllAgents;Bool",
       "shortName": "WakeUpAllAgents",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -2150,32 +2244,39 @@
     {
       "fullName": "WhipeBlinkData;",
       "shortName": "WhipeBlinkData",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "WhipeHitNPC;",
       "shortName": "WhipeHitNPC",
-      "flags": 260
+      "flags": 33028
     },
     {
-      "fullName": "execInstructionActive;",
+      "fullName": "execInstructionActive;EPreventionHeatStage",
       "shortName": "execInstructionActive",
-      "flags": 132
+      "flags": 32900,
+      "params": [
+        {
+          "type": "EPreventionHeatStage",
+          "name": "heatStage",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "execInstructionOff;",
       "shortName": "execInstructionOff",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "execInstructionOn;",
       "shortName": "execInstructionOn",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "execInstructionSafe;",
       "shortName": "execInstructionSafe",
-      "flags": 132
+      "flags": 32900
     }
   ]
 }

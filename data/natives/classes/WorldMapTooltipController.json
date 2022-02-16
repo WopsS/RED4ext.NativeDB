@@ -15,52 +15,12 @@
     },
     {
       "type": "inkWidgetReference",
-      "name": "trackedQuestContainer",
+      "name": "lineBreak",
       "flags": 4297195553
     },
     {
-      "type": "inkWidgetReference",
-      "name": "requiredLevelCanvas",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "requiredLevelText",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "requiredLevelValue",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkCompoundWidgetReference",
-      "name": "inputSetWaypointContainer",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "inputSetWaypointText",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkCompoundWidgetReference",
-      "name": "inputTrackQuestContainer",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "inputTrackQuestText",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkCompoundWidgetReference",
-      "name": "inputInteractContainer",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "inputInteractText",
+      "type": "inkImageWidgetReference",
+      "name": "icon",
       "flags": 4297195553
     },
     {
@@ -69,28 +29,23 @@
       "flags": 4297195553
     },
     {
-      "type": "inkTextWidgetReference",
-      "name": "inputOpenJournalText",
-      "flags": 4297195553
-    },
-    {
       "type": "inkCompoundWidgetReference",
-      "name": "inputZoomToContainer",
+      "name": "inputInteractContainer",
       "flags": 4297195553
     },
     {
-      "type": "inkTextWidgetReference",
-      "name": "inputZoomToText",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "threatLevelCaption",
+      "type": "inkWidgetReference",
+      "name": "threatLevelPanel",
       "flags": 4297195553
     },
     {
       "type": "inkTextWidgetReference",
       "name": "threatLevelValue",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "fixerPanel",
       "flags": 4297195553
     },
     {
@@ -102,9 +57,55 @@
       "type": "inkTextWidgetReference",
       "name": "collectionCountText",
       "flags": 4297195553
+    },
+    {
+      "type": "Float",
+      "name": "gigProgress",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "bar",
+      "flags": 4297130017
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "barAnimationProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animationProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "gigBarCompletedText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "gigBarTotalText",
+      "flags": 4297130017
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnFixerProgressBarAnim",
+      "shortName": "OnFixerProgressBarAnim",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -112,7 +113,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "GetLevelState;Int32Int32",
@@ -121,7 +122,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Int32",
@@ -136,14 +137,31 @@
       ]
     },
     {
+      "fullName": "PlayAnim;CNameCName",
+      "shortName": "PlayAnim",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "animName",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "callBack",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "Reset;",
       "shortName": "Reset",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "SetData;WorldMapTooltipDataWorldMapMenuGameController",
       "shortName": "SetData",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "WorldMapTooltipData",

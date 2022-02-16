@@ -14,6 +14,11 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "vehicleManufactorHolder",
+      "flags": 4297130017
+    },
+    {
       "type": "inkImageWidgetReference",
       "name": "vehicleManufactorIcon",
       "flags": 4297130017
@@ -24,19 +29,24 @@
       "flags": 4297130017
     },
     {
-      "type": "inkTextWidgetReference",
-      "name": "isWaiting",
-      "flags": 4297130017
-    },
-    {
       "type": "EMeasurementUnit",
       "name": "unit",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
-      "name": "unitText",
+      "name": "subText",
       "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "radioStationName",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
     },
     {
       "type": "handle:inkanimProxy",
@@ -77,6 +87,46 @@
       "type": "Uint32",
       "name": "vehicleSummonState",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:VehiclePurchaseDataDef",
+      "name": "vehiclePurchaseDataDef",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "vehiclePurchaseDataBB",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "vehiclePurchaseStateCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "TweakDBID",
+      "name": "purchasedVehicleID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "stateChangesCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "songNameChangeCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "activeVehicleBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "mountCallback",
+      "flags": 4431347744
     },
     {
       "type": "Vector4",
@@ -132,6 +182,16 @@
       "type": "handle:gamedataUIIcon_Record",
       "name": "iconRecord",
       "flags": 4431347744
+    },
+    {
+      "type": "whandle:vehicleBaseObject",
+      "name": "playerVehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -142,7 +202,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkanimProxy",
@@ -158,7 +218,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnIntroFinished",
@@ -167,7 +227,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkanimProxy",
@@ -183,7 +243,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -199,7 +259,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkanimProxy",
@@ -215,7 +275,71 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "OnVehicleEnterDone",
+      "shortName": "OnVehicleEnterDone",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleMount",
+      "shortName": "OnVehicleMount",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehiclePurchased",
+      "shortName": "OnVehiclePurchased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleRadioEvent",
+      "shortName": "OnVehicleRadioEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:UIVehicleRadioEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnVehicleSummonStateChanged",
@@ -224,7 +348,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Uint32",
@@ -236,12 +360,12 @@
     {
       "fullName": "HideNotification;",
       "shortName": "HideNotification",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "PlayAnim;CNameCName",
       "shortName": "PlayAnim",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -256,9 +380,33 @@
       ]
     },
     {
-      "fullName": "ShowNotification;",
-      "shortName": "ShowNotification",
-      "flags": 516
+      "fullName": "SetVehicleIcon;gamedataVehicleType",
+      "shortName": "SetVehicleIcon",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataVehicleType",
+          "name": "vehicleType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetVehicleIconManufactorIcon;String",
+      "shortName": "SetVehicleIconManufactorIcon",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "String",
+          "name": "manufacturerName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowSummonNotification;",
+      "shortName": "ShowSummonNotification",
+      "flags": 33284
     }
   ]
 }

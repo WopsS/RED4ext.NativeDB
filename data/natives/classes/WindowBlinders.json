@@ -19,6 +19,21 @@
       "flags": 4431413280
     },
     {
+      "type": "handle:gameLightComponent",
+      "name": "portalLight2",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:gameLightComponent",
+      "name": "portalLight3",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:gameLightComponent",
+      "name": "portalLight4",
+      "flags": 4431413280
+    },
+    {
       "type": "array:CName",
       "name": "sideTriggerNames",
       "flags": 6583091233
@@ -27,6 +42,11 @@
       "type": "array:handle:gameStaticTriggerAreaComponent",
       "name": "triggerComponents",
       "flags": 6583091232
+    },
+    {
+      "type": "handle:entIPlacedComponent",
+      "name": "interactionBlockingCollider",
+      "flags": 4431413280
     }
   ],
   "funcs": [
@@ -37,7 +57,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ActionDemolition",
@@ -53,7 +73,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ActionEngineering",
@@ -69,7 +89,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gamePSChangedEvent",
@@ -85,7 +105,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:QuickHackToggleOpen",
@@ -101,7 +121,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "entEntityRequestComponentsInterface",
@@ -117,7 +137,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "entEntityResolveComponentsInterface",
@@ -133,7 +153,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ToggleOpen",
@@ -149,7 +169,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ToggleTiltBlinders",
@@ -161,7 +181,7 @@
     {
       "fullName": "ApplyAnimState;BoolBool",
       "shortName": "ApplyAnimState",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -178,7 +198,7 @@
     {
       "fullName": "ApplyReplicatedState;DeviceReplicatedState",
       "shortName": "ApplyReplicatedState",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "handle:gameDeviceReplicatedState",
@@ -190,7 +210,7 @@
     {
       "fullName": "CheckCurrentSide;",
       "shortName": "CheckCurrentSide",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "DeterminGameplayRole;",
@@ -204,25 +224,25 @@
     {
       "fullName": "EnterWorkspot;",
       "shortName": "EnterWorkspot",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:ScriptableDC",
+        "type": "handle:WindowBlindersController",
         "flags": 64
       },
-      "flags": 8320
+      "flags": 41088
     },
     {
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:ScriptableDeviceComponentPS",
+        "type": "handle:WindowBlindersControllerPS",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetDeviceStateClass;",
@@ -231,17 +251,17 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 41472
+      "flags": 42496
     },
     {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "UpdateAnimState;",
       "shortName": "UpdateAnimState",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "UpdateDeviceState;Bool",
@@ -250,12 +270,24 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "Bool",
           "name": "isDelayed",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdatePortalLights;Bool",
+      "shortName": "UpdatePortalLights",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isOpen",
+          "flags": 128
         }
       ]
     }

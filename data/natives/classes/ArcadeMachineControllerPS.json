@@ -7,6 +7,11 @@
       "type": "array:redResourceReferenceScriptToken",
       "name": "gameVideosPaths",
       "flags": 6650200097
+    },
+    {
+      "type": "Bool",
+      "name": "DEBUG_enableArcadeMinigames",
+      "flags": 4297326624
     }
   ],
   "funcs": [
@@ -17,7 +22,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "ActionBeginArcadeMinigame;GameObject",
+      "shortName": "ActionBeginArcadeMinigame",
+      "return": {
+        "type": "handle:BeginArcadeMinigameUI",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "executor",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "CanCreateAnyQuickHackActions;",
@@ -27,6 +48,27 @@
         "flags": 64
       },
       "flags": 41216
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetBackgroundTextureTweakDBID;",
@@ -41,10 +83,10 @@
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:DeviceBaseBlackboardDef",
+        "type": "handle:ArcadeMachineBlackboardDef",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetDeviceIconTweakDBID;",
@@ -62,12 +104,12 @@
         "type": "redResourceReferenceScriptToken",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuestActions",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -84,7 +126,7 @@
     {
       "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuickHackActions",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -94,6 +136,22 @@
         {
           "type": "gameGetActionsContext",
           "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBeginArcadeMinigameUI;BeginArcadeMinigameUI",
+      "shortName": "OnBeginArcadeMinigameUI",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:BeginArcadeMinigameUI",
+          "name": "evt",
           "flags": 128
         }
       ]

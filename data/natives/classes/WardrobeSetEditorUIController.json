@@ -1,0 +1,395 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "WardrobeSetEditorUIController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "itemsGridWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "savebuttonText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "saveButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "setSlotWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "setNameText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "itemGridText",
+      "flags": 4297130017
+    },
+    {
+      "type": "handle:ItemModeGridClassifier",
+      "name": "itemGridClassifier",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ItemModeGridView",
+      "name": "itemGridDataView",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptableDataSourceWrapper",
+      "name": "itemGridDataSource",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameuiTooltipsManager",
+      "name": "tooltipsManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ButtonHints",
+      "name": "buttonHintsController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:InventoryDataManagerV2",
+      "name": "InventoryManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:UIScriptableSystem",
+      "name": "uiScriptableSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:EquipmentSystem",
+      "name": "equipmentSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:EquipmentAreaCategoryCreated",
+      "name": "equipmentAreaCategoryEventQueue",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:EquipmentAreaCategory",
+      "name": "equipmentAreaCategories",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:ItemPositionProvider",
+      "name": "itemsPositionProvider",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ItemPreferredComparisonResolver",
+      "name": "comparisonResolver",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "equipmentBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "equipmentBlackboardCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "array:whandle:InventoryItemDisplayController",
+      "name": "areaSlotControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "gamedataEquipmentArea",
+      "name": "currentEquipmentArea",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:InventoryItemDisplayController",
+      "name": "currentItemDisplay",
+      "flags": 4297130016
+    },
+    {
+      "type": "ClothingSet",
+      "name": "currentSet",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnEquipmentAreaCategoryCreated",
+      "shortName": "OnEquipmentAreaCategoryCreated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:EquipmentAreaCategoryCreated",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEquipmentClick",
+      "shortName": "OnEquipmentClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayClickEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEquipmentHoverOut",
+      "shortName": "OnEquipmentHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOutEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEquipmentkHoverOver",
+      "shortName": "OnEquipmentkHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOverEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemEquiped",
+      "shortName": "OnItemEquiped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSaveClick",
+      "shortName": "OnSaveClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "EquipItem;ItemID",
+      "shortName": "EquipItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipSetVisuals;",
+      "shortName": "EquipSetVisuals",
+      "flags": 33028
+    },
+    {
+      "fullName": "Initialize;PlayerPuppetgameuiTooltipsManagerButtonHints",
+      "shortName": "Initialize",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameuiTooltipsManager",
+          "name": "tooltipsManager",
+          "flags": 128
+        },
+        {
+          "type": "whandle:ButtonHints",
+          "name": "buttonHintsController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenSet;ClothingSet",
+      "shortName": "OpenSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ClothingSet",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateArea;inkCompoundWidgetEquipmentAreaDisplaysInt32array<gamedataEquipmentArea>",
+      "shortName": "PopulateArea",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:inkCompoundWidget",
+          "name": "targetRoot",
+          "flags": 128
+        },
+        {
+          "type": "handle:EquipmentAreaDisplays",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfSlots",
+          "flags": 128
+        },
+        {
+          "type": "array:gamedataEquipmentArea",
+          "name": "equipmentAreas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreviewSet;ClothingSet",
+      "shortName": "PreviewSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ClothingSet",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterBlackboard;",
+      "shortName": "RegisterBlackboard",
+      "flags": 33028
+    },
+    {
+      "fullName": "SaveSet;",
+      "shortName": "SaveSet",
+      "flags": 33028
+    },
+    {
+      "fullName": "SendSaveRequest;",
+      "shortName": "SendSaveRequest",
+      "flags": 33284
+    },
+    {
+      "fullName": "SendVisualEquipRequest;",
+      "shortName": "SendVisualEquipRequest",
+      "flags": 33284
+    },
+    {
+      "fullName": "SetButtonHintsHoverOut;",
+      "shortName": "SetButtonHintsHoverOut",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetButtonHintsHoverOver;InventoryItemData",
+      "shortName": "SetButtonHintsHoverOver",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "displayingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipItem;InventoryItemData",
+      "shortName": "UnequipItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "InventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterBlackboard;",
+      "shortName": "UnregisterBlackboard",
+      "flags": 33028
+    },
+    {
+      "fullName": "UpdateAvailableItems;gamedataEquipmentArea",
+      "shortName": "UpdateAvailableItems",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

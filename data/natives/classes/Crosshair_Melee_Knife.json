@@ -27,6 +27,76 @@
       "type": "inkWidgetReference",
       "name": "botPart",
       "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "chargeBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkRectangleWidget",
+      "name": "chargeBarFG",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:ThrowingKnifeResourcePoolListener",
+      "name": "throwingKnifeResourcePoolListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "entEntityID",
+      "name": "weaponID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "weaponBBID",
+      "flags": 4431347744
+    },
+    {
+      "type": "gamePSMMeleeWeapon",
+      "name": "meleeWeaponState",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animProxy",
+      "flags": 4431413280
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "animOptions",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isCrosshairAnimationOpen",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:inkImageWidget",
+      "name": "preloaderThinL",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkImageWidget",
+      "name": "preloaderThinR",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkImageWidget",
+      "name": "preloaderThickL",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkImageWidget",
+      "name": "preloaderThickR",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkCanvasWidget",
+      "name": "preloader",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -37,7 +107,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Vector2",
@@ -53,12 +123,87 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "OnPSMMeleeWeaponStateChanged",
+      "shortName": "OnPSMMeleeWeaponStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreIntro",
+      "shortName": "OnPreIntro",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnPreOutro",
+      "shortName": "OnPreOutro",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
     },
     {
       "fullName": "ApplyCrosshairGUIState;CNameEntity",
       "shortName": "ApplyCrosshairGUIState",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "CName",
@@ -73,13 +218,31 @@
       ]
     },
     {
+      "fullName": "GetFadeInAnimation;",
+      "shortName": "GetFadeInAnimation",
+      "return": {
+        "type": "handle:inkanimDefinition",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFadeOutAnimation;",
+      "shortName": "GetFadeOutAnimation",
+      "return": {
+        "type": "handle:inkanimDefinition",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetIntroAnimation;Bool",
       "shortName": "GetIntroAnimation",
       "return": {
         "type": "handle:inkanimDefinition",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "Bool",
@@ -95,7 +258,100 @@
         "type": "handle:inkanimDefinition",
         "flags": 64
       },
-      "flags": 512
+      "flags": 33280
+    },
+    {
+      "fullName": "OnState_Aim;",
+      "shortName": "OnState_Aim",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_GrenadeCharging;",
+      "shortName": "OnState_GrenadeCharging",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_HipFire;",
+      "shortName": "OnState_HipFire",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_LeftHandCyberware;",
+      "shortName": "OnState_LeftHandCyberware",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_Reload;",
+      "shortName": "OnState_Reload",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_Safe;",
+      "shortName": "OnState_Safe",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_Scanning;",
+      "shortName": "OnState_Scanning",
+      "flags": 33024
+    },
+    {
+      "fullName": "OnState_Sprint;",
+      "shortName": "OnState_Sprint",
+      "flags": 33024
+    },
+    {
+      "fullName": "PlayReloadBarFadeAnimation;Bool",
+      "shortName": "PlayReloadBarFadeAnimation",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isFadeIn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetReloadBar;Float",
+      "shortName": "SetReloadBar",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Float",
+          "name": "percentage",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetReloadBarVisible;Bool",
+      "shortName": "SetReloadBarVisible",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowCrosshairFromState;Bool",
+      "shortName": "ShowCrosshairFromState",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateThrowCrosshair;",
+      "shortName": "UpdateThrowCrosshair",
+      "flags": 33028
     }
   ]
 }

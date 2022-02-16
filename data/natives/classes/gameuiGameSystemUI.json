@@ -6,13 +6,33 @@
     {
       "fullName": "ClearGlobalThemeOverride",
       "shortName": "ClearGlobalThemeOverride",
-      "index": 11997,
+      "index": 12406,
+      "flags": 1
+    },
+    {
+      "fullName": "GetGameInstance",
+      "shortName": "GetGameInstance",
+      "return": {
+        "type": "ScriptGameInstance",
+        "flags": 64
+      },
+      "index": 12396,
+      "flags": 8193
+    },
+    {
+      "fullName": "GetNeededPatchIntroPackage",
+      "shortName": "GetNeededPatchIntroPackage",
+      "return": {
+        "type": "gameuiPatchIntroPackage",
+        "flags": 64
+      },
+      "index": 12407,
       "flags": 1
     },
     {
       "fullName": "HideTutorialBracket",
       "shortName": "HideTutorialBracket",
-      "index": 11993,
+      "index": 12402,
       "flags": 1,
       "params": [
         {
@@ -25,7 +45,7 @@
     {
       "fullName": "HideTutorialOverlay",
       "shortName": "HideTutorialOverlay",
-      "index": 11995,
+      "index": 12404,
       "flags": 1,
       "params": [
         {
@@ -36,9 +56,45 @@
       ]
     },
     {
+      "fullName": "IsPatchIntroNeeded",
+      "shortName": "IsPatchIntroNeeded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 12408,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameuiPatchIntro",
+          "name": "patchIntro",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MarkPatchIntroAsSeen",
+      "shortName": "MarkPatchIntroAsSeen",
+      "index": 12409,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameuiPatchIntro",
+          "name": "patchIntro",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyFastTravelStart",
+      "shortName": "NotifyFastTravelStart",
+      "index": 12411,
+      "flags": 1
+    },
+    {
       "fullName": "QueueEvent",
       "shortName": "QueueEvent",
-      "index": 11990,
+      "index": 12397,
       "flags": 1,
       "params": [
         {
@@ -49,9 +105,33 @@
       ]
     },
     {
+      "fullName": "QueueMenuEvent",
+      "shortName": "QueueMenuEvent",
+      "index": 12398,
+      "flags": 1,
+      "params": [
+        {
+          "type": "CName",
+          "name": "eventName",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RequestFastTravelMenu",
+      "shortName": "RequestFastTravelMenu",
+      "index": 12400,
+      "flags": 1
+    },
+    {
       "fullName": "RequestVendorMenu",
       "shortName": "RequestVendorMenu",
-      "index": 11991,
+      "index": 12399,
       "flags": 1,
       "params": [
         {
@@ -67,9 +147,22 @@
       ]
     },
     {
+      "fullName": "ResetPatchIntro",
+      "shortName": "ResetPatchIntro",
+      "index": 12410,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameuiPatchIntro",
+          "name": "patchIntro",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetGlobalThemeOverride",
       "shortName": "SetGlobalThemeOverride",
-      "index": 11996,
+      "index": 12405,
       "flags": 1,
       "params": [
         {
@@ -82,7 +175,7 @@
     {
       "fullName": "ShowTutorialBracket",
       "shortName": "ShowTutorialBracket",
-      "index": 11992,
+      "index": 12401,
       "flags": 1,
       "params": [
         {
@@ -95,7 +188,7 @@
     {
       "fullName": "ShowTutorialOverlay",
       "shortName": "ShowTutorialOverlay",
-      "index": 11994,
+      "index": 12403,
       "flags": 1,
       "params": [
         {
@@ -106,9 +199,48 @@
       ]
     },
     {
+      "fullName": "OnEnterFastTravelMenu",
+      "shortName": "OnEnterFastTravelMenu",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036
+    },
+    {
+      "fullName": "OnExitFastTravelMenu",
+      "shortName": "OnExitFastTravelMenu",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036
+    },
+    {
+      "fullName": "GetFastTravelSystem;",
+      "shortName": "GetFastTravelSystem",
+      "return": {
+        "type": "handle:FastTravelSystem",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "NotifyFastTravelSystem;Bool",
+      "shortName": "NotifyFastTravelSystem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "menuEnabled",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PopGameContext;UIGameContext",
       "shortName": "PopGameContext",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "UIGameContext",
@@ -120,7 +252,7 @@
     {
       "fullName": "PushGameContext;UIGameContext",
       "shortName": "PushGameContext",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "UIGameContext",
@@ -132,7 +264,7 @@
     {
       "fullName": "RequestNewVisualState;CName",
       "shortName": "RequestNewVisualState",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -144,12 +276,12 @@
     {
       "fullName": "ResetGameContext;",
       "shortName": "ResetGameContext",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "RestorePreviousVisualState;CName",
       "shortName": "RestorePreviousVisualState",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -161,7 +293,7 @@
     {
       "fullName": "SwapGameContext;UIGameContextUIGameContext",
       "shortName": "SwapGameContext",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "UIGameContext",

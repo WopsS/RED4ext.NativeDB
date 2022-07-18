@@ -17,7 +17,7 @@ export class SidebarService implements OnDestroy {
     private readonly itemsSubject: BehaviorSubject<SidebarItems> =
         new BehaviorSubject<SidebarItems>(null);
 
-    private itemsSubscription?: Subscription | null;
+    private readonly itemsSubscription: Subscription = new Subscription();
 
     constructor(
         private readonly cacheService: CacheService,
@@ -25,17 +25,16 @@ export class SidebarService implements OnDestroy {
         private readonly nativeService: NativeService
     ) {
         this.items$ = this.itemsSubject.asObservable();
-        this.itemsSubscription = this.nativeService.currentType$
-            .pipe(switchMap(type => this.onTypeChanged(type)))
-            .subscribe(response => this.onItemsLoaded(response));
+
+        this.itemsSubscription.add(
+            this.nativeService.currentType$
+                .pipe(switchMap(type => this.onTypeChanged(type)))
+                .subscribe(response => this.onItemsLoaded(response))
+        );
     }
 
     public ngOnDestroy(): void {
-        if (this.itemsSubscription) {
-            this.itemsSubscription.unsubscribe();
-            this.itemsSubscription = null;
-        }
-
+        this.itemsSubscription.unsubscribe();
         this.itemsSubject.complete();
     }
 

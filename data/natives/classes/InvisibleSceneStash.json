@@ -2,28 +2,7 @@
   "parent": "Device",
   "name": "InvisibleSceneStash",
   "flags": 4,
-  "props": [
-    {
-      "type": "array:gamedataEquipmentArea",
-      "name": "itemSlots",
-      "flags": 6583222304
-    },
-    {
-      "type": "handle:EquipmentSystemPlayerData",
-      "name": "equipmentData",
-      "flags": 4431544352
-    }
-  ],
   "funcs": [
-    {
-      "fullName": "OnGameAttached",
-      "shortName": "OnGameAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
-    },
     {
       "fullName": "OnQuestDressPlayer",
       "shortName": "OnQuestDressPlayer",
@@ -57,22 +36,6 @@
       ]
     },
     {
-      "fullName": "OnRequestComponents",
-      "shortName": "OnRequestComponents",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "entEntityRequestComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnTakeControl",
       "shortName": "OnTakeControl",
       "return": {
@@ -84,6 +47,48 @@
         {
           "type": "entEntityResolveComponentsInterface",
           "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateEquipRequest;PlayerPuppetItemID",
+      "shortName": "CreateEquipRequest",
+      "return": {
+        "type": "handle:gameEquipRequest",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateUnequipRequest;PlayerPuppetgamedataEquipmentArea",
+      "shortName": "CreateUnequipRequest",
+      "return": {
+        "type": "handle:UnequipRequest",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
           "flags": 128
         }
       ]
@@ -105,6 +110,31 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "GetEquipmentSystem;",
+      "shortName": "GetEquipmentSystem",
+      "return": {
+        "type": "handle:EquipmentSystem",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetSlots;Bool",
+      "shortName": "GetSlots",
+      "return": {
+        "type": "array:gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "censored",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

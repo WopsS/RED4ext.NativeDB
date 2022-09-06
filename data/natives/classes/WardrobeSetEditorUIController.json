@@ -10,27 +10,47 @@
     },
     {
       "type": "inkTextWidgetReference",
-      "name": "savebuttonText",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "saveButton",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "setSlotWidget",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "setNameText",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
       "name": "itemGridText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "sortingDropdown",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "sortingButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "hideFaceButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "hideHeadButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "emptyGridText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "wearButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "takeOffButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "resetButton",
       "flags": 4297130017
     },
     {
@@ -39,7 +59,7 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:ItemModeGridView",
+      "type": "handle:WardrobeItemGridView",
       "name": "itemGridDataView",
       "flags": 4431347744
     },
@@ -79,6 +99,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameWardrobeSystem",
+      "name": "wardrobeSystem",
+      "flags": 4297130016
+    },
+    {
       "type": "array:handle:EquipmentAreaCategoryCreated",
       "name": "equipmentAreaCategoryEventQueue",
       "flags": 6583025696
@@ -99,18 +124,18 @@
       "flags": 4431347744
     },
     {
-      "type": "whandle:gameIBlackboard",
-      "name": "equipmentBlackboard",
+      "type": "whandle:WardrobeUIGameController",
+      "name": "wardrobeGameController",
       "flags": 4297130016
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "equipmentBlackboardCallback",
-      "flags": 4431347744
     },
     {
       "type": "array:whandle:InventoryItemDisplayController",
       "name": "areaSlotControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:gamedataEquipmentArea",
+      "name": "hiddenEquipmentAreas",
       "flags": 6583025696
     },
     {
@@ -119,17 +144,53 @@
       "flags": 4297130016
     },
     {
-      "type": "whandle:InventoryItemDisplayController",
-      "name": "currentItemDisplay",
+      "type": "handle:gameClothingSet",
+      "name": "currentSet",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:ClothingSetController",
+      "name": "setButtonController",
       "flags": 4297130016
     },
     {
-      "type": "ClothingSet",
-      "name": "currentSet",
+      "type": "whandle:gameuiWardrobeSetPreviewGameController",
+      "name": "previewController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameDelaySystem",
+      "name": "delaySystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "delayedTimeoutCallbackId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "timeoutPeroid",
       "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnDropdownItemClickedEvent",
+      "shortName": "OnDropdownItemClickedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DropdownItemClickedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnEquipmentAreaCategoryCreated",
       "shortName": "OnEquipmentAreaCategoryCreated",
@@ -195,8 +256,8 @@
       ]
     },
     {
-      "fullName": "OnItemEquiped",
-      "shortName": "OnItemEquiped",
+      "fullName": "OnRegisterPreviewControllerEvent",
+      "shortName": "OnRegisterPreviewControllerEvent",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -204,15 +265,47 @@
       "flags": 33032,
       "params": [
         {
-          "type": "Variant",
-          "name": "value",
+          "type": "handle:RegisterPreviewControllerEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnSaveClick",
-      "shortName": "OnSaveClick",
+      "fullName": "OnResetButtonClicked",
+      "shortName": "OnResetButtonClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSortingButtonClicked",
+      "shortName": "OnSortingButtonClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeOffButtonClicked",
+      "shortName": "OnTakeOffButtonClicked",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -236,24 +329,98 @@
       "flags": 33032
     },
     {
-      "fullName": "EquipItem;ItemID",
-      "shortName": "EquipItem",
-      "flags": 32900,
+      "fullName": "OnWearButtonClicked",
+      "shortName": "OnWearButtonClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
-          "type": "gameItemID",
-          "name": "itemID",
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "EquipSetVisuals;",
-      "shortName": "EquipSetVisuals",
-      "flags": 33028
+      "fullName": "EquipCurrentSetVisuals;",
+      "shortName": "EquipCurrentSetVisuals",
+      "flags": 33284
     },
     {
-      "fullName": "Initialize;PlayerPuppetgameuiTooltipsManagerButtonHints",
+      "fullName": "EquipItem;gamedataEquipmentAreaInventoryItemData",
+      "shortName": "EquipItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipSetVisuals;ClothingSet",
+      "shortName": "EquipSetVisuals",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameClothingSet",
+          "name": "set",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemDisplayByEquipmentArea;gamedataEquipmentArea",
+      "shortName": "GetItemDisplayByEquipmentArea",
+      "return": {
+        "type": "whandle:InventoryItemDisplayController",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemInSlot;gamedataEquipmentArea",
+      "shortName": "GetItemInSlot",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPreviewController;",
+      "shortName": "GetPreviewController",
+      "return": {
+        "type": "whandle:gameuiWardrobeSetPreviewGameController",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "Initialize;PlayerPuppetgameuiTooltipsManagerButtonHintsWardrobeUIGameController",
       "shortName": "Initialize",
       "flags": 33284,
       "params": [
@@ -271,17 +438,22 @@
           "type": "whandle:ButtonHints",
           "name": "buttonHintsController",
           "flags": 128
+        },
+        {
+          "type": "whandle:WardrobeUIGameController",
+          "name": "gameController",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "OpenSet;ClothingSet",
+      "fullName": "OpenSet;ClothingSetController",
       "shortName": "OpenSet",
       "flags": 33284,
       "params": [
         {
-          "type": "ClothingSet",
-          "name": "set",
+          "type": "whandle:ClothingSetController",
+          "name": "setButtonController",
           "flags": 128
         }
       ]
@@ -314,30 +486,13 @@
       ]
     },
     {
-      "fullName": "PreviewSet;ClothingSet",
-      "shortName": "PreviewSet",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "ClothingSet",
-          "name": "set",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RegisterBlackboard;",
-      "shortName": "RegisterBlackboard",
-      "flags": 33028
+      "fullName": "ProcessHiddenSlots;",
+      "shortName": "ProcessHiddenSlots",
+      "flags": 32900
     },
     {
       "fullName": "SaveSet;",
       "shortName": "SaveSet",
-      "flags": 33028
-    },
-    {
-      "fullName": "SendSaveRequest;",
-      "shortName": "SendSaveRequest",
       "flags": 33284
     },
     {
@@ -346,38 +501,72 @@
       "flags": 33284
     },
     {
+      "fullName": "SetAreaSlotCovered;InventoryItemDisplayControllerBool",
+      "shortName": "SetAreaSlotCovered",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:InventoryItemDisplayController",
+          "name": "slotConstroller",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isCovered",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAreaSlotHighlights;gamedataEquipmentArea",
+      "shortName": "SetAreaSlotHighlights",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetButtonHintsHoverOut;",
       "shortName": "SetButtonHintsHoverOut",
       "flags": 32900
     },
     {
-      "fullName": "SetButtonHintsHoverOver;InventoryItemData",
+      "fullName": "SetButtonHintsHoverOver;InventoryItemDisplayController",
       "shortName": "SetButtonHintsHoverOver",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "displayingData",
+          "type": "handle:InventoryItemDisplayController",
+          "name": "display",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "UnequipItem;InventoryItemData",
+      "fullName": "SetupControlButtons;",
+      "shortName": "SetupControlButtons",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetupDropdown;",
+      "shortName": "SetupDropdown",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnequipItem;gamedataEquipmentArea",
       "shortName": "UnequipItem",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "itemData",
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "UnregisterBlackboard;",
-      "shortName": "UnregisterBlackboard",
-      "flags": 33028
     },
     {
       "fullName": "UpdateAvailableItems;gamedataEquipmentArea",
@@ -387,6 +576,49 @@
         {
           "type": "gamedataEquipmentArea",
           "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateButtonVisibility;",
+      "shortName": "UpdateButtonVisibility",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateEquipementSlot;InventoryItemDisplayControllergamedataEquipmentAreaInventoryItemData",
+      "shortName": "UpdateEquipementSlot",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:InventoryItemDisplayController",
+          "name": "itemDisplay",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "VisualTagToEquipmentArea;CName",
+      "shortName": "VisualTagToEquipmentArea",
+      "return": {
+        "type": "gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "tag",
           "flags": 128
         }
       ]

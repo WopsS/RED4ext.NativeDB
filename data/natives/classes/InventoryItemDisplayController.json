@@ -200,6 +200,16 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "transmogedIcon",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "iconWardrobeDisabled",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "comparisionArrow",
       "flags": 4297195553
     },
@@ -209,8 +219,23 @@
       "flags": 4297195553
     },
     {
+      "type": "inkWidgetReference",
+      "name": "wardrobeInfoContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "wardrobeInfoText",
+      "flags": 4297195553
+    },
+    {
       "type": "handle:InventoryDataManagerV2",
       "name": "inventoryDataManager",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:UIInventoryScriptableSystem",
+      "name": "inventoryScriptableSystem",
       "flags": 4431413280
     },
     {
@@ -224,7 +249,7 @@
       "flags": 4297195552
     },
     {
-      "type": "InventoryItemData",
+      "type": "gameInventoryItemData",
       "name": "itemData",
       "flags": 4297195552
     },
@@ -262,16 +287,6 @@
       "type": "array:whandle:InventoryItemModSlotDisplay",
       "name": "attachmentsDisplay",
       "flags": 6583091232
-    },
-    {
-      "type": "whandle:TransmogButtonView",
-      "name": "btnHideAppearanceCtrl",
-      "flags": 4297130016
-    },
-    {
-      "type": "whandle:inkWidget",
-      "name": "btnHideAppearance",
-      "flags": 4297130016
     },
     {
       "type": "gameItemID",
@@ -375,7 +390,22 @@
     },
     {
       "type": "Bool",
+      "name": "isTransmoged",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isWardrobeDisabled",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
       "name": "isUpgradable",
+      "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "overrideQuantity",
       "flags": 4297195552
     },
     {
@@ -387,6 +417,11 @@
       "type": "Bool",
       "name": "isSlotTransmogged",
       "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "wardrobeOutfitIndex",
+      "flags": 4297195552
     },
     {
       "type": "handle:inkanimProxy",
@@ -436,6 +471,16 @@
     {
       "type": "Bool",
       "name": "DEBUG_iconsNameResolverIsDebug",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:UIInventoryItem",
+      "name": "uiInventoryItem",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:ItemDisplayContextData",
+      "name": "displayContextData",
       "flags": 4297195552
     },
     {
@@ -560,7 +605,34 @@
       "flags": 33032
     },
     {
-      "fullName": "Bind;InventoryDataManagerV2gamedataEquipmentAreaInt32ItemDisplayContext",
+      "fullName": "Bind;UIInventoryScriptableSystemgamedataEquipmentAreaInt32ItemDisplayContext",
+      "shortName": "Bind",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:UIInventoryScriptableSystem",
+          "name": "inventoryScriptableSystem",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Bind;InventoryDataManagerV2gamedataEquipmentAreaInt32ItemDisplayContextBoolInt32",
       "shortName": "Bind",
       "flags": 33280,
       "params": [
@@ -583,6 +655,16 @@
           "type": "gameItemDisplayContext",
           "name": "displayContext",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "setWardrobeOutfit",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "wardrobeOutfitIndex",
+          "flags": 1152
         }
       ]
     },
@@ -600,6 +682,38 @@
           "type": "whandle:ItemPreferredComparisonResolver",
           "name": "comparisonResolver",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BindVisualSlot;gamedataEquipmentAreaInt32InventoryItemDataInt32ItemDisplayContext",
+      "shortName": "BindVisualSlot",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "itemsAmount",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 1152
         }
       ]
     },
@@ -670,7 +784,7 @@
       "fullName": "GetItemData;",
       "shortName": "GetItemData",
       "return": {
-        "type": "InventoryItemData",
+        "type": "gameInventoryItemData",
         "flags": 64
       },
       "flags": 33284
@@ -706,7 +820,7 @@
       "fullName": "GetMods;Bool",
       "shortName": "GetMods",
       "return": {
-        "type": "array:InventoryItemAttachments",
+        "type": "array:handle:gameInventoryItemAttachments",
         "flags": 64
       },
       "flags": 33024,
@@ -805,6 +919,24 @@
       "flags": 33284
     },
     {
+      "fullName": "GetUIInventoryItem;",
+      "shortName": "GetUIInventoryItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetWardrobeOutfitIndex;",
+      "shortName": "GetWardrobeOutfitIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "HandleLocalClick;inkPointerEvent",
       "shortName": "HandleLocalClick",
       "flags": 33028,
@@ -822,18 +954,40 @@
       "flags": 33280
     },
     {
-      "fullName": "InvalidateContent;",
+      "fullName": "InvalidateContent;BoolInt32",
       "shortName": "InvalidateContent",
-      "flags": 33280
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "setWardrobeOutfit",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "wardrobeOutfitIndex",
+          "flags": 1152
+        }
+      ]
     },
     {
-      "fullName": "InvalidateVisualContent;ItemID",
+      "fullName": "InvalidateVisualContent;InventoryItemDataInt32Bool",
       "shortName": "InvalidateVisualContent",
       "flags": 33280,
       "params": [
         {
-          "type": "gameItemID",
-          "name": "itemId",
+          "type": "gameInventoryItemData",
+          "name": "inventoryItemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "itemsAmount",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "equipped",
           "flags": 128
         }
       ]
@@ -887,6 +1041,184 @@
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "NewRefreshUI;UIInventoryItem",
+      "shortName": "NewRefreshUI",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateBlueprint;UIInventoryItem",
+      "shortName": "NewUpdateBlueprint",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateEmptyWidgets;UIInventoryItem",
+      "shortName": "NewUpdateEmptyWidgets",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateEquipped;UIInventoryItem",
+      "shortName": "NewUpdateEquipped",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateIcon;UIInventoryItem",
+      "shortName": "NewUpdateIcon",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateIndicators;UIInventoryItem",
+      "shortName": "NewUpdateIndicators",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateIsNewIndicator;UIInventoryItem",
+      "shortName": "NewUpdateIsNewIndicator",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateLocked;UIInventoryItem",
+      "shortName": "NewUpdateLocked",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateMods;UIInventoryItem",
+      "shortName": "NewUpdateMods",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateQuantity;UIInventoryItem",
+      "shortName": "NewUpdateQuantity",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateRarity;UIInventoryItem",
+      "shortName": "NewUpdateRarity",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateRequirements;UIInventoryItem",
+      "shortName": "NewUpdateRequirements",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateTransmoged;",
+      "shortName": "NewUpdateTransmoged",
+      "flags": 33024
+    },
+    {
+      "fullName": "NewUpdateWardrobeDisabled;",
+      "shortName": "NewUpdateWardrobeDisabled",
+      "flags": 33024
+    },
+    {
+      "fullName": "NewUpdateWeaponType;UIInventoryItem",
+      "shortName": "NewUpdateWeaponType",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemUpdate;UIInventoryItem",
+      "shortName": "OnItemUpdate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnItemUpdate;ItemID",
@@ -1063,47 +1395,74 @@
       ]
     },
     {
-      "fullName": "Setup;InventoryItemDataTweakDBIDItemDisplayContext",
+      "fullName": "SetTransmoged;Bool",
+      "shortName": "SetTransmoged",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWardrobeDisabled;Bool",
+      "shortName": "SetWardrobeDisabled",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;UIInventoryItemItemDisplayContextDataBoolBoolBoolInt32",
       "shortName": "Setup",
       "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "itemData",
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
           "flags": 128
         },
         {
-          "type": "TweakDBID",
-          "name": "slotID",
+          "type": "whandle:ItemDisplayContextData",
+          "name": "displayContextData",
           "flags": 128
         },
         {
-          "type": "gameItemDisplayContext",
-          "name": "displayContext",
+          "type": "Bool",
+          "name": "enoughMoney",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "owned",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isUpgradable",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "overrideQuantity",
           "flags": 1152
         }
       ]
     },
     {
-      "fullName": "Setup;InventoryTooltipData",
+      "fullName": "Setup;UIInventoryItemInt32",
       "shortName": "Setup",
       "flags": 33280,
       "params": [
         {
-          "type": "handle:InventoryTooltipData",
-          "name": "tooltipData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "Setup;InventoryItemDataInt32",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
           "flags": 128
         },
         {
@@ -1114,29 +1473,12 @@
       ]
     },
     {
-      "fullName": "Setup;RecipeDataItemDisplayContext",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "handle:RecipeData",
-          "name": "recipeData",
-          "flags": 128
-        },
-        {
-          "type": "gameItemDisplayContext",
-          "name": "displayContext",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "Setup;InventoryItemDatagamedataEquipmentAreaStringInt32ItemDisplayContext",
       "shortName": "Setup",
       "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -1168,7 +1510,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -1195,6 +1537,35 @@
       ]
     },
     {
+      "fullName": "Setup;InventoryItemDataInt32",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;InventoryTooltipData",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Setup;InventoryDataManagerV2InventoryItemDataTweakDBIDItemDisplayContextBool",
       "shortName": "Setup",
       "flags": 33280,
@@ -1205,7 +1576,7 @@
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -1222,6 +1593,45 @@
         {
           "type": "Bool",
           "name": "forceUpdateCounter",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;InventoryItemDataTweakDBIDItemDisplayContext",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;RecipeDataItemDisplayContext",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:RecipeData",
+          "name": "recipeData",
+          "flags": 128
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
           "flags": 1152
         }
       ]
@@ -1295,7 +1705,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "item",
           "flags": 1152
         },
@@ -1346,7 +1756,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "item",
           "flags": 1152
         },
@@ -1369,6 +1779,18 @@
           "type": "Bool",
           "name": "force",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateNewRarity;UIInventoryItem",
+      "shortName": "UpdateNewRarity",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
         }
       ]
     },
@@ -1403,7 +1825,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "item",
           "flags": 1152
         },
@@ -1440,6 +1862,16 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UpdateTransmoged;",
+      "shortName": "UpdateTransmoged",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateWardrobeDisabled;",
+      "shortName": "UpdateWardrobeDisabled",
+      "flags": 33024
     }
   ]
 }

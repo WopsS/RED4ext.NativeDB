@@ -84,6 +84,11 @@
       "flags": 4297130016
     },
     {
+      "type": "array:gameItemID",
+      "name": "itemDropQueueItems",
+      "flags": 6583025696
+    },
+    {
       "type": "array:gameItemModParams",
       "name": "itemDropQueue",
       "flags": 6583025696
@@ -124,6 +129,21 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:UI_InventoryDef",
+      "name": "InventoryCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "InventoryBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "InventoryBBID",
+      "flags": 4431347744
+    },
+    {
       "type": "whandle:inkMenuEventDispatcher",
       "name": "menuEventDispatcher",
       "flags": 4297130016
@@ -149,7 +169,7 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:ItemPreferredComparisonResolver",
+      "type": "handle:InventoryItemPreferredComparisonResolver",
       "name": "comparisonResolver",
       "flags": 4431347744
     },
@@ -185,11 +205,6 @@
     },
     {
       "type": "Bool",
-      "name": "isE3Demo",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
       "name": "equipRequested",
       "flags": 4297130016
     },
@@ -209,6 +224,16 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:UIInventoryScriptableSystem",
+      "name": "uiInventorySystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "itemDisplayContext",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:inkGameNotificationToken",
       "name": "confirmationPopupToken",
       "flags": 4431347744
@@ -220,8 +245,23 @@
     },
     {
       "type": "Bool",
-      "name": "isComparisionDisabled",
+      "name": "isComparisonDisabled",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:BakcpackImmediateNotificationListener",
+      "name": "immediateNotificationListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptWeakHashMap",
+      "name": "virtualWidgets",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptWeakHashMap",
+      "name": "allWidgets",
+      "flags": 4431347744
     },
     {
       "type": "handle:inkGameNotificationToken",
@@ -413,6 +453,22 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnInventoryItemRemoved",
+      "shortName": "OnInventoryItemRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnItemDisplayClick",
@@ -681,13 +737,13 @@
       "flags": 32900
     },
     {
-      "fullName": "CreateCraftingMaterialItem;InventoryItemDatainkCompoundRef",
+      "fullName": "CreateCraftingMaterialItem;CachedCraftingMaterialinkCompoundRef",
       "shortName": "CreateCraftingMaterialItem",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "data",
+          "type": "handle:CachedCraftingMaterial",
+          "name": "craftingMaterial",
           "flags": 128
         },
         {
@@ -707,19 +763,19 @@
       "flags": 32900
     },
     {
-      "fullName": "EquipItem;InventoryItemData",
+      "fullName": "EquipItem;UIInventoryItem",
       "shortName": "EquipItem",
       "flags": 33284,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
           "name": "itemData",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetDisassemblyResult;InventoryItemData",
+      "fullName": "GetDisassemblyResult;UIInventoryItem",
       "shortName": "GetDisassemblyResult",
       "return": {
         "type": "array:IngredientData",
@@ -728,8 +784,24 @@
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "itemData",
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDropQueueItem;ItemID",
+      "shortName": "GetDropQueueItem",
+      "return": {
+        "type": "gameItemModParams",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
           "flags": 128
         }
       ]
@@ -740,13 +812,13 @@
       "flags": 32900
     },
     {
-      "fullName": "HighlightDisassemblyResults;InventoryItemData",
+      "fullName": "HighlightDisassemblyResults;UIInventoryItem",
       "shortName": "HighlightDisassemblyResults",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "item",
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
           "flags": 128
         }
       ]
@@ -773,13 +845,47 @@
       ]
     },
     {
-      "fullName": "OnInventoryRequestTooltip;InventoryItemDatainkWidgetDEBUG_IconErrorInfo",
+      "fullName": "NewShowItemHints;UIInventoryItem",
+      "shortName": "NewShowItemHints",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBakcpackItemDisplayNotification;ItemDisplayNotificationMessageUint64IScriptable",
+      "shortName": "OnBakcpackItemDisplayNotification",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ItemDisplayNotificationMessage",
+          "name": "message",
+          "flags": 128
+        },
+        {
+          "type": "Uint64",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "whandle:IScriptable",
+          "name": "data",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryRequestTooltip;UIInventoryIteminkWidgetDEBUG_IconErrorInfo",
       "shortName": "OnInventoryRequestTooltip",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "displayingData",
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
           "flags": 128
         },
         {
@@ -819,36 +925,36 @@
       ]
     },
     {
-      "fullName": "OpenBackpackEquipSlotChooser;InventoryItemData",
+      "fullName": "OpenBackpackEquipSlotChooser;UIInventoryItem",
       "shortName": "OpenBackpackEquipSlotChooser",
       "flags": 33284,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
           "name": "itemData",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OpenConfirmationPopupOpenConfirmationPopup;InventoryItemData",
-      "shortName": "OpenConfirmationPopupOpenConfirmationPopup",
+      "fullName": "OpenConfirmationPopup;UIInventoryItem",
+      "shortName": "OpenConfirmationPopup",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
-          "name": "itemData",
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionType",
+      "fullName": "OpenQuantityPicker;UIInventoryItemQuantityPickerActionType",
       "shortName": "OpenQuantityPicker",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
           "name": "itemData",
           "flags": 128
         },
@@ -919,7 +1025,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "displayingData",
           "flags": 128
         }
@@ -970,10 +1076,15 @@
       "flags": 32900
     },
     {
-      "fullName": "UpdateCraftingMaterials;Bool",
-      "shortName": "UpdateCraftingMaterials",
+      "fullName": "UpdateCraftingMaterial;ItemIDBool",
+      "shortName": "UpdateCraftingMaterial",
       "flags": 32900,
       "params": [
+        {
+          "type": "gameItemID",
+          "name": "materialID",
+          "flags": 128
+        },
         {
           "type": "Bool",
           "name": "skipAnim",

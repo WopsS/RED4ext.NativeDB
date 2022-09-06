@@ -44,6 +44,26 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "gogButtonWidgetRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "gogContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "laodingSpinner",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "scrollbar",
+      "flags": 4297130017
+    },
+    {
       "type": "whandle:inkMenuEventDispatcher",
       "name": "eventDispatcher",
       "flags": 4297130016
@@ -77,12 +97,90 @@
       "type": "handle:inkGameNotificationToken",
       "name": "saveTransferPopupToken",
       "flags": 4431347744
+    },
+    {
+      "type": "array:String",
+      "name": "saves",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "saveFilesReady",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "cloudSynced",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIOnlineSystem",
+      "name": "onlineSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkISystemRequestsHandler",
+      "name": "systemHandler",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "pendingRegistration",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
       "fullName": "OnButtonRelease",
       "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloudSavesQueryStatusChanged",
+      "shortName": "OnCloudSavesQueryStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "servicesCloudSavesQueryStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGogLoginStatusChanged",
+      "shortName": "OnGogLoginStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "bIsSignedIn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGogPressed",
+      "shortName": "OnGogPressed",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -104,6 +202,22 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnRefreshGOGState",
+      "shortName": "OnRefreshGOGState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiRefreshGOGState",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnRelease",
@@ -228,8 +342,18 @@
       ]
     },
     {
-      "fullName": "LoadGameMainMenu;LoadListItem",
-      "shortName": "LoadGameMainMenu",
+      "fullName": "GogLogin;",
+      "shortName": "GogLogin",
+      "flags": 32900
+    },
+    {
+      "fullName": "InitCrossProgression;",
+      "shortName": "InitCrossProgression",
+      "flags": 32900
+    },
+    {
+      "fullName": "LoadGame;LoadListItem",
+      "shortName": "LoadGame",
       "flags": 32900,
       "params": [
         {
@@ -238,6 +362,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "PlayLoadingAnimation;",
+      "shortName": "PlayLoadingAnimation",
+      "flags": 32900
     },
     {
       "fullName": "PlayTransitionAnimOnButton;Int32Int32",
@@ -298,6 +427,11 @@
       ]
     },
     {
+      "fullName": "StopLoadingAnimation;",
+      "shortName": "StopLoadingAnimation",
+      "flags": 32900
+    },
+    {
       "fullName": "UpdateButtonHints;Int32",
       "shortName": "UpdateButtonHints",
       "flags": 32900,
@@ -308,6 +442,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UpdateSavesList;",
+      "shortName": "UpdateSavesList",
+      "flags": 32900
     }
   ]
 }

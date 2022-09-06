@@ -1,0 +1,612 @@
+{
+  "parent": "IScriptable",
+  "name": "UIInventoryItemsManager",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:gameuiIconsNameResolver",
+      "name": "iconsNameResolver",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "useMaleIcons",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkScriptIntHashMap",
+      "name": "ammoTypeCache",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptWeakHashMap",
+      "name": "statsMapCache",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptHashMap",
+      "name": "statsPropertiesCache",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameTransactionSystem",
+      "name": "transactionSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:UIScriptableSystem",
+      "name": "uiScriptableSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "equippedItemsFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:gameItemID",
+      "name": "equippedItems",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "transmogItemsFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:gameItemID",
+      "name": "transmogItems",
+      "flags": 6583025696
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "UIInventoryItemsManager::GetAmmo;Item_RecordBoolUIInventoryItemsManager",
+      "shortName": "GetAmmo",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetBlacklistedTags;",
+      "shortName": "GetBlacklistedTags",
+      "return": {
+        "type": "array:CName",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetItemTypeWeapon;gamedataItemType",
+      "shortName": "GetItemTypeWeapon",
+      "return": {
+        "type": "WeaponType",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetUIStatProperties;gamedataStatType",
+      "shortName": "GetUIStatProperties",
+      "return": {
+        "type": "handle:UIItemStatProperties",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetUIStatProperties;TweakDBIDBool",
+      "shortName": "GetUIStatProperties",
+      "return": {
+        "type": "handle:UIItemStatProperties",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "statId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "roundValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetUIStatProperties;gamedataStatTypeBool",
+      "shortName": "GetUIStatProperties",
+      "return": {
+        "type": "handle:UIItemStatProperties",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "roundValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetUIStatProperties;TweakDBID",
+      "shortName": "GetUIStatProperties",
+      "return": {
+        "type": "handle:UIItemStatProperties",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "statId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::GetUIStatsMap;gamedataItemTypeUIInventoryItemsManager",
+      "shortName": "GetUIStatsMap",
+      "return": {
+        "type": "whandle:gamedataUIStatsMap_Record",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::IsItemTypeCloting;gamedataItemType",
+      "shortName": "IsItemTypeCloting",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::IsItemTypeMeleeWeapon;gamedataItemType",
+      "shortName": "IsItemTypeMeleeWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::IsItemTypeRangedWeapon;gamedataItemType",
+      "shortName": "IsItemTypeRangedWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::IsItemTypeWeapon;gamedataItemType",
+      "shortName": "IsItemTypeWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::Make;PlayerPuppetTransactionSystemUIScriptableSystem",
+      "shortName": "Make",
+      "return": {
+        "type": "handle:UIInventoryItemsManager",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameTransactionSystem",
+          "name": "transactionSystem",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIScriptableSystem",
+          "name": "uiScriptableSystem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::QualityFromInt;Int32",
+      "shortName": "QualityFromInt",
+      "return": {
+        "type": "gamedataQuality",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "quality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::QualityToInt;gamedataQuality",
+      "shortName": "QualityToInt",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::QualityToName;gamedataQuality",
+      "shortName": "QualityToName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::ResolveItemIconName;TweakDBIDItem_RecordPlayerPuppet",
+      "shortName": "ResolveItemIconName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "itemTweakID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::ResolveItemIconName;TweakDBIDItem_RecordBool",
+      "shortName": "ResolveItemIconName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "itemTweakID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "useMaleIcon",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemsManager::ResolveItemIconName;TweakDBIDItem_RecordUIInventoryItemsManager",
+      "shortName": "ResolveItemIconName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "itemTweakID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddTransmogIfNotEmpty;ItemID",
+      "shortName": "AddTransmogIfNotEmpty",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AttachPlayer;PlayerPuppet",
+      "shortName": "AttachPlayer",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FlushAmmoCache;",
+      "shortName": "FlushAmmoCache",
+      "flags": 33284
+    },
+    {
+      "fullName": "FlushEquippedItems;",
+      "shortName": "FlushEquippedItems",
+      "flags": 33284
+    },
+    {
+      "fullName": "FlushStatMaps;",
+      "shortName": "FlushStatMaps",
+      "flags": 33284
+    },
+    {
+      "fullName": "FlushTransmogItems;",
+      "shortName": "FlushTransmogItems",
+      "flags": 33284
+    },
+    {
+      "fullName": "GetAttachedPlayer;",
+      "shortName": "GetAttachedPlayer",
+      "return": {
+        "type": "whandle:PlayerPuppet",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCachedEquippedItems;",
+      "shortName": "GetCachedEquippedItems",
+      "return": {
+        "type": "array:gameItemID",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCachedTransmogItems;",
+      "shortName": "GetCachedTransmogItems",
+      "return": {
+        "type": "array:gameItemID",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCachedUIStatProperties;gamedataStatType",
+      "shortName": "GetCachedUIStatProperties",
+      "return": {
+        "type": "whandle:UIItemStatProperties",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCachedUIStatProperties;gamedataStatTypeBool",
+      "shortName": "GetCachedUIStatProperties",
+      "return": {
+        "type": "whandle:UIItemStatProperties",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "roundValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetRawEquippedItems;gamedataEquipmentArea",
+      "shortName": "GetRawEquippedItems",
+      "return": {
+        "type": "array:gameItemID",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTransactionSystem;",
+      "shortName": "GetTransactionSystem",
+      "return": {
+        "type": "whandle:gameTransactionSystem",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsItemEquipped;ItemID",
+      "shortName": "IsItemEquipped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsItemNew;ItemID",
+      "shortName": "IsItemNew",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsItemTransmog;ItemID",
+      "shortName": "IsItemTransmog",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

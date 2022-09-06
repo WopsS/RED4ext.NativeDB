@@ -1,0 +1,348 @@
+{
+  "parent": "gameScriptableSystem",
+  "name": "UIInventoryScriptableSystem",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "attachedPlayer",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UIInventoryScriptableInventoryListenerCallback",
+      "name": "inventoryListenerCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameInventoryScriptListener",
+      "name": "inventoryListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UIInventoryScriptableEquipmentListener",
+      "name": "equipmentListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptHashMap",
+      "name": "playerItems",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameTransactionSystem",
+      "name": "transactionSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UIInventoryItemsManager",
+      "name": "inventoryItemsManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "array:CName",
+      "name": "blacklistedTags",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:inkScriptHashMap",
+      "name": "cachedNonInventoryItems",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "InventoryBlackboard",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "UIInventoryScriptableSystem::GetInstance;GameInstance",
+      "shortName": "GetInstance",
+      "return": {
+        "type": "handle:UIInventoryScriptableSystem",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryScriptableSystem::NumberOfWeaponSlots;",
+      "shortName": "NumberOfWeaponSlots",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "FlushFullscreenCache;",
+      "shortName": "FlushFullscreenCache",
+      "flags": 41476
+    },
+    {
+      "fullName": "FlushTempData;",
+      "shortName": "FlushTempData",
+      "flags": 41476
+    },
+    {
+      "fullName": "GetInventoryItemsManager;",
+      "shortName": "GetInventoryItemsManager",
+      "return": {
+        "type": "whandle:UIInventoryItemsManager",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetNonInventoryItem;ItemID",
+      "shortName": "GetNonInventoryItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerAreaItem;gamedataEquipmentAreaInt32",
+      "shortName": "GetPlayerAreaItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerAreaItems;gamedataEquipmentArea",
+      "shortName": "GetPlayerAreaItems",
+      "return": {
+        "type": "array:whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerItem;ItemID",
+      "shortName": "GetPlayerItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerItem;Uint64",
+      "shortName": "GetPlayerItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Uint64",
+          "name": "hash",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerItemFromAnySource;gameItemData",
+      "shortName": "GetPlayerItemFromAnySource",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPlayerItemsMap;",
+      "shortName": "GetPlayerItemsMap",
+      "return": {
+        "type": "handle:inkScriptHashMap",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "Internal_FetchNonInventoryItem;Uint64gameItemData",
+      "shortName": "Internal_FetchNonInventoryItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Uint64",
+          "name": "hash",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;",
+      "shortName": "OnDetach",
+      "flags": 32896
+    },
+    {
+      "fullName": "OnInventoryItemAdded;UIInventoryScriptableSystemInventoryAddItem",
+      "shortName": "OnInventoryItemAdded",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UIInventoryScriptableSystemInventoryAddItem",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryItemQuantityChanged;UIInventoryScriptableSystemInventoryQuantityChanged",
+      "shortName": "OnInventoryItemQuantityChanged",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UIInventoryScriptableSystemInventoryQuantityChanged",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryItemRemoved;UIInventoryScriptableSystemInventoryRemoveItem",
+      "shortName": "OnInventoryItemRemoved",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UIInventoryScriptableSystemInventoryRemoveItem",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPartInstallRequest;PartInstallRequest",
+      "shortName": "OnPartInstallRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PartInstallRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPartUninstallRequest;PartUninstallRequest",
+      "shortName": "OnPartUninstallRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PartUninstallRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach;PlayerAttachRequest",
+      "shortName": "OnPlayerAttach",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamePlayerAttachRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueryNonInventoryItem;TweakDBID",
+      "shortName": "QueryNonInventoryItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "tweakID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueryPlayerItem;TweakDBID",
+      "shortName": "QueryPlayerItem",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "tweakID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupInstance;",
+      "shortName": "SetupInstance",
+      "flags": 32900
+    }
+  ]
+}

@@ -1,8 +1,139 @@
 {
   "parent": "gameIWardrobeSystem",
   "name": "gameWardrobeSystem",
-  "flags": 66,
+  "flags": 2,
   "funcs": [
+    {
+      "fullName": "gameWardrobeSystem::NumberToWardrobeClothingSetIndex;Int32",
+      "shortName": "NumberToWardrobeClothingSetIndex",
+      "return": {
+        "type": "gameWardrobeClothingSetIndex",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "number",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gameWardrobeSystem::SendWardrobeAddItemRequest;GameInstanceItemID",
+      "shortName": "SendWardrobeAddItemRequest",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gameWardrobeSystem::SendWardrobeInspectItemRequest;GameInstanceItemID",
+      "shortName": "SendWardrobeInspectItemRequest",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gameWardrobeSystem::WardrobeClothingSetIndexToNumber;gameWardrobeClothingSetIndex",
+      "shortName": "WardrobeClothingSetIndexToNumber",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "slotIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeleteClothingSet",
+      "shortName": "DeleteClothingSet",
+      "index": 11824,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetActiveClothingSet",
+      "shortName": "GetActiveClothingSet",
+      "return": {
+        "type": "handle:gameClothingSet",
+        "flags": 64
+      },
+      "index": 11828,
+      "flags": 1
+    },
+    {
+      "fullName": "GetActiveClothingSetIndex",
+      "shortName": "GetActiveClothingSetIndex",
+      "return": {
+        "type": "gameWardrobeClothingSetIndex",
+        "flags": 64
+      },
+      "index": 11827,
+      "flags": 1
+    },
+    {
+      "fullName": "GetClothingSets",
+      "shortName": "GetClothingSets",
+      "return": {
+        "type": "array:handle:gameClothingSet",
+        "flags": 64
+      },
+      "index": 11825,
+      "flags": 1
+    },
+    {
+      "fullName": "GetFilteredInventoryItemsData",
+      "shortName": "GetFilteredInventoryItemsData",
+      "return": {
+        "type": "array:gameInventoryItemData",
+        "flags": 64
+      },
+      "index": 11821,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "inventoryItemDataV2",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "GetFilteredStoredItemIDs",
       "shortName": "GetFilteredStoredItemIDs",
@@ -10,12 +141,29 @@
         "type": "array:gameItemID",
         "flags": 64
       },
-      "index": 11617,
+      "index": 11820,
       "flags": 1,
       "params": [
         {
           "type": "gamedataEquipmentArea",
           "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetStoredItemID",
+      "shortName": "GetStoredItemID",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "index": 11817,
+      "flags": 1,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "item",
           "flags": 128
         }
       ]
@@ -27,8 +175,51 @@
         "type": "array:gameItemID",
         "flags": 64
       },
-      "index": 11616,
+      "index": 11819,
       "flags": 1
+    },
+    {
+      "fullName": "IsItemBlacklisted",
+      "shortName": "IsItemBlacklisted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 11822,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushBackClothingSet",
+      "shortName": "PushBackClothingSet",
+      "index": 11823,
+      "flags": 1,
+      "params": [
+        {
+          "type": "handle:gameClothingSet",
+          "name": "clothingSet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetActiveClothingSetIndex",
+      "shortName": "SetActiveClothingSetIndex",
+      "index": 11826,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "slotIndex",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "StoreUniqueItemID",
@@ -37,9 +228,30 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11615,
+      "index": 11818,
       "flags": 1,
       "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StoreUniqueItemIDAndMarkNew;GameInstanceItemID",
+      "shortName": "StoreUniqueItemIDAndMarkNew",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
         {
           "type": "gameItemID",
           "name": "itemID",

@@ -129,7 +129,7 @@
       ]
     },
     {
-      "fullName": "Bind;PlayerPuppetInventoryDataManagerV2gamedataEquipmentAreaInt32gameuiTooltipsManager",
+      "fullName": "Bind;PlayerPuppetInventoryDataManagerV2gamedataEquipmentAreaInt32gameuiTooltipsManagerBool",
       "shortName": "Bind",
       "flags": 33284,
       "params": [
@@ -156,6 +156,11 @@
         {
           "type": "whandle:gameuiTooltipsManager",
           "name": "tooltipsManagerArg",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "showTransmogedIcon",
           "flags": 1152
         }
       ]
@@ -262,7 +267,7 @@
       "fullName": "GetModifiedItemData;",
       "shortName": "GetModifiedItemData",
       "return": {
-        "type": "InventoryItemData",
+        "type": "gameInventoryItemData",
         "flags": 64
       },
       "flags": 33280
@@ -316,7 +321,7 @@
       "fullName": "GetSlots;",
       "shortName": "GetSlots",
       "return": {
-        "type": "array:InventoryItemAttachments",
+        "type": "array:handle:gameInventoryItemAttachments",
         "flags": 64
       },
       "flags": 33024
@@ -336,7 +341,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         }
@@ -348,14 +353,48 @@
       "flags": 33024
     },
     {
-      "fullName": "RefreshItems;",
+      "fullName": "RefreshItems;BoolInt32Bool",
       "shortName": "RefreshItems",
-      "flags": 33280
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "overrideClothingSet",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "clothingSetIndex",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "showTransmogedIcon",
+          "flags": 1152
+        }
+      ]
     },
     {
-      "fullName": "RefreshMainItem;",
+      "fullName": "RefreshMainItem;BoolInt32Bool",
       "shortName": "RefreshMainItem",
-      "flags": 33024
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "overrideClothingSet",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "clothingSetIndex",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "showTransmogedIcon",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "RefreshSelectedItem;",

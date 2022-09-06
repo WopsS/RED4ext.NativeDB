@@ -144,6 +144,11 @@
       "flags": 4431347744
     },
     {
+      "type": "whandle:UIInventoryScriptableSystem",
+      "name": "uiInventorySystem",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:inkMenuEventDispatcher",
       "name": "menuEventDispatcher",
       "flags": 4297130016
@@ -224,7 +229,7 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:ItemPreferredComparisonResolver",
+      "type": "handle:InventoryItemPreferredComparisonResolver",
       "name": "comparisonResolver",
       "flags": 4431347744
     },
@@ -276,6 +281,26 @@
     {
       "type": "handle:redCallbackObject",
       "name": "craftingCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "InventoryBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UI_InventoryDef",
+      "name": "InventoryCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "InventoryAddedBBID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "InventoryRemovedBBID",
       "flags": 4431347744
     },
     {
@@ -357,6 +382,21 @@
       "type": "array:handle:VenodrRequestQueueEntry",
       "name": "buyQueue",
       "flags": 6583025696
+    },
+    {
+      "type": "array:handle:UIInventoryItem",
+      "name": "vendorUIInventoryItems",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "playerItemDisplayContext",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "vendorItemDisplayContext",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -425,6 +465,38 @@
       ]
     },
     {
+      "fullName": "OnFilterRadioItemHoverOut",
+      "shortName": "OnFilterRadioItemHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:FilterRadioItemHoverOut",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFilterRadioItemHoverOver",
+      "shortName": "OnFilterRadioItemHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:FilterRadioItemHoverOver",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnHandleGlobalInput",
       "shortName": "OnHandleGlobalInput",
       "return": {
@@ -482,6 +554,22 @@
       ]
     },
     {
+      "fullName": "OnInventoryItemAdded",
+      "shortName": "OnInventoryItemAdded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInventoryItemHoverOut",
       "shortName": "OnInventoryItemHoverOut",
       "return": {
@@ -509,6 +597,22 @@
         {
           "type": "handle:ItemDisplayHoverOverEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryItemRemoved",
+      "shortName": "OnInventoryItemRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -747,54 +851,18 @@
       ]
     },
     {
-      "fullName": "ConvertGameDataIntoInventoryData;array<gameItemData>GameObjectBool",
-      "shortName": "ConvertGameDataIntoInventoryData",
+      "fullName": "FilterOutDuplicateVendorItems;array<VendorGameItemData>",
+      "shortName": "FilterOutDuplicateVendorItems",
       "return": {
-        "type": "array:InventoryItemData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "array:handle:gameItemData",
-          "name": "data",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "isVendorItem",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ConvertGameDataIntoInventoryData;array<VendorGameItemData>GameObjectBool",
-      "shortName": "ConvertGameDataIntoInventoryData",
-      "return": {
-        "type": "array:InventoryItemData",
+        "type": "array:handle:VendorGameItemData",
         "flags": 64
       },
       "flags": 32900,
       "params": [
         {
           "type": "array:handle:VendorGameItemData",
-          "name": "data",
+          "name": "items",
           "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "isVendorItem",
-          "flags": 1152
         }
       ]
     },
@@ -809,11 +877,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "GetAllSellable;",
-      "shortName": "GetAllSellable",
-      "flags": 32900
     },
     {
       "fullName": "GetBulkSellPrice;array<gameItemData>",
@@ -848,7 +911,7 @@
       ]
     },
     {
-      "fullName": "GetComparisonState;InventoryItemData",
+      "fullName": "GetComparisonState;UIInventoryItem",
       "shortName": "GetComparisonState",
       "return": {
         "type": "gameItemComparisonState",
@@ -857,7 +920,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
           "name": "item",
           "flags": 128
         }
@@ -881,6 +944,27 @@
           "type": "Int32",
           "name": "moneyLimit",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMaxQuantity;UIInventoryItemBool",
+      "shortName": "GetMaxQuantity",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isPlayerItem",
+          "flags": 1152
         }
       ]
     },
@@ -920,7 +1004,7 @@
       "flags": 32900
     },
     {
-      "fullName": "HandleStorageSlotInput;ItemDisplayClickEventInventoryItemData",
+      "fullName": "HandleStorageSlotInput;ItemDisplayClickEvent",
       "shortName": "HandleStorageSlotInput",
       "flags": 32900,
       "params": [
@@ -928,27 +1012,17 @@
           "type": "handle:ItemDisplayClickEvent",
           "name": "evt",
           "flags": 128
-        },
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
         }
       ]
     },
     {
-      "fullName": "HandleVendorSlotInput;ItemDisplayClickEventInventoryItemData",
+      "fullName": "HandleVendorSlotInput;ItemDisplayClickEvent",
       "shortName": "HandleVendorSlotInput",
       "flags": 32900,
       "params": [
         {
           "type": "handle:ItemDisplayClickEvent",
           "name": "evt",
-          "flags": 128
-        },
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
           "flags": 128
         }
       ]
@@ -1001,12 +1075,12 @@
       ]
     },
     {
-      "fullName": "OpenConfirmationPopup;InventoryItemDataInt32QuantityPickerActionTypeVendorConfirmationPopupType",
+      "fullName": "OpenConfirmationPopup;UIInventoryItemInt32QuantityPickerActionTypeVendorConfirmationPopupType",
       "shortName": "OpenConfirmationPopup",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
           "name": "itemData",
           "flags": 128
         },
@@ -1028,12 +1102,12 @@
       ]
     },
     {
-      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionTypeBool",
+      "fullName": "OpenQuantityPicker;UIInventoryItemQuantityPickerActionTypeBoolBool",
       "shortName": "OpenQuantityPicker",
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
           "name": "itemData",
           "flags": 128
         },
@@ -1045,6 +1119,11 @@
         {
           "type": "Bool",
           "name": "isBuyback",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isPlayerItem",
           "flags": 1152
         }
       ]
@@ -1153,28 +1232,23 @@
       "flags": 32900
     },
     {
-      "fullName": "ShowTooltipsForItemController;inkWidgetInventoryItemDataInventoryItemDataDEBUG_IconErrorInfoBool",
-      "shortName": "ShowTooltipsForItemController",
+      "fullName": "ShowTooltipForUIInventoryItem;inkWidgetUIInventoryItemUIInventoryItemBool",
+      "shortName": "ShowTooltipForUIInventoryItem",
       "flags": 32900,
       "params": [
         {
           "type": "whandle:inkWidget",
-          "name": "targetWidget",
+          "name": "widget",
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "whandle:UIInventoryItem",
+          "name": "inspectedItem",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItem",
           "name": "equippedItem",
-          "flags": 128
-        },
-        {
-          "type": "InventoryItemData",
-          "name": "inspectedItemData",
-          "flags": 128
-        },
-        {
-          "type": "handle:DEBUG_IconErrorInfo",
-          "name": "iconErrorInfo",
           "flags": 128
         },
         {

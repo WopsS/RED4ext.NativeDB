@@ -35,7 +35,23 @@
       "fullName": "EquipmentSystem::GetActiveWardrobeSet;GameObject",
       "shortName": "GetActiveWardrobeSet",
       "return": {
-        "type": "Int32",
+        "type": "handle:gameClothingSet",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipmentSystem::GetActiveWardrobeSetID;GameObject",
+      "shortName": "GetActiveWardrobeSetID",
+      "return": {
+        "type": "gameWardrobeClothingSetIndex",
         "flags": 64
       },
       "flags": 33286,
@@ -253,22 +269,6 @@
       ]
     },
     {
-      "fullName": "EquipmentSystem::GetWardrobeSets;GameObject",
-      "shortName": "GetWardrobeSets",
-      "return": {
-        "type": "array:ClothingSet",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "owner",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "EquipmentSystem::HasItemInArea;GameObjectgamedataEquipmentArea",
       "shortName": "HasItemInArea",
       "return": {
@@ -395,32 +395,6 @@
       "fullName": "BlockAndCompensateScaling;",
       "shortName": "BlockAndCompensateScaling",
       "flags": 32900
-    },
-    {
-      "fullName": "CalculateSuffix;ItemIDGameObjectItemsFactoryAppearanceSuffixBase_Record",
-      "shortName": "CalculateSuffix",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 41092,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemId",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamedataItemsFactoryAppearanceSuffixBase_Record",
-          "name": "suffixRecord",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "Debug_FillESSlotData;Int32StringItemIDGameObject",
@@ -552,6 +526,27 @@
     {
       "fullName": "GetActiveItem;GameObjectgamedataEquipmentArea",
       "shortName": "GetActiveItem",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetActiveVisualItem;GameObjectgamedataEquipmentArea",
+      "shortName": "GetActiveVisualItem",
       "return": {
         "type": "gameItemID",
         "flags": 64
@@ -781,6 +776,22 @@
       ]
     },
     {
+      "fullName": "GetPaperDollSlots;GameObject",
+      "shortName": "GetPaperDollSlots",
+      "return": {
+        "type": "array:gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetPlayerData;GameObject",
       "shortName": "GetPlayerData",
       "return": {
@@ -963,6 +974,18 @@
       ]
     },
     {
+      "fullName": "OnDeleteWardrobeSetRequest;DeleteWardrobeSetRequest",
+      "shortName": "OnDeleteWardrobeSetRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:DeleteWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDrawItemByContextRequest;DrawItemByContextRequest",
       "shortName": "OnDrawItemByContextRequest",
       "flags": 32900,
@@ -981,18 +1004,6 @@
       "params": [
         {
           "type": "handle:gameDrawItemRequest",
-          "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnEquipProcessVisualTags;EquipProcessVisualTags",
-      "shortName": "OnEquipProcessVisualTags",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "handle:EquipProcessVisualTags",
           "name": "request",
           "flags": 128
         }
@@ -1167,6 +1178,66 @@
       ]
     },
     {
+      "fullName": "OnQuestDisableWardrobeSetRequest;QuestDisableWardrobeSetRequest",
+      "shortName": "OnQuestDisableWardrobeSetRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:QuestDisableWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEnableWardrobeSetRequest;QuestEnableWardrobeSetRequest",
+      "shortName": "OnQuestEnableWardrobeSetRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:QuestEnableWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestHideSlotRequest;QuestHideSlotRequest",
+      "shortName": "OnQuestHideSlotRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:QuestHideSlotRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestRestoreSlotRequest;QuestRestoreSlotRequest",
+      "shortName": "OnQuestRestoreSlotRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:QuestRestoreSlotRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestRestoreWardrobeSetRequest;QuestRestoreWardrobeSetRequest",
+      "shortName": "OnQuestRestoreWardrobeSetRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:QuestRestoreWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnRestored;Int32Int32",
       "shortName": "OnRestored",
       "flags": 33920,
@@ -1190,18 +1261,6 @@
       "params": [
         {
           "type": "handle:SaveEquipmentSetRequest",
-          "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSaveWardrobeSetRequest;SaveWardrobeSetRequest",
-      "shortName": "OnSaveWardrobeSetRequest",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "handle:SaveWardrobeSetRequest",
           "name": "request",
           "flags": 128
         }
@@ -1262,18 +1321,6 @@
       "params": [
         {
           "type": "handle:UnequipItemsRequest",
-          "name": "request",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUnequipProcessVisualTags;UnequipProcessVisualTags",
-      "shortName": "OnUnequipProcessVisualTags",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "handle:UnequipProcessVisualTags",
           "name": "request",
           "flags": 128
         }

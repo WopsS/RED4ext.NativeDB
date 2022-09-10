@@ -1,6 +1,6 @@
 import { Subscription } from "rxjs";
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { MenuService } from "../core/services/menu.service";
 
@@ -11,7 +11,7 @@ import { MenuService } from "../core/services/menu.service";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
     public readonly faBars = faBars;
-    public readonly faTimes = faTimes;
+    public readonly faXmark = faXmark;
 
     public isMenuOpen = false;
     private isMenuOpenSub?: Subscription | null;

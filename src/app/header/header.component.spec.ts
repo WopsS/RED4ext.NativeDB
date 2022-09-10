@@ -59,7 +59,7 @@ describe("HeaderComponent", () => {
         expect(component.isMenuOpen).toBeTrue();
 
         svg = icon?.querySelector("svg");
-        expect(svg?.classList).toContain("fa-times");
+        expect(svg?.classList).toContain("fa-xmark");
 
         button?.click();
         fixture.detectChanges();

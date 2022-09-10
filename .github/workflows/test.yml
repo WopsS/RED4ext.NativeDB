@@ -1,13 +1,17 @@
-name: Build Workflow
+name: Test Workflow
 on: [ push, pull_request ]
 
 env:
   node: 16
 
 jobs:
-  build:
-    name: Build
+  test:
+    name: Test on ${{ matrix.browser }}
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [ChromeHeadless, FirefoxHeadless]
 
     steps:
       - name: Checkout
@@ -21,5 +25,5 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Test
+        run: npm run test -- --watch=false --browsers=${{ matrix.browser }}

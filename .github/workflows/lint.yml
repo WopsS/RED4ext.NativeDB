@@ -1,12 +1,12 @@
-name: Build Workflow
+name: Lint Workflow
 on: [ push, pull_request ]
 
 env:
   node: 16
 
 jobs:
-  build:
-    name: Build
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -21,5 +21,5 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Lint
+        run: npm run lint

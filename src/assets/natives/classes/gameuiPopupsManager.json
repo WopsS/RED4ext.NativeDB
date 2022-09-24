@@ -34,7 +34,7 @@
     {
       "type": "whandle:gameJournalManager",
       "name": "journalManager",
-      "flags": 4297326624
+      "flags": 4297130016
     },
     {
       "type": "whandle:gameIBlackboard",
@@ -62,6 +62,11 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:redCallbackObject",
+      "name": "photomodeActiveId",
+      "flags": 4431347744
+    },
+    {
       "type": "Bool",
       "name": "tutorialOnHold",
       "flags": 4297130016
@@ -75,6 +80,26 @@
       "type": "gamePopupSettings",
       "name": "tutorialSettings",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "phoneMessageOnHold",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:JournalNotificationData",
+      "name": "phoneMessageData",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "shardReadOnHold",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:NotifyShardRead",
+      "name": "shardReadData",
+      "flags": 4431347744
     },
     {
       "type": "handle:inkGameNotificationToken",
@@ -114,37 +139,35 @@
   ],
   "funcs": [
     {
-      "fullName": "ChangeTutorialOverlaysVisibility",
-      "shortName": "ChangeTutorialOverlaysVisibility",
-      "index": 12105,
+      "fullName": "ChangeTutorialVisibility",
+      "shortName": "ChangeTutorialVisibility",
+      "index": 12748,
       "flags": 1,
       "params": [
         {
           "type": "Bool",
-          "name": "visible",
+          "name": "hideTutorial",
+          "flags": 128
+        },
+        {
+          "type": "gameuiTutorialHiddenReason",
+          "name": "reason",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ProcessCrackableShardTutorial;",
-      "shortName": "ProcessCrackableShardTutorial",
-      "flags": 516
-    },
-    {
-      "fullName": "ShowTutorial;",
-      "shortName": "ShowTutorial",
-      "flags": 132
-    },
-    {
-      "fullName": "SpawnVehicleRadioPopup;",
-      "shortName": "SpawnVehicleRadioPopup",
-      "flags": 132
-    },
-    {
-      "fullName": "SpawnVehiclesManagerPopup;",
-      "shortName": "SpawnVehiclesManagerPopup",
-      "flags": 132
+      "fullName": "ChangeTutorialVisibilityInMenu",
+      "shortName": "ChangeTutorialVisibilityInMenu",
+      "index": 12747,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isInMenu",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnClosePonRRewardsScreen",
@@ -153,7 +176,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -169,7 +192,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -185,7 +208,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:OpenCodexPopupEvent",
@@ -201,11 +224,11 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
-          "name": "value",
+          "name": "isInMenu",
           "flags": 128
         }
       ]
@@ -217,7 +240,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -233,7 +256,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:PhoneMessageHidePopupEvent",
@@ -249,11 +272,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:PhoneMessagePopupEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPhotomodeUpdate",
+      "shortName": "OnPhotomodeUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isInPhotomode",
           "flags": 128
         }
       ]
@@ -265,7 +304,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -281,7 +320,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -297,7 +336,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -313,7 +352,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:QuickSlotButtonHoldStartEvent",
@@ -329,7 +368,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:NotifyShardRead",
@@ -345,7 +384,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -361,7 +400,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:questShowPointOfNoReturnPromptEvent",
@@ -377,7 +416,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -393,7 +432,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -409,7 +448,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -425,7 +464,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -433,6 +472,72 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ProcessCrackableShardTutorial;",
+      "shortName": "ProcessCrackableShardTutorial",
+      "flags": 33284
+    },
+    {
+      "fullName": "SetPhoneMessageVisibility;Bool",
+      "shortName": "SetPhoneMessageVisibility",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hideToken",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetShardReadVisibility;Bool",
+      "shortName": "SetShardReadVisibility",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hideToken",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTutorialTokenVisibility;Bool",
+      "shortName": "SetTutorialTokenVisibility",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hideToken",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShardRead;",
+      "shortName": "ShardRead",
+      "flags": 33284
+    },
+    {
+      "fullName": "ShowPhoneMessage;",
+      "shortName": "ShowPhoneMessage",
+      "flags": 33284
+    },
+    {
+      "fullName": "ShowTutorial;",
+      "shortName": "ShowTutorial",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnVehicleRadioPopup;",
+      "shortName": "SpawnVehicleRadioPopup",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnVehiclesManagerPopup;",
+      "shortName": "SpawnVehiclesManagerPopup",
+      "flags": 32900
     }
   ]
 }

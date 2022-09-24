@@ -29,6 +29,11 @@
       "flags": 4297326625
     },
     {
+      "type": "inkWidgetReference",
+      "name": "scrollWidget",
+      "flags": 4297326625
+    },
+    {
       "type": "inkScrollAreaWidgetReference",
       "name": "scrollArea",
       "flags": 4297326625
@@ -36,6 +41,11 @@
     {
       "type": "whandle:inkCompoundWidget",
       "name": "optionList",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "slider",
       "flags": 4297326625
     },
     {
@@ -49,8 +59,18 @@
       "flags": 4297326625
     },
     {
+      "type": "inkTextWidgetReference",
+      "name": "previousPageBtnText",
+      "flags": 4297326625
+    },
+    {
       "type": "inkImageWidgetReference",
       "name": "nextPageBtnBg",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "nextPageBtnText",
       "flags": 4297326625
     },
     {
@@ -71,6 +91,31 @@
     {
       "type": "inkWidgetReference",
       "name": "ConfirmationCloseBtn",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "preset1Group",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "preset2Group",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "preset3Group",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "randomizeGroup",
+      "flags": 4297326625
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "presetsLabel",
       "flags": 4297326625
     },
     {
@@ -174,6 +219,11 @@
       "flags": 4297326624
     },
     {
+      "type": "array:whandle:inkDiscreteNavigationController",
+      "name": "navigationControllers",
+      "flags": 6583222304
+    },
+    {
       "type": "whandle:inkListController",
       "name": "menuListController",
       "flags": 4297326624
@@ -182,13 +232,712 @@
       "type": "whandle:inkWidget",
       "name": "cachedCursor",
       "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "updatingFinalizedState",
+      "flags": 4297326624
+    },
+    {
+      "type": "gameuiCharacterCustomizationEditTag",
+      "name": "editMode",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:inkScrollController",
+      "name": "scrollController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkSliderController",
+      "name": "sliderController",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "inputDisabled",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
+      "fullName": "OnAppearanceSwitched",
+      "shortName": "OnAppearanceSwitched",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnAppearanceSwitchedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCancelFinalizedStateUpdate",
+      "shortName": "OnCancelFinalizedStateUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnCancelFinalizedStateUpdateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnColorChange",
+      "shortName": "OnColorChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnColorPickerClose",
+      "shortName": "OnColorPickerClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnColorPickerTriggered",
+      "shortName": "OnColorPickerTriggered",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnColorSelected",
+      "shortName": "OnColorSelected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnConfirmationClose",
+      "shortName": "OnConfirmationClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnConfirmationConfirm",
+      "shortName": "OnConfirmationConfirm",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutNextPageBtn",
+      "shortName": "OnHoverOutNextPageBtn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutPreset1",
+      "shortName": "OnHoverOutPreset1",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutPreset2",
+      "shortName": "OnHoverOutPreset2",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutPreset3",
+      "shortName": "OnHoverOutPreset3",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutPreviousPageBtn",
+      "shortName": "OnHoverOutPreviousPageBtn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutRandomize",
+      "shortName": "OnHoverOutRandomize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverColorPicker",
+      "shortName": "OnHoverOverColorPicker",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverColorPickerOwner",
+      "shortName": "OnHoverOverColorPickerOwner",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverNextPageBtn",
+      "shortName": "OnHoverOverNextPageBtn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverOption",
+      "shortName": "OnHoverOverOption",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverPreset1",
+      "shortName": "OnHoverOverPreset1",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverPreset2",
+      "shortName": "OnHoverOverPreset2",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverPreset3",
+      "shortName": "OnHoverOverPreset3",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverPreviousPageBtn",
+      "shortName": "OnHoverOverPreviousPageBtn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverRandomize",
+      "shortName": "OnHoverOverRandomize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnInitializeOptionsList",
+      "shortName": "OnInitializeOptionsList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnInitializeOptionsListEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnIntroComplete",
+      "shortName": "OnIntroComplete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnListRelease",
+      "shortName": "OnListRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNextFrame",
+      "shortName": "OnNextFrame",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:NextFrameEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOptionUpdated",
+      "shortName": "OnOptionUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnOptionUpdatedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreset1",
+      "shortName": "OnPreset1",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreset2",
+      "shortName": "OnPreset2",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreset3",
+      "shortName": "OnPreset3",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPresetAppliedEvent",
+      "shortName": "OnPresetAppliedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnPresetAppliedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPrevious",
+      "shortName": "OnPrevious",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRandomize",
+      "shortName": "OnRandomize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRandomizeComplete",
+      "shortName": "OnRandomizeComplete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnRandomizeCompleteEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnReFinalizeComplete",
+      "shortName": "OnReFinalizeComplete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiCharacterCustomizationSystem_OnReFinalizeStateCompleteEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRelease",
+      "shortName": "OnRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetUserData",
+      "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSliderChange",
+      "shortName": "OnSliderChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnVoiceOverSwitched",
+      "shortName": "OnVoiceOverSwitched",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ApplyUIPreset;CNameBool",
       "shortName": "ApplyUIPreset",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -203,13 +952,23 @@
       ]
     },
     {
+      "fullName": "ConfirmBackConfirmation;",
+      "shortName": "ConfirmBackConfirmation",
+      "flags": 33284
+    },
+    {
+      "fullName": "ConfirmCustomizedCharacter;",
+      "shortName": "ConfirmCustomizedCharacter",
+      "flags": 33284
+    },
+    {
       "fullName": "CreateEntry;CharacterCustomizationOption",
       "shortName": "CreateEntry",
       "return": {
         "type": "whandle:inkWidget",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationOption",
@@ -221,7 +980,19 @@
     {
       "fullName": "CreateVoiceOverSwitcher;",
       "shortName": "CreateVoiceOverSwitcher",
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "DisableInputBelowConfirmationPopup;Bool",
+      "shortName": "DisableInputBelowConfirmationPopup",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "disabled",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetSlotName;CharacterCustomizationOption",
@@ -230,7 +1001,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameuiCharacterCustomizationOption",
@@ -242,7 +1013,7 @@
     {
       "fullName": "HideColorPicker;Int32",
       "shortName": "HideColorPicker",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -254,27 +1025,32 @@
     {
       "fullName": "HideConfirmation;",
       "shortName": "HideConfirmation",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "InitializeList;",
       "shortName": "InitializeList",
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "NextMenu;",
+      "shortName": "NextMenu",
+      "flags": 33024
     },
     {
       "fullName": "OnIntro;",
       "shortName": "OnIntro",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "OnOutro;",
       "shortName": "OnOutro",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "PlayAnim;CNameCNameinkAnimProxy",
       "shortName": "PlayAnim",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -294,14 +1070,24 @@
       ]
     },
     {
+      "fullName": "PriorMenu;",
+      "shortName": "PriorMenu",
+      "flags": 33024
+    },
+    {
+      "fullName": "ReInitializeOptionsList;",
+      "shortName": "ReInitializeOptionsList",
+      "flags": 33284
+    },
+    {
       "fullName": "RefreshList;",
       "shortName": "RefreshList",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ShowConfirmation;",
       "shortName": "ShowConfirmation",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "UpdateOption;Int32CharacterCustomizationOptionCharacterCustomizationOption",
@@ -310,7 +1096,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -336,643 +1122,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
-    },
-    {
-      "fullName": "NextMenu;",
-      "shortName": "NextMenu",
-      "flags": 256
-    },
-    {
-      "fullName": "OnAppearanceSwitched",
-      "shortName": "OnAppearanceSwitched",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameuiCharacterCustomizationSystem_OnAppearanceSwitchedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnButtonRelease",
-      "shortName": "OnButtonRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnColorChange",
-      "shortName": "OnColorChange",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnColorPickerClose",
-      "shortName": "OnColorPickerClose",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnColorPickerTriggered",
-      "shortName": "OnColorPickerTriggered",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnColorSelected",
-      "shortName": "OnColorSelected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnConfirmationClose",
-      "shortName": "OnConfirmationClose",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnConfirmationConfirm",
-      "shortName": "OnConfirmationConfirm",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOutNextPageBtn",
-      "shortName": "OnHoverOutNextPageBtn",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOutPreset1",
-      "shortName": "OnHoverOutPreset1",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOutPreset2",
-      "shortName": "OnHoverOutPreset2",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOutPreset3",
-      "shortName": "OnHoverOutPreset3",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOutPreviousPageBtn",
-      "shortName": "OnHoverOutPreviousPageBtn",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOutRandomize",
-      "shortName": "OnHoverOutRandomize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverColorPicker",
-      "shortName": "OnHoverOverColorPicker",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverColorPickerOwner",
-      "shortName": "OnHoverOverColorPickerOwner",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverNextPageBtn",
-      "shortName": "OnHoverOverNextPageBtn",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverOption",
-      "shortName": "OnHoverOverOption",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverPreset1",
-      "shortName": "OnHoverOverPreset1",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverPreset2",
-      "shortName": "OnHoverOverPreset2",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverPreset3",
-      "shortName": "OnHoverOverPreset3",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverPreviousPageBtn",
-      "shortName": "OnHoverOverPreviousPageBtn",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHoverOverRandomize",
-      "shortName": "OnHoverOverRandomize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnInitializeOptionsList",
-      "shortName": "OnInitializeOptionsList",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameuiCharacterCustomizationSystem_OnInitializeOptionsListEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnIntroComplete",
-      "shortName": "OnIntroComplete",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkanimProxy",
-          "name": "anim",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnListRelease",
-      "shortName": "OnListRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnNextFrame",
-      "shortName": "OnNextFrame",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:NextFrameEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnOptionUpdated",
-      "shortName": "OnOptionUpdated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameuiCharacterCustomizationSystem_OnOptionUpdatedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPreset1",
-      "shortName": "OnPreset1",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPreset2",
-      "shortName": "OnPreset2",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPreset3",
-      "shortName": "OnPreset3",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPrevious",
-      "shortName": "OnPrevious",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRandomize",
-      "shortName": "OnRandomize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRandomizeComplete",
-      "shortName": "OnRandomizeComplete",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameuiCharacterCustomizationSystem_OnRandomizeCompleteEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnReInitializeOptionsList",
-      "shortName": "OnReInitializeOptionsList",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameuiCharacterCustomizationSystem_OnPresetAppliedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetUserData",
-      "shortName": "OnSetUserData",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:IScriptable",
-          "name": "userData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSliderChange",
-      "shortName": "OnSliderChange",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnVoiceOverSwitched",
-      "shortName": "OnVoiceOverSwitched",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PriorMenu;",
-      "shortName": "PriorMenu",
-      "flags": 256
+      "flags": 33284
     }
   ]
 }

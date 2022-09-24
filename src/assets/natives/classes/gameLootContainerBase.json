@@ -62,7 +62,7 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "index": 10497,
+      "index": 11020,
       "flags": 8193
     },
     {
@@ -72,7 +72,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10496,
+      "index": 11019,
       "flags": 8193
     },
     {
@@ -82,7 +82,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10495,
+      "index": 11018,
       "flags": 8193
     },
     {
@@ -92,61 +92,142 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10498,
+      "index": 11021,
       "flags": 8193
     },
     {
-      "fullName": "EvaluateLootQuality;",
-      "shortName": "EvaluateLootQuality",
+      "fullName": "OnEvaluateLootQuality",
+      "shortName": "OnEvaluateLootQuality",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
-    },
-    {
-      "fullName": "EvaluateLootQualityEvent;",
-      "shortName": "EvaluateLootQualityEvent",
-      "flags": 260
-    },
-    {
-      "fullName": "EvaluateLootQualityTask;ScriptTaskData",
-      "shortName": "EvaluateLootQualityTask",
-      "flags": 260,
+      "flags": 33032,
       "params": [
         {
-          "type": "handle:gameScriptTaskData",
-          "name": "data",
+          "type": "handle:EvaluateLootQualityEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "HasValidLootQuality;",
-      "shortName": "HasValidLootQuality",
+      "fullName": "OnGameAttached",
+      "shortName": "OnGameAttached",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 33032
     },
     {
-      "fullName": "IsDisabled;",
-      "shortName": "IsDisabled",
+      "fullName": "OnInteraction",
+      "shortName": "OnInteraction",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
-    },
-    {
-      "fullName": "ToggleLootHighlight;Bool",
-      "shortName": "ToggleLootHighlight",
-      "flags": 132,
+      "flags": 33032,
       "params": [
         {
-          "type": "Bool",
-          "name": "enable",
+          "type": "handle:gameinteractionsChoiceEvent",
+          "name": "choiceEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryChangedEvent",
+      "shortName": "OnInventoryChangedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameInventoryChangedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryEmptyEvent",
+      "shortName": "OnInventoryEmptyEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameOnInventoryEmptyEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryFilledEvent",
+      "shortName": "OnInventoryFilledEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameContainerFilledEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemAddedEvent",
+      "shortName": "OnItemAddedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameItemAddedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemRemoveddEvent",
+      "shortName": "OnItemRemoveddEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameItemBeingRemovedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetContainerStateEventEvent",
+      "shortName": "OnSetContainerStateEventEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetContainerStateEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -167,7 +248,7 @@
         "type": "EMappinVisualState",
         "flags": 64
       },
-      "flags": 8704,
+      "flags": 41472,
       "params": [
         {
           "type": "SDeviceMappinData",
@@ -177,9 +258,35 @@
       ]
     },
     {
+      "fullName": "EvaluateLootQuality;",
+      "shortName": "EvaluateLootQuality",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "EvaluateLootQualityByTask;",
       "shortName": "EvaluateLootQualityByTask",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "EvaluateLootQualityEvent;",
+      "shortName": "EvaluateLootQualityEvent",
+      "flags": 33028
+    },
+    {
+      "fullName": "EvaluateLootQualityTask;ScriptTaskData",
+      "shortName": "EvaluateLootQualityTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetCurrentOutline;",
@@ -188,7 +295,7 @@
         "type": "EFocusOutlineType",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetDefaultHighlight;",
@@ -197,7 +304,7 @@
         "type": "handle:FocusForcedHighlightData",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetIsIconic;",
@@ -206,7 +313,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetLootQuality;",
@@ -215,16 +322,25 @@
         "type": "gamedataQuality",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetPS",
       "shortName": "GetPS",
       "return": {
-        "type": "handle:gameObjectPS",
+        "type": "handle:gameLootContainerBasePS",
         "flags": 64
       },
-      "flags": 8448
+      "flags": 41216
+    },
+    {
+      "fullName": "HasValidLootQuality;",
+      "shortName": "HasValidLootQuality",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "IsContainer;",
@@ -233,7 +349,16 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
+    },
+    {
+      "fullName": "IsDisabled;",
+      "shortName": "IsDisabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "IsInIconForcedVisibilityRange;",
@@ -242,7 +367,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "IsQuest;",
@@ -251,12 +376,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "MarkAsQuest;Bool",
       "shortName": "MarkAsQuest",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "Bool",
@@ -266,146 +391,9 @@
       ]
     },
     {
-      "fullName": "OnEvaluateLootQuality",
-      "shortName": "OnEvaluateLootQuality",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:EvaluateLootQualityEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGameAttached",
-      "shortName": "OnGameAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnInteraction",
-      "shortName": "OnInteraction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameinteractionsChoiceEvent",
-          "name": "choiceEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryChangedEvent",
-      "shortName": "OnInventoryChangedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameInventoryChangedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryEmptyEvent",
-      "shortName": "OnInventoryEmptyEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameOnInventoryEmptyEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryFilledEvent",
-      "shortName": "OnInventoryFilledEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameContainerFilledEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemAddedEvent",
-      "shortName": "OnItemAddedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameItemAddedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemRemoveddEvent",
-      "shortName": "OnItemRemoveddEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameItemBeingRemovedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetContainerStateEventEvent",
-      "shortName": "OnSetContainerStateEventEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetContainerStateEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ResolveQualityRangeInteractionLayer;",
       "shortName": "ResolveQualityRangeInteractionLayer",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "ShouldRegisterToHUD;",
@@ -414,7 +402,19 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8448
+      "flags": 41216
+    },
+    {
+      "fullName": "ToggleLootHighlight;Bool",
+      "shortName": "ToggleLootHighlight",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

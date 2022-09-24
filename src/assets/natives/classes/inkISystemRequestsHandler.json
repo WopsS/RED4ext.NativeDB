@@ -5,7 +5,12 @@
   "props": [
     {
       "type": "inkSystemRequesResult",
-      "name": "SavesReady",
+      "name": "SavesForSaveReady",
+      "flags": 6627016704
+    },
+    {
+      "type": "inkSystemRequesResult",
+      "name": "SavesForLoadReady",
       "flags": 6627016704
     },
     {
@@ -14,8 +19,18 @@
       "flags": 6627016704
     },
     {
+      "type": "inkOnGogLoginStatusChangedResult",
+      "name": "GogLoginStatusChanged",
+      "flags": 6627016704
+    },
+    {
       "type": "inkDeleteRequestResult",
       "name": "SaveDeleted",
+      "flags": 6627016704
+    },
+    {
+      "type": "inkSaveTransferRequestUpdate",
+      "name": "SaveTransferUpdate",
       "flags": 6627016704
     },
     {
@@ -32,19 +47,45 @@
       "type": "inkUserIdResult",
       "name": "UserIdResult",
       "flags": 6627016704
+    },
+    {
+      "type": "inkTrialVersionRemainingTimeUpdate",
+      "name": "TrialVersionRemainingTimeUpdated",
+      "flags": 6627016704
+    },
+    {
+      "type": "inkTrialOnBuyFullGame",
+      "name": "BoughtFullGame",
+      "flags": 6627016704
+    },
+    {
+      "type": "inkCloudSavesQueryStatusChange",
+      "name": "CloudSavesQueryStatusChanged",
+      "flags": 6627016704
+    },
+    {
+      "type": "inkCloudSaveUploadFinish",
+      "name": "CloudSaveUploadFinish",
+      "flags": 6627016704
     }
   ],
   "funcs": [
     {
       "fullName": "CancelSavedGameScreenshotRequests",
       "shortName": "CancelSavedGameScreenshotRequests",
-      "index": 1642,
+      "index": 1674,
+      "flags": 1
+    },
+    {
+      "fullName": "CancelSavesRequest",
+      "shortName": "CancelSavesRequest",
+      "index": 1662,
       "flags": 1
     },
     {
       "fullName": "CloudQuickmatch",
       "shortName": "CloudQuickmatch",
-      "index": 1648,
+      "index": 1681,
       "flags": 1,
       "params": [
         {
@@ -57,7 +98,7 @@
     {
       "fullName": "DeleteSavedGame",
       "shortName": "DeleteSavedGame",
-      "index": 1638,
+      "index": 1668,
       "flags": 1,
       "params": [
         {
@@ -70,7 +111,30 @@
     {
       "fullName": "ExitGame",
       "shortName": "ExitGame",
-      "index": 1607,
+      "index": 1636,
+      "flags": 1
+    },
+    {
+      "fullName": "ExportSavedGame",
+      "shortName": "ExportSavedGame",
+      "index": 1670,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "saveId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCloudSavesQueryStatus",
+      "shortName": "GetCloudSavesQueryStatus",
+      "return": {
+        "type": "servicesCloudSavesQueryStatus",
+        "flags": 64
+      },
+      "index": 1676,
       "flags": 1
     },
     {
@@ -80,7 +144,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1623,
+      "index": 1652,
       "flags": 1
     },
     {
@@ -90,7 +154,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1624,
+      "index": 1653,
       "flags": 1,
       "params": [
         {
@@ -107,7 +171,7 @@
         "type": "String",
         "flags": 64
       },
-      "index": 1615,
+      "index": 1644,
       "flags": 1
     },
     {
@@ -117,7 +181,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1625,
+      "index": 1654,
       "flags": 1
     },
     {
@@ -127,7 +191,7 @@
         "type": "handle:inkLatestSaveMetadataInfo",
         "flags": 64
       },
-      "index": 1643,
+      "index": 1675,
       "flags": 1
     },
     {
@@ -137,7 +201,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1649,
+      "index": 1682,
       "flags": 1
     },
     {
@@ -147,7 +211,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1650,
+      "index": 1683,
       "flags": 1
     },
     {
@@ -157,7 +221,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1654,
+      "index": 1687,
       "flags": 1
     },
     {
@@ -167,7 +231,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1653,
+      "index": 1686,
       "flags": 1
     },
     {
@@ -177,7 +241,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1652,
+      "index": 1685,
       "flags": 1
     },
     {
@@ -187,7 +251,7 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1651,
+      "index": 1684,
       "flags": 1
     },
     {
@@ -197,7 +261,7 @@
         "type": "handle:userSettingsUserSettings",
         "flags": 64
       },
-      "index": 1608,
+      "index": 1637,
       "flags": 1
     },
     {
@@ -207,13 +271,13 @@
         "type": "array:String",
         "flags": 64
       },
-      "index": 1627,
+      "index": 1656,
       "flags": 1
     },
     {
       "fullName": "GotoMainMenu",
       "shortName": "GotoMainMenu",
-      "index": 1621,
+      "index": 1650,
       "flags": 1
     },
     {
@@ -223,7 +287,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 1637,
+      "index": 1667,
       "flags": 1,
       "params": [
         {
@@ -240,7 +304,13 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 1633,
+      "index": 1663,
+      "flags": 1
+    },
+    {
+      "fullName": "ImportSavedGame",
+      "shortName": "ImportSavedGame",
+      "index": 1669,
       "flags": 1
     },
     {
@@ -250,7 +320,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 1619,
+      "index": 1648,
       "flags": 1
     },
     {
@@ -260,7 +330,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 1644,
+      "index": 1677,
       "flags": 1
     },
     {
@@ -270,13 +340,13 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 1620,
+      "index": 1649,
       "flags": 1
     },
     {
       "fullName": "JoinServer",
       "shortName": "JoinServer",
-      "index": 1647,
+      "index": 1680,
       "flags": 1,
       "params": [
         {
@@ -289,7 +359,7 @@
     {
       "fullName": "LoadLastCheckpoint",
       "shortName": "LoadLastCheckpoint",
-      "index": 1635,
+      "index": 1665,
       "flags": 1,
       "params": [
         {
@@ -302,7 +372,7 @@
     {
       "fullName": "LoadSavedGame",
       "shortName": "LoadSavedGame",
-      "index": 1634,
+      "index": 1664,
       "flags": 1,
       "params": [
         {
@@ -315,7 +385,7 @@
     {
       "fullName": "ManualSave",
       "shortName": "ManualSave",
-      "index": 1636,
+      "index": 1666,
       "flags": 1,
       "params": [
         {
@@ -328,7 +398,7 @@
     {
       "fullName": "OverrideSave",
       "shortName": "OverrideSave",
-      "index": 1640,
+      "index": 1672,
       "flags": 1,
       "params": [
         {
@@ -341,13 +411,13 @@
     {
       "fullName": "PauseGame",
       "shortName": "PauseGame",
-      "index": 1617,
+      "index": 1646,
       "flags": 1
     },
     {
       "fullName": "PlayRecord",
       "shortName": "PlayRecord",
-      "index": 1655,
+      "index": 1688,
       "flags": 1,
       "params": [
         {
@@ -360,13 +430,13 @@
     {
       "fullName": "QuickSave",
       "shortName": "QuickSave",
-      "index": 1639,
+      "index": 1671,
       "flags": 1
     },
     {
       "fullName": "RegisterToCallback",
       "shortName": "RegisterToCallback",
-      "index": 1605,
+      "index": 1634,
       "flags": 1,
       "params": [
         {
@@ -387,45 +457,39 @@
       ]
     },
     {
-      "fullName": "RequestDlcNotification",
-      "shortName": "RequestDlcNotification",
-      "index": 1616,
-      "flags": 1
-    },
-    {
       "fullName": "RequestInternetServers",
       "shortName": "RequestInternetServers",
-      "index": 1646,
+      "index": 1679,
       "flags": 1
     },
     {
       "fullName": "RequestLANServers",
       "shortName": "RequestLANServers",
-      "index": 1645,
+      "index": 1678,
       "flags": 1
     },
     {
       "fullName": "RequestLoadUserSettings",
       "shortName": "RequestLoadUserSettings",
-      "index": 1609,
+      "index": 1638,
       "flags": 1
     },
     {
       "fullName": "RequestLocalStorageSave",
       "shortName": "RequestLocalStorageSave",
-      "index": 1614,
+      "index": 1643,
       "flags": 1
     },
     {
       "fullName": "RequestSaveUserSettings",
       "shortName": "RequestSaveUserSettings",
-      "index": 1610,
+      "index": 1639,
       "flags": 1
     },
     {
       "fullName": "RequestSavedGameScreenshot",
       "shortName": "RequestSavedGameScreenshot",
-      "index": 1641,
+      "index": 1673,
       "flags": 1,
       "params": [
         {
@@ -457,25 +521,43 @@
         "type": "Int32",
         "flags": 64
       },
-      "index": 1630,
+      "index": 1659,
       "flags": 1
     },
     {
       "fullName": "RequestSavesForLoad",
       "shortName": "RequestSavesForLoad",
-      "index": 1631,
+      "index": 1660,
       "flags": 1
     },
     {
       "fullName": "RequestSavesForSave",
       "shortName": "RequestSavesForSave",
-      "index": 1632,
+      "index": 1661,
       "flags": 1
+    },
+    {
+      "fullName": "RequestSystemNotificationGeneric",
+      "shortName": "RequestSystemNotificationGeneric",
+      "index": 1645,
+      "flags": 1,
+      "params": [
+        {
+          "type": "CName",
+          "name": "title",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "message",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "RequestTelemetryConsent",
       "shortName": "RequestTelemetryConsent",
-      "index": 1612,
+      "index": 1641,
       "flags": 1,
       "params": [
         {
@@ -488,7 +570,7 @@
     {
       "fullName": "RunUiFunctionalTestWorld",
       "shortName": "RunUiFunctionalTestWorld",
-      "index": 1622,
+      "index": 1651,
       "flags": 1
     },
     {
@@ -498,13 +580,13 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 1613,
+      "index": 1642,
       "flags": 1
     },
     {
       "fullName": "StartGameDefinition",
       "shortName": "StartGameDefinition",
-      "index": 1626,
+      "index": 1655,
       "flags": 1,
       "params": [
         {
@@ -527,7 +609,7 @@
     {
       "fullName": "StartNewGame",
       "shortName": "StartNewGame",
-      "index": 1629,
+      "index": 1658,
       "flags": 1,
       "params": [
         {
@@ -540,7 +622,7 @@
     {
       "fullName": "StartWorld",
       "shortName": "StartWorld",
-      "index": 1628,
+      "index": 1657,
       "flags": 1,
       "params": [
         {
@@ -558,13 +640,13 @@
     {
       "fullName": "UnpauseGame",
       "shortName": "UnpauseGame",
-      "index": 1618,
+      "index": 1647,
       "flags": 1
     },
     {
       "fullName": "UnregisterFromCallback",
       "shortName": "UnregisterFromCallback",
-      "index": 1606,
+      "index": 1635,
       "flags": 1,
       "params": [
         {
@@ -587,7 +669,7 @@
     {
       "fullName": "UpdateLaunchCounter",
       "shortName": "UpdateLaunchCounter",
-      "index": 1611,
+      "index": 1640,
       "flags": 1
     }
   ]

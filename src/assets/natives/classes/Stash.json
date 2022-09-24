@@ -11,22 +11,120 @@
   ],
   "funcs": [
     {
-      "fullName": "GetController;",
-      "shortName": "GetController",
+      "fullName": "Stash::CreateInstallPartRequest;GameObjectgameItemDataItemID",
+      "shortName": "CreateInstallPartRequest",
       "return": {
-        "type": "handle:ScriptableDC",
+        "type": "handle:InstallItemPart",
         "flags": 64
       },
-      "flags": 8320
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "stashObj",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "part",
+          "flags": 128
+        }
+      ]
     },
     {
-      "fullName": "GetDevicePS;",
-      "shortName": "GetDevicePS",
+      "fullName": "Stash::CreateRemovePartRequest;GameObjectItemIDTweakDBID",
+      "shortName": "CreateRemovePartRequest",
       "return": {
-        "type": "handle:ScriptableDeviceComponentPS",
+        "type": "handle:RemoveItemPart",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "stashObj",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Stash::InstallModsToRedesignedItems;GameObject",
+      "shortName": "InstallModsToRedesignedItems",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "stashObj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Stash::ProcessStashRetroFixes;GameObject",
+      "shortName": "ProcessStashRetroFixes",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "stashObj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Stash::RemoveAllModsFromClothing;GameObject",
+      "shortName": "RemoveAllModsFromClothing",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "stashObj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Stash::RemoveRedundantScopesFromAchillesRifles;GameObject",
+      "shortName": "RemoveRedundantScopesFromAchillesRifles",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "stashObj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInteractionActivated",
+      "shortName": "OnInteractionActivated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameinteractionsInteractionActivationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnOpenStash",
@@ -35,7 +133,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:OpenStash",
@@ -51,7 +149,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "entEntityRequestComponentsInterface",
@@ -67,7 +165,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "entEntityResolveComponentsInterface",
@@ -75,6 +173,58 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
+      "shortName": "DeterminGameplayRoleMappinVisuaState",
+      "return": {
+        "type": "EMappinVisualState",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "SDeviceMappinData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:StashController",
+        "flags": 64
+      },
+      "flags": 41088
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:StashControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsPlayerStash;",
+      "shortName": "IsPlayerStash",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "gameuiMenuGameController",
+  "parent": "gameuiSettingsMenuGameController",
   "name": "SettingsMainGameController",
   "flags": 4,
   "props": [
@@ -54,6 +54,11 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "benchmarkButton",
+      "flags": 4297130017
+    },
+    {
       "type": "inkTextWidgetReference",
       "name": "descriptionText",
       "flags": 4297130017
@@ -67,6 +72,16 @@
       "type": "inkWidgetReference",
       "name": "nextButtonHint",
       "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "languageInstallProgressBarRoot",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:SettingsLanguageInstallProgressBar",
+      "name": "languageInstallProgressBar",
+      "flags": 4297130016
     },
     {
       "type": "whandle:inkMenuEventDispatcher",
@@ -119,6 +134,16 @@
       "flags": 4297130016
     },
     {
+      "type": "handle:inkGameNotificationToken",
+      "name": "benchmarkNotificationToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isKeybindingAlertEnabled",
+      "flags": 4297130016
+    },
+    {
       "type": "Bool",
       "name": "applyButtonEnabled",
       "flags": 4297130016
@@ -147,13 +172,281 @@
       "type": "whandle:inkListController",
       "name": "selectorCtrl",
       "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "languageMenuIndex",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
+      "fullName": "OnApplyButtonReleased",
+      "shortName": "OnApplyButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBack",
+      "shortName": "OnBack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBenchmarkButtonReleased",
+      "shortName": "OnBenchmarkButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBrightnessButtonReleased",
+      "shortName": "OnBrightnessButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnControllerButtonReleased",
+      "shortName": "OnControllerButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDefaultButtonReleased",
+      "shortName": "OnDefaultButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHDRButtonReleased",
+      "shortName": "OnHDRButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnLocalizationChanged",
+      "shortName": "OnLocalizationChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkLocalizationChangedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuChanged",
+      "shortName": "OnMenuChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "handle:inkListItemController",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetButtonReleased",
+      "shortName": "OnResetButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMenuEventDispatcher",
+      "shortName": "OnSetMenuEventDispatcher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkMenuEventDispatcher",
+          "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetUserData",
+      "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSettingHoverOut",
+      "shortName": "OnSettingHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSettingHoverOver",
+      "shortName": "OnSettingHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
       "fullName": "AddSettingsGroup;ConfigGroup",
       "shortName": "AddSettingsGroup",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:userSettingsGroup",
@@ -165,47 +458,47 @@
     {
       "fullName": "CheckAcceptSettings;",
       "shortName": "CheckAcceptSettings",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CheckButtons;",
       "shortName": "CheckButtons",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "CheckHDRSettingVisibility;",
       "shortName": "CheckHDRSettingVisibility",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CheckRejectSettings;",
       "shortName": "CheckRejectSettings",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CheckSettings;",
       "shortName": "CheckSettings",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "DisableApplyButton;",
       "shortName": "DisableApplyButton",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "DisableResetButton;",
       "shortName": "DisableResetButton",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "EnableApplyButton;",
       "shortName": "EnableApplyButton",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "EnableResetButton;",
       "shortName": "EnableResetButton",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "IsApplyButtonEnabled;",
@@ -214,7 +507,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "IsKeybindingAlertEnabled;",
+      "shortName": "IsKeybindingAlertEnabled",
+      "flags": 32900
     },
     {
       "fullName": "IsResetButtonEnabled;",
@@ -223,22 +521,22 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "OnApplyButton;",
       "shortName": "OnApplyButton",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "OnResetButton;",
       "shortName": "OnResetButton",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "OnSettingsNotify;ConfigNotificationType",
       "shortName": "OnSettingsNotify",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "InGameConfigNotificationType",
@@ -250,7 +548,7 @@
     {
       "fullName": "OnVarModified;CNameCNameConfigVarTypeConfigChangeReason",
       "shortName": "OnVarModified",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -277,7 +575,7 @@
     {
       "fullName": "PopulateCategories;Int32",
       "shortName": "PopulateCategories",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -289,7 +587,7 @@
     {
       "fullName": "PopulateCategorySettingsOptions;Int32",
       "shortName": "PopulateCategorySettingsOptions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -301,12 +599,12 @@
     {
       "fullName": "PopulateHints;",
       "shortName": "PopulateHints",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "PopulateOptions;array<ConfigVar>",
       "shortName": "PopulateOptions",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:handle:userSettingsVar",
@@ -318,279 +616,71 @@
     {
       "fullName": "PopulateSettingsData;",
       "shortName": "PopulateSettingsData",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RequestClose;",
       "shortName": "RequestClose",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RequestRestoreDefaults;",
       "shortName": "RequestRestoreDefaults",
-      "flags": 132
+      "flags": 32900
+    },
+    {
+      "fullName": "SetLanguagePackageInstallProgress;Float",
+      "shortName": "SetLanguagePackageInstallProgress",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Float",
+          "name": "progress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLanguagePackageInstallProgressBar;FloatBoolBool",
+      "shortName": "SetLanguagePackageInstallProgressBar",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Float",
+          "name": "progress",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "completed",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "started",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ShowBrightnessScreen;",
       "shortName": "ShowBrightnessScreen",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ShowControllerScreen;",
       "shortName": "ShowControllerScreen",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ShowHDRScreen;",
       "shortName": "ShowHDRScreen",
-      "flags": 132
+      "flags": 32900
     },
     {
-      "fullName": "OnApplyButtonReleased",
-      "shortName": "OnApplyButtonReleased",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnBack",
-      "shortName": "OnBack",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:IScriptable",
-          "name": "userData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnBrightnessButtonReleased",
-      "shortName": "OnBrightnessButtonReleased",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnButtonRelease",
-      "shortName": "OnButtonRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnControllerButtonReleased",
-      "shortName": "OnControllerButtonReleased",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDefaultButtonReleased",
-      "shortName": "OnDefaultButtonReleased",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHDRButtonReleased",
-      "shortName": "OnHDRButtonReleased",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnLocalizationChanged",
-      "shortName": "OnLocalizationChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkLocalizationChangedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnMenuChanged",
-      "shortName": "OnMenuChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "handle:inkListItemController",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnResetButtonReleased",
-      "shortName": "OnResetButtonReleased",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetMenuEventDispatcher",
-      "shortName": "OnSetMenuEventDispatcher",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkMenuEventDispatcher",
-          "name": "menuEventDispatcher",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetUserData",
-      "shortName": "OnSetUserData",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:IScriptable",
-          "name": "userData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSettingHoverOut",
-      "shortName": "OnSettingHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSettingHoverOver",
-      "shortName": "OnSettingHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
+      "fullName": "WarnAboutEmptyKeyBindingValue;",
+      "shortName": "WarnAboutEmptyKeyBindingValue",
+      "flags": 33284
     }
   ]
 }

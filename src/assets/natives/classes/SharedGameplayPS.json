@@ -56,7 +56,7 @@
     {
       "fullName": "CacheDeviceState;EDeviceStatus",
       "shortName": "CacheDeviceState",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "EDeviceStatus",
@@ -72,7 +72,12 @@
         "type": "ConnectedClassTypes",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "EvaluateDeviceState;",
+      "shortName": "EvaluateDeviceState",
+      "flags": 33280
     },
     {
       "fullName": "FindHighestSecurityAccessLevel;array<SecurityAreaControllerPS>",
@@ -81,7 +86,7 @@
         "type": "ESecurityAccessLevel",
         "flags": 64
       },
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "array:handle:SecurityAreaControllerPS",
@@ -97,7 +102,16 @@
         "type": "array:handle:AccessPointControllerPS",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetBackdoorAccessPoint;",
+      "shortName": "GetBackdoorAccessPoint",
+      "return": {
+        "type": "handle:AccessPointControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "GetDeviceState;",
@@ -106,7 +120,52 @@
         "type": "EDeviceStatus",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetNetworkName;",
+      "shortName": "GetNetworkName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetSecurityAccessLevel;",
+      "shortName": "GetSecurityAccessLevel",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "HasNetworkBackdoor;",
+      "shortName": "HasNetworkBackdoor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsBreached;",
+      "shortName": "IsBreached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsConnectedToBackdoorDevice;",
+      "shortName": "IsConnectedToBackdoorDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "IsConnectedToSecuritySystem;",
@@ -115,7 +174,48 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "IsConnectedToSecuritySystem;ESecurityAccessLevel",
+      "shortName": "IsConnectedToSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsPartOfSystem;ESystems",
+      "shortName": "IsPartOfSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "ESystems",
+          "name": "systemType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPuppet;",
+      "shortName": "IsPuppet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "OnSetRevealedInNetwork;SetRevealedInNetwork",
@@ -124,7 +224,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:SetRevealedInNetwork",
@@ -136,7 +236,7 @@
     {
       "fullName": "QueueEntityEvent;EntityIDEvent",
       "shortName": "QueueEntityEvent",
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "entEntityID",
@@ -153,7 +253,7 @@
     {
       "fullName": "QueuePSEvent;PersistentStateEvent",
       "shortName": "QueuePSEvent",
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "whandle:gamePersistentState",
@@ -170,7 +270,7 @@
     {
       "fullName": "QueuePSEvent;PersistentIDCNameEvent",
       "shortName": "QueuePSEvent",
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "gamePersistentID",
@@ -192,7 +292,7 @@
     {
       "fullName": "QueuePSEventWithDelay;PersistentStateEventFloat",
       "shortName": "QueuePSEventWithDelay",
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "whandle:gamePersistentState",
@@ -214,7 +314,7 @@
     {
       "fullName": "QueuePSEventWithDelay;PersistentIDCNameEventFloat",
       "shortName": "QueuePSEventWithDelay",
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "gamePersistentID",
@@ -239,109 +339,9 @@
       ]
     },
     {
-      "fullName": "EvaluateDeviceState;",
-      "shortName": "EvaluateDeviceState",
-      "flags": 512
-    },
-    {
-      "fullName": "GetBackdoorAccessPoint;",
-      "shortName": "GetBackdoorAccessPoint",
-      "return": {
-        "type": "handle:AccessPointControllerPS",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetNetworkName;",
-      "shortName": "GetNetworkName",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetSecurityAccessLevel;",
-      "shortName": "GetSecurityAccessLevel",
-      "return": {
-        "type": "ESecurityAccessLevel",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "HasNetworkBackdoor;",
-      "shortName": "HasNetworkBackdoor",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsBreached;",
-      "shortName": "IsBreached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsConnectedToBackdoorDevice;",
-      "shortName": "IsConnectedToBackdoorDevice",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsConnectedToSecuritySystem;ESecurityAccessLevel",
-      "shortName": "IsConnectedToSecuritySystem",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "ESecurityAccessLevel",
-          "name": "level",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "IsPartOfSystem;ESystems",
-      "shortName": "IsPartOfSystem",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "ESystems",
-          "name": "systemType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsPuppet;",
-      "shortName": "IsPuppet",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
       "fullName": "SetDeviceState;EDeviceStatus",
       "shortName": "SetDeviceState",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "EDeviceStatus",
@@ -353,7 +353,7 @@
     {
       "fullName": "SetRevealedInNetworkPing;Bool",
       "shortName": "SetRevealedInNetworkPing",
-      "flags": 8704,
+      "flags": 41472,
       "params": [
         {
           "type": "Bool",
@@ -369,7 +369,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     }
   ]
 }

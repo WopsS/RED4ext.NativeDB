@@ -149,6 +149,11 @@
       "flags": 4297326624
     },
     {
+      "type": "Bool",
+      "name": "doApply",
+      "flags": 4297130016
+    },
+    {
       "type": "inkMargin",
       "name": "holdBgInitMargin",
       "flags": 4297130016
@@ -211,13 +216,142 @@
   ],
   "funcs": [
     {
-      "fullName": "ForceValue;Float",
+      "fullName": "OnAddedToList",
+      "shortName": "OnAddedToList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkListItemController",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeselected",
+      "shortName": "OnDeselected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkListItemController",
+          "name": "parent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnOptionLeft",
+      "shortName": "OnOptionLeft",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOptionRight",
+      "shortName": "OnOptionRight",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnScrollBarValueChanged",
+      "shortName": "OnScrollBarValueChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkSliderController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "progress",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "newValue",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSelected",
+      "shortName": "OnSelected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkListItemController",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSliderHandleReleased",
+      "shortName": "OnSliderHandleReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "ForceValue;FloatBool",
       "shortName": "ForceValue",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Float",
           "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "doApply",
           "flags": 128
         }
       ]
@@ -229,7 +363,7 @@
         "type": "whandle:PhotoModeGridList",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetSelectedOptionIndex;",
@@ -238,7 +372,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetSliderValue;",
@@ -247,12 +381,12 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GridElementAction;Int32Int32",
       "shortName": "GridElementAction",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -269,7 +403,7 @@
     {
       "fullName": "GridElementSelected;Int32",
       "shortName": "GridElementSelected",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -281,7 +415,7 @@
     {
       "fullName": "HandleHoldInput;inkPointerEventinkGameController",
       "shortName": "HandleHoldInput",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -298,7 +432,7 @@
     {
       "fullName": "HandleReleasedInput;inkPointerEventinkGameController",
       "shortName": "HandleReleasedInput",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -315,7 +449,7 @@
     {
       "fullName": "OnVisbilityChanged;Bool",
       "shortName": "OnVisbilityChanged",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -327,7 +461,7 @@
     {
       "fullName": "PlayFadeAnimation;inkWidgetRefFloat",
       "shortName": "PlayFadeAnimation",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "inkWidgetReference",
@@ -344,12 +478,12 @@
     {
       "fullName": "ResetInputHold;",
       "shortName": "ResetInputHold",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "SetGridButtonImage;Uint32ResRefCNameInt32",
       "shortName": "SetGridButtonImage",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Uint32",
@@ -376,7 +510,7 @@
     {
       "fullName": "SetHoldProgress;Float",
       "shortName": "SetHoldProgress",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Float",
@@ -388,7 +522,7 @@
     {
       "fullName": "SetInteractive;Bool",
       "shortName": "SetInteractive",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -400,7 +534,7 @@
     {
       "fullName": "SetIsEnabled;Bool",
       "shortName": "SetIsEnabled",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -412,7 +546,7 @@
     {
       "fullName": "SetReversedUI;Bool",
       "shortName": "SetReversedUI",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -424,7 +558,7 @@
     {
       "fullName": "SetSelectedGridButton;Int32",
       "shortName": "SetSelectedGridButton",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -436,7 +570,7 @@
     {
       "fullName": "SetSelectedVisualState;Bool",
       "shortName": "SetSelectedVisualState",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -448,7 +582,7 @@
     {
       "fullName": "SetupGridSelector;array<PhotoModeOptionGridButtonData>Uint32Uint32",
       "shortName": "SetupGridSelector",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "array:gameuiPhotoModeOptionGridButtonData",
@@ -470,7 +604,7 @@
     {
       "fullName": "SetupOptionButton;PhotoModeOptionSelectorData",
       "shortName": "SetupOptionButton",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameuiPhotoModeOptionSelectorData",
@@ -482,7 +616,7 @@
     {
       "fullName": "SetupOptionSelector;array<PhotoModeOptionSelectorData>Int32",
       "shortName": "SetupOptionSelector",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "array:gameuiPhotoModeOptionSelectorData",
@@ -499,7 +633,7 @@
     {
       "fullName": "SetupScrollBar;FloatFloatFloatFloatBool",
       "shortName": "SetupScrollBar",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Float",
@@ -531,7 +665,7 @@
     {
       "fullName": "StartArrowClickedEffect;inkWidgetRef",
       "shortName": "StartArrowClickedEffect",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "inkWidgetReference",
@@ -543,126 +677,11 @@
     {
       "fullName": "Update;Float",
       "shortName": "Update",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Float",
           "name": "timeDelta",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAddedToList",
-      "shortName": "OnAddedToList",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "whandle:inkListItemController",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDeselected",
-      "shortName": "OnDeselected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkListItemController",
-          "name": "parent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnOptionLeft",
-      "shortName": "OnOptionLeft",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnOptionRight",
-      "shortName": "OnOptionRight",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnScrollBarValueChanged",
-      "shortName": "OnScrollBarValueChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkSliderController",
-          "name": "controller",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "progress",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "newValue",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSelected",
-      "shortName": "OnSelected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkListItemController",
-          "name": "target",
           "flags": 128
         }
       ]

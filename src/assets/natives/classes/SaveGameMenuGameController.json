@@ -14,13 +14,23 @@
       "flags": 4297130017
     },
     {
-      "type": "whandle:inkMenuEventDispatcher",
-      "name": "eventDispatcher",
-      "flags": 4297130016
+      "type": "inkWidgetReference",
+      "name": "gogButtonWidgetRef",
+      "flags": 4297130017
     },
     {
-      "type": "Bool",
-      "name": "loadComplete",
+      "type": "inkWidgetReference",
+      "name": "gogContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "scrollbar",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkMenuEventDispatcher",
+      "name": "eventDispatcher",
       "flags": 4297130016
     },
     {
@@ -29,13 +39,23 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:ButtonHints",
+      "name": "buttonHintsController",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:inkSaveMetadataInfo",
       "name": "saveInfo",
       "flags": 4431347744
     },
     {
-      "type": "whandle:ButtonHints",
-      "name": "buttonHintsController",
+      "type": "array:String",
+      "name": "saves",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "pendingRegistration",
       "flags": 4297130016
     },
     {
@@ -47,42 +67,103 @@
       "type": "Bool",
       "name": "saveInProgress",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "loadComplete",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "saveFilesReady",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "cloudSynced",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
-      "fullName": "CreateLoadItem;Int32String",
-      "shortName": "CreateLoadItem",
-      "flags": 132,
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "label",
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "SetupLoadItems;array<String>",
-      "shortName": "SetupLoadItems",
-      "flags": 132,
+      "fullName": "OnCloudSaveUploadFinish",
+      "shortName": "OnCloudSaveUploadFinish",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
-          "type": "array:String",
-          "name": "saves",
+          "type": "Bool",
+          "name": "success",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "TryToCreateEmptySlot;",
-      "shortName": "TryToCreateEmptySlot",
-      "flags": 132
+      "fullName": "OnCloudSavesQueryStatusChanged",
+      "shortName": "OnCloudSavesQueryStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "servicesCloudSavesQueryStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGogLoginStatusChanged",
+      "shortName": "OnGogLoginStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "bIsSignedIn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGogPressed",
+      "shortName": "OnGogPressed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnInitialize",
@@ -91,7 +172,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnOverrideSaveAccepted",
@@ -100,7 +181,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "OnRefreshGOGState",
+      "shortName": "OnRefreshGOGState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiRefreshGOGState",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnSaveDeleted",
@@ -109,7 +206,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -130,7 +227,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -146,7 +243,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkSaveMetadataInfo",
@@ -156,13 +253,13 @@
       ]
     },
     {
-      "fullName": "OnSavesReady",
-      "shortName": "OnSavesReady",
+      "fullName": "OnSavesForSaveReady",
+      "shortName": "OnSavesForSaveReady",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "array:String",
@@ -178,7 +275,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -199,7 +296,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkMenuEventDispatcher",
@@ -215,7 +312,61 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "CreateLoadItem;Int32",
+      "shortName": "CreateLoadItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GogLogin;",
+      "shortName": "GogLogin",
+      "flags": 32900
+    },
+    {
+      "fullName": "InitCrossProgression;",
+      "shortName": "InitCrossProgression",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayLoadingAnimation;",
+      "shortName": "PlayLoadingAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetupLoadItems;array<String>",
+      "shortName": "SetupLoadItems",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:String",
+          "name": "saves",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopLoadingAnimation;",
+      "shortName": "StopLoadingAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryToCreateEmptySlot;",
+      "shortName": "TryToCreateEmptySlot",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateSavesList;",
+      "shortName": "UpdateSavesList",
+      "flags": 32900
     }
   ]
 }

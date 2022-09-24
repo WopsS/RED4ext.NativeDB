@@ -1,0 +1,468 @@
+{
+  "parent": "gameuiMenuGameController",
+  "name": "WardrobeUIGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "tooltipsManagerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "buttonHintsManagerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "setEditorWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "setGridWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkMenuEventDispatcher",
+      "name": "menuEventDispatcher",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:EquipmentSystem",
+      "name": "equipmentSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:WardrobeSetEditorUIController",
+      "name": "setEditorController",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isMainScreen",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameuiTooltipsManager",
+      "name": "tooltipsManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ButtonHints",
+      "name": "buttonHintsController",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:gameClothingSet",
+      "name": "sets",
+      "flags": 6583025696
+    },
+    {
+      "type": "whandle:ClothingSetController",
+      "name": "currentSetController",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maxSetsAmount",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:ClothingSetController",
+      "name": "setControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "confirmationRequestToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:ClothingSetController",
+      "name": "deletedSetController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "introAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "outroAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "introFinished",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameWardrobeClothingSetIndex",
+      "name": "finalEquippedSet",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "equipmentBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "equipmentInProgressCallback",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnBack",
+      "shortName": "OnBack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseAnimationFinished",
+      "shortName": "OnCloseAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeleteSetConfirmationResults",
+      "shortName": "OnDeleteSetConfirmationResults",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEquipmentInProgress",
+      "shortName": "OnEquipmentInProgress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "inProgress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitConfirmationResults",
+      "shortName": "OnExitConfirmationResults",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnIntroAnimationFinished",
+      "shortName": "OnIntroAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetClick",
+      "shortName": "OnSetClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetHoverOut",
+      "shortName": "OnSetHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetHoverOver",
+      "shortName": "OnSetHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMenuEventDispatcher",
+      "shortName": "OnSetMenuEventDispatcher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkMenuEventDispatcher",
+          "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetUserData",
+      "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "AddButtonHints;ClothingSetController",
+      "shortName": "AddButtonHints",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:ClothingSetController",
+          "name": "setController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CloseWardrobe;",
+      "shortName": "CloseWardrobe",
+      "flags": 32900
+    },
+    {
+      "fullName": "DeleteSet;gameWardrobeClothingSetIndex",
+      "shortName": "DeleteSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipSet;gameWardrobeClothingSetIndex",
+      "shortName": "EquipSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FinalizeTransmog;",
+      "shortName": "FinalizeTransmog",
+      "flags": 32900
+    },
+    {
+      "fullName": "InitSetPanel;",
+      "shortName": "InitSetPanel",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayIdleLoopAnimation;",
+      "shortName": "PlayIdleLoopAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayIntroAnimation;",
+      "shortName": "PlayIntroAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayWardrobeSound;CNameCNameCName",
+      "shortName": "PlayWardrobeSound",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "widgetName",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "eventName",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "actionKey",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ReadUICondition;gamedataUICondition",
+      "shortName": "ReadUICondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32896,
+      "params": [
+        {
+          "type": "gamedataUICondition",
+          "name": "condition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveButtonHints;",
+      "shortName": "RemoveButtonHints",
+      "flags": 33028
+    },
+    {
+      "fullName": "ResetSet;gameWardrobeClothingSetIndex",
+      "shortName": "ResetSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SelectSlot;ClothingSetController",
+      "shortName": "SelectSlot",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:ClothingSetController",
+          "name": "setController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendDeleteRequests;",
+      "shortName": "SendDeleteRequests",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetEquippedState;gameWardrobeClothingSetIndex",
+      "shortName": "SetEquippedState",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "currentSet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipSet;",
+      "shortName": "UnequipSet",
+      "flags": 33284
+    }
+  ]
+}

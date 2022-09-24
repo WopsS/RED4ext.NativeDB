@@ -94,7 +94,7 @@
       "flags": 6583025696
     },
     {
-      "type": "whandle:hubSelectorSingleCarouselController",
+      "type": "whandle:hubStaticSelectorController",
       "name": "menuSelectorCtrl",
       "flags": 4297130016
     },
@@ -141,9 +141,80 @@
   ],
   "funcs": [
     {
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnMenuChanged",
+      "shortName": "OnMenuChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenMenuRequest",
+      "shortName": "OnOpenMenuRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OpenMenuRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
       "fullName": "AddMenus;MenuDataarray<MenuData>MenuDataBool",
       "shortName": "AddMenus",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "MenuData",
@@ -174,12 +245,24 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "HandleCharacterCurrencyUpdated;Int32",
+      "shortName": "HandleCharacterCurrencyUpdated",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "HandleCharacterLevelCurrentXPUpdated;Int32Int32",
       "shortName": "HandleCharacterLevelCurrentXPUpdated",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -196,7 +279,7 @@
     {
       "fullName": "HandleCharacterLevelUpdated;Int32",
       "shortName": "HandleCharacterLevelUpdated",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -208,7 +291,7 @@
     {
       "fullName": "HandleCharacterStreetCredLevelUpdated;Int32",
       "shortName": "HandleCharacterStreetCredLevelUpdated",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -220,7 +303,7 @@
     {
       "fullName": "HandleCharacterStreetCredPointsUpdated;Int32Int32",
       "shortName": "HandleCharacterStreetCredPointsUpdated",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -237,7 +320,7 @@
     {
       "fullName": "HandlePlayerMaxWeightUpdated;Int32Float",
       "shortName": "HandlePlayerMaxWeightUpdated",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -254,7 +337,7 @@
     {
       "fullName": "HandlePlayerWeightUpdated;FloatInt32",
       "shortName": "HandlePlayerWeightUpdated",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Float",
@@ -271,7 +354,7 @@
     {
       "fullName": "HideName;Bool",
       "shortName": "HideName",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -283,7 +366,7 @@
     {
       "fullName": "OpenModsTabExternal;CyberwareTabModsRequest",
       "shortName": "OpenModsTabExternal",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:CyberwareTabModsRequest",
@@ -295,7 +378,7 @@
     {
       "fullName": "SetActive;BoolBool",
       "shortName": "SetActive",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -312,7 +395,7 @@
     {
       "fullName": "SetHubMenuInstanceID;Uint32",
       "shortName": "SetHubMenuInstanceID",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Uint32",
@@ -324,7 +407,7 @@
     {
       "fullName": "SetMenusData;MenuDataBuilder",
       "shortName": "SetMenusData",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:MenuDataBuilder",
@@ -336,90 +419,7 @@
     {
       "fullName": "SetRepacerMode;",
       "shortName": "SetRepacerMode",
-      "flags": 516
-    },
-    {
-      "fullName": "HandleCharacterCurrencyUpdated;Int32",
-      "shortName": "HandleCharacterCurrencyUpdated",
-      "flags": 512,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnButtonRelease",
-      "shortName": "OnButtonRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnMenuChanged",
-      "shortName": "OnMenuChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnOpenMenuRequest",
-      "shortName": "OnOpenMenuRequest",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:OpenMenuRequest",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
+      "flags": 33284
     }
   ]
 }

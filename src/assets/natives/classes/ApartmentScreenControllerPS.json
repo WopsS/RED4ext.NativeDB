@@ -35,6 +35,12 @@
     },
     {
       "type": "Bool",
+      "name": "showOverdueValue",
+      "group": "UI",
+      "flags": 4364238881
+    },
+    {
+      "type": "Bool",
       "name": "randomizeInitialOverdue",
       "group": "UI",
       "flags": 4364238881
@@ -79,13 +85,27 @@
   ],
   "funcs": [
     {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "GameAttached;",
+      "shortName": "GameAttached",
+      "flags": 33024
+    },
+    {
       "fullName": "GetCurrentDay;",
       "shortName": "GetCurrentDay",
       "return": {
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetCurrentOverdueValue;",
@@ -94,7 +114,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetCurrentRentStatus;",
@@ -103,7 +123,7 @@
         "type": "ERentStatus",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetDaysPassed;",
@@ -112,7 +132,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetGameTime;",
@@ -121,7 +141,7 @@
         "type": "GameTime",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetInitialOverdueValue;",
@@ -130,7 +150,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetPaymentScheduleValue;",
@@ -139,58 +159,12 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetStateChangeProbabilityValue;",
-      "shortName": "GetStateChangeProbabilityValue",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "InitializeRentState;",
-      "shortName": "InitializeRentState",
-      "flags": 132
-    },
-    {
-      "fullName": "ReEvaluateRentStatus;",
-      "shortName": "ReEvaluateRentStatus",
-      "flags": 132
-    },
-    {
-      "fullName": "SetCurrentRentStatus;ERentStatus",
-      "shortName": "SetCurrentRentStatus",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ERentStatus",
-          "name": "status",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateCurrentOverdue;",
-      "shortName": "UpdateCurrentOverdue",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateRentState;",
-      "shortName": "UpdateRentState",
-      "flags": 516
-    },
-    {
-      "fullName": "GameAttached;",
-      "shortName": "GameAttached",
-      "flags": 256
+      "flags": 41476
     },
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuestActions",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -205,13 +179,86 @@
       ]
     },
     {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
+      "fullName": "GetStateChangeProbabilityValue;",
+      "shortName": "GetStateChangeProbabilityValue",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "InitializeRentState;",
+      "shortName": "InitializeRentState",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnSetApartmentScreenMessageEvent;SetApartmentScreenMessageEvent",
+      "shortName": "OnSetApartmentScreenMessageEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SetApartmentScreenMessageEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetApartmentScreenStatusEvent;SetApartmentScreenStatusEvent",
+      "shortName": "OnSetApartmentScreenStatusEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SetApartmentScreenStatusEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReEvaluateRentStatus;",
+      "shortName": "ReEvaluateRentStatus",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetCurrentRentStatus;ERentStatus",
+      "shortName": "SetCurrentRentStatus",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ERentStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldShowOverdueValue;",
+      "shortName": "ShouldShowOverdueValue",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 41476
+    },
+    {
+      "fullName": "UpdateCurrentOverdue;",
+      "shortName": "UpdateCurrentOverdue",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateRentState;",
+      "shortName": "UpdateRentState",
+      "flags": 33284
     }
   ]
 }

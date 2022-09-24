@@ -89,6 +89,11 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "isRadioSubtitleEnabled",
+      "flags": 4297130016
+    },
+    {
       "type": "Float",
       "name": "backgroundOpacity",
       "flags": 4297130016
@@ -106,14 +111,194 @@
   ],
   "funcs": [
     {
+      "fullName": "OnCreoleFactChanged",
+      "shortName": "OnCreoleFactChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 34056,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideDialogLine",
+      "shortName": "OnHideDialogLine",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideDialogLineByData",
+      "shortName": "OnHideDialogLineByData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnLineSpawned",
+      "shortName": "OnLineSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShowBackground",
+      "shortName": "OnShowBackground",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShowDialogLine",
+      "shortName": "OnShowDialogLine",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnWorldAttached",
+      "shortName": "OnWorldAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWorldAttachedEvt",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CalculateVisibility;",
+      "shortName": "CalculateVisibility",
+      "flags": 33024
+    },
+    {
       "fullName": "Cleanup;",
       "shortName": "Cleanup",
-      "flags": 132
+      "flags": 32900
+    },
+    {
+      "fullName": "CreateLine;LineSpawnData",
+      "shortName": "CreateLine",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:LineSpawnData",
+          "name": "lineSpawnData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DisableBySettings;Bool",
       "shortName": "DisableBySettings",
-      "flags": 260,
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnableRadioSubtilesBySettings;Bool",
+      "shortName": "EnableRadioSubtilesBySettings",
+      "flags": 33028,
       "params": [
         {
           "type": "Bool",
@@ -129,7 +314,7 @@
         "type": "whandle:BaseSubtitleLineLogicController",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CRUID",
@@ -145,7 +330,7 @@
         "type": "whandle:inkWidget",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CRUID",
@@ -157,7 +342,7 @@
     {
       "fullName": "ForceForeignLinesBySettings;Bool",
       "shortName": "ForceForeignLinesBySettings",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Bool",
@@ -169,7 +354,7 @@
     {
       "fullName": "ForceSettingsUpdate;",
       "shortName": "ForceSettingsUpdate",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetGame;",
@@ -178,12 +363,21 @@
         "type": "ScriptGameInstance",
         "flags": 64
       },
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "GetTextSizeSettigId;",
+      "shortName": "GetTextSizeSettigId",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "HideDialogLine;array<CRUID>",
       "shortName": "HideDialogLine",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "array:CRUID",
@@ -195,7 +389,7 @@
     {
       "fullName": "HideDialogLinesByData;array<scnDialogLineData>",
       "shortName": "HideDialogLinesByData",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "array:scnDialogLineData",
@@ -211,7 +405,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "scnDialogLineData",
@@ -227,7 +421,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "scnDialogLineData",
@@ -237,9 +431,57 @@
       ]
     },
     {
+      "fullName": "OnHideLine;subtitleLineMapEntry",
+      "shortName": "OnHideLine",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "subtitleLineMapEntry",
+          "name": "lineData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideLineByData;subtitleLineMapEntry",
+      "shortName": "OnHideLineByData",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "subtitleLineMapEntry",
+          "name": "lineData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemovalFailure;CRUID",
+      "shortName": "OnRemovalFailure",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "CRUID",
+          "name": "lineId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSubCreated;BaseSubtitleLineLogicController",
+      "shortName": "OnSubCreated",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "whandle:BaseSubtitleLineLogicController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnVarModified;CNameCNameConfigVarTypeConfigChangeReason",
       "shortName": "OnVarModified",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -266,7 +508,7 @@
     {
       "fullName": "RegisterToDialogBlackboard;Bool",
       "shortName": "RegisterToDialogBlackboard",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -282,7 +524,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CRUID",
@@ -298,7 +540,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "scnDialogLineData",
@@ -310,7 +552,7 @@
     {
       "fullName": "ResolveShowHidePendingLines;CRUID",
       "shortName": "ResolveShowHidePendingLines",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CRUID",
@@ -320,298 +562,9 @@
       ]
     },
     {
-      "fullName": "ShowDialogLines;array<scnDialogLineData>",
-      "shortName": "ShowDialogLines",
-      "flags": 516,
-      "params": [
-        {
-          "type": "array:scnDialogLineData",
-          "name": "linesToShow",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowPendingSubtitles;",
-      "shortName": "ShowPendingSubtitles",
-      "flags": 132
-    },
-    {
-      "fullName": "SpawnDialogLine;scnDialogLineData",
-      "shortName": "SpawnDialogLine",
-      "flags": 132,
-      "params": [
-        {
-          "type": "scnDialogLineData",
-          "name": "lineData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TryRemovePendingHideLines;",
-      "shortName": "TryRemovePendingHideLines",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateBackgroundOpacitySettings;",
-      "shortName": "UpdateBackgroundOpacitySettings",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateChattersForeignVisibilitySettings;",
-      "shortName": "UpdateChattersForeignVisibilitySettings",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateChattersVisibilitySetting;",
-      "shortName": "UpdateChattersVisibilitySetting",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateSizeSettings;",
-      "shortName": "UpdateSizeSettings",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateSubsForeignVisibilitySettings;",
-      "shortName": "UpdateSubsForeignVisibilitySettings",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateSubsVisibilitySetting;",
-      "shortName": "UpdateSubsVisibilitySetting",
-      "flags": 132
-    },
-    {
-      "fullName": "CalculateVisibility;",
-      "shortName": "CalculateVisibility",
-      "flags": 256
-    },
-    {
-      "fullName": "CreateLine;LineSpawnData",
-      "shortName": "CreateLine",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "handle:LineSpawnData",
-          "name": "lineSpawnData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetTextSizeSettigId;",
-      "shortName": "GetTextSizeSettigId",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 33024
-    },
-    {
-      "fullName": "OnCreoleFactChanged",
-      "shortName": "OnCreoleFactChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHideDialogLine",
-      "shortName": "OnHideDialogLine",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHideDialogLineByData",
-      "shortName": "OnHideDialogLineByData",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHideLine;subtitleLineMapEntry",
-      "shortName": "OnHideLine",
-      "flags": 256,
-      "params": [
-        {
-          "type": "subtitleLineMapEntry",
-          "name": "lineData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnHideLineByData;subtitleLineMapEntry",
-      "shortName": "OnHideLineByData",
-      "flags": 256,
-      "params": [
-        {
-          "type": "subtitleLineMapEntry",
-          "name": "lineData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnLineSpawned",
-      "shortName": "OnLineSpawned",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        },
-        {
-          "type": "handle:IScriptable",
-          "name": "userData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPlayerAttach",
-      "shortName": "OnPlayerAttach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRemovalFailure;CRUID",
-      "shortName": "OnRemovalFailure",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "CRUID",
-          "name": "lineId",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnShowBackground",
-      "shortName": "OnShowBackground",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnShowDialogLine",
-      "shortName": "OnShowDialogLine",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSubCreated;BaseSubtitleLineLogicController",
-      "shortName": "OnSubCreated",
-      "flags": 256,
-      "params": [
-        {
-          "type": "whandle:BaseSubtitleLineLogicController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnWorldAttached",
-      "shortName": "OnWorldAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkWorldAttachedEvt",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SetBackgroundOpacitySettings;Float",
       "shortName": "SetBackgroundOpacitySettings",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "Float",
@@ -645,9 +598,21 @@
       ]
     },
     {
+      "fullName": "SetRadioSubsVisibilitySetting;Bool",
+      "shortName": "SetRadioSubsVisibilitySetting",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetSizeSettings;Int32",
       "shortName": "SetSizeSettings",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "Int32",
@@ -714,6 +679,18 @@
       ]
     },
     {
+      "fullName": "ShowDialogLines;array<scnDialogLineData>",
+      "shortName": "ShowDialogLines",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:scnDialogLineData",
+          "name": "linesToShow",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ShowKiroshiSettings;Bool",
       "shortName": "ShowKiroshiSettings",
       "flags": 33024,
@@ -724,6 +701,63 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ShowPendingSubtitles;",
+      "shortName": "ShowPendingSubtitles",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnDialogLine;scnDialogLineData",
+      "shortName": "SpawnDialogLine",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "scnDialogLineData",
+          "name": "lineData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryRemovePendingHideLines;",
+      "shortName": "TryRemovePendingHideLines",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateBackgroundOpacitySettings;",
+      "shortName": "UpdateBackgroundOpacitySettings",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateChattersForeignVisibilitySettings;",
+      "shortName": "UpdateChattersForeignVisibilitySettings",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateChattersVisibilitySetting;",
+      "shortName": "UpdateChattersVisibilitySetting",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateRadioSubsVisibilitySetting;",
+      "shortName": "UpdateRadioSubsVisibilitySetting",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateSizeSettings;",
+      "shortName": "UpdateSizeSettings",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateSubsForeignVisibilitySettings;",
+      "shortName": "UpdateSubsForeignVisibilitySettings",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateSubsVisibilitySetting;",
+      "shortName": "UpdateSubsVisibilitySetting",
+      "flags": 32900
     }
   ]
 }

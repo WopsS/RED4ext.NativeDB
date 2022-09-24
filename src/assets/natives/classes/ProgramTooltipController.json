@@ -89,6 +89,16 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "perkContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "perkText",
+      "flags": 4297130017
+    },
+    {
       "type": "inkCompoundWidgetReference",
       "name": "effectsList",
       "flags": 4297130017
@@ -117,64 +127,24 @@
       "type": "InventoryTooltipData_QuickhackData",
       "name": "quickHackData",
       "flags": 4297130016
+    },
+    {
+      "type": "whandle:UIInventoryItem",
+      "name": "itemData",
+      "flags": 4297130016
+    },
+    {
+      "type": "InventoryTooltipDisplayContext",
+      "name": "displayContext",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameItemDisplayContext",
+      "name": "itemDisplayContext",
+      "flags": 4297130016
     }
   ],
   "funcs": [
-    {
-      "fullName": "DEBUG_UpdateIconErrorInfo;",
-      "shortName": "DEBUG_UpdateIconErrorInfo",
-      "flags": 132
-    },
-    {
-      "fullName": "IsDamageStat;gamedataStatTypegamedataStatType",
-      "shortName": "IsDamageStat",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStatType",
-          "name": "targetStat",
-          "flags": 128
-        },
-        {
-          "type": "gamedataStatType",
-          "name": "valueStat",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateDamage;",
-      "shortName": "UpdateDamage",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateMods;",
-      "shortName": "UpdateMods",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdatePrice;",
-      "shortName": "UpdatePrice",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateRarity;",
-      "shortName": "UpdateRarity",
-      "flags": 132
-    },
-    {
-      "fullName": "GetHackCategory;",
-      "shortName": "GetHackCategory",
-      "return": {
-        "type": "whandle:gamedataHackCategory_Record",
-        "flags": 64
-      },
-      "flags": 128
-    },
     {
       "fullName": "OnGlobalPress",
       "shortName": "OnGlobalPress",
@@ -182,7 +152,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -198,7 +168,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -214,7 +184,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnUninitialize",
@@ -223,17 +193,129 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "DEBUG_UpdateIconErrorInfo;",
+      "shortName": "DEBUG_UpdateIconErrorInfo",
+      "flags": 32900
+    },
+    {
+      "fullName": "GetHackCategory;",
+      "shortName": "GetHackCategory",
+      "return": {
+        "type": "whandle:gamedataHackCategory_Record",
+        "flags": 64
+      },
+      "flags": 32896
+    },
+    {
+      "fullName": "IsDamageStat;gamedataStatTypegamedataStatType",
+      "shortName": "IsDamageStat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "targetStat",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatType",
+          "name": "valueStat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewGetHackCategory;",
+      "shortName": "NewGetHackCategory",
+      "return": {
+        "type": "whandle:gamedataHackCategory_Record",
+        "flags": 64
+      },
+      "flags": 32896
+    },
+    {
+      "fullName": "NewRefreshUI;UIInventoryItemPlayerPuppet",
+      "shortName": "NewRefreshUI",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateCategory;",
+      "shortName": "NewUpdateCategory",
+      "flags": 32896
+    },
+    {
+      "fullName": "NewUpdateDamage;UIInventoryItemProgramData",
+      "shortName": "NewUpdateDamage",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItemProgramData",
+          "name": "programData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateDescription;",
+      "shortName": "NewUpdateDescription",
+      "flags": 32896
+    },
+    {
+      "fullName": "NewUpdateMods;",
+      "shortName": "NewUpdateMods",
+      "flags": 32900
+    },
+    {
+      "fullName": "NewUpdatePrice;PlayerPuppet",
+      "shortName": "NewUpdatePrice",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewUpdateRarity;UIInventoryItemProgramData",
+      "shortName": "NewUpdateRarity",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItemProgramData",
+          "name": "programData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "RefreshUI;",
       "shortName": "RefreshUI",
-      "flags": 128
+      "flags": 32896
     },
     {
       "fullName": "SetData;ATooltipData",
       "shortName": "SetData",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:ATooltipData",
@@ -245,17 +327,22 @@
     {
       "fullName": "UpdateCategory;",
       "shortName": "UpdateCategory",
-      "flags": 128
+      "flags": 32896
+    },
+    {
+      "fullName": "UpdateDamage;",
+      "shortName": "UpdateDamage",
+      "flags": 32900
     },
     {
       "fullName": "UpdateDescription;",
       "shortName": "UpdateDescription",
-      "flags": 128
+      "flags": 32896
     },
     {
       "fullName": "UpdateDetail;inkWidgetRefStringFloatFloat",
       "shortName": "UpdateDetail",
-      "flags": 128,
+      "flags": 32896,
       "params": [
         {
           "type": "inkWidgetReference",
@@ -278,6 +365,26 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UpdateMods;",
+      "shortName": "UpdateMods",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdatePerkRequirement;",
+      "shortName": "UpdatePerkRequirement",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdatePrice;",
+      "shortName": "UpdatePrice",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateRarity;",
+      "shortName": "UpdateRarity",
+      "flags": 32900
     }
   ]
 }

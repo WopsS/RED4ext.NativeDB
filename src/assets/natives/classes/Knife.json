@@ -4,9 +4,74 @@
   "flags": 4,
   "props": [
     {
+      "type": "handle:ResourceLibraryComponent",
+      "name": "resourceLibraryComponent",
+      "flags": 4431413280
+    },
+    {
+      "type": "TweakDBID",
+      "name": "throwCooldownSE",
+      "flags": 4297195552
+    },
+    {
       "type": "Bool",
       "name": "collided",
-      "flags": 4297326624
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "wasPicked",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isActive",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "hasHitWater",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "waterHeight",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "deactivationDepth",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "waterImpulseRadius",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "waterImpulseStrength",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "weapon",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:ThrowingKnifeReloadListener",
+      "name": "throwingKnifeResourcePoolListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:KnifeCollisionEvaluator",
+      "name": "projectileCollisionEvaluator",
+      "flags": 4431413280
+    },
+    {
+      "type": "Bool",
+      "name": "projectileStopped",
+      "flags": 4297195552
     }
   ],
   "funcs": [
@@ -17,11 +82,43 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameprojectileHitEvent",
           "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInteractionActivationEvent",
+      "shortName": "OnInteractionActivationEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameinteractionsInteractionActivationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMaxLifetimeReached",
+      "shortName": "OnMaxLifetimeReached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ProjectileDelayEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -33,11 +130,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameprojectileSetUpEvent",
           "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
           "flags": 128
         }
       ]
@@ -49,7 +162,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameprojectileShootEvent",
@@ -57,6 +170,111 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "OnShootTarget",
+      "shortName": "OnShootTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootTargetEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTick",
+      "shortName": "OnTick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileTickEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateAndSink;",
+      "shortName": "DeactivateAndSink",
+      "flags": 33028
+    },
+    {
+      "fullName": "ExecuteParabolicLaunch;gameprojectileShootEvent",
+      "shortName": "ExecuteParabolicLaunch",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCurrentOutline;",
+      "shortName": "GetCurrentOutline",
+      "return": {
+        "type": "EFocusOutlineType",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetDefaultHighlight;",
+      "shortName": "GetDefaultHighlight",
+      "return": {
+        "type": "handle:FocusForcedHighlightData",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "SetMeshAppearance;CNameCName",
+      "shortName": "SetMeshAppearance",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "CName",
+          "name": "appearance",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "component",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TryToReleaseProjectile;",
+      "shortName": "TryToReleaseProjectile",
+      "flags": 33284
     }
   ]
 }

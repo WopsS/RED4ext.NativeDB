@@ -51,7 +51,12 @@
     {
       "type": "Bool",
       "name": "isPlayerInsideLift",
-      "flags": 4565565472
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isPlayerInsideLift_RealOne",
+      "flags": 4297130016
     },
     {
       "type": "Bool",
@@ -86,13 +91,38 @@
   ],
   "funcs": [
     {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "ActionAuthorizeUser;Bool",
+      "shortName": "ActionAuthorizeUser",
+      "return": {
+        "type": "handle:AuthorizeUser",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isForced",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "ActionCallElevator;BoolInt32",
       "shortName": "ActionCallElevator",
       "return": {
         "type": "handle:CallElevator",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -113,7 +143,7 @@
         "type": "handle:GoToFloor",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -149,7 +179,7 @@
         "type": "handle:LiftStatus",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "CName",
@@ -165,7 +195,7 @@
         "type": "handle:QuestCloseAllDoors",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -181,7 +211,7 @@
         "type": "handle:QuestDisableLiftTravelTimeOverride",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestDisableRadio;",
@@ -190,7 +220,7 @@
         "type": "handle:QuestDisableRadio",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestEnableLiftTravelTimeOverride;",
@@ -199,7 +229,7 @@
         "type": "handle:QuestEnableLiftTravelTimeOverride",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestForceGoToFloor;",
@@ -208,7 +238,7 @@
         "type": "handle:QuestForceGoToFloor",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestForceTeleportToFloor;",
@@ -217,7 +247,7 @@
         "type": "handle:QuestForceTeleportToFloor",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestGoToFloor;",
@@ -226,7 +256,7 @@
         "type": "handle:QuestGoToFloor",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestHideFloor;",
@@ -235,7 +265,7 @@
         "type": "handle:QuestHideFloor",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestResumeElevator;",
@@ -244,7 +274,7 @@
         "type": "handle:QuestResumeElevator",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestSetFloorActive;",
@@ -253,7 +283,7 @@
         "type": "handle:QuestSetFloorActive",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestSetFloorInactive;",
@@ -262,7 +292,7 @@
         "type": "handle:QuestSetFloorInactive",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestSetLiftSpeed;",
@@ -271,7 +301,7 @@
         "type": "handle:QuestSetLiftSpeed",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestSetLiftTravelTimeOverride;",
@@ -280,7 +310,7 @@
         "type": "handle:QuestSetLiftTravelTimeOverride",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestSetRadioStation;",
@@ -289,7 +319,7 @@
         "type": "handle:QuestSetRadioStation",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestShowFloor;",
@@ -298,7 +328,7 @@
         "type": "handle:QuestShowFloor",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestStopElevator;",
@@ -307,7 +337,7 @@
         "type": "handle:QuestStopElevator",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ActionQuestToggleAds;Bool",
@@ -316,7 +346,7 @@
         "type": "handle:QuestToggleAds",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -332,12 +362,21 @@
         "type": "handle:QuickHackAuthorization",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "CanCreateAnyQuickHackActions;",
+      "shortName": "CanCreateAnyQuickHackActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216
     },
     {
       "fullName": "ChangeActiveFloor;Int32",
       "shortName": "ChangeActiveFloor",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -353,7 +392,7 @@
         "type": "RadioStationsMap",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CName",
@@ -370,884 +409,12 @@
     {
       "fullName": "EvaluateFloors;",
       "shortName": "EvaluateFloors",
-      "flags": 132
-    },
-    {
-      "fullName": "GetActiveFloor;",
-      "shortName": "GetActiveFloor",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetActiveFloorDisplayName;",
-      "shortName": "GetActiveFloorDisplayName",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetActiveRadioStationNumber;",
-      "shortName": "GetActiveRadioStationNumber",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetCachedGoToFloorAction;",
-      "shortName": "GetCachedGoToFloorAction",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetFloorAuthorizationFromSlaves;",
-      "shortName": "GetFloorAuthorizationFromSlaves",
-      "flags": 516
-    },
-    {
-      "fullName": "GetFloorDataFromSlaves;",
-      "shortName": "GetFloorDataFromSlaves",
-      "flags": 516
-    },
-    {
-      "fullName": "GetFloorID;Int32",
-      "shortName": "GetFloorID",
-      "return": {
-        "type": "entEntityID",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "number",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetFloorMarker;Int32",
-      "shortName": "GetFloorMarker",
-      "return": {
-        "type": "NodeRef",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "floorNumber",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetFloorPSID;Int32",
-      "shortName": "GetFloorPSID",
-      "return": {
-        "type": "gamePersistentID",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "number",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetFloors;",
-      "shortName": "GetFloors",
-      "return": {
-        "type": "array:ElevatorFloorSetup",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetLiftSpeed;",
-      "shortName": "GetLiftSpeed",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetLiftStartingDelay;",
-      "shortName": "GetLiftStartingDelay",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetLiftTravelTimeOverride;",
-      "shortName": "GetLiftTravelTimeOverride",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetMovementState;",
-      "shortName": "GetMovementState",
-      "return": {
-        "type": "gamePlatformMovementState",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetSpeakerDestroyedQuestFact;",
-      "shortName": "GetSpeakerDestroyedQuestFact",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetSpeakerDestroyedVFX;",
-      "shortName": "GetSpeakerDestroyedVFX",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetStartingFloor;",
-      "shortName": "GetStartingFloor",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetStationByIndex;Int32",
-      "shortName": "GetStationByIndex",
-      "return": {
-        "type": "RadioStationsMap",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetTimeWhenPaused;",
-      "shortName": "GetTimeWhenPaused",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "HasSpeaker;",
-      "shortName": "HasSpeaker",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "InitializeFloorsData;",
-      "shortName": "InitializeFloorsData",
-      "flags": 132
-    },
-    {
-      "fullName": "InitializeRadioStations;",
-      "shortName": "InitializeRadioStations",
-      "flags": 132
-    },
-    {
-      "fullName": "IsAdsDisabled;",
-      "shortName": "IsAdsDisabled",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "IsAdsEnabled;",
-      "shortName": "IsAdsEnabled",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "IsAllDoorsClosed;",
-      "shortName": "IsAllDoorsClosed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "IsAtFloor;Int32",
-      "shortName": "IsAtFloor",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 25092,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "floorNumber",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsFloorSelected;Int32",
-      "shortName": "IsFloorSelected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 25092,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "floor",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsLiftTravelTimeOverride;",
-      "shortName": "IsLiftTravelTimeOverride",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 25092
-    },
-    {
-      "fullName": "IsMoving;",
-      "shortName": "IsMoving",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 25092
-    },
-    {
-      "fullName": "IsPlayerInsideLift;",
-      "shortName": "IsPlayerInsideLift",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 25092
-    },
-    {
-      "fullName": "IsSpeakerDestroyed;",
-      "shortName": "IsSpeakerDestroyed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "OnCallElevator;CallElevator",
-      "shortName": "OnCallElevator",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:CallElevator",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGoToFloor;GoToFloor",
-      "shortName": "OnGoToFloor",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:GoToFloor",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnLiftSetMovementStateEvent;LiftSetMovementStateEvent",
-      "shortName": "OnLiftSetMovementStateEvent",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:LiftSetMovementStateEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnLiftStatus;LiftStatus",
-      "shortName": "OnLiftStatus",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:LiftStatus",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestCloseAllDoors;QuestCloseAllDoors",
-      "shortName": "OnQuestCloseAllDoors",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestCloseAllDoors",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestDisableLiftTravelTimeOverride;QuestDisableLiftTravelTimeOverride",
-      "shortName": "OnQuestDisableLiftTravelTimeOverride",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestDisableLiftTravelTimeOverride",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestDisableRadio;QuestDisableRadio",
-      "shortName": "OnQuestDisableRadio",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestDisableRadio",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestEnableLiftTravelTimeOverride;QuestEnableLiftTravelTimeOverride",
-      "shortName": "OnQuestEnableLiftTravelTimeOverride",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestEnableLiftTravelTimeOverride",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceGoToFloor;QuestForceGoToFloor",
-      "shortName": "OnQuestForceGoToFloor",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestForceGoToFloor",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceTeleportToFloor;QuestForceTeleportToFloor",
-      "shortName": "OnQuestForceTeleportToFloor",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestForceTeleportToFloor",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestGoToFloor;QuestGoToFloor",
-      "shortName": "OnQuestGoToFloor",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestGoToFloor",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestHideFloor;QuestHideFloor",
-      "shortName": "OnQuestHideFloor",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestHideFloor",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestResumeElevator;QuestResumeElevator",
-      "shortName": "OnQuestResumeElevator",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestResumeElevator",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestSetFloorActive;QuestSetFloorActive",
-      "shortName": "OnQuestSetFloorActive",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestSetFloorActive",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestSetFloorInactive;QuestSetFloorInactive",
-      "shortName": "OnQuestSetFloorInactive",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestSetFloorInactive",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestSetLiftSpeed;QuestSetLiftSpeed",
-      "shortName": "OnQuestSetLiftSpeed",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestSetLiftSpeed",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestSetLiftTravelTimeOverride;QuestSetLiftTravelTimeOverride",
-      "shortName": "OnQuestSetLiftTravelTimeOverride",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestSetLiftTravelTimeOverride",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestSetRadioStation;QuestSetRadioStation",
-      "shortName": "OnQuestSetRadioStation",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestSetRadioStation",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestShowFloor;QuestShowFloor",
-      "shortName": "OnQuestShowFloor",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestShowFloor",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestStopElevator;QuestStopElevator",
-      "shortName": "OnQuestStopElevator",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestStopElevator",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestToggleAds;QuestToggleAds",
-      "shortName": "OnQuestToggleAds",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuestToggleAds",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRefreshFloorsAuthorizationData;RefreshFloorAuthorizationDataEvent",
-      "shortName": "OnRefreshFloorsAuthorizationData",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:RefreshFloorAuthorizationDataEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRefreshFloorsData;RefreshFloorDataEvent",
-      "shortName": "OnRefreshFloorsData",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:RefreshFloorDataEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRefreshPlayerAuthorizationEvent;RefreshPlayerAuthorizationEvent",
-      "shortName": "OnRefreshPlayerAuthorizationEvent",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:RefreshPlayerAuthorizationEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetIsPlayerInsideLiftEvent;SetIsPlayerInsideLiftEvent",
-      "shortName": "OnSetIsPlayerInsideLiftEvent",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:SetIsPlayerInsideLiftEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ProcessUnstreamedLiftMovement;Int32",
-      "shortName": "ProcessUnstreamedLiftMovement",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "floor",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RefreshFloorsAuthorizationData_Event;Bool",
-      "shortName": "RefreshFloorsAuthorizationData_Event",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "passToEntity",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RefreshFloorsData_Event;Bool",
-      "shortName": "RefreshFloorsData_Event",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "passToEntity",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendLiftDepartedEvent;Int32",
-      "shortName": "SendLiftDepartedEvent",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "activeFloor",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendSetAuthorizationModuleOFFToSlaves;",
-      "shortName": "SendSetAuthorizationModuleOFFToSlaves",
-      "flags": 260
-    },
-    {
-      "fullName": "SetCachedGoToFloorAction;Int32",
-      "shortName": "SetCachedGoToFloorAction",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetHasSpeaker;Bool",
-      "shortName": "SetHasSpeaker",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetIsPlayerInsideLift;Bool",
-      "shortName": "SetIsPlayerInsideLift",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetMovementState;gamePlatformMovementState",
-      "shortName": "SetMovementState",
-      "flags": 516,
-      "params": [
-        {
-          "type": "gamePlatformMovementState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetSpeakerDestroyed;Bool",
-      "shortName": "SetSpeakerDestroyed",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetStartingFloor;Int32",
-      "shortName": "SetStartingFloor",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "terminalNumber",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetTimeWhenPaused;Float",
-      "shortName": "SetTimeWhenPaused",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Float",
-          "name": "time",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SyncDataWithFloorTerminal;Int32",
-      "shortName": "SyncDataWithFloorTerminal",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "terminalNumber",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActionAuthorizeUser;",
-      "shortName": "ActionAuthorizeUser",
-      "return": {
-        "type": "handle:AuthorizeUser",
-        "flags": 64
-      },
-      "flags": 256
-    },
-    {
-      "fullName": "CanCreateAnyQuickHackActions;",
-      "shortName": "CanCreateAnyQuickHackActions",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41216
+      "flags": 32900
     },
     {
       "fullName": "GameAttached;",
       "shortName": "GameAttached",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "GetActions;array<DeviceAction>GetActionsContext",
@@ -1256,7 +423,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -1271,13 +438,49 @@
       ]
     },
     {
+      "fullName": "GetActiveFloor;",
+      "shortName": "GetActiveFloor",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetActiveFloorDisplayName;",
+      "shortName": "GetActiveFloorDisplayName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetActiveRadioStationNumber;",
+      "shortName": "GetActiveRadioStationNumber",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:DeviceBaseBlackboardDef",
+        "type": "handle:ElevatorDeviceBlackboardDef",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
+    },
+    {
+      "fullName": "GetCachedGoToFloorAction;",
+      "shortName": "GetCachedGoToFloorAction",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetDeviceIconPath",
@@ -1295,7 +498,7 @@
         "type": "SDeviceWidgetPackage",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "gameGetActionsContext",
@@ -1303,6 +506,73 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetFloorAuthorizationFromSlaves;",
+      "shortName": "GetFloorAuthorizationFromSlaves",
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFloorDataFromSlaves;",
+      "shortName": "GetFloorDataFromSlaves",
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFloorID;Int32",
+      "shortName": "GetFloorID",
+      "return": {
+        "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "number",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFloorMarker;Int32",
+      "shortName": "GetFloorMarker",
+      "return": {
+        "type": "NodeRef",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorNumber",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFloorPSID;Int32",
+      "shortName": "GetFloorPSID",
+      "return": {
+        "type": "gamePersistentID",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "number",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFloors;",
+      "shortName": "GetFloors",
+      "return": {
+        "type": "array:ElevatorFloorSetup",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetInkWidgetTweakDBID;GetActionsContext",
@@ -1321,9 +591,61 @@
       ]
     },
     {
+      "fullName": "GetLiftSpeed;",
+      "shortName": "GetLiftSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetLiftStartingDelay;",
+      "shortName": "GetLiftStartingDelay",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetLiftTravelTimeOverride;",
+      "shortName": "GetLiftTravelTimeOverride",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetMovementState;",
+      "shortName": "GetMovementState",
+      "return": {
+        "type": "gamePlatformMovementState",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetQuestActionByName;CName",
+      "shortName": "GetQuestActionByName",
+      "return": {
+        "type": "handle:gamedeviceAction",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuestActions",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -1340,7 +662,7 @@
     {
       "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuickHackActions",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -1355,9 +677,157 @@
       ]
     },
     {
+      "fullName": "GetSpeakerDestroyedQuestFact;",
+      "shortName": "GetSpeakerDestroyedQuestFact",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSpeakerDestroyedVFX;",
+      "shortName": "GetSpeakerDestroyedVFX",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetStartingFloor;",
+      "shortName": "GetStartingFloor",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetStationByIndex;Int32",
+      "shortName": "GetStationByIndex",
+      "return": {
+        "type": "RadioStationsMap",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTimeWhenPaused;",
+      "shortName": "GetTimeWhenPaused",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "HasSpeaker;",
+      "shortName": "HasSpeaker",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "Initialize;",
       "shortName": "Initialize",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "InitializeFloorsData;",
+      "shortName": "InitializeFloorsData",
+      "flags": 32900
+    },
+    {
+      "fullName": "InitializeRadioStations;",
+      "shortName": "InitializeRadioStations",
+      "flags": 32900
+    },
+    {
+      "fullName": "IsAdsDisabled;",
+      "shortName": "IsAdsDisabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsAdsEnabled;",
+      "shortName": "IsAdsEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsAllDoorsClosed;",
+      "shortName": "IsAllDoorsClosed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsAtFloor;Int32",
+      "shortName": "IsAtFloor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 58884,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorNumber",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsFloorSelected;Int32",
+      "shortName": "IsFloorSelected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 57860,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsLiftTravelTimeOverride;",
+      "shortName": "IsLiftTravelTimeOverride",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 57860
+    },
+    {
+      "fullName": "IsMoving;",
+      "shortName": "IsMoving",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 58884
     },
     {
       "fullName": "IsPlayerAuthorized;",
@@ -1366,16 +836,361 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
+      "fullName": "IsPlayerInsideLift;",
+      "shortName": "IsPlayerInsideLift",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 57860
+    },
+    {
+      "fullName": "IsSpeakerDestroyed;",
+      "shortName": "IsSpeakerDestroyed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "OnCallElevator;CallElevator",
+      "shortName": "OnCallElevator",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:CallElevator",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGoToFloor;GoToFloor",
+      "shortName": "OnGoToFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:GoToFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLiftSetMovementStateEvent;LiftSetMovementStateEvent",
+      "shortName": "OnLiftSetMovementStateEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:LiftSetMovementStateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLiftStatus;LiftStatus",
+      "shortName": "OnLiftStatus",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:LiftStatus",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestCloseAllDoors;QuestCloseAllDoors",
+      "shortName": "OnQuestCloseAllDoors",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestCloseAllDoors",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestDisableLiftTravelTimeOverride;QuestDisableLiftTravelTimeOverride",
+      "shortName": "OnQuestDisableLiftTravelTimeOverride",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestDisableLiftTravelTimeOverride",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestDisableRadio;QuestDisableRadio",
+      "shortName": "OnQuestDisableRadio",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestDisableRadio",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEnableLiftTravelTimeOverride;QuestEnableLiftTravelTimeOverride",
+      "shortName": "OnQuestEnableLiftTravelTimeOverride",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestEnableLiftTravelTimeOverride",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceGoToFloor;QuestForceGoToFloor",
+      "shortName": "OnQuestForceGoToFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestForceGoToFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceTeleportToFloor;QuestForceTeleportToFloor",
+      "shortName": "OnQuestForceTeleportToFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestForceTeleportToFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestGoToFloor;QuestGoToFloor",
+      "shortName": "OnQuestGoToFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestGoToFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestHideFloor;QuestHideFloor",
+      "shortName": "OnQuestHideFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestHideFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestResumeElevator;QuestResumeElevator",
+      "shortName": "OnQuestResumeElevator",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestResumeElevator",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetFloorActive;QuestSetFloorActive",
+      "shortName": "OnQuestSetFloorActive",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestSetFloorActive",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetFloorInactive;QuestSetFloorInactive",
+      "shortName": "OnQuestSetFloorInactive",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestSetFloorInactive",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetLiftSpeed;QuestSetLiftSpeed",
+      "shortName": "OnQuestSetLiftSpeed",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestSetLiftSpeed",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetLiftTravelTimeOverride;QuestSetLiftTravelTimeOverride",
+      "shortName": "OnQuestSetLiftTravelTimeOverride",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestSetLiftTravelTimeOverride",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestSetRadioStation;QuestSetRadioStation",
+      "shortName": "OnQuestSetRadioStation",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestSetRadioStation",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestShowFloor;QuestShowFloor",
+      "shortName": "OnQuestShowFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestShowFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestStopElevator;QuestStopElevator",
+      "shortName": "OnQuestStopElevator",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:QuestStopElevator",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestToggleAds;QuestToggleAds",
+      "shortName": "OnQuestToggleAds",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestToggleAds",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnQuickHackAuthorization;QuickHackAuthorization",
@@ -1384,11 +1199,224 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:QuickHackAuthorization",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRefreshFloorsAuthorizationData;RefreshFloorAuthorizationDataEvent",
+      "shortName": "OnRefreshFloorsAuthorizationData",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:RefreshFloorAuthorizationDataEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRefreshFloorsData;RefreshFloorDataEvent",
+      "shortName": "OnRefreshFloorsData",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "handle:RefreshFloorDataEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRefreshPlayerAuthorizationEvent;RefreshPlayerAuthorizationEvent",
+      "shortName": "OnRefreshPlayerAuthorizationEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:RefreshPlayerAuthorizationEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetIsPlayerInsideLiftEvent;SetIsPlayerInsideLiftEvent",
+      "shortName": "OnSetIsPlayerInsideLiftEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:SetIsPlayerInsideLiftEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessUnstreamedLiftMovement;Int32",
+      "shortName": "ProcessUnstreamedLiftMovement",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshFloorsAuthorizationData_Event;Bool",
+      "shortName": "RefreshFloorsAuthorizationData_Event",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "passToEntity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshFloorsData_Event;Bool",
+      "shortName": "RefreshFloorsData_Event",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "passToEntity",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendLiftDepartedEvent;Int32",
+      "shortName": "SendLiftDepartedEvent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "activeFloor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendSetAuthorizationModuleOFFToSlaves;",
+      "shortName": "SendSetAuthorizationModuleOFFToSlaves",
+      "flags": 33028
+    },
+    {
+      "fullName": "SetCachedGoToFloorAction;Int32",
+      "shortName": "SetCachedGoToFloorAction",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHasSpeaker;Bool",
+      "shortName": "SetHasSpeaker",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsPlayerInsideLift;Bool",
+      "shortName": "SetIsPlayerInsideLift",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetMovementState;gamePlatformMovementState",
+      "shortName": "SetMovementState",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamePlatformMovementState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSpeakerDestroyed;Bool",
+      "shortName": "SetSpeakerDestroyed",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetStartingFloor;Int32",
+      "shortName": "SetStartingFloor",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "terminalNumber",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTimeWhenPaused;Float",
+      "shortName": "SetTimeWhenPaused",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SyncDataWithFloorTerminal;Int32",
+      "shortName": "SyncDataWithFloorTerminal",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "terminalNumber",
           "flags": 128
         }
       ]

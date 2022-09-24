@@ -14,7 +14,7 @@
       "flags": 4431347744
     },
     {
-      "type": "array:handle:senseStimuliEvent",
+      "type": "array:handle:StimEventTaskData",
       "name": "stimuliCache",
       "flags": 6583025696
     },
@@ -184,6 +184,11 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "beignHijacked",
+      "flags": 4297130016
+    },
+    {
       "type": "entEntityID",
       "name": "owner_id",
       "flags": 4297130016
@@ -236,11 +241,6 @@
     {
       "type": "Float",
       "name": "bumpTimestamp",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
-      "name": "bumpReactionInProgress",
       "flags": 4297130016
     },
     {
@@ -301,6 +301,11 @@
     {
       "type": "gameDelayID",
       "name": "exitWorkspotSequenceEventId",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "exitFearInVehicleEventId",
       "flags": 4297130016
     },
     {
@@ -398,7 +403,7 @@
     {
       "fullName": "ReactionManagerComponent::BodyInvestigated;ScriptedPuppet",
       "shortName": "BodyInvestigated",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:ScriptedPuppet",
@@ -414,7 +419,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -431,7 +436,7 @@
     {
       "fullName": "ReactionManagerComponent::SendVOEventToSquad;GameObjectCNameBool",
       "shortName": "SendVOEventToSquad",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -451,2169 +456,13 @@
       ]
     },
     {
-      "fullName": "AddInvestigatedBody;EntityID",
-      "shortName": "AddInvestigatedBody",
-      "flags": 132,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "bodyID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AddReactionValueToStatPool;AIReactionData",
-      "shortName": "AddReactionValueToStatPool",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:AIReactionData",
-          "name": "reactionData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CacheEvent;StimuliEvent",
-      "shortName": "CacheEvent",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CacheReaction;AIReactionData",
-      "shortName": "CacheReaction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:AIReactionData",
-          "name": "reactionData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CanAskToHolsterWeapon;",
-      "shortName": "CanAskToHolsterWeapon",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "CanReactInVehicle;StimuliEvent",
-      "shortName": "CanReactInVehicle",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CanStimInterruptCombat;StimuliEvent",
-      "shortName": "CanStimInterruptCombat",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CanTriggerExpressionLookAt;",
-      "shortName": "CanTriggerExpressionLookAt",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "CanTriggerPanicInCombat;StimuliEvent",
-      "shortName": "CanTriggerPanicInCombat",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CanTriggerReprimandOrder;",
-      "shortName": "CanTriggerReprimandOrder",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "CheckComfortZone;",
-      "shortName": "CheckComfortZone",
-      "flags": 132
-    },
-    {
-      "fullName": "CheckCrowd;",
-      "shortName": "CheckCrowd",
-      "flags": 132
-    },
-    {
-      "fullName": "CheckHearingDistance;StimuliEvent",
-      "shortName": "CheckHearingDistance",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CheckSquadInvestigation;StimEventData",
-      "shortName": "CheckSquadInvestigation",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "StimEventData",
-          "name": "stimEventData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CheckStalk;GameObjectFloat",
-      "shortName": "CheckStalk",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "timeout",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CheckVisibilityRaycast;StimuliEvent",
-      "shortName": "CheckVisibilityRaycast",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ConvertFearStageToFearPhase;gameFearStage",
-      "shortName": "ConvertFearStageToFearPhase",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameFearStage",
-          "name": "fearStage",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CreateFearThreashold;",
-      "shortName": "CreateFearThreashold",
-      "flags": 132
-    },
-    {
-      "fullName": "DeescalateReprimand;",
-      "shortName": "DeescalateReprimand",
-      "flags": 132
-    },
-    {
-      "fullName": "DelayEnvironmentalHazardEvent;StimuliEvent",
-      "shortName": "DelayEnvironmentalHazardEvent",
-      "return": {
-        "type": "gameDelayID",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DelayReaction;gamedataStimType",
-      "shortName": "DelayReaction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DidTargetMakeMeAlerted;GameObject",
-      "shortName": "DidTargetMakeMeAlerted",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "FirstSquadMemberReaction;",
-      "shortName": "FirstSquadMemberReaction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "GetActiveReactionData;",
-      "shortName": "GetActiveReactionData",
-      "return": {
-        "type": "handle:AIReactionData",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetActiveStimPriority;",
-      "shortName": "GetActiveStimPriority",
-      "return": {
-        "type": "gamedataStimPriority",
-        "flags": 64
-      },
-      "flags": 8324
-    },
-    {
-      "fullName": "GetActiveStimSource;",
-      "shortName": "GetActiveStimSource",
-      "return": {
-        "type": "Vector4",
-        "flags": 64
-      },
-      "flags": 8324
-    },
-    {
-      "fullName": "GetActiveStimTarget;",
-      "shortName": "GetActiveStimTarget",
-      "return": {
-        "type": "handle:gameObject",
-        "flags": 64
-      },
-      "flags": 8324
-    },
-    {
-      "fullName": "GetCurrentStealthStimThresholdValue;",
-      "shortName": "GetCurrentStealthStimThresholdValue",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetCurrentStealthStimTimeStamp;",
-      "shortName": "GetCurrentStealthStimTimeStamp",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetCurrentStimThresholdValue;",
-      "shortName": "GetCurrentStimThresholdValue",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetCurrentStimTimeStamp;",
-      "shortName": "GetCurrentStimTimeStamp",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetDesiredReactionData;",
-      "shortName": "GetDesiredReactionData",
-      "return": {
-        "type": "handle:AIReactionData",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetDesiredReactionName;",
-      "shortName": "GetDesiredReactionName",
-      "return": {
-        "type": "gamedataOutput",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetEnvironmentalHazards;",
-      "shortName": "GetEnvironmentalHazards",
-      "return": {
-        "type": "array:handle:senseStimuliEvent",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetFearAnimWrapper;Int32",
-      "shortName": "GetFearAnimWrapper",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "fearPhase",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetFearReactionPhase;StimuliEvent",
-      "shortName": "GetFearReactionPhase",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetIgnoreList;",
-      "shortName": "GetIgnoreList",
-      "return": {
-        "type": "array:entEntityID",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetInPendingBehavior;",
-      "shortName": "GetInPendingBehavior",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetOutputPriority;gamedataOutput",
-      "shortName": "GetOutputPriority",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataOutput",
-          "name": "output",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetOwnerPuppet;",
-      "shortName": "GetOwnerPuppet",
-      "return": {
-        "type": "handle:ScriptedPuppet",
-        "flags": 64
-      },
-      "flags": 8324
-    },
-    {
-      "fullName": "GetPreviousFearPhase;",
-      "shortName": "GetPreviousFearPhase",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetPuppetReactionBlackboard;",
-      "shortName": "GetPuppetReactionBlackboard",
-      "return": {
-        "type": "handle:gameIBlackboard",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetRandomFearLocomotionAnimWrapper;Int32gamedataStimType",
-      "shortName": "GetRandomFearLocomotionAnimWrapper",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "fearPhase",
-          "flags": 128
-        },
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "GetReactionBehaviorName;",
-      "shortName": "GetReactionBehaviorName",
-      "return": {
-        "type": "gamedataOutput",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetReactionCache;",
-      "shortName": "GetReactionCache",
-      "return": {
-        "type": "array:handle:AIReactionData",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetReactionOutput;gamedataStimTypearray<Rule_Record>",
-      "shortName": "GetReactionOutput",
-      "return": {
-        "type": "ReactionOutput",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        },
-        {
-          "type": "array:whandle:gamedataRule_Record",
-          "name": "rules",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetReactionPreset;",
-      "shortName": "GetReactionPreset",
-      "return": {
-        "type": "whandle:gamedataReactionPreset_Record",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetReceivedStimType;",
-      "shortName": "GetReceivedStimType",
-      "return": {
-        "type": "gamedataStimType",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetRules;",
-      "shortName": "GetRules",
-      "return": {
-        "type": "array:whandle:gamedataRule_Record",
-        "flags": 64
-      },
-      "flags": 8324
-    },
-    {
-      "fullName": "GetSpreadFearPhase;StimuliEvent",
-      "shortName": "GetSpreadFearPhase",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetStimSource;StimuliEvent",
-      "shortName": "GetStimSource",
-      "return": {
-        "type": "Vector4",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetStimuliCache;",
-      "shortName": "GetStimuliCache",
-      "return": {
-        "type": "array:handle:senseStimuliEvent",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetThreatDistanceSquared;GameObject",
-      "shortName": "GetThreatDistanceSquared",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "threat",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetWorkSpotReactionFlag;",
-      "shortName": "GetWorkSpotReactionFlag",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "HandleCrowdReaction;StimuliEvent",
-      "shortName": "HandleCrowdReaction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HandleStimEvent;StimuliEvent",
-      "shortName": "HandleStimEvent",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HandleStimEventByTask;StimuliEvent",
-      "shortName": "HandleStimEventByTask",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HandleStimEventTask;ScriptTaskData",
-      "shortName": "HandleStimEventTask",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameScriptTaskData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HasCombatTarget;",
-      "shortName": "HasCombatTarget",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "HelpAlly;GameObjectEntity",
-      "shortName": "HelpAlly",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "ally",
-          "flags": 128
-        },
-        {
-          "type": "whandle:entEntity",
-          "name": "attacker",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "IgnoreStimIfFromSameSource;StimuliEvent",
-      "shortName": "IgnoreStimIfFromSameSource",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IgnoreStimIfNonFriendly;StimuliEvent",
-      "shortName": "IgnoreStimIfNonFriendly",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "InformInvestigators;",
-      "shortName": "InformInvestigators",
-      "flags": 516
-    },
-    {
-      "fullName": "InitCrowd;",
-      "shortName": "InitCrowd",
-      "flags": 132
-    },
-    {
-      "fullName": "Initialiaze;",
-      "shortName": "Initialiaze",
-      "flags": 132
-    },
-    {
-      "fullName": "IsAlertedByDeadBody;",
-      "shortName": "IsAlertedByDeadBody",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "IsCategory;StimuliEventCName",
-      "shortName": "IsCategory",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "category",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsDirectStimuli;gamedataStimType",
-      "shortName": "IsDirectStimuli",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsDuplicate;StimuliEventStimuliEvent",
-      "shortName": "IsDuplicate",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "cacheStim",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsEventDuplicated;StimuliEvent",
-      "shortName": "IsEventDuplicated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsFearLocomotionWrapperSet;",
-      "shortName": "IsFearLocomotionWrapperSet",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "IsInList;array<StimEventData>StimEventData",
-      "shortName": "IsInList",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:StimEventData",
-          "name": "list",
-          "flags": 128
-        },
-        {
-          "type": "StimEventData",
-          "name": "stimData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsInPendingBehavior;",
-      "shortName": "IsInPendingBehavior",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "IsInTrafficLane;",
-      "shortName": "IsInTrafficLane",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "IsInitAnimCall;gamedataStimType",
-      "shortName": "IsInitAnimCall",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stim",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsInitAnimShock;gamedataOutput",
-      "shortName": "IsInitAnimShock",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataOutput",
-          "name": "behavior",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsPlayerAiming;",
-      "shortName": "IsPlayerAiming",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324
-    },
-    {
-      "fullName": "IsPlayerCarryingBody;PlayerPuppet",
-      "shortName": "IsPlayerCarryingBody",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "whandle:PlayerPuppet",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsPlayerFearThreat;",
-      "shortName": "IsPlayerFearThreat",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "IsPlayerInZone;gamePSMZones",
-      "shortName": "IsPlayerInZone",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamePSMZones",
-          "name": "zone",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsPublicZone;StimuliEvent",
-      "shortName": "IsPublicZone",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsReactionAvailableInPreset;gamedataStimType",
-      "shortName": "IsReactionAvailableInPreset",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimTrigger",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsSameSourceObject;StimuliEvent",
-      "shortName": "IsSameSourceObject",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsSameStimulus;StimuliEvent",
-      "shortName": "IsSameStimulus",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsSquadMateInDanger;gamedataOutput",
-      "shortName": "IsSquadMateInDanger",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataOutput",
-          "name": "reaction",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsStimPriorityValid;StimuliEventgamedataStimPriority",
-      "shortName": "IsStimPriorityValid",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "gamedataStimPriority",
-          "name": "activePriority",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsStimuliEventValid;StimuliEvent",
-      "shortName": "IsStimuliEventValid",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetArmed;GameObject",
-      "shortName": "IsTargetArmed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetBehind;GameObjectFloatBool",
-      "shortName": "IsTargetBehind",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "angle",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "meBehindOfTarget",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetClose;GameObjectFloat",
-      "shortName": "IsTargetClose",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "distance",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetDetected;GameObject",
-      "shortName": "IsTargetDetected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetInFront;GameObjectFloatBool",
-      "shortName": "IsTargetInFront",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "frontAngle",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "meInFrontOfTarget",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetInMovementDirection;GameObject",
-      "shortName": "IsTargetInMovementDirection",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetInterestingForPerception;GameObject",
-      "shortName": "IsTargetInterestingForPerception",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetInterestingForRecentSquadMates;GameObjectGameObject",
-      "shortName": "IsTargetInterestingForRecentSquadMates",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameObject",
-          "name": "ally",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetMelee;GameObject",
-      "shortName": "IsTargetMelee",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetRecentSquadAlly;GameObject",
-      "shortName": "IsTargetRecentSquadAlly",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetSquadAlly;GameObject",
-      "shortName": "IsTargetSquadAlly",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsTargetVisible;GameObject",
-      "shortName": "IsTargetVisible",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "MapLookAtVO;LookAtDataCName",
-      "shortName": "MapLookAtVO",
-      "flags": 132,
-      "params": [
-        {
-          "type": "LookAtData",
-          "name": "lookAtData",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "vo",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "MapReactionPreset;String",
-      "shortName": "MapReactionPreset",
-      "flags": 132,
-      "params": [
-        {
-          "type": "String",
-          "name": "mappingName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "NotifySecuritySystem;gamedataStimTypeGameObject",
-      "shortName": "NotifySecuritySystem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameObject",
-          "name": "stimObject",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGameAttach;",
-      "shortName": "OnGameAttach",
-      "flags": 516
-    },
-    {
-      "fullName": "OnGameDetach;",
-      "shortName": "OnGameDetach",
-      "flags": 132
-    },
-    {
-      "fullName": "OnReactionEnded;",
-      "shortName": "OnReactionEnded",
-      "flags": 132
-    },
-    {
-      "fullName": "OnReactionStarted;AIReactionData",
-      "shortName": "OnReactionStarted",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:AIReactionData",
-          "name": "reactionData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PickCloserTarget;StimuliEventBool",
-      "shortName": "PickCloserTarget",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "newStimEvent",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "updateByActive",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "PlayBumpInWorkspot;gameinteractionsBumpSideVector4",
-      "shortName": "PlayBumpInWorkspot",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameinteractionsBumpSide",
-          "name": "side",
-          "flags": 128
-        },
-        {
-          "type": "Vector4",
-          "name": "direction",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ProcessEnvironmentalHazard;StimuliEvent",
-      "shortName": "ProcessEnvironmentalHazard",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ProcessStimParams;StimuliEvent",
-      "shortName": "ProcessStimParams",
-      "return": {
-        "type": "StimParams",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReactToSecurityOutput;SecuritySystemOutput",
-      "shortName": "ReactToSecurityOutput",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:SecuritySystemOutput",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReactToSecuritySystemOutputByTask;SecuritySystemOutput",
-      "shortName": "ReactToSecuritySystemOutputByTask",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:SecuritySystemOutput",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReactToSecuritySystemOutputTask;ScriptTaskData",
-      "shortName": "ReactToSecuritySystemOutputTask",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameScriptTaskData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RecentReaction;gamedataOutput",
-      "shortName": "RecentReaction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataOutput",
-          "name": "behaviorName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReevaluateReaction;",
-      "shortName": "ReevaluateReaction",
-      "flags": 132
-    },
-    {
-      "fullName": "ReevaluateReactionPreset;Bool",
-      "shortName": "ReevaluateReactionPreset",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "ignoreSavedPreset",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ReflectSecSysStateToHLS;ESecuritySystemState",
-      "shortName": "ReflectSecSysStateToHLS",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "ESecuritySystemState",
-          "name": "securityState",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ReprimandEscalation;",
-      "shortName": "ReprimandEscalation",
-      "flags": 132
-    },
-    {
-      "fullName": "ResetAllFearAnimWrappers;",
-      "shortName": "ResetAllFearAnimWrappers",
-      "flags": 132
-    },
-    {
-      "fullName": "ResetFacial;Float",
-      "shortName": "ResetFacial",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Float",
-          "name": "cooldown",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SafeToExitFear;",
-      "shortName": "SafeToExitFear",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "SafeToExitPanicFear;",
-      "shortName": "SafeToExitPanicFear",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "SelectFacialEmotion;LookAtData",
-      "shortName": "SelectFacialEmotion",
-      "flags": 132,
-      "params": [
-        {
-          "type": "LookAtData",
-          "name": "lookAtData",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "SendEventToSquad;IgnoreListEvent",
-      "shortName": "SendEventToSquad",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:IgnoreListEvent",
-          "name": "ignoreListEvent",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SetBaseReactionPreset;Bool",
-      "shortName": "SetBaseReactionPreset",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "ignoreSavedPreset",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SetCrowdRunningAwayAnimFeature;gamedataStimType",
-      "shortName": "SetCrowdRunningAwayAnimFeature",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetDeadBodyVisibleComponent;GameObject",
-      "shortName": "SetDeadBodyVisibleComponent",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "killer",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetReactionPreset;ReactionPreset_Record",
-      "shortName": "SetReactionPreset",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gamedataReactionPreset_Record",
-          "name": "reactionPreset",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetWarningMessage;String",
-      "shortName": "SetWarningMessage",
-      "flags": 132,
-      "params": [
-        {
-          "type": "String",
-          "name": "lockey",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldAddToIgnoreList;gamedataStimType",
-      "shortName": "ShouldAddToIgnoreList",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldBeDetected;gamedataStimType",
-      "shortName": "ShouldBeDetected",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldEventBeProcessed;StimuliEvent",
-      "shortName": "ShouldEventBeProcessed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldFearInPlace;StimuliEvent",
-      "shortName": "ShouldFearInPlace",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldHelpAlly;gamedataStimType",
-      "shortName": "ShouldHelpAlly",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldInterruptCurrentFearStage;Int32",
-      "shortName": "ShouldInterruptCurrentFearStage",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "fearPhase",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldPoliceReact;StimuliEvent",
-      "shortName": "ShouldPoliceReact",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldStimBeProcessed;StimuliEvent",
-      "shortName": "ShouldStimBeProcessed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldStimBeProcessedByCrowd;StimuliEvent",
-      "shortName": "ShouldStimBeProcessedByCrowd",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldTriggerGrenadeDodgeBehavior;StimuliEvent",
-      "shortName": "ShouldTriggerGrenadeDodgeBehavior",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShouldUpdateThreatPosition;StimuliEvent",
-      "shortName": "ShouldUpdateThreatPosition",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SourceAttitude;GameObjectEAIAttitude",
-      "shortName": "SourceAttitude",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "source",
-          "flags": 128
-        },
-        {
-          "type": "EAIAttitude",
-          "name": "attitude",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SpreadFear;GameObjectInt32",
-      "shortName": "SpreadFear",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "instigator",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "phase",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartEscalateReprimand;",
-      "shortName": "StartEscalateReprimand",
-      "flags": 132
-    },
-    {
-      "fullName": "StimRule;Rule_RecordgamedataStimType",
-      "shortName": "StimRule",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "whandle:gamedataRule_Record",
-          "name": "rule",
-          "flags": 128
-        },
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SurrenderToLeave;",
-      "shortName": "SurrenderToLeave",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "TargetVerticalCheck;GameObjectFloat",
-      "shortName": "TargetVerticalCheck",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "distance",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerAlerted;",
-      "shortName": "TriggerAlerted",
-      "flags": 132
-    },
-    {
-      "fullName": "TriggerAlertedFromHostileStim;StimuliEvent",
-      "shortName": "TriggerAlertedFromHostileStim",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerCombat;GameObject",
-      "shortName": "TriggerCombat",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "trespasser",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerCombatFromHostileStim;gamedataStimType",
-      "shortName": "TriggerCombatFromHostileStim",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataStimType",
-          "name": "stimType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerFacialLookAtReaction;BoolBool",
-      "shortName": "TriggerFacialLookAtReaction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "forceFear",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "playVO",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerFearFacial;Int32",
-      "shortName": "TriggerFearFacial",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "phase",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerReactionBehaviorForCrowd;GameObjectgamedataOutputBoolVector4",
-      "shortName": "TriggerReactionBehaviorForCrowd",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "gamedataOutput",
-          "name": "reaction",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "initAnimInWorkspot",
-          "flags": 128
-        },
-        {
-          "type": "Vector4",
-          "name": "sourcePosition",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "TriggerReactionBehaviorForCrowd;StimuliEventgamedataOutputBool",
-      "shortName": "TriggerReactionBehaviorForCrowd",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "gamedataOutput",
-          "name": "reaction",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "initAnimInWorkspot",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateActiveReaction;ReactionOutputStimuliEventStimEventDataBool",
-      "shortName": "UpdateActiveReaction",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ReactionOutput",
-          "name": "reaction",
-          "flags": 128
-        },
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "StimEventData",
-          "name": "stimData",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "updateByActive",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ValidVisualGunshotTarget;StimuliEventAIReactionData",
-      "shortName": "ValidVisualGunshotTarget",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        },
-        {
-          "type": "handle:AIReactionData",
-          "name": "reactionData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActivateReactionLookAt;EntityBoolBoolFloatBool",
-      "shortName": "ActivateReactionLookAt",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 128,
-      "params": [
-        {
-          "type": "handle:entEntity",
-          "name": "targetEntity",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "end",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "repeat",
-          "flags": 1152
-        },
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "upperBody",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "DeactiveLookAt;Bool",
-      "shortName": "DeactiveLookAt",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 128,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "repeat",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "FillStimData;StimuliEvent",
-      "shortName": "FillStimData",
-      "return": {
-        "type": "StimEventData",
-        "flags": 64
-      },
-      "flags": 128,
-      "params": [
-        {
-          "type": "handle:senseStimuliEvent",
-          "name": "stimEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnAIEvent",
       "shortName": "OnAIEvent",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:AIAIEvent",
@@ -2629,7 +478,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:AddInvestigatorEvent",
@@ -2645,7 +494,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:entAreaEnteredEvent",
@@ -2661,7 +510,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:entAreaExitedEvent",
@@ -2677,7 +526,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsAttitudeGroupChangedEvent",
@@ -2693,7 +542,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:BodyInvestigatedEvent",
@@ -2709,7 +558,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:SetBodyPositionEvent",
@@ -2725,7 +574,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameinteractionsBumpEvent",
@@ -2741,7 +590,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:CheckComfortZoneEvent",
@@ -2757,11 +606,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:CleanEnvironmentalHazardEvent",
           "name": "cleanEnvironmentalHazardEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnClearFearOnHitEvent",
+      "shortName": "OnClearFearOnHitEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ClearFearOnHitEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -2773,7 +638,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameinteractionsCrosswalkEvent",
@@ -2789,7 +654,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:CrowdCallingPoliceEvent",
@@ -2805,7 +670,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DelayedCrowdReactionEvent",
@@ -2821,7 +686,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:CrowdSettingsEvent",
@@ -2837,10 +702,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DeadBodyEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeescalateFearInVehicle",
+      "shortName": "OnDeescalateFearInVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DeescalateFearInVehicle",
           "name": "evt",
           "flags": 128
         }
@@ -2853,7 +734,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DelayStimEvent",
@@ -2869,7 +750,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:senseOnDetectedEvent",
@@ -2885,7 +766,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DistrurbComfortZoneAggressiveEvent",
@@ -2901,7 +782,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DisturbingComfortZone",
@@ -2917,7 +798,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:EndLookatEvent",
@@ -2933,7 +814,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:senseStimuliEvent",
@@ -2949,7 +830,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ExitWorkspotSequenceEvent",
@@ -2965,7 +846,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:moveExplorationEnteredEvent",
@@ -2981,7 +862,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:moveExplorationLeftEvent",
@@ -2997,7 +878,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsHighLevelStateDataEvent",
@@ -3013,7 +894,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IgnoreListEvent",
@@ -3029,7 +910,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameInCrowd",
@@ -3045,7 +926,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:LookedAtEvent",
@@ -3061,7 +942,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:NPCRoleChangeEvent",
@@ -3077,7 +958,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameOutOfCrowd",
@@ -3093,7 +974,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -3109,7 +990,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:PlayerMuntedToMyVehicle",
@@ -3125,7 +1006,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:worldPlayerProximityStartEvent",
@@ -3141,7 +1022,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:worldPlayerProximityStopEvent",
@@ -3157,7 +1038,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ProximityLookatEvent",
@@ -3173,7 +1054,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:entRagdollNotifyEnabledEvent",
@@ -3205,7 +1086,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ReactionBehaviorStatus",
@@ -3221,7 +1102,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsReactionChangeRequestEvent",
@@ -3237,7 +1118,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:workReactionFinishedEvent",
@@ -3253,7 +1134,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ReevaluatePresetEvent",
@@ -3269,7 +1150,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:RepeatLookatEvent",
@@ -3285,7 +1166,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ReprimandEscalationEvent",
@@ -3301,7 +1182,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ReprimandUpdate",
@@ -3317,7 +1198,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ResetFacialEvent",
@@ -3333,7 +1214,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ResetLookatReactionEvent",
@@ -3349,10 +1230,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ResetReactionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetVehicleHijackEvent",
+      "shortName": "OnResetVehicleHijackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ResetVehicleHijackEvent",
           "name": "evt",
           "flags": 128
         }
@@ -3365,7 +1262,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:SecurityAreaCrossingPerimeter",
@@ -3381,7 +1278,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:SecuritySystemOutput",
@@ -3397,7 +1294,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:senseVisibilityEvent",
@@ -3413,7 +1310,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsStanceStateChangeEvent",
@@ -3429,7 +1326,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsApplyStatusEffectEvent",
@@ -3445,7 +1342,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsRemoveStatusEffect",
@@ -3461,7 +1358,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:StealthStimThresholdEvent",
@@ -3477,7 +1374,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:StimThresholdEvent",
@@ -3493,7 +1390,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:AIbehaviorSuspiciousObjectEvent",
@@ -3509,10 +1406,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:SwapPresetEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTeleported",
+      "shortName": "OnTeleported",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:AIPuppetSwappedEvent",
           "name": "evt",
           "flags": 128
         }
@@ -3525,7 +1438,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:TerminateReactionLookatEvent",
@@ -3541,10 +1454,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:TriggerDelayedReactionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleHijackEvent",
+      "shortName": "OnVehicleHijackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleHijackEvent",
           "name": "evt",
           "flags": 128
         }
@@ -3557,7 +1486,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameeventsVehicleHitEvent",
@@ -3599,13 +1528,1573 @@
       ]
     },
     {
-      "fullName": "ProcessReactionOutput;StimuliEventStimParams",
-      "shortName": "ProcessReactionOutput",
-      "flags": 128,
+      "fullName": "ActivateReactionLookAt;EntityBoolBoolFloatBoolBool",
+      "shortName": "ActivateReactionLookAt",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32896,
+      "params": [
+        {
+          "type": "handle:entEntity",
+          "name": "targetEntity",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "end",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "repeat",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "upperBody",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "inVehicle",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AddInvestigatedBody;EntityID",
+      "shortName": "AddInvestigatedBody",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "bodyID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddReactionValueToStatPool;AIReactionData",
+      "shortName": "AddReactionValueToStatPool",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:AIReactionData",
+          "name": "reactionData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CacheEvent;StimEventTaskData",
+      "shortName": "CacheEvent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:StimEventTaskData",
+          "name": "stimData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CacheReaction;AIReactionData",
+      "shortName": "CacheReaction",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:AIReactionData",
+          "name": "reactionData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CalculateMoveTypeChangeDelay;FloatFloatFloatFloat",
+      "shortName": "CalculateMoveTypeChangeDelay",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "totalDistance",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distanceLeft",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "minDistance",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "maxDelay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanAskToHolsterWeapon;",
+      "shortName": "CanAskToHolsterWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "CanReactInVehicle;StimuliEvent",
+      "shortName": "CanReactInVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
       "params": [
         {
           "type": "handle:senseStimuliEvent",
           "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanStimInterruptCombat;StimuliEvent",
+      "shortName": "CanStimInterruptCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanTriggerExpressionLookAt;",
+      "shortName": "CanTriggerExpressionLookAt",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "CanTriggerPanicInCombat;StimuliEvent",
+      "shortName": "CanTriggerPanicInCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanTriggerReprimandOrder;",
+      "shortName": "CanTriggerReprimandOrder",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "CheckComfortZone;",
+      "shortName": "CheckComfortZone",
+      "flags": 32900
+    },
+    {
+      "fullName": "CheckCrowd;",
+      "shortName": "CheckCrowd",
+      "flags": 32900
+    },
+    {
+      "fullName": "CheckHearingDistance;StimuliEvent",
+      "shortName": "CheckHearingDistance",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CheckSquadInvestigation;StimEventData",
+      "shortName": "CheckSquadInvestigation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "StimEventData",
+          "name": "stimEventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CheckStalk;GameObjectFloat",
+      "shortName": "CheckStalk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeout",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ConvertFearStageToFearPhase;gameFearStage",
+      "shortName": "ConvertFearStageToFearPhase",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameFearStage",
+          "name": "fearStage",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateFearArea;StimuliEventInt32",
+      "shortName": "CreateFearArea",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "fearPhase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateFearThreashold;",
+      "shortName": "CreateFearThreashold",
+      "flags": 32900
+    },
+    {
+      "fullName": "DeactiveLookAt;Bool",
+      "shortName": "DeactiveLookAt",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32896,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "repeat",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DeescalateReprimand;",
+      "shortName": "DeescalateReprimand",
+      "flags": 32900
+    },
+    {
+      "fullName": "DelayEnvironmentalHazardEvent;StimuliEvent",
+      "shortName": "DelayEnvironmentalHazardEvent",
+      "return": {
+        "type": "gameDelayID",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DelayReaction;gamedataStimType",
+      "shortName": "DelayReaction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DidTargetMakeMeAlerted;GameObject",
+      "shortName": "DidTargetMakeMeAlerted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FillStimData;StimuliEvent",
+      "shortName": "FillStimData",
+      "return": {
+        "type": "StimEventData",
+        "flags": 64
+      },
+      "flags": 32896,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FirstSquadMemberReaction;",
+      "shortName": "FirstSquadMemberReaction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetActiveReactionData;",
+      "shortName": "GetActiveReactionData",
+      "return": {
+        "type": "handle:AIReactionData",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetActiveStimPriority;",
+      "shortName": "GetActiveStimPriority",
+      "return": {
+        "type": "gamedataStimPriority",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetActiveStimSource;",
+      "shortName": "GetActiveStimSource",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetActiveStimTarget;",
+      "shortName": "GetActiveStimTarget",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetCurrentStealthStimThresholdValue;",
+      "shortName": "GetCurrentStealthStimThresholdValue",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCurrentStealthStimTimeStamp;",
+      "shortName": "GetCurrentStealthStimTimeStamp",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCurrentStimThresholdValue;",
+      "shortName": "GetCurrentStimThresholdValue",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCurrentStimTimeStamp;",
+      "shortName": "GetCurrentStimTimeStamp",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetDesiredReactionData;",
+      "shortName": "GetDesiredReactionData",
+      "return": {
+        "type": "handle:AIReactionData",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDesiredReactionName;",
+      "shortName": "GetDesiredReactionName",
+      "return": {
+        "type": "gamedataOutput",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetEnvironmentalHazards;",
+      "shortName": "GetEnvironmentalHazards",
+      "return": {
+        "type": "array:handle:senseStimuliEvent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFearAnimWrapper;Int32",
+      "shortName": "GetFearAnimWrapper",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "fearPhase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFearReactionPhase;StimuliEvent",
+      "shortName": "GetFearReactionPhase",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetIgnoreList;",
+      "shortName": "GetIgnoreList",
+      "return": {
+        "type": "array:entEntityID",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetInPendingBehavior;",
+      "shortName": "GetInPendingBehavior",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetOutputPriority;gamedataOutput",
+      "shortName": "GetOutputPriority",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataOutput",
+          "name": "output",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetOwnerPuppet;",
+      "shortName": "GetOwnerPuppet",
+      "return": {
+        "type": "handle:ScriptedPuppet",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetPreviousFearPhase;",
+      "shortName": "GetPreviousFearPhase",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPuppetReactionBlackboard;",
+      "shortName": "GetPuppetReactionBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetRandomFearLocomotionAnimWrapper;Int32gamedataStimType",
+      "shortName": "GetRandomFearLocomotionAnimWrapper",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "fearPhase",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetReactionBehaviorName;",
+      "shortName": "GetReactionBehaviorName",
+      "return": {
+        "type": "gamedataOutput",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetReactionCache;",
+      "shortName": "GetReactionCache",
+      "return": {
+        "type": "array:handle:AIReactionData",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetReactionOutput;gamedataStimTypearray<Rule_Record>",
+      "shortName": "GetReactionOutput",
+      "return": {
+        "type": "ReactionOutput",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataRule_Record",
+          "name": "rules",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetReactionPreset;",
+      "shortName": "GetReactionPreset",
+      "return": {
+        "type": "whandle:gamedataReactionPreset_Record",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetReceivedStimType;",
+      "shortName": "GetReceivedStimType",
+      "return": {
+        "type": "gamedataStimType",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetRules;",
+      "shortName": "GetRules",
+      "return": {
+        "type": "array:whandle:gamedataRule_Record",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "GetSpreadFearPhase;StimuliEvent",
+      "shortName": "GetSpreadFearPhase",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetStimSource;StimuliEvent",
+      "shortName": "GetStimSource",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetStimuliCache;",
+      "shortName": "GetStimuliCache",
+      "return": {
+        "type": "array:handle:StimEventTaskData",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetThreatDistanceSquared;GameObject",
+      "shortName": "GetThreatDistanceSquared",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "threat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetWorkSpotReactionFlag;",
+      "shortName": "GetWorkSpotReactionFlag",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "HandleCrowdReaction;StimuliEvent",
+      "shortName": "HandleCrowdReaction",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleStimEvent;StimEventTaskData",
+      "shortName": "HandleStimEvent",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:StimEventTaskData",
+          "name": "stimData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleStimEventByTask;StimuliEvent",
+      "shortName": "HandleStimEventByTask",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleStimEventTask;ScriptTaskData",
+      "shortName": "HandleStimEventTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasCombatTarget;",
+      "shortName": "HasCombatTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "HelpAlly;GameObjectEntity",
+      "shortName": "HelpAlly",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "ally",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "attacker",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IgnoreStimIfFromSameSource;StimuliEvent",
+      "shortName": "IgnoreStimIfFromSameSource",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IgnoreStimIfNonFriendly;StimuliEvent",
+      "shortName": "IgnoreStimIfNonFriendly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InformInvestigators;",
+      "shortName": "InformInvestigators",
+      "flags": 33284
+    },
+    {
+      "fullName": "InitCrowd;",
+      "shortName": "InitCrowd",
+      "flags": 32900
+    },
+    {
+      "fullName": "Initialiaze;",
+      "shortName": "Initialiaze",
+      "flags": 32900
+    },
+    {
+      "fullName": "IsAlertedByDeadBody;",
+      "shortName": "IsAlertedByDeadBody",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsCategory;StimuliEventCName",
+      "shortName": "IsCategory",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "category",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsDirectStimuli;gamedataStimType",
+      "shortName": "IsDirectStimuli",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsDuplicate;StimuliEventStimuliEvent",
+      "shortName": "IsDuplicate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "cacheStim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEventDuplicated;StimuliEvent",
+      "shortName": "IsEventDuplicated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsFearLocomotionWrapperSet;",
+      "shortName": "IsFearLocomotionWrapperSet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsInList;array<StimEventData>StimEventData",
+      "shortName": "IsInList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:StimEventData",
+          "name": "list",
+          "flags": 128
+        },
+        {
+          "type": "StimEventData",
+          "name": "stimData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsInPendingBehavior;",
+      "shortName": "IsInPendingBehavior",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "IsInTrafficLane;",
+      "shortName": "IsInTrafficLane",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsInitAnimCall;gamedataStimType",
+      "shortName": "IsInitAnimCall",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsInitAnimShock;gamedataOutput",
+      "shortName": "IsInitAnimShock",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataOutput",
+          "name": "behavior",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayerAiming;",
+      "shortName": "IsPlayerAiming",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsPlayerCarryingBody;PlayerPuppet",
+      "shortName": "IsPlayerCarryingBody",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayerFearThreat;",
+      "shortName": "IsPlayerFearThreat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "IsPlayerInZone;gamePSMZones",
+      "shortName": "IsPlayerInZone",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamePSMZones",
+          "name": "zone",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPublicZone;StimuliEvent",
+      "shortName": "IsPublicZone",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsReactionAvailableInPreset;gamedataStimType",
+      "shortName": "IsReactionAvailableInPreset",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimTrigger",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSameSourceObject;StimuliEvent",
+      "shortName": "IsSameSourceObject",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSameStimulus;StimuliEvent",
+      "shortName": "IsSameStimulus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSquadMateInDanger;gamedataOutput",
+      "shortName": "IsSquadMateInDanger",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataOutput",
+          "name": "reaction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsStimPriorityValid;StimuliEventgamedataStimPriority",
+      "shortName": "IsStimPriorityValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimPriority",
+          "name": "activePriority",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsStimuliEventValid;StimuliEvent",
+      "shortName": "IsStimuliEventValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetArmed;GameObject",
+      "shortName": "IsTargetArmed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetBehind;GameObjectFloatBool",
+      "shortName": "IsTargetBehind",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "angle",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "meBehindOfTarget",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetClose;GameObjectFloat",
+      "shortName": "IsTargetClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetDetected;GameObject",
+      "shortName": "IsTargetDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetFromSameAttitudeGroup;GameObject",
+      "shortName": "IsTargetFromSameAttitudeGroup",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetInFront;GameObjectFloatBool",
+      "shortName": "IsTargetInFront",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "frontAngle",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "meInFrontOfTarget",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetInMovementDirection;GameObject",
+      "shortName": "IsTargetInMovementDirection",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetInterestingForPerception;GameObject",
+      "shortName": "IsTargetInterestingForPerception",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetInterestingForRecentSquadMates;GameObjectGameObject",
+      "shortName": "IsTargetInterestingForRecentSquadMates",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "ally",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetMelee;GameObject",
+      "shortName": "IsTargetMelee",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetRecentSquadAlly;GameObject",
+      "shortName": "IsTargetRecentSquadAlly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetSquadAlly;GameObject",
+      "shortName": "IsTargetSquadAlly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTargetVisible;GameObject",
+      "shortName": "IsTargetVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVisible;StimuliEventVector4",
+      "shortName": "IsVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "stimOffset",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MapLookAtVO;LookAtDataCName",
+      "shortName": "MapLookAtVO",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "LookAtData",
+          "name": "lookAtData",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "vo",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "MapReactionPreset;String",
+      "shortName": "MapReactionPreset",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "String",
+          "name": "mappingName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifySecuritySystem;gamedataStimTypeGameObject",
+      "shortName": "NotifySecuritySystem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "stimObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameAttach;",
+      "shortName": "OnGameAttach",
+      "flags": 34308
+    },
+    {
+      "fullName": "OnGameDetach;",
+      "shortName": "OnGameDetach",
+      "flags": 33924
+    },
+    {
+      "fullName": "OnReactionEnded;",
+      "shortName": "OnReactionEnded",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnReactionStarted;AIReactionData",
+      "shortName": "OnReactionStarted",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:AIReactionData",
+          "name": "reactionData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PickCloserTarget;StimuliEventBool",
+      "shortName": "PickCloserTarget",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "newStimEvent",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "updateByActive",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "PlayBumpInWorkspot;gameinteractionsBumpSideVector4",
+      "shortName": "PlayBumpInWorkspot",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameinteractionsBumpSide",
+          "name": "side",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "direction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessEnvironmentalHazard;StimuliEvent",
+      "shortName": "ProcessEnvironmentalHazard",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessReactionOutput;StimEventTaskDataStimParams",
+      "shortName": "ProcessReactionOutput",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:StimEventTaskData",
+          "name": "stimData",
           "flags": 128
         },
         {
@@ -3616,9 +3105,690 @@
       ]
     },
     {
-      "fullName": "TriggerBehaviorReaction;ReactionOutputStimuliEventStimEventData",
+      "fullName": "ProcessStimParams;StimuliEvent",
+      "shortName": "ProcessStimParams",
+      "return": {
+        "type": "StimParams",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReactToSecurityOutput;SecuritySystemOutput",
+      "shortName": "ReactToSecurityOutput",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReactToSecuritySystemOutputByTask;SecuritySystemOutput",
+      "shortName": "ReactToSecuritySystemOutputByTask",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReactToSecuritySystemOutputTask;ScriptTaskData",
+      "shortName": "ReactToSecuritySystemOutputTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RecentReaction;gamedataOutput",
+      "shortName": "RecentReaction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataOutput",
+          "name": "behaviorName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReevaluateReaction;",
+      "shortName": "ReevaluateReaction",
+      "flags": 32900
+    },
+    {
+      "fullName": "ReevaluateReactionPreset;Bool",
+      "shortName": "ReevaluateReactionPreset",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "ignoreSavedPreset",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ReflectSecSysStateToHLS;ESecuritySystemState",
+      "shortName": "ReflectSecSysStateToHLS",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ESecuritySystemState",
+          "name": "securityState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReprimandEscalation;",
+      "shortName": "ReprimandEscalation",
+      "flags": 32900
+    },
+    {
+      "fullName": "ResetAllFearAnimWrappers;",
+      "shortName": "ResetAllFearAnimWrappers",
+      "flags": 32900
+    },
+    {
+      "fullName": "ResetFacial;Float",
+      "shortName": "ResetFacial",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "cooldown",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SafeToExitFear;",
+      "shortName": "SafeToExitFear",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "SafeToExitPanicFear;",
+      "shortName": "SafeToExitPanicFear",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "SelectFacialEmotion;LookAtData",
+      "shortName": "SelectFacialEmotion",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "LookAtData",
+          "name": "lookAtData",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "SendEventToSquad;IgnoreListEvent",
+      "shortName": "SendEventToSquad",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:IgnoreListEvent",
+          "name": "ignoreListEvent",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetBaseReactionPreset;Bool",
+      "shortName": "SetBaseReactionPreset",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "ignoreSavedPreset",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetCrowdRunningAwayAnimFeature;gamedataStimType",
+      "shortName": "SetCrowdRunningAwayAnimFeature",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDeadBodyVisibleComponent;GameObject",
+      "shortName": "SetDeadBodyVisibleComponent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "killer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetReactionPreset;ReactionPreset_Record",
+      "shortName": "SetReactionPreset",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedataReactionPreset_Record",
+          "name": "reactionPreset",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWarningMessage;String",
+      "shortName": "SetWarningMessage",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "String",
+          "name": "lockey",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldAddToIgnoreList;gamedataStimType",
+      "shortName": "ShouldAddToIgnoreList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldBeDetected;gamedataStimType",
+      "shortName": "ShouldBeDetected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldEventBeProcessed;StimuliEvent",
+      "shortName": "ShouldEventBeProcessed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldFearInPlace;StimuliEvent",
+      "shortName": "ShouldFearInPlace",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldFearWhileAggressiveCrowdNPCCombat;StimuliEvent",
+      "shortName": "ShouldFearWhileAggressiveCrowdNPCCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldHelpAlly;gamedataStimType",
+      "shortName": "ShouldHelpAlly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldInterruptCurrentFearStage;Int32",
+      "shortName": "ShouldInterruptCurrentFearStage",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "fearPhase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldPoliceReact;StimuliEvent",
+      "shortName": "ShouldPoliceReact",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldStimBeProcessed;StimuliEvent",
+      "shortName": "ShouldStimBeProcessed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldStimBeProcessedByCrowd;StimuliEvent",
+      "shortName": "ShouldStimBeProcessedByCrowd",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldTriggerAggressiveCrowdNPCCombat;StimuliEvent",
+      "shortName": "ShouldTriggerAggressiveCrowdNPCCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldTriggerGrenadeDodgeBehavior;StimuliEvent",
+      "shortName": "ShouldTriggerGrenadeDodgeBehavior",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldUpdateThreatPosition;StimuliEvent",
+      "shortName": "ShouldUpdateThreatPosition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SourceAttitude;GameObjectEAIAttitude",
+      "shortName": "SourceAttitude",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "source",
+          "flags": 128
+        },
+        {
+          "type": "EAIAttitude",
+          "name": "attitude",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpreadFear;Int32",
+      "shortName": "SpreadFear",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "phase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartEscalateReprimand;",
+      "shortName": "StartEscalateReprimand",
+      "flags": 32900
+    },
+    {
+      "fullName": "StimRule;Rule_RecordgamedataStimType",
+      "shortName": "StimRule",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "whandle:gamedataRule_Record",
+          "name": "rule",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SurrenderToLeave;",
+      "shortName": "SurrenderToLeave",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "TargetVerticalCheck;GameObjectFloat",
+      "shortName": "TargetVerticalCheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerAlerted;",
+      "shortName": "TriggerAlerted",
+      "flags": 32900
+    },
+    {
+      "fullName": "TriggerAlertedFromHostileStim;StimuliEvent",
+      "shortName": "TriggerAlertedFromHostileStim",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerBehaviorReaction;ReactionOutputStimEventTaskDataStimEventData",
       "shortName": "TriggerBehaviorReaction",
-      "flags": 128,
+      "flags": 32896,
+      "params": [
+        {
+          "type": "ReactionOutput",
+          "name": "reaction",
+          "flags": 128
+        },
+        {
+          "type": "handle:StimEventTaskData",
+          "name": "stimTaskData",
+          "flags": 128
+        },
+        {
+          "type": "StimEventData",
+          "name": "stimData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerCombat;GameObject",
+      "shortName": "TriggerCombat",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "trespasser",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerCombatFromHostileStim;gamedataStimType",
+      "shortName": "TriggerCombatFromHostileStim",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerFacialLookAtReaction;BoolBool",
+      "shortName": "TriggerFacialLookAtReaction",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "forceFear",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "playVO",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerFearFacial;Int32",
+      "shortName": "TriggerFearFacial",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "phase",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerPendingReaction;",
+      "shortName": "TriggerPendingReaction",
+      "flags": 32896
+    },
+    {
+      "fullName": "TriggerReactionBehaviorForCrowd;StimuliEventgamedataOutputBoolBool",
+      "shortName": "TriggerReactionBehaviorForCrowd",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "gamedataOutput",
+          "name": "reaction",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "dontPlayStartUpAnimation",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipInitialAnimation",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerReactionBehaviorForCrowd;GameObjectgamedataOutputBoolVector4",
+      "shortName": "TriggerReactionBehaviorForCrowd",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gamedataOutput",
+          "name": "reaction",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "initAnimInWorkspot",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "sourcePosition",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateActiveReaction;ReactionOutputStimuliEventStimEventDataBool",
+      "shortName": "UpdateActiveReaction",
+      "flags": 32900,
       "params": [
         {
           "type": "ReactionOutput",
@@ -3634,13 +3804,34 @@
           "type": "StimEventData",
           "name": "stimData",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "updateByActive",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "TriggerPendingReaction;",
-      "shortName": "TriggerPendingReaction",
-      "flags": 128
+      "fullName": "ValidVisualGunshotTarget;StimuliEventAIReactionData",
+      "shortName": "ValidVisualGunshotTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:senseStimuliEvent",
+          "name": "stimEvent",
+          "flags": 128
+        },
+        {
+          "type": "handle:AIReactionData",
+          "name": "reactionData",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

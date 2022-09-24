@@ -37,62 +37,114 @@
       "type": "CName",
       "name": "meshAppearanceOff",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:workWorkspotResourceComponent",
+      "name": "arcadeMinigameComponent",
+      "flags": 4431347744
     }
   ],
   "funcs": [
     {
-      "fullName": "GetArcadeGame;",
-      "shortName": "GetArcadeGame",
+      "fullName": "OnBeginArcadeMinigameUI",
+      "shortName": "OnBeginArcadeMinigameUI",
       "return": {
-        "type": "redResourceReferenceScriptToken",
+        "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetArcadeGameAudio;",
-      "shortName": "GetArcadeGameAudio",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetArcadeGameAudioStop;",
-      "shortName": "GetArcadeGameAudioStop",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "InitializeGame;",
-      "shortName": "InitializeGame",
-      "flags": 132
-    },
-    {
-      "fullName": "InitializeGameAudioVisuals;ResRef",
-      "shortName": "InitializeGameAudioVisuals",
-      "flags": 132,
+      "flags": 33032,
       "params": [
         {
-          "type": "redResourceReferenceScriptToken",
-          "name": "path",
+          "type": "handle:BeginArcadeMinigameUI",
+          "name": "evt",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "StartShortGlitch;",
-      "shortName": "StartShortGlitch",
-      "flags": 132
+      "fullName": "OnHitEvent",
+      "shortName": "OnHitEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPersitentStateInitialized",
+      "shortName": "OnPersitentStateInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:GameAttachedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStopShortGlitch",
+      "shortName": "OnStopShortGlitch",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:StopShortGlitchEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ApplyActiveStatusEffect;EntityIDTweakDBID",
       "shortName": "ApplyActiveStatusEffect",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "entEntityID",
@@ -109,12 +161,12 @@
     {
       "fullName": "CreateBlackboard;",
       "shortName": "CreateBlackboard",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "CutPower;",
       "shortName": "CutPower",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "DeterminGameplayRole;",
@@ -126,95 +178,58 @@
       "flags": 41472
     },
     {
+      "fullName": "GetArcadeGame;",
+      "shortName": "GetArcadeGame",
+      "return": {
+        "type": "redResourceReferenceScriptToken",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetArcadeGameAudio;",
+      "shortName": "GetArcadeGameAudio",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetArcadeGameAudioStop;",
+      "shortName": "GetArcadeGameAudioStop",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:DeviceBaseBlackboardDef",
+        "type": "handle:ArcadeMachineBlackboardDef",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:ScriptableDC",
+        "type": "handle:ArcadeMachineController",
         "flags": 64
       },
-      "flags": 8448
+      "flags": 41216
     },
     {
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:ScriptableDeviceComponentPS",
+        "type": "handle:ArcadeMachineControllerPS",
         "flags": 64
       },
-      "flags": 8704
-    },
-    {
-      "fullName": "OnHitEvent",
-      "shortName": "OnHitEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hit",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRequestComponents",
-      "shortName": "OnRequestComponents",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityRequestComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnStopShortGlitch",
-      "shortName": "OnStopShortGlitch",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:StopShortGlitchEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnTakeControl",
-      "shortName": "OnTakeControl",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityResolveComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
+      "flags": 41472
     },
     {
       "fullName": "ResavePersistentData;PersistentState",
@@ -235,12 +250,17 @@
     {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "SetupMinigame;",
+      "shortName": "SetupMinigame",
+      "flags": 32900
     },
     {
       "fullName": "StartGlitching;EGlitchStateFloat",
       "shortName": "StartGlitching",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "EGlitchState",
@@ -255,34 +275,39 @@
       ]
     },
     {
+      "fullName": "StartShortGlitch;",
+      "shortName": "StartShortGlitch",
+      "flags": 32900
+    },
+    {
       "fullName": "StopGlitching;",
       "shortName": "StopGlitching",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "TurnOffDevice;",
       "shortName": "TurnOffDevice",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "TurnOffScreen;",
       "shortName": "TurnOffScreen",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "TurnOnDevice;",
       "shortName": "TurnOnDevice",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "TurnOnScreen;",
       "shortName": "TurnOnScreen",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "UploadActiveProgramOnNPC;EntityID",
       "shortName": "UploadActiveProgramOnNPC",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "entEntityID",

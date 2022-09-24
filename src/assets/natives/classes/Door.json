@@ -184,6 +184,16 @@
       "flags": 4364304417
     },
     {
+      "type": "Float",
+      "name": "forceOpeningAudioStimRange",
+      "flags": 4364238881
+    },
+    {
+      "type": "Float",
+      "name": "openingAudioStimRange",
+      "flags": 4364238881
+    },
+    {
       "type": "EAnimationType",
       "name": "animationType",
       "flags": 4297195553
@@ -191,7 +201,7 @@
     {
       "type": "EDoorTriggerSide",
       "name": "doorTriggerSide",
-      "flags": 4297326624
+      "flags": 4297130016
     },
     {
       "type": "whandle:gameObject",
@@ -209,6 +219,11 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "audioForceOpen",
+      "flags": 4297130016
+    },
+    {
       "type": "CName",
       "name": "componentName",
       "flags": 4297130016
@@ -221,9 +236,588 @@
   ],
   "funcs": [
     {
+      "fullName": "OnActionDemolition",
+      "shortName": "OnActionDemolition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ActionDemolition",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActionEngineering",
+      "shortName": "OnActionEngineering",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnActivateDevice",
+      "shortName": "OnActivateDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ActivateDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnApproachingAreaResponseEvent",
+      "shortName": "OnApproachingAreaResponseEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:AIApproachingAreaResponseEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAreaEnter",
+      "shortName": "OnAreaEnter",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:entAreaEnteredEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAreaExit",
+      "shortName": "OnAreaExit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:entAreaExitedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAuthorizeUser",
+      "shortName": "OnAuthorizeUser",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:AuthorizeUser",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChangeHalfLights",
+      "shortName": "OnChangeHalfLights",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ChangeHalfLights",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCollision",
+      "shortName": "OnCollision",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:enteventsHitCharacterControllerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach",
+      "shortName": "OnDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnDoorOpeningToken",
+      "shortName": "OnDoorOpeningToken",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DoorOpeningToken",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDoorTriggerDelayedEvent",
+      "shortName": "OnDoorTriggerDelayedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DoorTriggerDelayedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceOpen",
+      "shortName": "OnForceOpen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ForceOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceUnlockAndOpenElevator",
+      "shortName": "OnForceUnlockAndOpenElevator",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ForceUnlockAndOpenElevator",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameAttached",
+      "shortName": "OnGameAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnOccluderEnable",
+      "shortName": "OnOccluderEnable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OccluderEnableEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPay",
+      "shortName": "OnPay",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:Pay",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPersitentStateInitialized",
+      "shortName": "OnPersitentStateInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:GameAttachedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayInDeviceCallbackEvent",
+      "shortName": "OnPlayInDeviceCallbackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gamePlayInDeviceCallbackEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceCloseImmediate",
+      "shortName": "OnQuestForceCloseImmediate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceCloseImmediate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceCloseScene",
+      "shortName": "OnQuestForceCloseScene",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceCloseScene",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceEnabled",
+      "shortName": "OnQuestForceEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceEnabled",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceOpenScene",
+      "shortName": "OnQuestForceOpenScene",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceOpenScene",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceUnlock",
+      "shortName": "OnQuestForceUnlock",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceUnlock",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestForceUnseal",
+      "shortName": "OnQuestForceUnseal",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceUnseal",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetDoorState",
+      "shortName": "OnResetDoorState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ResetDoorState",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSealDoor",
+      "shortName": "OnSealDoor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ToggleSeal",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetAuthorizationModuleOFF",
+      "shortName": "OnSetAuthorizationModuleOFF",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetAuthorizationModuleOFF",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetBusyEvent",
+      "shortName": "OnSetBusyEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetBusyEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetCloseItself",
+      "shortName": "OnSetCloseItself",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetCloseItself",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetDoorType",
+      "shortName": "OnSetDoorType",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetDoorType",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleLock",
+      "shortName": "OnToggleLock",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ToggleLock",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleOpen",
+      "shortName": "OnToggleOpen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ToggleOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWorkspotFinished",
+      "shortName": "OnWorkspotFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "componentName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AccessGrantedNotification;",
       "shortName": "AccessGrantedNotification",
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "ActivateDevice;",
+      "shortName": "ActivateDevice",
+      "flags": 33024
+    },
+    {
+      "fullName": "ApplyReplicatedState;DeviceReplicatedState",
+      "shortName": "ApplyReplicatedState",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameDeviceReplicatedState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "AuthorizeUsers;array<Entity>",
@@ -232,7 +826,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "array:handle:entEntity",
@@ -248,7 +842,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "array:handle:entEntity",
@@ -269,42 +863,133 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8452
+      "flags": 41220
     },
     {
       "fullName": "ChangeHalfLights;",
       "shortName": "ChangeHalfLights",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CloseDoor;",
       "shortName": "CloseDoor",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CreateLightSettings;",
       "shortName": "CreateLightSettings",
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "DeactivateDevice;",
+      "shortName": "DeactivateDevice",
+      "flags": 33024
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
+      "shortName": "DeterminGameplayRoleMappinVisuaState",
+      "return": {
+        "type": "EMappinVisualState",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "SDeviceMappinData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DisableOccluder;",
       "shortName": "DisableOccluder",
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "DisableOffMeshConnections;BoolBool",
+      "shortName": "DisableOffMeshConnections",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "npc",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "EnableOccluder;",
       "shortName": "EnableOccluder",
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "EnableOffMeshConnections;BoolBool",
+      "shortName": "EnableOffMeshConnections",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "npc",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnterWorkspot;GameObjectBoolCNameCName",
+      "shortName": "EnterWorkspot",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "activator",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "freeCamera",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "componentName",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "deviceData",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "EvaluateOffMeshLinks;",
       "shortName": "EvaluateOffMeshLinks",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "EvaluateOffMeshLinksTask;ScriptTaskData",
       "shortName": "EvaluateOffMeshLinksTask",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:gameScriptTaskData",
@@ -314,13 +999,18 @@
       ]
     },
     {
+      "fullName": "ExecuteDeviceStateOperation;",
+      "shortName": "ExecuteDeviceStateOperation",
+      "flags": 33024
+    },
+    {
       "fullName": "GenerateInternalContext;GameObject",
       "shortName": "GenerateInternalContext",
       "return": {
         "type": "gameGetActionsContext",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gameObject",
@@ -332,7 +1022,7 @@
     {
       "fullName": "GetAllActiveLights;",
       "shortName": "GetAllActiveLights",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "GetAnimFeature;",
@@ -341,7 +1031,7 @@
         "type": "handle:AnimFeatureDoor",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetClosingAnimationLength;",
@@ -350,7 +1040,34 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:DoorController",
+        "flags": 64
+      },
+      "flags": 41088
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:DoorControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetDeviceStateClass;",
+      "shortName": "GetDeviceStateClass",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 42496
     },
     {
       "fullName": "GetDoorTriggerSide;Entity",
@@ -359,7 +1076,7 @@
         "type": "EDoorTriggerSide",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:entEntity",
@@ -375,7 +1092,7 @@
         "type": "handle:entEntity",
         "flags": 64
       },
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "GetProperTransformAnimName;",
@@ -384,7 +1101,16 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
+    },
+    {
+      "fullName": "HasAnyDirectInteractionActive;",
+      "shortName": "HasAnyDirectInteractionActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216
     },
     {
       "fullName": "HasValidOpeningToken;EntityID",
@@ -393,7 +1119,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "entEntityID",
@@ -405,7 +1131,25 @@
     {
       "fullName": "InitializeLight;",
       "shortName": "InitializeLight",
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "IsActive;",
+      "shortName": "IsActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsNetrunner;",
+      "shortName": "IsNetrunner",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "IsPlayerInsideLift;",
@@ -414,7 +1158,16 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "IsSomeoneAuthorizedNearby;",
+      "shortName": "IsSomeoneAuthorizedNearby",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
     },
     {
       "fullName": "IsSomeoneAuthorizedNearby;GameObject",
@@ -423,7 +1176,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:gameObject",
@@ -433,22 +1186,13 @@
       ]
     },
     {
-      "fullName": "IsSomeoneAuthorizedNearby;",
-      "shortName": "IsSomeoneAuthorizedNearby",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 260
-    },
-    {
       "fullName": "IsSomeoneInTrigger;",
       "shortName": "IsSomeoneInTrigger",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "MoveDoor;BoolBool",
@@ -457,7 +1201,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -472,18 +1216,35 @@
       ]
     },
     {
-      "fullName": "OpenDoor;",
-      "shortName": "OpenDoor",
-      "flags": 132
+      "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
+      "shortName": "OnMaraudersMapDeviceDebug",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:worldMaraudersMapDevicesSink",
+          "name": "sink",
+          "flags": 128
+        }
+      ]
     },
     {
-      "fullName": "PlayDoorMovementSound;Bool",
+      "fullName": "OpenDoor;",
+      "shortName": "OpenDoor",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayDoorMovementSound;BoolBool",
       "shortName": "PlayDoorMovementSound",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Bool",
           "name": "shouldBeOpened",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "wasOpenedUsingForce",
           "flags": 128
         }
       ]
@@ -491,7 +1252,7 @@
     {
       "fullName": "PlayDoorSealSound;Bool",
       "shortName": "PlayDoorSealSound",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "Bool",
@@ -519,12 +1280,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RefreshAnimOpenDoor;BoolBool",
       "shortName": "RefreshAnimOpenDoor",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -541,7 +1302,7 @@
     {
       "fullName": "RefreshTransformAnimOpenDoor;BoolBool",
       "shortName": "RefreshTransformAnimOpenDoor",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -556,881 +1317,14 @@
       ]
     },
     {
-      "fullName": "SetAppearanceTask;ScriptTaskData",
-      "shortName": "SetAppearanceTask",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameScriptTaskData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetColor;ScriptLightSettings",
-      "shortName": "SetColor",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ScriptLightSettings",
-          "name": "lightSettings",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetNetrunnerAppearance;",
-      "shortName": "SetNetrunnerAppearance",
-      "flags": 132
-    },
-    {
-      "fullName": "SetNewDoorType;EDoorType",
-      "shortName": "SetNewDoorType",
-      "flags": 260,
-      "params": [
-        {
-          "type": "EDoorType",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetTechieAppearance;",
-      "shortName": "SetTechieAppearance",
-      "flags": 132
-    },
-    {
-      "fullName": "ToggleDoorLockState;GameObjectBool",
-      "shortName": "ToggleDoorLockState",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "activator",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "shouldOpen",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ToggleDoorOpeningState;EntityID",
-      "shortName": "ToggleDoorOpeningState",
-      "flags": 132,
-      "params": [
-        {
-          "type": "entEntityID",
-          "name": "forWhom",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ToggleDoorOpeningState;GameObject",
-      "shortName": "ToggleDoorOpeningState",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "activator",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TurnLightsOff;",
-      "shortName": "TurnLightsOff",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateLight;",
-      "shortName": "UpdateLight",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateLightByTask;",
-      "shortName": "UpdateLightByTask",
-      "flags": 260
-    },
-    {
-      "fullName": "UpdateLightTask;ScriptTaskData",
-      "shortName": "UpdateLightTask",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameScriptTaskData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdatePortalLights;Bool",
-      "shortName": "UpdatePortalLights",
-      "flags": 260,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "on",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActivateDevice;",
-      "shortName": "ActivateDevice",
-      "flags": 256
-    },
-    {
-      "fullName": "ApplyReplicatedState;DeviceReplicatedState",
-      "shortName": "ApplyReplicatedState",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:gameDeviceReplicatedState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DeactivateDevice;",
-      "shortName": "DeactivateDevice",
-      "flags": 256
-    },
-    {
-      "fullName": "DeterminGameplayRole;",
-      "shortName": "DeterminGameplayRole",
-      "return": {
-        "type": "EGameplayRole",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
-      "shortName": "DeterminGameplayRoleMappinVisuaState",
-      "return": {
-        "type": "EMappinVisualState",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "SDeviceMappinData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DisableOffMeshConnections;BoolBool",
-      "shortName": "DisableOffMeshConnections",
-      "flags": 256,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "player",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "npc",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "EnableOffMeshConnections;BoolBool",
-      "shortName": "EnableOffMeshConnections",
-      "flags": 256,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "player",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "npc",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "EnterWorkspot;GameObjectBoolCNameCName",
-      "shortName": "EnterWorkspot",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "activator",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "freeCamera",
-          "flags": 1152
-        },
-        {
-          "type": "CName",
-          "name": "componentName",
-          "flags": 1152
-        },
-        {
-          "type": "CName",
-          "name": "deviceData",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ExecuteDeviceStateOperation;",
-      "shortName": "ExecuteDeviceStateOperation",
-      "flags": 256
-    },
-    {
-      "fullName": "GetController;",
-      "shortName": "GetController",
-      "return": {
-        "type": "handle:ScriptableDC",
-        "flags": 64
-      },
-      "flags": 8320
-    },
-    {
-      "fullName": "GetDevicePS;",
-      "shortName": "GetDevicePS",
-      "return": {
-        "type": "handle:ScriptableDeviceComponentPS",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetDeviceStateClass;",
-      "shortName": "GetDeviceStateClass",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "HasAnyDirectInteractionActive;",
-      "shortName": "HasAnyDirectInteractionActive",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8448
-    },
-    {
-      "fullName": "IsActive;",
-      "shortName": "IsActive",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "IsNetrunner;",
-      "shortName": "IsNetrunner",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "OnActionDemolition",
-      "shortName": "OnActionDemolition",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ActionDemolition",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnActionEngineering",
-      "shortName": "OnActionEngineering",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ActionEngineering",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnActivateDevice",
-      "shortName": "OnActivateDevice",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ActivateDevice",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnApproachingAreaResponseEvent",
-      "shortName": "OnApproachingAreaResponseEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AIApproachingAreaResponseEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAreaEnter",
-      "shortName": "OnAreaEnter",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:entAreaEnteredEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAreaExit",
-      "shortName": "OnAreaExit",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:entAreaExitedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAuthorizeUser",
-      "shortName": "OnAuthorizeUser",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:AuthorizeUser",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnChangeHalfLights",
-      "shortName": "OnChangeHalfLights",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ChangeHalfLights",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnCollision",
-      "shortName": "OnCollision",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:enteventsHitCharacterControllerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDetach",
-      "shortName": "OnDetach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnDoorOpeningToken",
-      "shortName": "OnDoorOpeningToken",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:DoorOpeningToken",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDoorTriggerDelayedEvent",
-      "shortName": "OnDoorTriggerDelayedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:DoorTriggerDelayedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnForceOpen",
-      "shortName": "OnForceOpen",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ForceOpen",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnForceUnlockAndOpenElevator",
-      "shortName": "OnForceUnlockAndOpenElevator",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ForceUnlockAndOpenElevator",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGameAttached",
-      "shortName": "OnGameAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
-      "shortName": "OnMaraudersMapDeviceDebug",
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:worldMaraudersMapDevicesSink",
-          "name": "sink",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnOccluderEnable",
-      "shortName": "OnOccluderEnable",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:OccluderEnableEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPay",
-      "shortName": "OnPay",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:Pay",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPersitentStateInitialized",
-      "shortName": "OnPersitentStateInitialized",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:GameAttachedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPlayInDeviceCallbackEvent",
-      "shortName": "OnPlayInDeviceCallbackEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gamePlayInDeviceCallbackEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceCloseImmediate",
-      "shortName": "OnQuestForceCloseImmediate",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:QuestForceCloseImmediate",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceCloseScene",
-      "shortName": "OnQuestForceCloseScene",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:QuestForceCloseScene",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceEnabled",
-      "shortName": "OnQuestForceEnabled",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:QuestForceEnabled",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceOpenScene",
-      "shortName": "OnQuestForceOpenScene",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:QuestForceOpenScene",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceUnlock",
-      "shortName": "OnQuestForceUnlock",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:QuestForceUnlock",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuestForceUnseal",
-      "shortName": "OnQuestForceUnseal",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:QuestForceUnseal",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRequestComponents",
-      "shortName": "OnRequestComponents",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityRequestComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnResetDoorState",
-      "shortName": "OnResetDoorState",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ResetDoorState",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSealDoor",
-      "shortName": "OnSealDoor",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ToggleSeal",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetAuthorizationModuleOFF",
-      "shortName": "OnSetAuthorizationModuleOFF",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetAuthorizationModuleOFF",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetBusyEvent",
-      "shortName": "OnSetBusyEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetBusyEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetCloseItself",
-      "shortName": "OnSetCloseItself",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetCloseItself",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetDoorType",
-      "shortName": "OnSetDoorType",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetDoorType",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnTakeControl",
-      "shortName": "OnTakeControl",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityResolveComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnToggleLock",
-      "shortName": "OnToggleLock",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ToggleLock",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnToggleOpen",
-      "shortName": "OnToggleOpen",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ToggleOpen",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnWorkspotFinished",
-      "shortName": "OnWorkspotFinished",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "CName",
-          "name": "componentName",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "ResolveIllegalAction;GameObjectFloat",
       "shortName": "ResolveIllegalAction",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "handle:gameObject",
@@ -1447,17 +1341,41 @@
     {
       "fullName": "RestoreDeviceState;",
       "shortName": "RestoreDeviceState",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "SetAppearance;",
       "shortName": "SetAppearance",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "SetAppearanceTask;ScriptTaskData",
+      "shortName": "SetAppearanceTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetColor;ScriptLightSettings",
+      "shortName": "SetColor",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ScriptLightSettings",
+          "name": "lightSettings",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetIsDoorInteractionActiveBB;InteractionActivationEventBool",
       "shortName": "SetIsDoorInteractionActiveBB",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "handle:gameinteractionsInteractionActivationEvent",
@@ -1472,9 +1390,77 @@
       ]
     },
     {
+      "fullName": "SetNetrunnerAppearance;",
+      "shortName": "SetNetrunnerAppearance",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetNewDoorType;EDoorType",
+      "shortName": "SetNewDoorType",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "EDoorType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetSoloAppearance;",
       "shortName": "SetSoloAppearance",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "SetTechieAppearance;",
+      "shortName": "SetTechieAppearance",
+      "flags": 32900
+    },
+    {
+      "fullName": "ToggleDoorLockState;GameObjectBool",
+      "shortName": "ToggleDoorLockState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "activator",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldOpen",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleDoorOpeningState;EntityID",
+      "shortName": "ToggleDoorOpeningState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "forWhom",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleDoorOpeningState;GameObject",
+      "shortName": "ToggleDoorOpeningState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "activator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnLightsOff;",
+      "shortName": "TurnLightsOff",
+      "flags": 32900
     },
     {
       "fullName": "UpdateDeviceState;Bool",
@@ -1483,12 +1469,46 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "Bool",
           "name": "isDelayed",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateLight;",
+      "shortName": "UpdateLight",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateLightByTask;",
+      "shortName": "UpdateLightByTask",
+      "flags": 33028
+    },
+    {
+      "fullName": "UpdateLightTask;ScriptTaskData",
+      "shortName": "UpdateLightTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdatePortalLights;Bool",
+      "shortName": "UpdatePortalLights",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "on",
+          "flags": 128
         }
       ]
     }

@@ -52,66 +52,13 @@
   ],
   "funcs": [
     {
-      "fullName": "ActionSpiderbotActivateActivator;TweakDBID",
-      "shortName": "ActionSpiderbotActivateActivator",
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
       "return": {
-        "type": "handle:SpiderbotActivateActivator",
+        "type": "Bool",
         "flags": 64
       },
-      "flags": 260,
-      "params": [
-        {
-          "type": "TweakDBID",
-          "name": "interactionTDBID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActionToggleActivation;TweakDBID",
-      "shortName": "ActionToggleActivation",
-      "return": {
-        "type": "handle:ToggleActivation",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "TweakDBID",
-          "name": "interactionTDBID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActivateConnectedDevices;",
-      "shortName": "ActivateConnectedDevices",
-      "flags": 516
-    },
-    {
-      "fullName": "GetSpiderbotInteractionLocationOverride;",
-      "shortName": "GetSpiderbotInteractionLocationOverride",
-      "return": {
-        "type": "NodeRef",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "OnSpiderbotActivateActivator;SpiderbotActivateActivator",
-      "shortName": "OnSpiderbotActivateActivator",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:SpiderbotActivateActivator",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
+      "flags": 33032
     },
     {
       "fullName": "ActionDemolition;GetActionsContext",
@@ -120,7 +67,7 @@
         "type": "handle:ActionDemolition",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "gameGetActionsContext",
@@ -136,7 +83,7 @@
         "type": "handle:ActionEngineering",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "gameGetActionsContext",
@@ -144,6 +91,43 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ActionSpiderbotActivateActivator;TweakDBID",
+      "shortName": "ActionSpiderbotActivateActivator",
+      "return": {
+        "type": "handle:SpiderbotActivateActivator",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "interactionTDBID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActionToggleActivation;TweakDBID",
+      "shortName": "ActionToggleActivation",
+      "return": {
+        "type": "handle:ToggleActivation",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "interactionTDBID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActivateConnectedDevices;",
+      "shortName": "ActivateConnectedDevices",
+      "flags": 33284
     },
     {
       "fullName": "CanCreateAnyQuickHackActions;",
@@ -161,7 +145,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "GameAttached;",
@@ -175,7 +159,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -190,9 +174,25 @@
       ]
     },
     {
+      "fullName": "GetQuestActionByName;CName",
+      "shortName": "GetQuestActionByName",
+      "return": {
+        "type": "handle:gamedeviceAction",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuestActions",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -209,7 +209,7 @@
     {
       "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuickHackActions",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -226,7 +226,7 @@
     {
       "fullName": "GetSpiderbotActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetSpiderbotActions",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -241,14 +241,23 @@
       ]
     },
     {
+      "fullName": "GetSpiderbotInteractionLocationOverride;",
+      "shortName": "GetSpiderbotInteractionLocationOverride",
+      "return": {
+        "type": "NodeRef",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "Initialize;",
       "shortName": "Initialize",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "LogicReady;",
       "shortName": "LogicReady",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "OnActionDemolition;ActionDemolition",
@@ -257,7 +266,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:ActionDemolition",
@@ -273,7 +282,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:ActionEngineering",
@@ -289,7 +298,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:DisassembleDevice",
@@ -299,25 +308,32 @@
       ]
     },
     {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnQuestForceActivate;QuestForceActivate",
       "shortName": "OnQuestForceActivate",
       "return": {
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 34304,
       "params": [
         {
           "type": "handle:QuestForceActivate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpiderbotActivateActivator;SpiderbotActivateActivator",
+      "shortName": "OnSpiderbotActivateActivator",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:SpiderbotActivateActivator",
           "name": "evt",
           "flags": 128
         }
@@ -330,7 +346,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:ToggleActivation",
@@ -342,7 +358,7 @@
     {
       "fullName": "ResolveActionHackingCompleted;ActionHacking",
       "shortName": "ResolveActionHackingCompleted",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "handle:ActionHacking",

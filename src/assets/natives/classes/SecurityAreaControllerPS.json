@@ -36,7 +36,12 @@
     {
       "type": "array:AreaTypeTransition",
       "name": "areaTransitions",
-      "flags": 6650134561
+      "flags": 6918570017
+    },
+    {
+      "type": "array:AreaTypeTransition",
+      "name": "runtimeTransitions",
+      "flags": 6851461152
     },
     {
       "type": "Bool",
@@ -72,7 +77,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "ESecurityAreaType",
@@ -82,13 +87,22 @@
       ]
     },
     {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
       "fullName": "ActionSecurityAreaCrossingPerimeter;GameObjectBool",
       "shortName": "ActionSecurityAreaCrossingPerimeter",
       "return": {
         "type": "handle:SecurityAreaCrossingPerimeter",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gameObject",
@@ -103,13 +117,34 @@
       ]
     },
     {
+      "fullName": "ApplyTransition;AreaTypeTransitionBool",
+      "shortName": "ApplyTransition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "AreaTypeTransition",
+          "name": "transition",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isScheduled",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ApplyTransition;Uint32",
       "shortName": "ApplyTransition",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Uint32",
@@ -119,25 +154,18 @@
       ]
     },
     {
-      "fullName": "ApplyTransition;AreaTypeTransition",
-      "shortName": "ApplyTransition",
+      "fullName": "AreThereAnyValidTransitions;",
+      "shortName": "AreThereAnyValidTransitions",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
-      "params": [
-        {
-          "type": "AreaTypeTransition",
-          "name": "transition",
-          "flags": 128
-        }
-      ]
+      "flags": 41476
     },
     {
       "fullName": "AreaEntered;AreaEnteredEvent",
       "shortName": "AreaEntered",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:entAreaEnteredEvent",
@@ -149,7 +177,7 @@
     {
       "fullName": "AreaExited;GameObject",
       "shortName": "AreaExited",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameObject",
@@ -159,13 +187,18 @@
       ]
     },
     {
+      "fullName": "CopyAreaTransitions;",
+      "shortName": "CopyAreaTransitions",
+      "flags": 32900
+    },
+    {
       "fullName": "ExtractSquadProxies;",
       "shortName": "ExtractSquadProxies",
       "return": {
         "type": "array:handle:CommunityProxyPS",
         "flags": 64
       },
-      "flags": 8324
+      "flags": 41092
     },
     {
       "fullName": "FindEntryIndex;EntityID",
@@ -174,7 +207,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "entEntityID",
@@ -184,13 +217,54 @@
       ]
     },
     {
+      "fullName": "GameAttached;",
+      "shortName": "GameAttached",
+      "flags": 33024
+    },
+    {
+      "fullName": "GetBackgroundTextureTweakDBID;",
+      "shortName": "GetBackgroundTextureTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDebugTags;",
+      "shortName": "GetDebugTags",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetDeviceIconTweakDBID;",
+      "shortName": "GetDeviceIconTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetDeviceName",
+      "shortName": "GetDeviceName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "GetDevices;",
       "shortName": "GetDevices",
       "return": {
         "type": "array:entEntityID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetIncomingFilter;",
@@ -199,7 +273,7 @@
         "type": "EFilterType",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetLastOutput;",
@@ -208,7 +282,7 @@
         "type": "handle:SecuritySystemOutput",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetNPCs;",
@@ -217,7 +291,7 @@
         "type": "array:entEntityID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetOutgoingFilter;",
@@ -226,7 +300,16 @@
         "type": "EFilterType",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetSecurityAccessLevel;",
+      "shortName": "GetSecurityAccessLevel",
+      "return": {
+        "type": "ESecurityAccessLevel",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "GetSecurityAreaAgents;",
@@ -235,7 +318,7 @@
         "type": "array:entEntityID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetSecurityAreaData;",
@@ -244,7 +327,7 @@
         "type": "SecurityAreaData",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetSecurityAreaType;",
@@ -253,7 +336,7 @@
         "type": "ESecurityAreaType",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetSecurityAreaTypeAsUint32;",
@@ -262,12 +345,21 @@
         "type": "Uint32",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 42500
+    },
+    {
+      "fullName": "GetSecuritySystem;",
+      "shortName": "GetSecuritySystem",
+      "return": {
+        "type": "handle:SecuritySystemControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "GetTurrets;script_ref<array<SecurityTurretControllerPS>>",
       "shortName": "GetTurrets",
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "script_ref:array:handle:SecurityTurretControllerPS",
@@ -283,7 +375,7 @@
         "type": "array:AreaEntry",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "HasPlayerBeenSpottedAndTriggeredCombat;",
@@ -292,7 +384,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 25092
+      "flags": 57860
     },
     {
       "fullName": "HasThisAreaReceivedCombatNotification;",
@@ -301,7 +393,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 25092
+      "flags": 57860
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 33024
     },
     {
       "fullName": "IsActive;",
@@ -310,7 +407,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "IsAreaCompromised;",
@@ -319,7 +416,32 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 25092
+      "flags": 57860
+    },
+    {
+      "fullName": "IsConnectedToSecuritySystem;ESecurityAccessLevel",
+      "shortName": "IsConnectedToSecuritySystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472,
+      "params": [
+        {
+          "type": "ESecurityAccessLevel",
+          "name": "level",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsConnectedToSystem;",
+      "shortName": "IsConnectedToSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "IsDisableAllowed;script_ref<array<SecurityTurretControllerPS>>",
@@ -328,7 +450,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "script_ref:array:handle:SecurityTurretControllerPS",
@@ -344,7 +466,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8452
+      "flags": 41220
     },
     {
       "fullName": "IsUserInside;EntityID",
@@ -353,7 +475,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "entEntityID",
@@ -365,7 +487,7 @@
     {
       "fullName": "NotifySecuritySystem;SecurityAreaCrossingPerimeter",
       "shortName": "NotifySecuritySystem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:SecurityAreaCrossingPerimeter",
@@ -377,7 +499,7 @@
     {
       "fullName": "NotifySystemAboutCrossingPerimeter;GameObjectBool",
       "shortName": "NotifySystemAboutCrossingPerimeter",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gameObject",
@@ -392,16 +514,60 @@
       ]
     },
     {
+      "fullName": "OnFullSystemRestart;FullSystemRestart",
+      "shortName": "OnFullSystemRestart",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:FullSystemRestart",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnGameEntitySpawnerEvent;gameEntitySpawnerEvent",
       "shortName": "OnGameEntitySpawnerEvent",
       "return": {
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameEntitySpawnerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
+      "shortName": "OnMaraudersMapDeviceDebug",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:worldMaraudersMapDevicesSink",
+          "name": "sink",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPurgeTransitions;PurgeAllTransitions",
+      "shortName": "OnPurgeTransitions",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:PurgeAllTransitions",
           "name": "evt",
           "flags": 128
         }
@@ -414,7 +580,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuestAddTransition",
@@ -430,7 +596,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "handle:QuestCombatActionAreaNotification",
@@ -446,7 +612,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 34308,
       "params": [
         {
           "type": "handle:QuestExecuteTransition",
@@ -462,7 +628,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuestIllegalActionAreaNotification",
@@ -478,7 +644,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuestModifyFilters",
@@ -494,11 +660,43 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuestRemoveTransition",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemForceAttitudeChange;SecuritySystemForceAttitudeChange",
+      "shortName": "OnSecuritySystemForceAttitudeChange",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34304,
+      "params": [
+        {
+          "type": "handle:SecuritySystemForceAttitudeChange",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
+      "shortName": "OnSecuritySystemOutput",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34304,
+      "params": [
+        {
+          "type": "handle:SecuritySystemOutput",
+          "name": "breachEvent",
           "flags": 128
         }
       ]
@@ -510,7 +708,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:SecurityTurretOffline",
@@ -520,9 +718,25 @@
       ]
     },
     {
+      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
+      "shortName": "OnTargetAssessmentRequest",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:TargetAssessmentRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PostponeAreaDisabling;array<SecurityTurretControllerPS>",
       "shortName": "PostponeAreaDisabling",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:handle:SecurityTurretControllerPS",
@@ -534,7 +748,7 @@
     {
       "fullName": "ProcessOnEnterRequest;GameObject",
       "shortName": "ProcessOnEnterRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gameObject",
@@ -558,7 +772,7 @@
     {
       "fullName": "PushUniqueEntry;AreaEntry",
       "shortName": "PushUniqueEntry",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "AreaEntry",
@@ -570,7 +784,7 @@
     {
       "fullName": "RegisterTimeSystemListeners;Entity",
       "shortName": "RegisterTimeSystemListeners",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:entEntity",
@@ -582,7 +796,7 @@
     {
       "fullName": "ResolveSecurityAreaType;",
       "shortName": "ResolveSecurityAreaType",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RestoreLastOutput;",
@@ -591,24 +805,29 @@
         "type": "handle:SecuritySystemOutput",
         "flags": 64
       },
-      "flags": 8324
+      "flags": 41092
     },
     {
-      "fullName": "SetSecurityAreaType;ESecurityAreaType",
+      "fullName": "SetSecurityAreaType;ESecurityAreaTypeBool",
       "shortName": "SetSecurityAreaType",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ESecurityAreaType",
           "name": "newType",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "wasScheduled",
+          "flags": 1152
         }
       ]
     },
     {
       "fullName": "StoreLastOutputPersistentData;SecuritySystemOutput",
       "shortName": "StoreLastOutputPersistentData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:SecuritySystemOutput",
@@ -620,186 +839,12 @@
     {
       "fullName": "UnregisterTimeSystemListeners;",
       "shortName": "UnregisterTimeSystemListeners",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "UpdateMiniMapRepresentation;",
       "shortName": "UpdateMiniMapRepresentation",
-      "flags": 132
-    },
-    {
-      "fullName": "GameAttached;",
-      "shortName": "GameAttached",
-      "flags": 256
-    },
-    {
-      "fullName": "GetBackgroundTextureTweakDBID;",
-      "shortName": "GetBackgroundTextureTweakDBID",
-      "return": {
-        "type": "TweakDBID",
-        "flags": 64
-      },
-      "flags": 33024
-    },
-    {
-      "fullName": "GetDebugTags;",
-      "shortName": "GetDebugTags",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetDeviceIconTweakDBID;",
-      "shortName": "GetDeviceIconTweakDBID",
-      "return": {
-        "type": "TweakDBID",
-        "flags": 64
-      },
-      "flags": 33024
-    },
-    {
-      "fullName": "GetDeviceName",
-      "shortName": "GetDeviceName",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetSecurityAccessLevel;",
-      "shortName": "GetSecurityAccessLevel",
-      "return": {
-        "type": "ESecurityAccessLevel",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetSecuritySystem;",
-      "shortName": "GetSecuritySystem",
-      "return": {
-        "type": "handle:SecuritySystemControllerPS",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "Initialize;",
-      "shortName": "Initialize",
-      "flags": 256
-    },
-    {
-      "fullName": "IsConnectedToSecuritySystem;ESecurityAccessLevel",
-      "shortName": "IsConnectedToSecuritySystem",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704,
-      "params": [
-        {
-          "type": "ESecurityAccessLevel",
-          "name": "level",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "IsConnectedToSystem;",
-      "shortName": "IsConnectedToSystem",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "OnFullSystemRestart;FullSystemRestart",
-      "shortName": "OnFullSystemRestart",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:FullSystemRestart",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnMaraudersMapDeviceDebug;MaraudersMapDevicesSink",
-      "shortName": "OnMaraudersMapDeviceDebug",
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:worldMaraudersMapDevicesSink",
-          "name": "sink",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSecuritySystemForceAttitudeChange;SecuritySystemForceAttitudeChange",
-      "shortName": "OnSecuritySystemForceAttitudeChange",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:SecuritySystemForceAttitudeChange",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSecuritySystemOutput;SecuritySystemOutput",
-      "shortName": "OnSecuritySystemOutput",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:SecuritySystemOutput",
-          "name": "breachEvent",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnTargetAssessmentRequest;TargetAssessmentRequest",
-      "shortName": "OnTargetAssessmentRequest",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:TargetAssessmentRequest",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
+      "flags": 32900
     }
   ]
 }

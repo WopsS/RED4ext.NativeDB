@@ -84,7 +84,7 @@
       "flags": 4431347744
     },
     {
-      "type": "InventoryItemData",
+      "type": "gameInventoryItemData",
       "name": "weaponItemData",
       "flags": 4297130016
     },
@@ -164,6 +164,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameMuppet",
+      "name": "PlayerMuppet",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:inkanimProxy",
       "name": "outOfAmmoAnim",
       "flags": 4431347744
@@ -221,13 +226,175 @@
   ],
   "funcs": [
     {
+      "fullName": "OnAmmoIndicatorHacked",
+      "shortName": "OnAmmoIndicatorHacked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAmmoLooted",
+      "shortName": "OnAmmoLooted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnPSMLocomotionStateChanged",
+      "shortName": "OnPSMLocomotionStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPSMVisionStateChanged",
+      "shortName": "OnPSMVisionStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSmartGunParams",
+      "shortName": "OnSmartGunParams",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "argParams",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUpdateData",
+      "shortName": "OnUpdateData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWeaponDataChanged",
+      "shortName": "OnWeaponDataChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetAmmoText;Int32Int32",
       "shortName": "GetAmmoText",
       "return": {
         "type": "String",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -248,7 +415,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetUnreservedAmmoQuantityByType;ItemID",
@@ -257,7 +424,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -273,7 +440,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataTriggerMode",
@@ -285,27 +452,27 @@
     {
       "fullName": "LoadWeaponIcon;",
       "shortName": "LoadWeaponIcon",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "PlayFold;",
       "shortName": "PlayFold",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "PlayUnfold;",
       "shortName": "PlayUnfold",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RegisterBB;",
       "shortName": "RegisterBB",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "SetRosterSlotData;Bool",
       "shortName": "SetRosterSlotData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -317,174 +484,12 @@
     {
       "fullName": "SetTriggerModeIcons;",
       "shortName": "SetTriggerModeIcons",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "UnregisterBB;",
       "shortName": "UnregisterBB",
-      "flags": 132
-    },
-    {
-      "fullName": "OnAmmoIndicatorHacked",
-      "shortName": "OnAmmoIndicatorHacked",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAmmoLooted",
-      "shortName": "OnAmmoLooted",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnPSMLocomotionStateChanged",
-      "shortName": "OnPSMLocomotionStateChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPSMVisionStateChanged",
-      "shortName": "OnPSMVisionStateChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPlayerAttach",
-      "shortName": "OnPlayerAttach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPlayerDetach",
-      "shortName": "OnPlayerDetach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSmartGunParams",
-      "shortName": "OnSmartGunParams",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "argParams",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnUpdateData",
-      "shortName": "OnUpdateData",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnWeaponDataChanged",
-      "shortName": "OnWeaponDataChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
+      "flags": 32900
     }
   ]
 }

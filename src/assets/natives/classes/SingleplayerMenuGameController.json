@@ -14,29 +14,133 @@
       "flags": 4297130017
     },
     {
+      "type": "inkCompoundWidgetReference",
+      "name": "continuetooltipContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:gameIOnlineSystem",
+      "name": "onlineSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkISystemRequestsHandler",
+      "name": "requestHandler",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:ButtonHints",
       "name": "buttonHintsController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ContinueGameTooltip",
+      "name": "continueGameTooltipController",
+      "flags": 4297130016
+    },
+    {
+      "type": "servicesCloudSavesQueryStatus",
+      "name": "dataSyncStatus",
       "flags": 4297130016
     },
     {
       "type": "Int32",
       "name": "savesCount",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "savesReady",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isOffline",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isModded",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
-      "fullName": "HandleMenuItemActivate;PauseMenuListItemData",
-      "shortName": "HandleMenuItemActivate",
+      "fullName": "OnCheckPatchNotes",
+      "shortName": "OnCheckPatchNotes",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 33032,
       "params": [
         {
-          "type": "handle:PauseMenuListItemData",
-          "name": "data",
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnClosePatchNotes",
+      "shortName": "OnClosePatchNotes",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloudSavesQueryStatusChanged",
+      "shortName": "OnCloudSavesQueryStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "servicesCloudSavesQueryStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnContinueButtonEnter",
+      "shortName": "OnContinueButtonEnter",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnContinueButtonLeave",
+      "shortName": "OnContinueButtonLeave",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -48,7 +152,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -64,7 +168,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -80,7 +184,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnListRelease",
@@ -89,7 +193,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -99,17 +203,111 @@
       ]
     },
     {
-      "fullName": "OnSavesReady",
-      "shortName": "OnSavesReady",
+      "fullName": "OnOnlineStatusChanged",
+      "shortName": "OnOnlineStatusChanged",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
+      "params": [
+        {
+          "type": "gameOnlineSystemStatus",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRedrawRequested",
+      "shortName": "OnRedrawRequested",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnRetrySaveDataRequestDelay",
+      "shortName": "OnRetrySaveDataRequestDelay",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RetrySaveDataRequestDelay",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSaveMetadataReady",
+      "shortName": "OnSaveMetadataReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkSaveMetadataInfo",
+          "name": "info",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSavesForLoadReady",
+      "shortName": "OnSavesForLoadReady",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
           "type": "array:String",
           "name": "saves",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMenuEventDispatcher",
+      "shortName": "OnSetMenuEventDispatcher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkMenuEventDispatcher",
+          "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTooltipContainerSpawned",
+      "shortName": "OnTooltipContainerSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
           "flags": 128
         }
       ]
@@ -121,12 +319,33 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "HandleMenuItemActivate;PauseMenuListItemData",
+      "shortName": "HandleMenuItemActivate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:PauseMenuListItemData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "PopulateMenuItemList;",
       "shortName": "PopulateMenuItemList",
-      "flags": 128
+      "flags": 32896
+    },
+    {
+      "fullName": "ShowActionsList;",
+      "shortName": "ShowActionsList",
+      "flags": 33024
     }
   ]
 }

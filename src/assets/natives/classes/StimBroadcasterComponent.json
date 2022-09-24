@@ -24,6 +24,11 @@
       "flags": 6583222304
     },
     {
+      "type": "array:StimIdentificationData",
+      "name": "blockedStims",
+      "flags": 6583025696
+    },
+    {
       "type": "Float",
       "name": "fallbackInterval",
       "flags": 4297326624
@@ -33,7 +38,7 @@
     {
       "fullName": "StimBroadcasterComponent::BroadcastActiveStim;GameObjectgamedataStimTypeFloatFloatstimInvestigateDataBool",
       "shortName": "BroadcastActiveStim",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -70,7 +75,7 @@
     {
       "fullName": "StimBroadcasterComponent::BroadcastStim;GameObjectgamedataStimTypeFloatstimInvestigateDataBool",
       "shortName": "BroadcastStim",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -102,7 +107,7 @@
     {
       "fullName": "StimBroadcasterComponent::SendStimDirectly;GameObjectgamedataStimTypeGameObjectstimInvestigateDataFloat",
       "shortName": "SendStimDirectly",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -134,7 +139,7 @@
     {
       "fullName": "StimBroadcasterComponent::nameToStimEnum;CNamegamedataStimType",
       "shortName": "nameToStimEnum",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "CName",
@@ -149,9 +154,89 @@
       ]
     },
     {
+      "fullName": "OnBlockStimProcessingCooldownEvent",
+      "shortName": "OnBlockStimProcessingCooldownEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:BlockStimProcessingCooldownEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBroadcastEvent",
+      "shortName": "OnBroadcastEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:BroadcastEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRecurrentStimuliEvent",
+      "shortName": "OnRecurrentStimuliEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RecurrentStimuliEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied",
+      "shortName": "OnStatusEffectApplied",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStimTargetsUpdate",
+      "shortName": "OnStimTargetsUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:StimTargetsEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AddActiveStimuli;GameObjectgamedataStimTypeFloatFloatstimInvestigateDataBoolBool",
       "shortName": "AddActiveStimuli",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -193,7 +278,7 @@
     {
       "fullName": "AddActiveStimulus;gamedataStimTypeFloatBoolFloatstimInvestigateDataBool",
       "shortName": "AddActiveStimulus",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -228,14 +313,26 @@
       ]
     },
     {
+      "fullName": "AddBlockedStim;script_ref<StimIdentificationData>",
+      "shortName": "AddBlockedStim",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:StimIdentificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AddNewDelayEvent;",
       "shortName": "AddNewDelayEvent",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "AddStimmTarget;StimTargetData",
       "shortName": "AddStimmTarget",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "StimTargetData",
@@ -251,17 +348,17 @@
         "type": "StimRequestID",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ClearRequests;",
       "shortName": "ClearRequests",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ClearStimTargets;",
       "shortName": "ClearStimTargets",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CreateStimRequest;gamedataStimTypeFloatFloatstimInvestigateDataBool",
@@ -270,7 +367,7 @@
         "type": "handle:StimRequest",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -306,7 +403,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:StimRequest",
@@ -322,7 +419,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:StimRequest",
@@ -338,7 +435,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "StimRequestID",
@@ -354,7 +451,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -370,7 +467,7 @@
         "type": "StimRequestID",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Uint32",
@@ -391,7 +488,7 @@
         "type": "handle:StimRequest",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -407,7 +504,7 @@
         "type": "handle:StimRequest",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "StimRequestID",
@@ -423,7 +520,7 @@
         "type": "handle:StimRequest",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -439,7 +536,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "StimTargetData",
@@ -455,7 +552,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "IsEqual;StimuliEventgamedataStimType",
@@ -464,7 +561,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:senseStimuliEvent",
@@ -485,7 +582,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -495,9 +592,51 @@
       ]
     },
     {
+      "fullName": "IsStimBlocked;script_ref<StimIdentificationData>",
+      "shortName": "IsStimBlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:StimIdentificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsStimProcessingBlocked;EntityIDgamedataStimTypeCName",
+      "shortName": "IsStimProcessingBlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "stimName",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "LogStimuliBroadcast;StimuliEventStimRequestString",
       "shortName": "LogStimuliBroadcast",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:senseStimuliEvent",
@@ -519,7 +658,7 @@
     {
       "fullName": "LogStimuliRemoval;StimuliEventStimRequest",
       "shortName": "LogStimuliRemoval",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:senseStimuliEvent",
@@ -536,7 +675,7 @@
     {
       "fullName": "OnGameDetach;",
       "shortName": "OnGameDetach",
-      "flags": 260
+      "flags": 34052
     },
     {
       "fullName": "ProcessStartRequest;gamedataStimTypeFloatFloatstimInvestigateDataBool",
@@ -545,7 +684,7 @@
         "type": "StimRequestID",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -577,7 +716,7 @@
     {
       "fullName": "ProcessStopRequest;gamedataStimType",
       "shortName": "ProcessStopRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataStimType",
@@ -593,7 +732,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:RecurrentStimuliEvent",
@@ -605,7 +744,7 @@
     {
       "fullName": "RemoveActiveStimByID;StimRequestID",
       "shortName": "RemoveActiveStimByID",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "StimRequestID",
@@ -617,7 +756,7 @@
     {
       "fullName": "RemoveActiveStimuliByName;GameObjectgamedataStimType",
       "shortName": "RemoveActiveStimuliByName",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -632,9 +771,33 @@
       ]
     },
     {
+      "fullName": "RemoveBlockedStim;script_ref<StimIdentificationData>",
+      "shortName": "RemoveBlockedStim",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:StimIdentificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveBlockedStim;DelayID",
+      "shortName": "RemoveBlockedStim",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameDelayID",
+          "name": "delayID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RemoveRequest;StimRequest",
       "shortName": "RemoveRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:StimRequest",
@@ -646,7 +809,7 @@
     {
       "fullName": "RemoveRequest;Int32",
       "shortName": "RemoveRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -656,9 +819,40 @@
       ]
     },
     {
+      "fullName": "ResolveStimProcessingCooldown;EntityIDgamedataStimTypeCNameFloat",
+      "shortName": "ResolveStimProcessingCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStimType",
+          "name": "stimType",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "stimName",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "cooldown",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SendDrirectStimuliToTarget;GameObjectgamedataStimTypeGameObjectstimInvestigateDataFloat",
       "shortName": "SendDrirectStimuliToTarget",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -690,7 +884,7 @@
     {
       "fullName": "SetSingleActiveStimuli;GameObjectgamedataStimTypeFloatFloatstimInvestigateDataBool",
       "shortName": "SetSingleActiveStimuli",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -727,12 +921,12 @@
     {
       "fullName": "StopTriggeringStims;",
       "shortName": "StopTriggeringStims",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "TriggerNoiseStim;GameObjectETakedownActionType",
       "shortName": "TriggerNoiseStim",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -749,7 +943,7 @@
     {
       "fullName": "TriggerSingleBroadcast;GameObjectgamedataStimTypeFloatstimInvestigateDataBool",
       "shortName": "TriggerSingleBroadcast",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -775,70 +969,6 @@
           "type": "Bool",
           "name": "propagationChange",
           "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "OnBroadcastEvent",
-      "shortName": "OnBroadcastEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:BroadcastEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRecurrentStimuliEvent",
-      "shortName": "OnRecurrentStimuliEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:RecurrentStimuliEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnStatusEffectApplied",
-      "shortName": "OnStatusEffectApplied",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameeventsApplyStatusEffectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnStimTargetsUpdate",
-      "shortName": "OnStimTargetsUpdate",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:StimTargetsEvent",
-          "name": "evt",
-          "flags": 128
         }
       ]
     }

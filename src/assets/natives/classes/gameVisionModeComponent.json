@@ -4,11 +4,6 @@
   "flags": 2,
   "props": [
     {
-      "type": "array:gameVisionModuleParams",
-      "name": "availableVisionModes",
-      "flags": 6631211009
-    },
-    {
       "type": "handle:HighlightEditableData",
       "name": "defaultHighlightData",
       "flags": 4498456613
@@ -42,13 +37,18 @@
       "type": "Bool",
       "name": "wasCleanedUp",
       "flags": 4297130016
+    },
+    {
+      "type": "array:entEntityID",
+      "name": "slaveObjectsToHighlight",
+      "flags": 6583025696
     }
   ],
   "funcs": [
     {
       "fullName": "SetHiddenInVisionMode",
       "shortName": "SetHiddenInVisionMode",
-      "index": 12298,
+      "index": 12961,
       "flags": 1,
       "params": [
         {
@@ -64,9 +64,233 @@
       ]
     },
     {
+      "fullName": "OnAIAction",
+      "shortName": "OnAIAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:AIAIEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeath",
+      "shortName": "OnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDefeated",
+      "shortName": "OnDefeated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:gameeventsDefeatedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceReactivateHighlights",
+      "shortName": "OnForceReactivateHighlights",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:ForceReactivateHighlightsEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceUpdateDefultHighlight",
+      "shortName": "OnForceUpdateDefultHighlight",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:ForceUpdateDefaultHighlightEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceVisionApperance",
+      "shortName": "OnForceVisionApperance",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:ForceVisionApperanceEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHUDInstruction",
+      "shortName": "OnHUDInstruction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:HUDInstruction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRestoreRevealEvent",
+      "shortName": "OnRestoreRevealEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:RestoreRevealStateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRevealObject",
+      "shortName": "OnRevealObject",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:gameeventsRevealObjectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRevealQuestTargetEvent",
+      "shortName": "OnRevealQuestTargetEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:RevealQuestTargetEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetForcedDefaultHighlight",
+      "shortName": "OnSetForcedDefaultHighlight",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:SetDefaultHighlightEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetPersistentForcedHighlightEvent",
+      "shortName": "OnSetPersistentForcedHighlightEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:SetPersistentForcedHighlightEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleForcedHighlightEvent",
+      "shortName": "OnToggleForcedHighlightEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:ToggleForcedHighlightEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVisionRevealExpiredEvent",
+      "shortName": "OnVisionRevealExpiredEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:gameVisionRevealExpiredEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AddForcedHighlight;FocusForcedHighlightData",
       "shortName": "AddForcedHighlight",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -82,7 +306,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameVisionModeSystemRevealIdentifier",
@@ -94,7 +318,7 @@
     {
       "fullName": "CancelForcedVisionAppearance;Float",
       "shortName": "CancelForcedVisionAppearance",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Float",
@@ -106,7 +330,7 @@
     {
       "fullName": "CleanUp;",
       "shortName": "CleanUp",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ClearAllReavealRequests;",
@@ -115,7 +339,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ClearForcedHighlights;",
@@ -124,7 +348,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CompareHighlightData;FocusForcedHighlightDataFocusForcedHighlightData",
@@ -133,7 +357,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -150,12 +374,12 @@
     {
       "fullName": "EvaluateForcedHighLightsStack;",
       "shortName": "EvaluateForcedHighLightsStack",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ForceVisionAppearance;FocusForcedHighlightData",
       "shortName": "ForceVisionAppearance",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -167,7 +391,7 @@
     {
       "fullName": "ForwardHighlightToSlaveEntity;FocusForcedHighlightDataBool",
       "shortName": "ForwardHighlightToSlaveEntity",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -188,7 +412,7 @@
         "type": "handle:FocusForcedHighlightData",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "handle:HighlightInstance",
@@ -204,7 +428,7 @@
         "type": "handle:gameVisionModeComponentPS",
         "flags": 64
       },
-      "flags": 8324
+      "flags": 41092
     },
     {
       "fullName": "GetOwner;",
@@ -213,7 +437,7 @@
         "type": "handle:gameObject",
         "flags": 64
       },
-      "flags": 8324
+      "flags": 41092
     },
     {
       "fullName": "GetRevealRequestIndex;gameVisionModeSystemRevealIdentifier",
@@ -222,7 +446,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameVisionModeSystemRevealIdentifier",
@@ -238,7 +462,7 @@
         "type": "handle:gameVisionModeSystem",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "HasDefaultHighlight;",
@@ -247,7 +471,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "HasForcedHighlightOnStack;FocusForcedHighlightData",
@@ -256,7 +480,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -272,7 +496,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "EFocusForcedHighlightType",
@@ -297,13 +521,34 @@
       ]
     },
     {
+      "fullName": "HasHighlight;EFocusForcedHighlightTypeEFocusOutlineType",
+      "shortName": "HasHighlight",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "EFocusForcedHighlightType",
+          "name": "highlightType",
+          "flags": 128
+        },
+        {
+          "type": "EFocusOutlineType",
+          "name": "outlineType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HasHighlight;EFocusForcedHighlightTypeEFocusOutlineTypeEntityID",
       "shortName": "HasHighlight",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "EFocusForcedHighlightType",
@@ -323,34 +568,13 @@
       ]
     },
     {
-      "fullName": "HasHighlight;EFocusForcedHighlightTypeEFocusOutlineType",
-      "shortName": "HasHighlight",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "EFocusForcedHighlightType",
-          "name": "highlightType",
-          "flags": 128
-        },
-        {
-          "type": "EFocusOutlineType",
-          "name": "outlineType",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "HasOutlineOrFill;EFocusForcedHighlightTypeEFocusOutlineType",
       "shortName": "HasOutlineOrFill",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "EFocusForcedHighlightType",
@@ -371,7 +595,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameVisionModeSystemRevealIdentifier",
@@ -387,7 +611,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "IsRequestTheSame;gameVisionModeSystemRevealIdentifiergameVisionModeSystemRevealIdentifier",
@@ -396,7 +620,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameVisionModeSystemRevealIdentifier",
@@ -417,7 +641,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -433,7 +657,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "IsTagged;",
@@ -442,272 +666,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
-    },
-    {
-      "fullName": "OnAIAction",
-      "shortName": "OnAIAction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:AIAIEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDeath",
-      "shortName": "OnDeath",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:gameeventsDeathEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDefeated",
-      "shortName": "OnDefeated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:gameeventsDefeatedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnForceReactivateHighlights",
-      "shortName": "OnForceReactivateHighlights",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:ForceReactivateHighlightsEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnForceUpdateDefultHighlight",
-      "shortName": "OnForceUpdateDefultHighlight",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:ForceUpdateDefaultHighlightEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnForceVisionApperance",
-      "shortName": "OnForceVisionApperance",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:ForceVisionApperanceEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
+      "flags": 32900
     },
     {
       "fullName": "OnGameAttach;",
       "shortName": "OnGameAttach",
-      "flags": 260
+      "flags": 34052
     },
     {
       "fullName": "OnGameDetach;",
       "shortName": "OnGameDetach",
-      "flags": 260
-    },
-    {
-      "fullName": "OnHUDInstruction",
-      "shortName": "OnHUDInstruction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:HUDInstruction",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPulseEvent",
-      "shortName": "OnPulseEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:gameVisionModeUpdateVisuals",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRestoreRevealEvent",
-      "shortName": "OnRestoreRevealEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:RestoreRevealStateEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRevealObject",
-      "shortName": "OnRevealObject",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:gameeventsRevealObjectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRevealQuestTargetEvent",
-      "shortName": "OnRevealQuestTargetEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:RevealQuestTargetEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetForcedDefaultHighlight",
-      "shortName": "OnSetForcedDefaultHighlight",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:SetDefaultHighlightEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetPersistentForcedHighlightEvent",
-      "shortName": "OnSetPersistentForcedHighlightEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:SetPersistentForcedHighlightEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnToggleForcedHighlightEvent",
-      "shortName": "OnToggleForcedHighlightEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:ToggleForcedHighlightEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnVisionRevealExpiredEvent",
-      "shortName": "OnVisionRevealExpiredEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 268,
-      "params": [
-        {
-          "type": "handle:gameVisionRevealExpiredEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PulseObject;",
-      "shortName": "PulseObject",
-      "flags": 132
+      "flags": 34052
     },
     {
       "fullName": "ReactivateForceHighlight;",
       "shortName": "ReactivateForceHighlight",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RemoveForcedHighlight;FocusForcedHighlightDataBool",
       "shortName": "RemoveForcedHighlight",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -724,7 +703,7 @@
     {
       "fullName": "RemoveRevealRequest;gameVisionModeSystemRevealIdentifier",
       "shortName": "RemoveRevealRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameVisionModeSystemRevealIdentifier",
@@ -736,7 +715,7 @@
     {
       "fullName": "RemoveRevealWithDelay;gameVisionModeSystemRevealIdentifierFloat",
       "shortName": "RemoveRevealWithDelay",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameVisionModeSystemRevealIdentifier",
@@ -753,17 +732,17 @@
     {
       "fullName": "RequestHUDRefresh;",
       "shortName": "RequestHUDRefresh",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RestoreReveal;",
       "shortName": "RestoreReveal",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "RevealObject;BoolgameVisionModeSystemRevealIdentifierFloat",
       "shortName": "RevealObject",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -785,7 +764,7 @@
     {
       "fullName": "SendRevealStateChangedEvent;ERevealStategameVisionModeSystemRevealIdentifier",
       "shortName": "SendRevealStateChangedEvent",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ERevealState",
@@ -802,7 +781,7 @@
     {
       "fullName": "ToggleForcedHighlight;CNameHighlightEditableDataEToggleOperationType",
       "shortName": "ToggleForcedHighlight",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "CName",
@@ -824,7 +803,7 @@
     {
       "fullName": "ToggleRevealObject;BoolBool",
       "shortName": "ToggleRevealObject",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -841,7 +820,7 @@
     {
       "fullName": "UpdateActiveForceHighlight;FocusForcedHighlightData",
       "shortName": "UpdateActiveForceHighlight",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
@@ -853,11 +832,23 @@
     {
       "fullName": "UpdateDefaultHighlight;FocusForcedHighlightData",
       "shortName": "UpdateDefaultHighlight",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:FocusForcedHighlightData",
           "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateSlaveObjectsToHighlight;script_ref<array<GameObject>>",
+      "shortName": "UpdateSlaveObjectsToHighlight",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:array:whandle:gameObject",
+          "name": "objectsToHighlight",
           "flags": 128
         }
       ]

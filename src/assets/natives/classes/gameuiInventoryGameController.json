@@ -75,6 +75,11 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "btnSets",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "cyberdeckLinkContainer",
       "flags": 4297130017
     },
@@ -132,6 +137,11 @@
       "type": "handle:inkanimDefinition",
       "name": "animDef",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "refreshUIRequested",
+      "flags": 4297130016
     },
     {
       "type": "array:whandle:InventoryItemDisplay",
@@ -304,6 +314,16 @@
       "flags": 6583025696
     },
     {
+      "type": "array:gamedataEquipmentArea",
+      "name": "wardrobeOutfitAreas",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "lastClothingSetIndex",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:gameTelemetryTelemetrySystem",
       "name": "telemetrySystem",
       "flags": 4297130016
@@ -311,882 +331,13 @@
   ],
   "funcs": [
     {
-      "fullName": "CountNewItems;script_ref<array<ItemID>>",
-      "shortName": "CountNewItems",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "script_ref:array:gameItemID",
-          "name": "items",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "EquipItem;InventoryItemData",
-      "shortName": "EquipItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetAssociatedCategory;InventoryItemDisplayController",
-      "shortName": "GetAssociatedCategory",
-      "return": {
-        "type": "array:whandle:InventoryItemDisplayController",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetAttachmentDataForCustomizeFromInventory;InventoryItemDataarray<InventoryItemData>array<InventoryComboBoxData>",
-      "shortName": "GetAttachmentDataForCustomizeFromInventory",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "inspectedItemData",
-          "flags": 128
-        },
-        {
-          "type": "array:InventoryItemData",
-          "name": "equipmentData",
-          "flags": 128
-        },
-        {
-          "type": "array:InventoryComboBoxData",
-          "name": "boxData",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "GetAttachmentDataForInventoryItem;InventoryItemDataarray<InventoryComboBoxData>Bool",
-      "shortName": "GetAttachmentDataForInventoryItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "array:InventoryComboBoxData",
-          "name": "boxData",
-          "flags": 640
-        },
-        {
-          "type": "Bool",
-          "name": "allowUnequip",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetCategoryHeader;InventoryItemDisplayData",
-      "shortName": "GetCategoryHeader",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "InventoryItemDisplayData",
-          "name": "displayData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipementAreaDisplays;gamedataEquipmentArea",
-      "shortName": "GetEquipementAreaDisplays",
-      "return": {
-        "type": "handle:EquipmentAreaDisplays",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipmentAreaDisplaysFromCategory;array<gamedataEquipmentArea>EquipmentAreaCategory",
-      "shortName": "GetEquipmentAreaDisplaysFromCategory",
-      "return": {
-        "type": "handle:EquipmentAreaDisplays",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:gamedataEquipmentArea",
-          "name": "equipmentAreas",
-          "flags": 128
-        },
-        {
-          "type": "handle:EquipmentAreaCategory",
-          "name": "categoryArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipmentAreaPaperdollLocation;gamedataEquipmentArea",
-      "shortName": "GetEquipmentAreaPaperdollLocation",
-      "return": {
-        "type": "PaperdollPositionAnimation",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipmentAreas;inkCompoundWidgetInt32",
-      "shortName": "GetEquipmentAreas",
-      "return": {
-        "type": "array:whandle:inkCompoundWidget",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "whandle:inkCompoundWidget",
-          "name": "iw",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "levels",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipmentCategory;InventoryItemDisplayCategoryArea",
-      "shortName": "GetEquipmentCategory",
-      "return": {
-        "type": "handle:EquipmentAreaCategory",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayCategoryArea",
-          "name": "equipmentCategory",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipmentCategoryByArea;gamedataEquipmentArea",
-      "shortName": "GetEquipmentCategoryByArea",
-      "return": {
-        "type": "handle:EquipmentAreaCategory",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipmentSlotControllerFromTarget;inkPointerEvent",
-      "shortName": "GetEquipmentSlotControllerFromTarget",
-      "return": {
-        "type": "handle:InventoryItemDisplayController",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetFirstAvailableWeaponSlot;",
-      "shortName": "GetFirstAvailableWeaponSlot",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "GetInventoryItemControllerFromTarget;inkPointerEvent",
-      "shortName": "GetInventoryItemControllerFromTarget",
-      "return": {
-        "type": "handle:InventoryItemDisplay",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetSide;InventoryItemDisplayController",
-      "shortName": "GetSide",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetSlotNameFromEqArea;gamedataEquipmentArea",
-      "shortName": "GetSlotNameFromEqArea",
-      "return": {
-        "type": "String",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "area",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetSlotType;array<gamedataEquipmentArea>",
-      "shortName": "GetSlotType",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:gamedataEquipmentArea",
-          "name": "areaTypes",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetTooltipPlacement;InventoryItemDisplayController",
-      "shortName": "GetTooltipPlacement",
-      "return": {
-        "type": "gameuiETooltipPlacement",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetVisibleAdditionalWidgets;",
-      "shortName": "GetVisibleAdditionalWidgets",
-      "return": {
-        "type": "array:whandle:inkWidget",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "GetVisibleSlots;InventoryItemDisplayController",
-      "shortName": "GetVisibleSlots",
-      "return": {
-        "type": "array:handle:InventoryItemDisplayController",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "slotToSkip",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "GetZoomArea;gamedataEquipmentArea",
-      "shortName": "GetZoomArea",
-      "return": {
-        "type": "InventoryPaperdollZoomArea",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HandlePostInitializeQueue;",
-      "shortName": "HandlePostInitializeQueue",
-      "flags": 260
-    },
-    {
-      "fullName": "HideTooltips;",
-      "shortName": "HideTooltips",
-      "flags": 132
-    },
-    {
-      "fullName": "InvlidateAllClothes;",
-      "shortName": "InvlidateAllClothes",
-      "flags": 132
-    },
-    {
-      "fullName": "IsAnEquipmentArea;gamedataEquipmentArea",
-      "shortName": "IsAnEquipmentArea",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsAreaLockedByOutfit;gamedataEquipmentArea",
-      "shortName": "IsAreaLockedByOutfit",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsEquipmentAreaCyberware;InventoryItemData",
-      "shortName": "IsEquipmentAreaCyberware",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsItemACyberdeck;InventoryItemDisplayData",
-      "shortName": "IsItemACyberdeck",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemDisplayData",
-          "name": "displayData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsUnequipBlocked;ItemID",
-      "shortName": "IsUnequipBlocked",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "NotifyItemUpdate;gamedataEquipmentAreaInt32EHotkey",
-      "shortName": "NotifyItemUpdate",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 1152
-        },
-        {
-          "type": "Int32",
-          "name": "slotIndex",
-          "flags": 1152
-        },
-        {
-          "type": "gameEHotkey",
-          "name": "hotkey",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryItemHoverOver;InventoryItemDatainkWidget",
-      "shortName": "OnInventoryItemHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "whandle:inkWidget",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuantityPickerDisassembly;QuantityPickerPopupCloseData",
-      "shortName": "OnQuantityPickerDisassembly",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuantityPickerPopupCloseData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OpenDefaultMode;Bool",
-      "shortName": "OpenDefaultMode",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "openingMenu",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "OpenItemMode;InventoryItemDisplayData",
-      "shortName": "OpenItemMode",
-      "flags": 516,
-      "params": [
-        {
-          "type": "InventoryItemDisplayData",
-          "name": "displayData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionTypeBool",
-      "shortName": "OpenQuantityPicker",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "QuantityPickerActionType",
-          "name": "actionType",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "local",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "PlayAnim;CNameCName",
-      "shortName": "PlayAnim",
-      "flags": 132,
-      "params": [
-        {
-          "type": "CName",
-          "name": "anim",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "callbackFunction",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayGearToItemModeAnimation;CNameCNameInventoryItemDisplayControllerarray<InventoryItemDisplayController>",
-      "shortName": "PlayGearToItemModeAnimation",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "CName",
-          "name": "moveAnimation",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "hideAnimation",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "array:handle:InventoryItemDisplayController",
-          "name": "itemToHide",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayMoveAnimation;InventoryItemDisplayController",
-      "shortName": "PlayMoveAnimation",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayShowHideAnimation;BoolInventoryItemDisplayController",
-      "shortName": "PlayShowHideAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "visible",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "slotToShow",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "PlayShowHideItemChooserAnimation;Bool",
-      "shortName": "PlayShowHideItemChooserAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "visible",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlaySlidePaperdollAnimation;PaperdollPositionAnimationBool",
-      "shortName": "PlaySlidePaperdollAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "PaperdollPositionAnimation",
-          "name": "position",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "hide",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "PopulateArea;inkCompoundWidgetEquipmentAreaDisplaysInt32array<gamedataEquipmentArea>",
-      "shortName": "PopulateArea",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:inkCompoundWidget",
-          "name": "targetRoot",
-          "flags": 128
-        },
-        {
-          "type": "handle:EquipmentAreaDisplays",
-          "name": "container",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "numberOfSlots",
-          "flags": 128
-        },
-        {
-          "type": "array:gamedataEquipmentArea",
-          "name": "equipmentAreas",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RefreshUI;",
-      "shortName": "RefreshUI",
-      "flags": 132
-    },
-    {
-      "fullName": "RefreshedEquippedItemData;InventoryItemData",
-      "shortName": "RefreshedEquippedItemData",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "equippedItem",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RegisterToBB;",
-      "shortName": "RegisterToBB",
-      "flags": 132
-    },
-    {
-      "fullName": "SetDeckData;",
-      "shortName": "SetDeckData",
-      "flags": 132
-    },
-    {
-      "fullName": "SetEquipmentSlotButtonHintsHoverOut;",
-      "shortName": "SetEquipmentSlotButtonHintsHoverOut",
-      "flags": 132
-    },
-    {
-      "fullName": "SetEquipmentSlotButtonHintsHoverOver;InventoryItemDisplayController",
-      "shortName": "SetEquipmentSlotButtonHintsHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetInventoryItemButtonHintsHoverOut;",
-      "shortName": "SetInventoryItemButtonHintsHoverOut",
-      "flags": 132
-    },
-    {
-      "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemData",
-      "shortName": "SetInventoryItemButtonHintsHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "displayingData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetupPlayerStats;PlayerPuppetGameInstance",
-      "shortName": "SetupPlayerStats",
-      "flags": 132,
-      "params": [
-        {
-          "type": "whandle:PlayerPuppet",
-          "name": "player",
-          "flags": 128
-        },
-        {
-          "type": "ScriptGameInstance",
-          "name": "game",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
-      "shortName": "ShowNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gameInstance",
-          "flags": 128
-        },
-        {
-          "type": "UIMenuNotificationType",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowTooltipsForItemData;InventoryItemDataInventoryItemDatainkWidget",
-      "shortName": "ShowTooltipsForItemData",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "equippedItem",
-          "flags": 128
-        },
-        {
-          "type": "InventoryItemData",
-          "name": "inspectedItemData",
-          "flags": 128
-        },
-        {
-          "type": "whandle:inkWidget",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "StartModeTransitionAnimation;InventoryItemDisplayData",
-      "shortName": "StartModeTransitionAnimation",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemDisplayData",
-          "name": "displayData",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SwapMode;InventoryModes",
-      "shortName": "SwapMode",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryModes",
-          "name": "mode",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnequipItem;InventoryItemDisplayControllerInventoryItemData",
-      "shortName": "UnequipItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "controller",
-          "flags": 128
-        },
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnregisterFromBB;",
-      "shortName": "UnregisterFromBB",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateDropdownContext;DropdownDisplayContext",
-      "shortName": "UpdateDropdownContext",
-      "flags": 132,
-      "params": [
-        {
-          "type": "DropdownDisplayContext",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateNewItemsIndicators;",
-      "shortName": "UpdateNewItemsIndicators",
-      "flags": 132
-    },
-    {
-      "fullName": "ZoomCamera;Int32",
-      "shortName": "ZoomCamera",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "target",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnBack",
       "shortName": "OnBack",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IScriptable",
@@ -1202,7 +353,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IScriptable",
@@ -1218,7 +369,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -1276,13 +427,45 @@
       ]
     },
     {
+      "fullName": "OnDelayedRefreshUI",
+      "shortName": "OnDelayedRefreshUI",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DelayedRefreshUI",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayedSetItemModeShown",
+      "shortName": "OnDelayedSetItemModeShown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DelayedSetItemModeShown",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDisassembleComplete",
       "shortName": "OnDisassembleComplete",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -1298,7 +481,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DropdownItemClickedEvent",
@@ -1314,7 +497,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:EquipmentAreaCategoryCreated",
@@ -1330,42 +513,10 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnEquipmentSlotHoverOut",
-      "shortName": "OnEquipmentSlotHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnEquipmentSlotHoverOver",
-      "shortName": "OnEquipmentSlotHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
+          "type": "handle:ItemDisplayClickEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1378,23 +529,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
-    },
-    {
-      "fullName": "OnInventoryClick",
-      "shortName": "OnInventoryClick",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
+      "flags": 33032
     },
     {
       "fullName": "OnInventoryHold",
@@ -1403,39 +538,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryItemHoverOut",
-      "shortName": "OnInventoryItemHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryItemHoverOver",
-      "shortName": "OnInventoryItemHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -1451,7 +554,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ItemChooserItemChanged",
@@ -1499,7 +602,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ItemModeItemChanged",
@@ -1531,7 +634,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -1547,7 +650,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:OpenInventoryQuantityPickerRequest",
@@ -1563,7 +666,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -1579,43 +682,11 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
           "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSelectedItemDelayedEvent",
-      "shortName": "OnSelectedItemDelayedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:EventInventorySlotSelectDelayedInventoryEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSelectedSlotDelayedEvent",
-      "shortName": "OnSelectedSlotDelayedEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:EventEquipSlotSelectDelayedInventoryEvent",
-          "name": "evt",
           "flags": 128
         }
       ]
@@ -1627,7 +698,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkMenuEventDispatcher",
@@ -1643,7 +714,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IScriptable",
@@ -1659,7 +730,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -1675,7 +746,890 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "CountNewItems;script_ref<array<ItemID>>",
+      "shortName": "CountNewItems",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:array:gameItemID",
+          "name": "items",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipItem;InventoryItemData",
+      "shortName": "EquipItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAssociatedCategory;InventoryItemDisplayController",
+      "shortName": "GetAssociatedCategory",
+      "return": {
+        "type": "array:whandle:InventoryItemDisplayController",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttachmentDataForCustomizeFromInventory;InventoryItemDataarray<InventoryItemData>array<InventoryComboBoxData>",
+      "shortName": "GetAttachmentDataForCustomizeFromInventory",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "inspectedItemData",
+          "flags": 128
+        },
+        {
+          "type": "array:gameInventoryItemData",
+          "name": "equipmentData",
+          "flags": 128
+        },
+        {
+          "type": "array:InventoryComboBoxData",
+          "name": "boxData",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttachmentDataForInventoryItem;InventoryItemDataarray<InventoryComboBoxData>Bool",
+      "shortName": "GetAttachmentDataForInventoryItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "array:InventoryComboBoxData",
+          "name": "boxData",
+          "flags": 640
+        },
+        {
+          "type": "Bool",
+          "name": "allowUnequip",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCategoryHeader;InventoryItemDisplayData",
+      "shortName": "GetCategoryHeader",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "InventoryItemDisplayData",
+          "name": "displayData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipementAreaDisplays;gamedataEquipmentArea",
+      "shortName": "GetEquipementAreaDisplays",
+      "return": {
+        "type": "handle:EquipmentAreaDisplays",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentAreaDisplaysFromCategory;array<gamedataEquipmentArea>EquipmentAreaCategory",
+      "shortName": "GetEquipmentAreaDisplaysFromCategory",
+      "return": {
+        "type": "handle:EquipmentAreaDisplays",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:gamedataEquipmentArea",
+          "name": "equipmentAreas",
+          "flags": 128
+        },
+        {
+          "type": "handle:EquipmentAreaCategory",
+          "name": "categoryArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentAreaPaperdollLocation;gamedataEquipmentArea",
+      "shortName": "GetEquipmentAreaPaperdollLocation",
+      "return": {
+        "type": "PaperdollPositionAnimation",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentAreas;inkCompoundWidgetInt32",
+      "shortName": "GetEquipmentAreas",
+      "return": {
+        "type": "array:whandle:inkCompoundWidget",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:inkCompoundWidget",
+          "name": "iw",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "levels",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentCategory;InventoryItemDisplayCategoryArea",
+      "shortName": "GetEquipmentCategory",
+      "return": {
+        "type": "handle:EquipmentAreaCategory",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayCategoryArea",
+          "name": "equipmentCategory",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentCategoryByArea;gamedataEquipmentArea",
+      "shortName": "GetEquipmentCategoryByArea",
+      "return": {
+        "type": "handle:EquipmentAreaCategory",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentSlotControllerFromTarget;inkPointerEvent",
+      "shortName": "GetEquipmentSlotControllerFromTarget",
+      "return": {
+        "type": "handle:InventoryItemDisplayController",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFirstAvailableWeaponSlot;",
+      "shortName": "GetFirstAvailableWeaponSlot",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetInventoryItemControllerFromTarget;inkPointerEvent",
+      "shortName": "GetInventoryItemControllerFromTarget",
+      "return": {
+        "type": "handle:InventoryItemDisplay",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSide;InventoryItemDisplayController",
+      "shortName": "GetSide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSlotNameFromEqArea;gamedataEquipmentArea",
+      "shortName": "GetSlotNameFromEqArea",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSlotType;array<gamedataEquipmentArea>",
+      "shortName": "GetSlotType",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:gamedataEquipmentArea",
+          "name": "areaTypes",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTooltipPlacement;InventoryItemDisplayController",
+      "shortName": "GetTooltipPlacement",
+      "return": {
+        "type": "gameuiETooltipPlacement",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVisibleAdditionalWidgets;",
+      "shortName": "GetVisibleAdditionalWidgets",
+      "return": {
+        "type": "array:whandle:inkWidget",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetVisibleSlots;InventoryItemDisplayController",
+      "shortName": "GetVisibleSlots",
+      "return": {
+        "type": "array:handle:InventoryItemDisplayController",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "slotToSkip",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetZoomArea;gamedataEquipmentArea",
+      "shortName": "GetZoomArea",
+      "return": {
+        "type": "InventoryPaperdollZoomArea",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandlePostInitializeQueue;",
+      "shortName": "HandlePostInitializeQueue",
+      "flags": 33028
+    },
+    {
+      "fullName": "HideTooltips;",
+      "shortName": "HideTooltips",
+      "flags": 32900
+    },
+    {
+      "fullName": "InvlidateAllClothes;",
+      "shortName": "InvlidateAllClothes",
+      "flags": 32900
+    },
+    {
+      "fullName": "IsAnEquipmentArea;gamedataEquipmentArea",
+      "shortName": "IsAnEquipmentArea",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsAreaLockedByOutfit;gamedataEquipmentArea",
+      "shortName": "IsAreaLockedByOutfit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEquipmentAreaCyberware;InventoryItemData",
+      "shortName": "IsEquipmentAreaCyberware",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsItemACyberdeck;InventoryItemDisplayData",
+      "shortName": "IsItemACyberdeck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "InventoryItemDisplayData",
+          "name": "displayData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUnequipBlocked;ItemID",
+      "shortName": "IsUnequipBlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyItemUpdate;gamedataEquipmentAreaInt32EHotkey",
+      "shortName": "NotifyItemUpdate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        },
+        {
+          "type": "gameEHotkey",
+          "name": "hotkey",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryItemHoverOver;InventoryItemDatainkWidget",
+      "shortName": "OnInventoryItemHoverOver",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuantityPickerDisassembly;QuantityPickerPopupCloseData",
+      "shortName": "OnQuantityPickerDisassembly",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuantityPickerPopupCloseData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenDefaultMode;Bool",
+      "shortName": "OpenDefaultMode",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "openingMenu",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OpenItemMode;InventoryItemDisplayData",
+      "shortName": "OpenItemMode",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "InventoryItemDisplayData",
+          "name": "displayData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionTypeBool",
+      "shortName": "OpenQuantityPicker",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "QuantityPickerActionType",
+          "name": "actionType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "local",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PlayAnim;CNameCName",
+      "shortName": "PlayAnim",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "anim",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "callbackFunction",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayGearToItemModeAnimation;CNameCNameInventoryItemDisplayControllerarray<InventoryItemDisplayController>",
+      "shortName": "PlayGearToItemModeAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "moveAnimation",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "hideAnimation",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:InventoryItemDisplayController",
+          "name": "itemToHide",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayMoveAnimation;InventoryItemDisplayController",
+      "shortName": "PlayMoveAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayShowHideAnimation;BoolInventoryItemDisplayController",
+      "shortName": "PlayShowHideAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "slotToShow",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PlayShowHideItemChooserAnimation;Bool",
+      "shortName": "PlayShowHideItemChooserAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlaySlidePaperdollAnimation;PaperdollPositionAnimationBool",
+      "shortName": "PlaySlidePaperdollAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "PaperdollPositionAnimation",
+          "name": "position",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hide",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateArea;inkCompoundWidgetEquipmentAreaDisplaysInt32array<gamedataEquipmentArea>",
+      "shortName": "PopulateArea",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:inkCompoundWidget",
+          "name": "targetRoot",
+          "flags": 128
+        },
+        {
+          "type": "handle:EquipmentAreaDisplays",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "numberOfSlots",
+          "flags": 128
+        },
+        {
+          "type": "array:gamedataEquipmentArea",
+          "name": "equipmentAreas",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReadUICondition;gamedataUICondition",
+      "shortName": "ReadUICondition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32896,
+      "params": [
+        {
+          "type": "gamedataUICondition",
+          "name": "condition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshEquippedWardrobeItems;",
+      "shortName": "RefreshEquippedWardrobeItems",
+      "flags": 32900
+    },
+    {
+      "fullName": "RefreshUI;",
+      "shortName": "RefreshUI",
+      "flags": 32900
+    },
+    {
+      "fullName": "RefreshedEquippedItemData;InventoryItemData",
+      "shortName": "RefreshedEquippedItemData",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "equippedItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterToBB;",
+      "shortName": "RegisterToBB",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetDeckData;",
+      "shortName": "SetDeckData",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetInventoryItemButtonHintsHoverOut;",
+      "shortName": "SetInventoryItemButtonHintsHoverOut",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemData",
+      "shortName": "SetInventoryItemButtonHintsHoverOver",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "displayingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupPlayerStats;PlayerPuppetGameInstance",
+      "shortName": "SetupPlayerStats",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupSetButton;",
+      "shortName": "SetupSetButton",
+      "flags": 32900
+    },
+    {
+      "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
+      "shortName": "ShowNotification",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "UIMenuNotificationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowTooltipsForItemData;InventoryItemDataInventoryItemDatainkWidget",
+      "shortName": "ShowTooltipsForItemData",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "equippedItem",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemData",
+          "name": "inspectedItemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartModeTransitionAnimation;InventoryItemDisplayData",
+      "shortName": "StartModeTransitionAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "InventoryItemDisplayData",
+          "name": "displayData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SwapMode;InventoryModes",
+      "shortName": "SwapMode",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "InventoryModes",
+          "name": "mode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipItem;InventoryItemDisplayControllerInventoryItemData",
+      "shortName": "UnequipItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:InventoryItemDisplayController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterFromBB;",
+      "shortName": "UnregisterFromBB",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateDropdownContext;DropdownDisplayContext",
+      "shortName": "UpdateDropdownContext",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "DropdownDisplayContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateNewItemsIndicators;",
+      "shortName": "UpdateNewItemsIndicators",
+      "flags": 32900
+    },
+    {
+      "fullName": "WardrobeOutfitUnequipSet;",
+      "shortName": "WardrobeOutfitUnequipSet",
+      "flags": 32900
+    },
+    {
+      "fullName": "ZoomCamera;Int32",
+      "shortName": "ZoomCamera",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "target",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

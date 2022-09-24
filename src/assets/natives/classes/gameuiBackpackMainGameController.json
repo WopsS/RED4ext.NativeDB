@@ -84,6 +84,11 @@
       "flags": 4297130016
     },
     {
+      "type": "array:gameItemID",
+      "name": "itemDropQueueItems",
+      "flags": 6583025696
+    },
+    {
       "type": "array:gameItemModParams",
       "name": "itemDropQueue",
       "flags": 6583025696
@@ -124,6 +129,21 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:UI_InventoryDef",
+      "name": "InventoryCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "InventoryBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "InventoryBBID",
+      "flags": 4431347744
+    },
+    {
       "type": "whandle:inkMenuEventDispatcher",
       "name": "menuEventDispatcher",
       "flags": 4297130016
@@ -132,6 +152,11 @@
       "type": "whandle:BackpackFilterButtonController",
       "name": "activeFilter",
       "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:inkAsyncSpawnRequest",
+      "name": "filterSpawnRequests",
+      "flags": 6583025696
     },
     {
       "type": "handle:inkScriptableDataSourceWrapper",
@@ -144,7 +169,7 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:ItemPreferredComparisonResolver",
+      "type": "handle:InventoryItemPreferredComparisonResolver",
       "name": "comparisonResolver",
       "flags": 4431347744
     },
@@ -180,11 +205,6 @@
     },
     {
       "type": "Bool",
-      "name": "isE3Demo",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
       "name": "equipRequested",
       "flags": 4297130016
     },
@@ -204,6 +224,16 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:UIInventoryScriptableSystem",
+      "name": "uiInventorySystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "itemDisplayContext",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:inkGameNotificationToken",
       "name": "confirmationPopupToken",
       "flags": 4431347744
@@ -215,8 +245,23 @@
     },
     {
       "type": "Bool",
-      "name": "isComparisionDisabled",
+      "name": "isComparisonDisabled",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:BakcpackImmediateNotificationListener",
+      "name": "immediateNotificationListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptWeakHashMap",
+      "name": "virtualWidgets",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkScriptWeakHashMap",
+      "name": "allWidgets",
+      "flags": 4431347744
     },
     {
       "type": "handle:inkGameNotificationToken",
@@ -231,336 +276,13 @@
   ],
   "funcs": [
     {
-      "fullName": "AddToDropQueue;ItemModParams",
-      "shortName": "AddToDropQueue",
-      "flags": 260,
-      "params": [
-        {
-          "type": "gameItemModParams",
-          "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ClearCraftingMaterials;",
-      "shortName": "ClearCraftingMaterials",
-      "flags": 132
-    },
-    {
-      "fullName": "CreateCraftingMaterialItem;InventoryItemDatainkCompoundRef",
-      "shortName": "CreateCraftingMaterialItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "data",
-          "flags": 128
-        },
-        {
-          "type": "inkCompoundWidgetReference",
-          "name": "gridList",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DetermineUIMenuNotificationType;",
-      "shortName": "DetermineUIMenuNotificationType",
-      "return": {
-        "type": "UIMenuNotificationType",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "EquipItem;InventoryItemData",
-      "shortName": "EquipItem",
-      "flags": 516,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetDisassemblyResult;InventoryItemData",
-      "shortName": "GetDisassemblyResult",
-      "return": {
-        "type": "array:IngredientData",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HideDisassemblyHighlight;",
-      "shortName": "HideDisassemblyHighlight",
-      "flags": 132
-    },
-    {
-      "fullName": "HighlightDisassemblyResults;InventoryItemData",
-      "shortName": "HighlightDisassemblyResults",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "InvalidateItemTooltipEvent;",
-      "shortName": "InvalidateItemTooltipEvent",
-      "flags": 132
-    },
-    {
-      "fullName": "IsEquippable;gameItemData",
-      "shortName": "IsEquippable",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:gameItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInventoryRequestTooltip;InventoryItemDatainkWidgetDEBUG_IconErrorInfo",
-      "shortName": "OnInventoryRequestTooltip",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "displayingData",
-          "flags": 128
-        },
-        {
-          "type": "whandle:inkWidget",
-          "name": "widget",
-          "flags": 128
-        },
-        {
-          "type": "handle:DEBUG_IconErrorInfo",
-          "name": "iconErrorInfo",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuantityPickerDisassembly;QuantityPickerPopupCloseData",
-      "shortName": "OnQuantityPickerDisassembly",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuantityPickerPopupCloseData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnQuantityPickerDrop;QuantityPickerPopupCloseData",
-      "shortName": "OnQuantityPickerDrop",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:QuantityPickerPopupCloseData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OpenBackpackEquipSlotChooser;InventoryItemData",
-      "shortName": "OpenBackpackEquipSlotChooser",
-      "flags": 516,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OpenConfirmationPopupOpenConfirmationPopup;InventoryItemData",
-      "shortName": "OpenConfirmationPopupOpenConfirmationPopup",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionType",
-      "shortName": "OpenQuantityPicker",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "QuantityPickerActionType",
-          "name": "actionType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PopulateCraftingMaterials;",
-      "shortName": "PopulateCraftingMaterials",
-      "flags": 132
-    },
-    {
-      "fullName": "PopulateInventory;",
-      "shortName": "PopulateInventory",
-      "flags": 132
-    },
-    {
-      "fullName": "RefreshFilterButtons;array<ItemFilterCategory>",
-      "shortName": "RefreshFilterButtons",
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:ItemFilterCategory",
-          "name": "filters",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RefreshUI;",
-      "shortName": "RefreshUI",
-      "flags": 132
-    },
-    {
-      "fullName": "RegisterToBB;",
-      "shortName": "RegisterToBB",
-      "flags": 132
-    },
-    {
-      "fullName": "RequestItemInspected;ItemID",
-      "shortName": "RequestItemInspected",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResetVirtualGrid;",
-      "shortName": "ResetVirtualGrid",
-      "flags": 260
-    },
-    {
-      "fullName": "SetInventoryItemButtonHintsHoverOut;",
-      "shortName": "SetInventoryItemButtonHintsHoverOut",
-      "flags": 132
-    },
-    {
-      "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemData",
-      "shortName": "SetInventoryItemButtonHintsHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "displayingData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetWarningMessage;String",
-      "shortName": "SetWarningMessage",
-      "flags": 132,
-      "params": [
-        {
-          "type": "String",
-          "name": "message",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetupDropdown;",
-      "shortName": "SetupDropdown",
-      "flags": 132
-    },
-    {
-      "fullName": "SetupVirtualGrid;",
-      "shortName": "SetupVirtualGrid",
-      "flags": 260
-    },
-    {
-      "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
-      "shortName": "ShowNotification",
-      "flags": 132,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gameInstance",
-          "flags": 128
-        },
-        {
-          "type": "UIMenuNotificationType",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnregisterFromBB;",
-      "shortName": "UnregisterFromBB",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateCraftingMaterials;Bool",
-      "shortName": "UpdateCraftingMaterials",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "skipAnim",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateQuantites;",
-      "shortName": "UpdateQuantites",
-      "flags": 516
-    },
-    {
       "fullName": "OnBack",
       "shortName": "OnBack",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IScriptable",
@@ -576,7 +298,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -592,7 +314,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:IScriptable",
@@ -608,7 +330,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -624,7 +346,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -640,7 +362,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -656,7 +378,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkWidget",
@@ -677,7 +399,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -693,7 +415,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DropdownItemClickedEvent",
@@ -709,7 +431,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkWidget",
@@ -730,7 +452,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "OnInventoryItemRemoved",
+      "shortName": "OnInventoryItemRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnItemDisplayClick",
@@ -739,7 +477,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ItemDisplayClickEvent",
@@ -755,7 +493,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ItemDisplayHoldEvent",
@@ -771,7 +509,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ItemDisplayHoverOutEvent",
@@ -787,7 +525,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ItemDisplayHoverOverEvent",
@@ -803,7 +541,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -819,7 +557,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -835,7 +573,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -851,7 +589,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -867,7 +605,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -883,7 +621,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -899,7 +637,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -915,7 +653,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -931,7 +669,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkGameNotificationData",
@@ -947,7 +685,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkMenuEventDispatcher",
@@ -963,7 +701,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -979,7 +717,385 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "AddToDropQueue;ItemModParams",
+      "shortName": "AddToDropQueue",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "gameItemModParams",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearCraftingMaterials;",
+      "shortName": "ClearCraftingMaterials",
+      "flags": 32900
+    },
+    {
+      "fullName": "CreateCraftingMaterialItem;CachedCraftingMaterialinkCompoundRef",
+      "shortName": "CreateCraftingMaterialItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:CachedCraftingMaterial",
+          "name": "craftingMaterial",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "gridList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DetermineUIMenuNotificationType;",
+      "shortName": "DetermineUIMenuNotificationType",
+      "return": {
+        "type": "UIMenuNotificationType",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "EquipItem;UIInventoryItem",
+      "shortName": "EquipItem",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDisassemblyResult;UIInventoryItem",
+      "shortName": "GetDisassemblyResult",
+      "return": {
+        "type": "array:IngredientData",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDropQueueItem;ItemID",
+      "shortName": "GetDropQueueItem",
+      "return": {
+        "type": "gameItemModParams",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HideDisassemblyHighlight;",
+      "shortName": "HideDisassemblyHighlight",
+      "flags": 32900
+    },
+    {
+      "fullName": "HighlightDisassemblyResults;UIInventoryItem",
+      "shortName": "HighlightDisassemblyResults",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InvalidateItemTooltipEvent;",
+      "shortName": "InvalidateItemTooltipEvent",
+      "flags": 32900
+    },
+    {
+      "fullName": "IsEquippable;gameItemData",
+      "shortName": "IsEquippable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NewShowItemHints;UIInventoryItem",
+      "shortName": "NewShowItemHints",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBakcpackItemDisplayNotification;ItemDisplayNotificationMessageUint64IScriptable",
+      "shortName": "OnBakcpackItemDisplayNotification",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ItemDisplayNotificationMessage",
+          "name": "message",
+          "flags": 128
+        },
+        {
+          "type": "Uint64",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "whandle:IScriptable",
+          "name": "data",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OnInventoryRequestTooltip;UIInventoryIteminkWidgetDEBUG_IconErrorInfo",
+      "shortName": "OnInventoryRequestTooltip",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:DEBUG_IconErrorInfo",
+          "name": "iconErrorInfo",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuantityPickerDisassembly;QuantityPickerPopupCloseData",
+      "shortName": "OnQuantityPickerDisassembly",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuantityPickerPopupCloseData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuantityPickerDrop;QuantityPickerPopupCloseData",
+      "shortName": "OnQuantityPickerDrop",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuantityPickerPopupCloseData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenBackpackEquipSlotChooser;UIInventoryItem",
+      "shortName": "OpenBackpackEquipSlotChooser",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenConfirmationPopup;UIInventoryItem",
+      "shortName": "OpenConfirmationPopup",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenQuantityPicker;UIInventoryItemQuantityPickerActionType",
+      "shortName": "OpenQuantityPicker",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "QuantityPickerActionType",
+          "name": "actionType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateCraftingMaterials;",
+      "shortName": "PopulateCraftingMaterials",
+      "flags": 32900
+    },
+    {
+      "fullName": "PopulateInventory;",
+      "shortName": "PopulateInventory",
+      "flags": 32900
+    },
+    {
+      "fullName": "RefreshFilterButtons;array<ItemFilterCategory>",
+      "shortName": "RefreshFilterButtons",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:ItemFilterCategory",
+          "name": "filters",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshUI;",
+      "shortName": "RefreshUI",
+      "flags": 32900
+    },
+    {
+      "fullName": "RegisterToBB;",
+      "shortName": "RegisterToBB",
+      "flags": 32900
+    },
+    {
+      "fullName": "RequestItemInspected;ItemID",
+      "shortName": "RequestItemInspected",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetVirtualGrid;",
+      "shortName": "ResetVirtualGrid",
+      "flags": 33028
+    },
+    {
+      "fullName": "SetInventoryItemButtonHintsHoverOut;",
+      "shortName": "SetInventoryItemButtonHintsHoverOut",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemData",
+      "shortName": "SetInventoryItemButtonHintsHoverOver",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
+          "name": "displayingData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWarningMessage;String",
+      "shortName": "SetWarningMessage",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "String",
+          "name": "message",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupDropdown;",
+      "shortName": "SetupDropdown",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetupVirtualGrid;",
+      "shortName": "SetupVirtualGrid",
+      "flags": 33028
+    },
+    {
+      "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
+      "shortName": "ShowNotification",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "UIMenuNotificationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterFromBB;",
+      "shortName": "UnregisterFromBB",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateCraftingMaterial;ItemIDBool",
+      "shortName": "UpdateCraftingMaterial",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "materialID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipAnim",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateQuantites;",
+      "shortName": "UpdateQuantites",
+      "flags": 33284
     }
   ]
 }

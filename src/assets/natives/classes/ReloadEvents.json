@@ -24,11 +24,6 @@
       "flags": 4431544352
     },
     {
-      "type": "handle:redCallbackObject",
-      "name": "bbCallbackID",
-      "flags": 4431544352
-    },
-    {
       "type": "handle:gamedataWeaponItem_Record",
       "name": "weaponRecord",
       "flags": 4431544352
@@ -60,11 +55,6 @@
     },
     {
       "type": "Bool",
-      "name": "magazineEmpty",
-      "flags": 4297326624
-    },
-    {
-      "type": "Bool",
       "name": "lastReloadWasEmpty",
       "flags": 4297326624
     }
@@ -73,7 +63,7 @@
     {
       "fullName": "ActivateReloadAnimData;StateContextStateGameScriptInterface",
       "shortName": "ActivateReloadAnimData",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -90,7 +80,7 @@
     {
       "fullName": "DeactivateReloadAnimData;StateContextStateGameScriptInterface",
       "shortName": "DeactivateReloadAnimData",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -111,7 +101,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 8452,
+      "flags": 41220,
       "params": [
         {
           "type": "gamedataStatType",
@@ -128,7 +118,24 @@
     {
       "fullName": "OnAttach;StateContextStateGameScriptInterface",
       "shortName": "OnAttach",
-      "flags": 260,
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 34048,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -145,7 +152,7 @@
     {
       "fullName": "OnEnter;StateContextStateGameScriptInterface",
       "shortName": "OnEnter",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -160,9 +167,104 @@
       ]
     },
     {
+      "fullName": "OnExit;StateContextStateGameScriptInterface",
+      "shortName": "OnExit",
+      "flags": 34048,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitCleanup;StateContextStateGameScriptInterface",
+      "shortName": "OnExitCleanup",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitToReload;StateContextStateGameScriptInterface",
+      "shortName": "OnExitToReload",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForcedExit;StateContextStateGameScriptInterface",
+      "shortName": "OnForcedExit",
+      "flags": 34048,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatChanged;StatsObjectIDgamedataStatTypeFloatFloat",
+      "shortName": "OnStatChanged",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "ownerID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "diff",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUpdate;FloatStateContextStateGameScriptInterface",
       "shortName": "OnUpdate",
-      "flags": 260,
+      "flags": 34052,
       "params": [
         {
           "type": "Float",
@@ -184,110 +286,11 @@
     {
       "fullName": "RefreshReloadPermanentFloats;StateContext",
       "shortName": "RefreshReloadPermanentFloats",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateIsEmptyReload;",
-      "shortName": "UpdateIsEmptyReload",
-      "flags": 260
-    },
-    {
-      "fullName": "OnAmmoCountChanged",
-      "shortName": "OnAmmoCountChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Uint32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDetach;StateContextStateGameScriptInterface",
-      "shortName": "OnDetach",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnExit;StateContextStateGameScriptInterface",
-      "shortName": "OnExit",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnExitToReload;StateContextStateGameScriptInterface",
-      "shortName": "OnExitToReload",
-      "flags": 256,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnStatChanged;StatsObjectIDgamedataStatTypeFloatFloat",
-      "shortName": "OnStatChanged",
-      "flags": 512,
-      "params": [
-        {
-          "type": "gameStatsObjectID",
-          "name": "ownerID",
-          "flags": 128
-        },
-        {
-          "type": "gamedataStatType",
-          "name": "statType",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "diff",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "value",
           "flags": 128
         }
       ]

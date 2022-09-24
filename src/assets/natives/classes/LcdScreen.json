@@ -16,55 +16,81 @@
   ],
   "funcs": [
     {
-      "fullName": "GetCustomNumber;",
-      "shortName": "GetCustomNumber",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetMessageRecord;",
-      "shortName": "GetMessageRecord",
-      "return": {
-        "type": "handle:gamedataScreenMessageData_Record",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "HasCustomNumber;",
-      "shortName": "HasCustomNumber",
+      "fullName": "OnHitEvent",
+      "shortName": "OnHitEvent",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
-    },
-    {
-      "fullName": "StartShortGlitch;",
-      "shortName": "StartShortGlitch",
-      "flags": 132
-    },
-    {
-      "fullName": "TurnOffScreen;",
-      "shortName": "TurnOffScreen",
-      "flags": 132
-    },
-    {
-      "fullName": "TurnOnScreen;",
-      "shortName": "TurnOnScreen",
-      "flags": 132
-    },
-    {
-      "fullName": "UpdateMessageRecordUI;ScreenMessageData",
-      "shortName": "UpdateMessageRecordUI",
-      "flags": 132,
+      "flags": 33032,
       "params": [
         {
-          "type": "handle:ScreenMessageData",
-          "name": "messageData",
+          "type": "handle:gameeventsHitEvent",
+          "name": "hit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMessageRecord",
+      "shortName": "OnSetMessageRecord",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetMessageRecordEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStopShortGlitch",
+      "shortName": "OnStopShortGlitch",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:StopShortGlitchEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
           "flags": 128
         }
       ]
@@ -72,7 +98,7 @@
     {
       "fullName": "ApplyActiveStatusEffect;EntityIDTweakDBID",
       "shortName": "ApplyActiveStatusEffect",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "entEntityID",
@@ -89,12 +115,12 @@
     {
       "fullName": "CreateBlackboard;",
       "shortName": "CreateBlackboard",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "CutPower;",
       "shortName": "CutPower",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "DeterminGameplayRole;",
@@ -109,108 +135,55 @@
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:DeviceBaseBlackboardDef",
+        "type": "handle:LcdScreenBlackBoardDef",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "GetController;",
       "shortName": "GetController",
       "return": {
-        "type": "handle:ScriptableDC",
+        "type": "handle:LcdScreenController",
         "flags": 64
       },
-      "flags": 8448
+      "flags": 41216
+    },
+    {
+      "fullName": "GetCustomNumber;",
+      "shortName": "GetCustomNumber",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetDevicePS;",
       "shortName": "GetDevicePS",
       "return": {
-        "type": "handle:ScriptableDeviceComponentPS",
+        "type": "handle:LcdScreenControllerPS",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
-      "fullName": "OnHitEvent",
-      "shortName": "OnHitEvent",
+      "fullName": "GetMessageRecord;",
+      "shortName": "GetMessageRecord",
+      "return": {
+        "type": "handle:gamedataScreenMessageData_Record",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "HasCustomNumber;",
+      "shortName": "HasCustomNumber",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameeventsHitEvent",
-          "name": "hit",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRequestComponents",
-      "shortName": "OnRequestComponents",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityRequestComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetMessageRecord",
-      "shortName": "OnSetMessageRecord",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:SetMessageRecordEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnStopShortGlitch",
-      "shortName": "OnStopShortGlitch",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:StopShortGlitchEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnTakeControl",
-      "shortName": "OnTakeControl",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityResolveComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
+      "flags": 41476
     },
     {
       "fullName": "ResavePersistentData;PersistentState",
@@ -231,12 +204,12 @@
     {
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "StartGlitching;EGlitchStateFloat",
       "shortName": "StartGlitching",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "EGlitchState",
@@ -251,24 +224,51 @@
       ]
     },
     {
+      "fullName": "StartShortGlitch;",
+      "shortName": "StartShortGlitch",
+      "flags": 32900
+    },
+    {
       "fullName": "StopGlitching;",
       "shortName": "StopGlitching",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "TurnOffDevice;",
       "shortName": "TurnOffDevice",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "TurnOffScreen;",
+      "shortName": "TurnOffScreen",
+      "flags": 32900
     },
     {
       "fullName": "TurnOnDevice;",
       "shortName": "TurnOnDevice",
-      "flags": 256
+      "flags": 33024
+    },
+    {
+      "fullName": "TurnOnScreen;",
+      "shortName": "TurnOnScreen",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateMessageRecordUI;ScreenMessageData",
+      "shortName": "UpdateMessageRecordUI",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:ScreenMessageData",
+          "name": "messageData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "UploadActiveProgramOnNPC;EntityID",
       "shortName": "UploadActiveProgramOnNPC",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "entEntityID",

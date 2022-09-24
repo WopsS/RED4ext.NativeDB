@@ -15,17 +15,17 @@
     },
     {
       "type": "array:gamedataItemType",
-      "name": "availableItemTypesList",
+      "name": "availableCurrentItemTypesList",
       "flags": 6583025696
     },
     {
       "type": "array:whandle:gameItemData",
-      "name": "availableItemsList",
+      "name": "availableCurrentItemsList",
       "flags": 6583025696
     },
     {
       "type": "gameItemID",
-      "name": "swapMeeleWeaponItemId",
+      "name": "swapMeleeWeaponItemId",
       "flags": 4297130016
     },
     {
@@ -50,7 +50,12 @@
     },
     {
       "type": "whandle:PlayerPuppet",
-      "name": "playerPuppet",
+      "name": "mainPuppet",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "currentPuppet",
       "flags": 4297130016
     },
     {
@@ -65,20 +70,57 @@
     },
     {
       "type": "Float",
-      "name": "itemsLoadingTimeout",
+      "name": "itemsLoadingTime",
       "flags": 4297130016
     },
     {
       "type": "Bool",
       "name": "muzzleEffectEnabled",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "customizable",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
+      "fullName": "OnItemAddedToSlot",
+      "shortName": "OnItemAddedToSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameAttachmentSlotEventsItemAddedToSlot",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemVisualsAddedToSlot",
+      "shortName": "OnItemVisualsAddedToSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameAttachmentSlotEventsItemVisualsAddedToSlot",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AddAmmoForWeapon;ItemID",
       "shortName": "AddAmmoForWeapon",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -90,12 +132,12 @@
     {
       "fullName": "ClearInventory;",
       "shortName": "ClearInventory",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "EquipWeaponOfThisType;array<gamedataItemType>",
       "shortName": "EquipWeaponOfThisType",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:gamedataItemType",
@@ -111,7 +153,7 @@
         "type": "array:gamedataItemType",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetEquipArea;EquipmentSystemPlayerDatagamedataEquipmentArea",
@@ -120,7 +162,7 @@
         "type": "gameSEquipArea",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "handle:EquipmentSystemPlayerData",
@@ -135,13 +177,64 @@
       ]
     },
     {
-      "fullName": "GetPhotoModeEquipAreas;EquipmentSystemPlayerDataBool",
+      "fullName": "GetPhotoModeActiveEquipAreas;EquipmentSystemPlayerData",
+      "shortName": "GetPhotoModeActiveEquipAreas",
+      "return": {
+        "type": "array:gameSEquipArea",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:EquipmentSystemPlayerData",
+          "name": "equipmentData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPhotoModeActiveSlots;",
+      "shortName": "GetPhotoModeActiveSlots",
+      "return": {
+        "type": "array:gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetPhotoModeEquipAreas;EquipmentSystemPlayerDataBoolBool",
       "shortName": "GetPhotoModeEquipAreas",
       "return": {
         "type": "array:gameSEquipArea",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:EquipmentSystemPlayerData",
+          "name": "equipmentData",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isVisual",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "withUnderwear",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPhotoModeVisualEquipAreas;EquipmentSystemPlayerDataBool",
+      "shortName": "GetPhotoModeVisualEquipAreas",
+      "return": {
+        "type": "array:gameSEquipArea",
+        "flags": 64
+      },
+      "flags": 41476,
       "params": [
         {
           "type": "handle:EquipmentSystemPlayerData",
@@ -156,13 +249,13 @@
       ]
     },
     {
-      "fullName": "GetPhotoModeSlots;Bool",
-      "shortName": "GetPhotoModeSlots",
+      "fullName": "GetPhotoModeVisualSlots;Bool",
+      "shortName": "GetPhotoModeVisualSlots",
       "return": {
         "type": "array:gamedataEquipmentArea",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "Bool",
@@ -178,7 +271,7 @@
         "type": "gamedataItemType",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "HasAllItemsFinishedLoading;",
@@ -187,7 +280,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "IsItemOfThisType;ItemIDarray<gamedataItemType>",
@@ -196,7 +289,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -217,12 +310,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
-      "fullName": "ListAllItems;",
-      "shortName": "ListAllItems",
-      "flags": 132
+      "fullName": "ListAllCurrentItems;",
+      "shortName": "ListAllCurrentItems",
+      "flags": 32900
     },
     {
       "fullName": "OnGameAttach;",
@@ -235,9 +328,38 @@
       "flags": 32900
     },
     {
-      "fullName": "PutOnFakeItem;ItemID",
+      "fullName": "PutOnFakeItem;ItemIDPlayerPuppet",
       "shortName": "PutOnFakeItem",
-      "flags": 132,
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemToAdd",
+          "flags": 128
+        },
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "puppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PutOnFakeItemFromCurrentPuppet;ItemID",
+      "shortName": "PutOnFakeItemFromCurrentPuppet",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemToAdd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PutOnFakeItemFromMainPuppet;ItemID",
+      "shortName": "PutOnFakeItemFromMainPuppet",
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -249,7 +371,7 @@
     {
       "fullName": "RemoveAllItems;array<SEquipArea>",
       "shortName": "RemoveAllItems",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:gameSEquipArea",
@@ -261,7 +383,7 @@
     {
       "fullName": "SetMuzzleEffectEnabled;Bool",
       "shortName": "SetMuzzleEffectEnabled",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -273,7 +395,7 @@
     {
       "fullName": "SetupInventory;Bool",
       "shortName": "SetupInventory",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -290,23 +412,7 @@
     {
       "fullName": "StopWeaponShootEffects;",
       "shortName": "StopWeaponShootEffects",
-      "flags": 516
-    },
-    {
-      "fullName": "OnItemAddedToSlot",
-      "shortName": "OnItemAddedToSlot",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:gameAttachmentSlotEventsItemAddedToSlot",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
+      "flags": 33284
     }
   ]
 }

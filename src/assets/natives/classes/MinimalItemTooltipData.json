@@ -19,6 +19,11 @@
       "flags": 4297326624
     },
     {
+      "type": "gameItemID",
+      "name": "transmogItem",
+      "flags": 4297326624
+    },
+    {
       "type": "String",
       "name": "itemName",
       "flags": 4297326624
@@ -34,7 +39,7 @@
       "flags": 4297326624
     },
     {
-      "type": "CName",
+      "type": "String",
       "name": "description",
       "flags": 4297326624
     },
@@ -194,6 +199,11 @@
       "flags": 4297326624
     },
     {
+      "type": "Bool",
+      "name": "hasRarity",
+      "flags": 4297326624
+    },
+    {
       "type": "InventoryTooltipDisplayContext",
       "name": "displayContext",
       "flags": 4297326624
@@ -208,7 +218,7 @@
     {
       "fullName": "MinimalItemTooltipData::FillModsFromTooltipData;InventoryTooltipDataarray<MinimalItemTooltipModData>array<MinimalItemTooltipModAttachmentData>",
       "shortName": "FillModsFromTooltipData",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "handle:InventoryTooltipData",
@@ -237,7 +247,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "script_ref:InventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         }
@@ -250,7 +260,7 @@
         "type": "handle:MinimalItemTooltipData",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "handle:InventoryTooltipData",
@@ -266,7 +276,7 @@
         "type": "handle:MinimalItemTooltipModAttachmentData",
         "flags": 64
       },
-      "flags": 134,
+      "flags": 32902,
       "params": [
         {
           "type": "handle:InventoryTooltipData",
@@ -292,7 +302,7 @@
         "type": "handle:MinimalItemTooltipModAttachmentData",
         "flags": 64
       },
-      "flags": 134,
+      "flags": 32902,
       "params": [
         {
           "type": "Bool",
@@ -333,7 +343,7 @@
         "type": "handle:MinimalItemTooltipDataRequirements",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameItemData",
@@ -348,13 +358,13 @@
       ]
     },
     {
-      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataInventoryTooltipData",
+      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataGameObjectBoolInt32Int32Int32",
       "shortName": "GetMinimalTooltipDataRequirements",
       "return": {
         "type": "handle:MinimalItemTooltipDataRequirements",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameItemData",
@@ -362,24 +372,8 @@
           "flags": 128
         },
         {
-          "type": "handle:InventoryTooltipData",
-          "name": "tooltipData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataBoolInt32Int32Int32",
-      "shortName": "GetMinimalTooltipDataRequirements",
-      "return": {
-        "type": "handle:MinimalItemTooltipDataRequirements",
-        "flags": 64
-      },
-      "flags": 518,
-      "params": [
-        {
-          "type": "whandle:gameItemData",
-          "name": "itemData",
+          "type": "whandle:gameObject",
+          "name": "context",
           "flags": 128
         },
         {
@@ -405,9 +399,30 @@
       ]
     },
     {
+      "fullName": "MinimalItemTooltipData::GetMinimalTooltipDataRequirements;gameItemDataInventoryTooltipData",
+      "shortName": "GetMinimalTooltipDataRequirements",
+      "return": {
+        "type": "handle:MinimalItemTooltipDataRequirements",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "MinimalItemTooltipData::GetModsDataPackages;gameItemDataItem_RecordInventoryTooltipDisplayContextgameItemDataTweakDBIDarray<MinimalItemTooltipModData>",
       "shortName": "GetModsDataPackages",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameItemData",
@@ -448,7 +463,7 @@
         "type": "array:handle:MinimalItemTooltipStatData",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:gameItemData",
@@ -474,7 +489,7 @@
         "type": "array:handle:MinimalItemTooltipStatData",
         "flags": 64
       },
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "handle:InventoryTooltipData",
@@ -500,7 +515,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 134,
+      "flags": 32902,
       "params": [
         {
           "type": "gamedataStatType",

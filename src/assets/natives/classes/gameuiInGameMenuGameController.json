@@ -9,13 +9,23 @@
       "flags": 6631211009
     },
     {
-      "type": "array:gameuiInGameMenuGameControllerGarmentSwitchEffectController",
+      "type": "array:gameuiGarmentSwitchEffectController",
       "name": "garmentSwitchEffectControllers",
       "flags": 6631211009
     },
     {
       "type": "Bool",
       "name": "quickSaveInProgress",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "wasHoldingMapHotKey",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "controllerDisconnected",
       "flags": 4297130016
     },
     {
@@ -40,6 +50,11 @@
     },
     {
       "type": "handle:redCallbackObject",
+      "name": "controllerDisconnectedBBID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
       "name": "bbOnEquipmentChangedID",
       "flags": 4431347744
     },
@@ -47,13 +62,18 @@
       "type": "handle:gameAttachmentSlotsScriptListener",
       "name": "inventoryListener",
       "flags": 4431347744
+    },
+    {
+      "type": "gameDelayID",
+      "name": "loadSaveDelayID",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
       "fullName": "gameuiInGameMenuGameController::SetAnimWrapperBasedOnItemFriendlyName;gamePuppetItemIDFloat",
       "shortName": "SetAnimWrapperBasedOnItemFriendlyName",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "handle:gamePuppet",
@@ -73,121 +93,13 @@
       ]
     },
     {
-      "fullName": "RegisterItemSwitch",
-      "shortName": "RegisterItemSwitch",
-      "index": 12022,
-      "flags": 1,
-      "params": [
-        {
-          "type": "CName",
-          "name": "sceneName",
-          "flags": 128
-        },
-        {
-          "type": "gameItemID",
-          "name": "itemId",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "HandleQuickLoad;",
-      "shortName": "HandleQuickLoad",
-      "flags": 132
-    },
-    {
-      "fullName": "HandleQuickSave;",
-      "shortName": "HandleQuickSave",
-      "flags": 132
-    },
-    {
-      "fullName": "OpenShortcutMenu;CName",
-      "shortName": "OpenShortcutMenu",
-      "flags": 132,
-      "params": [
-        {
-          "type": "CName",
-          "name": "actionName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RegisterGlobalBlackboards;",
-      "shortName": "RegisterGlobalBlackboards",
-      "flags": 132
-    },
-    {
-      "fullName": "RegisterInputListenersForPlayer;GameObject",
-      "shortName": "RegisterInputListenersForPlayer",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RegisterInventoryListener;",
-      "shortName": "RegisterInventoryListener",
-      "flags": 132
-    },
-    {
-      "fullName": "RegisterPSMListeners;GameObject",
-      "shortName": "RegisterPSMListeners",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnregisterGlobalBlackboards;",
-      "shortName": "UnregisterGlobalBlackboards",
-      "flags": 132
-    },
-    {
-      "fullName": "UnregisterInputListenersForPlayer;GameObject",
-      "shortName": "UnregisterInputListenersForPlayer",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UnregisterInventoryListener;",
-      "shortName": "UnregisterInventoryListener",
-      "flags": 132
-    },
-    {
-      "fullName": "UnregisterPSMListeners;GameObject",
-      "shortName": "UnregisterPSMListeners",
-      "flags": 260,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "playerPuppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnAction",
       "shortName": "OnAction",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "gameinputScriptListenerAction",
@@ -202,13 +114,29 @@
       ]
     },
     {
+      "fullName": "OnArcadeMinigameEvent",
+      "shortName": "OnArcadeMinigameEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "String",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnBreachingNetwork",
       "shortName": "OnBreachingNetwork",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "String",
@@ -224,7 +152,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DeathMenuDelayEvent",
@@ -240,11 +168,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:DelayedRegisterToGlobalInputCallbackEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisconnectController",
+      "shortName": "OnDisconnectController",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -256,7 +200,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -272,7 +216,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -288,7 +232,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:ForceCloseHubMenuEvent",
@@ -304,10 +248,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHandleQuickLoad",
+      "shortName": "OnHandleQuickLoad",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DelayedHandleQuickLoadEvent",
           "name": "evt",
           "flags": 128
         }
@@ -320,7 +280,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
     },
     {
       "fullName": "OnOpenStorage",
@@ -329,7 +289,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenWardrobe",
+      "shortName": "OnOpenWardrobe",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
           "type": "Variant",
@@ -345,7 +321,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -361,7 +337,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:gameObject",
@@ -377,7 +353,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "CName",
@@ -398,7 +374,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "array:String",
@@ -414,10 +390,26 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:StartHubMenuEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetItemAppearanceInSlotDelayEvent",
+      "shortName": "OnResetItemAppearanceInSlotDelayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ResetItemAppearanceInSlotDelayEvent",
           "name": "evt",
           "flags": 128
         }
@@ -430,7 +422,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -445,17 +437,54 @@
       ]
     },
     {
+      "fullName": "OnTimeSkipFinishEvent",
+      "shortName": "OnTimeSkipFinishEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TimeSkipFinishEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnTriggerMenuEvent",
       "shortName": "OnTriggerMenuEvent",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "CName",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUiStateChangedSuccessfully",
+      "shortName": "OnUiStateChangedSuccessfully",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "previousStateName",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "currentStateName",
           "flags": 128
         }
       ]
@@ -467,7 +496,121 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "DelayedHandleQuickLoad;",
+      "shortName": "DelayedHandleQuickLoad",
+      "flags": 32900
+    },
+    {
+      "fullName": "HandleQuickSave;",
+      "shortName": "HandleQuickSave",
+      "flags": 32900
+    },
+    {
+      "fullName": "HandleShortcutMenu;ListenerAction",
+      "shortName": "HandleShortcutMenu",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenShortcutMenu;CName",
+      "shortName": "OpenShortcutMenu",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "actionName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterGlobalBlackboards;",
+      "shortName": "RegisterGlobalBlackboards",
+      "flags": 32900
+    },
+    {
+      "fullName": "RegisterInputListenersForPlayer;GameObject",
+      "shortName": "RegisterInputListenersForPlayer",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterInventoryListener;",
+      "shortName": "RegisterInventoryListener",
+      "flags": 32900
+    },
+    {
+      "fullName": "RegisterPSMListeners;GameObject",
+      "shortName": "RegisterPSMListeners",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryOpenCraftingMenu;ListenerAction",
+      "shortName": "TryOpenCraftingMenu",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterGlobalBlackboards;",
+      "shortName": "UnregisterGlobalBlackboards",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnregisterInputListenersForPlayer;GameObject",
+      "shortName": "UnregisterInputListenersForPlayer",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterInventoryListener;",
+      "shortName": "UnregisterInventoryListener",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnregisterPSMListeners;GameObject",
+      "shortName": "UnregisterPSMListeners",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

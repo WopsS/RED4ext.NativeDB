@@ -14,33 +14,17 @@
       "flags": 4297195553
     },
     {
-      "type": "InventoryItemData",
+      "type": "gameInventoryItemData",
       "name": "itemData",
       "flags": 4297130016
     },
     {
-      "type": "array:InventoryItemData",
+      "type": "array:gameInventoryItemData",
       "name": "itemDatas",
       "flags": 6583025696
     }
   ],
   "funcs": [
-    {
-      "fullName": "GetFirstEmptySlotIndex;array<InventoryItemAttachments>",
-      "shortName": "GetFirstEmptySlotIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:InventoryItemAttachments",
-          "name": "slots",
-          "flags": 128
-        }
-      ]
-    },
     {
       "fullName": "GetDisplayToSpawn;",
       "shortName": "GetDisplayToSpawn",
@@ -49,6 +33,22 @@
         "flags": 64
       },
       "flags": 33024
+    },
+    {
+      "fullName": "GetFirstEmptySlotIndex;array<InventoryItemAttachments>",
+      "shortName": "GetFirstEmptySlotIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:handle:gameInventoryItemAttachments",
+          "name": "slots",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetIntroAnimation;",
@@ -63,10 +63,10 @@
       "fullName": "GetModifiedItemData;",
       "shortName": "GetModifiedItemData",
       "return": {
-        "type": "InventoryItemData",
+        "type": "gameInventoryItemData",
         "flags": 64
       },
-      "flags": 512
+      "flags": 33280
     },
     {
       "fullName": "GetModifiedItemID;",
@@ -75,31 +75,48 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 512
+      "flags": 33280
     },
     {
       "fullName": "GetSlots;",
       "shortName": "GetSlots",
       "return": {
-        "type": "array:InventoryItemAttachments",
+        "type": "array:handle:gameInventoryItemAttachments",
         "flags": 64
       },
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "RebuildSlots;",
       "shortName": "RebuildSlots",
-      "flags": 256
+      "flags": 33024
     },
     {
-      "fullName": "RefreshMainItem;",
+      "fullName": "RefreshMainItem;BoolInt32Bool",
       "shortName": "RefreshMainItem",
-      "flags": 256
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isClothingSetEquipped",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "clothingSetIndex",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "showTransmogedIcon",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "RefreshSelectedItem;",
       "shortName": "RefreshSelectedItem",
-      "flags": 512
+      "flags": 33280
     },
     {
       "fullName": "RequestClose;",

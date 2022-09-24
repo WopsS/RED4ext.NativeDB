@@ -4,9 +4,66 @@
   "flags": 2,
   "funcs": [
     {
+      "fullName": "GetTelemetryInventoryItemFromID",
+      "shortName": "GetTelemetryInventoryItemFromID",
+      "return": {
+        "type": "gameTelemetryInventoryItem",
+        "flags": 64
+      },
+      "index": 12935,
+      "flags": 3,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTelemetryInventoryItemFromdata",
+      "shortName": "GetTelemetryInventoryItemFromdata",
+      "return": {
+        "type": "gameTelemetryInventoryItem",
+        "flags": 64
+      },
+      "index": 12936,
+      "flags": 3,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LogActiveCyberwareUsed",
+      "shortName": "LogActiveCyberwareUsed",
+      "index": 12900,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "LogAttributeUpgraded",
       "shortName": "LogAttributeUpgraded",
-      "index": 12253,
+      "index": 12909,
       "flags": 1,
       "params": [
         {
@@ -22,15 +79,57 @@
       ]
     },
     {
+      "fullName": "LogBodyDisposed",
+      "shortName": "LogBodyDisposed",
+      "index": 12915,
+      "flags": 1
+    },
+    {
       "fullName": "LogBraindanceReset",
       "shortName": "LogBraindanceReset",
-      "index": 12271,
+      "index": 12930,
       "flags": 1
+    },
+    {
+      "fullName": "LogCombatGadgetUsed",
+      "shortName": "LogCombatGadgetUsed",
+      "index": 12899,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LogConsumableUsed",
+      "shortName": "LogConsumableUsed",
+      "index": 12901,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "LogDamageByVehicle",
       "shortName": "LogDamageByVehicle",
-      "index": 12267,
+      "index": 12926,
       "flags": 1,
       "params": [
         {
@@ -43,7 +142,7 @@
     {
       "fullName": "LogDamageDealt",
       "shortName": "LogDamageDealt",
-      "index": 12245,
+      "index": 12896,
       "flags": 1,
       "params": [
         {
@@ -56,7 +155,7 @@
     {
       "fullName": "LogDevPointsAddedFromReward",
       "shortName": "LogDevPointsAddedFromReward",
-      "index": 12269,
+      "index": 12928,
       "flags": 1,
       "params": [
         {
@@ -79,7 +178,7 @@
     {
       "fullName": "LogDistrictChanged",
       "shortName": "LogDistrictChanged",
-      "index": 12251,
+      "index": 12907,
       "flags": 1,
       "params": [
         {
@@ -97,7 +196,7 @@
     {
       "fullName": "LogEnemyDown",
       "shortName": "LogEnemyDown",
-      "index": 12246,
+      "index": 12898,
       "flags": 1,
       "params": [
         {
@@ -108,15 +207,41 @@
       ]
     },
     {
+      "fullName": "LogHeadshotGGP",
+      "shortName": "LogHeadshotGGP",
+      "index": 12897,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "num",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LogHitDefense",
+      "shortName": "LogHitDefense",
+      "index": 12917,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameTelemetryHitDefenseType",
+          "name": "defenseType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "LogInventoryMenuClosed",
       "shortName": "LogInventoryMenuClosed",
-      "index": 12256,
+      "index": 12912,
       "flags": 1
     },
     {
       "fullName": "LogItemAcquired",
       "shortName": "LogItemAcquired",
-      "index": 12262,
+      "index": 12921,
       "flags": 1,
       "params": [
         {
@@ -134,7 +259,7 @@
     {
       "fullName": "LogItemCrafting",
       "shortName": "LogItemCrafting",
-      "index": 12264,
+      "index": 12923,
       "flags": 1,
       "params": [
         {
@@ -152,12 +277,17 @@
     {
       "fullName": "LogItemDisassembled",
       "shortName": "LogItemDisassembled",
-      "index": 12265,
+      "index": 12924,
       "flags": 1,
       "params": [
         {
-          "type": "gameTelemetryInventoryItem",
-          "name": "telemetryInventoryItem",
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
           "flags": 128
         }
       ]
@@ -165,7 +295,7 @@
     {
       "fullName": "LogItemDrop",
       "shortName": "LogItemDrop",
-      "index": 12263,
+      "index": 12922,
       "flags": 1,
       "params": [
         {
@@ -183,7 +313,7 @@
     {
       "fullName": "LogItemReward",
       "shortName": "LogItemReward",
-      "index": 12266,
+      "index": 12925,
       "flags": 1,
       "params": [
         {
@@ -201,7 +331,7 @@
     {
       "fullName": "LogItemTransaction",
       "shortName": "LogItemTransaction",
-      "index": 12259,
+      "index": 12918,
       "flags": 1,
       "params": [
         {
@@ -215,8 +345,8 @@
           "flags": 128
         },
         {
-          "type": "gameTelemetryInventoryItem",
-          "name": "telemetryInventoryItem",
+          "type": "gameItemID",
+          "name": "itemID",
           "flags": 128
         },
         {
@@ -239,13 +369,13 @@
     {
       "fullName": "LogLastCheckpointLoaded",
       "shortName": "LogLastCheckpointLoaded",
-      "index": 12272,
+      "index": 12931,
       "flags": 1
     },
     {
       "fullName": "LogLevelGained",
       "shortName": "LogLevelGained",
-      "index": 12250,
+      "index": 12906,
       "flags": 1,
       "params": [
         {
@@ -258,7 +388,7 @@
     {
       "fullName": "LogNumberOfCombatants",
       "shortName": "LogNumberOfCombatants",
-      "index": 12248,
+      "index": 12904,
       "flags": 1,
       "params": [
         {
@@ -271,7 +401,7 @@
     {
       "fullName": "LogPartInstalled",
       "shortName": "LogPartInstalled",
-      "index": 12255,
+      "index": 12911,
       "flags": 1,
       "params": [
         {
@@ -294,7 +424,7 @@
     {
       "fullName": "LogPerkUpgraded",
       "shortName": "LogPerkUpgraded",
-      "index": 12254,
+      "index": 12910,
       "flags": 1,
       "params": [
         {
@@ -310,9 +440,33 @@
       ]
     },
     {
+      "fullName": "LogPerksRemoved",
+      "shortName": "LogPerksRemoved",
+      "index": 12932,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "respecCost",
+          "flags": 128
+        },
+        {
+          "type": "array:gamedataPerkType",
+          "name": "perksRemoved",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LogPhotomodeAttributeChanged",
+      "shortName": "LogPhotomodeAttributeChanged",
+      "index": 12933,
+      "flags": 1
+    },
+    {
       "fullName": "LogPlayerDeathEvent",
       "shortName": "LogPlayerDeathEvent",
-      "index": 12244,
+      "index": 12895,
       "flags": 1,
       "params": [
         {
@@ -325,7 +479,7 @@
     {
       "fullName": "LogPlayerInDangerousArea",
       "shortName": "LogPlayerInDangerousArea",
-      "index": 12247,
+      "index": 12903,
       "flags": 1,
       "params": [
         {
@@ -338,7 +492,7 @@
     {
       "fullName": "LogPlayerReachedCriticalHealth",
       "shortName": "LogPlayerReachedCriticalHealth",
-      "index": 12249,
+      "index": 12905,
       "flags": 1,
       "params": [
         {
@@ -351,7 +505,7 @@
     {
       "fullName": "LogQuickHack",
       "shortName": "LogQuickHack",
-      "index": 12257,
+      "index": 12913,
       "flags": 1,
       "params": [
         {
@@ -364,7 +518,7 @@
     {
       "fullName": "LogRewardGiven",
       "shortName": "LogRewardGiven",
-      "index": 12252,
+      "index": 12908,
       "flags": 1,
       "params": [
         {
@@ -387,12 +541,30 @@
     {
       "fullName": "LogSkillbookUsed",
       "shortName": "LogSkillbookUsed",
-      "index": 12261,
+      "index": 12920,
       "flags": 1,
       "params": [
         {
-          "type": "gameTelemetryInventoryItem",
-          "name": "telemetryInventoryItem",
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LogSpecialMovementPerformed",
+      "shortName": "LogSpecialMovementPerformed",
+      "index": 12902,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameTelemetryMovementType",
+          "name": "mvtType",
           "flags": 128
         }
       ]
@@ -400,7 +572,7 @@
     {
       "fullName": "LogTakedown",
       "shortName": "LogTakedown",
-      "index": 12258,
+      "index": 12914,
       "flags": 1,
       "params": [
         {
@@ -418,7 +590,7 @@
     {
       "fullName": "LogVendorMenuState",
       "shortName": "LogVendorMenuState",
-      "index": 12260,
+      "index": 12919,
       "flags": 1,
       "params": [
         {
@@ -434,9 +606,35 @@
       ]
     },
     {
+      "fullName": "LogWardrobeUsed",
+      "shortName": "LogWardrobeUsed",
+      "index": 12934,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "slotsUsed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LogWeaponAttackPerformed",
+      "shortName": "LogWeaponAttackPerformed",
+      "index": 12916,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "LogXPReward",
       "shortName": "LogXPReward",
-      "index": 12268,
+      "index": 12927,
       "flags": 1,
       "params": [
         {
@@ -459,7 +657,7 @@
     {
       "fullName": "OnSettingsSave",
       "shortName": "OnSettingsSave",
-      "index": 12270,
+      "index": 12929,
       "flags": 1
     }
   ]

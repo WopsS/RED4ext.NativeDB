@@ -46,23 +46,50 @@
   ],
   "funcs": [
     {
+      "fullName": "OnInstantiated",
+      "shortName": "OnInstantiated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
       "fullName": "ActionCreateFactQuickHack;",
       "shortName": "ActionCreateFactQuickHack",
       "return": {
         "type": "handle:FactQuickHack",
         "flags": 64
       },
-      "flags": 260
+      "flags": 33028
+    },
+    {
+      "fullName": "ActionToggleOpen;",
+      "shortName": "ActionToggleOpen",
+      "return": {
+        "type": "handle:ToggleOpenComputer",
+        "flags": 64
+      },
+      "flags": 33280
+    },
+    {
+      "fullName": "CanCreateAnyQuickHackActions;",
+      "shortName": "CanCreateAnyQuickHackActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216
     },
     {
       "fullName": "ClearOpenedFileAdress;",
       "shortName": "ClearOpenedFileAdress",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ClearOpenedMailAdress;",
       "shortName": "ClearOpenedMailAdress",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "DataInitialized;",
@@ -71,12 +98,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "DecryptFile;SDocumentAdress",
       "shortName": "DecryptFile",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "SDocumentAdress",
@@ -88,7 +115,7 @@
     {
       "fullName": "DecryptMail;SDocumentAdress",
       "shortName": "DecryptMail",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "SDocumentAdress",
@@ -100,7 +127,7 @@
     {
       "fullName": "DisableMenu;EComputerMenuType",
       "shortName": "DisableMenu",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EComputerMenuType",
@@ -112,7 +139,7 @@
     {
       "fullName": "EnableDocument;EDocumentTypeSDocumentAdressBool",
       "shortName": "EnableDocument",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EDocumentType",
@@ -134,7 +161,7 @@
     {
       "fullName": "EnableDocumentsByName;EDocumentTypeCNameBool",
       "shortName": "EnableDocumentsByName",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EDocumentType",
@@ -156,7 +183,7 @@
     {
       "fullName": "EnableDocumentsInFolder;EDocumentTypeInt32Bool",
       "shortName": "EnableDocumentsInFolder",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EDocumentType",
@@ -178,7 +205,7 @@
     {
       "fullName": "EnableMenu;EComputerMenuType",
       "shortName": "EnableMenu",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EComputerMenuType",
@@ -190,7 +217,7 @@
     {
       "fullName": "EncryptFile;SDocumentAdress",
       "shortName": "EncryptFile",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "SDocumentAdress",
@@ -202,445 +229,14 @@
     {
       "fullName": "EncryptMail;SDocumentAdress",
       "shortName": "EncryptMail",
-      "flags": 516,
-      "params": [
-        {
-          "type": "SDocumentAdress",
-          "name": "documentAdress",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetActivatorType;",
-      "shortName": "GetActivatorType",
-      "return": {
-        "type": "EToggleActivationTypeComputer",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetAnimationState;",
-      "shortName": "GetAnimationState",
-      "return": {
-        "type": "EComputerAnimationState",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetBannerWidgets;",
-      "shortName": "GetBannerWidgets",
-      "return": {
-        "type": "array:SBannerWidgetPackage",
-        "flags": 64
-      },
-      "flags": 132
-    },
-    {
-      "fullName": "GetDocumentAdressByName;EDocumentTypeCName",
-      "shortName": "GetDocumentAdressByName",
-      "return": {
-        "type": "SDocumentAdress",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "EDocumentType",
-          "name": "documentType",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "documentName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEnabledDevicesCount;array<DeviceComponentPS>",
-      "shortName": "GetEnabledDevicesCount",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:handle:gameDeviceComponentPS",
-          "name": "devices",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEnabledDocumentsCount;array<DataElement>Bool",
-      "shortName": "GetEnabledDocumentsCount",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:gamedeviceDataElement",
-          "name": "documents",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "unredOnly",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "GetFileStructure;ComputerUIData",
-      "shortName": "GetFileStructure",
-      "flags": 8708,
-      "params": [
-        {
-          "type": "gamedeviceComputerUIData",
-          "name": "data",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "GetFileThumbnailWidgets;",
-      "shortName": "GetFileThumbnailWidgets",
-      "return": {
-        "type": "array:SDocumentThumbnailWidgetPackage",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetFileWidget;SDocumentAdress",
-      "shortName": "GetFileWidget",
-      "return": {
-        "type": "SDocumentWidgetPackage",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "SDocumentAdress",
-          "name": "documentAdress",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetInitialMenuType;",
-      "shortName": "GetInitialMenuType",
-      "return": {
-        "type": "EComputerMenuType",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetInternetData;",
-      "shortName": "GetInternetData",
-      "return": {
-        "type": "SInternetData",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetJournalFileEntry;DataElement",
-      "shortName": "GetJournalFileEntry",
-      "return": {
-        "type": "whandle:gameJournalFile",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "gamedeviceDataElement",
-          "name": "dataElement",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetJournalMailEntry;DataElement",
-      "shortName": "GetJournalMailEntry",
-      "return": {
-        "type": "whandle:gameJournalEmail",
-        "flags": 64
-      },
-      "flags": 260,
-      "params": [
-        {
-          "type": "gamedeviceDataElement",
-          "name": "dataElement",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetMailThumbnailWidgets;",
-      "shortName": "GetMailThumbnailWidgets",
-      "return": {
-        "type": "array:SDocumentThumbnailWidgetPackage",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetMailWidget;SDocumentAdress",
-      "shortName": "GetMailWidget",
-      "return": {
-        "type": "SDocumentWidgetPackage",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "SDocumentAdress",
-          "name": "documentAdress",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetMainMenuButtonWidgets;",
-      "shortName": "GetMainMenuButtonWidgets",
-      "return": {
-        "type": "array:SComputerMenuButtonWidgetPackage",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetMenuButtonWidgets;",
-      "shortName": "GetMenuButtonWidgets",
-      "return": {
-        "type": "array:SComputerMenuButtonWidgetPackage",
-        "flags": 64
-      },
-      "flags": 516
-    },
-    {
-      "fullName": "GetNewsfeedInterval;",
-      "shortName": "GetNewsfeedInterval",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetOpenedFileAdress;",
-      "shortName": "GetOpenedFileAdress",
-      "return": {
-        "type": "SDocumentAdress",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "GetOpenedMailAdress;",
-      "shortName": "GetOpenedMailAdress",
-      "return": {
-        "type": "SDocumentAdress",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "HasNewsfeed;",
-      "shortName": "HasNewsfeed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "IsDataElementValid;DataElement",
-      "shortName": "IsDataElementValid",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "gamedeviceDataElement",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsInSleepMode;",
-      "shortName": "IsInSleepMode",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
-      "fullName": "IsMenuEnabled;EComputerMenuType",
-      "shortName": "IsMenuEnabled",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "EComputerMenuType",
-          "name": "menuType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnCreateFactQuickHack;FactQuickHack",
-      "shortName": "OnCreateFactQuickHack",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:FactQuickHack",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnToggleOpen;ToggleOpenComputer",
-      "shortName": "OnToggleOpen",
-      "return": {
-        "type": "EntityNotificationType",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:ToggleOpenComputer",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushData;ComputerPersistentData",
-      "shortName": "PushData",
       "flags": 33284,
       "params": [
         {
-          "type": "ComputerPersistentData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PushResaveData;ComputerPersistentData",
-      "shortName": "PushResaveData",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "ComputerPersistentData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RequestBannerWidgetsUpdate;IBlackboard",
-      "shortName": "RequestBannerWidgetsUpdate",
-      "flags": 516,
-      "params": [
-        {
-          "type": "handle:gameIBlackboard",
-          "name": "blackboard",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetAnimationState;EComputerAnimationState",
-      "shortName": "SetAnimationState",
-      "flags": 516,
-      "params": [
-        {
-          "type": "EComputerAnimationState",
-          "name": "state",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetIsInSleepMode;Bool",
-      "shortName": "SetIsInSleepMode",
-      "flags": 516,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetOpenedFileAdress;SDocumentAdress",
-      "shortName": "SetOpenedFileAdress",
-      "flags": 516,
-      "params": [
-        {
           "type": "SDocumentAdress",
           "name": "documentAdress",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "SetOpenedMailAdress;SDocumentAdress",
-      "shortName": "SetOpenedMailAdress",
-      "flags": 516,
-      "params": [
-        {
-          "type": "SDocumentAdress",
-          "name": "documentAdress",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateBanners;",
-      "shortName": "UpdateBanners",
-      "flags": 516
-    },
-    {
-      "fullName": "ActionToggleOpen;",
-      "shortName": "ActionToggleOpen",
-      "return": {
-        "type": "handle:ToggleOpenComputer",
-        "flags": 64
-      },
-      "flags": 512
-    },
-    {
-      "fullName": "CanCreateAnyQuickHackActions;",
-      "shortName": "CanCreateAnyQuickHackActions",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41216
     },
     {
       "fullName": "GameAttached;",
@@ -654,7 +250,7 @@
         "type": "gameGetActionsContext",
         "flags": 64
       },
-      "flags": 8448,
+      "flags": 41216,
       "params": [
         {
           "type": "gamedeviceRequestType",
@@ -685,7 +281,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -700,6 +296,24 @@
       ]
     },
     {
+      "fullName": "GetActivatorType;",
+      "shortName": "GetActivatorType",
+      "return": {
+        "type": "EToggleActivationTypeComputer",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetAnimationState;",
+      "shortName": "GetAnimationState",
+      "return": {
+        "type": "EComputerAnimationState",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetBannerWidgetTweakDBID;",
       "shortName": "GetBannerWidgetTweakDBID",
       "return": {
@@ -709,13 +323,92 @@
       "flags": 33024
     },
     {
+      "fullName": "GetBannerWidgets;",
+      "shortName": "GetBannerWidgets",
+      "return": {
+        "type": "array:SBannerWidgetPackage",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "GetBlackboardDef;",
       "shortName": "GetBlackboardDef",
       "return": {
-        "type": "handle:DeviceBaseBlackboardDef",
+        "type": "handle:ComputerDeviceBlackboardDef",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
+    },
+    {
+      "fullName": "GetDocumentAdressByName;EDocumentTypeCName",
+      "shortName": "GetDocumentAdressByName",
+      "return": {
+        "type": "SDocumentAdress",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "EDocumentType",
+          "name": "documentType",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "documentName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEnabledDevicesCount;array<DeviceComponentPS>",
+      "shortName": "GetEnabledDevicesCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:handle:gameDeviceComponentPS",
+          "name": "devices",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEnabledDocumentsCount;array<DataElement>Bool",
+      "shortName": "GetEnabledDocumentsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:gamedeviceDataElement",
+          "name": "documents",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "unredOnly",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetFileStructure;ComputerUIData",
+      "shortName": "GetFileStructure",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedeviceComputerUIData",
+          "name": "data",
+          "flags": 640
+        }
+      ]
     },
     {
       "fullName": "GetFileThumbnailWidgetTweakDBID;",
@@ -727,6 +420,31 @@
       "flags": 33024
     },
     {
+      "fullName": "GetFileThumbnailWidgets;",
+      "shortName": "GetFileThumbnailWidgets",
+      "return": {
+        "type": "array:SDocumentThumbnailWidgetPackage",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFileWidget;SDocumentAdress",
+      "shortName": "GetFileWidget",
+      "return": {
+        "type": "SDocumentWidgetPackage",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "documentAdress",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetFileWidgetTweakDBID;",
       "shortName": "GetFileWidgetTweakDBID",
       "return": {
@@ -736,6 +454,56 @@
       "flags": 33024
     },
     {
+      "fullName": "GetInitialMenuType;",
+      "shortName": "GetInitialMenuType",
+      "return": {
+        "type": "EComputerMenuType",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetInternetData;",
+      "shortName": "GetInternetData",
+      "return": {
+        "type": "SInternetData",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetJournalFileEntry;DataElement",
+      "shortName": "GetJournalFileEntry",
+      "return": {
+        "type": "whandle:gameJournalFile",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "gamedeviceDataElement",
+          "name": "dataElement",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetJournalMailEntry;DataElement",
+      "shortName": "GetJournalMailEntry",
+      "return": {
+        "type": "whandle:gameJournalEmail",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "gamedeviceDataElement",
+          "name": "dataElement",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetMailThumbnailWidgetTweakDBID;",
       "shortName": "GetMailThumbnailWidgetTweakDBID",
       "return": {
@@ -743,6 +511,31 @@
         "flags": 64
       },
       "flags": 33024
+    },
+    {
+      "fullName": "GetMailThumbnailWidgets;",
+      "shortName": "GetMailThumbnailWidgets",
+      "return": {
+        "type": "array:SDocumentThumbnailWidgetPackage",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetMailWidget;SDocumentAdress",
+      "shortName": "GetMailWidget",
+      "return": {
+        "type": "SDocumentWidgetPackage",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "documentAdress",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetMailWidgetTweakDBID;",
@@ -763,6 +556,15 @@
       "flags": 33024
     },
     {
+      "fullName": "GetMainMenuButtonWidgets;",
+      "shortName": "GetMainMenuButtonWidgets",
+      "return": {
+        "type": "array:SComputerMenuButtonWidgetPackage",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetMenuButtonWidgetTweakDBID;",
       "shortName": "GetMenuButtonWidgetTweakDBID",
       "return": {
@@ -772,13 +574,49 @@
       "flags": 33024
     },
     {
+      "fullName": "GetMenuButtonWidgets;",
+      "shortName": "GetMenuButtonWidgets",
+      "return": {
+        "type": "array:SComputerMenuButtonWidgetPackage",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetNewsfeedInterval;",
+      "shortName": "GetNewsfeedInterval",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetOpenedFileAdress;",
+      "shortName": "GetOpenedFileAdress",
+      "return": {
+        "type": "SDocumentAdress",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetOpenedMailAdress;",
+      "shortName": "GetOpenedMailAdress",
+      "return": {
+        "type": "SDocumentAdress",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetQuestActionByName;CName",
       "shortName": "GetQuestActionByName",
       "return": {
         "type": "handle:gamedeviceAction",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "CName",
@@ -790,7 +628,7 @@
     {
       "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuestActions",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -807,7 +645,7 @@
     {
       "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
       "shortName": "GetQuickHackActions",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
@@ -822,9 +660,59 @@
       ]
     },
     {
+      "fullName": "HasNewsfeed;",
+      "shortName": "HasNewsfeed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsDataElementValid;DataElement",
+      "shortName": "IsDataElementValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedeviceDataElement",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsInSleepMode;",
+      "shortName": "IsInSleepMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsMenuEnabled;EComputerMenuType",
+      "shortName": "IsMenuEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "EComputerMenuType",
+          "name": "menuType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "LogicReady;",
       "shortName": "LogicReady",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "OnAuthorizeUser;AuthorizeUser",
@@ -833,10 +721,26 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:AuthorizeUser",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCreateFactQuickHack;FactQuickHack",
+      "shortName": "OnCreateFactQuickHack",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:FactQuickHack",
           "name": "evt",
           "flags": 128
         }
@@ -849,7 +753,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "handle:FillTakeOverChainBBoardEvent",
@@ -859,22 +763,13 @@
       ]
     },
     {
-      "fullName": "OnInstantiated",
-      "shortName": "OnInstantiated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
       "fullName": "OnQuestForceCameraZoom;QuestForceCameraZoom",
       "shortName": "OnQuestForceCameraZoom",
       "return": {
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:QuestForceCameraZoom",
@@ -886,7 +781,7 @@
     {
       "fullName": "OnRequestDocumentThumbnailWidgetsUpdate;RequestDocumentThumbnailWidgetsUpdateEvent",
       "shortName": "OnRequestDocumentThumbnailWidgetsUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:RequestDocumentThumbnailWidgetsUpdateEvent",
@@ -898,7 +793,7 @@
     {
       "fullName": "OnRequestDocumentWidgetUpdate;RequestDocumentWidgetUpdateEvent",
       "shortName": "OnRequestDocumentWidgetUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:RequestDocumentWidgetUpdateEvent",
@@ -910,10 +805,26 @@
     {
       "fullName": "OnRequestMenuWidgetsUpdate;RequestComputerMenuWidgetsUpdateEvent",
       "shortName": "OnRequestMenuWidgetsUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:RequestComputerMenuWidgetsUpdateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleOpen;ToggleOpenComputer",
+      "shortName": "OnToggleOpen",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:ToggleOpenComputer",
           "name": "evt",
           "flags": 128
         }
@@ -926,7 +837,7 @@
         "type": "EntityNotificationType",
         "flags": 64
       },
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:ToggleZoomInteraction",
@@ -936,9 +847,45 @@
       ]
     },
     {
+      "fullName": "PushData;ComputerPersistentData",
+      "shortName": "PushData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ComputerPersistentData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushResaveData;ComputerPersistentData",
+      "shortName": "PushResaveData",
+      "flags": 34308,
+      "params": [
+        {
+          "type": "ComputerPersistentData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestBannerWidgetsUpdate;IBlackboard",
+      "shortName": "RequestBannerWidgetsUpdate",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RequestFileThumbnailWidgetsUpdate;IBlackboard",
       "shortName": "RequestFileThumbnailWidgetsUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gameIBlackboard",
@@ -950,7 +897,7 @@
     {
       "fullName": "RequestFileWidgetUpdate;IBlackboardSDocumentAdress",
       "shortName": "RequestFileWidgetUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gameIBlackboard",
@@ -967,7 +914,7 @@
     {
       "fullName": "RequestMailThumbnailWidgetsUpdate;IBlackboard",
       "shortName": "RequestMailThumbnailWidgetsUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gameIBlackboard",
@@ -979,7 +926,7 @@
     {
       "fullName": "RequestMailWidgetUpdate;IBlackboardSDocumentAdress",
       "shortName": "RequestMailWidgetUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gameIBlackboard",
@@ -996,7 +943,7 @@
     {
       "fullName": "RequestMainMenuButtonWidgetsUpdate;IBlackboard",
       "shortName": "RequestMainMenuButtonWidgetsUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gameIBlackboard",
@@ -1008,11 +955,59 @@
     {
       "fullName": "RequestMenuButtonWidgetsUpdate;IBlackboard",
       "shortName": "RequestMenuButtonWidgetsUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gameIBlackboard",
           "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAnimationState;EComputerAnimationState",
+      "shortName": "SetAnimationState",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "EComputerAnimationState",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsInSleepMode;Bool",
+      "shortName": "SetIsInSleepMode",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetOpenedFileAdress;SDocumentAdress",
+      "shortName": "SetOpenedFileAdress",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "documentAdress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetOpenedMailAdress;SDocumentAdress",
+      "shortName": "SetOpenedMailAdress",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "SDocumentAdress",
+          "name": "documentAdress",
           "flags": 128
         }
       ]
@@ -1024,12 +1019,17 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8704
+      "flags": 41472
     },
     {
       "fullName": "TurnAuthorizationModuleOFF;",
       "shortName": "TurnAuthorizationModuleOFF",
-      "flags": 512
+      "flags": 33280
+    },
+    {
+      "fullName": "UpdateBanners;",
+      "shortName": "UpdateBanners",
+      "flags": 33284
     }
   ]
 }

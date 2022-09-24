@@ -29,6 +29,11 @@
       "flags": 4297130017
     },
     {
+      "type": "inkTextWidgetReference",
+      "name": "outfitsFilterInfoText",
+      "flags": 4297130017
+    },
+    {
       "type": "inkWidgetReference",
       "name": "itemGridContainer",
       "flags": 4297130017
@@ -41,6 +46,16 @@
     {
       "type": "inkWidgetReference",
       "name": "itemGridScrollControllerWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "wardrobeSlotsContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "wardrobeSlotsLabel",
       "flags": 4297130017
     },
     {
@@ -79,6 +94,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameWardrobeSystem",
+      "name": "wardrobeSystem",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:InventoryGenericItemChooser",
       "name": "itemChooser",
       "flags": 4297130016
@@ -114,6 +134,11 @@
       "flags": 4297326624
     },
     {
+      "type": "whandle:gameIBlackboard",
+      "name": "disassembleBlackboard",
+      "flags": 4297326624
+    },
+    {
       "type": "handle:redCallbackObject",
       "name": "equipmentBlackboardCallback",
       "flags": 4431544352
@@ -121,6 +146,16 @@
     {
       "type": "handle:redCallbackObject",
       "name": "itemModsBlackboardCallback",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "disassembleBlackboardCallback",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "equipmentInProgressCallback",
       "flags": 4431544352
     },
     {
@@ -204,6 +239,11 @@
       "flags": 6583222304
     },
     {
+      "type": "handle:inkGameNotificationToken",
+      "name": "confirmationPopupToken",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:ItemDisplayHoverOverEvent",
       "name": "lastItemHoverOverEvent",
       "flags": 4431347744
@@ -211,6 +251,36 @@
     {
       "type": "Bool",
       "name": "isComparisionDisabled",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "outfitWardrobeSpawned",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:WardrobeOutfitSlotController",
+      "name": "wardrobeOutfitSlotControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "delayedItemEquippedRequested",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameDelaySystem",
+      "name": "delaySystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "delayedTimeoutCallbackId",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "timeoutPeroid",
       "flags": 4297130016
     },
     {
@@ -231,9 +301,464 @@
   ],
   "funcs": [
     {
+      "fullName": "OnConfirmationPopupClosed",
+      "shortName": "OnConfirmationPopupClosed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayedItemEquipped",
+      "shortName": "OnDelayedItemEquipped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DelayedItemEquipped",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDisassembleComplete",
+      "shortName": "OnDisassembleComplete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEquipmentInProgress",
+      "shortName": "OnEquipmentInProgress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "inProgress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnInventoryItemHoverOut",
+      "shortName": "OnInventoryItemHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemChooserItemChanged",
+      "shortName": "OnItemChooserItemChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemChooserItemChanged",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemChooserItemHoverOut",
+      "shortName": "OnItemChooserItemHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemChooserItemHoverOut",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemChooserItemHoverOver",
+      "shortName": "OnItemChooserItemHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemChooserItemHoverOver",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemChooserUnequipItem",
+      "shortName": "OnItemChooserUnequipItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemChooserUnequipItem",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemChooserUnequipMod",
+      "shortName": "OnItemChooserUnequipMod",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemChooserUnequipMod",
+          "name": "ev",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemChooserUnequipVisuals",
+      "shortName": "OnItemChooserUnequipVisuals",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemChooserUnequipVisuals",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemDisplayClick",
+      "shortName": "OnItemDisplayClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayClickEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemDisplayHold",
+      "shortName": "OnItemDisplayHold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoldEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemDisplayHoverOut",
+      "shortName": "OnItemDisplayHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOutEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemDisplayHoverOver",
+      "shortName": "OnItemDisplayHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ItemDisplayHoverOverEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemEquiped",
+      "shortName": "OnItemEquiped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemFilterClick",
+      "shortName": "OnItemFilterClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemFilterHoverOut",
+      "shortName": "OnItemFilterHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemFilterHoverOver",
+      "shortName": "OnItemFilterHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemInventoryHold",
+      "shortName": "OnItemInventoryHold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnItemModUpdatedEquiped",
+      "shortName": "OnItemModUpdatedEquiped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOutfitWardrobeSlotSpawned",
+      "shortName": "OnOutfitWardrobeSlotSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPostOnRelease",
+      "shortName": "OnPostOnRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnReplaceModNotificationClosed",
+      "shortName": "OnReplaceModNotificationClosed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnWardrobeOutfitSlotClicked",
+      "shortName": "OnWardrobeOutfitSlotClicked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:WardrobeOutfitSlotClickedEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWardrobeOutfitSlotHoverOut",
+      "shortName": "OnWardrobeOutfitSlotHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:WardrobeOutfitSlotHoverOutEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWardrobeOutfitSlotHoverOver",
+      "shortName": "OnWardrobeOutfitSlotHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:WardrobeOutfitSlotHoverOverEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AddToDropQueue;ItemModParams",
       "shortName": "AddToDropQueue",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "gameItemModParams",
@@ -245,7 +770,7 @@
     {
       "fullName": "CreateFilterButtons;inkCompoundRefgamedataEquipmentArea",
       "shortName": "CreateFilterButtons",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "inkCompoundWidgetReference",
@@ -266,7 +791,7 @@
         "type": "handle:InventoryGenericItemChooser",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "InventoryItemDisplayData",
@@ -287,15 +812,15 @@
         "type": "UIMenuNotificationType",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "EquipItem;InventoryItemDataInt32",
       "shortName": "EquipItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -309,10 +834,10 @@
     {
       "fullName": "EquipPart;InventoryItemDataTweakDBID",
       "shortName": "EquipPart",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -324,13 +849,43 @@
       ]
     },
     {
+      "fullName": "GetClothingSetByIndex;array<ClothingSet>Int32",
+      "shortName": "GetClothingSetByIndex",
+      "return": {
+        "type": "handle:gameClothingSet",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:handle:gameClothingSet",
+          "name": "sets",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "targetIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipmentAreas;",
+      "shortName": "GetEquipmentAreas",
+      "return": {
+        "type": "array:gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetFilterButtonIndex;ItemFilterCategory",
       "shortName": "GetFilterButtonIndex",
       "return": {
         "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ItemFilterCategory",
@@ -346,7 +901,7 @@
         "type": "handle:InventoryItemDisplayController",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -362,15 +917,15 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "partItemData",
           "flags": 128
         }
@@ -380,13 +935,13 @@
       "fullName": "GetProgramByShardType;array<InventoryItemAttachments>CName",
       "shortName": "GetProgramByShardType",
       "return": {
-        "type": "InventoryItemAttachments",
+        "type": "handle:gameInventoryItemAttachments",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "array:InventoryItemAttachments",
+          "type": "array:handle:gameInventoryItemAttachments",
           "name": "programs",
           "flags": 128
         },
@@ -400,10 +955,10 @@
     {
       "fullName": "HandleItemClick;InventoryItemDatainkActionNameItemDisplayContext",
       "shortName": "HandleItemClick",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -422,10 +977,10 @@
     {
       "fullName": "HandleItemHold;InventoryItemDatainkActionName",
       "shortName": "HandleItemHold",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -439,65 +994,17 @@
     {
       "fullName": "HandleItemHoverOut;",
       "shortName": "HandleItemHoverOut",
-      "flags": 132
-    },
-    {
-      "fullName": "HandleItemHoverOver;InventoryItemDatainkWidgetDEBUG_IconErrorInfoBoolInventoryItemDisplayController",
-      "shortName": "HandleItemHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "whandle:inkWidget",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "handle:DEBUG_IconErrorInfo",
-          "name": "iconErrorInfo",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "skipCompare",
-          "flags": 1152
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "display",
-          "flags": 1152
-        }
-      ]
+      "flags": 32900
     },
     {
       "fullName": "HideTooltips;",
       "shortName": "HideTooltips",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "InvalidateItemTooltipEvent;",
       "shortName": "InvalidateItemTooltipEvent",
-      "flags": 132
-    },
-    {
-      "fullName": "IsEquipmentAreaClothing;array<gamedataEquipmentArea>",
-      "shortName": "IsEquipmentAreaClothing",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:gamedataEquipmentArea",
-          "name": "equipmentAreas",
-          "flags": 128
-        }
-      ]
+      "flags": 32900
     },
     {
       "fullName": "IsEquipmentAreaClothing;gamedataEquipmentArea",
@@ -506,11 +1013,27 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
           "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEquipmentAreaClothing;array<gamedataEquipmentArea>",
+      "shortName": "IsEquipmentAreaClothing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:gamedataEquipmentArea",
+          "name": "equipmentAreas",
           "flags": 128
         }
       ]
@@ -522,7 +1045,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -538,7 +1061,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:gamedataEquipmentArea",
@@ -554,15 +1077,15 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "partItemData",
           "flags": 128
         },
@@ -574,13 +1097,22 @@
       ]
     },
     {
+      "fullName": "IsOutfitMode;",
+      "shortName": "IsOutfitMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "IsUnequipBlocked;ItemID",
       "shortName": "IsUnequipBlocked",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -590,17 +1122,38 @@
       ]
     },
     {
+      "fullName": "IsWardrobeSetDefined;array<ClothingSet>gameWardrobeClothingSetIndex",
+      "shortName": "IsWardrobeSetDefined",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:handle:gameClothingSet",
+          "name": "sets",
+          "flags": 128
+        },
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "targetSet",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "NotifyItemUpdate;",
       "shortName": "NotifyItemUpdate",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "OnEquipRequestTooltip;InventoryItemDatainkWidgetString",
       "shortName": "OnEquipRequestTooltip",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -619,7 +1172,7 @@
     {
       "fullName": "OnQuantityPickerDisassembly;QuantityPickerPopupCloseData",
       "shortName": "OnQuantityPickerDisassembly",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuantityPickerPopupCloseData",
@@ -631,7 +1184,7 @@
     {
       "fullName": "OnQuantityPickerDrop;QuantityPickerPopupCloseData",
       "shortName": "OnQuantityPickerDrop",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuantityPickerPopupCloseData",
@@ -643,7 +1196,7 @@
     {
       "fullName": "OnQuantityPickerPopupClosed;QuantityPickerPopupCloseData",
       "shortName": "OnQuantityPickerPopupClosed",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:QuantityPickerPopupCloseData",
@@ -653,12 +1206,24 @@
       ]
     },
     {
-      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionType",
-      "shortName": "OpenQuantityPicker",
-      "flags": 516,
+      "fullName": "OpenConfirmationPopupOpenConfirmationPopup;InventoryItemData",
+      "shortName": "OpenConfirmationPopupOpenConfirmationPopup",
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenQuantityPicker;InventoryItemDataQuantityPickerActionType",
+      "shortName": "OpenQuantityPicker",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -670,13 +1235,18 @@
       ]
     },
     {
-      "fullName": "RefreshAvailableItems;ItemViewModes",
+      "fullName": "RefreshAvailableItems;ItemViewModesBool",
       "shortName": "RefreshAvailableItems",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ItemViewModes",
           "name": "viewMode",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "tryToPreserveFilter",
           "flags": 1152
         }
       ]
@@ -684,7 +1254,7 @@
     {
       "fullName": "RegisterBlackboard;",
       "shortName": "RegisterBlackboard",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "RequestClose;",
@@ -693,12 +1263,12 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "RequestItemInspected;ItemID",
       "shortName": "RequestItemInspected",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -710,7 +1280,7 @@
     {
       "fullName": "SelectFilterButton;ItemFilterCategory",
       "shortName": "SelectFilterButton",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ItemFilterCategory",
@@ -722,7 +1292,7 @@
     {
       "fullName": "SelectFilterButtonByIndex;Int32",
       "shortName": "SelectFilterButtonByIndex",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -734,7 +1304,7 @@
     {
       "fullName": "SetActiveFilterController;BackpackFilterButtonController",
       "shortName": "SetActiveFilterController",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:BackpackFilterButtonController",
@@ -746,7 +1316,7 @@
     {
       "fullName": "SetEquipmentArea;gamedataEquipmentArea",
       "shortName": "SetEquipmentArea",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -758,12 +1328,12 @@
     {
       "fullName": "SetEquipmentSlotButtonHintsHoverOut;",
       "shortName": "SetEquipmentSlotButtonHintsHoverOut",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "SetEquipmentSlotButtonHintsHoverOver;InventoryItemDisplayController",
       "shortName": "SetEquipmentSlotButtonHintsHoverOver",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:InventoryItemDisplayController",
@@ -775,48 +1345,16 @@
     {
       "fullName": "SetInventoryItemButtonHintsHoverOut;",
       "shortName": "SetInventoryItemButtonHintsHoverOut",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "SetInventoryItemButtonHintsHoverOver;InventoryItemDataInventoryItemDisplayController",
       "shortName": "SetInventoryItemButtonHintsHoverOver",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "displayingData",
-          "flags": 128
-        },
-        {
-          "type": "handle:InventoryItemDisplayController",
-          "name": "display",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "SetInventoryItemTooltipHoverOver;InventoryItemDatainkWidgetBoolDEBUG_IconErrorInfoInventoryItemDisplayController",
-      "shortName": "SetInventoryItemTooltipHoverOver",
-      "flags": 132,
-      "params": [
-        {
-          "type": "InventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "whandle:inkWidget",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "skipCompare",
-          "flags": 128
-        },
-        {
-          "type": "handle:DEBUG_IconErrorInfo",
-          "name": "iconErrorInfo",
           "flags": 128
         },
         {
@@ -829,7 +1367,7 @@
     {
       "fullName": "SetPingTutorialFact;ItemIDBool",
       "shortName": "SetPingTutorialFact",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -846,7 +1384,7 @@
     {
       "fullName": "SetSortMode;ItemSortMode",
       "shortName": "SetSortMode",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "ItemSortMode",
@@ -858,7 +1396,7 @@
     {
       "fullName": "SetTranslation;Vector2",
       "shortName": "SetTranslation",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Vector2",
@@ -870,7 +1408,7 @@
     {
       "fullName": "SetupData;ButtonHintsgameuiTooltipsManagerInventoryDataManagerV2PlayerPuppet",
       "shortName": "SetupData",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "whandle:ButtonHints",
@@ -897,7 +1435,7 @@
     {
       "fullName": "SetupFiltersToCheck;gamedataEquipmentArea",
       "shortName": "SetupFiltersToCheck",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -909,7 +1447,7 @@
     {
       "fullName": "SetupMode;InventoryItemDisplayDataInventoryDataManagerV2gameuiInventoryGameController",
       "shortName": "SetupMode",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "InventoryItemDisplayData",
@@ -931,7 +1469,7 @@
     {
       "fullName": "ShowNotification;GameInstanceUIMenuNotificationType",
       "shortName": "ShowNotification",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -946,12 +1484,12 @@
       ]
     },
     {
-      "fullName": "ShowTooltipsForItemData;InventoryItemDatainkWidgetInventoryItemDataBoolDEBUG_IconErrorInfoInventoryItemDisplayController",
+      "fullName": "ShowTooltipsForItemData;InventoryItemDatainkWidgetInventoryItemDataBoolDEBUG_IconErrorInfoInventoryItemDisplayControllerItemID",
       "shortName": "ShowTooltipsForItemData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "equippedItem",
           "flags": 128
         },
@@ -961,7 +1499,7 @@
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "inspectedItemData",
           "flags": 128
         },
@@ -979,21 +1517,26 @@
           "type": "handle:InventoryItemDisplayController",
           "name": "display",
           "flags": 1152
+        },
+        {
+          "type": "gameItemID",
+          "name": "transmogItem",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "TelemetryLogPartInstalled;InventoryItemDataInventoryItemDataTweakDBID",
+      "fullName": "TelemetryLogPartInstalled;TelemetryInventoryItemTelemetryInventoryItemTweakDBID",
       "shortName": "TelemetryLogPartInstalled",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameTelemetryInventoryItem",
           "name": "modifiedItem",
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "gameTelemetryInventoryItem",
           "name": "itemPart",
           "flags": 128
         },
@@ -1005,17 +1548,17 @@
       ]
     },
     {
-      "fullName": "TelemetryLogPartInstalled;TelemetryInventoryItemTelemetryInventoryItemTweakDBID",
+      "fullName": "TelemetryLogPartInstalled;InventoryItemDataInventoryItemDataTweakDBID",
       "shortName": "TelemetryLogPartInstalled",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "gameTelemetryInventoryItem",
+          "type": "gameInventoryItemData",
           "name": "modifiedItem",
           "flags": 128
         },
         {
-          "type": "gameTelemetryInventoryItem",
+          "type": "gameInventoryItemData",
           "name": "itemPart",
           "flags": 128
         },
@@ -1029,7 +1572,7 @@
     {
       "fullName": "UnequipItem;InventoryItemDisplayControllerInventoryItemData",
       "shortName": "UnequipItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:InventoryItemDisplayController",
@@ -1037,7 +1580,7 @@
           "flags": 128
         },
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         }
@@ -1046,7 +1589,7 @@
     {
       "fullName": "UninstallMod;ItemIDTweakDBID",
       "shortName": "UninstallMod",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -1063,12 +1606,12 @@
     {
       "fullName": "UnregisterBlackboard;",
       "shortName": "UnregisterBlackboard",
-      "flags": 260
+      "flags": 33028
     },
     {
       "fullName": "UpdateAvailableHotykeyItems;EHotkeyarray<ItemID>",
       "shortName": "UpdateAvailableHotykeyItems",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameEHotkey",
@@ -1083,9 +1626,9 @@
       ]
     },
     {
-      "fullName": "UpdateAvailableItems;ItemViewModesarray<gamedataEquipmentArea>",
+      "fullName": "UpdateAvailableItems;ItemViewModesarray<gamedataEquipmentArea>Bool",
       "shortName": "UpdateAvailableItems",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "ItemViewModes",
@@ -1096,354 +1639,88 @@
           "type": "array:gamedataEquipmentArea",
           "name": "equipmentAreas",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "tryToPreserveFilter",
+          "flags": 1152
         }
       ]
     },
     {
       "fullName": "UpdateAvailableItemsGrid;script_ref<array<InventoryItemData>>",
       "shortName": "UpdateAvailableItemsGrid",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "script_ref:array:InventoryItemData",
+          "type": "script_ref:array:gameInventoryItemData",
           "name": "availableItems",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "UpdateDisplayedItems;ItemID",
+      "fullName": "UpdateDisplayedItems;ItemIDBool",
       "shortName": "UpdateDisplayedItems",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
           "name": "itemID",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "tryToPreserveFilter",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnInventoryItemHoverOut",
-      "shortName": "OnInventoryItemHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "fullName": "UpdateOutfitWardrobe;BoolInt32",
+      "shortName": "UpdateOutfitWardrobe",
+      "flags": 32900,
       "params": [
         {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
+          "type": "Bool",
+          "name": "active",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "activeSetOverride",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnInventoryItemHoverOver",
-      "shortName": "OnInventoryItemHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "fullName": "UpdateOutfitWardrobe;Bool",
+      "shortName": "UpdateOutfitWardrobe",
+      "flags": 32900,
       "params": [
         {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
+          "type": "Bool",
+          "name": "active",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnItemChooserItemChanged",
-      "shortName": "OnItemChooserItemChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
+      "fullName": "WardrobeOutfitEquipSet;gameWardrobeClothingSetIndex",
+      "shortName": "WardrobeOutfitEquipSet",
+      "flags": 32900,
       "params": [
         {
-          "type": "handle:ItemChooserItemChanged",
-          "name": "e",
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnItemChooserItemHoverOut",
-      "shortName": "OnItemChooserItemHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemChooserItemHoverOut",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemChooserItemHoverOver",
-      "shortName": "OnItemChooserItemHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemChooserItemHoverOver",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemChooserUnequipItem",
-      "shortName": "OnItemChooserUnequipItem",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemChooserUnequipItem",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemChooserUnequipMod",
-      "shortName": "OnItemChooserUnequipMod",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemChooserUnequipMod",
-          "name": "ev",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemDisplayClick",
-      "shortName": "OnItemDisplayClick",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemDisplayClickEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemDisplayHold",
-      "shortName": "OnItemDisplayHold",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemDisplayHoldEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemDisplayHoverOut",
-      "shortName": "OnItemDisplayHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemDisplayHoverOutEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemDisplayHoverOver",
-      "shortName": "OnItemDisplayHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ItemDisplayHoverOverEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemEquiped",
-      "shortName": "OnItemEquiped",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemFilterClick",
-      "shortName": "OnItemFilterClick",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemFilterHoverOut",
-      "shortName": "OnItemFilterHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemFilterHoverOver",
-      "shortName": "OnItemFilterHoverOver",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemInventoryHold",
-      "shortName": "OnItemInventoryHold",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnItemModUpdatedEquiped",
-      "shortName": "OnItemModUpdatedEquiped",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPostOnRelease",
-      "shortName": "OnPostOnRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnReplaceModNotificationClosed",
-      "shortName": "OnReplaceModNotificationClosed",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:inkGameNotificationData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
+      "fullName": "WardrobeOutfitUnequipSet;",
+      "shortName": "WardrobeOutfitUnequipSet",
+      "flags": 32900
     }
   ]
 }

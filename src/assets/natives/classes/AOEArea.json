@@ -46,19 +46,149 @@
   ],
   "funcs": [
     {
+      "fullName": "OnActivateDevice",
+      "shortName": "OnActivateDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ActivateDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAreaEnter",
+      "shortName": "OnAreaEnter",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:entAreaEnteredEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAreaExit",
+      "shortName": "OnAreaExit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:entAreaExitedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeactivateDevice",
+      "shortName": "OnDeactivateDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DeactivateDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach",
+      "shortName": "OnDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnGameAttached",
+      "shortName": "OnGameAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRevealDeviceRequest",
+      "shortName": "OnRevealDeviceRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RevealDeviceRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ActivateArea;",
       "shortName": "ActivateArea",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ActivateEffect;",
       "shortName": "ActivateEffect",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ApplyActiveStatusEffectsToEntity;EntityID",
       "shortName": "ApplyActiveStatusEffectsToEntity",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "entEntityID",
@@ -74,7 +204,7 @@
         "type": "handle:FocusForcedHighlightData",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EFocusForcedHighlightType",
@@ -86,12 +216,71 @@
     {
       "fullName": "DeactivateArea;",
       "shortName": "DeactivateArea",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ExtendBoundingBox;",
       "shortName": "ExtendBoundingBox",
-      "flags": 132
+      "flags": 32900
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:AOEAreaController",
+        "flags": 64
+      },
+      "flags": 41088
+    },
+    {
+      "fullName": "GetDefaultHighlight;",
+      "shortName": "GetDefaultHighlight",
+      "return": {
+        "type": "handle:FocusForcedHighlightData",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:AOEAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetDistractionControllerSource;AreaEffectData",
+      "shortName": "GetDistractionControllerSource",
+      "return": {
+        "type": "handle:entEntity",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:AreaEffectData",
+          "name": "effectData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetDistractionStimLifetime;Float",
+      "shortName": "GetDistractionStimLifetime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Float",
+          "name": "defaultValue",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetEntitiesInArea;",
@@ -100,7 +289,7 @@
         "type": "array:handle:entEntity",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetObstacleComponent;",
@@ -109,7 +298,16 @@
         "type": "handle:entIComponent",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "GetStimTarget;",
+      "shortName": "GetStimTarget",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 33280
     },
     {
       "fullName": "GetVisionBlockerComponent;",
@@ -118,12 +316,21 @@
         "type": "handle:entIComponent",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "IsGameplayRelevant;",
+      "shortName": "IsGameplayRelevant",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "RemoveActiveStatusEffectsFromEntity;EntityID",
       "shortName": "RemoveActiveStatusEffectsFromEntity",
-      "flags": 260,
+      "flags": 33028,
       "params": [
         {
           "type": "entEntityID",
@@ -135,12 +342,12 @@
     {
       "fullName": "StopGameEffect;",
       "shortName": "StopGameEffect",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "ToggleHighlightOnSingleTarget;BoolEntityID",
       "shortName": "ToggleHighlightOnSingleTarget",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -157,7 +364,7 @@
     {
       "fullName": "ToggleHighlightOnTargets;Bool",
       "shortName": "ToggleHighlightOnTargets",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",
@@ -169,214 +376,7 @@
     {
       "fullName": "UpdateWillingInvestigator;",
       "shortName": "UpdateWillingInvestigator",
-      "flags": 260
-    },
-    {
-      "fullName": "GetController;",
-      "shortName": "GetController",
-      "return": {
-        "type": "handle:ScriptableDC",
-        "flags": 64
-      },
-      "flags": 8320
-    },
-    {
-      "fullName": "GetDefaultHighlight;",
-      "shortName": "GetDefaultHighlight",
-      "return": {
-        "type": "handle:FocusForcedHighlightData",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "GetDevicePS;",
-      "shortName": "GetDevicePS",
-      "return": {
-        "type": "handle:ScriptableDeviceComponentPS",
-        "flags": 64
-      },
-      "flags": 8704
-    },
-    {
-      "fullName": "GetDistractionControllerSource;AreaEffectData",
-      "shortName": "GetDistractionControllerSource",
-      "return": {
-        "type": "handle:entEntity",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "handle:AreaEffectData",
-          "name": "effectData",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "GetDistractionStimLifetime;Float",
-      "shortName": "GetDistractionStimLifetime",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 512,
-      "params": [
-        {
-          "type": "Float",
-          "name": "defaultValue",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetStimTarget;",
-      "shortName": "GetStimTarget",
-      "return": {
-        "type": "handle:gameObject",
-        "flags": 64
-      },
-      "flags": 33280
-    },
-    {
-      "fullName": "IsGameplayRelevant;",
-      "shortName": "IsGameplayRelevant",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41472
-    },
-    {
-      "fullName": "OnActivateDevice",
-      "shortName": "OnActivateDevice",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:ActivateDevice",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAreaEnter",
-      "shortName": "OnAreaEnter",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:entAreaEnteredEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnAreaExit",
-      "shortName": "OnAreaExit",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:entAreaExitedEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDeactivateDevice",
-      "shortName": "OnDeactivateDevice",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:DeactivateDevice",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDetach",
-      "shortName": "OnDetach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnGameAttached",
-      "shortName": "OnGameAttached",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "OnRequestComponents",
-      "shortName": "OnRequestComponents",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityRequestComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnRevealDeviceRequest",
-      "shortName": "OnRevealDeviceRequest",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "handle:RevealDeviceRequest",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnTakeControl",
-      "shortName": "OnTakeControl",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "entEntityResolveComponentsInterface",
-          "name": "ri",
-          "flags": 128
-        }
-      ]
+      "flags": 33028
     }
   ]
 }

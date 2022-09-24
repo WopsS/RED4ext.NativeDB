@@ -10,6 +10,11 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "noSavedGamesLabel",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "buttonHintsManagerRef",
       "flags": 4297130017
     },
@@ -36,6 +41,26 @@
     {
       "type": "Bool",
       "name": "enableLoadingTransition",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "gogButtonWidgetRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "gogContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "laodingSpinner",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "scrollbar",
       "flags": 4297130017
     },
     {
@@ -67,96 +92,44 @@
       "type": "Bool",
       "name": "isInputDisabled",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "saveTransferPopupToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "array:String",
+      "name": "saves",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "saveFilesReady",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "cloudSynced",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIOnlineSystem",
+      "name": "onlineSystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkISystemRequestsHandler",
+      "name": "systemHandler",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "pendingRegistration",
+      "flags": 4297130016
     }
   ],
   "funcs": [
-    {
-      "fullName": "CreateLoadItem;Int32String",
-      "shortName": "CreateLoadItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "label",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "LoadGameMainMenu;LoadListItem",
-      "shortName": "LoadGameMainMenu",
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:LoadListItem",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayTransitionAnimOnButton;Int32Int32",
-      "shortName": "PlayTransitionAnimOnButton",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "distanceFromSource",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayTransitionAnimOnButton;Int32Float",
-      "shortName": "PlayTransitionAnimOnButton",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayTransitionAnimOnButtons;Int32",
-      "shortName": "PlayTransitionAnimOnButtons",
-      "flags": 132,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "sourceIndex",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetupLoadItems;array<String>",
-      "shortName": "SetupLoadItems",
-      "flags": 132,
-      "params": [
-        {
-          "type": "array:String",
-          "name": "saves",
-          "flags": 128
-        }
-      ]
-    },
     {
       "fullName": "OnButtonRelease",
       "shortName": "OnButtonRelease",
@@ -164,7 +137,55 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloudSavesQueryStatusChanged",
+      "shortName": "OnCloudSavesQueryStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "servicesCloudSavesQueryStatus",
+          "name": "status",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGogLoginStatusChanged",
+      "shortName": "OnGogLoginStatusChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "bIsSignedIn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGogPressed",
+      "shortName": "OnGogPressed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -180,7 +201,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "OnRefreshGOGState",
+      "shortName": "OnRefreshGOGState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameuiRefreshGOGState",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnRelease",
@@ -189,7 +226,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkPointerEvent",
@@ -205,7 +242,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "Bool",
@@ -226,7 +263,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkSaveMetadataInfo",
@@ -236,13 +273,13 @@
       ]
     },
     {
-      "fullName": "OnSavesReady",
-      "shortName": "OnSavesReady",
+      "fullName": "OnSavesForLoadReady",
+      "shortName": "OnSavesForLoadReady",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "array:String",
@@ -258,7 +295,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "whandle:inkMenuEventDispatcher",
@@ -274,7 +311,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264,
+      "flags": 33032,
       "params": [
         {
           "type": "handle:inkanimProxy",
@@ -290,7 +327,126 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 264
+      "flags": 33032
+    },
+    {
+      "fullName": "CreateLoadItem;Int32",
+      "shortName": "CreateLoadItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GogLogin;",
+      "shortName": "GogLogin",
+      "flags": 32900
+    },
+    {
+      "fullName": "InitCrossProgression;",
+      "shortName": "InitCrossProgression",
+      "flags": 32900
+    },
+    {
+      "fullName": "LoadGame;LoadListItem",
+      "shortName": "LoadGame",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:LoadListItem",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayLoadingAnimation;",
+      "shortName": "PlayLoadingAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayTransitionAnimOnButton;Int32Int32",
+      "shortName": "PlayTransitionAnimOnButton",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "distanceFromSource",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayTransitionAnimOnButton;Int32Float",
+      "shortName": "PlayTransitionAnimOnButton",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayTransitionAnimOnButtons;Int32",
+      "shortName": "PlayTransitionAnimOnButtons",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "sourceIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupLoadItems;array<String>",
+      "shortName": "SetupLoadItems",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:String",
+          "name": "saves",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopLoadingAnimation;",
+      "shortName": "StopLoadingAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateButtonHints;Int32",
+      "shortName": "UpdateButtonHints",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "savesCount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateSavesList;",
+      "shortName": "UpdateSavesList",
+      "flags": 32900
     }
   ]
 }

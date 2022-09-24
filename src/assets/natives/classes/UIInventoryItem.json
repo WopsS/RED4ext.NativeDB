@@ -1,0 +1,811 @@
+{
+  "parent": "IScriptable",
+  "name": "UIInventoryItem",
+  "flags": 4,
+  "props": [
+    {
+      "type": "gameItemID",
+      "name": "ID",
+      "flags": 4297326624
+    },
+    {
+      "type": "Uint64",
+      "name": "Hash",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:DEBUG_IconErrorInfo",
+      "name": "DEBUG_iconErrorInfo",
+      "flags": 4431544352
+    },
+    {
+      "type": "whandle:UIInventoryItemsManager",
+      "name": "manager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "owner",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameItemData",
+      "name": "itemData",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataItem_Record",
+      "name": "itemRecord",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataItem_Record",
+      "name": "realItemRecord",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "itemTweakID",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "realItemTweakID",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UIInventoryItemInternalData",
+      "name": "data",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UIInventoryWeaponInternalData",
+      "name": "weaponData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UIInventoryItemProgramData",
+      "name": "programData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UIInventoryItemGrenadeData",
+      "name": "grenadeData",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameItemData",
+      "name": "parentItem",
+      "flags": 4297130016
+    },
+    {
+      "type": "TweakDBID",
+      "name": "slotID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "fetchedFlags",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isQuantityDirty",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataCraftingResult_Record",
+      "name": "craftingResult",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "TEMP_isEquippedPrefetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "TEMP_isEquipped",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "UIInventoryItem::FromInventoryItemData;GameObjectInventoryItemDataUIInventoryItemsManager",
+      "shortName": "FromInventoryItemData",
+      "return": {
+        "type": "handle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItem::FromMinimalItemTooltipData;GameObjectMinimalItemTooltipDataUIInventoryItemsManager",
+      "shortName": "FromMinimalItemTooltipData",
+      "return": {
+        "type": "handle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:MinimalItemTooltipData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItem::Make;GameObjectgameItemDataUIInventoryItemsManager",
+      "shortName": "Make",
+      "return": {
+        "type": "handle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItem::Make;GameObjectgameItemDataTweakDBIDItem_RecordUIInventoryItemsManager",
+      "shortName": "Make",
+      "return": {
+        "type": "handle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "itemTweakID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "FetchDamageData;",
+      "shortName": "FetchDamageData",
+      "flags": 32900
+    },
+    {
+      "fullName": "FetchImmediate;",
+      "shortName": "FetchImmediate",
+      "flags": 32900
+    },
+    {
+      "fullName": "FetchWeaponImmediate;WeaponType",
+      "shortName": "FetchWeaponImmediate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "WeaponType",
+          "name": "weaponType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAmmo;Bool",
+      "shortName": "GetAmmo",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "update",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttackSpeed;",
+      "shortName": "GetAttackSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetBuyPrice;",
+      "shortName": "GetBuyPrice",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetDamageMax;",
+      "shortName": "GetDamageMax",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetDamageMin;",
+      "shortName": "GetDamageMin",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetDescription;",
+      "shortName": "GetDescription",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetEquipmentArea;",
+      "shortName": "GetEquipmentArea",
+      "return": {
+        "type": "gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFilterCategory;",
+      "shortName": "GetFilterCategory",
+      "return": {
+        "type": "ItemFilterCategory",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetGrenadeData;PlayerPuppetBool",
+      "shortName": "GetGrenadeData",
+      "return": {
+        "type": "whandle:UIInventoryItemGrenadeData",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetID;",
+      "shortName": "GetID",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetIconPath;",
+      "shortName": "GetIconPath",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetItemData;",
+      "shortName": "GetItemData",
+      "return": {
+        "type": "whandle:gameItemData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetItemRecord;",
+      "shortName": "GetItemRecord",
+      "return": {
+        "type": "whandle:gamedataItem_Record",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetItemType;",
+      "shortName": "GetItemType",
+      "return": {
+        "type": "gamedataItemType",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetItemTypeOrder;",
+      "shortName": "GetItemTypeOrder",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetModsManager;",
+      "shortName": "GetModsManager",
+      "return": {
+        "type": "whandle:UIInventoryItemModsManager",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetName;",
+      "shortName": "GetName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetNumberOfPellets;",
+      "shortName": "GetNumberOfPellets",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetOwner;",
+      "shortName": "GetOwner",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPrimaryStat;",
+      "shortName": "GetPrimaryStat",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetProgramData;PlayerPuppetBool",
+      "shortName": "GetProgramData",
+      "return": {
+        "type": "whandle:UIInventoryItemProgramData",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuality;",
+      "shortName": "GetQuality",
+      "return": {
+        "type": "gamedataQuality",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetQualityInt;",
+      "shortName": "GetQualityInt",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetQualityName;",
+      "shortName": "GetQualityName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetQuantity;Bool",
+      "shortName": "GetQuantity",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "update",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetRequiredLevel;",
+      "shortName": "GetRequiredLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetRequirementsManager;GameObject",
+      "shortName": "GetRequirementsManager",
+      "return": {
+        "type": "whandle:UIInventoryItemRequirementsManager",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSellPrice;",
+      "shortName": "GetSellPrice",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetStatsManager;",
+      "shortName": "GetStatsManager",
+      "return": {
+        "type": "whandle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetTweakDBID;",
+      "shortName": "GetTweakDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetUIItemCategory;",
+      "shortName": "GetUIItemCategory",
+      "return": {
+        "type": "UIItemCategory",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetWeaponEvolution;",
+      "shortName": "GetWeaponEvolution",
+      "return": {
+        "type": "gamedataWeaponEvolution",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetWeaponType;",
+      "shortName": "GetWeaponType",
+      "return": {
+        "type": "WeaponType",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetWeight;",
+      "shortName": "GetWeight",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "HasAnyTag;array<CName>",
+      "shortName": "HasAnyTag",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:CName",
+          "name": "tagsToCheck",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasScopeInstalled;",
+      "shortName": "HasScopeInstalled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "HasScopeSlot;",
+      "shortName": "HasScopeSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "HasSilencerInstalled;",
+      "shortName": "HasSilencerInstalled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "HasSilencerSlot;",
+      "shortName": "HasSilencerSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "Internal_FlushRequirements;",
+      "shortName": "Internal_FlushRequirements",
+      "flags": 33284
+    },
+    {
+      "fullName": "Internal_GetParentItem;",
+      "shortName": "Internal_GetParentItem",
+      "return": {
+        "type": "whandle:gameItemData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "Internal_GetSlotID;",
+      "shortName": "Internal_GetSlotID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "Internal_MarkModsDirty;",
+      "shortName": "Internal_MarkModsDirty",
+      "flags": 33284
+    },
+    {
+      "fullName": "Internal_MarkStatsDirty;",
+      "shortName": "Internal_MarkStatsDirty",
+      "flags": 33284
+    },
+    {
+      "fullName": "IsClothing;",
+      "shortName": "IsClothing",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsCrafted;",
+      "shortName": "IsCrafted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsCyberware;",
+      "shortName": "IsCyberware",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsEquippable;",
+      "shortName": "IsEquippable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsEquipped;",
+      "shortName": "IsEquipped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsIconic;",
+      "shortName": "IsIconic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsNew;",
+      "shortName": "IsNew",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsPart;",
+      "shortName": "IsPart",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsQuestItem;",
+      "shortName": "IsQuestItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsRecipe;",
+      "shortName": "IsRecipe",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsTransmogItem;",
+      "shortName": "IsTransmogItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsWeapon;",
+      "shortName": "IsWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "MarkQuantityDirty;",
+      "shortName": "MarkQuantityDirty",
+      "flags": 33284
+    },
+    {
+      "fullName": "SetQuantity;Int32",
+      "shortName": "SetQuantity",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "quantity",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

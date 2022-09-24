@@ -17,13 +17,23 @@
       "type": "Int32",
       "name": "framesDelayingAnimStart",
       "flags": 4297326624
+    },
+    {
+      "type": "whandle:entEntity",
+      "name": "climbedEntity",
+      "flags": 4297326624
+    },
+    {
+      "type": "Vector4",
+      "name": "playerCapsuleDimensions",
+      "flags": 4297326624
     }
   ],
   "funcs": [
     {
       "fullName": "AddHandIK;StateGameScriptInterface",
       "shortName": "AddHandIK",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
@@ -33,9 +43,9 @@
       ]
     },
     {
-      "fullName": "CreateIKConstraint;StateGameScriptInterfaceHandIKDescriptionResultVector4CName",
+      "fullName": "CreateIKConstraint;StateGameScriptInterfaceHandIKDescriptionResultVector4CNameEntity",
       "shortName": "CreateIKConstraint",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
@@ -56,6 +66,11 @@
           "type": "CName",
           "name": "ikChainName",
           "flags": 128
+        },
+        {
+          "type": "handle:entEntity",
+          "name": "climbedEntity",
+          "flags": 128
         }
       ]
     },
@@ -66,19 +81,7 @@
         "type": "handle:gamestateMachineparameterTypeClimbParameters",
         "flags": 64
       },
-      "flags": 132,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "RemoveHandIK;StateGameScriptInterface",
-      "shortName": "RemoveHandIK",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
@@ -90,7 +93,7 @@
     {
       "fullName": "OnEnter;StateContextStateGameScriptInterface",
       "shortName": "OnEnter",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -107,7 +110,7 @@
     {
       "fullName": "OnExit;StateContextStateGameScriptInterface",
       "shortName": "OnExit",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -124,7 +127,7 @@
     {
       "fullName": "OnForcedExit;StateContextStateGameScriptInterface",
       "shortName": "OnForcedExit",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -141,7 +144,7 @@
     {
       "fullName": "OnUpdate;FloatStateContextStateGameScriptInterface",
       "shortName": "OnUpdate",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
           "type": "Float",
@@ -153,6 +156,18 @@
           "name": "stateContext",
           "flags": 128
         },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveHandIK;StateGameScriptInterface",
+      "shortName": "RemoveHandIK",
+      "flags": 32900,
+      "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",

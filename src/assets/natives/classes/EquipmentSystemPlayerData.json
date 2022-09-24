@@ -29,18 +29,28 @@
       "flags": 4565565472
     },
     {
-      "type": "array:gameItemID",
-      "name": "hiddenItems",
-      "flags": 6583025696
-    },
-    {
       "type": "array:gameSSlotInfo",
       "name": "clothingSlotsInfo",
       "flags": 6851461152
     },
     {
+      "type": "array:gameSSlotVisualInfo",
+      "name": "clothingVisualsInfo",
+      "flags": 6851461152
+    },
+    {
       "type": "Bool",
-      "name": "isPartialVisualTagActive",
+      "name": "visualUnequipTransition",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "wardrobeDisabled",
+      "flags": 4565565472
+    },
+    {
+      "type": "gameWardrobeClothingSetIndex",
+      "name": "lastActiveWardrobeSet",
       "flags": 4565565472
     },
     {
@@ -62,13 +72,28 @@
       "type": "handle:InventoryDataManagerV2",
       "name": "inventoryManager",
       "flags": 4431347744
+    },
+    {
+      "type": "handle:gameWardrobeSystem",
+      "name": "wardrobeSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "equipPending",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:Int32",
+      "name": "equipAreaIndexCache",
+      "flags": 6583025696
     }
   ],
   "funcs": [
     {
       "fullName": "EquipmentSystemPlayerData::UpdateArmSlot;PlayerPuppetItemIDBool",
       "shortName": "UpdateArmSlot",
-      "flags": 518,
+      "flags": 33286,
       "params": [
         {
           "type": "whandle:PlayerPuppet",
@@ -88,13 +113,53 @@
       ]
     },
     {
-      "fullName": "AddHiddenItem;ItemID",
-      "shortName": "AddHiddenItem",
-      "flags": 132,
+      "fullName": "AddItemToSlot;TransactionSystemTweakDBIDItemIDgamedataEquipmentArea",
+      "shortName": "AddItemToSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
       "params": [
         {
+          "type": "handle:gameTransactionSystem",
+          "name": "transactionSystem",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slot",
+          "flags": 128
+        },
+        {
           "type": "gameItemID",
-          "name": "id",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddVisualItemToSlot;TransactionSystemgamedataEquipmentArea",
+      "shortName": "AddVisualItemToSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameTransactionSystem",
+          "name": "transactionSystem",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
           "flags": 128
         }
       ]
@@ -102,7 +167,7 @@
     {
       "fullName": "ApplyEquipGLPs;ItemID",
       "shortName": "ApplyEquipGLPs",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -114,7 +179,7 @@
     {
       "fullName": "AssignItemToHotkey;ItemIDEHotkey",
       "shortName": "AssignItemToHotkey",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -135,7 +200,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -145,18 +210,9 @@
       ]
     },
     {
-      "fullName": "CheckCyberjunkieAchievement;",
-      "shortName": "CheckCyberjunkieAchievement",
-      "flags": 516
-    },
-    {
-      "fullName": "CheckCyberwareItemForActivatedAction;ItemID",
-      "shortName": "CheckCyberwareItemForActivatedAction",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516,
+      "fullName": "ChangeAppearanceToItem;ItemID",
+      "shortName": "ChangeAppearanceToItem",
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -166,17 +222,43 @@
       ]
     },
     {
-      "fullName": "CheckEquipPrereqs;ItemID",
+      "fullName": "CheckCyberjunkieAchievement;",
+      "shortName": "CheckCyberjunkieAchievement",
+      "flags": 33284
+    },
+    {
+      "fullName": "CheckCyberwareItemForActivatedAction;ItemID",
+      "shortName": "CheckCyberwareItemForActivatedAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CheckEquipPrereqs;ItemIDInt32",
       "shortName": "CheckEquipPrereqs",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
           "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "randomVariant",
           "flags": 128
         }
       ]
@@ -188,7 +270,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -209,7 +291,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -221,23 +303,18 @@
     {
       "fullName": "ClearAllWeaponSlots;",
       "shortName": "ClearAllWeaponSlots",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "ClearEquipment;",
       "shortName": "ClearEquipment",
-      "flags": 132
+      "flags": 32900
     },
     {
-      "fullName": "ClearItemAppearance;TransactionSystemgamedataEquipmentArea",
+      "fullName": "ClearItemAppearance;gamedataEquipmentArea",
       "shortName": "ClearItemAppearance",
-      "flags": 516,
+      "flags": 33028,
       "params": [
-        {
-          "type": "handle:gameTransactionSystem",
-          "name": "transactionSystem",
-          "flags": 128
-        },
         {
           "type": "gamedataEquipmentArea",
           "name": "area",
@@ -248,7 +325,7 @@
     {
       "fullName": "ClearItemAppearanceEvent;gamedataEquipmentArea",
       "shortName": "ClearItemAppearanceEvent",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -260,7 +337,7 @@
     {
       "fullName": "ClearItemFromHotkey;EHotkey",
       "shortName": "ClearItemFromHotkey",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameEHotkey",
@@ -272,7 +349,47 @@
     {
       "fullName": "ClearLastUsedStruct;",
       "shortName": "ClearLastUsedStruct",
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "ClearPreviewItem;gamedataEquipmentArea",
+      "shortName": "ClearPreviewItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearVisuals;gamedataEquipmentArea",
+      "shortName": "ClearVisuals",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateClothingVisualSlotInfo;gamedataEquipmentArea",
+      "shortName": "CreateClothingVisualSlotInfo",
+      "return": {
+        "type": "gameSSlotVisualInfo",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "CreateSlotInfo;gamedataEquipmentAreaStringCName",
@@ -281,7 +398,7 @@
         "type": "gameSSlotInfo",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -303,17 +420,17 @@
     {
       "fullName": "CreateUnequipConsumableWeaponManipulationRequest;",
       "shortName": "CreateUnequipConsumableWeaponManipulationRequest",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CreateUnequipGadgetWeaponManipulationRequest;",
       "shortName": "CreateUnequipGadgetWeaponManipulationRequest",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CreateUnequipWeaponManipulationRequest;",
       "shortName": "CreateUnequipWeaponManipulationRequest",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "CycleWeapon;BoolBool",
@@ -322,7 +439,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -339,7 +456,7 @@
     {
       "fullName": "DeleteEquipmentSet;String",
       "shortName": "DeleteEquipmentSet",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "String",
@@ -349,9 +466,21 @@
       ]
     },
     {
+      "fullName": "DeleteWardrobeSet;gameWardrobeClothingSetIndex",
+      "shortName": "DeleteWardrobeSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DrawItem;ItemIDgameEquipAnimationType",
       "shortName": "DrawItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -372,39 +501,12 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
-      "fullName": "EquipItem;ItemIDBoolBoolBool",
+      "fullName": "EquipItem;ItemIDInt32BoolBool",
       "shortName": "EquipItem",
-      "flags": 516,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "addToInventory",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "blockActiveSlotsUpdate",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "forceEquipWeapon",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "EquipItem;ItemIDInt32BoolBoolBool",
-      "shortName": "EquipItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -418,8 +520,25 @@
         },
         {
           "type": "Bool",
-          "name": "addToInventory",
+          "name": "blockActiveSlotsUpdate",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "forceEquipWeapon",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "EquipItem;ItemIDBoolBool",
+      "shortName": "EquipItem",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
         },
         {
           "type": "Bool",
@@ -434,13 +553,37 @@
       ]
     },
     {
+      "fullName": "EquipVisuals;ItemID",
+      "shortName": "EquipVisuals",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipWardrobeSet;gameWardrobeClothingSetIndex",
+      "shortName": "EquipWardrobeSet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "EvaluateUnderwearTopHiddenState;",
       "shortName": "EvaluateUnderwearTopHiddenState",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "EvaluateUnderwearTopVisibility;ItemID",
@@ -449,7 +592,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -465,7 +608,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -477,16 +620,16 @@
     {
       "fullName": "FinalizeVisualTagProcessing;",
       "shortName": "FinalizeVisualTagProcessing",
-      "flags": 132
+      "flags": 32900
     },
     {
-      "fullName": "FindItemInEqArea;ItemIDgamedataEquipmentArea",
-      "shortName": "FindItemInEqArea",
+      "fullName": "FindItemInEquipArea;ItemIDgamedataEquipmentArea",
+      "shortName": "FindItemInEquipArea",
       "return": {
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -501,13 +644,13 @@
       ]
     },
     {
-      "fullName": "FindItemInEqAreaByTag;CNamegamedataEquipmentArea",
-      "shortName": "FindItemInEqAreaByTag",
+      "fullName": "FindItemInEquipAreaByTag;CNamegamedataEquipmentArea",
+      "shortName": "FindItemInEquipAreaByTag",
       "return": {
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "CName",
@@ -522,13 +665,29 @@
       ]
     },
     {
+      "fullName": "FindWardrobeClothingSetByID;gameWardrobeClothingSetIndex",
+      "shortName": "FindWardrobeClothingSetByID",
+      "return": {
+        "type": "handle:gameClothingSet",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameWardrobeClothingSetIndex",
+          "name": "setID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetActiveConsumable;",
       "shortName": "GetActiveConsumable",
       "return": {
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetActiveCyberware;",
@@ -537,7 +696,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetActiveGadget;",
@@ -546,7 +705,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetActiveHeavyWeapon;",
@@ -555,7 +714,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetActiveItem;gamedataEquipmentArea",
@@ -564,7 +723,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -580,7 +739,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "Int32",
@@ -596,7 +755,16 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetActiveWardrobeSet;",
+      "shortName": "GetActiveWardrobeSet",
+      "return": {
+        "type": "handle:gameClothingSet",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetActiveWeapon;",
@@ -605,7 +773,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetActiveWeaponObject;gamedataEquipmentArea",
@@ -614,7 +782,7 @@
         "type": "handle:gameItemObject",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -630,7 +798,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetAllAbilityCyberwareSlots;",
@@ -639,7 +807,40 @@
         "type": "array:gameSEquipSlot",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "GetAllAbilityCyberwareSlotsByEquipmentArea;gamedataEquipmentAreascript_ref<array<SEquipSlot>>",
+      "shortName": "GetAllAbilityCyberwareSlotsByEquipmentArea",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:gameSEquipSlot",
+          "name": "outCyberwareList",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAreaTypeByVisualTag;CName",
+      "shortName": "GetAreaTypeByVisualTag",
+      "return": {
+        "type": "gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "tag",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetBaseFistsItemID;",
@@ -648,7 +849,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetEquipArea;gamedataEquipmentArea",
@@ -657,7 +858,7 @@
         "type": "gameSEquipArea",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -673,27 +874,11 @@
         "type": "gameSEquipArea",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
           "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetEquipAreaIndex;TweakDBID",
-      "shortName": "GetEquipAreaIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "TweakDBID",
-          "name": "equipAreaID",
           "flags": 128
         }
       ]
@@ -705,11 +890,27 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gamedataEquipmentArea",
           "name": "areaType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipAreaIndex;TweakDBID",
+      "shortName": "GetEquipAreaIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "equipAreaID",
           "flags": 128
         }
       ]
@@ -721,7 +922,16 @@
         "type": "gameSLoadout",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "GetEquippedClothesAndWeapons;",
+      "shortName": "GetEquippedClothesAndWeapons",
+      "return": {
+        "type": "array:gameItemID",
+        "flags": 64
+      },
+      "flags": 32900
     },
     {
       "fullName": "GetEquippedQuestItems;",
@@ -730,7 +940,7 @@
         "type": "array:gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetFirstMeleeWeaponItemID;",
@@ -739,7 +949,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetFistsItemID;",
@@ -748,7 +958,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetHighestPriorityMovementAudio;",
@@ -757,7 +967,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetHotkeyTypeForItemID;ItemID",
@@ -766,7 +976,7 @@
         "type": "gameEHotkey",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
@@ -782,7 +992,7 @@
         "type": "gameEHotkey",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
@@ -798,7 +1008,7 @@
         "type": "whandle:InventoryDataManagerV2",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetItemAppearanceForGender;ItemID",
@@ -807,7 +1017,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -823,7 +1033,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameEHotkey",
@@ -839,7 +1049,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EquipmentManipulationAction",
@@ -855,7 +1065,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "Int32",
@@ -876,7 +1086,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -891,17 +1101,39 @@
       ]
     },
     {
+      "fullName": "GetItemsByEquipAreaAndItemType;gamedataEquipmentAreagamedataItemTypescript_ref<array<SEquipSlot>>",
+      "shortName": "GetItemsByEquipAreaAndItemType",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:gameSEquipSlot",
+          "name": "outItems",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetLastUsedItemID;ELastUsed",
       "shortName": "GetLastUsedItemID",
       "return": {
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "ELastUsed",
-          "name": "type",
+          "name": "lastUsedWeaponType",
           "flags": 128
         }
       ]
@@ -913,7 +1145,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetLastUsedOrFirstAvailableMeleeWeapon;",
@@ -922,7 +1154,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetLastUsedOrFirstAvailableOneHandedRangedWeapon;",
@@ -931,7 +1163,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetLastUsedOrFirstAvailableRangedWeapon;",
@@ -940,7 +1172,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetLastUsedOrFirstAvailableWeapon;",
@@ -949,7 +1181,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetLastUsedStruct;",
@@ -958,7 +1190,7 @@
         "type": "gameSLastUsedWeapon",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetLastUsedWeaponItemID;",
@@ -967,7 +1199,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetMeleewareOrFistsItemID;",
@@ -976,7 +1208,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "GetNextActiveItem;gamedataEquipmentArea",
@@ -985,11 +1217,27 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
           "name": "equipArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetNextActiveItemIndex;Int32",
+      "shortName": "GetNextActiveItemIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "equipAreaIndex",
           "flags": 128
         }
       ]
@@ -1001,7 +1249,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "Int32",
@@ -1016,29 +1264,13 @@
       ]
     },
     {
-      "fullName": "GetNextActiveItemIndex;Int32",
-      "shortName": "GetNextActiveItemIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8324,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "equipAreaIndex",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetNextItemInList;array<ItemID>Int32",
       "shortName": "GetNextItemInList",
       "return": {
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "array:gameItemID",
@@ -1059,7 +1291,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetNumberEquippedWeapons;",
@@ -1068,7 +1300,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetNumberOfItemsInEquipmentArea;gamedataEquipmentArea",
@@ -1077,7 +1309,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -1093,7 +1325,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -1109,7 +1341,7 @@
         "type": "whandle:ScriptedPuppet",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetOwnerGender;",
@@ -1118,7 +1350,7 @@
         "type": "CName",
         "flags": 64
       },
-      "flags": 8324
+      "flags": 41092
     },
     {
       "fullName": "GetOwnerID;",
@@ -1127,7 +1359,7 @@
         "type": "entEntityID",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetPaperDollEquipAreas;",
@@ -1136,7 +1368,7 @@
         "type": "array:gameSEquipArea",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetPaperDollItems;",
@@ -1145,7 +1377,7 @@
         "type": "array:gameItemID",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetPaperDollSlots;",
@@ -1154,7 +1386,7 @@
         "type": "array:gamedataEquipmentArea",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "GetPlacementSlot;Int32Int32",
@@ -1163,7 +1395,7 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "Int32",
@@ -1178,13 +1410,29 @@
       ]
     },
     {
+      "fullName": "GetPlacementSlotByAreaType;gamedataEquipmentArea",
+      "shortName": "GetPlacementSlotByAreaType",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetRequestSlotFromEquipmentManipulationAction;EquipmentManipulationAction",
       "shortName": "GetRequestSlotFromEquipmentManipulationAction",
       "return": {
         "type": "EquipmentManipulationRequestSlot",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EquipmentManipulationAction",
@@ -1200,7 +1448,7 @@
         "type": "EquipmentManipulationRequestSlot",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -1216,7 +1464,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EquipmentManipulationRequestSlot",
@@ -1232,7 +1480,7 @@
         "type": "gameSSlotActiveItems",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "GetSlotActiveWeapon;",
@@ -1241,23 +1489,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516
-    },
-    {
-      "fullName": "GetSlotIndex;ItemID",
-      "shortName": "GetSlotIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 8708,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        }
-      ]
+      "flags": 33284
     },
     {
       "fullName": "GetSlotIndex;ItemIDgamedataEquipmentArea",
@@ -1266,7 +1498,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
@@ -1281,13 +1513,29 @@
       ]
     },
     {
-      "fullName": "GetVisualTagByAreaType;gamedataEquipmentArea",
-      "shortName": "GetVisualTagByAreaType",
+      "fullName": "GetSlotIndex;ItemID",
+      "shortName": "GetSlotIndex",
       "return": {
-        "type": "CName",
+        "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSlotOverridenVisualItem;gamedataEquipmentArea",
+      "shortName": "GetSlotOverridenVisualItem",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -1297,23 +1545,87 @@
       ]
     },
     {
-      "fullName": "GetVisualTagsByItem;GameObjectarray<SSlotInfo>",
-      "shortName": "GetVisualTagsByItem",
+      "fullName": "GetSlotsInfoIndex;CName",
+      "shortName": "GetSlotsInfoIndex",
       "return": {
-        "type": "Bool",
+        "type": "Int32",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
-          "type": "whandle:gameObject",
-          "name": "activeItem",
+          "type": "CName",
+          "name": "tag",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVisualItemInSlot;gamedataEquipmentArea",
+      "shortName": "GetVisualItemInSlot",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVisualSetIndex;gamedataEquipmentArea",
+      "shortName": "GetVisualSetIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVisualSlotIndex;gamedataEquipmentAreaBool",
+      "shortName": "GetVisualSlotIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
           "flags": 128
         },
         {
-          "type": "array:gameSSlotInfo",
-          "name": "tags",
-          "flags": 640
+          "type": "Bool",
+          "name": "excludeUnderwear",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetVisualTagByAreaType;gamedataEquipmentArea",
+      "shortName": "GetVisualTagByAreaType",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
         }
       ]
     },
@@ -1324,7 +1636,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -1336,7 +1648,7 @@
     {
       "fullName": "HandleStrongArmsEquip;ItemID",
       "shortName": "HandleStrongArmsEquip",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -1348,7 +1660,7 @@
     {
       "fullName": "HandleStrongArmsUnequip;",
       "shortName": "HandleStrongArmsUnequip",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "HasItemEquipped;Int32Int32",
@@ -1357,7 +1669,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "Int32",
@@ -1378,7 +1690,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -1388,24 +1700,62 @@
       ]
     },
     {
+      "fullName": "HasUnderwearVisualTags;ItemID",
+      "shortName": "HasUnderwearVisualTags",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HideItem;gamedataEquipmentAreaBool",
+      "shortName": "HideItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hide",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HotkeysOnRestore;",
       "shortName": "HotkeysOnRestore",
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "InitializeClothingOverrideInfo;",
+      "shortName": "InitializeClothingOverrideInfo",
+      "flags": 33284
     },
     {
       "fullName": "InitializeClothingSlotsInfo;",
       "shortName": "InitializeClothingSlotsInfo",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "InitializeEquipment;",
       "shortName": "InitializeEquipment",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "InitializeEquipmentArea;EquipmentArea_Record",
       "shortName": "InitializeEquipmentArea",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gamedataEquipmentArea_Record",
@@ -1415,13 +1765,36 @@
       ]
     },
     {
+      "fullName": "InitializeEquipmentAreaIndexCache;",
+      "shortName": "InitializeEquipmentAreaIndexCache",
+      "flags": 32900
+    },
+    {
       "fullName": "IsBuildCensored;",
       "shortName": "IsBuildCensored",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "IsClothingVisualsInfoEmpty;",
+      "shortName": "IsClothingVisualsInfoEmpty",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsEquipPending;",
+      "shortName": "IsEquipPending",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "IsEquipmentManipulationAnUnequipRequest;EquipmentManipulationAction",
@@ -1430,7 +1803,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EquipmentManipulationAction",
@@ -1446,7 +1819,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "whandle:gameItemData",
@@ -1462,7 +1835,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
@@ -1483,7 +1856,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
@@ -1499,7 +1872,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -1515,27 +1888,11 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
           "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsItemHidden;ItemID",
-      "shortName": "IsItemHidden",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 516,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "id",
           "flags": 128
         }
       ]
@@ -1547,7 +1904,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708,
+      "flags": 41476,
       "params": [
         {
           "type": "gameItemID",
@@ -1563,7 +1920,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -1578,22 +1935,13 @@
       ]
     },
     {
-      "fullName": "IsPartialVisualTagActive;",
-      "shortName": "IsPartialVisualTagActive",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 8708
-    },
-    {
       "fullName": "IsPartialVisualTagActive;ItemIDTransactionSystem",
       "shortName": "IsPartialVisualTagActive",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -1602,7 +1950,71 @@
         },
         {
           "type": "handle:gameTransactionSystem",
-          "name": "ts",
+          "name": "transactionSystem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSlotHidden;gamedataEquipmentArea",
+      "shortName": "IsSlotHidden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSlotOverriden;gamedataEquipmentArea",
+      "shortName": "IsSlotOverriden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsTransmogBlockedOnSlot;gamedataEquipmentArea",
+      "shortName": "IsTransmogBlockedOnSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUnderwear;gamedataEquipmentArea",
+      "shortName": "IsUnderwear",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
           "flags": 128
         }
       ]
@@ -1614,7 +2026,25 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "IsVisualSetActive;",
+      "shortName": "IsVisualSetActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsVisualSetUnequipInTransition;",
+      "shortName": "IsVisualSetUnequipInTransition",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "IsVisualTagActive;CName",
@@ -1623,7 +2053,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 132,
+      "flags": 41092,
       "params": [
         {
           "type": "CName",
@@ -1633,9 +2063,34 @@
       ]
     },
     {
+      "fullName": "IsVisualTagValid;CName",
+      "shortName": "IsVisualTagValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "tag",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsWardrobeEnabled;",
+      "shortName": "IsWardrobeEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "LoadEquipmentSet;String",
       "shortName": "LoadEquipmentSet",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "String",
@@ -1647,7 +2102,7 @@
     {
       "fullName": "ManageCyberwareFragments;ItemID",
       "shortName": "ManageCyberwareFragments",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -1659,7 +2114,7 @@
     {
       "fullName": "OnAssignHotkeyIfEmptySlot;AssignHotkeyIfEmptySlot",
       "shortName": "OnAssignHotkeyIfEmptySlot",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:AssignHotkeyIfEmptySlot",
@@ -1671,7 +2126,7 @@
     {
       "fullName": "OnAssignToCyberwareWheelRequest;AssignToCyberwareWheelRequest",
       "shortName": "OnAssignToCyberwareWheelRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:AssignToCyberwareWheelRequest",
@@ -1683,12 +2138,12 @@
     {
       "fullName": "OnAttach;",
       "shortName": "OnAttach",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "OnCheckRemovedItemWithSlotActiveItem;CheckRemovedItemWithSlotActiveItem",
       "shortName": "OnCheckRemovedItemWithSlotActiveItem",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:CheckRemovedItemWithSlotActiveItem",
@@ -1700,7 +2155,7 @@
     {
       "fullName": "OnClearAllWeaponSlotsRequest;ClearAllWeaponSlotsRequest",
       "shortName": "OnClearAllWeaponSlotsRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:ClearAllWeaponSlotsRequest",
@@ -1712,7 +2167,7 @@
     {
       "fullName": "OnClearEquipmentRequest;ClearEquipmentRequest",
       "shortName": "OnClearEquipmentRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:ClearEquipmentRequest",
@@ -1724,7 +2179,7 @@
     {
       "fullName": "OnClearItemAppearance;ItemID",
       "shortName": "OnClearItemAppearance",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -1736,7 +2191,7 @@
     {
       "fullName": "OnDeleteEquipmentSetRequest;DeleteEquipmentSetRequest",
       "shortName": "OnDeleteEquipmentSetRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:DeleteEquipmentSetRequest",
@@ -1753,7 +2208,7 @@
     {
       "fullName": "OnDrawItemRequest;DrawItemRequest",
       "shortName": "OnDrawItemRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameDrawItemRequest",
@@ -1765,7 +2220,7 @@
     {
       "fullName": "OnEquipProcessVisualTags;ItemID",
       "shortName": "OnEquipProcessVisualTags",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -1777,7 +2232,7 @@
     {
       "fullName": "OnEquipRequest;EquipRequest",
       "shortName": "OnEquipRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameEquipRequest",
@@ -1787,9 +2242,21 @@
       ]
     },
     {
+      "fullName": "OnEquipVisualsRequest;EquipVisualsRequest",
+      "shortName": "OnEquipVisualsRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:EquipVisualsRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnEquipmentSystemWeaponManipulationRequest;EquipmentSystemWeaponManipulationRequest",
       "shortName": "OnEquipmentSystemWeaponManipulationRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:EquipmentSystemWeaponManipulationRequest",
@@ -1801,7 +2268,7 @@
     {
       "fullName": "OnEquipmentUIBBRequest;EquipmentUIBBRequest",
       "shortName": "OnEquipmentUIBBRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:EquipmentUIBBRequest",
@@ -1813,7 +2280,7 @@
     {
       "fullName": "OnGameplayEquipRequest;GameplayEquipRequest",
       "shortName": "OnGameplayEquipRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:GameplayEquipRequest",
@@ -1825,7 +2292,7 @@
     {
       "fullName": "OnHotkeyAssignmentRequest;HotkeyAssignmentRequest",
       "shortName": "OnHotkeyAssignmentRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:HotkeyAssignmentRequest",
@@ -1837,11 +2304,11 @@
     {
       "fullName": "OnHotkeyRefreshRequest;HotkeyRefreshRequest",
       "shortName": "OnHotkeyRefreshRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:HotkeyRefreshRequest",
-          "name": "requst",
+          "name": "request",
           "flags": 128
         }
       ]
@@ -1849,12 +2316,12 @@
     {
       "fullName": "OnInitialize;",
       "shortName": "OnInitialize",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "OnInstallCyberwareRequest;InstallCyberwareRequest",
       "shortName": "OnInstallCyberwareRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:InstallCyberwareRequest",
@@ -1866,7 +2333,7 @@
     {
       "fullName": "OnLoadEquipmentSetRequest;LoadEquipmentSetRequest",
       "shortName": "OnLoadEquipmentSetRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:LoadEquipmentSetRequest",
@@ -1878,7 +2345,7 @@
     {
       "fullName": "OnPartInstallRequest;PartInstallRequest",
       "shortName": "OnPartInstallRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:PartInstallRequest",
@@ -1890,7 +2357,7 @@
     {
       "fullName": "OnPartUninstallRequest;PartUninstallRequest",
       "shortName": "OnPartUninstallRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:PartUninstallRequest",
@@ -1900,9 +2367,45 @@
       ]
     },
     {
+      "fullName": "OnQuestDisableWardrobeSetRequest;QuestDisableWardrobeSetRequest",
+      "shortName": "OnQuestDisableWardrobeSetRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestDisableWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEnableWardrobeSetRequest;QuestEnableWardrobeSetRequest",
+      "shortName": "OnQuestEnableWardrobeSetRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestEnableWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestRestoreWardrobeSetRequest;QuestRestoreWardrobeSetRequest",
+      "shortName": "OnQuestRestoreWardrobeSetRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:QuestRestoreWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnResetItemAppearance;ItemID",
       "shortName": "OnResetItemAppearance",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -1914,12 +2417,12 @@
     {
       "fullName": "OnRestored;",
       "shortName": "OnRestored",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "OnSaveEquipmentSetRequest;SaveEquipmentSetRequest",
       "shortName": "OnSaveEquipmentSetRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:SaveEquipmentSetRequest",
@@ -1931,7 +2434,7 @@
     {
       "fullName": "OnSetActiveItemInEquipmentArea;SetActiveItemInEquipmentArea",
       "shortName": "OnSetActiveItemInEquipmentArea",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:SetActiveItemInEquipmentArea",
@@ -1943,7 +2446,7 @@
     {
       "fullName": "OnSynchronizeAttachmentSlotRequest;SynchronizeAttachmentSlotRequest",
       "shortName": "OnSynchronizeAttachmentSlotRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameSynchronizeAttachmentSlotRequest",
@@ -1953,13 +2456,13 @@
       ]
     },
     {
-      "fullName": "OnThrowEquipmentRequest;ThrowEquipmentRequest",
-      "shortName": "OnThrowEquipmentRequest",
-      "flags": 516,
+      "fullName": "OnUnderwearEquipFailsafe;Bool",
+      "shortName": "OnUnderwearEquipFailsafe",
+      "flags": 33284,
       "params": [
         {
-          "type": "handle:ThrowEquipmentRequest",
-          "name": "request",
+          "type": "Bool",
+          "name": "bottom",
           "flags": 128
         }
       ]
@@ -1967,7 +2470,7 @@
     {
       "fullName": "OnUnequipByTDBIDRequest;UnequipByTDBIDRequest",
       "shortName": "OnUnequipByTDBIDRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameUnequipByTDBIDRequest",
@@ -1979,7 +2482,7 @@
     {
       "fullName": "OnUnequipItemsRequest;UnequipItemsRequest",
       "shortName": "OnUnequipItemsRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:UnequipItemsRequest",
@@ -1991,7 +2494,7 @@
     {
       "fullName": "OnUnequipProcessVisualTags;ItemIDBool",
       "shortName": "OnUnequipProcessVisualTags",
-      "flags": 132,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -2000,15 +2503,15 @@
         },
         {
           "type": "Bool",
-          "name": "isUnequipping",
-          "flags": 128
+          "name": "forceIfHidden",
+          "flags": 1152
         }
       ]
     },
     {
       "fullName": "OnUnequipRequest;UnequipRequest",
       "shortName": "OnUnequipRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:UnequipRequest",
@@ -2018,9 +2521,38 @@
       ]
     },
     {
+      "fullName": "OnUnequipUpdateVisuals;ItemIDgamedataEquipmentArea",
+      "shortName": "OnUnequipUpdateVisuals",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "currentItem",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnequipVisualsRequest;UnequipVisualsRequest",
+      "shortName": "OnUnequipVisualsRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:UnequipVisualsRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUninstallCyberwareRequest;UninstallCyberwareRequest",
       "shortName": "OnUninstallCyberwareRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:UninstallCyberwareRequest",
@@ -2032,12 +2564,12 @@
     {
       "fullName": "PrintEquipment;",
       "shortName": "PrintEquipment",
-      "flags": 8708
+      "flags": 41476
     },
     {
       "fullName": "ProcessEquipRequest;GameObjectInt32BoolItemIDBoolBoolBool",
       "shortName": "ProcessEquipRequest",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "whandle:gameObject",
@@ -2079,7 +2611,7 @@
     {
       "fullName": "ProcessGadgetsTutorials;ItemID",
       "shortName": "ProcessGadgetsTutorials",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -2089,9 +2621,33 @@
       ]
     },
     {
+      "fullName": "QuestHideSlot;gamedataEquipmentArea",
+      "shortName": "QuestHideSlot",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestRestoreSlot;gamedataEquipmentArea",
+      "shortName": "QuestRestoreSlot",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RemoveEquipGLPs;ItemID",
       "shortName": "RemoveEquipGLPs",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -2101,21 +2657,9 @@
       ]
     },
     {
-      "fullName": "RemoveHiddenItem;ItemID",
-      "shortName": "RemoveHiddenItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "id",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "RemoveItemFromEquipSlot;ItemID",
       "shortName": "RemoveItemFromEquipSlot",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -2127,7 +2671,7 @@
     {
       "fullName": "RemoveItemFromSlotActiveItem;ItemID",
       "shortName": "RemoveItemFromSlotActiveItem",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
@@ -2139,7 +2683,7 @@
     {
       "fullName": "RequestEquipmentStateMachine;EquipmentManipulationRequestTypeEquipmentManipulationRequestSlotgameEquipAnimationTypeCNameCName",
       "shortName": "RequestEquipmentStateMachine",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EquipmentManipulationRequestType",
@@ -2169,15 +2713,10 @@
       ]
     },
     {
-      "fullName": "ResetItemAppearance;TransactionSystemgamedataEquipmentAreaBool",
+      "fullName": "ResetItemAppearance;gamedataEquipmentAreaBool",
       "shortName": "ResetItemAppearance",
-      "flags": 132,
+      "flags": 32900,
       "params": [
-        {
-          "type": "handle:gameTransactionSystem",
-          "name": "transactionSystem",
-          "flags": 128
-        },
         {
           "type": "gamedataEquipmentArea",
           "name": "area",
@@ -2193,7 +2732,7 @@
     {
       "fullName": "ResetItemAppearanceEvent;gamedataEquipmentArea",
       "shortName": "ResetItemAppearanceEvent",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -2205,7 +2744,7 @@
     {
       "fullName": "SaveEquipmentSet;StringEEquipmentSetType",
       "shortName": "SaveEquipmentSet",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "String",
@@ -2220,9 +2759,21 @@
       ]
     },
     {
+      "fullName": "SendEquipAudioEvents;ItemID",
+      "shortName": "SendEquipAudioEvents",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SendPSMWeaponManipulationRequest;EquipmentManipulationRequestTypeEquipmentManipulationRequestSlotgameEquipAnimationType",
       "shortName": "SendPSMWeaponManipulationRequest",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "EquipmentManipulationRequestType",
@@ -2242,9 +2793,58 @@
       ]
     },
     {
+      "fullName": "SendPaperdollUpdate;SEquipAreaBoolTweakDBIDInt32BoolBool",
+      "shortName": "SendPaperdollUpdate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameSEquipArea",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "equipped",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slot",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotindex",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "ignoreSlot",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SendUnequipAudioEvents;ItemID",
+      "shortName": "SendUnequipAudioEvents",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetLastUsedItem;ItemID",
       "shortName": "SetLastUsedItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
@@ -2256,7 +2856,7 @@
     {
       "fullName": "SetOwner;ScriptedPuppet",
       "shortName": "SetOwner",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "handle:ScriptedPuppet",
@@ -2268,7 +2868,7 @@
     {
       "fullName": "SetSlotActiveItem;EquipmentManipulationRequestSlotItemID",
       "shortName": "SetSlotActiveItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "EquipmentManipulationRequestSlot",
@@ -2289,7 +2889,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -2310,12 +2910,78 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 8708
+      "flags": 41476
+    },
+    {
+      "fullName": "ShouldSlotBeHidden;gamedataEquipmentArea",
+      "shortName": "ShouldSlotBeHidden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldUnderwearBeVisible;ItemID",
+      "shortName": "ShouldUnderwearBeVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "unequippedItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldUnderwearBeVisibleInSet;",
+      "shortName": "ShouldUnderwearBeVisibleInSet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "ShouldUnderwearTopBeVisible;ItemID",
+      "shortName": "ShouldUnderwearTopBeVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "unequippedItem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldUnderwearTopBeVisibleInSet;",
+      "shortName": "ShouldUnderwearTopBeVisibleInSet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
     },
     {
       "fullName": "SyncHotkeyData;EHotkey",
       "shortName": "SyncHotkeyData",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gameEHotkey",
@@ -2327,29 +2993,17 @@
     {
       "fullName": "UnderwearEquipFailsafe;",
       "shortName": "UnderwearEquipFailsafe",
-      "flags": 132
+      "flags": 32900
     },
     {
       "fullName": "UnderwearTopEquipFailsafe;",
       "shortName": "UnderwearTopEquipFailsafe",
-      "flags": 132
-    },
-    {
-      "fullName": "UnequipItem;ItemID",
-      "shortName": "UnequipItem",
-      "flags": 132,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        }
-      ]
+      "flags": 32900
     },
     {
       "fullName": "UnequipItem;Int32Int32",
       "shortName": "UnequipItem",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "Int32",
@@ -2364,9 +3018,43 @@
       ]
     },
     {
+      "fullName": "UnequipItem;ItemID",
+      "shortName": "UnequipItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipPrereqItems;",
+      "shortName": "UnequipPrereqItems",
+      "flags": 33284
+    },
+    {
+      "fullName": "UnequipVisuals;gamedataEquipmentArea",
+      "shortName": "UnequipVisuals",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipWardrobeSet;",
+      "shortName": "UnequipWardrobeSet",
+      "flags": 33284
+    },
+    {
       "fullName": "UpdateActiveWheelItem;ItemID",
       "shortName": "UpdateActiveWheelItem",
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -2378,7 +3066,7 @@
     {
       "fullName": "UpdateEquipAreaActiveIndex;ItemID",
       "shortName": "UpdateEquipAreaActiveIndex",
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "gameItemID",
@@ -2388,19 +3076,14 @@
       ]
     },
     {
-      "fullName": "UpdateEquipmentUIBB;SPaperdollEquipDataBoolBool",
+      "fullName": "UpdateEquipmentUIBB;SPaperdollEquipDataBool",
       "shortName": "UpdateEquipmentUIBB",
-      "flags": 8324,
+      "flags": 41092,
       "params": [
         {
           "type": "SPaperdollEquipData",
           "name": "paperDollEqData",
           "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "restored",
-          "flags": 1152
         },
         {
           "type": "Bool",
@@ -2410,26 +3093,36 @@
       ]
     },
     {
-      "fullName": "UpdateInnerChest;TransactionSystem",
+      "fullName": "UpdateInnerChest;",
       "shortName": "UpdateInnerChest",
-      "flags": 132,
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateQuickWheel;",
+      "shortName": "UpdateQuickWheel",
+      "flags": 41092
+    },
+    {
+      "fullName": "UpdateUIBBAreaChanged;gamedataEquipmentAreaInt32",
+      "shortName": "UpdateUIBBAreaChanged",
+      "flags": 41092,
       "params": [
         {
-          "type": "handle:gameTransactionSystem",
-          "name": "ts",
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "UpdateQuickWheel;",
-      "shortName": "UpdateQuickWheel",
-      "flags": 8324
-    },
-    {
       "fullName": "UpdateVisualTagProcessingInfo;gamedataEquipmentAreaBool",
       "shortName": "UpdateVisualTagProcessingInfo",
-      "flags": 132,
+      "flags": 32900,
       "params": [
         {
           "type": "gamedataEquipmentArea",
@@ -2446,7 +3139,7 @@
     {
       "fullName": "UpdateWeaponWheel;",
       "shortName": "UpdateWeaponWheel",
-      "flags": 8324
+      "flags": 41092
     }
   ]
 }

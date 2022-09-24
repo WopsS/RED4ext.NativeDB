@@ -99,11 +99,6 @@
       "flags": 4297130016
     },
     {
-      "type": "Bool",
-      "name": "allowStubMovement",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:AIVehicleOnSplineCommand",
       "name": "driveOnSplineCommand",
       "flags": 4431347744
@@ -154,6 +149,16 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:AIVehicleChaseCommand",
+      "name": "driveChaseCommand",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:AIVehiclePanicCommand",
+      "name": "drivePanicCommand",
+      "flags": 4431347744
+    },
+    {
       "type": "NodeRef",
       "name": "nodeRef",
       "flags": 4297130016
@@ -191,13 +196,61 @@
   ],
   "funcs": [
     {
+      "fullName": "AIDriveCommandsDelegate::DoEndDriveChase;ScriptExecutionContext",
+      "shortName": "DoEndDriveChase",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIDriveCommandsDelegate::DoEndDrivePanic;ScriptExecutionContext",
+      "shortName": "DoEndDrivePanic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIDriveCommandsDelegate::DoStartDrivePanic;ScriptExecutionContext",
+      "shortName": "DoStartDrivePanic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DoEndDriveFollow;ScriptExecutionContext",
       "shortName": "DoEndDriveFollow",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 33284,
+      "flags": 34308,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -240,7 +293,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 33284
+      "flags": 34308
+    },
+    {
+      "fullName": "DoStartDriveChase;ScriptExecutionContext",
+      "shortName": "DoStartDriveChase",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DoStartDriveFollow;ScriptExecutionContext",
@@ -249,7 +318,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 34308,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -265,7 +334,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -281,7 +350,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 34308,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -297,7 +366,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -313,7 +382,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 34308,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DoStopDriveChase;ScriptExecutionContext",
+      "shortName": "DoStopDriveChase",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -329,7 +414,39 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 33284,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DoStopDrivePanic;ScriptExecutionContext",
+      "shortName": "DoStopDrivePanic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DoUpdateDriveChase;ScriptExecutionContext",
+      "shortName": "DoUpdateDriveChase",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",
@@ -345,7 +462,23 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 516,
+      "flags": 34308,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DoUpdateDrivePanic;ScriptExecutionContext",
+      "shortName": "DoUpdateDrivePanic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",

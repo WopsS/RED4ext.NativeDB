@@ -74,7 +74,7 @@
       "flags": 4297195553
     },
     {
-      "type": "InventoryItemData",
+      "type": "gameInventoryItemData",
       "name": "ItemData",
       "flags": 4297195552
     },
@@ -101,13 +101,71 @@
   ],
   "funcs": [
     {
+      "fullName": "OnButtonClick",
+      "shortName": "OnButtonClick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "ButtonStateChanged;inkEButtonStateinkEButtonState",
+      "shortName": "ButtonStateChanged",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "inkEButtonState",
+          "name": "oldState",
+          "flags": 128
+        },
+        {
+          "type": "inkEButtonState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetItemData;",
       "shortName": "GetItemData",
       "return": {
-        "type": "InventoryItemData",
+        "type": "gameInventoryItemData",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
+    },
+    {
+      "fullName": "GetShapeSize;EInventoryItemShape",
+      "shortName": "GetShapeSize",
+      "return": {
+        "type": "Vector2",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "gameInventoryItemShape",
+          "name": "shapeType",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetWidgetForTooltip;",
@@ -116,12 +174,12 @@
         "type": "whandle:inkWidget",
         "flags": 64
       },
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "Mark;Int32",
       "shortName": "Mark",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Int32",
@@ -148,14 +206,19 @@
       ]
     },
     {
+      "fullName": "RefreshUI;",
+      "shortName": "RefreshUI",
+      "flags": 33024
+    },
+    {
       "fullName": "SelectItem;",
       "shortName": "SelectItem",
-      "flags": 516
+      "flags": 33284
     },
     {
       "fullName": "SetEquippedState;Bool",
       "shortName": "SetEquippedState",
-      "flags": 516,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -165,82 +228,14 @@
       ]
     },
     {
-      "fullName": "UnselectItem;",
-      "shortName": "UnselectItem",
-      "flags": 516
-    },
-    {
-      "fullName": "ButtonStateChanged;inkEButtonStateinkEButtonState",
-      "shortName": "ButtonStateChanged",
-      "flags": 256,
-      "params": [
-        {
-          "type": "inkEButtonState",
-          "name": "oldState",
-          "flags": 128
-        },
-        {
-          "type": "inkEButtonState",
-          "name": "newState",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetShapeSize;EInventoryItemShape",
-      "shortName": "GetShapeSize",
-      "return": {
-        "type": "Vector2",
-        "flags": 64
-      },
-      "flags": 256,
-      "params": [
-        {
-          "type": "gameInventoryItemShape",
-          "name": "shapeType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnButtonClick",
-      "shortName": "OnButtonClick",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264,
-      "params": [
-        {
-          "type": "whandle:inkButtonController",
-          "name": "controller",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 264
-    },
-    {
-      "fullName": "RefreshUI;",
-      "shortName": "RefreshUI",
-      "flags": 256
-    },
-    {
       "fullName": "SetItemSize;",
       "shortName": "SetItemSize",
-      "flags": 256
+      "flags": 33024
     },
     {
       "fullName": "SetQuantity;Int32",
       "shortName": "SetQuantity",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "Int32",
@@ -252,7 +247,7 @@
     {
       "fullName": "SetRarity;CName",
       "shortName": "SetRarity",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "CName",
@@ -264,7 +259,7 @@
     {
       "fullName": "SetShape;EInventoryItemShape",
       "shortName": "SetShape",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
           "type": "gameInventoryItemShape",
@@ -276,10 +271,10 @@
     {
       "fullName": "Setup;InventoryItemDataEntity",
       "shortName": "Setup",
-      "flags": 512,
+      "flags": 33280,
       "params": [
         {
-          "type": "InventoryItemData",
+          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -293,19 +288,24 @@
     {
       "fullName": "ShowMods;array<InventoryItemAttachments>",
       "shortName": "ShowMods",
-      "flags": 256,
+      "flags": 33024,
       "params": [
         {
-          "type": "array:InventoryItemAttachments",
+          "type": "array:handle:gameInventoryItemAttachments",
           "name": "attachements",
           "flags": 128
         }
       ]
     },
     {
+      "fullName": "UnselectItem;",
+      "shortName": "UnselectItem",
+      "flags": 33284
+    },
+    {
       "fullName": "UpdateIcon;",
       "shortName": "UpdateIcon",
-      "flags": 256
+      "flags": 33024
     }
   ]
 }

@@ -261,7 +261,6 @@ overrides:
       "@typescript-eslint/member-delimiter-style": error
       "@typescript-eslint/member-ordering": error
       "@typescript-eslint/method-signature-style": error
-      "@typescript-eslint/naming-convention": error
       "@typescript-eslint/no-redundant-type-constituents": error
       "@typescript-eslint/no-require-imports": error
       "@typescript-eslint/no-type-alias": error
@@ -276,6 +275,29 @@ overrides:
       "@typescript-eslint/sort-type-union-intersection-members": error
       "@typescript-eslint/strict-boolean-expressions": error
       "@typescript-eslint/switch-exhaustiveness-check": error
+
+      "@typescript-eslint/naming-convention":
+        - error
+        - selector: default
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+          format:
+            - camelCase
+
+        - selector: variable
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+          format:
+            - camelCase
+            - UPPER_CASE
+
+        - selector: typeLike
+          format:
+            - PascalCase
+
+        - selector: enumMember
+          format:
+            - PascalCase
 
       "@typescript-eslint/no-confusing-void-expression":
         - error

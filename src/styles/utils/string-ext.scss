@@ -4,7 +4,8 @@
 /// @param {string} $string - The string.
 /// @return {string} The string with first letter as uppercase.
 @function capitalize($string) {
-  @return to-upper-case(string.slice($string, 1, 1)) + string.slice($string, 2);
+  @return string.to-upper-case(string.slice($string, 1, 1)) +
+    string.slice($string, 2);
 }
 
 /// Replace `$search` with `$replace` in `$string`
@@ -13,12 +14,12 @@
 /// @param {String} $search - Substring to replace
 /// @param {String} $replace ('') - New value
 /// @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
+@function replace($string, $search, $replace: '') {
   $index: string.index($string, $search);
 
   @if $index {
     @return string.slice($string, 1, $index - 1) + $replace +
-      str-replace(
+      replace(
         string.slice($string, $index + string.length($search)),
         $search,
         $replace

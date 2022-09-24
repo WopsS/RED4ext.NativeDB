@@ -1,22 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "495bd807-16ce-476a-a89a-7a53f9003f70",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NativeDB": {
+    "nativedb": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -32,12 +23,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/assets/natives"
-            ],
-            "styles": [
-              "src/styles/base.scss"
-            ],
+            "assets": ["src/assets/natives"],
+            "styles": ["src/styles/base.scss"],
             "scripts": []
           },
           "configurations": {
@@ -77,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NativeDB:build:production"
+              "browserTarget": "nativedb:build:production"
             },
             "development": {
-              "browserTarget": "NativeDB:build:development"
+              "browserTarget": "nativedb:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "NativeDB:build"
+            "browserTarget": "nativedb:build"
           }
         },
         "test": {
@@ -99,25 +86,22 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/assets/natives"
-            ],
-            "styles": [
-              "src/styles/base.scss"
-            ],
+            "assets": ["src/assets/natives"],
+            "styles": ["src/styles/base.scss"],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false,
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

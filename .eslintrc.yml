@@ -2,357 +2,335 @@ root: true
 
 env:
   browser: true
-  es6: true
+  es2020: true
   node: true
-
-ignorePatterns:
-  - dist/**/*
-  - projects/**/*
 
 extends:
   - eslint:recommended
   - plugin:prettier/recommended
 
-rules:
-  # Possible Errors
-  no-await-in-loop: error
-  no-promise-executor-return: error
-  no-template-curly-in-string: warn
-  no-unreachable-loop: error
-  require-atomic-updates: error
-
-  # Best Practices
-  array-callback-return: error
-  block-scoped-var: warn
-  consistent-return: error
-  curly: error
-  default-case: warn
-  default-case-last: error
-  grouped-accessor-pairs: error
-  guard-for-in: warn
-  no-caller: error
-  no-constructor-return: error
-  no-div-regex: warn
-  no-else-return: warn
-  no-eval: error
-  no-extend-native: error
-  no-extra-bind: error
-  no-extra-label: warn
-  no-floating-decimal: error
-  no-implicit-coercion: warn
-  no-implied-eval: error
-  no-invalid-this: off
-  no-iterator: error
-  no-lone-blocks: warn
-  no-loop-func: error
-  no-magic-numbers: warn
-  no-multi-spaces: error
-  no-multi-str: error
-  no-new: error
-  no-new-func: error
-  no-new-wrappers: error
-  no-nonoctal-decimal-escape: error
-  no-octal-escape: error
-  no-param-reassign: warn
-  no-proto: error
-  no-return-assign: error
-  no-return-await: error
-  no-script-url: error
-  no-self-compare: error
-  no-sequences: error
-  no-throw-literal: error
-  no-unmodified-loop-condition: warn
-  no-unused-expressions: error
-  no-useless-call: error
-  no-useless-concat: error
-  no-useless-return: error
-  no-void: error
-  prefer-named-capture-group: warn
-  prefer-promise-reject-errors: error
-  prefer-regex-literals: error
-  require-await: error
-  require-unicode-regexp: error
-  yoda: error
-
-  dot-location:
-    - error
-    - property
-
-  eqeqeq:
-    - warn
-    - smart
-
-  # Variables
-  no-label-var: error
-  no-undef-init: error
-  no-undefined: error
-  no-use-before-define: error
-
-  # Stylistic Issues
-  array-bracket-spacing: error
-  block-spacing: error
-  camelcase: error
-  capitalized-comments: warn
-  comma-dangle: error
-  comma-spacing: error
-  comma-style: error
-  computed-property-spacing: error
-  consistent-this: error
-  eol-last: warn
-  func-call-spacing: error
-  indent: error
-  key-spacing: error
-  keyword-spacing: error
-  multiline-comment-style: error
-  new-parens: error
-  newline-per-chained-call: warn
-  no-array-constructor: error
-  no-lonely-if: warn
-  no-mixed-operators: error
-  no-multi-assign: error
-  no-new-object: error
-  no-tabs: error
-  no-trailing-spaces: error
-  no-unneeded-ternary: error
-  no-whitespace-before-property: error
-  prefer-exponentiation-operator: warn
-  prefer-object-spread: error
-  quotes: error
-  semi: error
-  semi-spacing: error
-  semi-style: error
-  space-in-parens: error
-  space-infix-ops: error
-  switch-colon-spacing: error
-  template-tag-spacing: error
-
-  array-bracket-newline:
-    - error
-    - consistent
-
-  array-element-newline:
-    - error
-    - consistent
-
-  brace-style:
-    - error
-    - stroustrup
-
-  object-curly-newline:
-    - error
-    - consistent: true
-
-  object-curly-spacing:
-    - error
-    - always
-
-  operator-linebreak:
-    - error
-    - before
-
-  quote-props:
-    - error
-    - as-needed
-
-  space-before-function-paren:
-        - error
-        - anonymous: always
-          named: never
-          asyncArrow: always
-
-  # ECMAScript 6
-  no-confusing-arrow: warn
-  no-duplicate-imports: error
-  no-useless-computed-key: error
-  no-useless-rename: error
-  object-shorthand: error
-  prefer-arrow-callback: error
-  prefer-const: warn
-  prefer-rest-params: error
-  prefer-spread: error
-  rest-spread-spacing: error
-  prefer-template: error
-
-  arrow-spacing:
-    - error
-    - before: true
-      after: true
-
-  sort-imports:
-    - error
-    - allowSeparatedGroups: true
-      memberSyntaxSortOrder:
-        - none
-        - single
-        - multiple
-        - all
-
 overrides:
+  - files:
+      - "*.js"
+      - "*.ts"
+
+    parserOptions:
+      sourceType: module
+
+    rules:
+      # Possible Problems
+      array-callback-return: error
+      no-await-in-loop: error
+      no-constant-binary-expression: error
+      no-constructor-return: error
+      no-duplicate-imports: error
+      no-promise-executor-return: error
+      no-self-compare: error
+      no-template-curly-in-string: error
+      no-unmodified-loop-condition: error
+      no-unreachable-loop: error
+      no-unused-private-class-members: error
+      no-use-before-define: error
+      require-atomic-updates: error
+
+      # Suggestions
+      accessor-pairs: error
+      arrow-body-style: error
+      block-scoped-var: error
+      camelcase: error
+      capitalized-comments: error
+      class-methods-use-this: warn
+      consistent-return: error
+      consistent-this: error
+      curly: error
+      default-case-last: error
+      default-param-last: error
+      dot-notation: error
+      eqeqeq: error
+      grouped-accessor-pairs: error
+      guard-for-in: error
+      init-declarations: error
+      multiline-comment-style: error
+      no-alert: error
+      no-array-constructor: error
+      no-bitwise: error
+      no-caller: error
+      no-confusing-arrow: error
+      no-else-return: error
+      no-empty-function: warn
+      no-eq-null: error
+      no-eval: error
+      no-extend-native: error
+      no-extra-bind: error
+      no-extra-label: error
+      no-floating-decimal: error
+      no-implicit-coercion: error
+      no-implied-eval: error
+      no-invalid-this: error
+      no-iterator: error
+      no-label-var: error
+      no-labels: error
+      no-lone-blocks: error
+      no-lonely-if: error
+      no-loop-func: error
+      no-magic-numbers: error
+      no-mixed-operators: error
+      no-multi-assign: error
+      no-nested-ternary: error
+      no-new: error
+      no-new-func: error
+      no-new-object: error
+      no-new-wrappers: error
+      no-octal-escape: error
+      no-param-reassign: error
+      no-proto: error
+      no-return-await: error
+      no-script-url: error
+      no-sequences: error
+      no-shadow: error
+      no-ternary: warn
+      no-throw-literal: error
+      no-undef-init: error
+      no-undefined: error
+      no-underscore-dangle: error
+      no-unneeded-ternary: error
+      no-unused-expressions: error
+      no-useless-call: error
+      no-useless-computed-key: error
+      no-useless-concat: error
+      no-useless-constructor: warn
+      no-useless-rename: error
+      no-useless-return: error
+      no-var: error
+      no-void: error
+      object-shorthand: warn
+      operator-assignment: warn
+      prefer-arrow-callback: error
+      prefer-const: error
+      prefer-destructuring: warn
+      prefer-exponentiation-operator: warn
+      prefer-named-capture-group: warn
+      prefer-numeric-literals: error
+      prefer-object-has-own: error
+      prefer-object-spread: error
+      prefer-promise-reject-errors: error
+      prefer-regex-literals: error
+      prefer-rest-params: error
+      prefer-spread: error
+      prefer-template: error
+      radix: error
+      require-await: error
+      require-unicode-regexp: error
+      spaced-comment: error
+      yoda: error
+
+      func-style:
+        - error
+        - declaration
+        - allowArrowFunctions: true
+
+      logical-assignment-operators:
+        - warn
+        - always
+        - enforceForIfStatements: true
+
+      no-return-assign:
+        - error
+        - always
+
+      one-var:
+        - error
+        - never
+
+      quote-props:
+        - error
+        - as-needed
+
+      sort-imports:
+        - error
+        - allowSeparatedGroups: true
+          memberSyntaxSortOrder:
+            - none
+            - single
+            - multiple
+            - all
+
+      # Layout & Formatting
+      array-bracket-spacing: error
+      arrow-parens: error
+      arrow-spacing: error
+      block-spacing: error
+      comma-dangle: error
+      comma-spacing: error
+      comma-style: error
+      computed-property-spacing: error
+      eol-last: warn
+      func-call-spacing: error
+      function-paren-newline: error
+      generator-star-spacing: error
+      implicit-arrow-linebreak: error
+      indent: error
+      key-spacing: error
+      keyword-spacing: error
+      linebreak-style: error
+      lines-around-comment: error
+      lines-between-class-members: error
+      max-len: error
+      max-statements-per-line: error
+      multiline-ternary: error
+      new-parens: error
+      newline-per-chained-call: error
+      no-extra-parens: error
+      no-multi-spaces: error
+      no-multiple-empty-lines: error
+      no-tabs: error
+      no-trailing-spaces: error
+      no-whitespace-before-property: error
+      object-curly-newline: error
+      object-property-newline: error
+      quotes: error
+      rest-spread-spacing: error
+      semi: error
+      semi-spacing: error
+      semi-style: error
+      space-before-blocks: error
+      space-infix-ops: error
+      space-unary-ops: error
+      switch-colon-spacing: error
+      template-curly-spacing: error
+      template-tag-spacing: error
+      unicode-bom: error
+      wrap-iife: error
+      wrap-regex: error
+      yield-star-spacing: error
+
+      array-bracket-newline:
+        - error
+        - consistent
+
+      array-element-newline:
+        - error
+        - consistent
+
+      brace-style:
+        - error
+        - stroustrup
+
+      dot-location:
+        - error
+        - property
+
+      function-call-argument-newline:
+        - error
+        - consistent
+
+      operator-linebreak:
+        - error
+        - before
+
+      padded-blocks:
+        - error
+        - never
+
   - files: "*.html"
     extends:
       - plugin:@angular-eslint/template/recommended
       - plugin:prettier/recommended
+
   - files: "*.ts"
     parser: "@typescript-eslint/parser"
     parserOptions:
       project: tsconfig.json
       createDefaultProgram: true
+
     extends:
       - eslint:recommended
       - plugin:@typescript-eslint/recommended
       - plugin:@typescript-eslint/recommended-requiring-type-checking
+      - plugin:@typescript-eslint/strict
       - plugin:@angular-eslint/recommended
       - plugin:@angular-eslint/template/process-inline-templates
       - plugin:prettier/recommended
+
     rules:
-      brace-style: off
-      camelcase: off
-      comma-dangle: off
+      "@typescript-eslint/consistent-type-exports": error
+      "@typescript-eslint/consistent-type-imports": error
+      "@typescript-eslint/explicit-function-return-type": error
+      "@typescript-eslint/explicit-member-accessibility": error
+      "@typescript-eslint/explicit-module-boundary-types": error
+      "@typescript-eslint/member-delimiter-style": error
+      "@typescript-eslint/member-ordering": error
+      "@typescript-eslint/method-signature-style": error
+      "@typescript-eslint/naming-convention": error
+      "@typescript-eslint/no-redundant-type-constituents": error
+      "@typescript-eslint/no-require-imports": error
+      "@typescript-eslint/no-type-alias": error
+      "@typescript-eslint/no-unnecessary-qualifier": error
+      "@typescript-eslint/no-useless-empty-export": error
+      "@typescript-eslint/parameter-properties": error
+      "@typescript-eslint/prefer-enum-initializers": error
+      "@typescript-eslint/prefer-readonly": error
+      "@typescript-eslint/prefer-regexp-exec": error
+      "@typescript-eslint/promise-function-async": error
+      "@typescript-eslint/require-array-sort-compare": error
+      "@typescript-eslint/sort-type-union-intersection-members": error
+      "@typescript-eslint/strict-boolean-expressions": error
+      "@typescript-eslint/switch-exhaustiveness-check": error
+
+      "@typescript-eslint/no-confusing-void-expression":
+        - error
+        - ignoreArrowShorthand: true
+
+      # Extension Rules
       comma-spacing: off
       default-param-last: off
-      dot-notation: off
-      func-call-spacing: off
-      keyword-spacing: off
-      no-array-constructor: off
+      init-declarations: off
       no-dupe-class-members: off
-      no-duplicate-imports: off
-      no-extra-parens: off
-      no-loss-of-precision: off
+      no-invalid-this: off
+      no-loop-func: off
       no-magic-numbers: off
       no-redeclare: off
-      no-throw-literal: off
+      no-shadow: off
       no-unused-expressions: off
-      no-useless-constructor: off
-      object-curly-spacing: off
-      require-await: off
+      no-use-before-define: off
       return-await: off
-      semi: off
-      space-before-function-paren: off
-      space-infix-ops: off
 
-      "@angular-eslint/component-class-suffix": error
+      "@typescript-eslint/comma-spacing": error
+      "@typescript-eslint/default-param-last": error
+      "@typescript-eslint/init-declarations": error
+      "@typescript-eslint/no-dupe-class-members": error
+      "@typescript-eslint/no-extraneous-class": off # Angular can have empty classes.
+      "@typescript-eslint/no-invalid-this": error
+      "@typescript-eslint/no-loop-func": error
+      "@typescript-eslint/no-magic-numbers": error
+      "@typescript-eslint/no-redeclare": error
+      "@typescript-eslint/no-shadow": error
+      "@typescript-eslint/no-unused-expressions": error
+      "@typescript-eslint/no-use-before-define": error
+      "@typescript-eslint/return-await": error
+
+      # Angular
+      "@angular-eslint/contextual-decorator": error
+      "@angular-eslint/contextual-lifecycle": error
+      "@angular-eslint/no-attribute-decorator": error
+      "@angular-eslint/no-forward-ref": error
+      "@angular-eslint/no-host-metadata-property": error
+      "@angular-eslint/no-input-prefix": error
+      "@angular-eslint/no-lifecycle-call": error
+      "@angular-eslint/no-pipe-impure": error
+      "@angular-eslint/prefer-output-readonly": error
+      "@angular-eslint/relative-url-prefix": error
+      "@angular-eslint/sort-ngmodule-metadata-arrays": error
+      "@angular-eslint/use-component-selector": error
+      "@angular-eslint/use-component-view-encapsulation": error
+      "@angular-eslint/use-injectable-provided-in": error
+
+      "@angular-eslint/component-selector":
+        - error
+        - prefix: app
+          style: kebab-case
 
       "@angular-eslint/directive-selector":
         - error
-        - type: attribute
-          prefix: app
-          style: camelCase
-      "@angular-eslint/component-selector":
-        - error
-        - type: element
-          prefix: app
+        - prefix: app
           style: kebab-case
-
-      "@typescript-eslint/array-type": error
-      "@typescript-eslint/await-thenable": error
-      "@typescript-eslint/comma-dangle": error
-      "@typescript-eslint/comma-spacing": error
-      "@typescript-eslint/default-param-last": error
-      "@typescript-eslint/dot-notation": error
-      "@typescript-eslint/explicit-function-return-type": error
-      "@typescript-eslint/func-call-spacing": error
-      "@typescript-eslint/keyword-spacing": error
-      "@typescript-eslint/member-delimiter-style": error
-      "@typescript-eslint/method-signature-style": error
-      "@typescript-eslint/no-array-constructor": error
-      "@typescript-eslint/no-confusing-non-null-assertion": error
-      "@typescript-eslint/no-dupe-class-members": error
-      "@typescript-eslint/no-duplicate-imports": error
-      "@typescript-eslint/no-dynamic-delete": error
-      "@typescript-eslint/no-extra-parens": warn
-      "@typescript-eslint/no-floating-promises": error
-      "@typescript-eslint/no-for-in-array": error
-      "@typescript-eslint/no-implied-eval": error
-      "@typescript-eslint/no-invalid-this": error
-      "@typescript-eslint/no-invalid-void-type": error
-      "@typescript-eslint/no-loop-func": error
-      "@typescript-eslint/no-loss-of-precision": error
-      "@typescript-eslint/no-magic-numbers": warn
-      "@typescript-eslint/no-misused-promises": error
-      "@typescript-eslint/no-redeclare": error
-      "@typescript-eslint/no-require-imports": error
-      "@typescript-eslint/no-throw-literal": error
-      "@typescript-eslint/no-unnecessary-boolean-literal-compare": error
-      "@typescript-eslint/no-unnecessary-condition": error
-      "@typescript-eslint/no-unnecessary-qualifier": error
-      "@typescript-eslint/no-unnecessary-type-arguments": error
-      "@typescript-eslint/no-unnecessary-type-assertion": error
-      "@typescript-eslint/no-unnecessary-type-constraint": error
-      "@typescript-eslint/no-unsafe-argument": error
-      "@typescript-eslint/no-unsafe-assignment": error
-      "@typescript-eslint/no-unsafe-call": error
-      "@typescript-eslint/no-unsafe-member-access": error
-      "@typescript-eslint/no-unsafe-return": error
-      "@typescript-eslint/no-unused-expressions": error
-      "@typescript-eslint/no-useless-constructor": error
-      "@typescript-eslint/prefer-for-of": error
-      "@typescript-eslint/prefer-function-type": error
-      "@typescript-eslint/prefer-includes": error
-      "@typescript-eslint/prefer-namespace-keyword": error
-      "@typescript-eslint/prefer-nullish-coalescing": error
-      "@typescript-eslint/prefer-optional-chain": error
-      "@typescript-eslint/prefer-readonly": error
-      "@typescript-eslint/prefer-string-starts-ends-with": error
-      "@typescript-eslint/prefer-ts-expect-error": error
-      "@typescript-eslint/promise-function-async": error
-      "@typescript-eslint/quotes": error
-      "@typescript-eslint/require-await": error
-      "@typescript-eslint/return-await": error
-      "@typescript-eslint/semi": error
-      "@typescript-eslint/sort-type-union-intersection-members": error
-      "@typescript-eslint/space-infix-ops": error
-      "@typescript-eslint/switch-exhaustiveness-check": error
-      "@typescript-eslint/type-annotation-spacing": error
-      "@typescript-eslint/unbound-method": error
-
-      "@typescript-eslint/brace-style":
-        - error
-        - 1tbs
-
-      "@typescript-eslint/consistent-type-definitions":
-        - error
-        - interface
-
-      "@typescript-eslint/explicit-member-accessibility":
-        - error
-        - accessibility: explicit
-          overrides:
-            accessors: explicit
-            constructors: no-public
-            methods: explicit
-            properties: explicit
-            parameterProperties: explicit
-
-      "@typescript-eslint/naming-convention":
-        - error
-        - selector: default
-          format:
-            - camelCase
-          leadingUnderscore: allow
-          trailingUnderscore: allow
-        - selector: variable
-          format:
-            - camelCase
-            - UPPER_CASE
-          leadingUnderscore: allow
-          trailingUnderscore: allow
-        - selector: typeLike
-          format:
-            - PascalCase
-        - selector: enumMember
-          format:
-            - PascalCase
-
-      "@typescript-eslint/no-unused-vars":
-        - error
-        - argsIgnorePattern: ^_
-
-      "@typescript-eslint/object-curly-spacing":
-        - error
-        - always
-
-      "@typescript-eslint/space-before-function-paren":
-        - error
-        - anonymous: always
-          named: never
-          asyncArrow: always

@@ -1,14 +1,13 @@
-/** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 
+/** @type {import("tailwindcss").Config} */
 module.exports = {
-    darkMode: "class",
     content: ["./src/**/*.{html,ts}"],
     theme: {
         extend: {
             fontFamily: {
                 mono: [
-                    //"'Fira Code VF'",
+                    "'Fira Code VF'",
                     "'Fira Code'",
                     ...defaultTheme.fontFamily.mono
                 ]

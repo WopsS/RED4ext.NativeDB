@@ -2,9 +2,9 @@
 @use 'sass:map';
 @use 'sass:string';
 
-@import '../utils/string';
+@use '../utils/string-ext';
 
-// The weights for a variant.
+// The weight map for a font.
 $weights: (
   'thin': 100,
   'extraLight': 200,
@@ -21,7 +21,7 @@ $weights: (
 /// @param {string} $family - The font family.
 /// @param {List} $variants - The available variants for the font.
 /// @param {List} $exts - The file extenions of the font.
-@mixin font(
+@mixin normal(
   $family,
   $variants: 'thin' 'extraLight' 'light' 'regular' 'medium' 'semiBold' 'bold'
     'extraBold' 'black',
@@ -32,15 +32,15 @@ $weights: (
   }
 
   $root: '../../assets/fonts';
-  $dir: string.to-lower-case(str-replace($family, ' ', '-'));
-  $file-prefix: str-replace($family, ' ', '');
+  $dir: string.to-lower-case(string-ext.replace($family, ' ', '-'));
+  $file-prefix: string-ext.replace($family, ' ', '');
 
   @each $variant in $variants {
     $weight: map.get($weights, $variant);
     $src: null;
 
     @each $ext in $exts {
-      $variant: capitalize($variant);
+      $variant: string-ext.capitalize($variant);
       $url: '#{$root}/#{$dir}/#{$file-prefix}-#{$variant}.#{$ext}';
       $src: list.append($src, url($url) format($ext), comma);
     }
@@ -61,7 +61,7 @@ $weights: (
 /// @param {string} $min-weight - The minimum weight of the font.
 /// @param {string} $max-weight - The maximum weight of the font.
 /// @param {List} $exts - The file extenions of the font.
-@mixin font-variable(
+@mixin variable(
   $family,
   $suffix: null,
   $min-weight: 'thin',
@@ -69,8 +69,8 @@ $weights: (
   $exts: 'woff2' 'woff'
 ) {
   $root: '../../assets/fonts';
-  $dir: string.to-lower-case(str-replace($family, ' ', '-'));
-  $file-prefix: str-replace($family, ' ', '');
+  $dir: string.to-lower-case(string-ext.replace($family, ' ', '-'));
+  $file-prefix: string-ext.replace($family, ' ', '');
   $min-weight: map.get($weights, $min-weight);
   $max-weight: map.get($weights, $max-weight);
 

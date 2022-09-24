@@ -1,13 +1,14 @@
 @charset 'UTF-8';
 
-@import '~tailwindcss/base';
-@import '~tailwindcss/components';
-@import '~tailwindcss/utilities';
+@use 'mixins/font';
 
-@import 'mixins/font';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
 
-@include font('Fira Code', 'light' 'regular' 'medium' 'semiBold' 'bold');
-@include font-variable('Fira Code', 'VF', 'light', 'bold');
-
-/* stylelint-disable-next-line no-invalid-position-at-import-rule */
-@import 'typography';
+@include font.normal(
+  'Fira Code',
+  'light' 'regular' 'medium' 'semiBold' 'bold' 'extraBold'
+);
+@include font.variable('Fira Code', 'VF', 'light', 'bold');

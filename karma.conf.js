@@ -14,9 +14,17 @@ module.exports = function (config) {
         },
 
         coverageReporter: {
-            dir: require("path").join(__dirname, "./coverage/nativedb"),
+            dir: require("path").join(__dirname, "./coverage"),
             subdir: ".",
-            reporters: [{ type: "html" }, { type: "text-summary" }]
+            reporters: [{ type: "html" }, { type: "text-summary" }],
+            check: {
+                global: {
+                    statements: 95,
+                    branches: 95,
+                    functions: 95,
+                    lines: 95
+                }
+            }
         },
 
         plugins: [

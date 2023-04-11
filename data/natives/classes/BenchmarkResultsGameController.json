@@ -5,17 +5,32 @@
   "props": [
     {
       "type": "inkWidgetReference",
-      "name": "button",
+      "name": "exitButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "settingButton",
       "flags": 4297130017
     },
     {
       "type": "inkCompoundWidgetReference",
-      "name": "entriesListContainer",
+      "name": "leftEntriesListContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "rightEntriesListContainer",
       "flags": 4297130017
     },
     {
       "type": "CName",
       "name": "lineEntryName",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "highlightLineEntryName",
       "flags": 4297130017
     },
     {
@@ -32,9 +47,30 @@
       "type": "handle:inkGameNotificationToken",
       "name": "exitRequestToken",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "settingsAcive",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnBnechmarkShowSettings",
+      "shortName": "OnBnechmarkShowSettings",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnCloseBenchmarkResults",
       "shortName": "OnCloseBenchmarkResults",
@@ -52,6 +88,22 @@
       ]
     },
     {
+      "fullName": "OnGlobalRelease",
+      "shortName": "OnGlobalRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -59,6 +111,22 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnOnBnechmarkHideSettings",
+      "shortName": "OnOnBnechmarkHideSettings",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OnBnechmarkHideSettings",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnSetUserData",
@@ -98,6 +166,38 @@
       "flags": 32900
     },
     {
+      "fullName": "GetRayTracedLightingQualityLocKey;Int32",
+      "shortName": "GetRayTracedLightingQualityLocKey",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "RTLightQuality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetWindowModeLocKey;Uint8",
+      "shortName": "GetWindowModeLocKey",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Uint8",
+          "name": "windowMode",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnLineSpawned;inkWidgetIScriptable",
       "shortName": "OnLineSpawned",
       "flags": 32900,
@@ -115,7 +215,12 @@
       ]
     },
     {
-      "fullName": "SpawnSummaryLine;CNameStringString",
+      "fullName": "ShowExitPrompt;",
+      "shortName": "ShowExitPrompt",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnSummaryLine;CNameEEntryColumnscript_ref<String>script_ref<String>",
       "shortName": "SpawnSummaryLine",
       "flags": 32900,
       "params": [
@@ -125,12 +230,17 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "EEntryColumn",
+          "name": "column",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
           "name": "label",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "value",
           "flags": 128
         }

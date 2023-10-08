@@ -11,52 +11,52 @@
     {
       "type": "inkWidgetReference",
       "name": "dot",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "inkTextWidgetReference",
       "name": "ammo",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "inkTextWidgetReference",
       "name": "ammoSpareCount",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "inkTextWidgetReference",
       "name": "range",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "Bool",
       "name": "seeThroughWalls",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "inkWidgetReference",
       "name": "targetAttitudeFriendly",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "inkWidgetReference",
       "name": "targetAttitudeHostile",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "inkWidgetReference",
       "name": "targetAttitudeEnemyNonHostile",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "whandle:gameIBlackboard",
       "name": "weaponDataBB",
-      "flags": 4297130016
+      "flags": 4297195552
     },
     {
       "type": "CName",
       "name": "targetHitAnimationName",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "handle:inkanimProxy",
@@ -71,7 +71,12 @@
     {
       "type": "CName",
       "name": "shootAnimationName",
-      "flags": 4297130017
+      "flags": 4297195553
+    },
+    {
+      "type": "CName",
+      "name": "firstEquipAnimationName",
+      "flags": 4297195553
     },
     {
       "type": "handle:inkanimProxy",
@@ -104,8 +109,8 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:gameSlotDataHolder",
-      "name": "BufferedRosterData",
+      "type": "handle:inkanimProxy",
+      "name": "animPerfectCharge",
       "flags": 4431347744
     },
     {
@@ -116,6 +121,11 @@
     {
       "type": "gameInventoryItemData",
       "name": "weaponItemData",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameweaponObject",
+      "name": "originalWeapon",
       "flags": 4297130016
     },
     {
@@ -176,7 +186,7 @@
     {
       "type": "Uint32",
       "name": "targetRangeDecimalPrecision",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "whandle:TargetAttitudeAnimationController",
@@ -186,7 +196,7 @@
     {
       "type": "inkWidgetReference",
       "name": "targetAttitudeContainer",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "handle:IronsightTargetHealthChangeListener",
@@ -201,7 +211,7 @@
     {
       "type": "inkWidgetReference",
       "name": "compassContainer",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "whandle:CompassController",
@@ -211,7 +221,7 @@
     {
       "type": "inkWidgetReference",
       "name": "compassContainer2",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "whandle:AltimeterController",
@@ -221,7 +231,7 @@
     {
       "type": "inkWidgetReference",
       "name": "altimeterContainer",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "whandle:gameIBlackboard",
@@ -236,7 +246,7 @@
     {
       "type": "inkWidgetReference",
       "name": "chargebarContainer",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "handle:redCallbackObject",
@@ -251,7 +261,7 @@
     {
       "type": "inkWidgetReference",
       "name": "ADSContainer",
-      "flags": 4297130017
+      "flags": 4297195553
     },
     {
       "type": "whandle:AimDownSightController",
@@ -274,6 +284,11 @@
       "flags": 4431347744
     },
     {
+      "type": "inkWidgetReference",
+      "name": "perfectChargeIndicator",
+      "flags": 4297130017
+    },
+    {
       "type": "gamePSMCrosshairStates",
       "name": "crosshairState",
       "flags": 4297130016
@@ -287,6 +302,11 @@
       "type": "EAIAttitude",
       "name": "attitude",
       "flags": 4297130016
+    },
+    {
+      "type": "gamePSMUpperBodyStates",
+      "name": "upperBodyState",
+      "flags": 4297195552
     }
   ],
   "funcs": [
@@ -297,7 +317,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 32902,
+      "flags": 33030,
       "params": [
         {
           "type": "handle:gameObject",
@@ -367,6 +387,22 @@
       "params": [
         {
           "type": "handle:IronsightTargetHealthUpdateEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerfectChargeUIEvent",
+      "shortName": "OnPerfectChargeUIEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:PerfectChargeUIEvent",
           "name": "evt",
           "flags": 128
         }
@@ -540,6 +576,31 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "IsOriginalWeapon;ItemID",
+      "shortName": "IsOriginalWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "weaponID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsWeaponActive;",
+      "shortName": "IsWeaponActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
     },
     {
       "fullName": "OnAmmoCountChanged;Int32",

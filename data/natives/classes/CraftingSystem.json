@@ -102,18 +102,28 @@
       "flags": 32900
     },
     {
+      "fullName": "AddCraftbookRecipes;",
+      "shortName": "AddCraftbookRecipes",
+      "flags": 32900
+    },
+    {
       "fullName": "AddDLCBaseRecipes;",
       "shortName": "AddDLCBaseRecipes",
       "flags": 32900
     },
     {
-      "fullName": "AddIngredientToResult;IngredientDataarray<IngredientData>",
+      "fullName": "AddIngredientToResult;IngredientDataInt32array<IngredientData>",
       "shortName": "AddIngredientToResult",
       "flags": 41092,
       "params": [
         {
           "type": "IngredientData",
           "name": "ingredient",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amountMultiplier",
           "flags": 128
         },
         {
@@ -272,8 +282,47 @@
       ]
     },
     {
+      "fullName": "ClearNonIconicSlotsFromWeaponsAndClothes;gameItemData",
+      "shortName": "ClearNonIconicSlotsFromWeaponsAndClothes",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CompensateForDeprecatedWeaponMods;gameItemData",
+      "shortName": "CompensateForDeprecatedWeaponMods",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CompensateForOwnedButchersKnifeRecipes;",
       "shortName": "CompensateForOwnedButchersKnifeRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "CompensateForOwnedCraftableIconics;",
+      "shortName": "CompensateForOwnedCraftableIconics",
+      "flags": 32900
+    },
+    {
+      "fullName": "CompensateForOwnedMilitaryKatanaRecipes;",
+      "shortName": "CompensateForOwnedMilitaryKatanaRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "CompensateForOwnedPipeWrenchRecipes;",
+      "shortName": "CompensateForOwnedPipeWrenchRecipes",
       "flags": 32900
     },
     {
@@ -308,6 +357,22 @@
       ]
     },
     {
+      "fullName": "CreateIngredientData;RecipeElement_Record",
+      "shortName": "CreateIngredientData",
+      "return": {
+        "type": "IngredientData",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gamedataRecipeElement_Record",
+          "name": "ingredientData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CreateIngredientData;Item_RecordInt32",
       "shortName": "CreateIngredientData",
       "return": {
@@ -329,24 +394,56 @@
       ]
     },
     {
-      "fullName": "CreateIngredientData;RecipeElement_Record",
-      "shortName": "CreateIngredientData",
-      "return": {
-        "type": "IngredientData",
-        "flags": 64
-      },
+      "fullName": "CreateIngredientDataOfQuality;Int32gamedataQualityarray<IngredientData>",
+      "shortName": "CreateIngredientDataOfQuality",
       "flags": 41092,
       "params": [
         {
-          "type": "handle:gamedataRecipeElement_Record",
-          "name": "ingredientData",
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
+        {
+          "type": "gamedataQuality",
+          "name": "matQuality",
+          "flags": 128
+        },
+        {
+          "type": "array:IngredientData",
+          "name": "disassembleResult",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "CreateInstallPartRequest_Attachment;PlayerPuppetgameItemDataItemID",
+      "shortName": "CreateInstallPartRequest_Attachment",
+      "return": {
+        "type": "handle:InstallItemPart",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "part",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "CreateInstallPartRequest;PlayerPuppetgameItemDataItemID",
-      "shortName": "CreateInstallPartRequest",
+      "fullName": "CreateInstallPartRequest_Mod;PlayerPuppetgameItemDataItemID",
+      "shortName": "CreateInstallPartRequest_Mod",
       "return": {
         "type": "handle:InstallItemPart",
         "flags": 64
@@ -425,7 +522,7 @@
       ]
     },
     {
-      "fullName": "GetDisassemblyResultItems;GameObjectItemIDInt32array<ItemAttachments>Bool",
+      "fullName": "GetDisassemblyResultItems;GameObjectItemIDInt32script_ref<array<ItemAttachments>>Bool",
       "shortName": "GetDisassemblyResultItems",
       "return": {
         "type": "array:IngredientData",
@@ -449,9 +546,9 @@
           "flags": 128
         },
         {
-          "type": "array:ItemAttachments",
+          "type": "script_ref:array:ItemAttachments",
           "name": "restoredAttachments",
-          "flags": 640
+          "flags": 128
         },
         {
           "type": "Bool",
@@ -461,7 +558,7 @@
       ]
     },
     {
-      "fullName": "GetIngredientQuality;IngredientData",
+      "fullName": "GetIngredientQuality;script_ref<IngredientData>",
       "shortName": "GetIngredientQuality",
       "return": {
         "type": "gamedataQuality",
@@ -470,7 +567,7 @@
       "flags": 41092,
       "params": [
         {
-          "type": "IngredientData",
+          "type": "script_ref:IngredientData",
           "name": "data",
           "flags": 128
         }
@@ -530,7 +627,7 @@
       ]
     },
     {
-      "fullName": "GetItemCraftingCost;Item_Recordarray<RecipeElement_Record>",
+      "fullName": "GetItemCraftingCost;Item_Recordscript_ref<array<RecipeElement_Record>>",
       "shortName": "GetItemCraftingCost",
       "return": {
         "type": "array:IngredientData",
@@ -544,7 +641,7 @@
           "flags": 128
         },
         {
-          "type": "array:whandle:gamedataRecipeElement_Record",
+          "type": "script_ref:array:whandle:gamedataRecipeElement_Record",
           "name": "craftingData",
           "flags": 128
         }
@@ -626,6 +723,27 @@
       ]
     },
     {
+      "fullName": "GetSuccessNum;FloatInt32",
+      "shortName": "GetSuccessNum",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Float",
+          "name": "probability",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "eventsNum",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetUpgradeRecipeData;ItemID",
       "shortName": "GetUpgradeRecipeData",
       "return": {
@@ -642,7 +760,7 @@
       ]
     },
     {
-      "fullName": "HasIngredients;array<IngredientData>",
+      "fullName": "HasIngredients;script_ref<array<IngredientData>>",
       "shortName": "HasIngredients",
       "return": {
         "type": "Bool",
@@ -651,7 +769,7 @@
       "flags": 41476,
       "params": [
         {
-          "type": "array:IngredientData",
+          "type": "script_ref:array:IngredientData",
           "name": "required",
           "flags": 128
         }
@@ -665,6 +783,31 @@
     {
       "fullName": "HideDLCRecipes;",
       "shortName": "HideDLCRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "HideDeprecatedCraftbookRecipes;",
+      "shortName": "HideDeprecatedCraftbookRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "HideDeprecatedCraftingRecipes;",
+      "shortName": "HideDeprecatedCraftingRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "HideIconicWeaponsRecipes;",
+      "shortName": "HideIconicWeaponsRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "HideMilitaryKatanaRecipes;",
+      "shortName": "HideMilitaryKatanaRecipes",
+      "flags": 32900
+    },
+    {
+      "fullName": "HidePipeWrenchRecipes;",
+      "shortName": "HidePipeWrenchRecipes",
       "flags": 32900
     },
     {
@@ -702,23 +845,6 @@
           "type": "whandle:gameItemData",
           "name": "itemData",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "MergeIngredients;array<IngredientData>array<IngredientData>",
-      "shortName": "MergeIngredients",
-      "flags": 41092,
-      "params": [
-        {
-          "type": "array:IngredientData",
-          "name": "input",
-          "flags": 128
-        },
-        {
-          "type": "array:IngredientData",
-          "name": "output",
-          "flags": 640
         }
       ]
     },
@@ -858,10 +984,15 @@
       "flags": 32900
     },
     {
-      "fullName": "ProcessDisassemblingPerks;array<IngredientData>gameItemDataarray<ItemAttachments>Bool",
+      "fullName": "ProcessDisassemblingPerks;Int32array<IngredientData>gameItemDatascript_ref<array<ItemAttachments>>Bool",
       "shortName": "ProcessDisassemblingPerks",
       "flags": 41092,
       "params": [
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        },
         {
           "type": "array:IngredientData",
           "name": "disassembleResult",
@@ -873,9 +1004,9 @@
           "flags": 128
         },
         {
-          "type": "array:ItemAttachments",
+          "type": "script_ref:array:ItemAttachments",
           "name": "restoredAttachments",
-          "flags": 640
+          "flags": 128
         },
         {
           "type": "Bool",
@@ -917,6 +1048,16 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ProcessWeaponsAndClothingModsPurge;",
+      "shortName": "ProcessWeaponsAndClothingModsPurge",
+      "flags": 32900
+    },
+    {
+      "fullName": "ProcessWeaponsModsCompensate;",
+      "shortName": "ProcessWeaponsModsCompensate",
+      "flags": 32900
     },
     {
       "fullName": "SendItemCraftedDataTrackingRequest;ItemID",

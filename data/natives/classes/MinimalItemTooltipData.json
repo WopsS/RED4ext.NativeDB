@@ -44,6 +44,11 @@
       "flags": 4297326624
     },
     {
+      "type": "String",
+      "name": "gameplayDescription",
+      "flags": 4297326624
+    },
+    {
       "type": "Float",
       "name": "weight",
       "flags": 4297326624
@@ -81,6 +86,21 @@
     {
       "type": "Bool",
       "name": "compareArmor",
+      "flags": 4297326624
+    },
+    {
+      "type": "gamedataQuality",
+      "name": "comparedQuality",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "qualityF",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "comparisonQualityF",
       "flags": 4297326624
     },
     {
@@ -135,6 +155,11 @@
     },
     {
       "type": "array:handle:MinimalItemTooltipStatData",
+      "name": "attributeAllocationStats",
+      "flags": 6583222304
+    },
+    {
+      "type": "array:handle:MinimalItemTooltipStatData",
       "name": "stats",
       "flags": 6583222304
     },
@@ -147,6 +172,11 @@
       "type": "array:handle:MinimalItemTooltipModAttachmentData",
       "name": "dedicatedMods",
       "flags": 6583222304
+    },
+    {
+      "type": "handle:InventoryTooltiData_CyberwareUpgradeData",
+      "name": "cyberwareUpgradeData",
+      "flags": 4431544352
     },
     {
       "type": "gamedataItemType",
@@ -166,6 +196,11 @@
     {
       "type": "gamedataWeaponEvolution",
       "name": "itemEvolution",
+      "flags": 4297326624
+    },
+    {
+      "type": "gamedataPerkWeaponGroupType",
+      "name": "itemPerkGroup",
       "flags": 4297326624
     },
     {
@@ -189,6 +224,16 @@
       "flags": 4297326624
     },
     {
+      "type": "Float",
+      "name": "isPlus",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isBroken",
+      "flags": 4297326624
+    },
+    {
       "type": "Bool",
       "name": "isCrafted",
       "flags": 4297326624
@@ -204,6 +249,11 @@
       "flags": 4297326624
     },
     {
+      "type": "handle:ItemDisplayContextData",
+      "name": "displayContextData",
+      "flags": 4431544352
+    },
+    {
       "type": "InventoryTooltipDisplayContext",
       "name": "displayContext",
       "flags": 4297326624
@@ -212,11 +262,26 @@
       "type": "handle:DEBUG_IconErrorInfo",
       "name": "DEBUG_iconErrorInfo",
       "flags": 4431544352
+    },
+    {
+      "type": "handle:UIInventoryItemStatsManager",
+      "name": "statsManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "statsManagerFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:UIInventoryItemsManager",
+      "name": "managerRef",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
-      "fullName": "MinimalItemTooltipData::FillModsFromTooltipData;InventoryTooltipDataarray<MinimalItemTooltipModData>array<MinimalItemTooltipModAttachmentData>",
+      "fullName": "MinimalItemTooltipData::FillModsFromTooltipData;InventoryTooltipDatascript_ref<array<MinimalItemTooltipModData>>script_ref<array<MinimalItemTooltipModAttachmentData>>",
       "shortName": "FillModsFromTooltipData",
       "flags": 33286,
       "params": [
@@ -226,14 +291,14 @@
           "flags": 128
         },
         {
-          "type": "array:handle:MinimalItemTooltipModData",
+          "type": "script_ref:array:handle:MinimalItemTooltipModData",
           "name": "mods",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "array:handle:MinimalItemTooltipModAttachmentData",
+          "type": "script_ref:array:handle:MinimalItemTooltipModAttachmentData",
           "name": "dedicatedMods",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -270,6 +335,27 @@
       ]
     },
     {
+      "fullName": "MinimalItemTooltipData::GetAttributeAllocationStatsFromTooltipData;InventoryTooltipDataBool",
+      "shortName": "GetAttributeAllocationStatsFromTooltipData",
+      "return": {
+        "type": "array:handle:MinimalItemTooltipStatData",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "filterZero",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "MinimalItemTooltipData::GetDefaultModAttachmentData;InventoryTooltipDataInt32InventoryItemAttachmentType",
       "shortName": "GetDefaultModAttachmentData",
       "return": {
@@ -296,7 +382,7 @@
       ]
     },
     {
-      "fullName": "MinimalItemTooltipData::GetDefaultModAttachmentData;BoolCNameTweakDBIDStringscript_ref<array<InventoryItemAbility>>InventoryItemAttachmentType",
+      "fullName": "MinimalItemTooltipData::GetDefaultModAttachmentData;BoolCNameTweakDBIDscript_ref<String>script_ref<array<InventoryItemAbility>>InventoryItemAttachmentType",
       "shortName": "GetDefaultModAttachmentData",
       "return": {
         "type": "handle:MinimalItemTooltipModAttachmentData",
@@ -320,7 +406,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "itemName",
           "flags": 128
         },
@@ -373,7 +459,7 @@
         },
         {
           "type": "whandle:gameObject",
-          "name": "context",
+          "name": "owner",
           "flags": 128
         },
         {
@@ -420,7 +506,7 @@
       ]
     },
     {
-      "fullName": "MinimalItemTooltipData::GetModsDataPackages;gameItemDataItem_RecordInventoryTooltipDisplayContextgameItemDataTweakDBIDarray<MinimalItemTooltipModData>",
+      "fullName": "MinimalItemTooltipData::GetModsDataPackages;gameItemDataItem_RecordInventoryTooltipDisplayContextgameItemDataTweakDBIDscript_ref<array<MinimalItemTooltipModData>>",
       "shortName": "GetModsDataPackages",
       "flags": 33286,
       "params": [
@@ -450,9 +536,9 @@
           "flags": 1152
         },
         {
-          "type": "array:handle:MinimalItemTooltipModData",
+          "type": "script_ref:array:handle:MinimalItemTooltipModData",
           "name": "mods",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -509,6 +595,22 @@
       ]
     },
     {
+      "fullName": "MinimalItemTooltipData::IsAttributeAllocationStat;gamedataStatType",
+      "shortName": "IsAttributeAllocationStat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "stat",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "MinimalItemTooltipData::ShouldFilterOutGrenadeStat;gamedataStatType",
       "shortName": "ShouldFilterOutGrenadeStat",
       "return": {
@@ -520,6 +622,50 @@
         {
           "type": "gamedataStatType",
           "name": "stat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetStatsManager;Bool",
+      "shortName": "GetStatsManager",
+      "return": {
+        "type": "whandle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "refetch",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetStatsManagerPure;Bool",
+      "shortName": "GetStatsManagerPure",
+      "return": {
+        "type": "whandle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "refetch",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetManager;UIInventoryItemsManager",
+      "shortName": "SetManager",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
           "flags": 128
         }
       ]

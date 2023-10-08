@@ -44,6 +44,11 @@
       "flags": 4297195552
     },
     {
+      "type": "handle:redCallbackObject",
+      "name": "onInputHintManagerInitializedChangedCallback",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:workWorkspotResourceComponent",
       "name": "personalLinkComponent",
       "flags": 4431413280
@@ -214,6 +219,11 @@
       "flags": 4297195552
     },
     {
+      "type": "Bool",
+      "name": "wasEngineeringSkillcheckTriggered",
+      "flags": 4297130016
+    },
+    {
       "type": "TweakDBID",
       "name": "contentScale",
       "group": "RPG",
@@ -241,6 +251,11 @@
       "type": "DebuggerProperties",
       "name": "debugOptions",
       "flags": 4364304417
+    },
+    {
+      "type": "whandle:ScriptableDeviceAction",
+      "name": "currentlyUploadingAction",
+      "flags": 4297326624
     },
     {
       "type": "whandle:gameObject",
@@ -709,6 +724,22 @@
       ]
     },
     {
+      "fullName": "OnHandleEngineeringSkillcheckSFX",
+      "shortName": "OnHandleEngineeringSkillcheckSFX",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnHitEvent",
       "shortName": "OnHitEvent",
       "return": {
@@ -720,6 +751,22 @@
         {
           "type": "handle:gameeventsHitEvent",
           "name": "hit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInputHintManagerInitializedChanged",
+      "shortName": "OnInputHintManagerInitializedChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -1317,6 +1364,22 @@
       ]
     },
     {
+      "fullName": "OnQuickHackToggleOn",
+      "shortName": "OnQuickHackToggleOn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuickHackToggleON",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnQuickSlotCommandUsed",
       "shortName": "OnQuickSlotCommandUsed",
       "return": {
@@ -1637,6 +1700,22 @@
       ]
     },
     {
+      "fullName": "OnSetDeviceAttitude",
+      "shortName": "OnSetDeviceAttitude",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetDevicePowered",
       "shortName": "OnSetDevicePowered",
       "return": {
@@ -1679,22 +1758,6 @@
       "params": [
         {
           "type": "handle:SetExposeQuickHacks",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetInvestigationPositionsArray",
-      "shortName": "OnSetInvestigationPositionsArray",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:SetInvestigationPositionsArrayEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2182,12 +2245,12 @@
       ]
     },
     {
-      "fullName": "AddHudButtonHelper;StringCName",
+      "fullName": "AddHudButtonHelper;script_ref<String>CName",
       "shortName": "AddHudButtonHelper",
       "flags": 33028,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "argText",
           "flags": 128
         },
@@ -2362,6 +2425,11 @@
       "flags": 33028
     },
     {
+      "fullName": "ClearQuickHacks;",
+      "shortName": "ClearQuickHacks",
+      "flags": 33028
+    },
+    {
       "fullName": "CompileScannerChunks;",
       "shortName": "CompileScannerChunks",
       "return": {
@@ -2400,6 +2468,27 @@
       ]
     },
     {
+      "fullName": "CreateFxInstance;FxResourceWorldTransform",
+      "shortName": "CreateFxInstance",
+      "return": {
+        "type": "handle:gameFxInstance",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "gameFxResource",
+          "name": "resource",
+          "flags": 128
+        },
+        {
+          "type": "WorldTransform",
+          "name": "transform",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CreateGameplayObjective;GemplayObjectiveData",
       "shortName": "CreateGameplayObjective",
       "flags": 33028,
@@ -2427,7 +2516,7 @@
       "flags": 33024
     },
     {
-      "fullName": "DeterminGameplayRoleMappinRange;SDeviceMappinData",
+      "fullName": "DeterminGameplayRoleMappinRange;script_ref<SDeviceMappinData>",
       "shortName": "DeterminGameplayRoleMappinRange",
       "return": {
         "type": "Float",
@@ -2436,14 +2525,14 @@
       "flags": 41472,
       "params": [
         {
-          "type": "SDeviceMappinData",
+          "type": "script_ref:SDeviceMappinData",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
+      "fullName": "DeterminGameplayRoleMappinVisuaState;script_ref<SDeviceMappinData>",
       "shortName": "DeterminGameplayRoleMappinVisuaState",
       "return": {
         "type": "EMappinVisualState",
@@ -2452,7 +2541,7 @@
       "flags": 41472,
       "params": [
         {
-          "type": "SDeviceMappinData",
+          "type": "script_ref:SDeviceMappinData",
           "name": "data",
           "flags": 128
         }
@@ -2498,6 +2587,11 @@
       "fullName": "DeviceUpdate;",
       "shortName": "DeviceUpdate",
       "flags": 33024
+    },
+    {
+      "fullName": "Die;",
+      "shortName": "Die",
+      "flags": 33028
     },
     {
       "fullName": "DisplayConnectionWindowOnPlayerHUD;BoolInt32",
@@ -2666,7 +2760,29 @@
     {
       "fullName": "EvaluateProximityRevealInteractionLayerState;",
       "shortName": "EvaluateProximityRevealInteractionLayerState",
-      "flags": 33028
+      "flags": 33024
+    },
+    {
+      "fullName": "ExecuteAction;script_ref<InteractionChoice>GameObjectCName",
+      "shortName": "ExecuteAction",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "script_ref:gameinteractionsChoice",
+          "name": "choice",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "executor",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "layerTag",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ExecuteAction;DeviceActionGameObject",
@@ -2686,28 +2802,6 @@
           "type": "whandle:gameObject",
           "name": "executor",
           "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ExecuteAction;InteractionChoiceGameObjectCName",
-      "shortName": "ExecuteAction",
-      "flags": 41220,
-      "params": [
-        {
-          "type": "gameinteractionsChoice",
-          "name": "choice",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "executor",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "layerTag",
-          "flags": 128
         }
       ]
     },
@@ -2781,7 +2875,7 @@
       "flags": 41472
     },
     {
-      "fullName": "GetActionsDebug;GetActionsContextDeviceDebuggerComponentarray<DeviceAction>",
+      "fullName": "GetActionsDebug;script_ref<GetActionsContext>DeviceDebuggerComponentarray<DeviceAction>",
       "shortName": "GetActionsDebug",
       "return": {
         "type": "Bool",
@@ -2790,7 +2884,7 @@
       "flags": 41476,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -2857,6 +2951,22 @@
       ]
     },
     {
+      "fullName": "GetAreaEffectStimRangeByAction;ScriptableDeviceAction",
+      "shortName": "GetAreaEffectStimRangeByAction",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetBlackboard;",
       "shortName": "GetBlackboard",
       "return": {
@@ -2900,13 +3010,20 @@
       "flags": 41220
     },
     {
-      "fullName": "GetCachedInvestigationPositionsArray;",
+      "fullName": "GetCachedInvestigationPositionsArray;GlobalNodeRef",
       "shortName": "GetCachedInvestigationPositionsArray",
       "return": {
         "type": "array:Vector4",
         "flags": 64
       },
-      "flags": 41216
+      "flags": 41216,
+      "params": [
+        {
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetContentScale;",
@@ -2973,6 +3090,15 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "GetCurrentlyUploadingAction;",
+      "shortName": "GetCurrentlyUploadingAction",
+      "return": {
+        "type": "handle:ScriptableDeviceAction",
+        "flags": 64
+      },
+      "flags": 33280
     },
     {
       "fullName": "GetDebuggerProperties;",
@@ -3138,6 +3264,15 @@
       ]
     },
     {
+      "fullName": "GetEngineeringSkillcheckSFXName;",
+      "shortName": "GetEngineeringSkillcheckSFXName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "GetEntityFromNode;NodeRef",
       "shortName": "GetEntityFromNode",
       "return": {
@@ -3213,15 +3348,6 @@
       ]
     },
     {
-      "fullName": "GetICELevel;",
-      "shortName": "GetICELevel",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 41092
-    },
-    {
       "fullName": "GetInputContextName;",
       "shortName": "GetInputContextName",
       "return": {
@@ -3240,7 +3366,7 @@
       "flags": 33028
     },
     {
-      "fullName": "GetMatchingActionProgramName;array<DeviceAction>String",
+      "fullName": "GetMatchingActionProgramName;script_ref<array<DeviceAction>>script_ref<String>",
       "shortName": "GetMatchingActionProgramName",
       "return": {
         "type": "Int32",
@@ -3249,12 +3375,12 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "searchWord",
           "flags": 128
         }
@@ -3297,6 +3423,15 @@
       "flags": 41092
     },
     {
+      "fullName": "GetNetworkLinkSlotName;",
+      "shortName": "GetNetworkLinkSlotName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "GetNetworkLinkSlotName;WorldTransform",
       "shortName": "GetNetworkLinkSlotName",
       "return": {
@@ -3311,15 +3446,6 @@
           "flags": 640
         }
       ]
-    },
-    {
-      "fullName": "GetNetworkLinkSlotName;",
-      "shortName": "GetNetworkLinkSlotName",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 41472
     },
     {
       "fullName": "GetNetworkSecurityLevel;",
@@ -3337,7 +3463,7 @@
         "type": "array:Vector4",
         "flags": 64
       },
-      "flags": 41476,
+      "flags": 33284,
       "params": [
         {
           "type": "NodeRef",
@@ -3534,6 +3660,18 @@
       "flags": 41476
     },
     {
+      "fullName": "HandlePlayerStateMachineZoom;Float",
+      "shortName": "HandlePlayerStateMachineZoom",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HasActiveDistraction;",
       "shortName": "HasActiveDistraction",
       "return": {
@@ -3667,13 +3805,20 @@
       "flags": 41472
     },
     {
-      "fullName": "HasInvestigationPositionsArrayCached;",
+      "fullName": "HasInvestigationPositionsArrayCached;GlobalNodeRef",
       "shortName": "HasInvestigationPositionsArrayCached",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 41216
+      "flags": 41216,
+      "params": [
+        {
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "HasWillingInvestigator;EntityID",
@@ -3694,7 +3839,7 @@
     {
       "fullName": "HideAdvanceInteractionInputHints;",
       "shortName": "HideAdvanceInteractionInputHints",
-      "flags": 33024
+      "flags": 32900
     },
     {
       "fullName": "HideMappinOnProximity;",
@@ -3739,6 +3884,24 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "IsActionQueueEnabled;",
+      "shortName": "IsActionQueueEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsActionQueueFull;",
+      "shortName": "IsActionQueueFull",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
     },
     {
       "fullName": "IsActive;",
@@ -4532,12 +4695,12 @@
       "flags": 33024
     },
     {
-      "fullName": "ResolveComponents;array<SComponentOperationData>",
+      "fullName": "ResolveComponents;script_ref<array<SComponentOperationData>>",
       "shortName": "ResolveComponents",
       "flags": 32900,
       "params": [
         {
-          "type": "array:SComponentOperationData",
+          "type": "script_ref:array:SComponentOperationData",
           "name": "componentsData",
           "flags": 128
         }
@@ -4746,23 +4909,6 @@
       ]
     },
     {
-      "fullName": "SendGameplayInputHintEvent;BoolInputHintData",
-      "shortName": "SendGameplayInputHintEvent",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "show",
-          "flags": 128
-        },
-        {
-          "type": "gameuiInputHintData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SendQuickhackCommands;Bool",
       "shortName": "SendQuickhackCommands",
       "flags": 33024,
@@ -4770,18 +4916,6 @@
         {
           "type": "Bool",
           "name": "shouldOpen",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendRemoveGameplayInputHintsBySourceEvent;CName",
-      "shortName": "SendRemoveGameplayInputHintsBySourceEvent",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "CName",
-          "name": "sourceName",
           "flags": 128
         }
       ]
@@ -4840,6 +4974,18 @@
       "flags": 33024
     },
     {
+      "fullName": "SetCurrentlyUploadingAction;ScriptableDeviceAction",
+      "shortName": "SetCurrentlyUploadingAction",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetGameplayRole;EGameplayRole",
       "shortName": "SetGameplayRole",
       "flags": 33028,
@@ -4857,12 +5003,17 @@
       "flags": 33028
     },
     {
-      "fullName": "SetInvestigationPositionsArray;array<Vector4>",
+      "fullName": "SetInvestigationPositionsArray;GlobalNodeRefscript_ref<array<Vector4>>",
       "shortName": "SetInvestigationPositionsArray",
       "flags": 33024,
       "params": [
         {
-          "type": "array:Vector4",
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Vector4",
           "name": "arr",
           "flags": 128
         }
@@ -5053,7 +5204,7 @@
     {
       "fullName": "ShowAdvanceInteractionInputHints;",
       "shortName": "ShowAdvanceInteractionInputHints",
-      "flags": 33024
+      "flags": 32900
     },
     {
       "fullName": "ShowGameplayObjective;GemplayObjectiveData",
@@ -5244,23 +5395,6 @@
           "type": "handle:gameObject",
           "name": "puppet",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "TranslateActionsIntoQuickSlotCommands;array<DeviceAction>array<QuickhackData>",
-      "shortName": "TranslateActionsIntoQuickSlotCommands",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "array:handle:gamedeviceAction",
-          "name": "actions",
-          "flags": 128
-        },
-        {
-          "type": "array:handle:QuickhackData",
-          "name": "commands",
-          "flags": 640
         }
       ]
     },

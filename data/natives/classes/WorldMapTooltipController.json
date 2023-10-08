@@ -14,6 +14,11 @@
       "flags": 4297195553
     },
     {
+      "type": "inkTextWidgetReference",
+      "name": "additionalDescText",
+      "flags": 4297195553
+    },
+    {
       "type": "inkWidgetReference",
       "name": "lineBreak",
       "flags": 4297195553
@@ -24,6 +29,11 @@
       "flags": 4297195553
     },
     {
+      "type": "inkImageWidgetReference",
+      "name": "ep1Icon",
+      "flags": 4297195553
+    },
+    {
       "type": "inkCompoundWidgetReference",
       "name": "inputOpenJournalContainer",
       "flags": 4297195553
@@ -31,6 +41,11 @@
     {
       "type": "inkCompoundWidgetReference",
       "name": "inputInteractContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "inputMoreInfoContainer",
       "flags": 4297195553
     },
     {
@@ -49,13 +64,8 @@
       "flags": 4297195553
     },
     {
-      "type": "inkCompoundWidgetReference",
-      "name": "collectionCountContainer",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "collectionCountText",
+      "type": "inkImageWidgetReference",
+      "name": "linkImage",
       "flags": 4297195553
     },
     {
@@ -107,6 +117,22 @@
       ]
     },
     {
+      "fullName": "OnIconCallback",
+      "shortName": "OnIconCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkCallbackData",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -114,6 +140,49 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "DisplayAttachedImage;JournalQuestObjectiveinkImageRefJournalManager",
+      "shortName": "DisplayAttachedImage",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameJournalQuestObjective",
+          "name": "objective",
+          "flags": 128
+        },
+        {
+          "type": "inkImageWidgetReference",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journalManager",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetApartmentOfferForMapPin;PointOfInterestMappinJournalManager",
+      "shortName": "GetApartmentOfferForMapPin",
+      "return": {
+        "type": "handle:gamedataPurchaseOffer_Record",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamemappinsPointOfInterestMappin",
+          "name": "poiMappin",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journalManager",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetLevelState;Int32Int32",
@@ -132,6 +201,48 @@
         {
           "type": "Int32",
           "name": "recommendedLvl",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVehicleOfferForMapPin;PointOfInterestMappinJournalManager",
+      "shortName": "GetVehicleOfferForMapPin",
+      "return": {
+        "type": "handle:gamedataVehicleOffer_Record",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamemappinsPointOfInterestMappin",
+          "name": "poiMappin",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journalManager",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVehicleUnlocked;VehicleObjectGameObject",
+      "shortName": "IsVehicleUnlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicleObject",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
           "flags": 128
         }
       ]
@@ -159,12 +270,12 @@
       "flags": 33028
     },
     {
-      "fullName": "SetData;WorldMapTooltipDataWorldMapMenuGameController",
+      "fullName": "SetData;script_ref<WorldMapTooltipData>WorldMapMenuGameController",
       "shortName": "SetData",
       "flags": 33280,
       "params": [
         {
-          "type": "WorldMapTooltipData",
+          "type": "script_ref:WorldMapTooltipData",
           "name": "data",
           "flags": 128
         },

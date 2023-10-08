@@ -115,6 +115,11 @@
     },
     {
       "type": "Bool",
+      "name": "uiQuickHackKeepContext",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
       "name": "quickHackDescriptionVisible",
       "flags": 4297130016
     },
@@ -211,6 +216,11 @@
     {
       "type": "handle:redCallbackObject",
       "name": "uiQuickHackVisibleCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiQuickhackKeepContextCallbackID",
       "flags": 4431347744
     },
     {
@@ -398,7 +408,7 @@
       ]
     },
     {
-      "fullName": "HUDManager::SetScannerHintMessege;GameInstanceString",
+      "fullName": "HUDManager::SetScannerHintMessege;GameInstancescript_ref<String>",
       "shortName": "SetScannerHintMessege",
       "flags": 33286,
       "params": [
@@ -408,7 +418,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "text",
           "flags": 128
         }
@@ -576,6 +586,22 @@
       ]
     },
     {
+      "fullName": "OnQuickHackUIKeepContextChanged",
+      "shortName": "OnQuickHackUIKeepContextChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnQuickHackUIVisibleChanged",
       "shortName": "OnQuickHackUIVisibleChanged",
       "return": {
@@ -716,7 +742,7 @@
       ]
     },
     {
-      "fullName": "CreateJobs;array<HUDActor>",
+      "fullName": "CreateJobs;script_ref<array<HUDActor>>",
       "shortName": "CreateJobs",
       "return": {
         "type": "array:HUDJob",
@@ -725,14 +751,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gameHudActor",
+          "type": "script_ref:array:handle:gameHudActor",
           "name": "actors",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "CreateJobsByActorType;array<HUDActor>HUDActorType",
+      "fullName": "CreateJobsByActorType;script_ref<array<HUDActor>>HUDActorType",
       "shortName": "CreateJobsByActorType",
       "return": {
         "type": "array:HUDJob",
@@ -741,7 +767,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gameHudActor",
+          "type": "script_ref:array:handle:gameHudActor",
           "name": "actors",
           "flags": 128
         },
@@ -753,7 +779,7 @@
       ]
     },
     {
-      "fullName": "CreateJobsForClueActors;array<HUDActor>",
+      "fullName": "CreateJobsForClueActors;script_ref<array<HUDActor>>",
       "shortName": "CreateJobsForClueActors",
       "return": {
         "type": "array:HUDJob",
@@ -762,7 +788,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gameHudActor",
+          "type": "script_ref:array:handle:gameHudActor",
           "name": "actors",
           "flags": 128
         }
@@ -978,12 +1004,12 @@
       "flags": 41476
     },
     {
-      "fullName": "HUDLog;String",
+      "fullName": "HUDLog;script_ref<String>",
       "shortName": "HUDLog",
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "message",
           "flags": 128
         }
@@ -1319,6 +1345,18 @@
       ]
     },
     {
+      "fullName": "OnRegisterAssociation;HUDManagerAssociationRequest",
+      "shortName": "OnRegisterAssociation",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:HUDManagerAssociationRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnResolveRadial;ResolveQuickHackRadialRequest",
       "shortName": "OnResolveRadial",
       "flags": 34052,
@@ -1403,13 +1441,25 @@
       ]
     },
     {
-      "fullName": "PostponeModuleIteration;array<HUDJob>",
+      "fullName": "PostponeModuleIteration;script_ref<array<HUDJob>>",
       "shortName": "PostponeModuleIteration",
       "flags": 32900,
       "params": [
         {
-          "type": "array:HUDJob",
+          "type": "script_ref:array:HUDJob",
           "name": "remainingJobs",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessAssociationRegistration;HUDManagerAssociationRequest",
+      "shortName": "ProcessAssociationRegistration",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:HUDManagerAssociationRequest",
+          "name": "request",
           "flags": 128
         }
       ]
@@ -1482,6 +1532,18 @@
       "params": [
         {
           "type": "handle:HUDManagerRegistrationRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterAssociatedActor_Script;HUDManagerAssociationRequest",
+      "shortName": "RegisterAssociatedActor_Script",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:HUDManagerAssociationRequest",
           "name": "request",
           "flags": 128
         }
@@ -1573,24 +1635,24 @@
       ]
     },
     {
-      "fullName": "SendInstructions;array<HUDJob>",
+      "fullName": "SendInstructions;script_ref<array<HUDJob>>",
       "shortName": "SendInstructions",
       "flags": 32900,
       "params": [
         {
-          "type": "array:HUDJob",
+          "type": "script_ref:array:HUDJob",
           "name": "jobs",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "SendInstructionsByRequest;array<HUDJob>",
+      "fullName": "SendInstructionsByRequest;script_ref<array<HUDJob>>",
       "shortName": "SendInstructionsByRequest",
       "flags": 32900,
       "params": [
         {
-          "type": "array:HUDJob",
+          "type": "script_ref:array:HUDJob",
           "name": "jobs",
           "flags": 128
         }
@@ -1692,6 +1754,18 @@
       "params": [
         {
           "type": "handle:HUDManagerRegistrationRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterAssociatedActor_Script;HUDManagerAssociationRequest",
+      "shortName": "UnregisterAssociatedActor_Script",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:HUDManagerAssociationRequest",
           "name": "request",
           "flags": 128
         }

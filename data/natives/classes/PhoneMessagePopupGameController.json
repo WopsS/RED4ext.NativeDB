@@ -1,5 +1,5 @@
 {
-  "parent": "gameuiWidgetGameController",
+  "parent": "gameuiNewPhoneRelatedGameController",
   "name": "PhoneMessagePopupGameController",
   "flags": 4,
   "props": [
@@ -25,22 +25,59 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "hintsContainer",
+      "group": "Hints",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "hintTrack",
+      "group": "Hints",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "hintClose",
+      "group": "Hints",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "hintReply",
+      "group": "Hints",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "scrollReply",
+      "group": "Hints",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "hintMessenger",
+      "group": "Hints",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "hintCall",
+      "group": "Hints",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "scrollSlider",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "contactsPath",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "messagesPath",
       "flags": 4297130017
     },
     {
@@ -66,6 +103,11 @@
     {
       "type": "whandle:gameJournalManager",
       "name": "journalMgr",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PhoneSystem",
+      "name": "phoneSystem",
       "flags": 4297130016
     },
     {
@@ -109,9 +151,24 @@
       "flags": 4297130016
     },
     {
+      "type": "Int32",
+      "name": "journalEntryHash",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:inkanimProxy",
       "name": "proxy",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isFocused",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isHubVisiale",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -137,8 +194,8 @@
       ]
     },
     {
-      "fullName": "OnDelayedJournalUpdate",
-      "shortName": "OnDelayedJournalUpdate",
+      "fullName": "OnCloseRequest",
+      "shortName": "OnCloseRequest",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -146,7 +203,55 @@
       "flags": 33032,
       "params": [
         {
-          "type": "handle:DelayedJournalUpdate",
+          "type": "handle:RequestSmsMessagerCloseEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayedDotsAnimation",
+      "shortName": "OnDelayedDotsAnimation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TypingDelayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGotFocus",
+      "shortName": "OnGotFocus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:FocusSmsMessagerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHUBMenuChanged",
+      "shortName": "OnHUBMenuChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkMenuLayer_SetMenuModeEvent",
           "name": "evt",
           "flags": 128
         }
@@ -169,6 +274,22 @@
       ]
     },
     {
+      "fullName": "OnHide",
+      "shortName": "OnHide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:HideSmsMessagerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -176,6 +297,22 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnLostFocus",
+      "shortName": "OnLostFocus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:UnfocusSmsMessagerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnPopupHidden",
@@ -194,6 +331,38 @@
       ]
     },
     {
+      "fullName": "OnRefresh",
+      "shortName": "OnRefresh",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RefreshSmsMessagerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShow",
+      "shortName": "OnShow",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ShowSmsMessagerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -203,14 +372,40 @@
       "flags": 33032
     },
     {
-      "fullName": "ActivateChoice;",
-      "shortName": "ActivateChoice",
+      "fullName": "CallContact;",
+      "shortName": "CallContact",
       "flags": 32900
     },
     {
       "fullName": "ClosePopup;",
       "shortName": "ClosePopup",
       "flags": 32900
+    },
+    {
+      "fullName": "DisableInput;",
+      "shortName": "DisableInput",
+      "flags": 33284
+    },
+    {
+      "fullName": "EnableInput;",
+      "shortName": "EnableInput",
+      "flags": 33284
+    },
+    {
+      "fullName": "FindFirstMessageWithAttachment;JournalContainerEntry",
+      "shortName": "FindFirstMessageWithAttachment",
+      "return": {
+        "type": "whandle:gameJournalPhoneMessage",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameJournalContainerEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetFirstObjectiveFromQuest;JournalQuest",
@@ -284,6 +479,40 @@
       ]
     },
     {
+      "fullName": "RequestUnfocus;",
+      "shortName": "RequestUnfocus",
+      "flags": 32900
+    },
+    {
+      "fullName": "ScrollMessages;FloatBool",
+      "shortName": "ScrollMessages",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isMouseWheel",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetFocus;Bool",
+      "shortName": "SetFocus",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isFocused",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetTimeDilatation;Bool",
       "shortName": "SetTimeDilatation",
       "flags": 33028,
@@ -301,8 +530,23 @@
       "flags": 32900
     },
     {
+      "fullName": "ShowActionBlockedNotification;",
+      "shortName": "ShowActionBlockedNotification",
+      "flags": 32900
+    },
+    {
       "fullName": "TrackQuest;",
       "shortName": "TrackQuest",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryActivateChoice;",
+      "shortName": "TryActivateChoice",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryCallContact;",
+      "shortName": "TryCallContact",
       "flags": 32900
     }
   ]

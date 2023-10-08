@@ -4,7 +4,23 @@
   "flags": 4,
   "funcs": [
     {
-      "fullName": "TimeDilationHelper::GetCNameFromTimeSystemTweak;StringString",
+      "fullName": "TimeDilationHelper::CanUseTimeDilation;GameObject",
+      "shortName": "CanUseTimeDilation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "playerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TimeDilationHelper::GetCNameFromTimeSystemTweak;script_ref<String>script_ref<String>",
       "shortName": "GetCNameFromTimeSystemTweak",
       "return": {
         "type": "CName",
@@ -13,19 +29,19 @@
       "flags": 33286,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "tweakDBPath",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "paramName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "TimeDilationHelper::GetFloatFromTimeSystemTweak;StringString",
+      "fullName": "TimeDilationHelper::GetFloatFromTimeSystemTweak;script_ref<String>script_ref<String>",
       "shortName": "GetFloatFromTimeSystemTweak",
       "return": {
         "type": "Float",
@@ -34,12 +50,12 @@
       "flags": 33286,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "tweakDBPath",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "paramName",
           "flags": 128
         }
@@ -48,6 +64,15 @@
     {
       "fullName": "TimeDilationHelper::GetFocusModeKey;",
       "shortName": "GetFocusModeKey",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "TimeDilationHelper::GetFocusedStateKey;",
+      "shortName": "GetFocusedStateKey",
       "return": {
         "type": "CName",
         "flags": 64
@@ -91,7 +116,7 @@
       "flags": 33286
     },
     {
-      "fullName": "TimeDilationHelper::GetTimeDilationParameters;TimeDilationParametersString",
+      "fullName": "TimeDilationHelper::GetTimeDilationParameters;TimeDilationParametersscript_ref<String>",
       "shortName": "GetTimeDilationParameters",
       "flags": 33286,
       "params": [
@@ -101,8 +126,45 @@
           "flags": 640
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "profileName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TimeDilationHelper::RestorePreviousIgnoreTimeDilationOnLocalPlayerZero;GameObject",
+      "shortName": "RestorePreviousIgnoreTimeDilationOnLocalPlayerZero",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "requester",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TimeDilationHelper::SetIgnoreTimeDilationOnLocalPlayerZero;GameObjectBool",
+      "shortName": "SetIgnoreTimeDilationOnLocalPlayerZero",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "requester",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "ignore",
           "flags": 128
         }
       ]
@@ -149,7 +211,7 @@
       ]
     },
     {
-      "fullName": "TimeDilationHelper::SetTimeDilation;GameObjectCNameFloatFloatCNameCNameTimeDilationListener",
+      "fullName": "TimeDilationHelper::SetTimeDilation;GameObjectCNameFloatFloatCNameCNameBoolTimeDilationListener",
       "shortName": "SetTimeDilation",
       "return": {
         "type": "Bool",
@@ -188,6 +250,11 @@
           "flags": 128
         },
         {
+          "type": "Bool",
+          "name": "allowMultipleTimeDilationSimultaneously",
+          "flags": 128
+        },
+        {
           "type": "handle:tickScriptTimeDilationListener",
           "name": "listener",
           "flags": 1152
@@ -195,7 +262,7 @@
       ]
     },
     {
-      "fullName": "TimeDilationHelper::SetTimeDilationOnPlayer;GameObjectCNameFloatFloatCNameCNameTimeDilationListener",
+      "fullName": "TimeDilationHelper::SetTimeDilationOnPlayer;GameObjectCNameFloatFloatCNameCNameBoolTimeDilationListener",
       "shortName": "SetTimeDilationOnPlayer",
       "return": {
         "type": "Bool",
@@ -234,6 +301,11 @@
           "flags": 128
         },
         {
+          "type": "Bool",
+          "name": "allowMultipleTimeDilationSimultaneously",
+          "flags": 128
+        },
+        {
           "type": "handle:tickScriptTimeDilationListener",
           "name": "listener",
           "flags": 1152
@@ -241,7 +313,7 @@
       ]
     },
     {
-      "fullName": "TimeDilationHelper::SetTimeDilationWithProfile;GameObjectStringBool",
+      "fullName": "TimeDilationHelper::SetTimeDilationWithProfile;GameObjectscript_ref<String>BoolBool",
       "shortName": "SetTimeDilationWithProfile",
       "return": {
         "type": "Bool",
@@ -255,7 +327,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "profileName",
           "flags": 128
         },
@@ -263,12 +335,43 @@
           "type": "Bool",
           "name": "enable",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "allowMultipleTimeDilationSimultaneously",
+          "flags": 128
         }
       ]
     },
     {
       "fullName": "TimeDilationHelper::UnSetTimeDilation;GameObjectCNameCName",
       "shortName": "UnSetTimeDilation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "requester",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "reason",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "easeOutCurve",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TimeDilationHelper::UnSetTimeDilationOnPlayer;GameObjectCNameCName",
+      "shortName": "UnSetTimeDilationOnPlayer",
       "return": {
         "type": "Bool",
         "flags": 64

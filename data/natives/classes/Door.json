@@ -131,12 +131,12 @@
     {
       "type": "handle:entColliderComponent",
       "name": "playerBlocker",
-      "flags": 4431413280
+      "flags": 4431347744
     },
     {
       "type": "handle:AnimFeatureDoor",
       "name": "animFeatureDoor",
-      "flags": 4431347744
+      "flags": 4431413280
     },
     {
       "type": "Bool",
@@ -146,12 +146,7 @@
     {
       "type": "Int32",
       "name": "lastDoorSide",
-      "flags": 4297130016
-    },
-    {
-      "type": "String",
-      "name": "bankToLoad_TEMP",
-      "flags": 4297130017
+      "flags": 4297195552
     },
     {
       "type": "LedColors",
@@ -206,7 +201,7 @@
     {
       "type": "whandle:gameObject",
       "name": "whoOpened",
-      "flags": 4297130016
+      "flags": 4297195552
     },
     {
       "type": "Bool",
@@ -526,6 +521,22 @@
       ]
     },
     {
+      "fullName": "OnQuestForceClose",
+      "shortName": "OnQuestForceClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestForceClose",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnQuestForceCloseImmediate",
       "shortName": "OnQuestForceCloseImmediate",
       "return": {
@@ -820,43 +831,6 @@
       ]
     },
     {
-      "fullName": "AuthorizeUsers;array<Entity>",
-      "shortName": "AuthorizeUsers",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33028,
-      "params": [
-        {
-          "type": "array:handle:entEntity",
-          "name": "usersToAuthorize",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AuthorizeUsers;array<Entity>GameObject",
-      "shortName": "AuthorizeUsers",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33028,
-      "params": [
-        {
-          "type": "array:handle:entEntity",
-          "name": "usersToAuthorize",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameObject",
-          "name": "firstAuthorized",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "CanPassAnySkillCheckOnParentTerminal;",
       "shortName": "CanPassAnySkillCheckOnParentTerminal",
       "return": {
@@ -874,6 +848,15 @@
       "fullName": "CloseDoor;",
       "shortName": "CloseDoor",
       "flags": 32900
+    },
+    {
+      "fullName": "ClosestAuthorizedActiveEntityNearby;",
+      "shortName": "ClosestAuthorizedActiveEntityNearby",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 33028
     },
     {
       "fullName": "CreateLightSettings;",
@@ -895,7 +878,7 @@
       "flags": 41472
     },
     {
-      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
+      "fullName": "DeterminGameplayRoleMappinVisuaState;script_ref<SDeviceMappinData>",
       "shortName": "DeterminGameplayRoleMappinVisuaState",
       "return": {
         "type": "EMappinVisualState",
@@ -904,7 +887,7 @@
       "flags": 41472,
       "params": [
         {
-          "type": "SDeviceMappinData",
+          "type": "script_ref:SDeviceMappinData",
           "name": "data",
           "flags": 128
         }
@@ -933,9 +916,26 @@
       ]
     },
     {
-      "fullName": "EnableOccluder;",
-      "shortName": "EnableOccluder",
+      "fullName": "DisablePlayerBlocker;",
+      "shortName": "DisablePlayerBlocker",
       "flags": 33028
+    },
+    {
+      "fullName": "EnableOccluderInstanly;",
+      "shortName": "EnableOccluderInstanly",
+      "flags": 33028
+    },
+    {
+      "fullName": "EnableOccluderWithDelay;Float",
+      "shortName": "EnableOccluderWithDelay",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "EnableOffMeshConnections;BoolBool",
@@ -953,6 +953,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "EnablePlayerBlocker;",
+      "shortName": "EnablePlayerBlocker",
+      "flags": 33028
     },
     {
       "fullName": "EnterWorkspot;GameObjectBoolCNameCName",
@@ -1086,6 +1091,24 @@
       ]
     },
     {
+      "fullName": "GetOpeningSpeed;",
+      "shortName": "GetOpeningSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetOpeningTime;",
+      "shortName": "GetOpeningTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
       "fullName": "GetPlayerEntity;",
       "shortName": "GetPlayerEntity",
       "return": {
@@ -1170,22 +1193,6 @@
       "flags": 33028
     },
     {
-      "fullName": "IsSomeoneAuthorizedNearby;GameObject",
-      "shortName": "IsSomeoneAuthorizedNearby",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33028,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "firstAuthorized",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "IsSomeoneInTrigger;",
       "shortName": "IsSomeoneInTrigger",
       "return": {
@@ -1195,7 +1202,7 @@
       "flags": 33028
     },
     {
-      "fullName": "MoveDoor;BoolBool",
+      "fullName": "MoveDoor;BoolBoolFloat",
       "shortName": "MoveDoor",
       "return": {
         "type": "Bool",
@@ -1212,6 +1219,11 @@
           "type": "Bool",
           "name": "immediate",
           "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "movingSpeedMultiplier",
+          "flags": 1152
         }
       ]
     },
@@ -1274,6 +1286,11 @@
       ]
     },
     {
+      "fullName": "PlayOpenDoorSound;",
+      "shortName": "PlayOpenDoorSound",
+      "flags": 33024
+    },
+    {
       "fullName": "RedLightCondition;",
       "shortName": "RedLightCondition",
       "return": {
@@ -1283,7 +1300,7 @@
       "flags": 32900
     },
     {
-      "fullName": "RefreshAnimOpenDoor;BoolBool",
+      "fullName": "RefreshAnimOpenDoor;BoolBoolFloat",
       "shortName": "RefreshAnimOpenDoor",
       "flags": 32900,
       "params": [
@@ -1296,11 +1313,16 @@
           "type": "Bool",
           "name": "immediate",
           "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "animSpeedMultiplier",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "RefreshTransformAnimOpenDoor;BoolBool",
+      "fullName": "RefreshTransformAnimOpenDoor;BoolBoolFloat",
       "shortName": "RefreshTransformAnimOpenDoor",
       "flags": 32900,
       "params": [
@@ -1312,6 +1334,11 @@
         {
           "type": "Bool",
           "name": "immediate",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "animSpeedMultiplier",
           "flags": 128
         }
       ]
@@ -1417,6 +1444,11 @@
       "flags": 32900
     },
     {
+      "fullName": "SetupOpenDoorAnimationFeatures;",
+      "shortName": "SetupOpenDoorAnimationFeatures",
+      "flags": 33024
+    },
+    {
       "fullName": "ToggleDoorLockState;GameObjectBool",
       "shortName": "ToggleDoorLockState",
       "flags": 32900,
@@ -1434,6 +1466,18 @@
       ]
     },
     {
+      "fullName": "ToggleDoorOpeningState;GameObject",
+      "shortName": "ToggleDoorOpeningState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "activator",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ToggleDoorOpeningState;EntityID",
       "shortName": "ToggleDoorOpeningState",
       "flags": 32900,
@@ -1446,13 +1490,18 @@
       ]
     },
     {
-      "fullName": "ToggleDoorOpeningState;GameObject",
-      "shortName": "ToggleDoorOpeningState",
-      "flags": 32900,
+      "fullName": "TriggerMoveDoorStimBroadcaster;StimBroadcasterComponentstimInvestigateData",
+      "shortName": "TriggerMoveDoorStimBroadcaster",
+      "flags": 33024,
       "params": [
         {
-          "type": "handle:gameObject",
-          "name": "activator",
+          "type": "handle:StimBroadcasterComponent",
+          "name": "broadcaster",
+          "flags": 128
+        },
+        {
+          "type": "senseStimInvestigateData",
+          "name": "reactionData",
           "flags": 128
         }
       ]

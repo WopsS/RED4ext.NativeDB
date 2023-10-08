@@ -4,40 +4,9 @@
   "flags": 2,
   "props": [
     {
-      "type": "Float",
-      "name": "visionRadiusVehicle",
-      "group": "Minimap Settings",
-      "flags": 6627016705
-    },
-    {
-      "type": "Float",
-      "name": "visionRadiusCombat",
-      "group": "Minimap Settings",
-      "flags": 6627016705
-    },
-    {
-      "type": "Float",
-      "name": "visionRadiusQuestArea",
-      "group": "Minimap Settings",
-      "flags": 6627016705
-    },
-    {
-      "type": "Float",
-      "name": "visionRadiusSecurityArea",
-      "group": "Minimap Settings",
-      "flags": 6627016705
-    },
-    {
-      "type": "Float",
-      "name": "visionRadiusInterior",
-      "group": "Minimap Settings",
-      "flags": 6627016705
-    },
-    {
-      "type": "Float",
-      "name": "visionRadiusExterior",
-      "group": "Minimap Settings",
-      "flags": 6627016705
+      "type": "handle:gameMinimapSettings",
+      "name": "settings",
+      "flags": 6593462277
     },
     {
       "type": "inkCompoundWidgetReference",
@@ -124,6 +93,16 @@
       "flags": 4297195553
     },
     {
+      "type": "inkWidgetReference",
+      "name": "courierTimerContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "courierTimerText",
+      "flags": 4297195553
+    },
+    {
       "type": "whandle:inkWidget",
       "name": "rootWidget",
       "flags": 4297130016
@@ -145,6 +124,11 @@
     },
     {
       "type": "whandle:gameIBlackboard",
+      "name": "psmBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
       "name": "mapBlackboard",
       "flags": 4297130016
     },
@@ -159,8 +143,38 @@
       "flags": 4431347744
     },
     {
+      "type": "whandle:gameIBlackboard",
+      "name": "countdownTimerBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UI_HUDCountdownTimerDef",
+      "name": "countdownTimerDefinition",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "countdownTimerActiveCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "countdownTimerTimeCallback",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:redCallbackObject",
       "name": "securityBlackBoardID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "remoteControlledVehicleDataCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "remoteControlledVehicleCameraChangedToTPPCallback",
       "flags": 4431347744
     },
     {
@@ -174,13 +188,8 @@
       "flags": 4297130016
     },
     {
-      "type": "Bool",
-      "name": "zoneNeedsUpdate",
-      "flags": 4297130016
-    },
-    {
       "type": "ESecurityAreaType",
-      "name": "lastZoneType",
+      "name": "currentZoneType",
       "flags": 4297130016
     },
     {
@@ -190,6 +199,38 @@
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnCountdownTimerActiveUpdated",
+      "shortName": "OnCountdownTimerActiveUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "active",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCountdownTimerTimeUpdated",
+      "shortName": "OnCountdownTimerTimeUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -232,6 +273,22 @@
       ]
     },
     {
+      "fullName": "OnPSMRemoteControlledVehicleCameraChangedToTPP",
+      "shortName": "OnPSMRemoteControlledVehicleCameraChangedToTPP",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnPlayerAttach",
       "shortName": "OnPlayerAttach",
       "return": {
@@ -242,7 +299,7 @@
       "params": [
         {
           "type": "handle:gameObject",
-          "name": "playerGameObject",
+          "name": "player",
           "flags": 128
         }
       ]
@@ -258,7 +315,7 @@
       "params": [
         {
           "type": "handle:gameObject",
-          "name": "playerGameObject",
+          "name": "player",
           "flags": 128
         }
       ]
@@ -291,6 +348,22 @@
         {
           "type": "whandle:gameuiMinimapSecurityAreaMappinController",
           "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemoteControlledVehicleChanged",
+      "shortName": "OnRemoteControlledVehicleChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -347,28 +420,95 @@
       ]
     },
     {
+      "fullName": "GetCurrentZoneName;",
+      "shortName": "GetCurrentZoneName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetFadeInZoneDangerName;",
+      "shortName": "GetFadeInZoneDangerName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetFadeInZoneSafetyName;",
+      "shortName": "GetFadeInZoneSafetyName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "InitializePlayer;GameObject",
       "shortName": "InitializePlayer",
       "flags": 33028,
       "params": [
         {
           "type": "handle:gameObject",
-          "name": "playerPuppet",
+          "name": "player",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "SecurityZoneUpdate;ESecurityAreaType",
-      "shortName": "SecurityZoneUpdate",
+      "fullName": "PlayZoneVignetteAnimation;CName",
+      "shortName": "PlayZoneVignetteAnimation",
       "flags": 32900,
       "params": [
         {
-          "type": "ESecurityAreaType",
-          "name": "zone",
+          "type": "CName",
+          "name": "animationName",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "SecurityZoneUpdate;",
+      "shortName": "SecurityZoneUpdate",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetMinimapVisualsForCombat;",
+      "shortName": "SetMinimapVisualsForCombat",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryPlayFadeInAnimation;",
+      "shortName": "TryPlayFadeInAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryStopZoneVignetteAnimation;",
+      "shortName": "TryStopZoneVignetteAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateFluffTextCount;",
+      "shortName": "UpdateFluffTextCount",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateInPublicOrRestricedZoneFlag;",
+      "shortName": "UpdateInPublicOrRestricedZoneFlag",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateSecurityAreaZoneVignette;",
+      "shortName": "UpdateSecurityAreaZoneVignette",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateZoneText;",
+      "shortName": "UpdateZoneText",
+      "flags": 32900
     },
     {
       "fullName": "ZoneToState;ESecurityAreaType",

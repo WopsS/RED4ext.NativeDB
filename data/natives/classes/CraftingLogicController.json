@@ -34,11 +34,6 @@
       "flags": 4297130017
     },
     {
-      "type": "inkImageWidgetReference",
-      "name": "perkIcon",
-      "flags": 4297130017
-    },
-    {
       "type": "whandle:AGenericTooltipController",
       "name": "itemTooltipController",
       "flags": 4297130016
@@ -49,7 +44,7 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:InventoryTooltipData",
+      "type": "handle:ATooltipData",
       "name": "tooltipData",
       "flags": 4431347744
     },
@@ -77,9 +72,30 @@
       "type": "whandle:CraftBook",
       "name": "playerCraftBook",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hasSpawnedQuickHackTooltip",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "CraftingLogicController::GetMinimumLevelRequiredByQuality;gamedataQuality",
+      "shortName": "GetMinimumLevelRequiredByQuality",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnClothingControllerSpawned",
       "shortName": "OnClothingControllerSpawned",
@@ -97,22 +113,6 @@
         {
           "type": "handle:IScriptable",
           "name": "userData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnDisplayHoverOut",
-      "shortName": "OnDisplayHoverOut",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:ItemDisplayHoverOutEvent",
-          "name": "hoverOutEvent",
           "flags": 128
         }
       ]
@@ -283,6 +283,16 @@
       ]
     },
     {
+      "fullName": "EnableMainTooltip;",
+      "shortName": "EnableMainTooltip",
+      "flags": 32900
+    },
+    {
+      "fullName": "EnableQuickHackTooltip;",
+      "shortName": "EnableQuickHackTooltip",
+      "flags": 32900
+    },
+    {
       "fullName": "GetInventoryItemDataFromRecord;Item_Record",
       "shortName": "GetInventoryItemDataFromRecord",
       "return": {
@@ -299,10 +309,28 @@
       ]
     },
     {
-      "fullName": "GetRecipeOutcomeTooltip;RecipeDataInventoryItemDatagameItemData",
-      "shortName": "GetRecipeOutcomeTooltip",
+      "fullName": "GetMinimalInvetoryItemData;",
+      "shortName": "GetMinimalInvetoryItemData",
       "return": {
-        "type": "handle:InventoryTooltipData",
+        "type": "handle:MinimalItemTooltipData",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetQuality;",
+      "shortName": "GetQuality",
+      "return": {
+        "type": "gamedataQuality",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetQuickHackTooltipData;RecipeDataInventoryItemDatagameItemData",
+      "shortName": "GetQuickHackTooltipData",
+      "return": {
+        "type": "handle:ATooltipData",
         "flags": 64
       },
       "flags": 32900,
@@ -334,6 +362,27 @@
       "flags": 32900
     },
     {
+      "fullName": "HasAmmoCap;",
+      "shortName": "HasAmmoCap",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "HideMods;MinimalItemTooltipData",
+      "shortName": "HideMods",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:MinimalItemTooltipData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Init;CraftingMainGameController",
       "shortName": "Init",
       "flags": 33280,
@@ -346,28 +395,26 @@
       ]
     },
     {
-      "fullName": "IsProgramInInventory;Item_Record",
-      "shortName": "IsProgramInInventory",
+      "fullName": "IsQuickHackItem;",
+      "shortName": "IsQuickHackItem",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "handle:gamedataItem_Record",
-          "name": "itemRecord",
-          "flags": 128
-        }
-      ]
+      "flags": 32900
     },
     {
-      "fullName": "OpenQuantityPicker;InventoryItemDataInt32",
+      "fullName": "OnChangeTab;",
+      "shortName": "OnChangeTab",
+      "flags": 33280
+    },
+    {
+      "fullName": "OpenQuantityPicker;script_ref<InventoryItemData>Int32",
       "shortName": "OpenQuantityPicker",
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -403,9 +450,16 @@
       ]
     },
     {
-      "fullName": "SetPerkNotification;",
-      "shortName": "SetPerkNotification",
-      "flags": 32900
+      "fullName": "SetNotification;Bool",
+      "shortName": "SetNotification",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isQuickHack",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetQualityHeader;",
@@ -423,18 +477,42 @@
       "flags": 33024
     },
     {
-      "fullName": "SetupIngredients;array<IngredientData>Int32",
+      "fullName": "SetupIngredients;script_ref<array<IngredientData>>Int32",
       "shortName": "SetupIngredients",
       "flags": 32900,
       "params": [
         {
-          "type": "array:IngredientData",
+          "type": "script_ref:array:IngredientData",
           "name": "ingredient",
           "flags": 128
         },
         {
           "type": "Int32",
           "name": "itemAmount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleMainTooltip;Bool",
+      "shortName": "ToggleMainTooltip",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isEnabled",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleQuickHackTooltip;Bool",
+      "shortName": "ToggleQuickHackTooltip",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isEnabled",
           "flags": 128
         }
       ]

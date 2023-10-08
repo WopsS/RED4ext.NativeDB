@@ -1,0 +1,386 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "NewPerksPerkItemLogicController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkImageWidgetReference",
+      "name": "icon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "iconGhost",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "lockIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "requiredPointsText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "levelText",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "DEV_notYetImplemented",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:NewPerksPerkContainerLogicController",
+      "name": "container",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:NewPerksPerkItemInitData",
+      "name": "initData",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isUnlocked",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "currentLevel",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hovered",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "maxedAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "array:handle:inkanimProxy",
+      "name": "animProxies",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "isRelic",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnHoverOut",
+      "shortName": "OnHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOver",
+      "shortName": "OnHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnRelease",
+      "shortName": "OnRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAnimationPrefix;",
+      "shortName": "GetAnimationPrefix",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "GetAnimationSound;NewPerkCellAnimationType",
+      "shortName": "GetAnimationSound",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "NewPerkCellAnimationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAnimationSuffix;NewPerkCellAnimationType",
+      "shortName": "GetAnimationSuffix",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "NewPerkCellAnimationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetContainer;",
+      "shortName": "GetContainer",
+      "return": {
+        "type": "whandle:NewPerksPerkContainerLogicController",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetLevel;",
+      "shortName": "GetLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetMaxLevel;",
+      "shortName": "GetMaxLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetNewPerkDisplayData;",
+      "shortName": "GetNewPerkDisplayData",
+      "return": {
+        "type": "handle:NewPerkDisplayData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPerkRecord;",
+      "shortName": "GetPerkRecord",
+      "return": {
+        "type": "whandle:gamedataNewPerk_Record",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPerkType;",
+      "shortName": "GetPerkType",
+      "return": {
+        "type": "gamedataNewPerkType",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetRumbleStrength;NewPerkCellAnimationType",
+      "shortName": "GetRumbleStrength",
+      "return": {
+        "type": "inkRumbleStrength",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "NewPerkCellAnimationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSlotIdentifier;",
+      "shortName": "GetSlotIdentifier",
+      "return": {
+        "type": "gamedataNewPerkSlotType",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetTargetAnimation;NewPerkCellAnimationType",
+      "shortName": "GetTargetAnimation",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "NewPerkCellAnimationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;NewPerksPerkContainerLogicControllerNewPerksPerkItemInitData",
+      "shortName": "Initialize",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:NewPerksPerkContainerLogicController",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "handle:NewPerksPerkItemInitData",
+          "name": "initData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsAttributeRequirementMet;",
+      "shortName": "IsAttributeRequirementMet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsMaxed;",
+      "shortName": "IsMaxed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsUnlocked;",
+      "shortName": "IsUnlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "PlayAnimation;NewPerkCellAnimationType",
+      "shortName": "PlayAnimation",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "NewPerkCellAnimationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlaySoundForAnim;NewPerkCellAnimationType",
+      "shortName": "PlaySoundForAnim",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "NewPerkCellAnimationType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAttributeRequirementMet;Bool",
+      "shortName": "SetAttributeRequirementMet",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLevel;Int32",
+      "shortName": "SetLevel",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUnlocked;Bool",
+      "shortName": "SetUnlocked",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopAllAnimations;",
+      "shortName": "StopAllAnimations",
+      "flags": 33284
+    },
+    {
+      "fullName": "UpdateState;",
+      "shortName": "UpdateState",
+      "flags": 33284
+    }
+  ]
+}

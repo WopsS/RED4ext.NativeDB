@@ -40,11 +40,6 @@
     },
     {
       "type": "inkWidgetReference",
-      "name": "specialOffersWrapper",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
       "name": "playerInventoryGridScroll",
       "flags": 4297130017
     },
@@ -349,11 +344,6 @@
       "flags": 6583025696
     },
     {
-      "type": "handle:SoldItemsCache",
-      "name": "soldItems",
-      "flags": 4431347744
-    },
-    {
       "type": "Bool",
       "name": "isActivePanel",
       "flags": 4297130016
@@ -384,6 +374,16 @@
       "flags": 6583025696
     },
     {
+      "type": "array:handle:gameItemData",
+      "name": "boughtQuestItems",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:SoldItemsCache",
+      "name": "vendorSoldItems",
+      "flags": 4431347744
+    },
+    {
       "type": "array:handle:UIInventoryItem",
       "name": "vendorUIInventoryItems",
       "flags": 6583025696
@@ -397,12 +397,54 @@
       "type": "handle:ItemDisplayContextData",
       "name": "vendorItemDisplayContext",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "transactionPending",
+      "flags": 4297130016
+    },
+    {
+      "type": "ScreenDisplayContext",
+      "name": "screenDisplayContext",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
       "fullName": "OnBack",
       "shortName": "OnBack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBeforeLeaveScenario",
+      "shortName": "OnBeforeLeaveScenario",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseMenu",
+      "shortName": "OnCloseMenu",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -719,6 +761,22 @@
       ]
     },
     {
+      "fullName": "OnSetScreenDisplayContext",
+      "shortName": "OnSetScreenDisplayContext",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetUserData",
       "shortName": "OnSetUserData",
       "return": {
@@ -829,13 +887,13 @@
       ]
     },
     {
-      "fullName": "BuyItem;gameItemDataInt32Bool",
+      "fullName": "BuyItem;UIInventoryItemInt32Bool",
       "shortName": "BuyItem",
       "flags": 32900,
       "params": [
         {
-          "type": "handle:gameItemData",
-          "name": "itemData",
+          "type": "handle:UIInventoryItem",
+          "name": "item",
           "flags": 128
         },
         {
@@ -851,7 +909,7 @@
       ]
     },
     {
-      "fullName": "FilterOutDuplicateVendorItems;array<VendorGameItemData>",
+      "fullName": "FilterOutDuplicateVendorItems;script_ref<array<VendorGameItemData>>",
       "shortName": "FilterOutDuplicateVendorItems",
       "return": {
         "type": "array:handle:VendorGameItemData",
@@ -860,26 +918,26 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:VendorGameItemData",
+          "type": "script_ref:array:handle:VendorGameItemData",
           "name": "items",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "FlagDLCAddedItemsAsInspected;array<ItemID>",
+      "fullName": "FlagDLCAddedItemsAsInspected;script_ref<array<ItemID>>",
       "shortName": "FlagDLCAddedItemsAsInspected",
       "flags": 32900,
       "params": [
         {
-          "type": "array:gameItemID",
+          "type": "script_ref:array:gameItemID",
           "name": "itemsID",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetBulkSellPrice;array<gameItemData>",
+      "fullName": "GetBulkSellPrice;script_ref<array<VendorJunkSellItem>>",
       "shortName": "GetBulkSellPrice",
       "return": {
         "type": "Float",
@@ -888,14 +946,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:whandle:gameItemData",
+          "type": "script_ref:array:handle:VendorJunkSellItem",
           "name": "items",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetBulkSellPrice;array<VendorJunkSellItem>",
+      "fullName": "GetBulkSellPrice;script_ref<array<gameItemData>>",
       "shortName": "GetBulkSellPrice",
       "return": {
         "type": "Float",
@@ -904,7 +962,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:VendorJunkSellItem",
+          "type": "script_ref:array:whandle:gameItemData",
           "name": "items",
           "flags": 128
         }
@@ -927,7 +985,7 @@
       ]
     },
     {
-      "fullName": "GetLimitedSellableItems;array<gameItemData>Int32",
+      "fullName": "GetLimitedSellableItems;script_ref<array<gameItemData>>Int32",
       "shortName": "GetLimitedSellableItems",
       "return": {
         "type": "array:handle:VendorJunkSellItem",
@@ -936,7 +994,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:whandle:gameItemData",
+          "type": "script_ref:array:whandle:gameItemData",
           "name": "items",
           "flags": 128
         },
@@ -948,7 +1006,7 @@
       ]
     },
     {
-      "fullName": "GetMaxQuantity;UIInventoryItemBool",
+      "fullName": "GetMaxQuantity;UIInventoryItemBoolBool",
       "shortName": "GetMaxQuantity",
       "return": {
         "type": "Int32",
@@ -964,6 +1022,11 @@
         {
           "type": "Bool",
           "name": "isPlayerItem",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isBuybackStack",
           "flags": 1152
         }
       ]
@@ -1075,6 +1138,22 @@
       ]
     },
     {
+      "fullName": "NotGrenadeOrHealingItem;UIInventoryItem",
+      "shortName": "NotGrenadeOrHealingItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OpenConfirmationPopup;UIInventoryItemInt32QuantityPickerActionTypeVendorConfirmationPopupType",
       "shortName": "OpenConfirmationPopup",
       "flags": 32900,
@@ -1134,6 +1213,11 @@
       "flags": 32900
     },
     {
+      "fullName": "PopulateInventories;",
+      "shortName": "PopulateInventories",
+      "flags": 32900
+    },
+    {
       "fullName": "PopulatePlayerInventory;",
       "shortName": "PopulatePlayerInventory",
       "flags": 32900
@@ -1149,21 +1233,14 @@
       "flags": 32900
     },
     {
-      "fullName": "RemoveBB;",
-      "shortName": "RemoveBB",
+      "fullName": "ReleaseVirtualLists;",
+      "shortName": "ReleaseVirtualLists",
       "flags": 32900
     },
     {
-      "fullName": "RequestAutoSave;Float",
-      "shortName": "RequestAutoSave",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "Float",
-          "name": "delay",
-          "flags": 1152
-        }
-      ]
+      "fullName": "RemoveBB;",
+      "shortName": "RemoveBB",
+      "flags": 32900
     },
     {
       "fullName": "SellItem;gameItemDataInt32",
@@ -1183,7 +1260,7 @@
       ]
     },
     {
-      "fullName": "SetFilters;inkWidgetRefarray<Int32>CName",
+      "fullName": "SetFilters;inkWidgetRefscript_ref<array<Int32>>CName",
       "shortName": "SetFilters",
       "flags": 32900,
       "params": [
@@ -1193,7 +1270,7 @@
           "flags": 128
         },
         {
-          "type": "array:Int32",
+          "type": "script_ref:array:Int32",
           "name": "data",
           "flags": 128
         },
@@ -1207,7 +1284,7 @@
     {
       "fullName": "SetTimeDilatation;Bool",
       "shortName": "SetTimeDilatation",
-      "flags": 33284,
+      "flags": 32900,
       "params": [
         {
           "type": "Bool",

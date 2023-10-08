@@ -176,6 +176,11 @@
       "type": "gameDelayID",
       "name": "hitInstigatorCooldownID",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isTargetedWithSmartWeapon",
+      "flags": 4297195552
     }
   ],
   "funcs": [
@@ -448,6 +453,27 @@
       ]
     },
     {
+      "fullName": "gameObject::GetFinisherHealthThresholdIncrease;GameObjectGameObject",
+      "shortName": "GetFinisherHealthThresholdIncrease",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "gameObject::GetLocalAngleForDirectionInInt;Vector4GameObject",
       "shortName": "GetLocalAngleForDirectionInInt",
       "return": {
@@ -506,6 +532,27 @@
       ]
     },
     {
+      "fullName": "gameObject::GetTargetAngleInInt;GameObjectGameObject",
+      "shortName": "GetTargetAngleInInt",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "gameObject::GetTargetAngleInInt;GameObjectGameObjectInt32",
       "shortName": "GetTargetAngleInInt",
       "return": {
@@ -528,27 +575,6 @@
           "type": "Int32",
           "name": "backDirection",
           "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "gameObject::GetTargetAngleInInt;GameObjectGameObject",
-      "shortName": "GetTargetAngleInInt",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameObject",
-          "name": "owner",
-          "flags": 128
         }
       ]
     },
@@ -1117,6 +1143,54 @@
       ]
     },
     {
+      "fullName": "gameObject::TargetHasDebuff;GameObject",
+      "shortName": "TargetHasDebuff",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gameObject::TargetHasLocomotionMalfunction;GameObject",
+      "shortName": "TargetHasLocomotionMalfunction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33030,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gameObject::TargetIsStunned;GameObject",
+      "shortName": "TargetIsStunned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33030,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "gameObject::ToggleForcedVisibilityInAnimSystemEvent;GameObjectCNameBoolFloat",
       "shortName": "ToggleForcedVisibilityInAnimSystemEvent",
       "flags": 33286,
@@ -1158,7 +1232,7 @@
     {
       "fullName": "EnableTransformUpdates",
       "shortName": "EnableTransformUpdates",
-      "index": 10172,
+      "index": 11501,
       "flags": 1,
       "params": [
         {
@@ -1171,7 +1245,7 @@
     {
       "fullName": "GetAudioName",
       "shortName": "GetAudioName",
-      "index": 10168,
+      "index": 11497,
       "flags": 8193
     },
     {
@@ -1181,7 +1255,7 @@
         "type": "handle:gameObjectPS",
         "flags": 64
       },
-      "index": 10186,
+      "index": 11515,
       "flags": 8193
     },
     {
@@ -1191,13 +1265,13 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 10181,
+      "index": 11510,
       "flags": 8193
     },
     {
       "fullName": "GetCurveValue",
       "shortName": "GetCurveValue",
-      "index": 10180,
+      "index": 11509,
       "flags": 1,
       "params": [
         {
@@ -1225,7 +1299,7 @@
     {
       "fullName": "GetDisplayDescription",
       "shortName": "GetDisplayDescription",
-      "index": 10170,
+      "index": 11499,
       "flags": 8193
     },
     {
@@ -1235,7 +1309,7 @@
         "type": "String",
         "flags": 64
       },
-      "index": 10169,
+      "index": 11498,
       "flags": 8193
     },
     {
@@ -1245,7 +1319,7 @@
         "type": "ScriptGameInstance",
         "flags": 64
       },
-      "index": 10171,
+      "index": 11500,
       "flags": 8193
     },
     {
@@ -1255,7 +1329,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 10167,
+      "index": 11496,
       "flags": 8193
     },
     {
@@ -1265,7 +1339,7 @@
         "type": "whandle:gameObject",
         "flags": 64
       },
-      "index": 10175,
+      "index": 11504,
       "flags": 1
     },
     {
@@ -1275,7 +1349,7 @@
         "type": "handle:gameObjectPS",
         "flags": 64
       },
-      "index": 10185,
+      "index": 11514,
       "flags": 8193
     },
     {
@@ -1285,7 +1359,7 @@
         "type": "String",
         "flags": 64
       },
-      "index": 10176,
+      "index": 11505,
       "flags": 1
     },
     {
@@ -1295,7 +1369,7 @@
         "type": "handle:entSlotComponent",
         "flags": 64
       },
-      "index": 10195,
+      "index": 11524,
       "flags": 8193
     },
     {
@@ -1305,7 +1379,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10187,
+      "index": 11516,
       "flags": 8193,
       "params": [
         {
@@ -1322,7 +1396,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10174,
+      "index": 11503,
       "flags": 8193
     },
     {
@@ -1332,7 +1406,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10173,
+      "index": 11502,
       "flags": 8193
     },
     {
@@ -1342,7 +1416,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10183,
+      "index": 11512,
       "flags": 8193
     },
     {
@@ -1352,13 +1426,13 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10182,
+      "index": 11511,
       "flags": 8193
     },
     {
       "fullName": "QueueReplicatedEvent",
       "shortName": "QueueReplicatedEvent",
-      "index": 10190,
+      "index": 11519,
       "flags": 1,
       "params": [
         {
@@ -1371,7 +1445,7 @@
     {
       "fullName": "RegisterInputListener",
       "shortName": "RegisterInputListener",
-      "index": 10177,
+      "index": 11506,
       "flags": 1,
       "params": [
         {
@@ -1389,7 +1463,7 @@
     {
       "fullName": "RegisterInputListenerWithOwner",
       "shortName": "RegisterInputListenerWithOwner",
-      "index": 10178,
+      "index": 11507,
       "flags": 1,
       "params": [
         {
@@ -1407,7 +1481,7 @@
     {
       "fullName": "ReplicateAnimEvent",
       "shortName": "ReplicateAnimEvent",
-      "index": 10189,
+      "index": 11518,
       "flags": 1,
       "params": [
         {
@@ -1425,7 +1499,7 @@
     {
       "fullName": "ReplicateAnimFeature",
       "shortName": "ReplicateAnimFeature",
-      "index": 10188,
+      "index": 11517,
       "flags": 1,
       "params": [
         {
@@ -1448,7 +1522,7 @@
     {
       "fullName": "ReplicateInputBool",
       "shortName": "ReplicateInputBool",
-      "index": 10192,
+      "index": 11521,
       "flags": 1,
       "params": [
         {
@@ -1471,7 +1545,7 @@
     {
       "fullName": "ReplicateInputFloat",
       "shortName": "ReplicateInputFloat",
-      "index": 10191,
+      "index": 11520,
       "flags": 1,
       "params": [
         {
@@ -1494,7 +1568,7 @@
     {
       "fullName": "ReplicateInputInt",
       "shortName": "ReplicateInputInt",
-      "index": 10193,
+      "index": 11522,
       "flags": 1,
       "params": [
         {
@@ -1517,7 +1591,7 @@
     {
       "fullName": "ReplicateInputVector",
       "shortName": "ReplicateInputVector",
-      "index": 10194,
+      "index": 11523,
       "flags": 1,
       "params": [
         {
@@ -1544,7 +1618,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10184,
+      "index": 11513,
       "flags": 1,
       "params": [
         {
@@ -1567,7 +1641,7 @@
     {
       "fullName": "UnregisterInputListener",
       "shortName": "UnregisterInputListener",
-      "index": 10179,
+      "index": 11508,
       "flags": 1,
       "params": [
         {
@@ -1857,6 +1931,22 @@
       ]
     },
     {
+      "fullName": "OnMiss",
+      "shortName": "OnMiss",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsMissEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnOutlineRequestEvent",
       "shortName": "OnOutlineRequestEvent",
       "return": {
@@ -1985,6 +2075,22 @@
       ]
     },
     {
+      "fullName": "OnScaleAndLockLeftHandWeaponsCompensateInStashEvent",
+      "shortName": "OnScaleAndLockLeftHandWeaponsCompensateInStashEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ScaleAndLockLeftHandWeaponsCompensateInStashEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnScanningLookedAt",
       "shortName": "OnScanningLookedAt",
       "return": {
@@ -2027,22 +2133,6 @@
       "params": [
         {
           "type": "handle:gameSetAsQuestImportantEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetGlitchOnUIEvent",
-      "shortName": "OnSetGlitchOnUIEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:SetGlitchOnUIEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2225,6 +2315,24 @@
       ]
     },
     {
+      "fullName": "BlockFinisherThreshold;",
+      "shortName": "BlockFinisherThreshold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "BlockWorkspotFinishers;",
+      "shortName": "BlockWorkspotFinishers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "CanBeInvestigated;",
       "shortName": "CanBeInvestigated",
       "return": {
@@ -2279,6 +2387,15 @@
       "flags": 41472
     },
     {
+      "fullName": "CanPlayerScanThroughWalls;",
+      "shortName": "CanPlayerScanThroughWalls",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "CanPlayerUseQuickHackVulnerability;TweakDBID",
       "shortName": "CanPlayerUseQuickHackVulnerability",
       "return": {
@@ -2295,6 +2412,15 @@
       ]
     },
     {
+      "fullName": "CanReceivePoiseDamage;",
+      "shortName": "CanReceivePoiseDamage",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "CanRevealRemoteActionsWheel;",
       "shortName": "CanRevealRemoteActionsWheel",
       "return": {
@@ -2302,15 +2428,6 @@
         "flags": 64
       },
       "flags": 41472
-    },
-    {
-      "fullName": "CanScanThroughWalls;",
-      "shortName": "CanScanThroughWalls",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476
     },
     {
       "fullName": "CancelForcedVisionAppearance;FocusForcedHighlightData",
@@ -2325,12 +2442,12 @@
       ]
     },
     {
-      "fullName": "CheckIfPreventionShouldReact;array<GameObject>",
+      "fullName": "CheckIfPreventionShouldReact;script_ref<array<GameObject>>",
       "shortName": "CheckIfPreventionShouldReact",
       "flags": 32900,
       "params": [
         {
-          "type": "array:whandle:gameObject",
+          "type": "script_ref:array:whandle:gameObject",
           "name": "damageDealers",
           "flags": 128
         }
@@ -2372,7 +2489,7 @@
       "flags": 41472
     },
     {
-      "fullName": "DeterminGameplayRoleMappinRange;SDeviceMappinData",
+      "fullName": "DeterminGameplayRoleMappinRange;script_ref<SDeviceMappinData>",
       "shortName": "DeterminGameplayRoleMappinRange",
       "return": {
         "type": "Float",
@@ -2381,14 +2498,14 @@
       "flags": 41472,
       "params": [
         {
-          "type": "SDeviceMappinData",
+          "type": "script_ref:SDeviceMappinData",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "DeterminGameplayRoleMappinVisuaState;SDeviceMappinData",
+      "fullName": "DeterminGameplayRoleMappinVisuaState;script_ref<SDeviceMappinData>",
       "shortName": "DeterminGameplayRoleMappinVisuaState",
       "return": {
         "type": "EMappinVisualState",
@@ -2397,7 +2514,7 @@
       "flags": 41472,
       "params": [
         {
-          "type": "SDeviceMappinData",
+          "type": "script_ref:SDeviceMappinData",
           "name": "data",
           "flags": 128
         }
@@ -2433,12 +2550,12 @@
       ]
     },
     {
-      "fullName": "DisplayHitUI;array<DamageInfo>",
+      "fullName": "DisplayHitUI;script_ref<array<DamageInfo>>",
       "shortName": "DisplayHitUI",
       "flags": 33280,
       "params": [
         {
-          "type": "array:gameuiDamageInfo",
+          "type": "script_ref:array:gameuiDamageInfo",
           "name": "dmgInfos",
           "flags": 128
         }
@@ -2611,6 +2728,15 @@
       "flags": 41472
     },
     {
+      "fullName": "GetCurrentlyUploadingAction;",
+      "shortName": "GetCurrentlyUploadingAction",
+      "return": {
+        "type": "handle:ScriptableDeviceAction",
+        "flags": 64
+      },
+      "flags": 33280
+    },
+    {
       "fullName": "GetDefaultHighlight;",
       "shortName": "GetDefaultHighlight",
       "return": {
@@ -2729,6 +2855,15 @@
       "flags": 41476
     },
     {
+      "fullName": "GetIsBroken;",
+      "shortName": "GetIsBroken",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "GetIsIconic;",
       "shortName": "GetIsIconic",
       "return": {
@@ -2736,6 +2871,15 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "GetIsInFastFinisher;",
+      "shortName": "GetIsInFastFinisher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetLinkedClueData;Int32",
@@ -2761,6 +2905,22 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "GetNPCsAroundObject;Float",
+      "shortName": "GetNPCsAroundObject",
+      "return": {
+        "type": "array:handle:NPCPuppet",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "range",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "GetNetworkBeamEndpoint;",
@@ -3177,6 +3337,15 @@
       "flags": 41472
     },
     {
+      "fullName": "HasFinisherAvailable;",
+      "shortName": "HasFinisherAvailable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "HasFreeWorkspotForInvestigation;",
       "shortName": "HasFreeWorkspotForInvestigation",
       "return": {
@@ -3184,27 +3353,6 @@
         "flags": 64
       },
       "flags": 41472
-    },
-    {
-      "fullName": "HasHighlight;EFocusForcedHighlightTypeEFocusOutlineType",
-      "shortName": "HasHighlight",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "EFocusForcedHighlightType",
-          "name": "highlightType",
-          "flags": 128
-        },
-        {
-          "type": "EFocusOutlineType",
-          "name": "outlineType",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "HasHighlight;EFocusForcedHighlightTypeEFocusOutlineTypeEntityID",
@@ -3259,6 +3407,27 @@
         {
           "type": "CName",
           "name": "sourceName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasHighlight;EFocusForcedHighlightTypeEFocusOutlineType",
+      "shortName": "HasHighlight",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "EFocusForcedHighlightType",
+          "name": "highlightType",
+          "flags": 128
+        },
+        {
+          "type": "EFocusOutlineType",
+          "name": "outlineType",
           "flags": 128
         }
       ]
@@ -3339,6 +3508,15 @@
     {
       "fullName": "IsActiveBackdoor;",
       "shortName": "IsActiveBackdoor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsAmmoLoot;",
+      "shortName": "IsAmmoLoot",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -3596,6 +3774,15 @@
       "flags": 41472
     },
     {
+      "fullName": "IsHandgunAmmoLoot;",
+      "shortName": "IsHandgunAmmoLoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "IsHighlightedInFocusMode;",
       "shortName": "IsHighlightedInFocusMode",
       "return": {
@@ -3612,6 +3799,22 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "IsInFinisherHealthThreshold;GameObject",
+      "shortName": "IsInFinisherHealthThreshold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "IsInIconForcedVisibilityRange;",
@@ -3729,6 +3932,15 @@
       "flags": 41476
     },
     {
+      "fullName": "IsPaperdoll;",
+      "shortName": "IsPaperdoll",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "IsPhotoModeBlocked;",
       "shortName": "IsPhotoModeBlocked",
       "return": {
@@ -3810,6 +4022,15 @@
       "flags": 41472
     },
     {
+      "fullName": "IsRifleAmmoLoot;",
+      "shortName": "IsRifleAmmoLoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "IsScaningCluesBlocked;",
       "shortName": "IsScaningCluesBlocked",
       "return": {
@@ -3855,6 +4076,24 @@
       "flags": 41472
     },
     {
+      "fullName": "IsShotgunAmmoLoot;",
+      "shortName": "IsShotgunAmmoLoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsSniperAmmoLoot;",
+      "shortName": "IsSniperAmmoLoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "IsSolo;",
       "shortName": "IsSolo",
       "return": {
@@ -3889,6 +4128,15 @@
       ]
     },
     {
+      "fullName": "IsTargetedWithSmartWeapon;",
+      "shortName": "IsTargetedWithSmartWeapon",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
       "fullName": "IsTechie;",
       "shortName": "IsTechie",
       "return": {
@@ -3909,6 +4157,15 @@
     {
       "fullName": "IsVRReplacer;",
       "shortName": "IsVRReplacer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsValidHostileTarget;",
+      "shortName": "IsValidHostileTarget",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -4088,6 +4345,18 @@
       ]
     },
     {
+      "fullName": "ProlongWeaponGlitchNPCDebuff;PlayerPuppet",
+      "shortName": "ProlongWeaponGlitchNPCDebuff",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PulseNetwork;Bool",
       "shortName": "PulseNetwork",
       "flags": 33024,
@@ -4232,12 +4501,12 @@
       ]
     },
     {
-      "fullName": "ResolveFacts;array<SFactOperationData>",
+      "fullName": "ResolveFacts;script_ref<array<SFactOperationData>>",
       "shortName": "ResolveFacts",
       "flags": 33028,
       "params": [
         {
-          "type": "array:SFactOperationData",
+          "type": "script_ref:array:SFactOperationData",
           "name": "facts",
           "flags": 128
         }
@@ -4375,6 +4644,18 @@
       "fullName": "SendReactivateHighlightEvent;",
       "shortName": "SendReactivateHighlightEvent",
       "flags": 33028
+    },
+    {
+      "fullName": "SetCurrentlyUploadingAction;ScriptableDeviceAction",
+      "shortName": "SetCurrentlyUploadingAction",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetScannerDirty;Bool",
@@ -4562,6 +4843,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "TryGetControlledProxy;",
+      "shortName": "TryGetControlledProxy",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "TryOpenQuickhackMenu;Bool",

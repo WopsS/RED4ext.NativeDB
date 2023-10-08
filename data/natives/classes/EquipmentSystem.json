@@ -1,5 +1,5 @@
 {
-  "parent": "gameScriptableSystem",
+  "parent": "gameIEquipmentSystem",
   "name": "EquipmentSystem",
   "flags": 4,
   "props": [
@@ -175,7 +175,7 @@
         "type": "array:gameItemID",
         "flags": 64
       },
-      "flags": 33286,
+      "flags": 34310,
       "params": [
         {
           "type": "handle:gameObject",
@@ -380,6 +380,28 @@
       ]
     },
     {
+      "fullName": "EquipmentSystem::RequestUnequipItem;GameObjectgamedataEquipmentAreaInt32",
+      "shortName": "RequestUnequipItem",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "EquipmentSystem::UnequipPrereqItems;GameObject",
       "shortName": "UnequipPrereqItems",
       "flags": 33286,
@@ -397,31 +419,14 @@
       "flags": 32900
     },
     {
-      "fullName": "Debug_FillESSlotData;Int32StringItemIDGameObject",
-      "shortName": "Debug_FillESSlotData",
-      "flags": 41476,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "slotIndex",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "areaStr",
-          "flags": 128
-        },
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "ownerGameObject",
-          "flags": 128
-        }
-      ]
+      "fullName": "CheckSaburoDogTagPresence;",
+      "shortName": "CheckSaburoDogTagPresence",
+      "flags": 32900
+    },
+    {
+      "fullName": "ConsumablesChargesRework;",
+      "shortName": "ConsumablesChargesRework",
+      "flags": 32900
     },
     {
       "fullName": "Debug_FillESSlotData;Int32gamedataEquipmentAreaItemIDGameObject",
@@ -451,7 +456,34 @@
       ]
     },
     {
-      "fullName": "Debug_SetESSlotData;Int32StringGameObject",
+      "fullName": "Debug_FillESSlotData;Int32script_ref<String>ItemIDGameObject",
+      "shortName": "Debug_FillESSlotData",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "areaStr",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "ownerGameObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Debug_SetESSlotData;Int32script_ref<String>GameObject",
       "shortName": "Debug_SetESSlotData",
       "flags": 41476,
       "params": [
@@ -461,7 +493,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "areaStr",
           "flags": 128
         },
@@ -473,12 +505,12 @@
       ]
     },
     {
-      "fullName": "Debug_SetupESAreaButton;SEquipAreaGameObject",
+      "fullName": "Debug_SetupESAreaButton;script_ref<SEquipArea>GameObject",
       "shortName": "Debug_SetupESAreaButton",
       "flags": 41476,
       "params": [
         {
-          "type": "gameSEquipArea",
+          "type": "script_ref:gameSEquipArea",
           "name": "equipArea",
           "flags": 128
         },
@@ -490,7 +522,7 @@
       ]
     },
     {
-      "fullName": "Debug_SetupESSlotButton;Int32StringGameObject",
+      "fullName": "Debug_SetupESSlotButton;Int32script_ref<String>GameObject",
       "shortName": "Debug_SetupESSlotButton",
       "flags": 41476,
       "params": [
@@ -500,7 +532,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "areaStr",
           "flags": 128
         },
@@ -519,6 +551,35 @@
         {
           "type": "whandle:gameObject",
           "name": "dataOwner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipCyberwareByTDBID;PlayerPuppetTweakDBID",
+      "shortName": "EquipCyberwareByTDBID",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "tdbid",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EquipTutorialCyberware;PlayerPuppet",
+      "shortName": "EquipTutorialCyberware",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
           "flags": 128
         }
       ]
@@ -808,8 +869,23 @@
       ]
     },
     {
+      "fullName": "GiveAndEquipAutoscalingFleshFists;",
+      "shortName": "GiveAndEquipAutoscalingFleshFists",
+      "flags": 32900
+    },
+    {
       "fullName": "GiveFixerShirt;",
       "shortName": "GiveFixerShirt",
+      "flags": 32900
+    },
+    {
+      "fullName": "GiveSaburoTanto;",
+      "shortName": "GiveSaburoTanto",
+      "flags": 32900
+    },
+    {
+      "fullName": "IconicsReworkCompensate;",
+      "shortName": "IconicsReworkCompensate",
       "flags": 32900
     },
     {
@@ -1075,6 +1151,18 @@
       ]
     },
     {
+      "fullName": "OnGameplayEquipProgramsRequest;GameplayEquipProgramsRequest",
+      "shortName": "OnGameplayEquipProgramsRequest",
+      "flags": 33924,
+      "params": [
+        {
+          "type": "handle:GameplayEquipProgramsRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnGameplayEquipRequest;GameplayEquipRequest",
       "shortName": "OnGameplayEquipRequest",
       "flags": 33924,
@@ -1243,6 +1331,18 @@
       ]
     },
     {
+      "fullName": "OnReplaceEquipmentRequest;ReplaceEquipmentRequest",
+      "shortName": "OnReplaceEquipmentRequest",
+      "flags": 33924,
+      "params": [
+        {
+          "type": "handle:ReplaceEquipmentRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnRestored;Int32Int32",
       "shortName": "OnRestored",
       "flags": 33920,
@@ -1385,8 +1485,33 @@
       "flags": 41476
     },
     {
+      "fullName": "ProcessIconicsFactsForBlackMarketer;",
+      "shortName": "ProcessIconicsFactsForBlackMarketer",
+      "flags": 32900
+    },
+    {
+      "fullName": "ProcessNonIconicWeaponsRescale;",
+      "shortName": "ProcessNonIconicWeaponsRescale",
+      "flags": 32900
+    },
+    {
       "fullName": "RefreshItemPlayerScaling;",
       "shortName": "RefreshItemPlayerScaling",
+      "flags": 32900
+    },
+    {
+      "fullName": "ReplaceLeftHandVariantWeaponsWithRegular;",
+      "shortName": "ReplaceLeftHandVariantWeaponsWithRegular",
+      "flags": 32900
+    },
+    {
+      "fullName": "RetrofixCyberwares;",
+      "shortName": "RetrofixCyberwares",
+      "flags": 32900
+    },
+    {
+      "fullName": "RetrofixQuickhacks;",
+      "shortName": "RetrofixQuickhacks",
       "flags": 32900
     }
   ]

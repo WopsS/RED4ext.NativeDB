@@ -62,6 +62,24 @@
       "type": "handle:EngDemoContainer",
       "name": "cameraSkillChecks",
       "flags": 4498456613
+    },
+    {
+      "type": "Bool",
+      "name": "overrideTakeOverCameraAngle",
+      "group": "Override Take Over Camera Angle",
+      "flags": 4364238881
+    },
+    {
+      "type": "Float",
+      "name": "overrideTakeOverPitch",
+      "group": "Override Take Over Camera Angle",
+      "flags": 4364238881
+    },
+    {
+      "type": "Float",
+      "name": "overrideTakeOverRotation",
+      "group": "Override Take Over Camera Angle",
+      "flags": 4364238881
     }
   ],
   "funcs": [
@@ -84,7 +102,7 @@
       "flags": 32896
     },
     {
-      "fullName": "ActionEngineering;GetActionsContext",
+      "fullName": "ActionEngineering;script_ref<GetActionsContext>",
       "shortName": "ActionEngineering",
       "return": {
         "type": "handle:ActionEngineering",
@@ -93,7 +111,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -143,6 +161,15 @@
       ]
     },
     {
+      "fullName": "CanAddEngineeringSkillcheck;",
+      "shortName": "CanAddEngineeringSkillcheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
       "fullName": "CanCreateAnyQuickHackActions;",
       "shortName": "CanCreateAnyQuickHackActions",
       "return": {
@@ -166,7 +193,7 @@
       "flags": 33284
     },
     {
-      "fullName": "DetermineGameplayViability;GetActionsContextBool",
+      "fullName": "DetermineGameplayViability;script_ref<GetActionsContext>Bool",
       "shortName": "DetermineGameplayViability",
       "return": {
         "type": "Bool",
@@ -175,7 +202,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -265,7 +292,7 @@
       "flags": 41472
     },
     {
-      "fullName": "GetDeviceWidget;GetActionsContext",
+      "fullName": "GetDeviceWidget;script_ref<GetActionsContext>",
       "shortName": "GetDeviceWidget",
       "return": {
         "type": "SDeviceWidgetPackage",
@@ -274,7 +301,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -311,17 +338,17 @@
       "flags": 41476
     },
     {
-      "fullName": "GetMinigameActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetMinigameActions;script_ref<array<DeviceAction>>script_ref<GetActionsContext>",
       "shortName": "GetMinigameActions",
       "flags": 33024,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -332,6 +359,24 @@
       "shortName": "GetMostRecentRequester",
       "return": {
         "type": "entEntityID",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetOverrideTakeOverPitch;",
+      "shortName": "GetOverrideTakeOverPitch",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetOverrideTakeOverYaw;",
+      "shortName": "GetOverrideTakeOverYaw",
+      "return": {
+        "type": "Float",
         "flags": 64
       },
       "flags": 41476
@@ -353,7 +398,7 @@
       ]
     },
     {
-      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuestActions",
       "flags": 33024,
       "params": [
@@ -363,7 +408,7 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -379,7 +424,7 @@
       "flags": 33284
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
@@ -389,11 +434,20 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetSkillCheckContainerForSetup;",
+      "shortName": "GetSkillCheckContainerForSetup",
+      "return": {
+        "type": "handle:BaseSkillCheckContainer",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "GetVirtualSystemType;",
@@ -486,43 +540,6 @@
         "flags": 64
       },
       "flags": 57860
-    },
-    {
-      "fullName": "LogActionDetails;ScriptableDeviceActionBaseDeviceStatusStringStringBool",
-      "shortName": "LogActionDetails",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "handle:ScriptableDeviceAction",
-          "name": "action",
-          "flags": 128
-        },
-        {
-          "type": "handle:BaseDeviceStatus",
-          "name": "cachedStatus",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "context",
-          "flags": 1152
-        },
-        {
-          "type": "String",
-          "name": "status",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "overrideStatus",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "LogicReady;",
-      "shortName": "LogicReady",
-      "flags": 33024
     },
     {
       "fullName": "OnActionEngineering;ActionEngineering",
@@ -675,6 +692,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ShouldOverrideTakeOverAngle;",
+      "shortName": "ShouldOverrideTakeOverAngle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "ShouldRevealEnemies;",

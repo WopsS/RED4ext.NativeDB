@@ -1,0 +1,296 @@
+{
+  "parent": "gameuiHUDGameController",
+  "name": "gameuiDriverCombatHUDGameController",
+  "flags": 2,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "inWeaponizedVehicle",
+      "flags": 6627016704
+    },
+    {
+      "type": "Bool",
+      "name": "inDriverCombat",
+      "flags": 6627016704
+    },
+    {
+      "type": "Bool",
+      "name": "inReloadState",
+      "flags": 6627016704
+    },
+    {
+      "type": "Bool",
+      "name": "inSafeState",
+      "flags": 6627016704
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "crosshairBrackets",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "crosshairBracketsFlairLeft",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "crosshairBracketsFlairRight",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "bracketsTransitionDetailsWidgetList",
+      "group": "Crosshair Brackets",
+      "flags": 6631211009
+    },
+    {
+      "type": "Vector2",
+      "name": "crosshairBracketsMinSize",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "crosshairBracketsInstantSnapValue",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "crosshairBracketsInOutTransitionTime",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "crosshairBracketsIntroSizeMultiplier",
+      "group": "Crosshair Brackets",
+      "flags": 6627016705
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "crosshairBracketsTrail",
+      "group": "Crosshair Brackets Trailing",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "crosshairBracketsTrailTransitionTime",
+      "group": "Crosshair Brackets Trailing",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "crosshairReducedOpacity",
+      "group": "Other",
+      "flags": 6627016705
+    },
+    {
+      "type": "Float",
+      "name": "unifomSafeZone",
+      "group": "Other",
+      "flags": 6627016705
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "psmBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "psmWeaponCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiActiveVehicleFPPRearviewCameraActivatedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "reloadingAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "vehicleFPPRearviewCamera",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "vehicleManufacturer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "debugTuningStatusText",
+      "flags": 4297130017
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "Reset",
+      "shortName": "Reset",
+      "index": 14495,
+      "flags": 1
+    },
+    {
+      "fullName": "UpdateCrosshairVisibility",
+      "shortName": "UpdateCrosshairVisibility",
+      "index": 14494,
+      "flags": 1
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnMountingEvent",
+      "shortName": "OnMountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gamemountingMountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPSMWeaponStateChanged",
+      "shortName": "OnPSMWeaponStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerAttach",
+      "shortName": "OnPlayerAttach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnReloadingIntroFinished",
+      "shortName": "OnReloadingIntroFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUIActiveVehicleFPPRearviewCameraActivated",
+      "shortName": "OnUIActiveVehicleFPPRearviewCameraActivated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnmountingEvent",
+      "shortName": "OnUnmountingEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gamemountingUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LocalReset;",
+      "shortName": "LocalReset",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateVehicleData;MountingInfoBool",
+      "shortName": "UpdateVehicleData",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamemountingMountingInfo",
+          "name": "mountingInfo",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isMounting",
+          "flags": 1152
+        }
+      ]
+    }
+  ]
+}

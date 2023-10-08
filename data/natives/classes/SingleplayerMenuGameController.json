@@ -4,13 +4,62 @@
   "flags": 4,
   "props": [
     {
-      "type": "inkWidgetReference",
-      "name": "buttonHintsManagerRef",
+      "type": "inkCompoundWidgetReference",
+      "name": "baseLogoContainer",
+      "group": "Logo",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "ep1LogoContainer",
+      "group": "Logo",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "gogButtonWidgetRef",
+      "group": "Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "accountSelector",
+      "group": "Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "gameVersionButton",
+      "group": "Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "patch2Notification",
+      "group": "Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "patch2NotificationDelay",
+      "group": "Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "expansionBanner",
+      "group": "Expansion",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "ep1IdName",
+      "group": "Expansion",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "buttonHintsManagerRef",
       "flags": 4297130017
     },
     {
@@ -39,6 +88,26 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:inkWidgetLogicController",
+      "name": "expansionHintController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ExpansionBannerController",
+      "name": "expansionBannerController",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkMenuAccountLogicController",
+      "name": "accountSelectorController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameuiGameSystemUI",
+      "name": "uiSystem",
+      "flags": 4431347744
+    },
+    {
       "type": "servicesCloudSavesQueryStatus",
       "name": "dataSyncStatus",
       "flags": 4297130016
@@ -62,12 +131,73 @@
       "type": "Bool",
       "name": "isModded",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isExpansionHintShown",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isMainMenuShownFirstTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isPatch2NotificationShown",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isReloadPopupShown",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEp1Enabled",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isDataValidationErrorShown",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "patch2NotificationIntroName",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "patch2NotificationOutroName",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "patch2NotificationAnimProxy",
+      "flags": 4431347744
     }
   ],
   "funcs": [
     {
       "fullName": "OnCheckPatchNotes",
       "shortName": "OnCheckPatchNotes",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloseExpansionPopup",
+      "shortName": "OnCloseExpansionPopup",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -132,6 +262,59 @@
     {
       "fullName": "OnContinueButtonLeave",
       "shortName": "OnContinueButtonLeave",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExpansionBannerPressed",
+      "shortName": "OnExpansionBannerPressed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExpansionHintSpawned",
+      "shortName": "OnExpansionHintSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnGameVersionPress",
+      "shortName": "OnGameVersionPress",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -219,6 +402,70 @@
       ]
     },
     {
+      "fullName": "OnOpenPatchNotes",
+      "shortName": "OnOpenPatchNotes",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPatch2NotificationIntroFinished",
+      "shortName": "OnPatch2NotificationIntroFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPatch2NotificationOutroFinished",
+      "shortName": "OnPatch2NotificationOutroFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPurchaseDisabledError",
+      "shortName": "OnPurchaseDisabledError",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnRedrawRequested",
       "shortName": "OnRedrawRequested",
       "return": {
@@ -292,6 +539,38 @@
       ]
     },
     {
+      "fullName": "OnSetUserData",
+      "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShowOneTimeMessages",
+      "shortName": "OnShowOneTimeMessages",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnTooltipContainerSpawned",
       "shortName": "OnTooltipContainerSpawned",
       "return": {
@@ -322,6 +601,16 @@
       "flags": 33032
     },
     {
+      "fullName": "DBG_ShowAccountButton;",
+      "shortName": "DBG_ShowAccountButton",
+      "flags": 32900
+    },
+    {
+      "fullName": "ExpansionBannerInteracted;",
+      "shortName": "ExpansionBannerInteracted",
+      "flags": 32900
+    },
+    {
       "fullName": "HandleMenuItemActivate;PauseMenuListItemData",
       "shortName": "HandleMenuItemActivate",
       "return": {
@@ -338,14 +627,212 @@
       ]
     },
     {
+      "fullName": "OnAdditionalContentDataReloadProgress_MainMenu;Float",
+      "shortName": "OnAdditionalContentDataReloadProgress_MainMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "progress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentInstallationRequestResult_MainMenu;CNameBool",
+      "shortName": "OnAdditionalContentInstallationRequestResult_MainMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "success",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentInstallationResult_MainMenu;CNameBool",
+      "shortName": "OnAdditionalContentInstallationResult_MainMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "success",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentPurchaseResult_MainMenu;CNameBool",
+      "shortName": "OnAdditionalContentPurchaseResult_MainMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "success",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentStatusUpdateResult_MainMenu;CNameBool",
+      "shortName": "OnAdditionalContentStatusUpdateResult_MainMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "success",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalDataInvalidCallback_MainMenu;CName",
+      "shortName": "OnAdditionalDataInvalidCallback_MainMenu",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenExpansionInfoPopup;ExpansionPopupTypeBool",
+      "shortName": "OpenExpansionInfoPopup",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ExpansionPopupType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forcibly",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OpenPatchNotesPopup;Bool",
+      "shortName": "OpenPatchNotesPopup",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "mode",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PopulateMenuItemList;",
       "shortName": "PopulateMenuItemList",
       "flags": 32896
     },
     {
+      "fullName": "SetButtonsVisible;Bool",
+      "shortName": "SetButtonsVisible",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetControlsVisible;Bool",
+      "shortName": "SetControlsVisible",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldShowDataValidationError;",
+      "shortName": "ShouldShowDataValidationError",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "ShowActionsList;",
       "shortName": "ShowActionsList",
       "flags": 33024
+    },
+    {
+      "fullName": "ShowAdditionalDataInvalidError;",
+      "shortName": "ShowAdditionalDataInvalidError",
+      "flags": 33284
+    },
+    {
+      "fullName": "ShowExpansionError;ExpansionErrorType",
+      "shortName": "ShowExpansionError",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ExpansionErrorType",
+          "name": "error",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowRussianLanguageDisclaimer;",
+      "shortName": "ShowRussianLanguageDisclaimer",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnExpansionHint;",
+      "shortName": "SpawnExpansionHint",
+      "flags": 32900
+    },
+    {
+      "fullName": "SwitchGameLogo;Bool",
+      "shortName": "SwitchGameLogo",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isEP1Installed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateExpansionBannerState;",
+      "shortName": "UpdateExpansionBannerState",
+      "flags": 32900
     }
   ]
 }

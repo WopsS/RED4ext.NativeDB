@@ -5,62 +5,85 @@
   "props": [
     {
       "type": "inkWidgetReference",
+      "name": "notificationRoot",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "tabRootContainer",
+      "group": "Center",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "tabRootRef",
+      "group": "Center",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "playerCredits",
+      "group": "Right",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
-      "name": "playerCurrency",
+      "name": "playerCreditsValue",
+      "group": "Right",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "playerWeight",
+      "group": "Right",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "playerWeightValue",
+      "group": "Right",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
       "name": "vendorShopLabel",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "notificationRoot",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "playerWeight",
+      "group": "Right",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
       "name": "levelValue",
+      "group": "Left",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
       "name": "streetCredLabel",
+      "group": "Left",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "levelBarProgress",
+      "group": "Left",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "levelBarSpacer",
+      "group": "Left",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "streetCredBarProgress",
+      "group": "Left",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "streetCredBarSpacer",
+      "group": "Left",
       "flags": 4297130017
     },
     {
@@ -96,6 +119,11 @@
     {
       "type": "whandle:TabRadioGroup",
       "name": "tabRoot",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:MoneyLabelController",
+      "name": "playerMoneyAnimator",
       "flags": 4297130016
     },
     {
@@ -162,6 +190,21 @@
       "type": "array:MenuData",
       "name": "menuData",
       "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "activeMenu",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isChangedManually",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "cameFromRipperdoc",
+      "flags": 4297130016
     },
     {
       "type": "handle:StorageBlackboardDef",
@@ -272,6 +315,22 @@
       ]
     },
     {
+      "fullName": "OnCyberwareModsRequest",
+      "shortName": "OnCyberwareModsRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:CyberwareTabModsRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
       "return": {
@@ -297,6 +356,22 @@
       ]
     },
     {
+      "fullName": "OnRefreshCurrentTab",
+      "shortName": "OnRefreshCurrentTab",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetMenuEventDispatcher",
       "shortName": "OnSetMenuEventDispatcher",
       "return": {
@@ -315,6 +390,38 @@
     {
       "fullName": "OnSetUserData",
       "shortName": "OnSetUserData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSwitchToCharacterFromRipperdoc",
+      "shortName": "OnSwitchToCharacterFromRipperdoc",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTutorialComplete",
+      "shortName": "OnTutorialComplete",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -407,13 +514,25 @@
       "flags": 32900
     },
     {
-      "fullName": "SetupMenuTabs;",
+      "fullName": "SetupMenuTabs;Bool",
       "shortName": "SetupMenuTabs",
-      "flags": 32900
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "tutorialFinished",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetupTopBar;",
       "shortName": "SetupTopBar",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateMoney;",
+      "shortName": "UpdateMoney",
       "flags": 32900
     }
   ]

@@ -25,6 +25,11 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "rightViewPlaceholderRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "leftBlockControllerRef",
       "flags": 4297130017
     },
@@ -138,22 +143,6 @@
         {
           "type": "handle:inkPointerEvent",
           "name": "e",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnContactActivated",
-      "shortName": "OnContactActivated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:ShardSelectedEvent",
-          "name": "evt",
           "flags": 128
         }
       ]
@@ -279,6 +268,38 @@
       ]
     },
     {
+      "fullName": "OnShardSelectedEvent",
+      "shortName": "OnShardSelectedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ShardSelectedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShardsMenuGameControllerDelayInit",
+      "shortName": "OnShardsMenuGameControllerDelayInit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ShardForceSelectionEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -310,13 +331,13 @@
       "params": [
         {
           "type": "Uint32",
-          "name": "idx",
+          "name": "i",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetVirtualDataForCrypted;InventoryItemDataJournalOnscreenInt32script_ref<array<Int32>>",
+      "fullName": "GetVirtualDataForCrypted;script_ref<InventoryItemData>JournalOnscreenInt32script_ref<array<Int32>>",
       "shortName": "GetVirtualDataForCrypted",
       "return": {
         "type": "handle:VirutalNestedListData",
@@ -325,7 +346,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "item",
           "flags": 128
         },
@@ -369,7 +390,7 @@
       "flags": 32900
     },
     {
-      "fullName": "ProcessItem;InventoryItemDataarray<VirutalNestedListData>Int32script_ref<array<Int32>>",
+      "fullName": "ProcessItem;script_ref<InventoryItemData>script_ref<array<VirutalNestedListData>>Int32script_ref<array<Int32>>",
       "shortName": "ProcessItem",
       "return": {
         "type": "Bool",
@@ -378,14 +399,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "item",
           "flags": 128
         },
         {
-          "type": "array:handle:VirutalNestedListData",
+          "type": "script_ref:array:handle:VirutalNestedListData",
           "name": "data",
-          "flags": 640
+          "flags": 128
         },
         {
           "type": "Int32",

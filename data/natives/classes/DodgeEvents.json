@@ -10,16 +10,57 @@
     },
     {
       "type": "handle:gameStatModifierData_Deprecated",
-      "name": "decelerationModifier",
+      "name": "dashDecelerationModifier",
       "flags": 4431544352
+    },
+    {
+      "type": "handle:gameStatModifierData_Deprecated",
+      "name": "airDashDecelerationModifier",
+      "flags": 4431544352
+    },
+    {
+      "type": "Int32",
+      "name": "currentNumberOfJumps",
+      "flags": 4297326624
     },
     {
       "type": "Bool",
       "name": "pressureWaveCreated",
       "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "crouching",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "enteredFromSlide",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isAirDashSaveLockTriggered",
+      "flags": 4297326624
     }
   ],
   "funcs": [
+    {
+      "fullName": "CalculateAdjustmentDuration;Float",
+      "shortName": "CalculateAdjustmentDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "CleanUpOnExit;StateContextStateGameScriptInterface",
       "shortName": "CleanUpOnExit",
@@ -38,26 +79,9 @@
       ]
     },
     {
-      "fullName": "Dodge;StateContextStateGameScriptInterface",
-      "shortName": "Dodge",
+      "fullName": "Dash;StateContextStateGameScriptInterfaceBoolBool",
+      "shortName": "Dash",
       "flags": 33028,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "EnableMovementDecelerationStatModifier;StateContextStateGameScriptInterfaceBool",
-      "shortName": "EnableMovementDecelerationStatModifier",
-      "flags": 33024,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -71,7 +95,56 @@
         },
         {
           "type": "Bool",
-          "name": "enable",
+          "name": "isExhausted",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isPlayerInTheAir",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Dodge;StateContextStateGameScriptInterfaceBool",
+      "shortName": "Dodge",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isExhausted",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LeapToTarget;StateContextStateGameScriptInterfaceGameObject",
+      "shortName": "LeapToTarget",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
           "flags": 128
         }
       ]
@@ -80,6 +153,23 @@
       "fullName": "OnEnter;StateContextStateGameScriptInterface",
       "shortName": "OnEnter",
       "flags": 34048,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEnterFromSlide;StateContextStateGameScriptInterface",
+      "shortName": "OnEnterFromSlide",
+      "flags": 33028,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -142,6 +232,22 @@
           "name": "stateContext",
           "flags": 128
         },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TreatDashAsAirDash;StateGameScriptInterface",
+      "shortName": "TreatDashAsAirDash",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",

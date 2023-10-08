@@ -44,8 +44,18 @@
       "flags": 6627016704
     },
     {
+      "type": "Int32",
+      "name": "numAttackSpread",
+      "flags": 6627016704
+    },
+    {
       "type": "Float",
       "name": "attackTime",
+      "flags": 6627016704
+    },
+    {
+      "type": "gamedataTriggerMode",
+      "name": "triggerMode",
       "flags": 6627016704
     },
     {
@@ -70,7 +80,27 @@
     },
     {
       "type": "Float",
+      "name": "minimumHealthPercent",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
       "name": "additionalCritChance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "randRoll",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "hitReactionMin",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "hitReactionMax",
       "flags": 4297130016
     }
   ],
@@ -118,7 +148,7 @@
       ]
     },
     {
-      "fullName": "gamedamageAttackData::HasFlag;array<SHitFlag>hitFlag",
+      "fullName": "gamedamageAttackData::HasFlag;script_ref<array<SHitFlag>>hitFlag",
       "shortName": "HasFlag",
       "return": {
         "type": "Bool",
@@ -127,7 +157,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "array:SHitFlag",
+          "type": "script_ref:array:SHitFlag",
           "name": "flags",
           "flags": 128
         },
@@ -155,8 +185,8 @@
       ]
     },
     {
-      "fullName": "gamedamageAttackData::IsBullet;gamedataAttackType",
-      "shortName": "IsBullet",
+      "fullName": "gamedamageAttackData::IsDismembermentCause;gamedataAttackType",
+      "shortName": "IsDismembermentCause",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -171,8 +201,8 @@
       ]
     },
     {
-      "fullName": "gamedamageAttackData::IsDismembermentCause;gamedataAttackType",
-      "shortName": "IsDismembermentCause",
+      "fullName": "gamedamageAttackData::IsDoT;AttackData",
+      "shortName": "IsDoT",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -180,8 +210,8 @@
       "flags": 33286,
       "params": [
         {
-          "type": "gamedataAttackType",
-          "name": "attackType",
+          "type": "handle:gamedamageAttackData",
+          "name": "attackData",
           "flags": 128
         }
       ]
@@ -331,6 +361,54 @@
       ]
     },
     {
+      "fullName": "gamedamageAttackData::IsRangedOnly;gamedataAttackType",
+      "shortName": "IsRangedOnly",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataAttackType",
+          "name": "attackType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gamedamageAttackData::IsRangedOrDirect;gamedataAttackType",
+      "shortName": "IsRangedOrDirect",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataAttackType",
+          "name": "attackType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gamedamageAttackData::IsRangedOrDirectOrThrown;gamedataAttackType",
+      "shortName": "IsRangedOrDirectOrThrown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataAttackType",
+          "name": "attackType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "gamedamageAttackData::IsReflect;gamedataAttackType",
       "shortName": "IsReflect",
       "return": {
@@ -365,6 +443,22 @@
     {
       "fullName": "gamedamageAttackData::IsThrown;gamedataAttackType",
       "shortName": "IsThrown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataAttackType",
+          "name": "attackType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "gamedamageAttackData::IsWhip;gamedataAttackType",
+      "shortName": "IsWhip",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -497,6 +591,24 @@
       "flags": 41476
     },
     {
+      "fullName": "GetHitReactionSeverityMax;",
+      "shortName": "GetHitReactionSeverityMax",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetHitReactionSeverityMin;",
+      "shortName": "GetHitReactionSeverityMin",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetHitType;",
       "shortName": "GetHitType",
       "return": {
@@ -515,10 +627,37 @@
       "flags": 41476
     },
     {
+      "fullName": "GetMinimumHealthPercent;",
+      "shortName": "GetMinimumHealthPercent",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetNumAttackSpread;",
+      "shortName": "GetNumAttackSpread",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetNumRicochetBounces;",
       "shortName": "GetNumRicochetBounces",
       "return": {
         "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetRandRoll;",
+      "shortName": "GetRandRoll",
+      "return": {
+        "type": "Float",
         "flags": 64
       },
       "flags": 41476
@@ -537,6 +676,15 @@
       "shortName": "GetStatusEffects",
       "return": {
         "type": "array:SHitStatusEffect",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetTriggerMode;",
+      "shortName": "GetTriggerMode",
+      "return": {
+        "type": "gamedataTriggerMode",
         "flags": 64
       },
       "flags": 41476
@@ -679,6 +827,30 @@
       ]
     },
     {
+      "fullName": "SetHitReactionSeverityMax;Int32",
+      "shortName": "SetHitReactionSeverityMax",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetHitReactionSeverityMin;Int32",
+      "shortName": "SetHitReactionSeverityMin",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetHitType;gameuiHitType",
       "shortName": "SetHitType",
       "flags": 33284,
@@ -703,6 +875,30 @@
       ]
     },
     {
+      "fullName": "SetMinimumHealthPercent;Float",
+      "shortName": "SetMinimumHealthPercent",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetRandRoll;Float",
+      "shortName": "SetRandRoll",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "roll",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetSource;GameObject",
       "shortName": "SetSource",
       "flags": 33284,
@@ -710,6 +906,18 @@
         {
           "type": "whandle:gameObject",
           "name": "s",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTriggerMode;gamedataTriggerMode",
+      "shortName": "SetTriggerMode",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataTriggerMode",
+          "name": "mode",
           "flags": 128
         }
       ]
@@ -760,8 +968,35 @@
       "flags": 33284
     },
     {
+      "fullName": "WasBulletBlocked;",
+      "shortName": "WasBulletBlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "WasBulletDeflected;",
+      "shortName": "WasBulletDeflected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "WasDeflected;",
       "shortName": "WasDeflected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "WasDeflectedAny;",
+      "shortName": "WasDeflectedAny",
       "return": {
         "type": "Bool",
         "flags": 64

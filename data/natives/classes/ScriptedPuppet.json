@@ -64,6 +64,11 @@
       "flags": 4431413280
     },
     {
+      "type": "Bool",
+      "name": "visibleObjectPositionUpdated",
+      "flags": 4297326624
+    },
+    {
       "type": "handle:senseSensorObjectComponent",
       "name": "sensorObjectComponent",
       "flags": 4431347744
@@ -104,9 +109,9 @@
       "flags": 4431413280
     },
     {
-      "type": "handle:gameInventory",
+      "type": "whandle:gameInventory",
       "name": "inventoryComponent",
-      "flags": 4431347744
+      "flags": 4297130016
     },
     {
       "type": "handle:AIObjectSelectionComponent",
@@ -244,9 +249,19 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:gameBreachControllerComponent",
+      "name": "breachControllerComponent",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:FocusForcedHighlightData",
       "name": "highlightData",
       "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "currentTagsStack",
+      "flags": 4297130016
     },
     {
       "type": "whandle:entEntity",
@@ -281,6 +296,31 @@
     {
       "type": "Bool",
       "name": "isGanger",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ScriptableDeviceAction",
+      "name": "currentlyUploadingAction",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:GameplayRoleComponent",
+      "name": "gameplayRoleComponent",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:ScriptableDeviceAction",
+      "name": "activeQuickhackActionHistory",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:ScriptableDeviceAction",
+      "name": "completedQuickhackHistory",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "isFinsherSoundPlayed",
       "flags": 4297130016
     },
     {
@@ -449,50 +489,6 @@
       ]
     },
     {
-      "fullName": "ScriptedPuppet::ForceVisionAppearanceNetrunner;GameObjectEntityIDCNameBool",
-      "shortName": "ForceVisionAppearanceNetrunner",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "sourceID",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "sourceName",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "toggle",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ScriptedPuppet::GenerateLootModifiers;ScriptedPuppetarray<gameStatModifierData>",
-      "shortName": "GenerateLootModifiers",
-      "flags": 32902,
-      "params": [
-        {
-          "type": "handle:ScriptedPuppet",
-          "name": "self",
-          "flags": 128
-        },
-        {
-          "type": "array:handle:gameStatModifierData_Deprecated",
-          "name": "lootModifiers",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "ScriptedPuppet::GetActiveWeapon;GameObject",
       "shortName": "GetActiveWeapon",
       "return": {
@@ -568,22 +564,6 @@
         {
           "type": "handle:gameObject",
           "name": "obj",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ScriptedPuppet::HasLootableItems;ScriptedPuppet",
-      "shortName": "HasLootableItems",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 32902,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "self",
           "flags": 128
         }
       ]
@@ -669,6 +649,22 @@
       ]
     },
     {
+      "fullName": "ScriptedPuppet::IsCharacterPolice;GameObject",
+      "shortName": "IsCharacterPolice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "obj",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ScriptedPuppet::IsDeaf;GameObject",
       "shortName": "IsDeaf",
       "return": {
@@ -701,8 +697,8 @@
       ]
     },
     {
-      "fullName": "ScriptedPuppet::IsMechanical;ScriptedPuppet",
-      "shortName": "IsMechanical",
+      "fullName": "ScriptedPuppet::IsMaxTac;GameObject",
+      "shortName": "IsMaxTac",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -710,8 +706,8 @@
       "flags": 33286,
       "params": [
         {
-          "type": "whandle:ScriptedPuppet",
-          "name": "self",
+          "type": "whandle:gameObject",
+          "name": "obj",
           "flags": 128
         }
       ]
@@ -758,22 +754,6 @@
       "flags": 33286
     },
     {
-      "fullName": "ScriptedPuppet::IsPlayerCompanion;GameObject",
-      "shortName": "IsPlayerCompanion",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:gameObject",
-          "name": "obj",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ScriptedPuppet::IsPlayerCompanion;GameObjectGameObject",
       "shortName": "IsPlayerCompanion",
       "return": {
@@ -791,6 +771,38 @@
           "type": "whandle:gameObject",
           "name": "companion",
           "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "ScriptedPuppet::IsPlayerCompanion;GameObject",
+      "shortName": "IsPlayerCompanion",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "obj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ScriptedPuppet::IsPlayerFollower;GameObject",
+      "shortName": "IsPlayerFollower",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "obj",
+          "flags": 128
         }
       ]
     },
@@ -822,18 +834,6 @@
         {
           "type": "handle:gameObject",
           "name": "obj",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ScriptedPuppet::ProcessSupportiveItems;ScriptedPuppet",
-      "shortName": "ProcessSupportiveItems",
-      "flags": 32902,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "self",
           "flags": 128
         }
       ]
@@ -928,18 +928,13 @@
       ]
     },
     {
-      "fullName": "ScriptedPuppet::ScaleDroppedItem;gameItemDataScriptedPuppet",
-      "shortName": "ScaleDroppedItem",
+      "fullName": "ScriptedPuppet::RevokeAllTicketsForPrevention;ScriptedPuppet",
+      "shortName": "RevokeAllTicketsForPrevention",
       "flags": 33286,
       "params": [
         {
-          "type": "whandle:gameItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "owner",
+          "type": "handle:ScriptedPuppet",
+          "name": "puppet",
           "flags": 128
         }
       ]
@@ -1036,6 +1031,23 @@
       ]
     },
     {
+      "fullName": "ScriptedPuppet::SetAnimWrappersOnItem;ItemObjectarray<CName>",
+      "shortName": "SetAnimWrappersOnItem",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "whandle:gameItemObject",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "array:CName",
+          "name": "animWrappers",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ScriptedPuppet::SetBloodPuddleSettings;GameObjectBool",
       "shortName": "SetBloodPuddleSettings",
       "flags": 33286,
@@ -1079,6 +1091,22 @@
       "params": [
         {
           "type": "handle:AddOrRemoveListenerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnApplyNewStatusEffect",
+      "shortName": "OnApplyNewStatusEffect",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ApplyNewStatusEffectEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1247,7 +1275,7 @@
       "flags": 33032,
       "params": [
         {
-          "type": "handle:EvaluateLootQualityEvent",
+          "type": "handle:gameeventsEvaluateLootQualityEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1695,6 +1723,22 @@
       ]
     },
     {
+      "fullName": "OnRemoveAllStatusEffectOfTypeEvent",
+      "shortName": "OnRemoveAllStatusEffectOfTypeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RemoveAllStatusEffectOfTypeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnRemoveLinkEvent",
       "shortName": "OnRemoveLinkEvent",
       "return": {
@@ -1721,6 +1765,22 @@
       "params": [
         {
           "type": "handle:RemoveLinkedStatusEffectsEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemoveStatusEffect",
+      "shortName": "OnRemoveStatusEffect",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RemoveStatusEffectEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2095,6 +2155,18 @@
       ]
     },
     {
+      "fullName": "ActivateIntelligencePerks;ScriptableDeviceAction",
+      "shortName": "ActivateIntelligencePerks",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AddLinkedStatusEffect;EntityIDEntityIDarray<ObjectActionEffect_Record>",
       "shortName": "AddLinkedStatusEffect",
       "flags": 33284,
@@ -2134,6 +2206,15 @@
       ]
     },
     {
+      "fullName": "AllowFinisherThreshold;",
+      "shortName": "AllowFinisherThreshold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "AwardsExperience;",
       "shortName": "AwardsExperience",
       "return": {
@@ -2150,6 +2231,15 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "CanNewActionBeQueued;",
+      "shortName": "CanNewActionBeQueued",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "CanOverrideNetworkContext;",
@@ -2178,22 +2268,6 @@
       "fullName": "CreateClearOutlinesRequest;",
       "shortName": "CreateClearOutlinesRequest",
       "flags": 32900
-    },
-    {
-      "fullName": "CreateEquipmentDataList;ScriptedPuppet",
-      "shortName": "CreateEquipmentDataList",
-      "return": {
-        "type": "array:gameItemID",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "self",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "CreateListeners;",
@@ -2371,16 +2445,9 @@
       ]
     },
     {
-      "fullName": "ExecuteAction;InteractionChoice",
-      "shortName": "ExecuteAction",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "gameinteractionsChoice",
-          "name": "choice",
-          "flags": 128
-        }
-      ]
+      "fullName": "EvaluateQuickhacksCount;",
+      "shortName": "EvaluateQuickhacksCount",
+      "flags": 32900
     },
     {
       "fullName": "ExecuteAction;ScriptableDeviceAction",
@@ -2390,6 +2457,45 @@
         {
           "type": "handle:ScriptableDeviceAction",
           "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ExecuteAction;script_ref<InteractionChoice>",
+      "shortName": "ExecuteAction",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "script_ref:gameinteractionsChoice",
+          "name": "choice",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ForceVisionAppearanceNetrunner;GameObjectEntityIDCNameBool",
+      "shortName": "ForceVisionAppearanceNetrunner",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "sourceID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "sourceName",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "toggle",
           "flags": 128
         }
       ]
@@ -2431,6 +2537,15 @@
       "shortName": "GetAIControllerComponent",
       "return": {
         "type": "handle:AIHumanComponent",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetActiveQuickhackActionHistory;",
+      "shortName": "GetActiveQuickhackActionHistory",
+      "return": {
+        "type": "array:handle:ScriptableDeviceAction",
         "flags": 64
       },
       "flags": 41476
@@ -2479,6 +2594,15 @@
       ]
     },
     {
+      "fullName": "GetBreachControllerComponent;",
+      "shortName": "GetBreachControllerComponent",
+      "return": {
+        "type": "handle:gameBreachControllerComponent",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetBumpComponent;",
       "shortName": "GetBumpComponent",
       "return": {
@@ -2492,6 +2616,15 @@
       "shortName": "GetCombatHUDManagerComponent",
       "return": {
         "type": "handle:CombatHUDManager",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetCompletedQuickhackActionHistory;",
+      "shortName": "GetCompletedQuickhackActionHistory",
+      "return": {
+        "type": "array:handle:ScriptableDeviceAction",
         "flags": 64
       },
       "flags": 41476
@@ -2542,7 +2675,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetCurrentlyEquippedItems;array<ItemObject>",
+      "fullName": "GetCurrentlyEquippedItems;script_ref<array<ItemObject>>",
       "shortName": "GetCurrentlyEquippedItems",
       "return": {
         "type": "Bool",
@@ -2551,11 +2684,20 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gameItemObject",
+          "type": "script_ref:array:handle:gameItemObject",
           "name": "heldObjects",
-          "flags": 640
+          "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetCurrentlyUploadingAction;",
+      "shortName": "GetCurrentlyUploadingAction",
+      "return": {
+        "type": "handle:ScriptableDeviceAction",
+        "flags": 64
+      },
+      "flags": 33280
     },
     {
       "fullName": "GetCustomBlackboard;",
@@ -2589,6 +2731,33 @@
       "shortName": "GetDeterminatedSecurityAreaType",
       "return": {
         "type": "ESecurityAreaType",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDeviceActionMaxQueueSize;",
+      "shortName": "GetDeviceActionMaxQueueSize",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDeviceActionQueueNames;",
+      "shortName": "GetDeviceActionQueueNames",
+      "return": {
+        "type": "array:CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDeviceActionQueueSize;",
+      "shortName": "GetDeviceActionQueueSize",
+      "return": {
+        "type": "Int32",
         "flags": 64
       },
       "flags": 41476
@@ -2642,6 +2811,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetGameplayRoleComponent;",
+      "shortName": "GetGameplayRoleComponent",
+      "return": {
+        "type": "handle:GameplayRoleComponent",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetGender;",
@@ -2798,15 +2976,6 @@
       "flags": 41476
     },
     {
-      "fullName": "GetNPCRarity;",
-      "shortName": "GetNPCRarity",
-      "return": {
-        "type": "gamedataNPCRarity",
-        "flags": 64
-      },
-      "flags": 41476
-    },
-    {
       "fullName": "GetNPCType;",
       "shortName": "GetNPCType",
       "return": {
@@ -2859,7 +3028,7 @@
       ]
     },
     {
-      "fullName": "GetObjectActionEffectDurationValue;array<ObjectActionEffect_Record>GameObjectStatsObjectIDEntityID",
+      "fullName": "GetObjectActionEffectDurationValue;gamedataHackCategoryscript_ref<array<ObjectActionEffect_Record>>GameObjectStatsObjectIDEntityID",
       "shortName": "GetObjectActionEffectDurationValue",
       "return": {
         "type": "Float",
@@ -2868,7 +3037,12 @@
       "flags": 41092,
       "params": [
         {
-          "type": "array:whandle:gamedataObjectActionEffect_Record",
+          "type": "gamedataHackCategory",
+          "name": "category",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gamedataObjectActionEffect_Record",
           "name": "durationMods",
           "flags": 128
         },
@@ -2944,24 +3118,6 @@
       "flags": 41476
     },
     {
-      "fullName": "GetPuppetRarity;",
-      "shortName": "GetPuppetRarity",
-      "return": {
-        "type": "handle:gamedataNPCRarity_Record",
-        "flags": 64
-      },
-      "flags": 41476
-    },
-    {
-      "fullName": "GetPuppetRarityEnum;",
-      "shortName": "GetPuppetRarityEnum",
-      "return": {
-        "type": "gamedataNPCRarity",
-        "flags": 64
-      },
-      "flags": 41476
-    },
-    {
       "fullName": "GetPuppetReactionPresetType;",
       "shortName": "GetPuppetReactionPresetType",
       "return": {
@@ -2978,6 +3134,37 @@
         "flags": 64
       },
       "flags": 42500
+    },
+    {
+      "fullName": "GetQuickHackDuration;TweakDBIDGameObjectStatsObjectIDEntityID",
+      "shortName": "GetQuickHackDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "quickHackID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "rootObject",
+          "flags": 128
+        },
+        {
+          "type": "gameStatsObjectID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "instigatorID",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetQuickHackDuration;ObjectAction_RecordGameObjectStatsObjectIDEntityID",
@@ -3011,17 +3198,17 @@
       ]
     },
     {
-      "fullName": "GetQuickHackDuration;TweakDBIDGameObjectStatsObjectIDEntityID",
-      "shortName": "GetQuickHackDuration",
+      "fullName": "GetQuickHackDurationFromLongestEffect;ObjectAction_RecordGameObjectStatsObjectIDEntityID",
+      "shortName": "GetQuickHackDurationFromLongestEffect",
       "return": {
         "type": "Float",
         "flags": 64
       },
-      "flags": 41092,
+      "flags": 33284,
       "params": [
         {
-          "type": "TweakDBID",
-          "name": "quickHackID",
+          "type": "whandle:gamedataObjectAction_Record",
+          "name": "quickHackRecord",
           "flags": 128
         },
         {
@@ -3235,6 +3422,18 @@
       ]
     },
     {
+      "fullName": "HandleChainLightningEffectAndDamageTask;ScriptTaskData",
+      "shortName": "HandleChainLightningEffectAndDamageTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HandleDeath;GameObject",
       "shortName": "HandleDeath",
       "flags": 33024,
@@ -3426,6 +3625,33 @@
       ]
     },
     {
+      "fullName": "IsActionCurrentlyUploading;",
+      "shortName": "IsActionCurrentlyUploading",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsActionQueueEnabled;",
+      "shortName": "IsActionQueueEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsActionQueueFull;",
+      "shortName": "IsActionQueueFull",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsActive;",
       "shortName": "IsActive",
       "return": {
@@ -3507,6 +3733,15 @@
       "flags": 41472
     },
     {
+      "fullName": "IsCerberus;",
+      "shortName": "IsCerberus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsCharacterChildren;",
       "shortName": "IsCharacterChildren",
       "return": {
@@ -3545,6 +3780,15 @@
     {
       "fullName": "IsCharacterPolice;",
       "shortName": "IsCharacterPolice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsCivilian;",
+      "shortName": "IsCivilian",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -3633,6 +3877,15 @@
       "flags": 41476
     },
     {
+      "fullName": "IsFinisherSoundPlayed;",
+      "shortName": "IsFinisherSoundPlayed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsHackingPlayer;",
       "shortName": "IsHackingPlayer",
       "return": {
@@ -3687,6 +3940,42 @@
     {
       "fullName": "IsMassive;",
       "shortName": "IsMassive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsMaxTac;",
+      "shortName": "IsMaxTac",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsMech;",
+      "shortName": "IsMech",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsMechanical;",
+      "shortName": "IsMechanical",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsNetrunnerPuppet;",
+      "shortName": "IsNetrunnerPuppet",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -3807,6 +4096,15 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "IsResistantToTakedown;",
+      "shortName": "IsResistantToTakedown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "IsRevealed;",
@@ -4115,11 +4413,6 @@
       "flags": 32900
     },
     {
-      "fullName": "ProcessLoot;",
-      "shortName": "ProcessLoot",
-      "flags": 33028
-    },
-    {
       "fullName": "ProcessLootMinigame;FloatFloatFloatFloatFloatFloatTransactionSystem",
       "shortName": "ProcessLootMinigame",
       "flags": 32900,
@@ -4160,6 +4453,33 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ProcessNewPerkFinisherLayer;InteractionChoiceEventPlayerPuppetNPCPuppet",
+      "shortName": "ProcessNewPerkFinisherLayer",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameinteractionsChoiceEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "playerPuppet",
+          "flags": 128
+        },
+        {
+          "type": "handle:NPCPuppet",
+          "name": "npcPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessQuickHackQueueOnDefeat;",
+      "shortName": "ProcessQuickHackQueueOnDefeat",
+      "flags": 33028
     },
     {
       "fullName": "ProcessSyncedAnimationPuppetActions;InteractionChoiceEvent",
@@ -4203,6 +4523,18 @@
       ]
     },
     {
+      "fullName": "PuppetDamagePipelineFinalized;gameHitEvent",
+      "shortName": "PuppetDamagePipelineFinalized",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PuppetSubmergedRequestRemovingStatusEffects;GameObject",
       "shortName": "PuppetSubmergedRequestRemovingStatusEffects",
       "flags": 41476,
@@ -4210,6 +4542,23 @@
         {
           "type": "whandle:gameObject",
           "name": "obj",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PushFinisherActionEventToPSM;InteractionChoiceEventBool",
+      "shortName": "PushFinisherActionEventToPSM",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameinteractionsChoiceEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isFastFinisher",
           "flags": 128
         }
       ]
@@ -4350,6 +4699,11 @@
       "flags": 33028
     },
     {
+      "fullName": "RevokeAllTicketsForPreventionSquad;",
+      "shortName": "RevokeAllTicketsForPreventionSquad",
+      "flags": 33028
+    },
+    {
       "fullName": "RewardKiller;GameObjectgameKillTypeBool",
       "shortName": "RewardKiller",
       "flags": 33024,
@@ -4406,6 +4760,42 @@
         {
           "type": "Bool",
           "name": "shouldOpen",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAnimWrappersOnItem;ItemObject",
+      "shortName": "SetAnimWrappersOnItem",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "whandle:gameItemObject",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentlyUploadingAction;ScriptableDeviceAction",
+      "shortName": "SetCurrentlyUploadingAction",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetFinisherSoundPlayed;Bool",
+      "shortName": "SetFinisherSoundPlayed",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -4588,6 +4978,28 @@
       ]
     },
     {
+      "fullName": "SoftKill;GameObjectBoolBool",
+      "shortName": "SoftKill",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "skipNPCDeathAnim",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "disableNPCRagdoll",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "SquadUpdate;BoolAISquadType",
       "shortName": "SquadUpdate",
       "flags": 32900,
@@ -4625,24 +5037,63 @@
       "flags": 33024
     },
     {
+      "fullName": "StopPoliceBehaviour;",
+      "shortName": "StopPoliceBehaviour",
+      "flags": 33284
+    },
+    {
       "fullName": "ToggleInteractionLayers;",
       "shortName": "ToggleInteractionLayers",
       "flags": 32900
     },
     {
-      "fullName": "TranslateChoicesIntoQuickSlotCommands;array<PuppetAction>array<QuickhackData>",
+      "fullName": "TranslateChoicesIntoQuickSlotCommands;script_ref<array<PuppetAction>>script_ref<array<QuickhackData>>",
       "shortName": "TranslateChoicesIntoQuickSlotCommands",
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:PuppetAction",
+          "type": "script_ref:array:handle:PuppetAction",
           "name": "puppetActions",
           "flags": 128
         },
         {
-          "type": "array:handle:QuickhackData",
+          "type": "script_ref:array:handle:QuickhackData",
           "name": "commands",
-          "flags": 640
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerNewPerkFinisher;InteractionChoiceEventPlayerPuppet",
+      "shortName": "TriggerNewPerkFinisher",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameinteractionsChoiceEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TriggerNewPerkFinisherBluntHold;PlayerPuppetNPCPuppet",
+      "shortName": "TriggerNewPerkFinisherBluntHold",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "playerPuppet",
+          "flags": 128
+        },
+        {
+          "type": "handle:NPCPuppet",
+          "name": "npcPuppet",
+          "flags": 128
         }
       ]
     },
@@ -4672,6 +5123,11 @@
           "flags": 1152
         }
       ]
+    },
+    {
+      "fullName": "TryRegisterToPrevention;",
+      "shortName": "TryRegisterToPrevention",
+      "flags": 33284
     },
     {
       "fullName": "UnregisterSubCharacter;",

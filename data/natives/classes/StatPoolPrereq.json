@@ -9,9 +9,9 @@
       "flags": 4297326624
     },
     {
-      "type": "Float",
+      "type": "array:whandle:gamedataStatModifier_Record",
       "name": "valueToCheck",
-      "flags": 4297326624
+      "flags": 6583222304
     },
     {
       "type": "EComparisonType",
@@ -29,26 +29,26 @@
       "flags": 4297326624
     },
     {
-      "type": "TweakDBID",
-      "name": "itemTDBID",
-      "flags": 4297326624
-    },
-    {
-      "type": "Bool",
-      "name": "checkItem",
+      "type": "ObjectToCheck",
+      "name": "objToCheck",
       "flags": 4297326624
     }
   ],
   "funcs": [
     {
-      "fullName": "CompareValues;StatsObjectIDIScriptable",
+      "fullName": "CompareValues;GameObjectStatsObjectIDIScriptable",
       "shortName": "CompareValues",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 41092,
+      "flags": 41220,
       "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "object",
+          "flags": 128
+        },
         {
           "type": "gameStatsObjectID",
           "name": "statsObjID",
@@ -57,6 +57,22 @@
         {
           "type": "handle:IScriptable",
           "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetObject;GameObject",
+      "shortName": "GetObject",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
           "flags": 128
         }
       ]
@@ -73,6 +89,22 @@
         {
           "type": "handle:gameObject",
           "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetValueToCheck;StatPoolPrereqState",
+      "shortName": "GetValueToCheck",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:StatPoolPrereqState",
+          "name": "state",
           "flags": 128
         }
       ]

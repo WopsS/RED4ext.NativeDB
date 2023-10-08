@@ -30,6 +30,32 @@
       ]
     },
     {
+      "fullName": "StatusEffectHelper::ApplyStatusEffect;GameObjectTweakDBIDEntityID",
+      "shortName": "ApplyStatusEffect",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "statusEffectID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "instigatorEntityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "StatusEffectHelper::ApplyStatusEffect;GameObjectTweakDBIDTweakDBID",
       "shortName": "ApplyStatusEffect",
       "return": {
@@ -56,7 +82,7 @@
       ]
     },
     {
-      "fullName": "StatusEffectHelper::ApplyStatusEffect;GameObjectTweakDBIDEntityID",
+      "fullName": "StatusEffectHelper::ApplyStatusEffect;GameObjectTweakDBIDEntityIDEntityID",
       "shortName": "ApplyStatusEffect",
       "return": {
         "type": "Bool",
@@ -77,6 +103,11 @@
         {
           "type": "entEntityID",
           "name": "instigatorEntityID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "proxyEntityID",
           "flags": 128
         }
       ]
@@ -109,6 +140,32 @@
         {
           "type": "Float",
           "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StatusEffectHelper::ApplyStatusEffectOnSelf;GameInstanceTweakDBIDEntityID",
+      "shortName": "ApplyStatusEffectOnSelf",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "statusEffectID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "entityID",
           "flags": 128
         }
       ]
@@ -151,7 +208,7 @@
       ]
     },
     {
-      "fullName": "StatusEffectHelper::GetAppliedEffectsWithTag;GameObjectCNamearray<StatusEffect>EntityID",
+      "fullName": "StatusEffectHelper::GetAppliedEffectsWithTag;GameObjectCNamescript_ref<array<StatusEffect>>EntityID",
       "shortName": "GetAppliedEffectsWithTag",
       "return": {
         "type": "Bool",
@@ -170,9 +227,9 @@
           "flags": 128
         },
         {
-          "type": "array:handle:gameStatusEffect",
+          "type": "script_ref:array:handle:gameStatusEffect",
           "name": "statusEffects",
-          "flags": 640
+          "flags": 128
         },
         {
           "type": "entEntityID",
@@ -444,6 +501,28 @@
       ]
     },
     {
+      "fullName": "StatusEffectHelper::RemoveAllStatusEffectsByType;GameInstanceEntityIDgamedataStatusEffectType",
+      "shortName": "RemoveAllStatusEffectsByType",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatusEffectType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "StatusEffectHelper::RemoveAllStatusEffectsByType;GameObjectgamedataStatusEffectType",
       "shortName": "RemoveAllStatusEffectsByType",
       "flags": 33286,
@@ -483,7 +562,7 @@
       ]
     },
     {
-      "fullName": "StatusEffectHelper::RemoveStatusEffect;GameObjectStatusEffect",
+      "fullName": "StatusEffectHelper::RemoveStatusEffect;GameObjectStatusEffectUint32",
       "shortName": "RemoveStatusEffect",
       "return": {
         "type": "Bool",
@@ -500,11 +579,16 @@
           "type": "handle:gameStatusEffect",
           "name": "statusEffect",
           "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "removeCount",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "StatusEffectHelper::RemoveStatusEffect;GameObjectTweakDBID",
+      "fullName": "StatusEffectHelper::RemoveStatusEffect;GameObjectTweakDBIDUint32",
       "shortName": "RemoveStatusEffect",
       "return": {
         "type": "Bool",
@@ -521,6 +605,11 @@
           "type": "TweakDBID",
           "name": "statusEffectID",
           "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "removeCount",
+          "flags": 1152
         }
       ]
     },

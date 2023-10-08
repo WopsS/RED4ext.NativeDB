@@ -39,6 +39,16 @@
       "flags": 4297326624
     },
     {
+      "type": "Bool",
+      "name": "immuneInDecay",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "healthDecayThreshold",
+      "flags": 4297326624
+    },
+    {
       "type": "handle:VehicleHealthStatPoolListener",
       "name": "healthStatPoolListener",
       "flags": 4431544352
@@ -69,6 +79,11 @@
       "flags": 4297326624
     },
     {
+      "type": "gameNewMappinID",
+      "name": "quickhackMappinID",
+      "flags": 4297326624
+    },
+    {
       "type": "Bool",
       "name": "ignoreAutoDoorClose",
       "flags": 4297326624
@@ -90,8 +105,23 @@
     },
     {
       "type": "handle:redCallbackObject",
+      "name": "carAlarmCallbackID",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
       "name": "vehicleRPMCallbackID",
       "flags": 4431544352
+    },
+    {
+      "type": "gameDelayID",
+      "name": "vehicleDisableAlarmDelayID",
+      "flags": 4297326624
+    },
+    {
+      "type": "gameDelayID",
+      "name": "vehicleExitDelayId",
+      "flags": 4297326624
     },
     {
       "type": "Bool",
@@ -140,12 +170,12 @@
     },
     {
       "type": "Bool",
-      "name": "hasSiren",
+      "name": "useAuxiliary",
       "flags": 4297326624
     },
     {
       "type": "Float",
-      "name": "hornPressTime",
+      "name": "sirenPressTime",
       "flags": 4297326624
     },
     {
@@ -192,6 +222,21 @@
       "type": "handle:redCallbackObject",
       "name": "currentWantedLevelCallback",
       "flags": 4431544352
+    },
+    {
+      "type": "Int32",
+      "name": "preventionPassengers",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "timeSinceLastHit",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "dragTime",
+      "flags": 4297326624
     },
     {
       "type": "handle:vehicleController",
@@ -243,7 +288,7 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::CheckIfPassengersCanLeaveCar;GameInstanceEntityIDarray<GameObject>array<GameObject>",
+      "fullName": "VehicleComponent::CheckIfPassengersCanLeaveCar;GameInstanceEntityIDscript_ref<array<GameObject>>script_ref<array<GameObject>>",
       "shortName": "CheckIfPassengersCanLeaveCar",
       "flags": 33286,
       "params": [
@@ -258,14 +303,14 @@
           "flags": 128
         },
         {
-          "type": "array:whandle:gameObject",
+          "type": "script_ref:array:whandle:gameObject",
           "name": "passengersCanLeaveCar",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "array:whandle:gameObject",
+          "type": "script_ref:array:whandle:gameObject",
           "name": "passengersCantLeaveCar",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -338,6 +383,33 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::GetAllPassengers;GameInstanceEntityIDBoolscript_ref<array<GameObject>>",
+      "shortName": "GetAllPassengers",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "includeTrunkBody",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gameObject",
+          "name": "passengers",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::GetAttitudeOfPassenger;GameInstanceEntityIDMountingSlotIdEAIAttitude",
       "shortName": "GetAttitudeOfPassenger",
       "return": {
@@ -387,8 +459,34 @@
       "flags": 33286
     },
     {
-      "fullName": "VehicleComponent::GetDriver;GameInstanceEntityID",
+      "fullName": "VehicleComponent::GetDriver;GameInstanceVehicleObjectEntityID",
       "shortName": "GetDriver",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::GetDriverMounted;GameInstanceEntityID",
+      "shortName": "GetDriverMounted",
       "return": {
         "type": "whandle:gameObject",
         "flags": 64
@@ -452,8 +550,26 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::GetFrontPassengerSlotID;",
+      "shortName": "GetFrontPassengerSlotID",
+      "return": {
+        "type": "gamemountingMountingSlotId",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
       "fullName": "VehicleComponent::GetFrontPassengerSlotName;",
       "shortName": "GetFrontPassengerSlotName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "VehicleComponent::GetImmobilizedName;",
+      "shortName": "GetImmobilizedName",
       "return": {
         "type": "CName",
         "flags": 64
@@ -555,14 +671,14 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::GetPassengersSlotNames;array<CName>",
+      "fullName": "VehicleComponent::GetPassengersSlotNames;script_ref<array<CName>>",
       "shortName": "GetPassengersSlotNames",
       "flags": 33286,
       "params": [
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "slotNames",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -593,12 +709,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::GetVehicle;GameInstanceEntityIDVehicleObject",
-      "shortName": "GetVehicle",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
+      "fullName": "VehicleComponent::GetSeatsStatus;GameInstanceVehicleObjectInt32Int32Int32",
+      "shortName": "GetSeatsStatus",
       "flags": 33286,
       "params": [
         {
@@ -607,13 +719,23 @@
           "flags": 128
         },
         {
-          "type": "entEntityID",
-          "name": "ownerID",
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
           "flags": 128
         },
         {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
+          "type": "Int32",
+          "name": "totalSeatSlots",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "occupiedSeatSlots",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "reservedSlots",
           "flags": 640
         }
       ]
@@ -635,6 +757,32 @@
         {
           "type": "whandle:gameObject",
           "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::GetVehicle;GameInstanceEntityIDVehicleObject",
+      "shortName": "GetVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ownerID",
           "flags": 128
         },
         {
@@ -802,7 +950,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 33286,
+      "flags": 32902,
       "params": [
         {
           "type": "ScriptGameInstance",
@@ -817,32 +965,6 @@
         {
           "type": "handle:AnimFeature_VehicleNPCData",
           "name": "vehicleNPCData",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "VehicleComponent::GetVehicleRecord;GameInstanceGameObjectVehicle_Record",
-      "shortName": "GetVehicleRecord",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gi",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamedataVehicle_Record",
-          "name": "vehicleRecord",
           "flags": 640
         }
       ]
@@ -895,6 +1017,32 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::GetVehicleRecord;GameInstanceGameObjectVehicle_Record",
+      "shortName": "GetVehicleRecord",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataVehicle_Record",
+          "name": "vehicleRecord",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::GetVehicleRecordFromID;GameInstanceEntityIDVehicle_Record",
       "shortName": "GetVehicleRecordFromID",
       "return": {
@@ -921,7 +1069,7 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::GetVehicleType;GameInstanceGameObjectString",
+      "fullName": "VehicleComponent::GetVehicleType;GameInstanceGameObjectscript_ref<String>",
       "shortName": "GetVehicleType",
       "return": {
         "type": "Bool",
@@ -940,29 +1088,8 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "type",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "VehicleComponent::HasActiveAutopilot;GameInstanceEntityID",
-      "shortName": "HasActiveAutopilot",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "gi",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "ownerID",
           "flags": 128
         }
       ]
@@ -989,8 +1116,55 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::HasActiveDriver;GameInstanceEntityID",
+      "fullName": "VehicleComponent::HasActiveAutopilot;GameInstanceEntityID",
+      "shortName": "HasActiveAutopilot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ownerID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::HasActiveDriver;GameInstanceVehicleObjectEntityID",
       "shortName": "HasActiveDriver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::HasActiveDriverMounted;GameInstanceEntityID",
+      "shortName": "HasActiveDriverMounted",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1031,8 +1205,66 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::HasAnyPreventionPassengers;VehicleObject",
+      "shortName": "HasAnyPreventionPassengers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::HasFlatTire;GameInstanceEntityID",
+      "shortName": "HasFlatTire",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::HasOnlyOneActivePassenger;GameInstanceEntityID",
       "shortName": "HasOnlyOneActivePassenger",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::HasPassengersWithThreatOnPlayer;GameInstanceEntityID",
+      "shortName": "HasPassengersWithThreatOnPlayer",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1120,6 +1352,27 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::IsDriver;GameInstanceEntityID",
+      "shortName": "IsDriver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ownerID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::IsDriver;GameInstanceGameObject",
       "shortName": "IsDriver",
       "return": {
@@ -1141,8 +1394,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::IsDriver;GameInstanceEntityID",
-      "shortName": "IsDriver",
+      "fullName": "VehicleComponent::IsDriverSeatOccupiedByDeadNPC;GameInstanceEntityID",
+      "shortName": "IsDriverSeatOccupiedByDeadNPC",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1156,7 +1409,7 @@
         },
         {
           "type": "entEntityID",
-          "name": "ownerID",
+          "name": "vehicleID",
           "flags": 128
         }
       ]
@@ -1225,6 +1478,27 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::IsMountedToVehicle;GameInstanceEntityID",
+      "shortName": "IsMountedToVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "ownerID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::IsMountedToVehicle;GameInstanceGameObject",
       "shortName": "IsMountedToVehicle",
       "return": {
@@ -1246,8 +1520,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::IsMountedToVehicle;GameInstanceEntityID",
-      "shortName": "IsMountedToVehicle",
+      "fullName": "VehicleComponent::IsMountedToVehicleWithDriverSeatOccupiedByDeadNPC;GameInstanceEntityID",
+      "shortName": "IsMountedToVehicleWithDriverSeatOccupiedByDeadNPC",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1261,7 +1535,7 @@
         },
         {
           "type": "entEntityID",
-          "name": "ownerID",
+          "name": "passengerID",
           "flags": 128
         }
       ]
@@ -1366,6 +1640,32 @@
       ]
     },
     {
+      "fullName": "VehicleComponent::IsSlotOccupiedByActivePassenger;GameInstanceEntityIDCName",
+      "shortName": "IsSlotOccupiedByActivePassenger",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "slotName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "VehicleComponent::IsSlotOccupiedByActivePassenger;GameInstanceEntityIDMountingSlotId",
       "shortName": "IsSlotOccupiedByActivePassenger",
       "return": {
@@ -1392,8 +1692,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::IsSlotOccupiedByActivePassenger;GameInstanceEntityIDCName",
-      "shortName": "IsSlotOccupiedByActivePassenger",
+      "fullName": "VehicleComponent::IsSlotOccupiedByOtherEntity;GameInstanceEntityIDMountingSlotIdEntityID",
+      "shortName": "IsSlotOccupiedByOtherEntity",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1411,8 +1711,13 @@
           "flags": 128
         },
         {
-          "type": "CName",
-          "name": "slotName",
+          "type": "gamemountingMountingSlotId",
+          "name": "vehicleSlotID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "expectedEntity",
           "flags": 128
         }
       ]
@@ -1454,7 +1759,19 @@
         },
         {
           "type": "whandle:gameObject",
-          "name": "passanger",
+          "name": "passenger",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::OnThreatInstantDrop;GameObject",
+      "shortName": "OnThreatInstantDrop",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "passenger",
           "flags": 128
         }
       ]
@@ -1486,8 +1803,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::QueueEventToAllNonFriendlyActivePassengers;GameInstanceEntityIDEventGameObjectBoolBool",
-      "shortName": "QueueEventToAllNonFriendlyActivePassengers",
+      "fullName": "VehicleComponent::PlayerPassengerHasGodModeFromCheatSystem;GameInstanceEntityIDgameGodModeType",
+      "shortName": "PlayerPassengerHasGodModeFromCheatSystem",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1505,24 +1822,26 @@
           "flags": 128
         },
         {
-          "type": "handle:redEvent",
-          "name": "evt",
+          "type": "gameGodModeType",
+          "name": "gmType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::PushVehicleNPCData;GameInstanceGameObject",
+      "shortName": "PushVehicleNPCData",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
           "flags": 128
         },
         {
-          "type": "handle:gameObject",
-          "name": "executionOwner",
+          "type": "whandle:gameObject",
+          "name": "passenger",
           "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "broadcastHijack",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "delay",
-          "flags": 1152
         }
       ]
     },
@@ -1630,8 +1949,8 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::QueueEventToPassenger;GameInstanceVehicleObjectMountingSlotIdEventFloatBool",
-      "shortName": "QueueEventToPassenger",
+      "fullName": "VehicleComponent::QueueEventToAllPassengersRandomly;GameInstanceEntityIDEventFloatFloat",
+      "shortName": "QueueEventToAllPassengersRandomly",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1644,13 +1963,8 @@
           "flags": 128
         },
         {
-          "type": "whandle:vehicleBaseObject",
-          "name": "vehicle",
-          "flags": 128
-        },
-        {
-          "type": "gamemountingMountingSlotId",
-          "name": "slotID",
+          "type": "entEntityID",
+          "name": "id",
           "flags": 128
         },
         {
@@ -1660,13 +1974,13 @@
         },
         {
           "type": "Float",
-          "name": "delay",
-          "flags": 1152
+          "name": "min",
+          "flags": 128
         },
         {
-          "type": "Bool",
-          "name": "randomDelay",
-          "flags": 1152
+          "type": "Float",
+          "name": "max",
+          "flags": 128
         }
       ]
     },
@@ -1712,7 +2026,48 @@
       ]
     },
     {
-      "fullName": "VehicleComponent::QueueEventToPassengers;GameInstanceEntityIDEventarray<GameObject>Bool",
+      "fullName": "VehicleComponent::QueueEventToPassenger;GameInstanceVehicleObjectMountingSlotIdEventFloatBool",
+      "shortName": "QueueEventToPassenger",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        },
+        {
+          "type": "gamemountingMountingSlotId",
+          "name": "slotID",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "randomDelay",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::QueueEventToPassengers;GameInstanceEntityIDEventscript_ref<array<GameObject>>BoolFloat",
       "shortName": "QueueEventToPassengers",
       "return": {
         "type": "Bool",
@@ -1736,9 +2091,50 @@
           "flags": 128
         },
         {
-          "type": "array:whandle:gameObject",
+          "type": "script_ref:array:whandle:gameObject",
           "name": "passengers",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "delay",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "maxDelayAmount",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::QueueExitEventToAllNonFriendlyActivePassengers;GameInstanceEntityIDGameObjectBoolBool",
+      "shortName": "QueueExitEventToAllNonFriendlyActivePassengers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "executionOwner",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "broadcastHijack",
+          "flags": 1152
         },
         {
           "type": "Bool",
@@ -1763,6 +2159,18 @@
         },
         {
           "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleComponent::SendPoliceJustLostPlayerSearchCommand;WheeledObject",
+      "shortName": "SendPoliceJustLostPlayerSearchCommand",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "whandle:vehicleWheeledBaseObject",
           "name": "vehicle",
           "flags": 128
         }
@@ -1857,6 +2265,38 @@
       ]
     },
     {
+      "fullName": "OnAIVehicleDisabledEvent",
+      "shortName": "OnAIVehicleDisabledEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleAIVehicleDisabledEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAccelerateQuickhackEvent",
+      "shortName": "OnAccelerateQuickhackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleAccelerateQuickhackEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnAction",
       "shortName": "OnAction",
       "return": {
@@ -1905,6 +2345,22 @@
         {
           "type": "handle:ActionEngineering",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCarAlarmHonk",
+      "shortName": "OnCarAlarmHonk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "UseCarAlarmStim",
           "flags": 128
         }
       ]
@@ -1990,6 +2446,22 @@
       ]
     },
     {
+      "fullName": "OnDelayedBikeKnockOffEvent",
+      "shortName": "OnDelayedBikeKnockOffEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DelayedBikeKnockOffEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDisableAlarm",
       "shortName": "OnDisableAlarm",
       "return": {
@@ -2022,6 +2494,22 @@
       ]
     },
     {
+      "fullName": "OnExplodeEvent",
+      "shortName": "OnExplodeEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleExplodeEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnFactChangedEvent",
       "shortName": "OnFactChangedEvent",
       "return": {
@@ -2032,6 +2520,22 @@
       "params": [
         {
           "type": "handle:gameFactChangedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceBrakesQuickhackEvent",
+      "shortName": "OnForceBrakesQuickhackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleForceBrakesQuickhackEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2230,6 +2734,54 @@
       ]
     },
     {
+      "fullName": "OnQuickSlotCommandUsed",
+      "shortName": "OnQuickSlotCommandUsed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuickSlotCommandUsed",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemoteControlCameraToggleEvent",
+      "shortName": "OnRemoteControlCameraToggleEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleRemoteControlCameraToggleEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRemoteControlEvent",
+      "shortName": "OnRemoteControlEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleRemoteControlEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetIgnoreAutoDoorCloseEvent",
       "shortName": "OnSetIgnoreAutoDoorCloseEvent",
       "return": {
@@ -2278,6 +2830,22 @@
       ]
     },
     {
+      "fullName": "OnToggleBrokenTireEvent",
+      "shortName": "OnToggleBrokenTireEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleToggleBrokenTireEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnToggleDoorInteractionEvent",
       "shortName": "OnToggleDoorInteractionEvent",
       "return": {
@@ -2294,6 +2862,22 @@
       ]
     },
     {
+      "fullName": "OnTriggerVehicleRemoteControlEvent",
+      "shortName": "OnTriggerVehicleRemoteControlEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TriggerVehicleRemoteControlEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUnmountingEvent",
       "shortName": "OnUnmountingEvent",
       "return": {
@@ -2304,6 +2888,22 @@
       "params": [
         {
           "type": "handle:gamemountingUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUploadProgramProgress",
+      "shortName": "OnUploadProgramProgress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:UploadProgramProgressEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2390,8 +2990,8 @@
       ]
     },
     {
-      "fullName": "OnVehicleCycleLightsEvent",
-      "shortName": "OnVehicleCycleLightsEvent",
+      "fullName": "OnVehicleCycleHeadLightsEvent",
+      "shortName": "OnVehicleCycleHeadLightsEvent",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -2416,6 +3016,22 @@
       "params": [
         {
           "type": "handle:VehicleDamageStageTurnOffEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDelayedQuestHornEvent",
+      "shortName": "OnVehicleDelayedQuestHornEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleQuestDelayedHornEvent",
           "name": "evt",
           "flags": 128
         }
@@ -2512,6 +3128,22 @@
       "params": [
         {
           "type": "handle:VehicleDumpBodyCloseTrunkEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleExitDelayedEvent",
+      "shortName": "OnVehicleExitDelayedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleExitDelayed",
           "name": "evt",
           "flags": 128
         }
@@ -2630,6 +3262,22 @@
       ]
     },
     {
+      "fullName": "OnVehicleLightQuestChangeColorEvent",
+      "shortName": "OnVehicleLightQuestChangeColorEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:VehicleLightQuestChangeColorEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnVehicleLightQuestToggleEvent",
       "shortName": "OnVehicleLightQuestToggleEvent",
       "return": {
@@ -2656,6 +3304,22 @@
       "params": [
         {
           "type": "handle:VehicleLightSetupEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleNotifyPassengersOfCollision",
+      "shortName": "OnVehicleNotifyPassengersOfCollision",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleNotifyPassengersOfCollision",
           "name": "evt",
           "flags": 128
         }
@@ -2752,6 +3416,22 @@
       "params": [
         {
           "type": "handle:VehicleQuestHornEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleQuestNodeActivateRemoteVehicleControl",
+      "shortName": "OnVehicleQuestNodeActivateRemoteVehicleControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleQuestNodeSetVehicleRemoteControlled",
           "name": "evt",
           "flags": 128
         }
@@ -3046,6 +3726,22 @@
       ]
     },
     {
+      "fullName": "OnWeaponShootEvent",
+      "shortName": "OnWeaponShootEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleMountedWeaponShootEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ApplyVehicleDOT;CName",
       "shortName": "ApplyVehicleDOT",
       "flags": 33028,
@@ -3084,6 +3780,28 @@
       "flags": 32900
     },
     {
+      "fullName": "CancelVehicleExitDelayedEvent;",
+      "shortName": "CancelVehicleExitDelayedEvent",
+      "flags": 32900
+    },
+    {
+      "fullName": "CheckAboutToExplodeStateOnFlip;",
+      "shortName": "CheckAboutToExplodeStateOnFlip",
+      "flags": 32900
+    },
+    {
+      "fullName": "CheckForDrag;Float",
+      "shortName": "CheckForDrag",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "impactImpulse",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CleanUpRace;",
       "shortName": "CleanUpRace",
       "flags": 33028
@@ -3094,12 +3812,12 @@
       "flags": 32900
     },
     {
-      "fullName": "CloseSelectedDoors;array<CName>",
+      "fullName": "CloseSelectedDoors;script_ref<array<CName>>",
       "shortName": "CloseSelectedDoors",
       "flags": 32900,
       "params": [
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "doors",
           "flags": 128
         }
@@ -3123,13 +3841,33 @@
       ]
     },
     {
-      "fullName": "CreateHitEventOnSelf;Float",
+      "fullName": "CreateHitEventOnSelf;FloatVector3GameObjectBoolBool",
       "shortName": "CreateHitEventOnSelf",
       "flags": 32900,
       "params": [
         {
           "type": "Float",
-          "name": "force",
+          "name": "damageMultiplier",
+          "flags": 128
+        },
+        {
+          "type": "Vector3",
+          "name": "impactPoint",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "otherVehicle",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "rammedOtherVehicle",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "otherVehicleRammed",
           "flags": 128
         }
       ]
@@ -3152,9 +3890,43 @@
       ]
     },
     {
+      "fullName": "CreateQuickHackMappin;GameplayRoleMappinData",
+      "shortName": "CreateQuickHackMappin",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:GameplayRoleMappinData",
+          "name": "quickhackMappinScriptData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DamagePassengerInCollision;GameObjectGameObjectVector4",
+      "shortName": "DamagePassengerInCollision",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "passenger",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "hitDirection",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DestroyMappin;",
       "shortName": "DestroyMappin",
-      "flags": 32900
+      "flags": 33284
     },
     {
       "fullName": "DestroyObjectActionsCallbackController;",
@@ -3162,13 +3934,13 @@
       "flags": 32900
     },
     {
-      "fullName": "DestroyRandomWindow;",
-      "shortName": "DestroyRandomWindow",
+      "fullName": "DestroyQuickHackMappin;",
+      "shortName": "DestroyQuickHackMappin",
       "flags": 32900
     },
     {
-      "fullName": "DestroyVehicle;",
-      "shortName": "DestroyVehicle",
+      "fullName": "DestroyRandomWindow;",
+      "shortName": "DestroyRandomWindow",
       "flags": 32900
     },
     {
@@ -3189,6 +3961,11 @@
       ]
     },
     {
+      "fullName": "DetermineInteractionState;",
+      "shortName": "DetermineInteractionState",
+      "flags": 33028
+    },
+    {
       "fullName": "DetermineInteractionState;CName",
       "shortName": "DetermineInteractionState",
       "flags": 33028,
@@ -3196,23 +3973,6 @@
         {
           "type": "CName",
           "name": "layerName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DetermineInteractionState;",
-      "shortName": "DetermineInteractionState",
-      "flags": 33028
-    },
-    {
-      "fullName": "DetermineShouldCrystalDomeBeOn;Float",
-      "shortName": "DetermineShouldCrystalDomeBeOn",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "Float",
-          "name": "meshVisibilityDelay",
           "flags": 128
         }
       ]
@@ -3228,6 +3988,11 @@
       "flags": 32900
     },
     {
+      "fullName": "DisableVehicle;",
+      "shortName": "DisableVehicle",
+      "flags": 32900
+    },
+    {
       "fullName": "DoPanzerCleanup;",
       "shortName": "DoPanzerCleanup",
       "flags": 32900
@@ -3235,11 +4000,6 @@
     {
       "fullName": "DoPreventionVehicleCleanup;",
       "shortName": "DoPreventionVehicleCleanup",
-      "flags": 32900
-    },
-    {
-      "fullName": "DoPreventionVehicleSetup;",
-      "shortName": "DoPreventionVehicleSetup",
       "flags": 32900
     },
     {
@@ -3253,6 +4013,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "EnableRadio;",
+      "shortName": "EnableRadio",
+      "flags": 32900
     },
     {
       "fullName": "EnableTargetingComponents;",
@@ -3276,7 +4041,7 @@
       ]
     },
     {
-      "fullName": "EvaluateDoorReaction;CNameBool",
+      "fullName": "EvaluateDoorReaction;CNameBoolVehicleDoorState",
       "shortName": "EvaluateDoorReaction",
       "flags": 33028,
       "params": [
@@ -3288,6 +4053,11 @@
         {
           "type": "Bool",
           "name": "immediate",
+          "flags": 128
+        },
+        {
+          "type": "vehicleVehicleDoorState",
+          "name": "doorState",
           "flags": 128
         }
       ]
@@ -3345,6 +4115,23 @@
       "flags": 32900
     },
     {
+      "fullName": "ExecuteAction;script_ref<InteractionChoice>GameObject",
+      "shortName": "ExecuteAction",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:gameinteractionsChoice",
+          "name": "choice",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "executor",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ExecuteAction;DeviceActionGameObject",
       "shortName": "ExecuteAction",
       "flags": 32900,
@@ -3358,23 +4145,6 @@
           "type": "whandle:gameObject",
           "name": "executor",
           "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "ExecuteAction;InteractionChoiceGameObject",
-      "shortName": "ExecuteAction",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameinteractionsChoice",
-          "name": "choice",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "executor",
-          "flags": 128
         }
       ]
     },
@@ -3393,6 +4163,11 @@
     {
       "fullName": "FinishTrunkBodyPickup;",
       "shortName": "FinishTrunkBodyPickup",
+      "flags": 33284
+    },
+    {
+      "fullName": "ForceAboutToExplodeState;",
+      "shortName": "ForceAboutToExplodeState",
       "flags": 33284
     },
     {
@@ -3494,6 +4269,15 @@
       "flags": 32900
     },
     {
+      "fullName": "GetVehicleDecayThreshold;",
+      "shortName": "GetVehicleDecayThreshold",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetVehicleDoorEnum;EVehicleDoorCName",
       "shortName": "GetVehicleDoorEnum",
       "return": {
@@ -3524,6 +4308,32 @@
       "flags": 33284
     },
     {
+      "fullName": "HandleBikeCollisionReaction;FloatVector4",
+      "shortName": "HandleBikeCollisionReaction",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "impactVelocityChange",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "impactHitNormal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasPreventionPassenger;",
+      "shortName": "HasPreventionPassenger",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "HonkAndFlash;",
       "shortName": "HonkAndFlash",
       "flags": 32900
@@ -3534,9 +4344,48 @@
       "flags": 32900
     },
     {
+      "fullName": "InjectThreat;GameObject",
+      "shortName": "InjectThreat",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsBeingDragged;",
+      "shortName": "IsBeingDragged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "IsPlayerVehicle;",
       "shortName": "IsPlayerVehicle",
       "flags": 32900
+    },
+    {
+      "fullName": "IsVehicleImmuneInDecay;",
+      "shortName": "IsVehicleImmuneInDecay",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsVehicleInDecay;",
+      "shortName": "IsVehicleInDecay",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "IsVehicleParked;",
@@ -3689,6 +4538,35 @@
       "flags": 32900
     },
     {
+      "fullName": "PlayDelayedHonk;FloatFloat",
+      "shortName": "PlayDelayedHonk",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "honkTime",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delayTime",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayHonkForDuration;Float",
+      "shortName": "PlayHonkForDuration",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "honkTime",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PlaySummonArrivalSFX;",
       "shortName": "PlaySummonArrivalSFX",
       "flags": 32900
@@ -3697,6 +4575,61 @@
       "fullName": "ProcessExplosionEffects;",
       "shortName": "ProcessExplosionEffects",
       "flags": 32900
+    },
+    {
+      "fullName": "PushVehicleNPCDataToAllPassengers;GameInstanceEntityID",
+      "shortName": "PushVehicleNPCDataToAllPassengers",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gi",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueueLethalVehicleImpactToAllNonFriendlyAggressivePassengers;CName",
+      "shortName": "QueueLethalVehicleImpactToAllNonFriendlyAggressivePassengers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "sourceName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QueueVehicleImpactLethalHitEvent;GameObjectGameObjectCName",
+      "shortName": "QueueVehicleImpactLethalHitEvent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "sourceName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ReactToHPChange;Float",
@@ -3728,8 +4661,18 @@
       ]
     },
     {
+      "fullName": "RegisterWantedLevelListener;",
+      "shortName": "RegisterWantedLevelListener",
+      "flags": 32900
+    },
+    {
       "fullName": "RemoveEnvironmentalHazardStimuli;",
       "shortName": "RemoveEnvironmentalHazardStimuli",
+      "flags": 32900
+    },
+    {
+      "fullName": "RemoveQuickhackQueue;",
+      "shortName": "RemoveQuickhackQueue",
       "flags": 32900
     },
     {
@@ -3804,6 +4747,18 @@
       ]
     },
     {
+      "fullName": "SetDelayDisableCarAlarm;Float",
+      "shortName": "SetDelayDisableCarAlarm",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "evtActivationTime",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetDoorAnimFeatureData;EVehicleDoorVehicleDoorState",
       "shortName": "SetDoorAnimFeatureData",
       "flags": 33028,
@@ -3863,6 +4818,11 @@
       "fullName": "SetupAuxillary;",
       "shortName": "SetupAuxillary",
       "flags": 32900
+    },
+    {
+      "fullName": "SetupCarAlarmHonkListener;",
+      "shortName": "SetupCarAlarmHonkListener",
+      "flags": 33028
     },
     {
       "fullName": "SetupCrystalDome;",
@@ -4003,6 +4963,23 @@
       ]
     },
     {
+      "fullName": "ToggleLightsAndSirens;BoolBool",
+      "shortName": "ToggleLightsAndSirens",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "lights",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "sirens",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "TogglePanzerShadowMeshes;Bool",
       "shortName": "TogglePanzerShadowMeshes",
       "flags": 32900,
@@ -4119,7 +5096,24 @@
       ]
     },
     {
-      "fullName": "ToggleVehicleSystems;BoolBoolBool",
+      "fullName": "ToggleVehicleHorn;BoolBool",
+      "shortName": "ToggleVehicleHorn",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isPolice",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ToggleVehicleSystems;BoolBoolBoolVehicleQuestEngineLockState",
       "shortName": "ToggleVehicleSystems",
       "flags": 33028,
       "params": [
@@ -4137,6 +5131,11 @@
           "type": "Bool",
           "name": "engine",
           "flags": 128
+        },
+        {
+          "type": "VehicleQuestEngineLockState",
+          "name": "lockState",
+          "flags": 1152
         }
       ]
     },
@@ -4154,6 +5153,11 @@
       "fullName": "UnmountTrunkBody;",
       "shortName": "UnmountTrunkBody",
       "flags": 32900
+    },
+    {
+      "fullName": "UnregisterCarAlarmHonkListener;",
+      "shortName": "UnregisterCarAlarmHonkListener",
+      "flags": 33028
     },
     {
       "fullName": "UnregisterGameTimeToBBListener;",
@@ -4201,6 +5205,16 @@
       "fullName": "UnregisterVehicleTPPBBListener;",
       "shortName": "UnregisterVehicleTPPBBListener",
       "flags": 33028
+    },
+    {
+      "fullName": "UnregisterWantedLevelListener;",
+      "shortName": "UnregisterWantedLevelListener",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateDamageEngineEffects;",
+      "shortName": "UpdateDamageEngineEffects",
+      "flags": 32900
     },
     {
       "fullName": "VehicleDefaultStateSetup;",

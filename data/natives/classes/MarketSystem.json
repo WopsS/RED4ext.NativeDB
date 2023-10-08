@@ -47,10 +47,10 @@
       ]
     },
     {
-      "fullName": "MarketSystem::GetBuyPrice;GameObjectItemID",
-      "shortName": "GetBuyPrice",
+      "fullName": "MarketSystem::DoesEquipAreaContainNewItems;GameObjectgamedataEquipmentAreaBool",
+      "shortName": "DoesEquipAreaContainNewItems",
       "return": {
-        "type": "Int32",
+        "type": "Bool",
         "flags": 64
       },
       "flags": 33286,
@@ -61,8 +61,13 @@
           "flags": 128
         },
         {
-          "type": "gameItemID",
-          "name": "itemID",
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "checkPlayerCanBuy",
           "flags": 128
         }
       ]
@@ -84,6 +89,27 @@
         {
           "type": "entEntityID",
           "name": "vendorID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MarketSystem::GetBuyPrice;GameObjectItemID",
+      "shortName": "GetBuyPrice",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendorObject",
           "flags": 128
         },
         {
@@ -131,6 +157,22 @@
         {
           "type": "Bool",
           "name": "excludeEquipped",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MarketSystem::GetNewItems;GameObject",
+      "shortName": "GetNewItems",
+      "return": {
+        "type": "array:TweakDBID",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendorObject",
           "flags": 128
         }
       ]
@@ -210,6 +252,22 @@
       ]
     },
     {
+      "fullName": "MarketSystem::GetVendorSoldItems;GameObject",
+      "shortName": "GetVendorSoldItems",
+      "return": {
+        "type": "handle:SoldItemsCache",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendorObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "MarketSystem::IsAccessible;PlayerPuppetTweakDBID",
       "shortName": "IsAccessible",
       "return": {
@@ -231,6 +289,43 @@
       ]
     },
     {
+      "fullName": "MarketSystem::IsAttached;GameObject",
+      "shortName": "IsAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendorObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MarketSystem::IsNewItem;GameObjectTweakDBID",
+      "shortName": "IsNewItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendorObject",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "itemTDBID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "MarketSystem::IsVisibleOnMap;PlayerPuppetTweakDBID",
       "shortName": "IsVisibleOnMap",
       "return": {
@@ -247,6 +342,23 @@
         {
           "type": "TweakDBID",
           "name": "vendorID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MarketSystem::ItemInspected;GameObjectTweakDBID",
+      "shortName": "ItemInspected",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "vendorObject",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "itemTDBID",
           "flags": 128
         }
       ]
@@ -289,13 +401,29 @@
       ]
     },
     {
+      "fullName": "GetOrAddVendor;GameObject",
+      "shortName": "GetOrAddVendor",
+      "return": {
+        "type": "handle:Vendor",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "vendorObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetVendor;GameObject",
       "shortName": "GetVendor",
       "return": {
         "type": "handle:Vendor",
         "flags": 64
       },
-      "flags": 32900,
+      "flags": 41476,
       "params": [
         {
           "type": "handle:gameObject",
@@ -369,6 +497,18 @@
       ]
     },
     {
+      "fullName": "OnDeattachVendorRequest;DeattachVendorRequest",
+      "shortName": "OnDeattachVendorRequest",
+      "flags": 33924,
+      "params": [
+        {
+          "type": "handle:DeattachVendorRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDetach;",
       "shortName": "OnDetach",
       "flags": 33920
@@ -380,6 +520,18 @@
       "params": [
         {
           "type": "handle:DispenseRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDispenseStackRequest;DispenseStackRequest",
+      "shortName": "OnDispenseStackRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:DispenseStackRequest",
           "name": "request",
           "flags": 128
         }

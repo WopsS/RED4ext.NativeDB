@@ -74,6 +74,22 @@
       ]
     },
     {
+      "fullName": "OnDispenseStackOfItems",
+      "shortName": "OnDispenseStackOfItems",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DispenseStackOfItems",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnHitEvent",
       "shortName": "OnHitEvent",
       "return": {
@@ -274,9 +290,47 @@
       ]
     },
     {
+      "fullName": "CreateQuestDispenseStackRequest;ItemIDInt32",
+      "shortName": "CreateQuestDispenseStackRequest",
+      "return": {
+        "type": "handle:DispenseStackRequest",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DeactivateDevice;",
       "shortName": "DeactivateDevice",
       "flags": 33024
+    },
+    {
+      "fullName": "DeattachVendor;",
+      "shortName": "DeattachVendor",
+      "flags": 33028
+    },
+    {
+      "fullName": "DeattachVendorTask;ScriptTaskData",
+      "shortName": "DeattachVendorTask",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gameScriptTaskData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DelayHackedEvent;FloatItemID",
@@ -338,6 +392,18 @@
       "params": [
         {
           "type": "handle:DispenseRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DispenseStack;DispenseStackRequest",
+      "shortName": "DispenseStack",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:DispenseStackRequest",
           "name": "request",
           "flags": 128
         }

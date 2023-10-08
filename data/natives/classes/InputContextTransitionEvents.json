@@ -1,5 +1,5 @@
 {
-  "parent": "DefaultTransition",
+  "parent": "InputContextTransition",
   "name": "InputContextTransitionEvents",
   "flags": 5,
   "props": [
@@ -7,12 +7,63 @@
       "type": "whandle:GameplaySettingsSystem",
       "name": "gameplaySettings",
       "flags": 4297326624
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "onInputSchemeUpdatedCallback",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "OnInputHintManagerInitializedChangedCallback",
+      "flags": 4431544352
+    },
+    {
+      "type": "Bool",
+      "name": "onInputSchemeChanged",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "hasControllerChanged",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "hasControllerSchemeChanged",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isGameplayInputHintManagerInitialized",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isGameplayInputHintRefreshRequired",
+      "flags": 4297326624
     }
   ],
   "funcs": [
     {
-      "fullName": "CheckForControllerChange;StateContextStateGameScriptInterface",
-      "shortName": "CheckForControllerChange",
+      "fullName": "OnInputSchemeUpdated",
+      "shortName": "OnInputSchemeUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ConsumeControllerChange;StateContextStateGameScriptInterface",
+      "shortName": "ConsumeControllerChange",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -32,6 +83,15 @@
       ]
     },
     {
+      "fullName": "ConsumeInputSchemeChange;",
+      "shortName": "ConsumeInputSchemeChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
       "fullName": "OnAttach;StateContextStateGameScriptInterface",
       "shortName": "OnAttach",
       "flags": 34052,
@@ -44,6 +104,35 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach;StateContextStateGameScriptInterface",
+      "shortName": "OnDetach",
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInputHintManagerInitializedChanged;Variant",
+      "shortName": "OnInputHintManagerInitializedChanged",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -202,6 +291,23 @@
       ]
     },
     {
+      "fullName": "RemoveVehicleDriverCombatTPPInputHints;StateContextStateGameScriptInterface",
+      "shortName": "RemoveVehicleDriverCombatTPPInputHints",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RemoveVehicleDriverInputHints;StateContextStateGameScriptInterface",
       "shortName": "RemoveVehicleDriverInputHints",
       "flags": 41220,
@@ -253,8 +359,8 @@
       ]
     },
     {
-      "fullName": "RemoveVehicleRadioInputHint;StateContextStateGameScriptInterface",
-      "shortName": "RemoveVehicleRadioInputHint",
+      "fullName": "RemoveVehicleRemoteControlDriverInputHints;StateContextStateGameScriptInterface",
+      "shortName": "RemoveVehicleRemoteControlDriverInputHints",
       "flags": 41220,
       "params": [
         {
@@ -287,7 +393,29 @@
       ]
     },
     {
-      "fullName": "ShouldForceRefreshInputHints;StateContextStateGameScriptInterface",
+      "fullName": "SetBaseContextInputHints;ActiveBaseContextStateContextStateGameScriptInterface",
+      "shortName": "SetBaseContextInputHints",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "ActiveBaseContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldForceRefreshInputHints;StateContext",
       "shortName": "ShouldForceRefreshInputHints",
       "return": {
         "type": "Bool",
@@ -298,11 +426,6 @@
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
           "flags": 128
         }
       ]
@@ -320,6 +443,50 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowCrouchInputHint;StateContextStateGameScriptInterfaceCName",
+      "shortName": "ShowCrouchInputHint",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "source",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowDodgeInputHint;StateContextStateGameScriptInterfaceCName",
+      "shortName": "ShowDodgeInputHint",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "source",
           "flags": 128
         }
       ]
@@ -359,7 +526,7 @@
       ]
     },
     {
-      "fullName": "ShowMeleeInputHints;StateContextStateGameScriptInterface",
+      "fullName": "ShowMeleeInputHints;StateContextStateGameScriptInterfaceBool",
       "shortName": "ShowMeleeInputHints",
       "flags": 41220,
       "params": [
@@ -371,6 +538,11 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isThrowable",
           "flags": 128
         }
       ]
@@ -427,8 +599,64 @@
       ]
     },
     {
+      "fullName": "ShowVehicleDrawWeaponInputHint;StateContextStateGameScriptInterface",
+      "shortName": "ShowVehicleDrawWeaponInputHint",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ShowVehicleDriverCombatInputHints;StateContextStateGameScriptInterface",
       "shortName": "ShowVehicleDriverCombatInputHints",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowVehicleDriverCombatInputHintsInternal;CNameStateContextStateGameScriptInterface",
+      "shortName": "ShowVehicleDriverCombatInputHintsInternal",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "CName",
+          "name": "source",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowVehicleDriverCombatTPPInputHints;StateContextStateGameScriptInterface",
+      "shortName": "ShowVehicleDriverCombatTPPInputHints",
       "flags": 41220,
       "params": [
         {
@@ -461,7 +689,7 @@
       ]
     },
     {
-      "fullName": "ShowVehicleExitInputHint;StateContextStateGameScriptInterfaceBool",
+      "fullName": "ShowVehicleExitInputHint;StateContextStateGameScriptInterfaceCName",
       "shortName": "ShowVehicleExitInputHint",
       "flags": 41220,
       "params": [
@@ -476,9 +704,9 @@
           "flags": 128
         },
         {
-          "type": "Bool",
-          "name": "driver",
-          "flags": 1152
+          "type": "CName",
+          "name": "source",
+          "flags": 128
         }
       ]
     },
@@ -517,8 +745,8 @@
       ]
     },
     {
-      "fullName": "ShowVehicleRadioInputHint;StateContextStateGameScriptInterface",
-      "shortName": "ShowVehicleRadioInputHint",
+      "fullName": "ShowVehicleRemoteControlDriverInputHints;StateContextStateGameScriptInterface",
+      "shortName": "ShowVehicleRemoteControlDriverInputHints",
       "flags": 41220,
       "params": [
         {
@@ -553,6 +781,10 @@
     {
       "fullName": "UpdateWeaponInputHints;StateContextStateGameScriptInterface",
       "shortName": "UpdateWeaponInputHints",
+      "return": {
+        "type": "ActiveBaseContext",
+        "flags": 64
+      },
       "flags": 33028,
       "params": [
         {

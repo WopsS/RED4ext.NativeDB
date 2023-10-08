@@ -1,5 +1,5 @@
 {
-  "parent": "OldUpperBodyEventsTransition",
+  "parent": "CarriedObjectTransition",
   "name": "CarriedObjectEvents",
   "flags": 5,
   "props": [
@@ -80,8 +80,42 @@
       ]
     },
     {
-      "fullName": "CleanUpCarryState;ECarryStateStateContextStateGameScriptInterface",
-      "shortName": "CleanUpCarryState",
+      "fullName": "ApplyWoundedSoldierCarryGameplayRestrictions;StateContextStateGameScriptInterface",
+      "shortName": "ApplyWoundedSoldierCarryGameplayRestrictions",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CalculateForcedCarryStyleAndIsFriendlyCarry;StateContextStateGameScriptInterface",
+      "shortName": "CalculateForcedCarryStyleAndIsFriendlyCarry",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CleanUpCarryStateMachine;ECarryStateStateContextStateGameScriptInterface",
+      "shortName": "CleanUpCarryStateMachine",
       "flags": 33028,
       "params": [
         {
@@ -104,6 +138,18 @@
     {
       "fullName": "ClearForcedStyle;StateContext",
       "shortName": "ClearForcedStyle",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearStyleParameters;StateContext",
+      "shortName": "ClearStyleParameters",
       "flags": 33028,
       "params": [
         {
@@ -216,10 +262,42 @@
       ]
     },
     {
+      "fullName": "GetPickupAnimationParameter;StateContext",
+      "shortName": "GetPickupAnimationParameter",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetStyle;StateContext",
       "shortName": "GetStyle",
       "return": {
         "type": "gamePSMBodyCarryingStyle",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetWasThrownParameter;StateContext",
+      "shortName": "GetWasThrownParameter",
+      "return": {
+        "type": "Bool",
         "flags": 64
       },
       "flags": 41220,
@@ -253,25 +331,25 @@
       ]
     },
     {
-      "fullName": "LockLeftHandAnimation;StateGameScriptInterfaceBool",
-      "shortName": "LockLeftHandAnimation",
-      "flags": 33028,
+      "fullName": "OnEnter;StateContextStateGameScriptInterface",
+      "shortName": "OnEnter",
+      "flags": 33024,
       "params": [
         {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
           "flags": 128
         },
         {
-          "type": "Bool",
-          "name": "lockLeftHand",
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnEnter;StateContextStateGameScriptInterface",
-      "shortName": "OnEnter",
+      "fullName": "OnExit;StateContextStateGameScriptInterface",
+      "shortName": "OnExit",
       "flags": 33024,
       "params": [
         {
@@ -304,10 +382,15 @@
       ]
     },
     {
-      "fullName": "RemoveGameplayRestrictions;StateGameScriptInterface",
+      "fullName": "RemoveGameplayRestrictions;StateContextStateGameScriptInterface",
       "shortName": "RemoveGameplayRestrictions",
       "flags": 33028,
       "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
@@ -328,6 +411,55 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAnimFeature_Carry;ECarryStateBoolStateContextStateGameScriptInterfaceBool",
+      "shortName": "SetAnimFeature_Carry",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "ECarryState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "setExecutionOwnerOnly",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetAnimFeature_LeftHandAnimation;StateGameScriptInterfaceBool",
+      "shortName": "SetAnimFeature_LeftHandAnimation",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "lockLeftHand",
           "flags": 128
         }
       ]
@@ -362,6 +494,33 @@
     {
       "fullName": "SetBodyCarryFriendlyCameraContext;StateContextStateGameScriptInterfaceBoolBool",
       "shortName": "SetBodyCarryFriendlyCameraContext",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipCameraContextUpdate",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetBodyCarryWoundedSoldierCameraContext;StateContextStateGameScriptInterfaceBoolBool",
+      "shortName": "SetBodyCarryWoundedSoldierCameraContext",
       "flags": 33028,
       "params": [
         {
@@ -446,55 +605,6 @@
       ]
     },
     {
-      "fullName": "SetCarriedObjectInvulnerable;BoolStateGameScriptInterface",
-      "shortName": "SetCarriedObjectInvulnerable",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "enable",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SetCarryState;ECarryStateInt32BoolStateContextStateGameScriptInterface",
-      "shortName": "SetCarryState",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "ECarryState",
-          "name": "state",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "pickupAnimation",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "instant",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SetForcedStyle;gamePSMBodyCarryingStyleStateContextStateGameScriptInterface",
       "shortName": "SetForcedStyle",
       "flags": 33028,
@@ -517,6 +627,40 @@
       ]
     },
     {
+      "fullName": "SetObjectInvulnerable;GameObjectBool",
+      "shortName": "SetObjectInvulnerable",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "object",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPickupAnimationParameter;StateContextInt32",
+      "shortName": "SetPickupAnimationParameter",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "pickupAnimation",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetStyle;gamePSMBodyCarryingStyleStateContextStateGameScriptInterface",
       "shortName": "SetStyle",
       "flags": 33028,
@@ -534,6 +678,23 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWasThrownParameter;StateContextBool",
+      "shortName": "SetWasThrownParameter",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "wasThrown",
           "flags": 128
         }
       ]

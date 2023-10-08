@@ -85,6 +85,11 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "overshieldBarRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "expBar",
       "flags": 4297130017
     },
@@ -161,6 +166,16 @@
     {
       "type": "inkWidgetReference",
       "name": "levelUpRectangle",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "damegePreview",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "fullBar",
       "flags": 4297130017
     },
     {
@@ -319,6 +334,11 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:HealthbarMemoryStatListener",
+      "name": "memoryStatListener",
+      "flags": 4431347744
+    },
+    {
       "type": "whandle:gameIBlackboard",
       "name": "playerStatsBlackboard",
       "flags": 4297130016
@@ -382,6 +402,71 @@
       "type": "array:whandle:inkAsyncSpawnRequest",
       "name": "spawnTokens",
       "flags": 6583025696
+    },
+    {
+      "type": "handle:OvershieldListener",
+      "name": "overshieldListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:NameplateBarLogicController",
+      "name": "overshieldBarController",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "useOevershield",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "currentOvershieldValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "currentOvershieldValuePercent",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:OverclockListener",
+      "name": "overclockListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isInOverclockedState",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "pulseBar",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "pulseText",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "pulse",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "healthMemoryJumpAnim",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "healthMemoryFlashAnim",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "healthbarWidget",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -585,6 +670,22 @@
       ]
     },
     {
+      "fullName": "OnOverclockDamagePreview",
+      "shortName": "OnOverclockDamagePreview",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OverclockDamagePreview",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnPSMVisionStateChanged",
       "shortName": "OnPSMVisionStateChanged",
       "return": {
@@ -738,6 +839,23 @@
       "flags": 32900
     },
     {
+      "fullName": "EvaluateHealthBarVisibility;Bool",
+      "shortName": "EvaluateHealthBarVisibility",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isInOverclockedState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EvaluateOvershieldBarVisibility;",
+      "shortName": "EvaluateOvershieldBarVisibility",
+      "flags": 33284
+    },
+    {
       "fullName": "HelperHasGodMode;",
       "shortName": "HelperHasGodMode",
       "return": {
@@ -811,6 +929,11 @@
       "flags": 32900
     },
     {
+      "fullName": "ShowOverclockedHealthbar;",
+      "shortName": "ShowOverclockedHealthbar",
+      "flags": 32900
+    },
+    {
       "fullName": "StartDamageFallDelay;",
       "shortName": "StartDamageFallDelay",
       "flags": 32900
@@ -828,6 +951,11 @@
       ]
     },
     {
+      "fullName": "UpdateCurrentHealthText;",
+      "shortName": "UpdateCurrentHealthText",
+      "flags": 32900
+    },
+    {
       "fullName": "UpdateGodModeVisibility;",
       "shortName": "UpdateGodModeVisibility",
       "flags": 33284
@@ -836,6 +964,35 @@
       "fullName": "UpdateMemoryBarData;",
       "shortName": "UpdateMemoryBarData",
       "flags": 32900
+    },
+    {
+      "fullName": "UpdateMemoryBarMaxStat;Float",
+      "shortName": "UpdateMemoryBarMaxStat",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "maxBars",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateOvershieldValue;FloatFloat",
+      "shortName": "UpdateOvershieldValue",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "newValue",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "percToPoints",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "UpdateQuickhacksMemoryBarSize;Int32",

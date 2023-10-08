@@ -208,6 +208,22 @@
       ]
     },
     {
+      "fullName": "OnFireFXEvent",
+      "shortName": "OnFireFXEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:FireFXEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnGameAttached",
       "shortName": "OnGameAttached",
       "return": {
@@ -409,6 +425,22 @@
       ]
     },
     {
+      "fullName": "OnQuestSetLiftSpeed",
+      "shortName": "OnQuestSetLiftSpeed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestSetLiftSpeed",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnQuestSetRadioStation",
       "shortName": "OnQuestSetRadioStation",
       "return": {
@@ -567,6 +599,11 @@
       "fullName": "EvaluateOffMeshLinks;",
       "shortName": "EvaluateOffMeshLinks",
       "flags": 32900
+    },
+    {
+      "fullName": "FireExtraFX;",
+      "shortName": "FireExtraFX",
+      "flags": 33028
     },
     {
       "fullName": "GetBlackboardDef;",
@@ -764,6 +801,18 @@
       "flags": 33024
     },
     {
+      "fullName": "ScheduleTeleportTo;Int32",
+      "shortName": "ScheduleTeleportTo",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SendArrivedAtFloorEvent;Int32",
       "shortName": "SendArrivedAtFloorEvent",
       "flags": 32900,
@@ -816,7 +865,7 @@
       "params": [
         {
           "type": "Int32",
-          "name": "target",
+          "name": "targetFloorIndex",
           "flags": 128
         }
       ]
@@ -982,6 +1031,18 @@
       ]
     },
     {
+      "fullName": "TrySetLiftUIData;Int32",
+      "shortName": "TrySetLiftUIData",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "UnpauseMovement;",
       "shortName": "UnpauseMovement",
       "flags": 33028
@@ -1021,6 +1082,37 @@
           "type": "Bool",
           "name": "isDelayed",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "VerifyDestination;NodeRefVector4GameInstanceFloat",
+      "shortName": "VerifyDestination",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "NodeRef",
+          "name": "node",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "currentPos",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "errorMargin",
+          "flags": 128
         }
       ]
     }

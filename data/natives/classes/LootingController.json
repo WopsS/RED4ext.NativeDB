@@ -69,14 +69,39 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:UIInventoryScriptableSystem",
+      "name": "uiInventorySystem",
+      "flags": 4297130016
+    },
+    {
       "type": "ScriptGameInstance",
       "name": "gameInstance",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "player",
       "flags": 4297130016
     },
     {
       "type": "Int32",
       "name": "maxItemsNum",
       "flags": 4297130017
+    },
+    {
+      "type": "entEntityID",
+      "name": "boundOwnerID",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:whandle:gameItemData",
+      "name": "lootingItems",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:UIInventoryItem",
+      "name": "uiInventoryItems",
+      "flags": 6583025696
     },
     {
       "type": "whandle:TooltipProvider",
@@ -86,6 +111,16 @@
     {
       "type": "handle:ATooltipData",
       "name": "cachedTooltipData",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:UIInventoryItem",
+      "name": "cachedTooltipUIInventoryItem",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "displayContext",
       "flags": 4431347744
     },
     {
@@ -169,8 +204,8 @@
       "flags": 4297130016
     },
     {
-      "type": "gameInventoryItemData",
-      "name": "activeWeapon",
+      "type": "gameItemID",
+      "name": "activeWeaponID",
       "flags": 4297130016
     },
     {
@@ -247,69 +282,6 @@
       ]
     },
     {
-      "fullName": "CycleSelectedItem;",
-      "shortName": "CycleSelectedItem",
-      "flags": 33284
-    },
-    {
-      "fullName": "FilterComparableItems;ItemIDarray<InventoryItemData>",
-      "shortName": "FilterComparableItems",
-      "return": {
-        "type": "array:gameInventoryItemData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemToCompare",
-          "flags": 128
-        },
-        {
-          "type": "array:gameInventoryItemData",
-          "name": "items",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "FilterOutEmptyItems;array<InventoryItemData>",
-      "shortName": "FilterOutEmptyItems",
-      "return": {
-        "type": "array:gameInventoryItemData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "array:gameInventoryItemData",
-          "name": "items",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetComparisonTooltipData;InventoryItemDataInventoryItemData",
-      "shortName": "GetComparisonTooltipData",
-      "return": {
-        "type": "handle:InventoryTooltipData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "inspectedItem",
-          "flags": 128
-        },
-        {
-          "type": "gameInventoryItemData",
-          "name": "itemToCompareWith",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetCurrentItemOwnerId;",
       "shortName": "GetCurrentItemOwnerId",
       "return": {
@@ -317,22 +289,6 @@
         "flags": 64
       },
       "flags": 33284
-    },
-    {
-      "fullName": "GetCurrentlyEquippedComparisonItem;gamedataEquipmentArea",
-      "shortName": "GetCurrentlyEquippedComparisonItem",
-      "return": {
-        "type": "gameInventoryItemData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "GetCurrentlyEquippedComparisonItemID;gamedataEquipmentArea",
@@ -346,38 +302,6 @@
         {
           "type": "gamedataEquipmentArea",
           "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetCurrentlyUsedComparisonTooltipData;InventoryItemData",
-      "shortName": "GetCurrentlyUsedComparisonTooltipData",
-      "return": {
-        "type": "handle:InventoryTooltipData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetItemForComparison;InventoryItemData",
-      "shortName": "GetItemForComparison",
-      "return": {
-        "type": "gameInventoryItemData",
-        "flags": 64
-      },
-      "flags": 33284,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "inspectedItem",
           "flags": 128
         }
       ]
@@ -440,91 +364,17 @@
       ]
     },
     {
-      "fullName": "GetPrefferedComparisonItem;InventoryItemData",
-      "shortName": "GetPrefferedComparisonItem",
+      "fullName": "GetOrCreateUIInventoryItem;gameItemData",
+      "shortName": "GetOrCreateUIInventoryItem",
       "return": {
-        "type": "gameInventoryItemData",
+        "type": "whandle:UIInventoryItem",
         "flags": 64
       },
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
-          "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetPrefferedComparisonTooltipData;InventoryItemData",
-      "shortName": "GetPrefferedComparisonTooltipData",
-      "return": {
-        "type": "handle:InventoryTooltipData",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "item",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetPureItemForComparison;InventoryItemData",
-      "shortName": "GetPureItemForComparison",
-      "return": {
-        "type": "gameInventoryItemData",
-        "flags": 64
-      },
-      "flags": 33284,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "inspectedItem",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetPureItemForComparison;gameItemDataItem_RecordgamedataEquipmentArea",
-      "shortName": "GetPureItemForComparison",
-      "return": {
-        "type": "gameInventoryItemData",
-        "flags": 64
-      },
-      "flags": 33284,
-      "params": [
-        {
-          "type": "whandle:gameItemData",
-          "name": "item",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataItem_Record",
-          "name": "itemRecord",
-          "flags": 128
-        },
-        {
-          "type": "gamedataEquipmentArea",
-          "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetShardData;Item_Record",
-      "shortName": "GetShardData",
-      "return": {
-        "type": "whandle:gameJournalOnscreen",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "whandle:gamedataItem_Record",
-          "name": "itemRecord",
+          "type": "handle:gameItemData",
+          "name": "itemData",
           "flags": 128
         }
       ]
@@ -546,17 +396,17 @@
       ]
     },
     {
-      "fullName": "GetTooltipMinimalData;GameObject",
-      "shortName": "GetTooltipMinimalData",
+      "fullName": "GetShardData;Item_Record",
+      "shortName": "GetShardData",
       "return": {
-        "type": "handle:MinimalItemTooltipData",
+        "type": "whandle:gameJournalOnscreen",
         "flags": 64
       },
       "flags": 32900,
       "params": [
         {
-          "type": "whandle:gameObject",
-          "name": "lootingOwner",
+          "type": "whandle:gamedataItem_Record",
+          "name": "itemRecord",
           "flags": 128
         }
       ]
@@ -667,13 +517,13 @@
       "flags": 32900
     },
     {
-      "fullName": "SetActiveWeapon;InventoryItemData",
+      "fullName": "SetActiveWeapon;ItemID",
       "shortName": "SetActiveWeapon",
       "flags": 33284,
       "params": [
         {
-          "type": "gameInventoryItemData",
-          "name": "weapon",
+          "type": "gameItemID",
+          "name": "weaponID",
           "flags": 128
         }
       ]
@@ -727,6 +577,18 @@
       ]
     },
     {
+      "fullName": "SetPlayer;GameObject",
+      "shortName": "SetPlayer",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetTooltipVisible;Bool",
       "shortName": "SetTooltipVisible",
       "flags": 33284,
@@ -734,6 +596,18 @@
         {
           "type": "Bool",
           "name": "visible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUIInventorySystem;UIInventoryScriptableSystem",
+      "shortName": "SetUIInventorySystem",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:UIInventoryScriptableSystem",
+          "name": "uiInventorySystem",
           "flags": 128
         }
       ]
@@ -751,6 +625,18 @@
         {
           "type": "Bool",
           "name": "islokced",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateCachedItems;LootData",
+      "shortName": "UpdateCachedItems",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameinteractionsvisLootData",
+          "name": "data",
           "flags": 128
         }
       ]

@@ -10,11 +10,6 @@
       "flags": 6627016705
     },
     {
-      "type": "inkWidgetReference",
-      "name": "pulseWidget",
-      "flags": 4297195553
-    },
-    {
       "type": "whandle:gamemappinsStealthMappin",
       "name": "stealthMappin",
       "flags": 4297130016
@@ -36,17 +31,12 @@
     },
     {
       "type": "CName",
-      "name": "attitudeState",
+      "name": "mappinState",
       "flags": 4297130016
     },
     {
       "type": "CName",
       "name": "preventionState",
-      "flags": 4297130016
-    },
-    {
-      "type": "Bool",
-      "name": "pulsing",
       "flags": 4297130016
     },
     {
@@ -166,11 +156,6 @@
     },
     {
       "type": "Uint32",
-      "name": "numberOfShotAttempts",
-      "flags": 4297130016
-    },
-    {
-      "type": "Uint32",
       "name": "highestLootQuality",
       "flags": 4297130016
     },
@@ -217,6 +202,26 @@
     {
       "type": "Bool",
       "name": "policeChasePrototypeEnabled",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:PreventionMinimapMappinComponent",
+      "name": "preventionMinimapMappinComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "CName",
+      "name": "preventionVisionConeColor",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "preventionDetectionDropThreshold",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "wasMaxDetectionReached",
       "flags": 4297130016
     },
     {
@@ -287,22 +292,6 @@
       ]
     },
     {
-      "fullName": "OnPulsingAnimFinished",
-      "shortName": "OnPulsingAnimFinished",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkanimProxy",
-          "name": "proxy",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnStanceStateChanged",
       "shortName": "OnStanceStateChanged",
       "return": {
@@ -348,6 +337,15 @@
     {
       "fullName": "FadeOut;",
       "shortName": "FadeOut",
+      "flags": 33028
+    },
+    {
+      "fullName": "GetPreventionMapinState;",
+      "shortName": "GetPreventionMapinState",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
       "flags": 33028
     },
     {
@@ -398,33 +396,26 @@
       "flags": 32900
     },
     {
-      "fullName": "Pulse;Int32",
-      "shortName": "Pulse",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "count",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PulseContinuous;Bool",
-      "shortName": "PulseContinuous",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "enabled",
-          "flags": 128
-        }
-      ]
+      "fullName": "RequestUpdateRootState;",
+      "shortName": "RequestUpdateRootState",
+      "flags": 33284
     },
     {
       "fullName": "StopPreventionAnim;",
       "shortName": "StopPreventionAnim",
       "flags": 32900
+    },
+    {
+      "fullName": "ToggleVisionConeVisibility;Bool",
+      "shortName": "ToggleVisionConeVisibility",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldShowVisionCone",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "Update;",
@@ -440,6 +431,11 @@
       "fullName": "UpdateClamping;",
       "shortName": "UpdateClamping",
       "flags": 33024
+    },
+    {
+      "fullName": "UpdateVisionWidgetVisiblity;",
+      "shortName": "UpdateVisionWidgetVisiblity",
+      "flags": 33284
     }
   ]
 }

@@ -9,23 +9,28 @@
       "flags": 4297130016
     },
     {
-      "type": "whandle:gameIBlackboard",
-      "name": "uiWantedBarBB",
+      "type": "whandle:vehicleBaseObject",
+      "name": "vehicle",
       "flags": 4297130016
     },
     {
-      "type": "handle:UI_WantedBarDef",
-      "name": "UIWantedBarDef",
+      "type": "whandle:gameIBlackboard",
+      "name": "uiVehicleBB",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:VehicleDef",
+      "name": "vehicleBBDef",
       "flags": 4431347744
     },
     {
       "type": "handle:redCallbackObject",
-      "name": "currentWantedLevelCallback",
+      "name": "deleteAnimCallback",
       "flags": 4431347744
     },
     {
       "type": "Bool",
-      "name": "playerWanted",
+      "name": "destroyMappinOnAnimEnd",
       "flags": 4297130016
     },
     {
@@ -56,8 +61,8 @@
   ],
   "funcs": [
     {
-      "fullName": "OnCurrentWantedLevelChanged",
-      "shortName": "OnCurrentWantedLevelChanged",
+      "fullName": "OnDeleteAnimSet",
+      "shortName": "OnDeleteAnimSet",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -65,8 +70,8 @@
       "flags": 33032,
       "params": [
         {
-          "type": "Int32",
-          "name": "value",
+          "type": "CName",
+          "name": "deleteAnimName",
           "flags": 128
         }
       ]
@@ -98,6 +103,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "OnAnimEnd;",
+      "shortName": "OnAnimEnd",
+      "flags": 33284
     },
     {
       "fullName": "OnInitialize;MinimapPOIMappinControllerVehicleMappin",

@@ -24,21 +24,6 @@
       "flags": 4431347744
     },
     {
-      "type": "Bool",
-      "name": "isBeingUsed",
-      "flags": 4297130016
-    },
-    {
-      "type": "gameSlotWeaponData",
-      "name": "ActiveWeapon",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:gameSlotDataHolder",
-      "name": "BufferedRosterData",
-      "flags": 4431347744
-    },
-    {
       "type": "array:whandle:DamageDigitLogicController",
       "name": "individualControllerArray",
       "flags": 6583025696
@@ -47,11 +32,6 @@
       "type": "array:AccumulatedDamageDigitsNode",
       "name": "accumulatedControllerArray",
       "flags": 6583025696
-    },
-    {
-      "type": "gameuiDamageDigitsMode",
-      "name": "damageDigitsMode",
-      "flags": 4297130016
     },
     {
       "type": "Bool",
@@ -74,28 +54,8 @@
       "flags": 4297130016
     },
     {
-      "type": "Int32",
-      "name": "spawnedAccumulatedDigitsDigits",
-      "flags": 4297130016
-    },
-    {
-      "type": "whandle:gameIBlackboard",
-      "name": "damageInfoBB",
-      "flags": 4297130016
-    },
-    {
-      "type": "whandle:gameIBlackboard",
-      "name": "UIBlackboard",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:redCallbackObject",
       "name": "damageListBlackboardId",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "BBWeaponListBlackboardId",
       "flags": 4431347744
     },
     {
@@ -267,8 +227,8 @@
       "flags": 33032
     },
     {
-      "fullName": "OnWeaponDataChanged",
-      "shortName": "OnWeaponDataChanged",
+      "fullName": "OnVehicleTirePuncturedEvent",
+      "shortName": "OnVehicleTirePuncturedEvent",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -276,8 +236,8 @@
       "flags": 33032,
       "params": [
         {
-          "type": "Variant",
-          "name": "value",
+          "type": "handle:vehicleVehicleTirePuncturedEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -293,7 +253,23 @@
       "flags": 32900
     },
     {
-      "fullName": "IsDamageOverTime;DamageInfo",
+      "fullName": "IsCriticalHit;script_ref<DamageInfo>",
+      "shortName": "IsCriticalHit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "script_ref:gameuiDamageInfo",
+          "name": "damageInfo",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsDamageOverTime;script_ref<DamageInfo>",
       "shortName": "IsDamageOverTime",
       "return": {
         "type": "Bool",
@@ -302,20 +278,11 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiDamageInfo",
+          "type": "script_ref:gameuiDamageInfo",
           "name": "damageInfo",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "IsUsingAutoWeapon;",
-      "shortName": "IsUsingAutoWeapon",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 32900
     },
     {
       "fullName": "RegisterDigitsToQueue;",
@@ -323,7 +290,7 @@
       "flags": 32900
     },
     {
-      "fullName": "ShowDamageFloater;DamageInfo",
+      "fullName": "ShowDamageFloater;script_ref<DamageInfo>",
       "shortName": "ShowDamageFloater",
       "return": {
         "type": "Bool",
@@ -332,16 +299,11 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiDamageInfo",
+          "type": "script_ref:gameuiDamageInfo",
           "name": "damageInfo",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "UpdateDamageDigitsMode;",
-      "shortName": "UpdateDamageDigitsMode",
-      "flags": 32900
     },
     {
       "fullName": "UpdateDamageDigitsStickingMode;",

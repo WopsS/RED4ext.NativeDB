@@ -4,6 +4,11 @@
   "flags": 4,
   "props": [
     {
+      "type": "Float",
+      "name": "TIME_UNTIL_SELECTION",
+      "flags": 4297130016
+    },
+    {
       "type": "inkWidgetReference",
       "name": "root",
       "flags": 4297195553
@@ -192,6 +197,56 @@
       "type": "Bool",
       "name": "isPanelOpen",
       "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "hasSpawnedTooltip",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:CraftableItemLogicController",
+      "name": "currentSelected",
+      "flags": 4297130016
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "itemTooltipPath",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isProcessing",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameDelaySystem",
+      "name": "DelaySystem",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameStatsSystem",
+      "name": "StatsSystem",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "Player",
+      "flags": 4297195552
+    },
+    {
+      "type": "ScriptGameInstance",
+      "name": "Game",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "firstClicked",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "progress",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -281,6 +336,38 @@
       ]
     },
     {
+      "fullName": "OnHoldSelectedItem",
+      "shortName": "OnHoldSelectedItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutSelectedItem",
+      "shortName": "OnHoverOutSelectedItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnIngedientControllerSpawned",
       "shortName": "OnIngedientControllerSpawned",
       "return": {
@@ -323,6 +410,22 @@
       ]
     },
     {
+      "fullName": "OnReleaseSelectedItem",
+      "shortName": "OnReleaseSelectedItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSortingButtonClicked",
       "shortName": "OnSortingButtonClicked",
       "return": {
@@ -353,6 +456,18 @@
       "flags": 33284
     },
     {
+      "fullName": "DispatchSelectDelayed;Uint32",
+      "shortName": "DispatchSelectDelayed",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Init;CraftingMainGameController",
       "shortName": "Init",
       "flags": 33280,
@@ -368,6 +483,32 @@
       "fullName": "InitVirtualList;",
       "shortName": "InitVirtualList",
       "flags": 33028
+    },
+    {
+      "fullName": "IsEmptyData;",
+      "shortName": "IsEmptyData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
+      "fullName": "OnChangeTab;",
+      "shortName": "OnChangeTab",
+      "flags": 33280
+    },
+    {
+      "fullName": "OnPressSelectedItem;inkPointerEvent",
+      "shortName": "OnPressSelectedItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OpenPanel;",
@@ -387,12 +528,29 @@
       ]
     },
     {
-      "fullName": "SetCraftingButton;String",
+      "fullName": "ResetProcess;",
+      "shortName": "ResetProcess",
+      "flags": 32900
+    },
+    {
+      "fullName": "Select;Uint32",
+      "shortName": "Select",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCraftingButton;script_ref<String>",
       "shortName": "SetCraftingButton",
       "flags": 33028,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "label",
           "flags": 128
         }
@@ -438,6 +596,33 @@
       "flags": 33028
     },
     {
+      "fullName": "SpawnItemTooltipAsync;inkWidgetIScriptableCName",
+      "shortName": "SpawnItemTooltipAsync",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "parentWidget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "callbackObject",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "callbackFunctionName",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "StartProcess;",
+      "shortName": "StartProcess",
+      "flags": 32900
+    },
+    {
       "fullName": "UpdateItemPreview;CraftableItemLogicController",
       "shortName": "UpdateItemPreview",
       "flags": 33024,
@@ -445,6 +630,18 @@
         {
           "type": "handle:CraftableItemLogicController",
           "name": "craftableController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateSelection;CraftableItemLogicController",
+      "shortName": "UpdateSelection",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:CraftableItemLogicController",
+          "name": "selection",
           "flags": 128
         }
       ]

@@ -1,0 +1,570 @@
+{
+  "parent": "gameScriptableSystem",
+  "name": "PreventionSystemHackerLoop",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:vehicleBaseObject",
+      "name": "firstVehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "EPreventionHackLoopState",
+      "name": "state",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "shouldHackLoopBeEnabledOnThisStar",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "showingHackingPopUp",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:vehicleBaseObject",
+      "name": "currentVehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:vehicleBaseObject",
+      "name": "previousVehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "curentHackDelayId",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "futureDelayedUpdateDelayId",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:VehiclePreventionHackState",
+      "name": "hackedVehicles",
+      "flags": 6583025696
+    },
+    {
+      "type": "whandle:UploadFromNPCToPlayerListener",
+      "name": "otherProgressBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "waitingForUpdate",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "PreventionSystemHackerLoop::AVCanBeSpawned;GameInstance",
+      "shortName": "AVCanBeSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::ForceCarToStop;GameInstance",
+      "shortName": "ForceCarToStop",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::GetCurrentStarState;GameInstance",
+      "shortName": "GetCurrentStarState",
+      "return": {
+        "type": "EStarState",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::GetInstance;GameInstance",
+      "shortName": "GetInstance",
+      "return": {
+        "type": "handle:PreventionSystemHackerLoop",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::GetProgressBarForcedValue;GameInstance",
+      "shortName": "GetProgressBarForcedValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::GetSystemName;",
+      "shortName": "GetSystemName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33286
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::KeepProgressBarAliveAfterCompletion;GameInstance",
+      "shortName": "KeepProgressBarAliveAfterCompletion",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::ShouldForceUpdateProgressBar;GameInstance",
+      "shortName": "ShouldForceUpdateProgressBar",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::UpdateHackLoopProgressBarValue;GameInstanceFloatUploadFromNPCToPlayerListener",
+      "shortName": "UpdateHackLoopProgressBarValue",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "newValue",
+          "flags": 128
+        },
+        {
+          "type": "handle:UploadFromNPCToPlayerListener",
+          "name": "progressbar",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::UpdateHeatLevel;GameInstanceBool",
+      "shortName": "UpdateHeatLevel",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldHackLoopBeEnabledOnThisStar",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::UpdateOtherProgressBarReference;GameInstanceUploadFromNPCToPlayerListener",
+      "shortName": "UpdateOtherProgressBarReference",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "handle:UploadFromNPCToPlayerListener",
+          "name": "progressbar",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::UpdatePlayerVehicle;GameInstanceVehicleObject",
+      "shortName": "UpdatePlayerVehicle",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "currentVehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PreventionSystemHackerLoop::UpdateStarStateUI;GameInstance",
+      "shortName": "UpdateStarStateUI",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AbortHacks;",
+      "shortName": "AbortHacks",
+      "flags": 32900
+    },
+    {
+      "fullName": "BroadcastPlayerLocationUntilVehicleExit;HackLoopReportPlayerLocationRequestFloat",
+      "shortName": "BroadcastPlayerLocationUntilVehicleExit",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:HackLoopReportPlayerLocationRequest",
+          "name": "request",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DelayForceAboutToExplodeState;VehiclePreventionHackStateFloat",
+      "shortName": "DelayForceAboutToExplodeState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FindVehicleState;VehicleObject",
+      "shortName": "FindVehicleState",
+      "return": {
+        "type": "handle:VehiclePreventionHackState",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ForceCloseProgressBar;VehicleObject",
+      "shortName": "ForceCloseProgressBar",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HackLoop;",
+      "shortName": "HackLoop",
+      "flags": 32900
+    },
+    {
+      "fullName": "HackTimerCallback;VehiclePreventionHackStateFloat",
+      "shortName": "HackTimerCallback",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Idle;",
+      "shortName": "Idle",
+      "flags": 32900
+    },
+    {
+      "fullName": "InterruptHackingPopUp;",
+      "shortName": "InterruptHackingPopUp",
+      "flags": 32900
+    },
+    {
+      "fullName": "IntroRadio;",
+      "shortName": "IntroRadio",
+      "flags": 32900
+    },
+    {
+      "fullName": "IsFirstVehicle;VehicleObject",
+      "shortName": "IsFirstVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsNearMaxtac;",
+      "shortName": "IsNearMaxtac",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "LaunchDelayedStateUpdate;Float",
+      "shortName": "LaunchDelayedStateUpdate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayedForceAboutToExplodeState;DelayedForceAboutToExplodeStateRequest",
+      "shortName": "OnDelayedForceAboutToExplodeState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:DelayedForceAboutToExplodeStateRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDelayedStopVehicle;DelayedStopVehicle",
+      "shortName": "OnDelayedStopVehicle",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:DelayedStopVehicle",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHackLoopReportPlayerLocationRequest;HackLoopReportPlayerLocationRequest",
+      "shortName": "OnHackLoopReportPlayerLocationRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:HackLoopReportPlayerLocationRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreventionSystemPlayerCarHackFinishedEvent;PreventionSystemPlayerCarHackFinishedEvent",
+      "shortName": "OnPreventionSystemPlayerCarHackFinishedEvent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PreventionSystemPlayerCarHackFinishedEvent",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreventionSystemPlayerCarHackTimeOutEvent;PreventionSystemPlayerCarHackTimeOutEvent",
+      "shortName": "OnPreventionSystemPlayerCarHackTimeOutEvent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PreventionSystemPlayerCarHackTimeOutEvent",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPreventionSystemUpdateHackLoopStateEvent;PreventionSystemUpdateHackLoopStateEvent",
+      "shortName": "OnPreventionSystemUpdateHackLoopStateEvent",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PreventionSystemUpdateHackLoopStateEvent",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PauseHack;VehiclePreventionHackState",
+      "shortName": "PauseHack",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "newHack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartBigHackingPopUp;VehiclePreventionHackState",
+      "shortName": "StartBigHackingPopUp",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartHackTimer;VehiclePreventionHackState",
+      "shortName": "StartHackTimer",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopVehicle;VehiclePreventionHackStateFloat",
+      "shortName": "StopVehicle",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopVehicle_Internal;GameInstanceVehiclePreventionHackState",
+      "shortName": "StopVehicle_Internal",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnpauseHack;VehiclePreventionHackState",
+      "shortName": "UnpauseHack",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:VehiclePreventionHackState",
+          "name": "newHack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateState;",
+      "shortName": "UpdateState",
+      "flags": 32900
+    }
+  ]
+}

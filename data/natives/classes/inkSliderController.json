@@ -98,13 +98,63 @@
       "name": "SliderHandleReleased",
       "group": "Debug",
       "flags": 6627016704
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "handleWidgetRef",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "slidingAreaWidgetRef",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isDragging",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "defaultScale",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "pressedScale",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "defaultOpacity",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "defaultColor",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "hoveredColor",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "pressedColor",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "pressedOpacity",
+      "flags": 4297130017
     }
   ],
   "funcs": [
     {
       "fullName": "ChangeProgress",
       "shortName": "ChangeProgress",
-      "index": 1618,
+      "index": 1859,
       "flags": 1,
       "params": [
         {
@@ -117,7 +167,7 @@
     {
       "fullName": "ChangeValue",
       "shortName": "ChangeValue",
-      "index": 1617,
+      "index": 1858,
       "flags": 1,
       "params": [
         {
@@ -134,7 +184,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 1610,
+      "index": 1851,
       "flags": 1
     },
     {
@@ -144,7 +194,7 @@
         "type": "inkWidgetReference",
         "flags": 64
       },
-      "index": 1622,
+      "index": 1863,
       "flags": 1
     },
     {
@@ -154,7 +204,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 1611,
+      "index": 1852,
       "flags": 1
     },
     {
@@ -164,7 +214,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 1612,
+      "index": 1853,
       "flags": 1
     },
     {
@@ -174,7 +224,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 1614,
+      "index": 1855,
       "flags": 1
     },
     {
@@ -184,7 +234,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 1609,
+      "index": 1850,
       "flags": 1
     },
     {
@@ -194,7 +244,7 @@
         "type": "inkWidgetReference",
         "flags": 64
       },
-      "index": 1621,
+      "index": 1862,
       "flags": 1
     },
     {
@@ -204,25 +254,25 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 1613,
+      "index": 1854,
       "flags": 1
     },
     {
       "fullName": "Next",
       "shortName": "Next",
-      "index": 1619,
+      "index": 1860,
       "flags": 1
     },
     {
       "fullName": "Prior",
       "shortName": "Prior",
-      "index": 1620,
+      "index": 1861,
       "flags": 1
     },
     {
       "fullName": "SetInputDisabled",
       "shortName": "SetInputDisabled",
-      "index": 1616,
+      "index": 1857,
       "flags": 1,
       "params": [
         {
@@ -235,7 +285,7 @@
     {
       "fullName": "SetPercentageHandleSize",
       "shortName": "SetPercentageHandleSize",
-      "index": 1615,
+      "index": 1856,
       "flags": 1,
       "params": [
         {
@@ -248,7 +298,7 @@
     {
       "fullName": "Setup",
       "shortName": "Setup",
-      "index": 1608,
+      "index": 1849,
       "flags": 1,
       "params": [
         {
@@ -272,6 +322,81 @@
           "flags": 1152
         }
       ]
+    },
+    {
+      "fullName": "OnHoverOut",
+      "shortName": "OnHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOver",
+      "shortName": "OnHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnPress",
+      "shortName": "OnPress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRelease",
+      "shortName": "OnRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
     }
   ]
 }

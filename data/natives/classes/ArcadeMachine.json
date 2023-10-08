@@ -4,6 +4,11 @@
   "flags": 4,
   "props": [
     {
+      "type": "ArcadeMachineType",
+      "name": "arcadeMachineType",
+      "flags": 4297195552
+    },
+    {
       "type": "Bool",
       "name": "isShortGlitchActive",
       "flags": 4297130016
@@ -15,7 +20,7 @@
     },
     {
       "type": "redResourceReferenceScriptToken",
-      "name": "currentGame",
+      "name": "currentGameVideo",
       "flags": 4297130016
     },
     {
@@ -42,6 +47,16 @@
       "type": "handle:workWorkspotResourceComponent",
       "name": "arcadeMinigameComponent",
       "flags": 4431347744
+    },
+    {
+      "type": "ArcadeMinigame",
+      "name": "minigame",
+      "flags": 4364304417
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "combatStateListener",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -57,6 +72,22 @@
         {
           "type": "handle:BeginArcadeMinigameUI",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCombatStateChanged",
+      "shortName": "OnCombatStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -178,15 +209,6 @@
       "flags": 41472
     },
     {
-      "fullName": "GetArcadeGame;",
-      "shortName": "GetArcadeGame",
-      "return": {
-        "type": "redResourceReferenceScriptToken",
-        "flags": 64
-      },
-      "flags": 41476
-    },
-    {
       "fullName": "GetArcadeGameAudio;",
       "shortName": "GetArcadeGameAudio",
       "return": {
@@ -200,6 +222,15 @@
       "shortName": "GetArcadeGameAudioStop",
       "return": {
         "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetArcadeGameVideo;",
+      "shortName": "GetArcadeGameVideo",
+      "return": {
+        "type": "redResourceReferenceScriptToken",
         "flags": 64
       },
       "flags": 41476
@@ -232,6 +263,23 @@
       "flags": 41472
     },
     {
+      "fullName": "OnDirectInteractionActive;InteractionActivationEventBool",
+      "shortName": "OnDirectInteractionActive",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameinteractionsInteractionActivationEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isInteractionActive",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ResavePersistentData;PersistentState",
       "shortName": "ResavePersistentData",
       "return": {
@@ -251,6 +299,11 @@
       "fullName": "ResolveGameplayState;",
       "shortName": "ResolveGameplayState",
       "flags": 33024
+    },
+    {
+      "fullName": "Setup;",
+      "shortName": "Setup",
+      "flags": 32900
     },
     {
       "fullName": "SetupMinigame;",

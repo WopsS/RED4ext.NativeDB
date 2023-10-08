@@ -1,0 +1,486 @@
+{
+  "parent": "gameuiWidgetGameController",
+  "name": "gameuiCyberwareBreachGameController",
+  "flags": 2,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "strokeHealthDepleation",
+      "flags": 6627016705
+    },
+    {
+      "type": "Vector2",
+      "name": "adjustedScreenPosition",
+      "flags": 6627016704
+    },
+    {
+      "type": "Float",
+      "name": "maxHealth",
+      "flags": 6627016704
+    },
+    {
+      "type": "Float",
+      "name": "currentHealth",
+      "flags": 6627016704
+    },
+    {
+      "type": "Float",
+      "name": "lastHealth",
+      "flags": 6627016704
+    },
+    {
+      "type": "Vector2",
+      "name": "currentSway",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "breachCanvasWRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkBorderWidgetReference",
+      "name": "strokeFgRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkBorderWidgetReference",
+      "name": "strokeBgRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkBorderWidgetReference",
+      "name": "waveStrokeRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "fillRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "textScaleWidgetRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "xTextRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "yTextRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "errorTextRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "strokeThicknessPercent",
+      "group": "Control values",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "minThickness",
+      "group": "Control values",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "maxThickness",
+      "group": "Control values",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "minTextScale",
+      "group": "Control values",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "maxTextScale",
+      "group": "Control values",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "maxRadius",
+      "group": "Control values",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "minRadiusForFluff",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "previousAlmostTimeout",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "cwBreachCallbackHandle",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "weaponSwayCallbackHandle",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "introAnimationProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "showAnimationProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "timeoutAnimationProxy",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "BeginMoveAnim",
+      "shortName": "BeginMoveAnim",
+      "index": 14506,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Float",
+          "name": "moveSpeed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BeginSizeAnim",
+      "shortName": "BeginSizeAnim",
+      "index": 14507,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Float",
+          "name": "sizeSpeed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetMoveAnimPercent",
+      "shortName": "GetMoveAnimPercent",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "index": 14508,
+      "flags": 1
+    },
+    {
+      "fullName": "GetSizeAnimPercent",
+      "shortName": "GetSizeAnimPercent",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "index": 14509,
+      "flags": 1
+    },
+    {
+      "fullName": "GotoEndAndStopMoveAnim",
+      "shortName": "GotoEndAndStopMoveAnim",
+      "index": 14504,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "fireCallback",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GotoEndAndStopSizeAnim",
+      "shortName": "GotoEndAndStopSizeAnim",
+      "index": 14505,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "fireCallback",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetCodeAnims",
+      "shortName": "ResetCodeAnims",
+      "index": 14503,
+      "flags": 1
+    },
+    {
+      "fullName": "UpdateHealthDepletion",
+      "shortName": "UpdateHealthDepletion",
+      "index": 14510,
+      "flags": 1
+    },
+    {
+      "fullName": "OnBreachDataChanged",
+      "shortName": "OnBreachDataChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnIntroAnimationFinished",
+      "shortName": "OnIntroAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMoveAnimationFinished",
+      "shortName": "OnMoveAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnResizeAnimationFinished",
+      "shortName": "OnResizeAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnShowAnimationFinished",
+      "shortName": "OnShowAnimationFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSway",
+      "shortName": "OnSway",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "pos",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "ChangeFluff;Vector2Float",
+      "shortName": "ChangeFluff",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "screenPosition",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeHealth;FloatFloatBool",
+      "shortName": "ChangeHealth",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "health",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "givenMaxHealth",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "fireTransition",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeScreenPosition;Vector2",
+      "shortName": "ChangeScreenPosition",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Vector2",
+          "name": "screenPosition",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ChangeScreenSize;Float",
+      "shortName": "ChangeScreenSize",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "radius",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InterpolateValues;FloatFloatFloat",
+      "shortName": "InterpolateValues",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "startValue",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "endValue",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "ratio",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsAnyIntroAnimPlaying;Bool",
+      "shortName": "IsAnyIntroAnimPlaying",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "ignoreSizeAnim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayIntroAnimation;",
+      "shortName": "PlayIntroAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayShowAnimation;",
+      "shortName": "PlayShowAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayTimeoutAnimation;",
+      "shortName": "PlayTimeoutAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "RegisterBlackboardCallbacks;",
+      "shortName": "RegisterBlackboardCallbacks",
+      "flags": 32900
+    },
+    {
+      "fullName": "StopAllAnimations;",
+      "shortName": "StopAllAnimations",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnregisterBlackboardCallbacks;",
+      "shortName": "UnregisterBlackboardCallbacks",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateState;Bool",
+      "shortName": "UpdateState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

@@ -21,7 +21,7 @@
     {
       "type": "Float",
       "name": "duration",
-      "flags": 4297130016
+      "flags": 4297195552
     },
     {
       "type": "Bool",
@@ -36,6 +36,11 @@
     {
       "type": "Bool",
       "name": "shouldActivateDevice",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "disableSpread",
       "flags": 4297130016
     },
     {
@@ -71,6 +76,11 @@
     {
       "type": "String",
       "name": "inactiveReason",
+      "flags": 4297195552
+    },
+    {
+      "type": "gamedataComputerUIStyle",
+      "name": "widgetStyle",
       "flags": 4297195552
     }
   ],
@@ -108,7 +118,7 @@
       ]
     },
     {
-      "fullName": "ScriptableDeviceAction::IsDefaultConditionMet;ScriptableDeviceComponentPSGetActionsContext",
+      "fullName": "ScriptableDeviceAction::IsDefaultConditionMet;ScriptableDeviceComponentPSscript_ref<GetActionsContext>",
       "shortName": "IsDefaultConditionMet",
       "return": {
         "type": "Bool",
@@ -122,19 +132,19 @@
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "AddDeviceName;String",
+      "fullName": "AddDeviceName;script_ref<String>",
       "shortName": "AddDeviceName",
       "flags": 33284,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "deviceName",
           "flags": 128
         }
@@ -212,7 +222,7 @@
       ]
     },
     {
-      "fullName": "CreateCustomInteraction;array<DeviceAction>StringStringTweakDBIDTweakDBID",
+      "fullName": "CreateCustomInteraction;array<DeviceAction>script_ref<String>script_ref<String>TweakDBIDTweakDBID",
       "shortName": "CreateCustomInteraction",
       "flags": 33280,
       "params": [
@@ -222,12 +232,12 @@
           "flags": 1152
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "customName1",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "customName2",
           "flags": 128
         },
@@ -284,15 +294,6 @@
       "flags": 33284
     },
     {
-      "fullName": "GetActivationTime;",
-      "shortName": "GetActivationTime",
-      "return": {
-        "type": "Float",
-        "flags": 64
-      },
-      "flags": 33280
-    },
-    {
       "fullName": "GetActiveStatusEffectTweakDBID;",
       "shortName": "GetActiveStatusEffectTweakDBID",
       "return": {
@@ -309,6 +310,22 @@
         "flags": 64
       },
       "flags": 33280
+    },
+    {
+      "fullName": "GetAwarenessCost;GameInstance",
+      "shortName": "GetAwarenessCost",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetCost;",
@@ -505,8 +522,26 @@
       "flags": 41476
     },
     {
+      "fullName": "IsRemoteHack;",
+      "shortName": "IsRemoteHack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsSpiderbotAction;",
       "shortName": "IsSpiderbotAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsSpreadDisabled;",
+      "shortName": "IsSpreadDisabled",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -590,6 +625,18 @@
       ]
     },
     {
+      "fullName": "SetCanSkipPayCost;Bool",
+      "shortName": "SetCanSkipPayCost",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetCanTriggerStim;Bool",
       "shortName": "SetCanTriggerStim",
       "flags": 33284,
@@ -605,6 +652,18 @@
       "fullName": "SetCompleted;",
       "shortName": "SetCompleted",
       "flags": 33284
+    },
+    {
+      "fullName": "SetDisableSpread;Bool",
+      "shortName": "SetDisableSpread",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetDurationValue;Float",
@@ -631,12 +690,12 @@
       ]
     },
     {
-      "fullName": "SetInactiveReason;String",
+      "fullName": "SetInactiveReason;script_ref<String>",
       "shortName": "SetInactiveReason",
       "flags": 33284,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "reasonStr",
           "flags": 128
         }
@@ -648,7 +707,7 @@
       "flags": 33284
     },
     {
-      "fullName": "SetInactiveWithReason;BoolString",
+      "fullName": "SetInactiveWithReason;Boolscript_ref<String>",
       "shortName": "SetInactiveWithReason",
       "flags": 33284,
       "params": [
@@ -658,7 +717,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "reason",
           "flags": 128
         }
@@ -732,6 +791,18 @@
         {
           "type": "NodeRef",
           "name": "targetLocationReference",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWidgetStyle;gamedataComputerUIStyle",
+      "shortName": "SetWidgetStyle",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataComputerUIStyle",
+          "name": "style",
           "flags": 128
         }
       ]

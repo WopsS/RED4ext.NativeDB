@@ -4,6 +4,32 @@
   "flags": 5,
   "funcs": [
     {
+      "fullName": "ItemPreviewHelper::GetPreviewData;IScriptablescript_ref<InventoryItemData>Bool",
+      "shortName": "GetPreviewData",
+      "return": {
+        "type": "handle:InventoryItemPreviewData",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isGarment",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ItemPreviewHelper::GetPreviewData;IScriptableUIInventoryItemBool",
       "shortName": "GetPreviewData",
       "return": {
@@ -19,32 +45,6 @@
         },
         {
           "type": "whandle:UIInventoryItem",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "isGarment",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ItemPreviewHelper::GetPreviewData;IScriptableInventoryItemDataBool",
-      "shortName": "GetPreviewData",
-      "return": {
-        "type": "handle:InventoryItemPreviewData",
-        "flags": 64
-      },
-      "flags": 32902,
-      "params": [
-        {
-          "type": "handle:IScriptable",
-          "name": "controller",
-          "flags": 128
-        },
-        {
-          "type": "gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -87,7 +87,38 @@
       ]
     },
     {
-      "fullName": "ItemPreviewHelper::ShowPreviewItem;inkGameControllerInventoryItemDataBoolCName",
+      "fullName": "ItemPreviewHelper::ShowPreviewItem;inkLogicControllerscript_ref<InventoryItemData>BoolCName",
+      "shortName": "ShowPreviewItem",
+      "return": {
+        "type": "handle:inkGameNotificationToken",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:inkWidgetLogicController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isGarment",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "callbackName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ItemPreviewHelper::ShowPreviewItem;inkGameControllerscript_ref<InventoryItemData>BoolCName",
       "shortName": "ShowPreviewItem",
       "return": {
         "type": "handle:inkGameNotificationToken",
@@ -101,7 +132,7 @@
           "flags": 128
         },
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },

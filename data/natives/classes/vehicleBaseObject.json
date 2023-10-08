@@ -9,6 +9,11 @@
       "flags": 6627016705
     },
     {
+      "type": "Bool",
+      "name": "isVehicleOnStateLocked",
+      "flags": 6895452160
+    },
+    {
       "type": "whandle:VehicleComponent",
       "name": "vehicleComponent",
       "flags": 4297130016
@@ -22,6 +27,11 @@
       "type": "handle:CrowdMemberBaseComponent",
       "name": "crowdMemberComponent",
       "flags": 4431413280
+    },
+    {
+      "type": "handle:gameAttitudeAgent",
+      "name": "attitudeAgent",
+      "flags": 4431347744
     },
     {
       "type": "Float",
@@ -59,11 +69,6 @@
       "flags": 4297130016
     },
     {
-      "type": "Bool",
-      "name": "isPrevention",
-      "flags": 4297130016
-    },
-    {
       "type": "Int32",
       "name": "gotStuckIncrement",
       "flags": 4297130016
@@ -94,6 +99,16 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "isQhackUploadInProgress",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:ScriptableDeviceAction",
+      "name": "currentlyUploadingAction",
+      "flags": 4297130016
+    },
+    {
       "type": "Int32",
       "name": "bumpedRecently",
       "flags": 4297130016
@@ -121,9 +136,41 @@
   ],
   "funcs": [
     {
+      "fullName": "ActivateNetrunnerQuickhack",
+      "shortName": "ActivateNetrunnerQuickhack",
+      "index": 13448,
+      "flags": 1,
+      "params": [
+        {
+          "type": "vehicleVehicleNetrunnerQuickhackType",
+          "name": "chooseHack",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddCollisionForce",
+      "shortName": "AddCollisionForce",
+      "index": 13490,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "force",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ApplyAvgZOffset",
+      "shortName": "ApplyAvgZOffset",
+      "index": 13526,
+      "flags": 1
+    },
+    {
       "fullName": "ApplyPermanentStun",
       "shortName": "ApplyPermanentStun",
-      "index": 11949,
+      "index": 13512,
       "flags": 1
     },
     {
@@ -133,7 +180,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11920,
+      "index": 13470,
       "flags": 1
     },
     {
@@ -143,7 +190,17 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11947,
+      "index": 13510,
+      "flags": 8193
+    },
+    {
+      "fullName": "CanSwitchWeapons",
+      "shortName": "CanSwitchWeapons",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13518,
       "flags": 8193
     },
     {
@@ -153,7 +210,7 @@
         "type": "vehicleUnmountPosition",
         "flags": 64
       },
-      "index": 11924,
+      "index": 13474,
       "flags": 1,
       "params": [
         {
@@ -174,27 +231,37 @@
       ]
     },
     {
+      "fullName": "CommandsFromDriverEnabled",
+      "shortName": "CommandsFromDriverEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13513,
+      "flags": 8193
+    },
+    {
       "fullName": "DestructionResetGlass",
       "shortName": "DestructionResetGlass",
-      "index": 11938,
+      "index": 13496,
       "flags": 1
     },
     {
       "fullName": "DestructionResetGrid",
       "shortName": "DestructionResetGrid",
-      "index": 11937,
+      "index": 13495,
       "flags": 1
     },
     {
       "fullName": "DetachAllParts",
       "shortName": "DetachAllParts",
-      "index": 11909,
+      "index": 13457,
       "flags": 1
     },
     {
       "fullName": "DetachPart",
       "shortName": "DetachPart",
-      "index": 11908,
+      "index": 13456,
       "flags": 1,
       "params": [
         {
@@ -205,15 +272,78 @@
       ]
     },
     {
+      "fullName": "DetermineCoolExitImpulseLevel",
+      "shortName": "DetermineCoolExitImpulseLevel",
+      "return": {
+        "type": "vehicleCoolExitImpulseLevel",
+        "flags": 64
+      },
+      "index": 13475,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "mountedObject",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "maxImpulseHeightThreshold",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "minImpulseHeightThreshold",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnableAirControl",
+      "shortName": "EnableAirControl",
+      "index": 13478,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "toggle",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "EnableHighPriorityPanicDriving",
       "shortName": "EnableHighPriorityPanicDriving",
-      "index": 11948,
+      "index": 13511,
+      "flags": 1
+    },
+    {
+      "fullName": "EnableNPCCombat",
+      "shortName": "EnableNPCCombat",
+      "index": 13521,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EverPerformedChase",
+      "shortName": "EverPerformedChase",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13524,
       "flags": 1
     },
     {
       "fullName": "ForceBrakesFor",
       "shortName": "ForceBrakesFor",
-      "index": 11918,
+      "index": 13468,
       "flags": 1,
       "params": [
         {
@@ -226,7 +356,7 @@
     {
       "fullName": "ForceBrakesUntilStoppedOrFor",
       "shortName": "ForceBrakesUntilStoppedOrFor",
-      "index": 11919,
+      "index": 13469,
       "flags": 1,
       "params": [
         {
@@ -237,14 +367,37 @@
       ]
     },
     {
+      "fullName": "GetAIComponent",
+      "shortName": "GetAIComponent",
+      "return": {
+        "type": "handle:AIVehicleAgent",
+        "flags": 64
+      },
+      "index": 13504,
+      "flags": 8193
+    },
+    {
       "fullName": "GetAccessoryController",
       "shortName": "GetAccessoryController",
       "return": {
         "type": "handle:vehicleController",
         "flags": 64
       },
-      "index": 11925,
+      "index": 13476,
       "flags": 1
+    },
+    {
+      "fullName": "GetActiveWeapons",
+      "shortName": "GetActiveWeapons",
+      "index": 13519,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "array:whandle:gameweaponObject",
+          "name": "weaponList",
+          "flags": 640
+        }
+      ]
     },
     {
       "fullName": "GetAnimsetOverrideForPassenger",
@@ -253,7 +406,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11921,
+      "index": 13471,
       "flags": 1,
       "params": [
         {
@@ -270,7 +423,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11923,
+      "index": 13473,
       "flags": 1,
       "params": [
         {
@@ -287,7 +440,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11922,
+      "index": 13472,
       "flags": 1,
       "params": [
         {
@@ -304,7 +457,7 @@
         "type": "handle:gameIBlackboard",
         "flags": 64
       },
-      "index": 11895,
+      "index": 13432,
       "flags": 1
     },
     {
@@ -314,7 +467,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11913,
+      "index": 13461,
       "flags": 1,
       "params": [
         {
@@ -331,7 +484,7 @@
         "type": "handle:vehicleCameraManager",
         "flags": 64
       },
-      "index": 11926,
+      "index": 13482,
       "flags": 1
     },
     {
@@ -341,8 +494,18 @@
         "type": "Vector4",
         "flags": 64
       },
-      "index": 11933,
+      "index": 13491,
       "flags": 1
+    },
+    {
+      "fullName": "GetDistanceToPlayerSquared",
+      "shortName": "GetDistanceToPlayerSquared",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "index": 13437,
+      "flags": 8193
     },
     {
       "fullName": "GetLinearVelocity",
@@ -351,8 +514,28 @@
         "type": "Vector4",
         "flags": 64
       },
-      "index": 11934,
+      "index": 13492,
       "flags": 1
+    },
+    {
+      "fullName": "GetPoliceStrategy",
+      "shortName": "GetPoliceStrategy",
+      "return": {
+        "type": "vehiclePoliceStrategy",
+        "flags": 64
+      },
+      "index": 13514,
+      "flags": 8193
+    },
+    {
+      "fullName": "GetPoliceStrategyDestination",
+      "shortName": "GetPoliceStrategyDestination",
+      "return": {
+        "type": "Vector3",
+        "flags": 64
+      },
+      "index": 13516,
+      "flags": 8193
     },
     {
       "fullName": "GetRadioReceiverStationName",
@@ -361,7 +544,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11931,
+      "index": 13487,
       "flags": 1
     },
     {
@@ -371,7 +554,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11932,
+      "index": 13488,
       "flags": 1
     },
     {
@@ -381,7 +564,7 @@
         "type": "whandle:gamedataVehicle_Record",
         "flags": 64
       },
-      "index": 11896,
+      "index": 13433,
       "flags": 8193
     },
     {
@@ -391,7 +574,7 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "index": 11912,
+      "index": 13460,
       "flags": 1
     },
     {
@@ -401,7 +584,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11939,
+      "index": 13497,
       "flags": 1,
       "params": [
         {
@@ -412,13 +595,23 @@
       ]
     },
     {
+      "fullName": "GetTimeChasingTarget",
+      "shortName": "GetTimeChasingTarget",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "index": 13506,
+      "flags": 8193
+    },
+    {
       "fullName": "GetTotalMass",
       "shortName": "GetTotalMass",
       "return": {
         "type": "Float",
         "flags": 64
       },
-      "index": 11935,
+      "index": 13493,
       "flags": 1
     },
     {
@@ -428,8 +621,35 @@
         "type": "array:handle:WorldWidgetComponent",
         "flags": 64
       },
-      "index": 11940,
+      "index": 13498,
       "flags": 1
+    },
+    {
+      "fullName": "HasNavPathToTarget",
+      "shortName": "HasNavPathToTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13507,
+      "flags": 1,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "invert",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "HasOccupantSlot",
@@ -438,7 +658,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11911,
+      "index": 13459,
       "flags": 1,
       "params": [
         {
@@ -449,13 +669,63 @@
       ]
     },
     {
+      "fullName": "HasPassengers",
+      "shortName": "HasPassengers",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13442,
+      "flags": 8193
+    },
+    {
+      "fullName": "HasTrafficSlot",
+      "shortName": "HasTrafficSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13443,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsAirControlEnabled",
+      "shortName": "IsAirControlEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13477,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsArmedVehicle",
+      "shortName": "IsArmedVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13520,
+      "flags": 1
+    },
+    {
+      "fullName": "IsChasingTarget",
+      "shortName": "IsChasingTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13505,
+      "flags": 8193
+    },
+    {
       "fullName": "IsCrowdVehicle",
       "shortName": "IsCrowdVehicle",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "index": 11929,
+      "index": 13485,
       "flags": 8193
     },
     {
@@ -465,7 +735,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11917,
+      "index": 13466,
       "flags": 8193
     },
     {
@@ -475,7 +745,37 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11944,
+      "index": 13503,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsFlippedOver",
+      "shortName": "IsFlippedOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13480,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsHackable",
+      "shortName": "IsHackable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13438,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsInAir",
+      "shortName": "IsInAir",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13479,
       "flags": 8193
     },
     {
@@ -485,7 +785,17 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11943,
+      "index": 13501,
+      "flags": 1
+    },
+    {
+      "fullName": "IsNPCShooting",
+      "shortName": "IsNPCShooting",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13523,
       "flags": 1
     },
     {
@@ -495,7 +805,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11945,
+      "index": 13508,
       "flags": 8193
     },
     {
@@ -505,7 +815,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11946,
+      "index": 13509,
       "flags": 8193
     },
     {
@@ -515,7 +825,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11928,
+      "index": 13484,
       "flags": 8193
     },
     {
@@ -525,7 +835,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11898,
+      "index": 13441,
       "flags": 8193
     },
     {
@@ -535,7 +845,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11897,
+      "index": 13440,
       "flags": 8193
     },
     {
@@ -545,7 +855,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11927,
+      "index": 13483,
       "flags": 8193
     },
     {
@@ -555,8 +865,65 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11900,
+      "index": 13449,
       "flags": 1
+    },
+    {
+      "fullName": "IsSkidding",
+      "shortName": "IsSkidding",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13481,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "Float",
+          "name": "wheelSlipThreshold",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVehicleAccelerateQuickhackActive",
+      "shortName": "IsVehicleAccelerateQuickhackActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13435,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsVehicleForceBrakesQuickhackActive",
+      "shortName": "IsVehicleForceBrakesQuickhackActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13436,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsVehicleInsideInnerAreaOfAreaSpeedLimiter",
+      "shortName": "IsVehicleInsideInnerAreaOfAreaSpeedLimiter",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13439,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsVehicleOnStateLocked",
+      "shortName": "IsVehicleOnStateLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13467,
+      "flags": 8193
     },
     {
       "fullName": "IsVehicleParked",
@@ -565,7 +932,17 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11930,
+      "index": 13486,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsVehicleRemoteControlled",
+      "shortName": "IsVehicleRemoteControlled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13434,
       "flags": 8193
     },
     {
@@ -575,31 +952,80 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11916,
+      "index": 13465,
       "flags": 8193
+    },
+    {
+      "fullName": "LockVehicleOnState",
+      "shortName": "LockVehicleOnState",
+      "index": 13464,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldLock",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NPCShoot",
+      "shortName": "NPCShoot",
+      "index": 13522,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "projectiles",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "NextRadioReceiverStation",
       "shortName": "NextRadioReceiverStation",
-      "index": 11903,
+      "index": 13452,
       "flags": 1
+    },
+    {
+      "fullName": "NotifyWindowChange",
+      "shortName": "NotifyWindowChange",
+      "index": 13489,
+      "flags": 1,
+      "params": [
+        {
+          "type": "CName",
+          "name": "windowName",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isOpened",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "PhysicsWakeUp",
       "shortName": "PhysicsWakeUp",
-      "index": 11942,
+      "index": 13500,
       "flags": 1
     },
     {
       "fullName": "PreHijackPrepareDriverSlot",
       "shortName": "PreHijackPrepareDriverSlot",
-      "index": 11899,
+      "index": 13444,
       "flags": 1
     },
     {
       "fullName": "SendDelayedFinishedMountingEventToPS",
       "shortName": "SendDelayedFinishedMountingEventToPS",
-      "index": 11941,
+      "index": 13499,
       "flags": 1,
       "params": [
         {
@@ -627,7 +1053,7 @@
     {
       "fullName": "SetDestructionGridPointValues",
       "shortName": "SetDestructionGridPointValues",
-      "index": 11936,
+      "index": 13494,
       "flags": 1,
       "params": [
         {
@@ -650,13 +1076,52 @@
     {
       "fullName": "SetHasExploded",
       "shortName": "SetHasExploded",
-      "index": 11910,
+      "index": 13458,
       "flags": 1
+    },
+    {
+      "fullName": "SetIsHackable",
+      "shortName": "SetIsHackable",
+      "index": 13447,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPoliceStrategy",
+      "shortName": "SetPoliceStrategy",
+      "index": 13515,
+      "flags": 1,
+      "params": [
+        {
+          "type": "vehiclePoliceStrategy",
+          "name": "strategy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPoliceStrategyDestination",
+      "shortName": "SetPoliceStrategyDestination",
+      "index": 13517,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "dest",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetRadioReceiverStation",
       "shortName": "SetRadioReceiverStation",
-      "index": 11902,
+      "index": 13451,
       "flags": 1,
       "params": [
         {
@@ -669,7 +1134,7 @@
     {
       "fullName": "SetRadioTier",
       "shortName": "SetRadioTier",
-      "index": 11904,
+      "index": 13453,
       "flags": 1,
       "params": [
         {
@@ -685,9 +1150,49 @@
       ]
     },
     {
+      "fullName": "SetVehicleRemoteControlled",
+      "shortName": "SetVehicleRemoteControlled",
+      "index": 13445,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldUnseatPassengers",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldModifyInteractionState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldDamageSystemIgnoreHit",
+      "shortName": "ShouldDamageSystemIgnoreHit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13502,
+      "flags": 1,
+      "params": [
+        {
+          "type": "CName",
+          "name": "hitComponentName",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ToggleHorn",
       "shortName": "ToggleHorn",
-      "index": 11905,
+      "index": 13454,
       "flags": 1,
       "params": [
         {
@@ -703,22 +1208,9 @@
       ]
     },
     {
-      "fullName": "ToggleHornForDuration",
-      "shortName": "ToggleHornForDuration",
-      "index": 11907,
-      "flags": 1,
-      "params": [
-        {
-          "type": "Float",
-          "name": "duration",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "ToggleRadioReceiver",
       "shortName": "ToggleRadioReceiver",
-      "index": 11901,
+      "index": 13450,
       "flags": 1,
       "params": [
         {
@@ -731,7 +1223,7 @@
     {
       "fullName": "ToggleSiren",
       "shortName": "ToggleSiren",
-      "index": 11906,
+      "index": 13455,
       "flags": 1,
       "params": [
         {
@@ -742,9 +1234,25 @@
       ]
     },
     {
+      "fullName": "ToggleVehicleRemoteControlCamera",
+      "shortName": "ToggleVehicleRemoteControlCamera",
+      "index": 13446,
+      "flags": 1
+    },
+    {
+      "fullName": "TrySetHitCooldown",
+      "shortName": "TrySetHitCooldown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13525,
+      "flags": 1
+    },
+    {
       "fullName": "TurnEngineOn",
       "shortName": "TurnEngineOn",
-      "index": 11915,
+      "index": 13463,
       "flags": 1,
       "params": [
         {
@@ -757,7 +1265,7 @@
     {
       "fullName": "TurnVehicleOn",
       "shortName": "TurnVehicleOn",
-      "index": 11914,
+      "index": 13462,
       "flags": 1,
       "params": [
         {
@@ -784,6 +1292,22 @@
       ]
     },
     {
+      "fullName": "OnDamageReceived",
+      "shortName": "OnDamageReceived",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsDamageReceivedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDelayReactionToMissingPassengersEvent",
       "shortName": "OnDelayReactionToMissingPassengersEvent",
       "return": {
@@ -798,15 +1322,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "OnDetach",
-      "shortName": "OnDetach",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
     },
     {
       "fullName": "OnDeviceLinkRequest",
@@ -848,6 +1363,22 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnHUDInstruction",
+      "shortName": "OnHUDInstruction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:HUDInstruction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnHandleReactionEvent",
@@ -1058,8 +1589,8 @@
       ]
     },
     {
-      "fullName": "OnTrafficBumpEvent",
-      "shortName": "OnTrafficBumpEvent",
+      "fullName": "OnTrafficAudioEvent",
+      "shortName": "OnTrafficAudioEvent",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1067,7 +1598,7 @@
       "flags": 33032,
       "params": [
         {
-          "type": "handle:vehicleVehicleTrafficBumpEvent",
+          "type": "handle:vehicleTrafficAudioEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1116,6 +1647,54 @@
       "params": [
         {
           "type": "handle:gamemountingUnmountingEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUploadProgressStateChanged",
+      "shortName": "OnUploadProgressStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:UploadProgramProgressEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleBumpEvent",
+      "shortName": "OnVehicleBumpEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleVehicleBumpEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDestructionEvent",
+      "shortName": "OnVehicleDestructionEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsVehicleDestructionEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1186,6 +1765,18 @@
       ]
     },
     {
+      "fullName": "ApplyDamagesToDriver;gameHitEvent",
+      "shortName": "ApplyDamagesToDriver",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CanNPCsLeaveVehicle;",
       "shortName": "CanNPCsLeaveVehicle",
       "return": {
@@ -1195,6 +1786,15 @@
       "flags": 32900
     },
     {
+      "fullName": "CanRevealRemoteActionsWheel;",
+      "shortName": "CanRevealRemoteActionsWheel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
       "fullName": "CompileScannerChunks;",
       "shortName": "CompileScannerChunks",
       "return": {
@@ -1202,6 +1802,15 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "ComputeIsVehicleUpsideDown;",
+      "shortName": "ComputeIsVehicleUpsideDown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "DamagePipelineFinalized;gameHitEvent",
@@ -1219,6 +1828,15 @@
       "fullName": "EscalateBumpVehicleReaction;",
       "shortName": "EscalateBumpVehicleReaction",
       "flags": 32900
+    },
+    {
+      "fullName": "GetAttitudeAgent;",
+      "shortName": "GetAttitudeAgent",
+      "return": {
+        "type": "handle:gameAttitudeAgent",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "GetControllerPersistentState;",
@@ -1255,6 +1873,15 @@
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "GetCurrentlyUploadingAction;",
+      "shortName": "GetCurrentlyUploadingAction",
+      "return": {
+        "type": "handle:ScriptableDeviceAction",
+        "flags": 64
+      },
+      "flags": 33280
     },
     {
       "fullName": "GetDefaultHighlight;",
@@ -1302,6 +1929,27 @@
       "flags": 41472
     },
     {
+      "fullName": "GetVehicleType;",
+      "shortName": "GetVehicleType",
+      "return": {
+        "type": "gamedataVehicleType",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "HandleTrafficBump;Float",
+      "shortName": "HandleTrafficBump",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "impact",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsAbandoned;",
       "shortName": "IsAbandoned",
       "return": {
@@ -1311,6 +1959,24 @@
       "flags": 41476
     },
     {
+      "fullName": "IsActionQueueEnabled;",
+      "shortName": "IsActionQueueEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsActionQueueFull;",
+      "shortName": "IsActionQueueFull",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
       "fullName": "IsDestroyed;",
       "shortName": "IsDestroyed",
       "return": {
@@ -1318,6 +1984,15 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "IsGameplayRelevant;",
+      "shortName": "IsGameplayRelevant",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "IsInTrafficLane;",
@@ -1358,6 +2033,24 @@
     {
       "fullName": "IsQuest;",
       "shortName": "IsQuest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsQuickHackAble;",
+      "shortName": "IsQuickHackAble",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsQuickHacksExposed;",
+      "shortName": "IsQuickHacksExposed",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1425,9 +2118,33 @@
       ]
     },
     {
+      "fullName": "OnHitSounds;gameHitEvent",
+      "shortName": "OnHitSounds",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PanicDrivingBehavior;",
       "shortName": "PanicDrivingBehavior",
       "flags": 32900
+    },
+    {
+      "fullName": "ReactToHitProcess;gameHitEvent",
+      "shortName": "ReactToHitProcess",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "RecordHasTag;Vehicle_RecordCName",
@@ -1520,6 +2237,30 @@
       ]
     },
     {
+      "fullName": "SendQuickhackCommands;Bool",
+      "shortName": "SendQuickhackCommands",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldOpen",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentlyUploadingAction;ScriptableDeviceAction",
+      "shortName": "SetCurrentlyUploadingAction",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetInteriorUIEnabled;Bool",
       "shortName": "SetInteriorUIEnabled",
       "flags": 32900,
@@ -1530,6 +2271,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ShouldRegisterToHUD;",
+      "shortName": "ShouldRegisterToHUD",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
     },
     {
       "fullName": "ShouldShowScanner;",
@@ -1565,9 +2315,16 @@
       ]
     },
     {
-      "fullName": "TriggerFearFleeBehavior;",
-      "shortName": "TriggerFearFleeBehavior",
-      "flags": 32900
+      "fullName": "TriggerExitBehavior;Float",
+      "shortName": "TriggerExitBehavior",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "maxDelayOverride",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "TriggerFearInsideVehicleBehavior;",

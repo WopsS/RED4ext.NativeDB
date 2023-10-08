@@ -4,12 +4,170 @@
   "flags": 4,
   "props": [
     {
+      "type": "handle:inkanimProxy",
+      "name": "animIntroProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "animIntroOptions",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimDefinition",
+      "name": "animBlink",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animBlinkProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "animBlinkOptions",
+      "flags": 4297130016
+    },
+    {
+      "type": "[3]Uint32",
+      "name": "animBlinkLoops",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "animBlinkLastStage",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkanimLoopType",
+      "name": "blinkAnimLoopType",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "blinkDuration",
+      "flags": 4297130016
+    },
+    {
       "type": "inkWidgetReference",
       "name": "bountyBadgeWidget",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "blinkSpeed1",
+      "group": "Animation",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "blinkSpeed2",
+      "group": "Animation",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "blinkSpeed3",
+      "group": "Animation",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkanimInterpolationMode",
+      "name": "blinkAnimInterpolationMode",
+      "group": "Animation",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkanimInterpolationType",
+      "name": "blinkAnimInterpolationType",
+      "group": "Animation",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "icon",
+      "group": "Icon ",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "iconBg",
+      "group": "Icon ",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "ncpdIconName",
+      "group": "Icon ",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "ncpdIconBgName",
+      "group": "Icon ",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "dogtownIconName",
+      "group": "Icon ",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "dogtownIconBgName",
+      "group": "Icon ",
       "flags": 4297130017
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnBlinkLoopFinished",
+      "shortName": "OnBlinkLoopFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "animProxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "CreateBlinkAnimation;",
+      "shortName": "CreateBlinkAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "PlayBlink;Int32",
+      "shortName": "PlayBlink",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "stage",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "SetBounty;Bool",
       "shortName": "SetBounty",
@@ -18,6 +176,40 @@
         {
           "type": "Bool",
           "name": "arg",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartBlink;FloatInt32",
+      "shortName": "StartBlink",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "timeTotal",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "stages",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopBlink;",
+      "shortName": "StopBlink",
+      "flags": 33284
+    },
+    {
+      "fullName": "UpdateState;CName",
+      "shortName": "UpdateState",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "newState",
           "flags": 128
         }
       ]

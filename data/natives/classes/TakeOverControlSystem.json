@@ -39,6 +39,11 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "isReleaseOnHitLocked",
+      "flags": 4297130016
+    },
+    {
       "type": "array:CName",
       "name": "chainLockSources",
       "flags": 6583025696
@@ -56,6 +61,16 @@
     {
       "type": "Float",
       "name": "lastInputSimTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "sniperNestObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "timestampLastTCS",
       "flags": 4297130016
     }
   ],
@@ -78,7 +93,29 @@
       ]
     },
     {
-      "fullName": "TakeOverControlSystem::ReleaseControl;GameInstance",
+      "fullName": "TakeOverControlSystem::PlayFollowupEvent;GameInstanceEventEntityID",
+      "shortName": "PlayFollowupEvent",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "followupEvent",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "followupEventEntityID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TakeOverControlSystem::ReleaseControl;GameInstanceEventEntityID",
       "shortName": "ReleaseControl",
       "return": {
         "type": "Bool",
@@ -89,6 +126,33 @@
         {
           "type": "ScriptGameInstance",
           "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "handle:redEvent",
+          "name": "followupEvent",
+          "flags": 1152
+        },
+        {
+          "type": "entEntityID",
+          "name": "followupEventEntityID",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TakeOverControlSystem::ReleaseControlOfRemoteControlledVehicle;GameInstanceEntityID",
+      "shortName": "ReleaseControlOfRemoteControlledVehicle",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "playerID",
           "flags": 128
         }
       ]
@@ -232,7 +296,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetCurrentActiveDeviceChainBlackboardIndex;array<SWidgetPackage>",
+      "fullName": "GetCurrentActiveDeviceChainBlackboardIndex;script_ref<array<SWidgetPackage>>",
       "shortName": "GetCurrentActiveDeviceChainBlackboardIndex",
       "return": {
         "type": "Int32",
@@ -241,7 +305,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:SWidgetPackage",
+          "type": "script_ref:array:SWidgetPackage",
           "name": "deviceChain",
           "flags": 128
         }
@@ -274,6 +338,15 @@
       "flags": 32896
     },
     {
+      "fullName": "IsDeviceChainCreationLocked;",
+      "shortName": "IsDeviceChainCreationLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsDeviceControlled;",
       "shortName": "IsDeviceControlled",
       "return": {
@@ -301,15 +374,6 @@
       "flags": 33920
     },
     {
-      "fullName": "IskDeviceChainCreationLocked;",
-      "shortName": "IskDeviceChainCreationLocked",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476
-    },
-    {
       "fullName": "LockInputFromQuestRequest;Bool",
       "shortName": "LockInputFromQuestRequest",
       "flags": 32900,
@@ -322,13 +386,13 @@
       ]
     },
     {
-      "fullName": "OnEnableFastTravelRequest;LockTakeControlAction",
-      "shortName": "OnEnableFastTravelRequest",
+      "fullName": "MoveToSpecificEntity;EntityID",
+      "shortName": "MoveToSpecificEntity",
       "flags": 32900,
       "params": [
         {
-          "type": "handle:LockTakeControlAction",
-          "name": "request",
+          "type": "entEntityID",
+          "name": "entity",
           "flags": 128
         }
       ]
@@ -340,6 +404,30 @@
       "params": [
         {
           "type": "handle:LockDeviceChainCreation",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLockReleaseOnHitRequest;LockReleaseOnHit",
+      "shortName": "OnLockReleaseOnHitRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:LockReleaseOnHit",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLockTakeControlActionRequest;LockTakeControlAction",
+      "shortName": "OnLockTakeControlActionRequest",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:LockTakeControlAction",
           "name": "request",
           "flags": 128
         }
@@ -515,12 +603,12 @@
       "flags": 32900
     },
     {
-      "fullName": "ToggleToOtherDeviceFromChain;SWidgetPackage",
+      "fullName": "ToggleToOtherDeviceFromChain;script_ref<SWidgetPackage>",
       "shortName": "ToggleToOtherDeviceFromChain",
       "flags": 32900,
       "params": [
         {
-          "type": "SWidgetPackage",
+          "type": "script_ref:SWidgetPackage",
           "name": "otherPackage",
           "flags": 128
         }

@@ -9,8 +9,68 @@
       "flags": 6583222304
     },
     {
+      "type": "array:handle:UIInventoryItemStat",
+      "name": "TooltipStats",
+      "flags": 6583222304
+    },
+    {
+      "type": "array:handle:UIInventoryItemStat",
+      "name": "AdditionalStats",
+      "flags": 6583222304
+    },
+    {
+      "type": "array:handle:UIInventoryItemStat",
+      "name": "AttributeAllocationStats",
+      "flags": 6583222304
+    },
+    {
+      "type": "whandle:UIInventoryItem",
+      "name": "item",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameItemData",
+      "name": "gameItemData",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamedataItemType",
+      "name": "itemType",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:UIInventoryItemsManager",
       "name": "manager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gamedataUIStatsMap_Record",
+      "name": "statMap",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "statsFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "tooltipStatsFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UIInventoryItemWeaponBars",
+      "name": "weaponBars",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "weaponBarsFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "useBareStats",
       "flags": 4297130016
     }
   ],
@@ -37,6 +97,64 @@
       ]
     },
     {
+      "fullName": "UIInventoryItemStatsManager::FromMinimalItemTooltipDataToTooltipStats;MinimalItemTooltipDataUIInventoryItemsManager",
+      "shortName": "FromMinimalItemTooltipDataToTooltipStats",
+      "return": {
+        "type": "handle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:MinimalItemTooltipData",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemStatsManager::IsBarTypeMelee;WeaponBarType",
+      "shortName": "IsBarTypeMelee",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "WeaponBarType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemStatsManager::IsUsingCurveCustom;gamedataItemTypeWeaponBarType",
+      "shortName": "IsUsingCurveCustom",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "WeaponBarType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "UIInventoryItemStatsManager::Make;gameItemDataUIStatsMap_RecordUIInventoryItemsManager",
       "shortName": "Make",
       "return": {
@@ -46,7 +164,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "handle:gameItemData",
+          "type": "whandle:gameItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -63,8 +181,138 @@
       ]
     },
     {
+      "fullName": "UIInventoryItemStatsManager::Make;UIInventoryItemUIStatsMap_RecordUIInventoryItemsManager",
+      "shortName": "Make",
+      "return": {
+        "type": "handle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataUIStatsMap_Record",
+          "name": "statMap",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UIInventoryItemStatsManager::MapBarTypeToStat;WeaponBarType",
+      "shortName": "MapBarTypeToStat",
+      "return": {
+        "type": "gamedataStatType",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "WeaponBarType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FetchAdditionalStatByType;gamedataStatType",
+      "shortName": "FetchAdditionalStatByType",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FetchSecondayStats;",
+      "shortName": "FetchSecondayStats",
+      "flags": 32900
+    },
+    {
+      "fullName": "FetchTooltipStats;",
+      "shortName": "FetchTooltipStats",
+      "flags": 32900
+    },
+    {
+      "fullName": "FlushComparedBars;",
+      "shortName": "FlushComparedBars",
+      "flags": 33284
+    },
+    {
       "fullName": "Get;Int32",
       "shortName": "Get",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAdditionalStatByType;gamedataStatType",
+      "shortName": "GetAdditionalStatByType",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttachedPlayer;",
+      "shortName": "GetAttachedPlayer",
+      "return": {
+        "type": "whandle:PlayerPuppet",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetAttributeAllocationStatByType;gamedataStatType",
+      "shortName": "GetAttributeAllocationStatByType",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttributeAllocationStats;Int32",
+      "shortName": "GetAttributeAllocationStats",
       "return": {
         "type": "whandle:UIInventoryItemStat",
         "flags": 64
@@ -95,8 +343,218 @@
       ]
     },
     {
+      "fullName": "GetGameItemData;",
+      "shortName": "GetGameItemData",
+      "return": {
+        "type": "whandle:gameItemData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPercentageCurveName;WeaponBarType",
+      "shortName": "GetPercentageCurveName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "WeaponBarType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPercentageFromCurve;WeaponBarTypeFloat",
+      "shortName": "GetPercentageFromCurve",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "WeaponBarType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTooltipStat;Int32",
+      "shortName": "GetTooltipStat",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTooltipStatByType;gamedataStatType",
+      "shortName": "GetTooltipStatByType",
+      "return": {
+        "type": "whandle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetWeaponBars;Bool",
+      "shortName": "GetWeaponBars",
+      "return": {
+        "type": "whandle:UIInventoryItemWeaponBars",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetWeaponBarsType;gamedataItemTypeUIInventoryItem",
+      "shortName": "GetWeaponBarsType",
+      "return": {
+        "type": "UIInventoryItemWeaponBarsType",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetWeaponBarsType;gamedataItemTypegameItemData",
+      "shortName": "GetWeaponBarsType",
+      "return": {
+        "type": "UIInventoryItemWeaponBarsType",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InternalFetchStatByType;gamedataStatTypeTweakDBIDBool",
+      "shortName": "InternalFetchStatByType",
+      "return": {
+        "type": "handle:UIInventoryItemStat",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "statId",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipEmpty",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsCurveBarsEnabled;",
+      "shortName": "IsCurveBarsEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsSeparatorBarsEnabled;",
+      "shortName": "IsSeparatorBarsEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "SetTooltipsStats;script_ref<array<UIInventoryItemStat>>",
+      "shortName": "SetTooltipsStats",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "script_ref:array:handle:UIInventoryItemStat",
+          "name": "tooltipStats",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Size;",
       "shortName": "Size",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "SizeAttributeAllocationStats;",
+      "shortName": "SizeAttributeAllocationStats",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "SizeTooltipStats;",
+      "shortName": "SizeTooltipStats",
       "return": {
         "type": "Int32",
         "flags": 64

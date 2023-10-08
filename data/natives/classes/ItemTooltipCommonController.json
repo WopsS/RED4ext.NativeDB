@@ -1,5 +1,5 @@
 {
-  "parent": "AGenericTooltipController",
+  "parent": "AGenericTooltipControllerWithDebug",
   "name": "ItemTooltipCommonController",
   "flags": 4,
   "props": [
@@ -11,6 +11,11 @@
     {
       "type": "inkWidgetReference",
       "name": "itemEquippedContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemRecipeContainer",
       "flags": 4297195553
     },
     {
@@ -36,6 +41,11 @@
     {
       "type": "inkWidgetReference",
       "name": "itemGrenadeInfoContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemCyberwareContainer",
       "flags": 4297195553
     },
     {
@@ -75,12 +85,62 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "itemCWUpgradeContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemCWQuickHackMenuLinkContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "contentWrapper",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "cornerContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "root",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "iconicBG",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "recipeBG",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "descriptionWrapper",
       "flags": 4297195553
     },
     {
       "type": "inkTextWidgetReference",
       "name": "descriptionText",
+      "flags": 4297195553
+    },
+    {
+      "type": "CName",
+      "name": "cyberwareUpgradeModuleName",
+      "flags": 4297195553
+    },
+    {
+      "type": "CName",
+      "name": "cyberwareQuickHackMenuLinkName",
+      "flags": 4297195553
+    },
+    {
+      "type": "redResourceReferenceScriptToken",
+      "name": "cyberwareModulesLibraryRes",
       "flags": 4297195553
     },
     {
@@ -101,6 +161,11 @@
     {
       "type": "whandle:ItemTooltipEquippedModule",
       "name": "itemEquippedController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:ItemTooltipRepiceModule",
+      "name": "itemRecipeController",
       "flags": 4297195552
     },
     {
@@ -129,6 +194,11 @@
       "flags": 4297195552
     },
     {
+      "type": "whandle:ItemTooltipCyberwareWeaponModule",
+      "name": "itemCyberwareController",
+      "flags": 4297195552
+    },
+    {
       "type": "whandle:ItemTooltipRequirementsModule",
       "name": "itemRequirementsController",
       "flags": 4297195552
@@ -154,6 +224,11 @@
       "flags": 4297195552
     },
     {
+      "type": "whandle:ItemTooltipCyberwareUpgradeController",
+      "name": "itemCWUpgradeController",
+      "flags": 4297195552
+    },
+    {
       "type": "whandle:ItemTooltipBottomModule",
       "name": "itemBottomController",
       "flags": 4297195552
@@ -169,6 +244,11 @@
       "flags": 4431413280
     },
     {
+      "type": "handle:InventoryTooltipData",
+      "name": "inventoryTooltipData",
+      "flags": 4431413280
+    },
+    {
       "type": "handle:UIInventoryItem",
       "name": "itemData",
       "flags": 4431413280
@@ -181,12 +261,17 @@
     {
       "type": "whandle:PlayerPuppet",
       "name": "player",
-      "flags": 4297195552
+      "flags": 4297326624
     },
     {
       "type": "array:CName",
       "name": "requestedModules",
       "flags": 6583091232
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "displayContext",
+      "flags": 4431413280
     },
     {
       "type": "InventoryTooltipDisplayContext",
@@ -269,6 +354,48 @@
       ]
     },
     {
+      "fullName": "OnCyberwareUpgradeModuleSpawned",
+      "shortName": "OnCyberwareUpgradeModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCyberwareWeaponModuleSpawned",
+      "shortName": "OnCyberwareWeaponModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDetailsModuleSpawned",
       "shortName": "OnDetailsModuleSpawned",
       "return": {
@@ -327,38 +454,6 @@
         {
           "type": "handle:IScriptable",
           "name": "userData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGlobalPress",
-      "shortName": "OnGlobalPress",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGlobalRelease",
-      "shortName": "OnGlobalRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
           "flags": 128
         }
       ]
@@ -443,15 +538,6 @@
       ]
     },
     {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
-    },
-    {
       "fullName": "OnNEW_BottomModuleSpawned",
       "shortName": "OnNEW_BottomModuleSpawned",
       "return": {
@@ -496,6 +582,48 @@
     {
       "fullName": "OnNEW_CraftedModuleSpawned",
       "shortName": "OnNEW_CraftedModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_CyberwareUpgradeModuleSpawned",
+      "shortName": "OnNEW_CyberwareUpgradeModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_CyberwareWeaponModuleSpawned",
+      "shortName": "OnNEW_CyberwareWeaponModuleSpawned",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -678,6 +806,27 @@
       ]
     },
     {
+      "fullName": "OnNEW_RecipeModuleSpawned",
+      "shortName": "OnNEW_RecipeModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnNEW_RequirementsModuleSpawned",
       "shortName": "OnNEW_RequirementsModuleSpawned",
       "return": {
@@ -762,8 +911,8 @@
       ]
     },
     {
-      "fullName": "OnRequirementsModuleSpawned",
-      "shortName": "OnRequirementsModuleSpawned",
+      "fullName": "OnRecipeModuleSpawned",
+      "shortName": "OnRecipeModuleSpawned",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -783,13 +932,25 @@
       ]
     },
     {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
+      "fullName": "OnRequirementsModuleSpawned",
+      "shortName": "OnRequirementsModuleSpawned",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 33032
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnWeaponInfoModuleSpawned",
@@ -813,9 +974,19 @@
       ]
     },
     {
-      "fullName": "DEBUG_UpdateIconErrorInfo;",
-      "shortName": "DEBUG_UpdateIconErrorInfo",
+      "fullName": "DEBUG_NewUpdateIconErrorInfo;",
+      "shortName": "DEBUG_NewUpdateIconErrorInfo",
       "flags": 32900
+    },
+    {
+      "fullName": "DEBUG_UpdateDebugInfo;",
+      "shortName": "DEBUG_UpdateDebugInfo",
+      "flags": 33024
+    },
+    {
+      "fullName": "ForceNoEquipped;",
+      "shortName": "ForceNoEquipped",
+      "flags": 33284
     },
     {
       "fullName": "HandleModuleSpawned;inkWidgetItemTooltipModuleSpawnedCallbackData",
@@ -855,6 +1026,21 @@
       "flags": 33024
     },
     {
+      "fullName": "NEW_UpdateCyberwareQuickHackMenuLinkModule;",
+      "shortName": "NEW_UpdateCyberwareQuickHackMenuLinkModule",
+      "flags": 32900
+    },
+    {
+      "fullName": "NEW_UpdateCyberwareUpgradeModule;",
+      "shortName": "NEW_UpdateCyberwareUpgradeModule",
+      "flags": 32900
+    },
+    {
+      "fullName": "NEW_UpdateCyberwareWeaponModule;",
+      "shortName": "NEW_UpdateCyberwareWeaponModule",
+      "flags": 33024
+    },
+    {
       "fullName": "NEW_UpdateDetailsModule;",
       "shortName": "NEW_UpdateDetailsModule",
       "flags": 33024
@@ -885,13 +1071,28 @@
       "flags": 33024
     },
     {
+      "fullName": "NEW_UpdateIconicBG;",
+      "shortName": "NEW_UpdateIconicBG",
+      "flags": 33024
+    },
+    {
       "fullName": "NEW_UpdateLayout;",
       "shortName": "NEW_UpdateLayout",
       "flags": 32900
     },
     {
+      "fullName": "NEW_UpdateRecipeBG;",
+      "shortName": "NEW_UpdateRecipeBG",
+      "flags": 33024
+    },
+    {
       "fullName": "NEW_UpdateRecipeDataModule;",
       "shortName": "NEW_UpdateRecipeDataModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateRecipeModule;",
+      "shortName": "NEW_UpdateRecipeModule",
       "flags": 33024
     },
     {
@@ -908,6 +1109,42 @@
       "fullName": "NEW_UpdateWeaponInfoModule;",
       "shortName": "NEW_UpdateWeaponInfoModule",
       "flags": 33024
+    },
+    {
+      "fullName": "RequestExternalModule;inkWidgetRefCNameResRefCNameItemTooltipModuleSpawnedCallbackData",
+      "shortName": "RequestExternalModule",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "inkWidgetReference",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "moduleName",
+          "flags": 128
+        },
+        {
+          "type": "redResourceReferenceScriptToken",
+          "name": "modulesLibraryRes",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "callback",
+          "flags": 128
+        },
+        {
+          "type": "handle:ItemTooltipModuleSpawnedCallbackData",
+          "name": "data",
+          "flags": 1152
+        }
+      ]
     },
     {
       "fullName": "RequestModule;inkWidgetRefCNameCNameItemTooltipModuleSpawnedCallbackData",
@@ -941,18 +1178,6 @@
       ]
     },
     {
-      "fullName": "SetData;ItemViewData",
-      "shortName": "SetData",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "gameItemViewData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SetData;ATooltipData",
       "shortName": "SetData",
       "flags": 33280,
@@ -960,6 +1185,34 @@
         {
           "type": "handle:ATooltipData",
           "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetData;script_ref<ItemViewData>",
+      "shortName": "SetData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "script_ref:gameItemViewData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldHideDescription;gamedataItemType",
+      "shortName": "ShouldHideDescription",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
           "flags": 128
         }
       ]
@@ -977,6 +1230,21 @@
     {
       "fullName": "UpdateCraftedModule;",
       "shortName": "UpdateCraftedModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateCyberwareQuickHackMenuLinkModule;",
+      "shortName": "UpdateCyberwareQuickHackMenuLinkModule",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateCyberwareUpgradeModule;",
+      "shortName": "UpdateCyberwareUpgradeModule",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateCyberwareWeaponModule;",
+      "shortName": "UpdateCyberwareWeaponModule",
       "flags": 33024
     },
     {
@@ -1022,13 +1290,28 @@
       "flags": 33024
     },
     {
+      "fullName": "UpdateIconicBG;",
+      "shortName": "UpdateIconicBG",
+      "flags": 33024
+    },
+    {
       "fullName": "UpdateLayout;",
       "shortName": "UpdateLayout",
       "flags": 33024
     },
     {
+      "fullName": "UpdateRecipeBG;",
+      "shortName": "UpdateRecipeBG",
+      "flags": 33024
+    },
+    {
       "fullName": "UpdateRecipeDataModule;",
       "shortName": "UpdateRecipeDataModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateRecipeModule;",
+      "shortName": "UpdateRecipeModule",
       "flags": 33024
     },
     {

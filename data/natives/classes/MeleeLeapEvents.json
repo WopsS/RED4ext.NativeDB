@@ -4,6 +4,26 @@
   "flags": 4,
   "props": [
     {
+      "type": "Bool",
+      "name": "enableVaultFromLeapAttack",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "exitingToMeleeStrongAttack",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isFinisher",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isTargetKnockedOver",
+      "flags": 4297326624
+    },
+    {
       "type": "Uint32",
       "name": "textLayerId",
       "flags": 4297326624
@@ -22,6 +42,27 @@
         {
           "type": "Float",
           "name": "distance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetExitTime;StateGameScriptInterfaceFloat",
+      "shortName": "GetExitTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "leapDuration",
           "flags": 128
         }
       ]
@@ -85,6 +126,40 @@
       "fullName": "OnExit;StateContextStateGameScriptInterface",
       "shortName": "OnExit",
       "flags": 33280,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitCommon;StateContextStateGameScriptInterface",
+      "shortName": "OnExitCommon",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExitToMeleeStrongAttack;StateContextStateGameScriptInterface",
+      "shortName": "OnExitToMeleeStrongAttack",
+      "flags": 33028,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",

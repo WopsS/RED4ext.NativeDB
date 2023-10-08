@@ -135,13 +135,28 @@
       "type": "handle:inkGameNotificationToken",
       "name": "ponrToken",
       "flags": 4431347744
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "expansionToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "patchNotesToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "expansionStateToken",
+      "flags": 4431347744
     }
   ],
   "funcs": [
     {
       "fullName": "ChangeTutorialVisibility",
       "shortName": "ChangeTutorialVisibility",
-      "index": 12751,
+      "index": 14382,
       "flags": 1,
       "params": [
         {
@@ -159,12 +174,70 @@
     {
       "fullName": "ChangeTutorialVisibilityInMenu",
       "shortName": "ChangeTutorialVisibilityInMenu",
-      "index": 12750,
+      "index": 14381,
       "flags": 1,
       "params": [
         {
           "type": "Bool",
           "name": "isInMenu",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentDataReloadProgress",
+      "shortName": "OnAdditionalContentDataReloadProgress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Float",
+          "name": "progress",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentInstallationRequestResult",
+      "shortName": "OnAdditionalContentInstallationRequestResult",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "success",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAdditionalContentInstallationResult",
+      "shortName": "OnAdditionalContentInstallationResult",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "success",
           "flags": 128
         }
       ]
@@ -218,6 +291,63 @@
       ]
     },
     {
+      "fullName": "OnExpansionPopupCloseRequest",
+      "shortName": "OnExpansionPopupCloseRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExpansionPopupRequest",
+      "shortName": "OnExpansionPopupRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OpenExpansionPopupEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnExpansionStatePopupCloseRequest",
+      "shortName": "OnExpansionStatePopupCloseRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
       "fullName": "OnMenuUpdate",
       "shortName": "OnMenuUpdate",
       "return": {
@@ -245,6 +375,38 @@
         {
           "type": "handle:inkGameNotificationData",
           "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPatchNotesPopupCloseRequest",
+      "shortName": "OnPatchNotesPopupCloseRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPatchNotesPopupRequest",
+      "shortName": "OnPatchNotesPopupRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OpenPatchNotesPopupEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -410,6 +572,15 @@
       ]
     },
     {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
       "fullName": "OnUpdateData",
       "shortName": "OnUpdateData",
       "return": {
@@ -517,6 +688,52 @@
     {
       "fullName": "ShardRead;",
       "shortName": "ShardRead",
+      "flags": 33284
+    },
+    {
+      "fullName": "ShowExpansionPopup;ExpansionStatusExpansionPopupType",
+      "shortName": "ShowExpansionPopup",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ExpansionStatus",
+          "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "ExpansionPopupType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowExpansionStateGameNotificationRequest;ExpansionStatus",
+      "shortName": "ShowExpansionStateGameNotificationRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ExpansionStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowExpansionStatePopupRequest;ExpansionStatus",
+      "shortName": "ShowExpansionStatePopupRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "ExpansionStatus",
+          "name": "state",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowPatchNotesPopup;",
+      "shortName": "ShowPatchNotesPopup",
       "flags": 33284
     },
     {

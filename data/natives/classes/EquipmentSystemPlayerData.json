@@ -177,6 +177,18 @@
       ]
     },
     {
+      "fullName": "ApplySlotGLPs;TweakDBID",
+      "shortName": "ApplySlotGLPs",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "equipSlotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AssignItemToHotkey;ItemIDEHotkey",
       "shortName": "AssignItemToHotkey",
       "flags": 33284,
@@ -264,7 +276,7 @@
       ]
     },
     {
-      "fullName": "CheckTagsInItem;ItemIDarray<CName>",
+      "fullName": "CheckTagsInItem;ItemIDscript_ref<array<CName>>",
       "shortName": "CheckTagsInItem",
       "return": {
         "type": "Bool",
@@ -278,14 +290,14 @@
           "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "requiredTags",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "CheckWeaponAgainstGameplayRestrictions;ItemID",
+      "fullName": "CheckWeaponAgainstGameplayRestrictions;ItemIDBool",
       "shortName": "CheckWeaponAgainstGameplayRestrictions",
       "return": {
         "type": "Bool",
@@ -297,6 +309,11 @@
           "type": "gameItemID",
           "name": "weaponItem",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "suppressDriverWarnings",
+          "flags": 1152
         }
       ]
     },
@@ -392,7 +409,7 @@
       ]
     },
     {
-      "fullName": "CreateSlotInfo;gamedataEquipmentAreaStringCName",
+      "fullName": "CreateSlotInfo;gamedataEquipmentAreascript_ref<String>CName",
       "shortName": "CreateSlotInfo",
       "return": {
         "type": "gameSSlotInfo",
@@ -406,7 +423,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "slot",
           "flags": 128
         },
@@ -430,7 +447,7 @@
     {
       "fullName": "CreateUnequipWeaponManipulationRequest;",
       "shortName": "CreateUnequipWeaponManipulationRequest",
-      "flags": 32900
+      "flags": 33284
     },
     {
       "fullName": "CycleWeapon;BoolBool",
@@ -454,12 +471,12 @@
       ]
     },
     {
-      "fullName": "DeleteEquipmentSet;String",
+      "fullName": "DeleteEquipmentSet;script_ref<String>",
       "shortName": "DeleteEquipmentSet",
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "setName",
           "flags": 128
         }
@@ -504,18 +521,13 @@
       "flags": 32900
     },
     {
-      "fullName": "EquipItem;ItemIDInt32BoolBool",
+      "fullName": "EquipItem;ItemIDBoolBool",
       "shortName": "EquipItem",
-      "flags": 32900,
+      "flags": 33284,
       "params": [
         {
           "type": "gameItemID",
           "name": "itemID",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "slotIndex",
           "flags": 128
         },
         {
@@ -531,13 +543,18 @@
       ]
     },
     {
-      "fullName": "EquipItem;ItemIDBoolBool",
+      "fullName": "EquipItem;ItemIDInt32BoolBool",
       "shortName": "EquipItem",
-      "flags": 33284,
+      "flags": 32900,
       "params": [
         {
           "type": "gameItemID",
           "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
           "flags": 128
         },
         {
@@ -827,6 +844,15 @@
       ]
     },
     {
+      "fullName": "GetAllCyberwareEquipmentAreas;",
+      "shortName": "GetAllCyberwareEquipmentAreas",
+      "return": {
+        "type": "array:gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetAreaTypeByVisualTag;CName",
       "shortName": "GetAreaTypeByVisualTag",
       "return": {
@@ -911,6 +937,22 @@
         {
           "type": "TweakDBID",
           "name": "equipAreaID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetEquipAreaRecordByType;gamedataEquipmentArea",
+      "shortName": "GetEquipAreaRecordByType",
+      "return": {
+        "type": "handle:gamedataEquipmentArea_Record",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "areaType",
           "flags": 128
         }
       ]
@@ -1021,6 +1063,22 @@
       "params": [
         {
           "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetItemGLPs;TweakDBID",
+      "shortName": "GetItemGLPs",
+      "return": {
+        "type": "array:whandle:gamedataGameplayLogicPackage_Record",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "TweakDBID",
           "name": "itemID",
           "flags": 128
         }
@@ -1148,6 +1206,22 @@
       "flags": 33284
     },
     {
+      "fullName": "GetLastUsedOrFirstAvailableDriverCombatWeapon;CName",
+      "shortName": "GetLastUsedOrFirstAvailableDriverCombatWeapon",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "driverCombatWeaponTag",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetLastUsedOrFirstAvailableMeleeWeapon;",
       "shortName": "GetLastUsedOrFirstAvailableMeleeWeapon",
       "return": {
@@ -1227,6 +1301,27 @@
       ]
     },
     {
+      "fullName": "GetNextActiveItemIndex;Int32script_ref<array<CName>>",
+      "shortName": "GetNextActiveItemIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "equipAreaIndex",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:CName",
+          "name": "requiredTags",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetNextActiveItemIndex;Int32",
       "shortName": "GetNextActiveItemIndex",
       "return": {
@@ -1243,28 +1338,7 @@
       ]
     },
     {
-      "fullName": "GetNextActiveItemIndex;Int32array<CName>",
-      "shortName": "GetNextActiveItemIndex",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 41092,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "equipAreaIndex",
-          "flags": 128
-        },
-        {
-          "type": "array:CName",
-          "name": "requiredTags",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetNextItemInList;array<ItemID>Int32",
+      "fullName": "GetNextItemInList;script_ref<array<ItemID>>Int32",
       "shortName": "GetNextItemInList",
       "return": {
         "type": "gameItemID",
@@ -1273,7 +1347,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:gameItemID",
+          "type": "script_ref:array:gameItemID",
           "name": "arr",
           "flags": 128
         },
@@ -1283,6 +1357,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetNextThrowableWeapon;",
+      "shortName": "GetNextThrowableWeapon",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "GetNextWeaponWheelItem;",
@@ -1319,7 +1402,7 @@
       ]
     },
     {
-      "fullName": "GetNumberOfSlots;gamedataEquipmentArea",
+      "fullName": "GetNumberOfSlots;gamedataEquipmentAreaBool",
       "shortName": "GetNumberOfSlots",
       "return": {
         "type": "Int32",
@@ -1330,6 +1413,27 @@
         {
           "type": "gamedataEquipmentArea",
           "name": "areaType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "includeLocked",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetOriginalItemIDFromSideUpgrade;ItemID",
+      "shortName": "GetOriginalItemIDFromSideUpgrade",
+      "return": {
+        "type": "gameItemID",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "sideUpgradeID",
           "flags": 128
         }
       ]
@@ -1426,6 +1530,18 @@
       ]
     },
     {
+      "fullName": "GetPlayerEquipmentAreas;array<EquipmentArea_Record>",
+      "shortName": "GetPlayerEquipmentAreas",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:whandle:gamedataEquipmentArea_Record",
+          "name": "list",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "GetRequestSlotFromEquipmentManipulationAction;EquipmentManipulationAction",
       "shortName": "GetRequestSlotFromEquipmentManipulationAction",
       "return": {
@@ -1490,6 +1606,22 @@
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "GetSlotGLPs;TweakDBID",
+      "shortName": "GetSlotGLPs",
+      "return": {
+        "type": "array:whandle:gamedataGameplayLogicPackage_Record",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "equipSlotID",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetSlotIndex;ItemIDgamedataEquipmentArea",
@@ -1748,12 +1880,46 @@
       "flags": 32900
     },
     {
+      "fullName": "InitializeEquipSlotFromRecord;EquipSlot_RecordSEquipSlot",
+      "shortName": "InitializeEquipSlotFromRecord",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedataEquipSlot_Record",
+          "name": "slotRecord",
+          "flags": 128
+        },
+        {
+          "type": "gameSEquipSlot",
+          "name": "equipSlot",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeEquipSlotsFromRecords;array<EquipSlot_Record>array<SEquipSlot>",
+      "shortName": "InitializeEquipSlotsFromRecords",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "array:whandle:gamedataEquipSlot_Record",
+          "name": "slotRecords",
+          "flags": 128
+        },
+        {
+          "type": "array:gameSEquipSlot",
+          "name": "equipSlots",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "InitializeEquipment;",
       "shortName": "InitializeEquipment",
       "flags": 32900
     },
     {
-      "fullName": "InitializeEquipmentArea;EquipmentArea_Record",
+      "fullName": "InitializeEquipmentArea;EquipmentArea_RecordSEquipArea",
       "shortName": "InitializeEquipmentArea",
       "flags": 32900,
       "params": [
@@ -1761,6 +1927,11 @@
           "type": "handle:gamedataEquipmentArea_Record",
           "name": "equipAreaRecord",
           "flags": 128
+        },
+        {
+          "type": "gameSEquipArea",
+          "name": "equipArea",
+          "flags": 640
         }
       ]
     },
@@ -1829,6 +2000,22 @@
       ]
     },
     {
+      "fullName": "IsEquipped;ItemID",
+      "shortName": "IsEquipped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "item",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsEquipped;ItemIDgamedataEquipmentArea",
       "shortName": "IsEquipped",
       "return": {
@@ -1845,22 +2032,6 @@
         {
           "type": "gamedataEquipmentArea",
           "name": "equipmentArea",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "IsEquipped;ItemID",
-      "shortName": "IsEquipped",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "item",
           "flags": 128
         }
       ]
@@ -1956,6 +2127,22 @@
       ]
     },
     {
+      "fullName": "IsSideUpgradeEquipped;ItemID",
+      "shortName": "IsSideUpgradeEquipped",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsSlotHidden;gamedataEquipmentArea",
       "shortName": "IsSlotHidden",
       "return": {
@@ -1968,6 +2155,53 @@
           "type": "gamedataEquipmentArea",
           "name": "area",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsSlotLocked;gamedataEquipmentAreaInt32Bool",
+      "shortName": "IsSlotLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipAreaType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "visibleWhenLocked",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsSlotLocked;SEquipSlotBool",
+      "shortName": "IsSlotLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameSEquipSlot",
+          "name": "slot",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "visibleWhenLocked",
+          "flags": 640
         }
       ]
     },
@@ -2088,25 +2322,13 @@
       "flags": 41476
     },
     {
-      "fullName": "LoadEquipmentSet;String",
+      "fullName": "LoadEquipmentSet;script_ref<String>",
       "shortName": "LoadEquipmentSet",
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "setName",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ManageCyberwareFragments;ItemID",
-      "shortName": "ManageCyberwareFragments",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
           "flags": 128
         }
       ]
@@ -2278,6 +2500,18 @@
       ]
     },
     {
+      "fullName": "OnGameplayEquipProgramsRequest;GameplayEquipProgramsRequest",
+      "shortName": "OnGameplayEquipProgramsRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:GameplayEquipProgramsRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnGameplayEquipRequest;GameplayEquipRequest",
       "shortName": "OnGameplayEquipRequest",
       "flags": 33284,
@@ -2397,6 +2631,18 @@
       "params": [
         {
           "type": "handle:QuestRestoreWardrobeSetRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnReplaceEquipmentRequest;ReplaceEquipmentRequest",
+      "shortName": "OnReplaceEquipmentRequest",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:ReplaceEquipmentRequest",
           "name": "request",
           "flags": 128
         }
@@ -2562,12 +2808,7 @@
       ]
     },
     {
-      "fullName": "PrintEquipment;",
-      "shortName": "PrintEquipment",
-      "flags": 41476
-    },
-    {
-      "fullName": "ProcessEquipRequest;GameObjectInt32BoolItemIDBoolBoolBool",
+      "fullName": "ProcessEquipRequest;GameObjectInt32BoolItemIDBoolBoolBoolFloat",
       "shortName": "ProcessEquipRequest",
       "flags": 32900,
       "params": [
@@ -2604,6 +2845,11 @@
         {
           "type": "Bool",
           "name": "forceEquipWeapon",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "extraQuality",
           "flags": 1152
         }
       ]
@@ -2681,6 +2927,18 @@
       ]
     },
     {
+      "fullName": "RemoveSlotGLPs;TweakDBID",
+      "shortName": "RemoveSlotGLPs",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "equipSlotID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RequestEquipmentStateMachine;EquipmentManipulationRequestTypeEquipmentManipulationRequestSlotgameEquipAnimationTypeCNameCName",
       "shortName": "RequestEquipmentStateMachine",
       "flags": 32900,
@@ -2742,12 +3000,24 @@
       ]
     },
     {
-      "fullName": "SaveEquipmentSet;StringEEquipmentSetType",
+      "fullName": "RestoreEquipSlotsData;SEquipArea",
+      "shortName": "RestoreEquipSlotsData",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameSEquipArea",
+          "name": "equipArea",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "SaveEquipmentSet;script_ref<String>EEquipmentSetType",
       "shortName": "SaveEquipmentSet",
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "setName",
           "flags": 128
         },
@@ -2793,12 +3063,12 @@
       ]
     },
     {
-      "fullName": "SendPaperdollUpdate;SEquipAreaBoolTweakDBIDInt32BoolBool",
+      "fullName": "SendPaperdollUpdate;script_ref<SEquipArea>BoolTweakDBIDInt32BoolBool",
       "shortName": "SendPaperdollUpdate",
       "flags": 32900,
       "params": [
         {
-          "type": "gameSEquipArea",
+          "type": "script_ref:gameSEquipArea",
           "name": "area",
           "flags": 128
         },
@@ -2991,6 +3261,11 @@
       ]
     },
     {
+      "fullName": "TryFillCyberwareHotkey;",
+      "shortName": "TryFillCyberwareHotkey",
+      "flags": 32900
+    },
+    {
       "fullName": "UnderwearEquipFailsafe;",
       "shortName": "UnderwearEquipFailsafe",
       "flags": 32900
@@ -3001,7 +3276,29 @@
       "flags": 32900
     },
     {
-      "fullName": "UnequipItem;Int32Int32",
+      "fullName": "UnequipAllFoleyAudio;",
+      "shortName": "UnequipAllFoleyAudio",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnequipCyberwareParts;gameItemData",
+      "shortName": "UnequipCyberwareParts",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "cyberwareData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnequipFootwearAudio;",
+      "shortName": "UnequipFootwearAudio",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnequipItem;Int32Int32Bool",
       "shortName": "UnequipItem",
       "flags": 32900,
       "params": [
@@ -3013,6 +3310,11 @@
         {
           "type": "Int32",
           "name": "slotIndex",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceRemove",
           "flags": 1152
         }
       ]
@@ -3028,6 +3330,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UnequipOutfitFootwearAudio;",
+      "shortName": "UnequipOutfitFootwearAudio",
+      "flags": 32900
     },
     {
       "fullName": "UnequipPrereqItems;",

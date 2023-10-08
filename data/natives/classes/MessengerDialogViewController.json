@@ -19,6 +19,16 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "typingFluff",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "typingIndicator",
+      "flags": 4297130017
+    },
+    {
       "type": "whandle:JournalEntriesListController",
       "name": "messagesListController",
       "flags": 4297130016
@@ -34,8 +44,28 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:MessengerTypingIndicator",
+      "name": "typingIndicatorController",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:gameJournalManager",
       "name": "journalManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerObject",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameDelaySystem",
+      "name": "delaySystem",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "delayedTypingCallbackId",
       "flags": 4297130016
     },
     {
@@ -54,17 +84,95 @@
       "flags": 4297130016
     },
     {
+      "type": "Int32",
+      "name": "parentHash",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "typingAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "delayTypingAnimProxy",
+      "flags": 4431347744
+    },
+    {
       "type": "Bool",
       "name": "singleThreadMode",
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "hasFocus",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameGameAudioSystem",
+      "name": "audioSystem",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "minimumTypingDelay",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:inkanimProxy",
-      "name": "newMessageAninmProxy",
+      "name": "breakingTypingAnimProxy",
       "flags": 4431347744
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnBreakingTypingFinal",
+      "shortName": "OnBreakingTypingFinal",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBreakingTypingHiden",
+      "shortName": "OnBreakingTypingHiden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBreakingTypingShown",
+      "shortName": "OnBreakingTypingShown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnDelayedJournalUpdate",
       "shortName": "OnDelayedJournalUpdate",
@@ -117,6 +225,42 @@
         {
           "type": "gameJournalChangeType",
           "name": "changeType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnJournalUpdateDelayed",
+      "shortName": "OnJournalUpdateDelayed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "entryHash",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "className",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalNotifyOption",
+          "name": "notifyOption",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalChangeType",
+          "name": "changeType",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
           "flags": 128
         }
       ]
@@ -186,6 +330,22 @@
       "flags": 33284
     },
     {
+      "fullName": "GetParentEntryHash;Uint32",
+      "shortName": "GetParentEntryHash",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "entryHash",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HasReplyOptions;",
       "shortName": "HasReplyOptions",
       "return": {
@@ -193,6 +353,18 @@
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "InitDelaySystem;GameObject",
+      "shortName": "InitDelaySystem",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "playerObject",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "NavigateReplyOptions;Bool",
@@ -207,12 +379,56 @@
       ]
     },
     {
-      "fullName": "SetVisited;array<JournalEntry>",
+      "fullName": "PlayDotsAnimation;",
+      "shortName": "PlayDotsAnimation",
+      "flags": 33284
+    },
+    {
+      "fullName": "RefreshChoicesFocus;",
+      "shortName": "RefreshChoicesFocus",
+      "flags": 32900
+    },
+    {
+      "fullName": "ScrollMessages;FloatBool",
+      "shortName": "ScrollMessages",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isMouseWheel",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentMessagesAsVisited;",
+      "shortName": "SetCurrentMessagesAsVisited",
+      "flags": 33284
+    },
+    {
+      "fullName": "SetFocus;Bool",
+      "shortName": "SetFocus",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "focused",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetVisited;script_ref<array<JournalEntry>>",
       "shortName": "SetVisited",
       "flags": 32900,
       "params": [
         {
-          "type": "array:whandle:gameJournalEntry",
+          "type": "script_ref:array:whandle:gameJournalEntry",
           "name": "records",
           "flags": 128
         }
@@ -231,6 +447,23 @@
       ]
     },
     {
+      "fullName": "ShowDialog;JournalEntryBool",
+      "shortName": "ShowDialog",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "contact",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "setVisited",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ShowThread;JournalEntry",
       "shortName": "ShowThread",
       "flags": 33284,
@@ -238,6 +471,45 @@
         {
           "type": "whandle:gameJournalEntry",
           "name": "thread",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowThread;JournalEntryBool",
+      "shortName": "ShowThread",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "thread",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "setVisited",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopDotsAnimation;",
+      "shortName": "StopDotsAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "TriggerDotsAnimation;FloatUint32",
+      "shortName": "TriggerDotsAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "hash",
           "flags": 128
         }
       ]
@@ -251,6 +523,23 @@
           "type": "Bool",
           "name": "animateLastMessage",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateData;BoolBool",
+      "shortName": "UpdateData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "animateLastMessage",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "setVisited",
+          "flags": 128
         }
       ]
     }

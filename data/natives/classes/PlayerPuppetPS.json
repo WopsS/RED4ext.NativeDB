@@ -24,6 +24,26 @@
       "flags": 4565565472
     },
     {
+      "type": "Bool",
+      "name": "isInDriverCombat",
+      "flags": 4565565472
+    },
+    {
+      "type": "Float",
+      "name": "permanentHealthBonus",
+      "flags": 4565565472
+    },
+    {
+      "type": "Float",
+      "name": "permanentStaminaBonus",
+      "flags": 4565565472
+    },
+    {
+      "type": "Float",
+      "name": "permanentMemoryBonus",
+      "flags": 4565565472
+    },
+    {
       "type": "whandle:gameIBlackboard",
       "name": "minigameBB",
       "flags": 4297130016
@@ -86,6 +106,33 @@
       "flags": 41476
     },
     {
+      "fullName": "GetPermanentHealthBonus;",
+      "shortName": "GetPermanentHealthBonus",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPermanentMemoryBonus;",
+      "shortName": "GetPermanentMemoryBonus",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPermanentStaminaBonus;",
+      "shortName": "GetPermanentStaminaBonus",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "HasAutoReveal;",
       "shortName": "HasAutoReveal",
       "return": {
@@ -111,7 +158,7 @@
       ]
     },
     {
-      "fullName": "HasProgram;TweakDBIDarray<MinigameProgramData>",
+      "fullName": "HasProgram;TweakDBIDscript_ref<array<MinigameProgramData>>",
       "shortName": "HasProgram",
       "return": {
         "type": "Bool",
@@ -125,11 +172,20 @@
           "flags": 128
         },
         {
-          "type": "array:gameuiMinigameProgramData",
+          "type": "script_ref:array:gameuiMinigameProgramData",
           "name": "programs",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "IsInDriverCombat;",
+      "shortName": "IsInDriverCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "OnStoreMinigameProgram;StoreMiniGameProgramEvent",
@@ -191,6 +247,54 @@
         {
           "type": "Float",
           "name": "timestamp",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsInDriverCombat;Bool",
+      "shortName": "SetIsInDriverCombat",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPermanentHealthBonus;Float",
+      "shortName": "SetPermanentHealthBonus",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPermanentMemoryBonus;Float",
+      "shortName": "SetPermanentMemoryBonus",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPermanentStaminaBonus;Float",
+      "shortName": "SetPermanentStaminaBonus",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
           "flags": 128
         }
       ]

@@ -11,7 +11,7 @@
     {
       "type": "handle:EngDemoContainer",
       "name": "doorSkillChecks",
-      "flags": 4498456613
+      "flags": 4498522149
     },
     {
       "type": "Bool",
@@ -65,6 +65,11 @@
       "flags": 33032
     },
     {
+      "fullName": "AccessGrantedNotification;",
+      "shortName": "AccessGrantedNotification",
+      "flags": 33028
+    },
+    {
       "fullName": "ActionCallElevator;",
       "shortName": "ActionCallElevator",
       "return": {
@@ -74,7 +79,7 @@
       "flags": 32900
     },
     {
-      "fullName": "ActionDemolition;GetActionsContext",
+      "fullName": "ActionDemolition;script_ref<GetActionsContext>",
       "shortName": "ActionDemolition",
       "return": {
         "type": "handle:ActionDemolition",
@@ -83,7 +88,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -117,7 +122,7 @@
       "flags": 33028
     },
     {
-      "fullName": "ActionPay;GetActionsContext",
+      "fullName": "ActionPay;script_ref<GetActionsContext>",
       "shortName": "ActionPay",
       "return": {
         "type": "handle:Pay",
@@ -126,7 +131,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -293,6 +298,22 @@
       ]
     },
     {
+      "fullName": "CanAddToggleOpenAction;GetActionsContext",
+      "shortName": "CanAddToggleOpenAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CanCreateAnyQuickHackActions;",
       "shortName": "CanCreateAnyQuickHackActions",
       "return": {
@@ -361,7 +382,7 @@
       ]
     },
     {
-      "fullName": "DetermineGameplayViability;GetActionsContextBool",
+      "fullName": "DetermineGameplayViability;script_ref<GetActionsContext>Bool",
       "shortName": "DetermineGameplayViability",
       "return": {
         "type": "Bool",
@@ -370,7 +391,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -528,7 +549,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetInkWidgetTweakDBID;GetActionsContext",
+      "fullName": "GetInkWidgetTweakDBID;script_ref<GetActionsContext>",
       "shortName": "GetInkWidgetTweakDBID",
       "return": {
         "type": "TweakDBID",
@@ -537,24 +558,24 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetMinigameActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetMinigameActions;script_ref<array<DeviceAction>>script_ref<GetActionsContext>",
       "shortName": "GetMinigameActions",
       "flags": 33024,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -606,6 +627,15 @@
       "flags": 41476
     },
     {
+      "fullName": "GetPlayerToggleOpenAction;",
+      "shortName": "GetPlayerToggleOpenAction",
+      "return": {
+        "type": "handle:ToggleOpen",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
       "fullName": "GetQuestActionByName;CName",
       "shortName": "GetQuestActionByName",
       "return": {
@@ -622,7 +652,7 @@
       ]
     },
     {
-      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuestActions",
       "flags": 33280,
       "params": [
@@ -632,14 +662,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
@@ -649,11 +679,20 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetSkillCheckContainerForSetup;",
+      "shortName": "GetSkillCheckContainerForSetup",
+      "return": {
+        "type": "handle:BaseSkillCheckContainer",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "GetStimRange;",
@@ -748,6 +787,15 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "IsLiftDoorAndAtThisFloor;",
+      "shortName": "IsLiftDoorAndAtThisFloor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "IsLiftFloorAuthorized;",
@@ -897,43 +945,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "LogActionDetails;ScriptableDeviceActionBaseDeviceStatusStringStringBool",
-      "shortName": "LogActionDetails",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "handle:ScriptableDeviceAction",
-          "name": "action",
-          "flags": 128
-        },
-        {
-          "type": "handle:BaseDeviceStatus",
-          "name": "cachedStatus",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "context",
-          "flags": 1152
-        },
-        {
-          "type": "String",
-          "name": "status",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "overrideStatus",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "LogicReady;",
-      "shortName": "LogicReady",
-      "flags": 33024
     },
     {
       "fullName": "OnActionDemolition;ActionDemolition",
@@ -1343,7 +1354,7 @@
     {
       "fullName": "OnSetIsOpened;",
       "shortName": "OnSetIsOpened",
-      "flags": 32900
+      "flags": 33024
     },
     {
       "fullName": "OnSetOpened;SetOpened",
@@ -1410,18 +1421,6 @@
       ]
     },
     {
-      "fullName": "PushPersistentData;DoorPersistentData",
-      "shortName": "PushPersistentData",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "DoorPersistentData",
-          "name": "data",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "PushResaveData;DoorResaveData",
       "shortName": "PushResaveData",
       "flags": 34308,
@@ -1434,7 +1433,7 @@
       ]
     },
     {
-      "fullName": "PushReturnActions;array<DeviceAction>GetActionsContext",
+      "fullName": "PushReturnActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "PushReturnActions",
       "return": {
         "type": "Bool",
@@ -1448,14 +1447,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "PushSkillCheckActions;array<DeviceAction>GetActionsContext",
+      "fullName": "PushSkillCheckActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "PushSkillCheckActions",
       "return": {
         "type": "Bool",
@@ -1469,7 +1468,7 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -1601,18 +1600,6 @@
       ]
     },
     {
-      "fullName": "SetNewDoorType;SetDoorType",
-      "shortName": "SetNewDoorType",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "handle:SetDoorType",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SetNewDoorType;EDoorType",
       "shortName": "SetNewDoorType",
       "flags": 33284,
@@ -1620,6 +1607,18 @@
         {
           "type": "EDoorType",
           "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNewDoorType;SetDoorType",
+      "shortName": "SetNewDoorType",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:SetDoorType",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -1637,7 +1636,7 @@
       ]
     },
     {
-      "fullName": "ShouldForceAuthorizeUser;GetActionsContext",
+      "fullName": "ShouldForceAuthorizeUser;script_ref<GetActionsContext>",
       "shortName": "ShouldForceAuthorizeUser",
       "return": {
         "type": "Bool",
@@ -1646,7 +1645,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }

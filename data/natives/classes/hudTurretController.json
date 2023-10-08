@@ -5,21 +5,6 @@
   "props": [
     {
       "type": "inkTextWidgetReference",
-      "name": "Date",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "Timer",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "CameraID",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
       "name": "healthStatus",
       "flags": 4297130017
     },
@@ -30,38 +15,68 @@
     },
     {
       "type": "inkTextWidgetReference",
-      "name": "pitchFluff",
+      "name": "yawCounter",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
-      "name": "yawFluff",
+      "name": "pitchCounter",
       "flags": 4297130017
     },
     {
-      "type": "inkWidgetReference",
-      "name": "leftPart",
+      "type": "inkCanvasWidgetReference",
+      "name": "pitch",
       "flags": 4297130017
     },
     {
-      "type": "inkWidgetReference",
-      "name": "rightPart",
+      "type": "inkCanvasWidgetReference",
+      "name": "yaw",
       "flags": 4297130017
     },
     {
       "type": "Float",
-      "name": "offsetLeft",
+      "name": "pitch_min",
       "flags": 4297130016
     },
     {
       "type": "Float",
-      "name": "offsetRight",
+      "name": "pitch_max",
       "flags": 4297130016
     },
     {
-      "type": "GameTime",
-      "name": "currentTime",
+      "type": "Float",
+      "name": "yaw_min",
       "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "yaw_max",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "ZoomNumber",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "DistanceNumber",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "DistanceImageRuler",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "ZoomMoveBracketL",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "ZoomMoveBracketR",
+      "flags": 4297130017
     },
     {
       "type": "whandle:gameIBlackboard",
@@ -99,6 +114,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameObject",
+      "name": "controlledObjectRef",
+      "flags": 4297130016
+    },
+    {
       "type": "ScriptGameInstance",
       "name": "gameInstance",
       "flags": 4297130016
@@ -107,6 +127,31 @@
       "type": "handle:inkanimProxy",
       "name": "animationProxy",
       "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "psmBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "PSM_BBID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "zoomDownAnim",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "zoomUpAnim",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "argZoomBuffered",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -253,6 +298,22 @@
       ]
     },
     {
+      "fullName": "OnScannerZoom",
+      "shortName": "OnScannerZoom",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Float",
+          "name": "argZoom",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnStatsChanged",
       "shortName": "OnStatsChanged",
       "return": {
@@ -276,6 +337,15 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "GetUIActiveWeaponBlackboard;",
+      "shortName": "GetUIActiveWeaponBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "PlayAnim;CNameCNameinkAnimOptions",
@@ -310,6 +380,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UpdateRulers;",
+      "shortName": "UpdateRulers",
+      "flags": 32900
     }
   ]
 }

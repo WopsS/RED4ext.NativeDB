@@ -77,6 +77,28 @@
       "flags": 33028
     },
     {
+      "fullName": "AddHackReward;TransactionSystemTweakDBIDUint32",
+      "shortName": "AddHackReward",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameTransactionSystem",
+          "name": "TS",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "itemTweakID",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "amount",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "AddPingedSquad;CName",
       "shortName": "AddPingedSquad",
       "flags": 32900,
@@ -179,14 +201,14 @@
       "flags": 32900
     },
     {
-      "fullName": "FilterRedundantPrograms;array<TweakDBID>",
+      "fullName": "FilterRedundantPrograms;script_ref<array<TweakDBID>>",
       "shortName": "FilterRedundantPrograms",
       "flags": 32900,
       "params": [
         {
-          "type": "array:TweakDBID",
+          "type": "script_ref:array:TweakDBID",
           "name": "programs",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -208,28 +230,13 @@
       "flags": 33024
     },
     {
-      "fullName": "GenerateMaterialDrops;FloatFloatFloatFloatTransactionSystem",
+      "fullName": "GenerateMaterialDrops;FloatTransactionSystem",
       "shortName": "GenerateMaterialDrops",
       "flags": 32900,
       "params": [
         {
           "type": "Float",
-          "name": "baseUncommonMaterials",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "baseRareMaterials",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "baseEpicMaterials",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "baseLegendaryMaterials",
+          "name": "playerLevel",
           "flags": 128
         },
         {
@@ -321,6 +328,37 @@
       "flags": 41472
     },
     {
+      "fullName": "GetPlayersUniqueHacks;TransactionSystemarray<TweakDBID>gamedataQualityarray<TweakDBID>",
+      "shortName": "GetPlayersUniqueHacks",
+      "return": {
+        "type": "array:TweakDBID",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameTransactionSystem",
+          "name": "TS",
+          "flags": 128
+        },
+        {
+          "type": "array:TweakDBID",
+          "name": "hacksPool",
+          "flags": 128
+        },
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 128
+        },
+        {
+          "type": "array:TweakDBID",
+          "name": "playerHacksTweak",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "GetQuestActionByName;CName",
       "shortName": "GetQuestActionByName",
       "return": {
@@ -337,7 +375,7 @@
       ]
     },
     {
-      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuestActions",
       "flags": 33024,
       "params": [
@@ -347,11 +385,37 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetQuickhackReward;FloatTransactionSystem",
+      "shortName": "GetQuickhackReward",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "playerLevel",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameTransactionSystem",
+          "name": "TS",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSkillCheckContainerForSetup;",
+      "shortName": "GetSkillCheckContainerForSetup",
+      "return": {
+        "type": "handle:BaseSkillCheckContainer",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "HasNetworkBackdoor;",
@@ -361,11 +425,6 @@
         "flags": 64
       },
       "flags": 41476
-    },
-    {
-      "fullName": "Initialize;",
-      "shortName": "Initialize",
-      "flags": 33024
     },
     {
       "fullName": "IsAccessPointOf;PersistentID",
@@ -452,11 +511,6 @@
         "flags": 64
       },
       "flags": 41476
-    },
-    {
-      "fullName": "LogicReady;",
-      "shortName": "LogicReady",
-      "flags": 33024
     },
     {
       "fullName": "OnBreachAccessPointEvent;BreachAccessPointEvent",
@@ -656,7 +710,7 @@
       "flags": 32896
     },
     {
-      "fullName": "ProcessLoot;FloatFloatFloatFloatFloatFloatTransactionSystem",
+      "fullName": "ProcessLoot;FloatBoolFloatTransactionSystem",
       "shortName": "ProcessLoot",
       "flags": 32900,
       "params": [
@@ -666,23 +720,8 @@
           "flags": 128
         },
         {
-          "type": "Float",
-          "name": "baseUncommonMaterials",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "baseRareMaterials",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "baseEpicMaterials",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "baseLegendaryMaterials",
+          "type": "Bool",
+          "name": "craftingMaterial",
           "flags": 128
         },
         {
@@ -710,12 +749,12 @@
       ]
     },
     {
-      "fullName": "RefreshSlaves;array<DeviceComponentPS>",
+      "fullName": "RefreshSlaves;script_ref<array<DeviceComponentPS>>",
       "shortName": "RefreshSlaves",
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gameDeviceComponentPS",
+          "type": "script_ref:array:handle:gameDeviceComponentPS",
           "name": "devices",
           "flags": 128
         }

@@ -1,0 +1,458 @@
+{
+  "parent": "InteractiveDevice",
+  "name": "ServerNode",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Float",
+      "name": "minWeaponCharge",
+      "group": "Tech weapon charge properties",
+      "flags": 4364238881
+    },
+    {
+      "type": "Float",
+      "name": "maxWeaponCharge",
+      "group": "Tech weapon charge properties",
+      "flags": 4364238881
+    },
+    {
+      "type": "array:handle:entMeshComponent",
+      "name": "livePinMeshes",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:entMeshComponent",
+      "name": "deadPinMeshes",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:entMeshComponent",
+      "name": "closedFrontPlates",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:entMeshComponent",
+      "name": "animatedFrontPlates",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "numOfPins",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "alivePins",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:Int32",
+      "name": "pinIndices",
+      "flags": 6650200097
+    },
+    {
+      "type": "CName",
+      "name": "nodesDestroyedInTotalQuestFactName",
+      "flags": 4297195553
+    },
+    {
+      "type": "handle:AnimFeatureServer",
+      "name": "animFeatureServer",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameStatPoolsSystem",
+      "name": "statPoolSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ServerNodeHealthChangeListener",
+      "name": "healthListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "CName",
+      "name": "ventingFX",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "damagedFX",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:entPhysicalMeshComponent",
+      "name": "destroyedMesh",
+      "flags": 4431413280
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnDeath",
+      "shortName": "OnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach",
+      "shortName": "OnDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnGameAttached",
+      "shortName": "OnGameAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnOverloadDevice",
+      "shortName": "OnOverloadDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OverloadDevice",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestClose",
+      "shortName": "OnQuestClose",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestClose",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestExplode",
+      "shortName": "OnQuestExplode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestExplode",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestOpen",
+      "shortName": "OnQuestOpen",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestOpen",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestStartHacking",
+      "shortName": "OnQuestStartHacking",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestStartHacking",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestStopHacking",
+      "shortName": "OnQuestStopHacking",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestStopHacking",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DamageFX;",
+      "shortName": "DamageFX",
+      "flags": 32900
+    },
+    {
+      "fullName": "DestroyFX;",
+      "shortName": "DestroyFX",
+      "flags": 32900
+    },
+    {
+      "fullName": "DestroyedClosed;",
+      "shortName": "DestroyedClosed",
+      "flags": 32900
+    },
+    {
+      "fullName": "Explode;",
+      "shortName": "Explode",
+      "flags": 32900
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:ServerNodeController",
+        "flags": 64
+      },
+      "flags": 41088
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:ServerNodeControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "IsExplosionChargeMet;AttackData",
+      "shortName": "IsExplosionChargeMet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedamageAttackData",
+          "name": "attackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPiercingChargeMet;AttackData",
+      "shortName": "IsPiercingChargeMet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedamageAttackData",
+          "name": "attackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPiercingHit;AttackData",
+      "shortName": "IsPiercingHit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedamageAttackData",
+          "name": "attackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPlayerHitting;AttackData",
+      "shortName": "IsPlayerHitting",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedamageAttackData",
+          "name": "attackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHealthChanged;Float",
+      "shortName": "OnHealthChanged",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "currentHealthPercentage",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessDamagePipeline;gameHitEvent",
+      "shortName": "ProcessDamagePipeline",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResolveGameplayState;",
+      "shortName": "ResolveGameplayState",
+      "flags": 33024
+    },
+    {
+      "fullName": "SetLineVisibleState;Bool",
+      "shortName": "SetLineVisibleState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPinMeshes;Int32",
+      "shortName": "SetPinMeshes",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "numOfPinsToKeepOn",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetRandom;",
+      "shortName": "SetRandom",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
+      "fullName": "StartHackingFX;",
+      "shortName": "StartHackingFX",
+      "flags": 32900
+    },
+    {
+      "fullName": "StopHackingFX;",
+      "shortName": "StopHackingFX",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateAnimation;",
+      "shortName": "UpdateAnimation",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateDeviceState;Bool",
+      "shortName": "UpdateDeviceState",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isDelayed",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateFX;",
+      "shortName": "UpdateFX",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateVisuals;",
+      "shortName": "UpdateVisuals",
+      "flags": 32900
+    }
+  ]
+}

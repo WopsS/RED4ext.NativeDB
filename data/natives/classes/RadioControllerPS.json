@@ -9,14 +9,9 @@
       "flags": 4364304417
     },
     {
-      "type": "array:RadioStationsMap",
-      "name": "stations",
-      "flags": 6583091232
-    },
-    {
       "type": "Bool",
-      "name": "stationsInitialized",
-      "flags": 4297130016
+      "name": "wasRadioSetup",
+      "flags": 4565565472
     }
   ],
   "funcs": [
@@ -39,6 +34,15 @@
       "flags": 33024
     },
     {
+      "fullName": "CanAddAoeDamageQuickHack;",
+      "shortName": "CanAddAoeDamageQuickHack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "CanCreateAnyQuickHackActions;",
       "shortName": "CanCreateAnyQuickHackActions",
       "return": {
@@ -53,33 +57,7 @@
       "flags": 33284
     },
     {
-      "fullName": "CreateRadioStation;CNameStringERadioStationList",
-      "shortName": "CreateRadioStation",
-      "return": {
-        "type": "RadioStationsMap",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "CName",
-          "name": "SoundEvt",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "ChannelName",
-          "flags": 128
-        },
-        {
-          "type": "ERadioStationList",
-          "name": "stationID",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "DetermineGameplayViability;GetActionsContextBool",
+      "fullName": "DetermineGameplayViability;script_ref<GetActionsContext>Bool",
       "shortName": "DetermineGameplayViability",
       "return": {
         "type": "Bool",
@@ -88,7 +66,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -100,18 +78,23 @@
       ]
     },
     {
+      "fullName": "EnsureRadioStatationPresence;",
+      "shortName": "EnsureRadioStatationPresence",
+      "flags": 32900
+    },
+    {
       "fullName": "GameAttached;",
       "shortName": "GameAttached",
       "flags": 33024
     },
     {
-      "fullName": "GetActiveStationEnumValue;",
-      "shortName": "GetActiveStationEnumValue",
+      "fullName": "GetActiveRadioStation;",
+      "shortName": "GetActiveRadioStation",
       "return": {
         "type": "ERadioStationList",
         "flags": 64
       },
-      "flags": 41476
+      "flags": 33284
     },
     {
       "fullName": "GetActiveStationIndex;",
@@ -121,6 +104,24 @@
         "flags": 64
       },
       "flags": 33280
+    },
+    {
+      "fullName": "GetAoeDamageSFX;",
+      "shortName": "GetAoeDamageSFX",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetAoeDamageVFX;",
+      "shortName": "GetAoeDamageVFX",
+      "return": {
+        "type": "gameFxResource",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetBackgroundTextureTweakDBID;",
@@ -150,7 +151,7 @@
       "flags": 33024
     },
     {
-      "fullName": "GetDeviceWidget;GetActionsContext",
+      "fullName": "GetDeviceWidget;script_ref<GetActionsContext>",
       "shortName": "GetDeviceWidget",
       "return": {
         "type": "SDeviceWidgetPackage",
@@ -159,7 +160,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -175,7 +176,34 @@
       "flags": 33284
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetHighPitchNoiseRadius;",
+      "shortName": "GetHighPitchNoiseRadius",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetHighPitchNoiseSFX;",
+      "shortName": "GetHighPitchNoiseSFX",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetHighPitchNoiseVFX;",
+      "shortName": "GetHighPitchNoiseVFX",
+      "return": {
+        "type": "gameFxResource",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
@@ -185,31 +213,19 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetStationByIndex;Int32",
-      "shortName": "GetStationByIndex",
+      "fullName": "GetStartingStation;",
+      "shortName": "GetStartingStation",
       "return": {
-        "type": "RadioStationsMap",
+        "type": "ERadioStationList",
         "flags": 64
       },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "InitializeRadioStations;",
-      "shortName": "InitializeRadioStations",
       "flags": 32900
     },
     {
@@ -293,16 +309,26 @@
       ]
     },
     {
-      "fullName": "PushResaveData;RadioResaveData",
-      "shortName": "PushResaveData",
-      "flags": 34308,
+      "fullName": "SetActiveStation;ERadioStationList",
+      "shortName": "SetActiveStation",
+      "flags": 33284,
       "params": [
         {
-          "type": "RadioResaveData",
-          "name": "data",
+          "type": "ERadioStationList",
+          "name": "radioStationType",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "SetDefaultRadioStation;",
+      "shortName": "SetDefaultRadioStation",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryInitializeInteractiveState;",
+      "shortName": "TryInitializeInteractiveState",
+      "flags": 32900
     }
   ]
 }

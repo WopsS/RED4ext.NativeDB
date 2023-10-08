@@ -2,6 +2,18 @@
   "parent": "DefaultTransition",
   "name": "LeftHandCyberwareTransition",
   "flags": 5,
+  "props": [
+    {
+      "type": "handle:AnimFeature_LeftHandCyberware",
+      "name": "leftCWFeature",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:gameStatModifierData_Deprecated",
+      "name": "overchargeStatFlag",
+      "flags": 4431544352
+    }
+  ],
   "funcs": [
     {
       "fullName": "AimSnap;StateGameScriptInterface",
@@ -33,10 +45,15 @@
       ]
     },
     {
-      "fullName": "DetachProjectile;StateGameScriptInterface",
-      "shortName": "DetachProjectile",
-      "flags": 33284,
+      "fullName": "CreateAndSendAnimFeatureData;StateContextStateGameScriptInterface",
+      "shortName": "CreateAndSendAnimFeatureData",
+      "flags": 33028,
       "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
@@ -45,8 +62,25 @@
       ]
     },
     {
-      "fullName": "DrainWeaponCharge;StateGameScriptInterfaceFloat",
-      "shortName": "DrainWeaponCharge",
+      "fullName": "DetachProjectile;StateGameScriptInterfaceFloat",
+      "shortName": "DetachProjectile",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "angleOffset",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DrainLeftHandWeaponCharge;StateGameScriptInterfaceFloat",
+      "shortName": "DrainLeftHandWeaponCharge",
       "flags": 33028,
       "params": [
         {
@@ -143,6 +177,22 @@
       ]
     },
     {
+      "fullName": "GetMaxChargeThreshold;StateGameScriptInterface",
+      "shortName": "GetMaxChargeThreshold",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetProjectileTemplateNameFromWeaponDefinition;TweakDBID",
       "shortName": "GetProjectileTemplateNameFromWeaponDefinition",
       "return": {
@@ -182,6 +232,38 @@
         "flags": 64
       },
       "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasMeleewarePerkStatFlag;StateGameScriptInterface",
+      "shortName": "HasMeleewarePerkStatFlag",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasProjectileLauncherWithStatFlag;StateGameScriptInterface",
+      "shortName": "HasProjectileLauncherWithStatFlag",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
       "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
@@ -250,6 +332,28 @@
       ]
     },
     {
+      "fullName": "PlayEffect;CNameStateGameScriptInterfaceCName",
+      "shortName": "PlayEffect",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "CName",
+          "name": "effectName",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "eventTag",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "QuickwheelHasTag;StateGameScriptInterfaceCName",
       "shortName": "QuickwheelHasTag",
       "return": {
@@ -278,23 +382,6 @@
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "SendAnimFeatureData;StateContextStateGameScriptInterface",
-      "shortName": "SendAnimFeatureData",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
           "flags": 128
         }
       ]
@@ -480,6 +567,23 @@
       ]
     },
     {
+      "fullName": "SetLeftHandWeaponCharged;StateGameScriptInterfaceBool",
+      "shortName": "SetLeftHandWeaponCharged",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "charged",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ShouldInstantlyUnequipCyberware;StateGameScriptInterfaceStateContext",
       "shortName": "ShouldInstantlyUnequipCyberware",
       "return": {
@@ -496,6 +600,90 @@
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StopEffect;CNameStateGameScriptInterface",
+      "shortName": "StopEffect",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "CName",
+          "name": "effectName",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOFFOvercharge;StateGameScriptInterface",
+      "shortName": "TurnOFFOvercharge",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TurnOnOvercharge;StateGameScriptInterface",
+      "shortName": "TurnOnOvercharge",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateAndSendChargeAnimData;FloatBoolStateContextStateGameScriptInterface",
+      "shortName": "UpdateAndSendChargeAnimData",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Float",
+          "name": "chargeAmount",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "hasCWPerk",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "WeaponIsCharged;StateGameScriptInterface",
+      "shortName": "WeaponIsCharged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
           "flags": 128
         }
       ]

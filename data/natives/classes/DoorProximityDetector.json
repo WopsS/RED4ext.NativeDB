@@ -4,11 +4,6 @@
   "flags": 4,
   "props": [
     {
-      "type": "Bool",
-      "name": "debugIsBlinkOn",
-      "flags": 4364238881
-    },
-    {
       "type": "gameDelayID",
       "name": "triggeredAlarmID",
       "flags": 4297130016
@@ -16,6 +11,11 @@
     {
       "type": "Float",
       "name": "blinkInterval",
+      "flags": 4297130016
+    },
+    {
+      "type": "ESecurityAccessLevel",
+      "name": "authorizationLevel",
       "flags": 4297130016
     }
   ],
@@ -135,6 +135,15 @@
       "flags": 32900
     },
     {
+      "fullName": "IsPlayerAuthorized;",
+      "shortName": "IsPlayerAuthorized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "LockDevice;Bool",
       "shortName": "LockDevice",
       "flags": 33024,
@@ -142,6 +151,18 @@
         {
           "type": "Bool",
           "name": "shouldLock",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetAppearanceState;DoorProximityDetectorAppearanceStateType",
+      "shortName": "SetAppearanceState",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "DoorProximityDetectorAppearanceStateType",
+          "name": "appearanceState",
           "flags": 128
         }
       ]

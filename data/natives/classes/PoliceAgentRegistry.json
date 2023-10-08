@@ -1,0 +1,597 @@
+{
+  "parent": "IScriptable",
+  "name": "PoliceAgentRegistry",
+  "flags": 4,
+  "props": [
+    {
+      "type": "ScriptGameInstance",
+      "name": "game",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:handle:VehicleAgent",
+      "name": "vehicleAgents",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:NPCAgent",
+      "name": "npcAgents",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:TicketData",
+      "name": "requestTickets",
+      "flags": 6583025696
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "PoliceAgentRegistry::Construct;GameInstance",
+      "shortName": "Construct",
+      "return": {
+        "type": "handle:PoliceAgentRegistry",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Contains;EntityID",
+      "shortName": "Contains",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateTicket;Uint32vehiclePoliceStrategyBool",
+      "shortName": "CreateTicket",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "request",
+          "flags": 128
+        },
+        {
+          "type": "vehiclePoliceStrategy",
+          "name": "strategy",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isFallback",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DistanceSquaredToTClosestMaxTacAgent;Vector4",
+      "shortName": "DistanceSquaredToTClosestMaxTacAgent",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "positionToCheck",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAvCount;",
+      "shortName": "GetAvCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetEngagedNotDisengagingVehicleList;array<VehicleAgent>",
+      "shortName": "GetEngagedNotDisengagingVehicleList",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:handle:VehicleAgent",
+          "name": "vehicleArray",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetEngagedVehicleCount;",
+      "shortName": "GetEngagedVehicleCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetEngagedVehicleList;",
+      "shortName": "GetEngagedVehicleList",
+      "return": {
+        "type": "array:handle:VehicleAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetExternalNPCCount;",
+      "shortName": "GetExternalNPCCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFallbackNPCCount;",
+      "shortName": "GetFallbackNPCCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetMaxTacNPCCount;",
+      "shortName": "GetMaxTacNPCCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetMaxTacNPCList;",
+      "shortName": "GetMaxTacNPCList",
+      "return": {
+        "type": "array:handle:NPCAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetNPCList;",
+      "shortName": "GetNPCList",
+      "return": {
+        "type": "array:handle:NPCAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetNPCSpawnedType;EntityID",
+      "shortName": "GetNPCSpawnedType",
+      "return": {
+        "type": "gameDynamicVehicleType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetNPCsAssignedToVehicle;EntityIDscript_ref<array<NPCAgent>>",
+      "shortName": "GetNPCsAssignedToVehicle",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "vehicleEntityId",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:handle:NPCAgent",
+          "name": "toFill",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPendingFallbackOnFootTicketCount;",
+      "shortName": "GetPendingFallbackOnFootTicketCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetPendingVehicleTicketsCount;",
+      "shortName": "GetPendingVehicleTicketsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetRoadblockCount;",
+      "shortName": "GetRoadblockCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetRoadblockNPCList;",
+      "shortName": "GetRoadblockNPCList",
+      "return": {
+        "type": "array:handle:NPCAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetRoadblockVehicleList;",
+      "shortName": "GetRoadblockVehicleList",
+      "return": {
+        "type": "array:handle:VehicleAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSupportVehicleCount;",
+      "shortName": "GetSupportVehicleCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSupportVehicleList;",
+      "shortName": "GetSupportVehicleList",
+      "return": {
+        "type": "array:handle:VehicleAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSupportVehiclesWithStrategyCount;vehiclePoliceStrategy",
+      "shortName": "GetSupportVehiclesWithStrategyCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "vehiclePoliceStrategy",
+          "name": "strategy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTotalNPCCount;",
+      "shortName": "GetTotalNPCCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetTotalPendingTicketsCount;",
+      "shortName": "GetTotalPendingTicketsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetTotalVehicleCount;",
+      "shortName": "GetTotalVehicleCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetVehicleList;",
+      "shortName": "GetVehicleList",
+      "return": {
+        "type": "array:handle:VehicleAgent",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetVehiclesWithoutRegisteredPassengers;script_ref<array<VehicleAgent>>",
+      "shortName": "GetVehiclesWithoutRegisteredPassengers",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "script_ref:array:handle:VehicleAgent",
+          "name": "toFill",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasNPCBeenAttackedByPlayer;EntityID",
+      "shortName": "HasNPCBeenAttackedByPlayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasPoliceRecentlyDeescalated;",
+      "shortName": "HasPoliceRecentlyDeescalated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsPoliceInCombatWithPalyer;",
+      "shortName": "IsPoliceInCombatWithPalyer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsPreventionMaxTac;gamePuppet",
+      "shortName": "IsPreventionMaxTac",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gamePuppet",
+          "name": "puppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopRequestTicket;Uint32script_ref<TicketData>",
+      "shortName": "PopRequestTicket",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "request",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:TicketData",
+          "name": "ticketData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RegisterAgent;GameObjectDynamicVehicleTypevehiclePoliceStrategyBoolBool",
+      "shortName": "RegisterAgent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "unit",
+          "flags": 128
+        },
+        {
+          "type": "gameDynamicVehicleType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "vehiclePoliceStrategy",
+          "name": "strategy",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isFallback",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "overrideExisting",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryGetIndexOf_NPC;EntityIDscript_ref<Int32>",
+      "shortName": "TryGetIndexOf_NPC",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:Int32",
+          "name": "index",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TryGetIndexOf_Ticket;Uint32script_ref<Int32>",
+      "shortName": "TryGetIndexOf_Ticket",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:Int32",
+          "name": "index",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TryGetIndexOf_Vehicle;EntityIDscript_ref<Int32>",
+      "shortName": "TryGetIndexOf_Vehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:Int32",
+          "name": "index",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "TryGetNPCAgentByID;EntityIDscript_ref<NPCAgent>",
+      "shortName": "TryGetNPCAgentByID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:handle:NPCAgent",
+          "name": "agent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryGetVehicleAgentByID;EntityIDscript_ref<VehicleAgent>",
+      "shortName": "TryGetVehicleAgentByID",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:handle:VehicleAgent",
+          "name": "agent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterAgent;EntityID",
+      "shortName": "UnregisterAgent",
+      "return": {
+        "type": "UnregisterResult",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnregisterAll;",
+      "shortName": "UnregisterAll",
+      "flags": 33284
+    },
+    {
+      "fullName": "UpdateVehiclePassengerCount;EntityIDInt32",
+      "shortName": "UpdateVehiclePassengerCount",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "passengers",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

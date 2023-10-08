@@ -133,6 +133,11 @@
       "type": "Bool",
       "name": "isPartOfPrevention",
       "flags": 4297195553
+    },
+    {
+      "type": "Bool",
+      "name": "ignoreTargetTrackerComponent",
+      "flags": 4297195553
     }
   ],
   "funcs": [
@@ -266,58 +271,6 @@
       "fullName": "ClearLinkedStatusEffect;",
       "shortName": "ClearLinkedStatusEffect",
       "flags": 33284
-    },
-    {
-      "fullName": "DrawBetweenEntities;BoolBoolFxResourceEntityIDEntityIDBoolBoolBoolBool",
-      "shortName": "DrawBetweenEntities",
-      "flags": 41476,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "shouldDraw",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "focusModeOnly",
-          "flags": 128
-        },
-        {
-          "type": "gameFxResource",
-          "name": "fxResource",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "masterID",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "slaveID",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "revealMaster",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "revealSlave",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "onlyRemoveWeakLink",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "isEyeContact",
-          "flags": 1152
-        }
-      ]
     },
     {
       "fullName": "GetBehaviourCanDetectIntruders;",
@@ -531,6 +484,15 @@
       "shortName": "GetVisionConeFriendlyEffectRef",
       "return": {
         "type": "gameEffectRef",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IgnoreTargetTrackerComponent;",
+      "shortName": "IgnoreTargetTrackerComponent",
+      "return": {
+        "type": "Bool",
         "flags": 64
       },
       "flags": 41476
@@ -1140,12 +1102,12 @@
       ]
     },
     {
-      "fullName": "SetLinkedStatusEffect;LinkedStatusEffect",
+      "fullName": "SetLinkedStatusEffect;script_ref<LinkedStatusEffect>",
       "shortName": "SetLinkedStatusEffect",
       "flags": 33284,
       "params": [
         {
-          "type": "LinkedStatusEffect",
+          "type": "script_ref:LinkedStatusEffect",
           "name": "value",
           "flags": 128
         }

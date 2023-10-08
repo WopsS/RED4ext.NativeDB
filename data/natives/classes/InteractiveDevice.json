@@ -39,8 +39,8 @@
       "flags": 4431347744
     },
     {
-      "type": "array:Vector4",
-      "name": "investigationPositionsArray",
+      "type": "array:InvestigationData",
+      "name": "investigationData",
       "flags": 6583025696
     },
     {
@@ -398,13 +398,36 @@
       ]
     },
     {
-      "fullName": "GetCachedInvestigationPositionsArray;",
+      "fullName": "GetCachedInvestigationPositionsArray;GlobalNodeRef",
       "shortName": "GetCachedInvestigationPositionsArray",
       "return": {
         "type": "array:Vector4",
         "flags": 64
       },
-      "flags": 41216
+      "flags": 41216,
+      "params": [
+        {
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInvestigationDataIndexFor;GlobalNodeRef",
+      "shortName": "GetInvestigationDataIndexFor",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetNetworkBeamEndpoint;",
@@ -441,13 +464,20 @@
       "flags": 41216
     },
     {
-      "fullName": "HasInvestigationPositionsArrayCached;",
+      "fullName": "HasInvestigationPositionsArrayCached;GlobalNodeRef",
       "shortName": "HasInvestigationPositionsArrayCached",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 41216
+      "flags": 41216,
+      "params": [
+        {
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "IsPlayerAround;",
@@ -466,6 +496,23 @@
         "flags": 64
       },
       "flags": 41472
+    },
+    {
+      "fullName": "OnDirectInteractionActive;InteractionActivationEventBool",
+      "shortName": "OnDirectInteractionActive",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameinteractionsInteractionActivationEvent",
+          "name": "evt",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isInteractionActive",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnVisibilityChanged;",
@@ -541,12 +588,17 @@
       "flags": 33024
     },
     {
-      "fullName": "SetInvestigationPositionsArray;array<Vector4>",
+      "fullName": "SetInvestigationPositionsArray;GlobalNodeRefscript_ref<array<Vector4>>",
       "shortName": "SetInvestigationPositionsArray",
       "flags": 33024,
       "params": [
         {
-          "type": "array:Vector4",
+          "type": "worldGlobalNodeRef",
+          "name": "globalNodeRef",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Vector4",
           "name": "arr",
           "flags": 128
         }

@@ -4,6 +4,11 @@
   "flags": 4,
   "props": [
     {
+      "type": "Bool",
+      "name": "isLeftAligned",
+      "flags": 4297130017
+    },
+    {
       "type": "inkUniformGridWidgetReference",
       "name": "gridContainer",
       "flags": 4297130017
@@ -14,24 +19,9 @@
       "flags": 4297130017
     },
     {
-      "type": "inkTextWidgetReference",
-      "name": "sublabel",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "number",
-      "flags": 4297130017
-    },
-    {
       "type": "inkWidgetReference",
-      "name": "numberPanel",
+      "name": "isNew",
       "flags": 4297130017
-    },
-    {
-      "type": "Int32",
-      "name": "gridWidth",
-      "flags": 4297130016
     },
     {
       "type": "Int32",
@@ -41,7 +31,7 @@
     {
       "type": "gamedataEquipmentArea",
       "name": "equipArea",
-      "flags": 4297130016
+      "flags": 4297326624
     },
     {
       "type": "handle:IScriptable",
@@ -54,12 +44,136 @@
       "flags": 4297130016
     },
     {
+      "type": "handle:inkanimProxy",
+      "name": "opacityAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "marginAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "labelAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "labelPulse",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkMargin",
+      "name": "margin",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkMargin",
+      "name": "targetMargin",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "parent",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "minigridAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "CyberwareScreenType",
+      "name": "screen",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:ItemDisplayContextData",
+      "name": "displayContext",
+      "flags": 4431347744
+    },
+    {
       "type": "array:whandle:InventoryItemDisplayController",
       "name": "gridData",
       "flags": 6583025696
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "root",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnHoverOutCategory",
+      "shortName": "OnHoverOutCategory",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOutCategoryLabel",
+      "shortName": "OnHoverOutCategoryLabel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverCategory",
+      "shortName": "OnHoverOverCategory",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOverCategoryLabel",
+      "shortName": "OnHoverOverCategoryLabel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -126,6 +240,18 @@
       "flags": 33032
     },
     {
+      "fullName": "AnimateLabel;Bool",
+      "shortName": "AnimateLabel",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hide",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetAreaHeader;gamedataEquipmentArea",
       "shortName": "GetAreaHeader",
       "return": {
@@ -142,10 +268,35 @@
       ]
     },
     {
-      "fullName": "GetEquipementArea;",
-      "shortName": "GetEquipementArea",
+      "fullName": "GetEquipmentArea;",
+      "shortName": "GetEquipmentArea",
       "return": {
         "type": "gamedataEquipmentArea",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetEquippedData;ItemID",
+      "shortName": "GetEquippedData",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetFirstSlot;",
+      "shortName": "GetFirstSlot",
+      "return": {
+        "type": "whandle:inkWidget",
         "flags": 64
       },
       "flags": 33284
@@ -160,13 +311,63 @@
       "flags": 33284
     },
     {
-      "fullName": "GetSelectedSlotData;",
-      "shortName": "GetSelectedSlotData",
+      "fullName": "GetLastSlot;",
+      "shortName": "GetLastSlot",
       "return": {
-        "type": "gameInventoryItemData",
+        "type": "whandle:inkWidget",
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "GetSelectedSlotData;",
+      "shortName": "GetSelectedSlotData",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSelectedSlotIndex;",
+      "shortName": "GetSelectedSlotIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSlotData;Int32",
+      "shortName": "GetSlotData",
+      "return": {
+        "type": "whandle:UIInventoryItem",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetSlotIndex;InventoryItemDisplayController",
+      "shortName": "GetSlotIndex",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:InventoryItemDisplayController",
+          "name": "slot",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetSlotToEquipe;ItemID",
@@ -185,6 +386,140 @@
       ]
     },
     {
+      "fullName": "HighlightSelectedSlot;",
+      "shortName": "HighlightSelectedSlot",
+      "flags": 33284
+    },
+    {
+      "fullName": "HighlightSlot;Int32Bool",
+      "shortName": "HighlightSlot",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "animatedHighlight",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "HoveredAttribute;PlayerPuppetgamedataStatType",
+      "shortName": "HoveredAttribute",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatType",
+          "name": "attribute",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsEquipmentAreaRequiringPerk;gamedataEquipmentArea",
+      "shortName": "IsEquipmentAreaRequiringPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsLeftSide;",
+      "shortName": "IsLeftSide",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "OpacityFullHide;",
+      "shortName": "OpacityFullHide",
+      "flags": 33284
+    },
+    {
+      "fullName": "OpacityFullShow;",
+      "shortName": "OpacityFullShow",
+      "flags": 33284
+    },
+    {
+      "fullName": "OpacityHide;Bool",
+      "shortName": "OpacityHide",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldDim",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "OpacityShow;Float",
+      "shortName": "OpacityShow",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PlayEquipAnimation;Int32",
+      "shortName": "PlayEquipAnimation",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayMinigridAnim;Bool",
+      "shortName": "PlayMinigridAnim",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "playReverse",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RefreshisNewPreview;Bool",
+      "shortName": "RefreshisNewPreview",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hasNew",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RemoveElements;Int32",
       "shortName": "RemoveElements",
       "flags": 32900,
@@ -197,6 +532,11 @@
       ]
     },
     {
+      "fullName": "ResetPosition;",
+      "shortName": "ResetPosition",
+      "flags": 33284
+    },
+    {
       "fullName": "SelectSlot;Int32",
       "shortName": "SelectSlot",
       "flags": 33284,
@@ -204,6 +544,57 @@
         {
           "type": "Int32",
           "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetInteractive;Bool",
+      "shortName": "SetInteractive",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "interactive",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLabelImmediate;Bool",
+      "shortName": "SetLabelImmediate",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetOpacityDumb;BoolBoolFloatFloat",
+      "shortName": "SetOpacityDumb",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "hide",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouldDim",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "delay",
           "flags": 128
         }
       ]
@@ -221,7 +612,53 @@
       ]
     },
     {
-      "fullName": "SetupData;gamedataEquipmentAreaarray<InventoryItemData>Int32IScriptableCNameCyberwareScreenTypeBool",
+      "fullName": "SetPosition;inkMarginFloat",
+      "shortName": "SetPosition",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPositionImmediate;inkMargin",
+      "shortName": "SetPositionImmediate",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTargetMargin;inkMargininkCompoundRef",
+      "shortName": "SetTargetMargin",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "inkMargin",
+          "name": "margin",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "parent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetupData;gamedataEquipmentAreascript_ref<array<UIInventoryItem>>IScriptableCNameCyberwareScreenTypeBoolItemDisplayContextDataInventoryDataManagerV2PlayerPuppet",
       "shortName": "SetupData",
       "flags": 33284,
       "params": [
@@ -231,13 +668,8 @@
           "flags": 128
         },
         {
-          "type": "array:gameInventoryItemData",
+          "type": "script_ref:array:whandle:UIInventoryItem",
           "name": "playerEquipAreaInventory",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "count",
           "flags": 128
         },
         {
@@ -259,16 +691,53 @@
           "type": "Bool",
           "name": "hasMods",
           "flags": 128
+        },
+        {
+          "type": "handle:ItemDisplayContextData",
+          "name": "displayContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:InventoryDataManagerV2",
+          "name": "inventoryManager",
+          "flags": 1152
+        },
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UnhighlightAllSlots;",
+      "shortName": "UnhighlightAllSlots",
+      "flags": 33284
+    },
+    {
+      "fullName": "UnhighlightSelectedSlot;",
+      "shortName": "UnhighlightSelectedSlot",
+      "flags": 33284
+    },
+    {
+      "fullName": "UnhighlightSlot;Int32",
+      "shortName": "UnhighlightSlot",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
         }
       ]
     },
     {
       "fullName": "UnselectSlot;",
       "shortName": "UnselectSlot",
-      "flags": 32900
+      "flags": 33284
     },
     {
-      "fullName": "UpdateData;gamedataEquipmentAreaarray<InventoryItemData>Int32CyberwareScreenType",
+      "fullName": "UpdateData;gamedataEquipmentAreascript_ref<array<UIInventoryItem>>CyberwareScreenType",
       "shortName": "UpdateData",
       "flags": 33284,
       "params": [
@@ -278,16 +747,11 @@
           "flags": 128
         },
         {
-          "type": "array:gameInventoryItemData",
+          "type": "script_ref:array:whandle:UIInventoryItem",
           "name": "playerEquipAreaInventory",
           "flags": 128
         },
         {
-          "type": "Int32",
-          "name": "count",
-          "flags": 1152
-        },
-        {
           "type": "CyberwareScreenType",
           "name": "screen",
           "flags": 1152
@@ -295,36 +759,14 @@
       ]
     },
     {
-      "fullName": "UpdateTitle;String",
+      "fullName": "UpdateTitle;script_ref<String>",
       "shortName": "UpdateTitle",
-      "flags": 33284,
+      "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "label",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "UpdateTitles;Int32CyberwareScreenTypeBool",
-      "shortName": "UpdateTitles",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "count",
-          "flags": 128
-        },
-        {
-          "type": "CyberwareScreenType",
-          "name": "screen",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "hasMods",
-          "flags": 1152
         }
       ]
     }

@@ -4,7 +4,7 @@
   "flags": 4,
   "funcs": [
     {
-      "fullName": "AIActionHelper::ActionDebugHelper;EntityString",
+      "fullName": "AIActionHelper::ActionDebugHelper;Entityscript_ref<String>",
       "shortName": "ActionDebugHelper",
       "return": {
         "type": "Bool",
@@ -18,14 +18,14 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "actionName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "AIActionHelper::ActionDebugHelper;StringString",
+      "fullName": "AIActionHelper::ActionDebugHelper;script_ref<String>script_ref<String>",
       "shortName": "ActionDebugHelper",
       "return": {
         "type": "Bool",
@@ -34,19 +34,19 @@
       "flags": 33286,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "actionNameCheck",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "actionName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "AIActionHelper::ActionDebugHelper;StringEntityString",
+      "fullName": "AIActionHelper::ActionDebugHelper;script_ref<String>Entityscript_ref<String>",
       "shortName": "ActionDebugHelper",
       "return": {
         "type": "Bool",
@@ -55,7 +55,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "actionNameCheck",
           "flags": 128
         },
@@ -65,7 +65,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "actionName",
           "flags": 128
         }
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::ChangeAttitudeToFriendlyAllSquad;GameObjectarray<EntityID>",
+      "fullName": "AIActionHelper::ChangeAttitudeToFriendlyAllSquad;GameObjectscript_ref<array<EntityID>>",
       "shortName": "ChangeAttitudeToFriendlyAllSquad",
       "flags": 33286,
       "params": [
@@ -111,7 +111,7 @@
           "flags": 128
         },
         {
-          "type": "array:entEntityID",
+          "type": "script_ref:array:entEntityID",
           "name": "squadMembers",
           "flags": 128
         }
@@ -139,7 +139,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::CheckFlatheadStatPoolRequirements;GameInstanceString",
+      "fullName": "AIActionHelper::CheckFlatheadStatPoolRequirements;GameInstancescript_ref<String>",
       "shortName": "CheckFlatheadStatPoolRequirements",
       "return": {
         "type": "Bool",
@@ -153,14 +153,14 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "actionName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "AIActionHelper::ClearCommandCombatTarget;ScriptExecutionContextUint32",
+      "fullName": "AIActionHelper::ClearCommandCombatTarget;ScriptExecutionContextUint32Bool",
       "shortName": "ClearCommandCombatTarget",
       "flags": 33286,
       "params": [
@@ -173,6 +173,11 @@
           "type": "Uint32",
           "name": "persistenceSource",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "ignoreCombatTargetCommand",
+          "flags": 1152
         }
       ]
     },
@@ -274,7 +279,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::GetActiveTopHostilePuppetThreat;ScriptedPuppetTrackedLocation",
+      "fullName": "AIActionHelper::GetActiveTopHostilePuppetThreat;ScriptedPuppetscript_ref<TrackedLocation>",
       "shortName": "GetActiveTopHostilePuppetThreat",
       "return": {
         "type": "Bool",
@@ -288,9 +293,9 @@
           "flags": 128
         },
         {
-          "type": "AITrackedLocation",
+          "type": "script_ref:AITrackedLocation",
           "name": "threat",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -343,7 +348,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::GetBaseShootingPatternPackages;array<AIPatternsPackage_Record>",
+      "fullName": "AIActionHelper::GetBaseShootingPatternPackages;script_ref<array<AIPatternsPackage_Record>>",
       "shortName": "GetBaseShootingPatternPackages",
       "return": {
         "type": "Bool",
@@ -352,9 +357,25 @@
       "flags": 33286,
       "params": [
         {
-          "type": "array:whandle:gamedataAIPatternsPackage_Record",
+          "type": "script_ref:array:whandle:gamedataAIPatternsPackage_Record",
           "name": "patternPackages",
-          "flags": 640
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::GetCallingAlliesToCombatDelay;Bool",
+      "shortName": "GetCallingAlliesToCombatDelay",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "postCombatStart",
+          "flags": 128
         }
       ]
     },
@@ -474,7 +495,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::GetItemsFromWeaponSlots;GameObjectarray<ItemObject>",
+      "fullName": "AIActionHelper::GetItemsFromWeaponSlots;GameObjectscript_ref<array<ItemObject>>",
       "shortName": "GetItemsFromWeaponSlots",
       "return": {
         "type": "Bool",
@@ -488,9 +509,9 @@
           "flags": 128
         },
         {
-          "type": "array:whandle:gameItemObject",
+          "type": "script_ref:array:whandle:gameItemObject",
           "name": "items",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -1021,6 +1042,22 @@
       ]
     },
     {
+      "fullName": "AIActionHelper::QueueNearbyCombatNotification;GameObject",
+      "shortName": "QueueNearbyCombatNotification",
+      "return": {
+        "type": "gameDelayID",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "AIActionHelper::QueuePreloadBaseAnimationsEvent;ScriptedPuppet",
       "shortName": "QueuePreloadBaseAnimationsEvent",
       "flags": 33286,
@@ -1045,19 +1082,28 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::QueuePullSquadSync;GameObject",
+      "fullName": "AIActionHelper::QueuePullSquadSync;GameObjectBool",
       "shortName": "QueuePullSquadSync",
+      "return": {
+        "type": "gameDelayID",
+        "flags": 64
+      },
       "flags": 33286,
       "params": [
         {
           "type": "whandle:gameObject",
           "name": "owner",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "postCombatStart",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "AIActionHelper::QueueSecuritySystemCombatNotification;GameObject",
+      "fullName": "AIActionHelper::QueueSecuritySystemCombatNotification;GameObjectBool",
       "shortName": "QueueSecuritySystemCombatNotification",
       "flags": 33286,
       "params": [
@@ -1065,6 +1111,11 @@
           "type": "whandle:gameObject",
           "name": "owner",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "postCombatStart",
+          "flags": 1152
         }
       ]
     },
@@ -1221,27 +1272,6 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::StartCooldown;GameObjectAIActionCooldown_Record",
-      "shortName": "StartCooldown",
-      "return": {
-        "type": "Int32",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "self",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataAIActionCooldown_Record",
-          "name": "record",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "AIActionHelper::StartCooldown;GameObjectCNameFloat",
       "shortName": "StartCooldown",
       "return": {
@@ -1263,6 +1293,27 @@
         {
           "type": "Float",
           "name": "duration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::StartCooldown;GameObjectAIActionCooldown_Record",
+      "shortName": "StartCooldown",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "self",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAIActionCooldown_Record",
+          "name": "record",
           "flags": 128
         }
       ]
@@ -1301,7 +1352,28 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::UpdateLinkedStatusEffects;GameObjectLinkedStatusEffect",
+      "fullName": "AIActionHelper::TryStartCombatWithTarget;ScriptedPuppetGameObject",
+      "shortName": "TryStartCombatWithTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::UpdateLinkedStatusEffects;GameObjectscript_ref<LinkedStatusEffect>",
       "shortName": "UpdateLinkedStatusEffects",
       "flags": 33286,
       "params": [
@@ -1311,9 +1383,56 @@
           "flags": 128
         },
         {
-          "type": "LinkedStatusEffect",
+          "type": "script_ref:LinkedStatusEffect",
           "name": "linkedStatusEffect",
-          "flags": 640
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectgamedataTriggerMode",
+      "shortName": "WeaponHasTriggerMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "triggerMode",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectWeaponItem_RecordgamedataTriggerMode",
+      "shortName": "WeaponHasTriggerMode",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataWeaponItem_Record",
+          "name": "weaponRecord",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "triggerMode",
+          "flags": 128
         }
       ]
     },
@@ -1365,54 +1484,7 @@
       ]
     },
     {
-      "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectWeaponItem_RecordgamedataTriggerMode",
-      "shortName": "WeaponHasTriggerMode",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:gameweaponObject",
-          "name": "weapon",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataWeaponItem_Record",
-          "name": "weaponRecord",
-          "flags": 128
-        },
-        {
-          "type": "gamedataTriggerMode",
-          "name": "triggerMode",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AIActionHelper::WeaponHasTriggerMode;WeaponObjectgamedataTriggerMode",
-      "shortName": "WeaponHasTriggerMode",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:gameweaponObject",
-          "name": "weapon",
-          "flags": 128
-        },
-        {
-          "type": "gamedataTriggerMode",
-          "name": "triggerMode",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AIActionHelper::WeaponHasTriggerModes;WeaponObjectWeaponItem_Recordarray<TriggerMode_Record>",
+      "fullName": "AIActionHelper::WeaponHasTriggerModes;WeaponObjectWeaponItem_Recordscript_ref<array<TriggerMode_Record>>",
       "shortName": "WeaponHasTriggerModes",
       "return": {
         "type": "Bool",
@@ -1431,7 +1503,7 @@
           "flags": 128
         },
         {
-          "type": "array:whandle:gamedataTriggerMode_Record",
+          "type": "script_ref:array:whandle:gamedataTriggerMode_Record",
           "name": "triggerModes",
           "flags": 128
         }

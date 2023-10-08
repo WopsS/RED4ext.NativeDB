@@ -1,8 +1,13 @@
 {
-  "parent": "gameuiProjectedHUDGameController",
+  "parent": "gameuiSongbirdAudioCallGameController",
   "name": "HudPhoneGameController",
   "flags": 4,
   "props": [
+    {
+      "type": "Bool",
+      "name": "isAudioCall",
+      "flags": 4297130017
+    },
     {
       "type": "inkWidgetReference",
       "name": "AvatarControllerRef",
@@ -19,41 +24,6 @@
       "flags": 4297130016
     },
     {
-      "type": "CName",
-      "name": "SoundNameActionOnOpen",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "SoundNameActionOnClose",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "AudioInitiateCallPositiveEvent",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "AudioInitiateCallNegativeEvent",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "AudioInitiateCallEvent",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "AudioPhoneOnEvent",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "AudioPhoneOffEvent",
-      "flags": 4297130017
-    },
-    {
       "type": "inkWidgetReference",
       "name": "Holder",
       "flags": 4297130017
@@ -62,11 +32,6 @@
       "type": "whandle:gameObject",
       "name": "Owner",
       "flags": 4297130016
-    },
-    {
-      "type": "array:whandle:gameJournalPhoneMessage",
-      "name": "UnreadMessages",
-      "flags": 6583025696
     },
     {
       "type": "EHudPhoneFunction",
@@ -142,31 +107,6 @@
       "type": "Float",
       "name": "TimeoutPeroid",
       "flags": 4297130016
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "portraitIntroAnim",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "portraitOutroAnim",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "portraitLoopAnim",
-      "flags": 4431347744
-    },
-    {
-      "type": "inkanimPlaybackOptions",
-      "name": "options",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:inkScreenProjection",
-      "name": "updatesProjection",
-      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -296,22 +236,6 @@
       ]
     },
     {
-      "fullName": "OnQuestTimer",
-      "shortName": "OnQuestTimer",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "Float",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnTriggerCall",
       "shortName": "OnTriggerCall",
       "return": {
@@ -368,15 +292,6 @@
       ]
     },
     {
-      "fullName": "DeductGameInputActionType;",
-      "shortName": "DeductGameInputActionType",
-      "return": {
-        "type": "gameinputActionType",
-        "flags": 64
-      },
-      "flags": 32900
-    },
-    {
       "fullName": "GetIncomingContact;",
       "shortName": "GetIncomingContact",
       "return": {
@@ -407,7 +322,7 @@
       ]
     },
     {
-      "fullName": "SetTalkingTrigger;BoolquestPhoneTalkingState",
+      "fullName": "SetTalkingTrigger;BoolquestPhoneTalkingStatequestPhoneCallVisuals",
       "shortName": "SetTalkingTrigger",
       "flags": 32900,
       "params": [
@@ -419,6 +334,11 @@
         {
           "type": "questPhoneTalkingState",
           "name": "state",
+          "flags": 128
+        },
+        {
+          "type": "questPhoneCallVisuals",
+          "name": "visuals",
           "flags": 128
         }
       ]

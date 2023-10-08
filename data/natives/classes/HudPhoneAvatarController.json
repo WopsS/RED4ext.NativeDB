@@ -54,6 +54,11 @@
       "flags": 4297130017
     },
     {
+      "type": "Bool",
+      "name": "blackWallEffectOnShow",
+      "flags": 4297130017
+    },
+    {
       "type": "CName",
       "name": "LoopAnimationName",
       "flags": 4297130017
@@ -94,11 +99,6 @@
       "flags": 4431347744
     },
     {
-      "type": "inkanimPlaybackOptions",
-      "name": "options",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:gameIJournalManager",
       "name": "JournalManager",
       "flags": 4431347744
@@ -124,9 +124,9 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:inkanimDefinition",
-      "name": "alpha_fadein",
-      "flags": 4431347744
+      "type": "whandle:gameObject",
+      "name": "Owner",
+      "flags": 4297130016
     },
     {
       "type": "EHudAvatarMode",
@@ -136,6 +136,11 @@
     {
       "type": "Bool",
       "name": "Minimized",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "showAvatar",
       "flags": 4297130016
     }
   ],
@@ -255,13 +260,18 @@
       "flags": 32900
     },
     {
-      "fullName": "RefreshView;JournalContactEHudAvatarMode",
+      "fullName": "RefreshView;TweakDBIDscript_ref<String>EHudAvatarMode",
       "shortName": "RefreshView",
       "flags": 32900,
       "params": [
         {
-          "type": "whandle:gameJournalContact",
-          "name": "contact",
+          "type": "TweakDBID",
+          "name": "avatarID",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "contactName",
           "flags": 128
         },
         {
@@ -296,61 +306,110 @@
       ]
     },
     {
-      "fullName": "SetStatusText;String",
+      "fullName": "SetOwner;GameObject",
+      "shortName": "SetOwner",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetStatusText;script_ref<String>",
       "shortName": "SetStatusText",
       "flags": 33284,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "statusText",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ShowEndCallContact;JournalContact",
+      "fullName": "ShowAvatar;Bool",
+      "shortName": "ShowAvatar",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "showAvatar",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowEndCallContact;TweakDBIDscript_ref<String>",
       "shortName": "ShowEndCallContact",
       "flags": 33284,
       "params": [
         {
-          "type": "whandle:gameJournalContact",
-          "name": "contactToShow",
+          "type": "TweakDBID",
+          "name": "avatarID",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "contactName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ShowIncomingContact;JournalContact",
+      "fullName": "ShowIncomingContact;TweakDBIDscript_ref<String>",
       "shortName": "ShowIncomingContact",
       "flags": 33284,
       "params": [
         {
-          "type": "whandle:gameJournalContact",
-          "name": "contactToShow",
+          "type": "TweakDBID",
+          "name": "avatarID",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "contactName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "StartAudiocall;JournalContact",
+      "fullName": "StartAudiocall;TweakDBIDscript_ref<String>Bool",
       "shortName": "StartAudiocall",
       "flags": 33284,
       "params": [
         {
-          "type": "whandle:gameJournalContact",
-          "name": "contactToShow",
+          "type": "TweakDBID",
+          "name": "avatarID",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "contactName",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "showAvatar",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "StartHolocall;JournalContact",
+      "fullName": "StartHolocall;TweakDBIDscript_ref<String>",
       "shortName": "StartHolocall",
       "flags": 33284,
       "params": [
         {
-          "type": "whandle:gameJournalContact",
-          "name": "contactToShow",
+          "type": "TweakDBID",
+          "name": "avatarID",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "contactName",
           "flags": 128
         }
       ]

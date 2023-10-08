@@ -69,6 +69,11 @@
       "flags": 4565565472
     },
     {
+      "type": "Bool",
+      "name": "isPreventionNotified",
+      "flags": 4565565472
+    },
+    {
       "type": "SecuritySystemData",
       "name": "securitySystemData",
       "flags": 4565565472
@@ -114,9 +119,9 @@
       "flags": 4565565472
     },
     {
-      "type": "CachedItemLoadout",
+      "type": "array:CachedItemLoadout",
       "name": "customWeaponLoadout",
-      "flags": 4565565472
+      "flags": 6851461152
     },
     {
       "type": "CachedItemLoadout",
@@ -269,7 +274,7 @@
       ]
     },
     {
-      "fullName": "CheckFlatheadTakedownAvailability;GetActionsContext",
+      "fullName": "CheckFlatheadTakedownAvailability;script_ref<GetActionsContext>",
       "shortName": "CheckFlatheadTakedownAvailability",
       "return": {
         "type": "Bool",
@@ -278,7 +283,7 @@
       "flags": 41476,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -344,7 +349,7 @@
       ]
     },
     {
-      "fullName": "DrawBetweenEntities;BoolBoolFxResourceEntityIDEntityIDBoolBoolBoolBool",
+      "fullName": "DrawBetweenEntities;BoolBoolFxResourceEntityIDEntityIDBoolBoolBoolBoolBool",
       "shortName": "DrawBetweenEntities",
       "flags": 41476,
       "params": [
@@ -392,6 +397,11 @@
           "type": "Bool",
           "name": "isEyeContact",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isPermanent",
+          "flags": 1152
         }
       ]
     },
@@ -413,14 +423,14 @@
       ]
     },
     {
-      "fullName": "FilterRedundantPrograms;array<TweakDBID>",
+      "fullName": "FilterRedundantPrograms;script_ref<array<TweakDBID>>",
       "shortName": "FilterRedundantPrograms",
       "flags": 32900,
       "params": [
         {
-          "type": "array:TweakDBID",
+          "type": "script_ref:array:TweakDBID",
           "name": "programs",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -502,24 +512,24 @@
       "flags": 41476
     },
     {
-      "fullName": "GetAllChoices;array<ObjectAction_Record>GetActionsContextarray<PuppetAction>",
+      "fullName": "GetAllChoices;script_ref<array<ObjectAction_Record>>script_ref<GetActionsContext>script_ref<array<PuppetAction>>",
       "shortName": "GetAllChoices",
       "flags": 41476,
       "params": [
         {
-          "type": "array:whandle:gamedataObjectAction_Record",
+          "type": "script_ref:array:whandle:gamedataObjectAction_Record",
           "name": "actions",
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
         {
-          "type": "array:handle:PuppetAction",
+          "type": "script_ref:array:handle:PuppetAction",
           "name": "puppetActions",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -545,7 +555,7 @@
       "fullName": "GetCustomWeaponLoadout;",
       "shortName": "GetCustomWeaponLoadout",
       "return": {
-        "type": "CachedItemLoadout",
+        "type": "array:CachedItemLoadout",
         "flags": 64
       },
       "flags": 41476
@@ -761,17 +771,17 @@
       "flags": 41476
     },
     {
-      "fullName": "GetValidChoices;array<ObjectAction_Record>GetActionsContextgameObjectActionsCallbackControllerBoolarray<InteractionChoice>",
+      "fullName": "GetValidChoices;script_ref<array<ObjectAction_Record>>script_ref<GetActionsContext>gameObjectActionsCallbackControllerBoolscript_ref<array<InteractionChoice>>",
       "shortName": "GetValidChoices",
       "flags": 41476,
       "params": [
         {
-          "type": "array:whandle:gamedataObjectAction_Record",
+          "type": "script_ref:array:whandle:gamedataObjectAction_Record",
           "name": "actions",
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -786,9 +796,9 @@
           "flags": 128
         },
         {
-          "type": "array:gameinteractionsChoice",
+          "type": "script_ref:array:gameinteractionsChoice",
           "name": "choices",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -891,6 +901,15 @@
     {
       "fullName": "IsInitialized;",
       "shortName": "IsInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsPreventionNotified;",
+      "shortName": "IsPreventionNotified",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1091,7 +1110,7 @@
       ]
     },
     {
-      "fullName": "PushChoicesToInteractionComponent;InteractionComponentGetActionsContextscript_ref<array<InteractionChoice>>",
+      "fullName": "PushChoicesToInteractionComponent;InteractionComponentscript_ref<GetActionsContext>script_ref<array<InteractionChoice>>",
       "shortName": "PushChoicesToInteractionComponent",
       "flags": 32900,
       "params": [
@@ -1101,7 +1120,7 @@
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -1209,6 +1228,18 @@
       ]
     },
     {
+      "fullName": "SetIsPreventionNotified;Bool",
+      "shortName": "SetIsPreventionNotified",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isPreventionNotified",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetReactionPresetID;TweakDBID",
       "shortName": "SetReactionPresetID",
       "flags": 33284,
@@ -1245,7 +1276,7 @@
       ]
     },
     {
-      "fullName": "StoreBountyData;TweakDBIDarray<TweakDBID>",
+      "fullName": "StoreBountyData;TweakDBIDscript_ref<array<TweakDBID>>",
       "shortName": "StoreBountyData",
       "flags": 33284,
       "params": [
@@ -1255,11 +1286,20 @@
           "flags": 128
         },
         {
-          "type": "array:TweakDBID",
+          "type": "script_ref:array:TweakDBID",
           "name": "transgressions",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "Sts_Ep1_12_ActiveForQHack_Hack;",
+      "shortName": "Sts_Ep1_12_ActiveForQHack_Hack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
     },
     {
       "fullName": "WasAttached;",

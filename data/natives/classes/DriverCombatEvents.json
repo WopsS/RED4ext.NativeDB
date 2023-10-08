@@ -2,7 +2,154 @@
   "parent": "VehicleEventsTransition",
   "name": "DriverCombatEvents",
   "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gameObject",
+      "name": "executionOwner",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "owner",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "newTargetComponent",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:entIPlacedComponent",
+      "name": "targetComponent",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "vehicleInTPP",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "driverCombatInTPP",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "targetComponentCallback",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "vehicleInTPPCallback",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "driverCombatInTPPCallback",
+      "flags": 4431413280
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "curTarget",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "curTargetHostile",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:FocusForcedHighlightData",
+      "name": "highlightData",
+      "flags": 4431413280
+    },
+    {
+      "type": "Bool",
+      "name": "requirePerspectiveUpdate",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "aimPressed",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "vehicleManeuversTime",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "exitReleasedTime",
+      "flags": 4297195552
+    }
+  ],
   "funcs": [
+    {
+      "fullName": "OnDriverCombatInTPPChange",
+      "shortName": "OnDriverCombatInTPPChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDriverCombatTargetChange",
+      "shortName": "OnDriverCombatTargetChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleInTPPChange",
+      "shortName": "OnVehicleInTPPChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ClearTarget;StateGameScriptInterface",
+      "shortName": "ClearTarget",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnAimChange;",
+      "shortName": "OnAimChange",
+      "flags": 33024
+    },
     {
       "fullName": "OnEnter;StateContextStateGameScriptInterface",
       "shortName": "OnEnter",
@@ -23,7 +170,7 @@
     {
       "fullName": "OnExit;StateContextStateGameScriptInterface",
       "shortName": "OnExit",
-      "flags": 33284,
+      "flags": 33024,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -38,9 +185,55 @@
       ]
     },
     {
+      "fullName": "OnForcedExit;StateContextStateGameScriptInterface",
+      "shortName": "OnForcedExit",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNewTargetAcquired;PlayerPuppetStateGameScriptInterface",
+      "shortName": "OnNewTargetAcquired",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "playerOwner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPerspectiveUpdate;StateGameScriptInterface",
+      "shortName": "OnPerspectiveUpdate",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUpdate;FloatStateContextStateGameScriptInterface",
       "shortName": "OnUpdate",
-      "flags": 33028,
+      "flags": 33024,
       "params": [
         {
           "type": "Float",
@@ -55,6 +248,81 @@
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestToggleVehicleDriverCombatCamera;StateGameScriptInterface",
+      "shortName": "RequestToggleVehicleDriverCombatCamera",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTargetHighlight;EAIAttitudeFocusForcedHighlightData",
+      "shortName": "SetTargetHighlight",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "EAIAttitude",
+          "name": "attitude",
+          "flags": 128
+        },
+        {
+          "type": "handle:FocusForcedHighlightData",
+          "name": "highlight",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateTargetHighlight;PlayerPuppet",
+      "shortName": "UpdateTargetHighlight",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "playerOwner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateVehicleManeuversPerk;StateGameScriptInterfaceFloat",
+      "shortName": "UpdateVehicleManeuversPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeDelta",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateWeaponData;StateGameScriptInterfacegamedataItemType",
+      "shortName": "UpdateWeaponData",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "gamedataItemType",
+          "name": "itemType",
           "flags": 128
         }
       ]

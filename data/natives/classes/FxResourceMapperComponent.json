@@ -4,18 +4,6 @@
   "flags": 4,
   "props": [
     {
-      "type": "array:SAreaEffectData",
-      "name": "areaEffectsData",
-      "group": "Area effects - OBSOLETE USE ONLY TO CORRECT DATA OF EXISTING EFFECTS",
-      "flags": 6583091232
-    },
-    {
-      "type": "array:SAreaEffectTargetData",
-      "name": "areaEffectsInFocusMode",
-      "group": "Area effects - OBSOLETE USE ONLY TO CORRECT DATA OF EXISTING EFFECTS",
-      "flags": 6583091232
-    },
-    {
       "type": "array:handle:AreaEffectData",
       "name": "areaEffectData",
       "group": "Area effects - DEFINE NEW EFFECTS HERE",
@@ -34,6 +22,12 @@
       "flags": 6650200101
     },
     {
+      "type": "array:handle:OptionalAreaEffectData",
+      "name": "optionalAreaEffectData",
+      "group": "Area effects - DEFINE NEW EFFECTS HERE",
+      "flags": 6583091237
+    },
+    {
       "type": "Bool",
       "name": "DEBUG_copiedDataFromEntity",
       "flags": 4297130016
@@ -41,6 +35,11 @@
     {
       "type": "Bool",
       "name": "DEBUG_copiedDataFromFXStruct",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isInitialized",
       "flags": 4297130016
     }
   ],
@@ -68,12 +67,33 @@
       ]
     },
     {
-      "fullName": "CopyDataToFxMapClass;array<SAreaEffectData>BoolBool",
+      "fullName": "CanCompareRanges;DeviceStimTypeDeviceStimType",
+      "shortName": "CanCompareRanges",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "DeviceStimType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "DeviceStimType",
+          "name": "currentType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CopyDataToFxMapClass;script_ref<array<SAreaEffectData>>BoolBool",
       "shortName": "CopyDataToFxMapClass",
       "flags": 33284,
       "params": [
         {
-          "type": "array:SAreaEffectData",
+          "type": "script_ref:array:SAreaEffectData",
           "name": "areaEffectsData",
           "flags": 128
         },
@@ -90,12 +110,12 @@
       ]
     },
     {
-      "fullName": "CopyEffectToFxMapClass;array<SAreaEffectTargetData>",
+      "fullName": "CopyEffectToFxMapClass;script_ref<array<SAreaEffectTargetData>>",
       "shortName": "CopyEffectToFxMapClass",
       "flags": 33284,
       "params": [
         {
-          "type": "array:SAreaEffectTargetData",
+          "type": "script_ref:array:SAreaEffectTargetData",
           "name": "areaEffectsInFocusMode",
           "flags": 128
         }
@@ -332,6 +352,68 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnGameAttach;",
+      "shortName": "OnGameAttach",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryAddOptionalAoeData;",
+      "shortName": "TryAddOptionalAoeData",
+      "flags": 32900
+    },
+    {
+      "fullName": "TryGetActionIndex;ScriptableDeviceActionInt32",
+      "shortName": "TryGetActionIndex",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "actionIndex",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "TryGetAreaEffectByAction;ScriptableDeviceActionAreaEffectData",
+      "shortName": "TryGetAreaEffectByAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "handle:AreaEffectData",
+          "name": "areaEffectData",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "TryInitialize;",
+      "shortName": "TryInitialize",
+      "flags": 32900
     }
   ]
 }

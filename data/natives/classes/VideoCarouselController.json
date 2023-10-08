@@ -1,0 +1,217 @@
+{
+  "parent": "inkWidgetLogicController",
+  "name": "VideoCarouselController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkTextWidgetReference",
+      "name": "videoTitleRef",
+      "group": "Video",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "videoDescriptionRef",
+      "group": "Video",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkVideoWidgetReference",
+      "name": "videoWidgetRef",
+      "group": "Video",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "switchLeftArrow",
+      "group": "Controls",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "switchRightArrow",
+      "group": "Controls",
+      "flags": 4297130017
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "switchDotIndicators",
+      "group": "Controls",
+      "flags": 6583025697
+    },
+    {
+      "type": "whandle:inkVideoWidget",
+      "name": "videoWidget",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkButtonController",
+      "name": "videoSwitchLeftArrow",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkButtonController",
+      "name": "videoSwitchRightArrow",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:VideoCarouselData",
+      "name": "videos",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "currentVideo",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isPaused",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnGlobalRelease",
+      "shortName": "OnGlobalRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnVideoFinished",
+      "shortName": "OnVideoFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkVideoWidget",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSwitchLeftArrowClicked;inkButtonControllerinkEButtonStateinkEButtonState",
+      "shortName": "OnSwitchLeftArrowClicked",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "inkEButtonState",
+          "name": "oldState",
+          "flags": 128
+        },
+        {
+          "type": "inkEButtonState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSwitchRightArrowClicked;inkButtonControllerinkEButtonStateinkEButtonState",
+      "shortName": "OnSwitchRightArrowClicked",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        },
+        {
+          "type": "inkEButtonState",
+          "name": "oldState",
+          "flags": 128
+        },
+        {
+          "type": "inkEButtonState",
+          "name": "newState",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PauseVideo;Bool",
+      "shortName": "PauseVideo",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "pause",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateVideos;array<VideoCarouselData>",
+      "shortName": "PopulateVideos",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "array:VideoCarouselData",
+          "name": "videos",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetSwitchDotIndicators;Int32",
+      "shortName": "SetSwitchDotIndicators",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SwapVideo;ECustomFilterDPadNavigationOption",
+      "shortName": "SwapVideo",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ECustomFilterDPadNavigationOption",
+          "name": "option",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

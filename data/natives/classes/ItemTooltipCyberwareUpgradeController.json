@@ -1,0 +1,298 @@
+{
+  "parent": "ItemTooltipModuleController",
+  "name": "ItemTooltipCyberwareUpgradeController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "componentsContainer",
+      "group": "Cost",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "moneyContainer",
+      "group": "Cost",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "moneyCostLabel",
+      "group": "Cost",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "upgradeProgressBarRef",
+      "group": "ProgressBar",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "upgradeCWInputName",
+      "group": "ProgressBar",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "progressEffectName",
+      "group": "ProgressBar",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "progressBarAnimName",
+      "group": "ProgressBar",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "ripperdocContainer",
+      "group": "Content",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "inventoryContainer",
+      "group": "Content",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "inputHint",
+      "group": "Content",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "rarityLabel",
+      "group": "Content",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "upgradeIconAnimName",
+      "group": "Content",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "reqNotMetAnimName",
+      "group": "Content",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "root",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:CrafringMaterialItemController",
+      "name": "componentsController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:CachedCraftingMaterial",
+      "name": "craftingMaterial",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isUpgradable",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isUpgradeScreen",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "upgradeIconAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "upgradeIconAnimOptions",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "upgradeProgressBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "progressStarted",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "progressBarAnimProxy",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUpgradeHold",
+      "shortName": "OnUpgradeHold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpgradePress",
+      "shortName": "OnUpgradePress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpgradeRelease",
+      "shortName": "OnUpgradeRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetUpdateLevelString;gamedataQuality",
+      "shortName": "GetUpdateLevelString",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "quality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVisible;",
+      "shortName": "IsVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "NEW_Update;UIInventoryItemPlayerPuppet",
+      "shortName": "NEW_Update",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "whandle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReplaceLabelText;String",
+      "shortName": "ReplaceLabelText",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "String",
+          "name": "text",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetProgress;",
+      "shortName": "ResetProgress",
+      "flags": 33284
+    },
+    {
+      "fullName": "Update;MinimalItemTooltipData",
+      "shortName": "Update",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:MinimalItemTooltipData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Update;InventoryTooltipData",
+      "shortName": "Update",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateData;InventoryTooltiData_CyberwareUpgradeData",
+      "shortName": "UpdateData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:InventoryTooltiData_CyberwareUpgradeData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

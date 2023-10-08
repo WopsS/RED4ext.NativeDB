@@ -4,6 +4,22 @@
   "flags": 5,
   "funcs": [
     {
+      "fullName": "DamageSystemHelper::DoQuickHacksPierceProtection;script_ref<HitShapeData>",
+      "shortName": "DoQuickHacksPierceProtection",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "script_ref:gameShapeData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DamageSystemHelper::GetHitShape;gameHitEvent",
       "shortName": "GetHitShape",
       "return": {
@@ -20,7 +36,7 @@
       ]
     },
     {
-      "fullName": "DamageSystemHelper::GetHitShapeTypeFromData;HitShapeData",
+      "fullName": "DamageSystemHelper::GetHitShapeTypeFromData;script_ref<HitShapeData>",
       "shortName": "GetHitShapeTypeFromData",
       "return": {
         "type": "EHitShapeType",
@@ -29,14 +45,14 @@
       "flags": 33286,
       "params": [
         {
-          "type": "gameShapeData",
+          "type": "script_ref:gameShapeData",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "DamageSystemHelper::GetHitShapeUserDataBase;HitShapeData",
+      "fullName": "DamageSystemHelper::GetHitShapeUserDataBase;script_ref<HitShapeData>",
       "shortName": "GetHitShapeUserDataBase",
       "return": {
         "type": "handle:HitShapeUserDataBase",
@@ -45,17 +61,43 @@
       "flags": 33286,
       "params": [
         {
-          "type": "gameShapeData",
+          "type": "script_ref:gameShapeData",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "DamageSystemHelper::GetLocalizedDamageMultiplier;EHitShapeType",
+      "fullName": "DamageSystemHelper::GetLocalizedDamageMultiplier;EHitShapeTypeFloatBool",
       "shortName": "GetLocalizedDamageMultiplier",
       "return": {
         "type": "Float",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "EHitShapeType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "armorPenetration",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "useModernFormula",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DamageSystemHelper::IsHitShapeArmored;EHitShapeType",
+      "shortName": "IsHitShapeArmored",
+      "return": {
+        "type": "Bool",
         "flags": 64
       },
       "flags": 33286,
@@ -68,7 +110,7 @@
       ]
     },
     {
-      "fullName": "DamageSystemHelper::IsProtectionLayer;HitShapeData",
+      "fullName": "DamageSystemHelper::IsProtectionLayer;script_ref<HitShapeData>",
       "shortName": "IsProtectionLayer",
       "return": {
         "type": "Bool",
@@ -77,7 +119,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "gameShapeData",
+          "type": "script_ref:gameShapeData",
           "name": "data",
           "flags": 128
         }

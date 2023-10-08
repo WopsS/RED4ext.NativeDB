@@ -32,9 +32,50 @@
       "type": "handle:GameplayRoleMappinData",
       "name": "data",
       "flags": 4431347744
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "queueQuickHackWidgets",
+      "flags": 6583025697
+    },
+    {
+      "type": "array:whandle:QuickHackQueueItem",
+      "name": "queueQuickHackControllers",
+      "flags": 6583025696
+    },
+    {
+      "type": "array:handle:GameplayRoleMappinData",
+      "name": "mappinDataQueue",
+      "flags": 6583025696
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animUpload",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animQueue",
+      "flags": 4431347744
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnDequeueQuickHackEvent",
+      "shortName": "OnDequeueQuickHackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DequeueQuickHackEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -75,6 +116,59 @@
       ]
     },
     {
+      "fullName": "OnQueueMovedUp",
+      "shortName": "OnQueueMovedUp",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQueueQuickHackEvent",
+      "shortName": "OnQueueQuickHackEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QueueQuickHackEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUploadCompleteFinished",
+      "shortName": "OnUploadCompleteFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Fold;",
+      "shortName": "Fold",
+      "flags": 33284
+    },
+    {
       "fullName": "GetVisualData;",
       "shortName": "GetVisualData",
       "return": {
@@ -113,9 +207,24 @@
       ]
     },
     {
+      "fullName": "Unfold;",
+      "shortName": "Unfold",
+      "flags": 33284
+    },
+    {
+      "fullName": "UpdateQueue;",
+      "shortName": "UpdateQueue",
+      "flags": 33284
+    },
+    {
       "fullName": "UpdateView;",
       "shortName": "UpdateView",
       "flags": 32900
+    },
+    {
+      "fullName": "UploadComplete;",
+      "shortName": "UploadComplete",
+      "flags": 33284
     }
   ]
 }

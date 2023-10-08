@@ -4,11 +4,6 @@
   "flags": 4,
   "props": [
     {
-      "type": "DroppedThreatData",
-      "name": "droppedThreatData",
-      "flags": 4297130016
-    },
-    {
       "type": "array:handle:AICombatSquadScriptInterface",
       "name": "trackedCombatSquads",
       "flags": 6583025696
@@ -62,27 +57,6 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::Get;ScriptedPuppetTargetTrackerComponent",
-      "shortName": "Get",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "puppet",
-          "flags": 128
-        },
-        {
-          "type": "whandle:AITargetTrackerComponent",
-          "name": "targetTracker",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "TargetTrackingExtension::Get;ScriptExecutionContextTargetTrackerComponent",
       "shortName": "Get",
       "return": {
@@ -104,8 +78,8 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::GetHostileThreats;ScriptedPuppetBoolarray<TrackedLocation>",
-      "shortName": "GetHostileThreats",
+      "fullName": "TargetTrackingExtension::Get;ScriptedPuppetTargetTrackerComponent",
+      "shortName": "Get",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -118,19 +92,14 @@
           "flags": 128
         },
         {
-          "type": "Bool",
-          "name": "visible",
-          "flags": 128
-        },
-        {
-          "type": "array:AITrackedLocation",
-          "name": "trackedLocations",
+          "type": "whandle:AITargetTrackerComponent",
+          "name": "targetTracker",
           "flags": 640
         }
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::GetHostileThreats;ScriptExecutionContextBoolarray<TrackedLocation>",
+      "fullName": "TargetTrackingExtension::GetHostileThreats;ScriptExecutionContextBoolscript_ref<array<TrackedLocation>>",
       "shortName": "GetHostileThreats",
       "return": {
         "type": "Bool",
@@ -149,14 +118,40 @@
           "flags": 128
         },
         {
-          "type": "array:AITrackedLocation",
+          "type": "script_ref:array:AITrackedLocation",
           "name": "trackedLocations",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::GetPlayerFromThreats;array<TrackedLocation>GameObject",
+      "fullName": "TargetTrackingExtension::GetHostileThreats;ScriptedPuppetBoolscript_ref<array<TrackedLocation>>",
+      "shortName": "GetHostileThreats",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "visible",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:AITrackedLocation",
+          "name": "trackedLocations",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TargetTrackingExtension::GetPlayerFromThreats;script_ref<array<TrackedLocation>>GameObject",
       "shortName": "GetPlayerFromThreats",
       "return": {
         "type": "Bool",
@@ -165,7 +160,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "array:AITrackedLocation",
+          "type": "script_ref:array:AITrackedLocation",
           "name": "hostileThreats",
           "flags": 128
         },
@@ -224,32 +219,6 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptedPuppetEntityTrackedLocation",
-      "shortName": "GetTrackedLocation",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "puppet",
-          "flags": 128
-        },
-        {
-          "type": "whandle:entEntity",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "AITrackedLocation",
-          "name": "trackedLocation",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptExecutionContextEntityTrackedLocation",
       "shortName": "GetTrackedLocation",
       "return": {
@@ -276,7 +245,33 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::HasHostileThreat;ScriptedPuppetBool",
+      "fullName": "TargetTrackingExtension::GetTrackedLocation;ScriptedPuppetEntityTrackedLocation",
+      "shortName": "GetTrackedLocation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "whandle:entEntity",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "AITrackedLocation",
+          "name": "trackedLocation",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "TargetTrackingExtension::HasHostileThreat;ScriptedPuppetBoolBool",
       "shortName": "HasHostileThreat",
       "return": {
         "type": "Bool",
@@ -293,11 +288,16 @@
           "type": "Bool",
           "name": "onlyVisible",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "onlyEntities",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::InjectThreat;ScriptedPuppetEntity",
+      "fullName": "TargetTrackingExtension::InjectThreat;ScriptedPuppetscript_ref<TrackedLocation>",
       "shortName": "InjectThreat",
       "flags": 33286,
       "params": [
@@ -307,7 +307,7 @@
           "flags": 128
         },
         {
-          "type": "whandle:entEntity",
+          "type": "script_ref:AITrackedLocation",
           "name": "threat",
           "flags": 128
         }
@@ -341,7 +341,7 @@
       ]
     },
     {
-      "fullName": "TargetTrackingExtension::InjectThreat;ScriptedPuppetTrackedLocation",
+      "fullName": "TargetTrackingExtension::InjectThreat;ScriptedPuppetEntity",
       "shortName": "InjectThreat",
       "flags": 33286,
       "params": [
@@ -351,8 +351,30 @@
           "flags": 128
         },
         {
-          "type": "AITrackedLocation",
+          "type": "whandle:entEntity",
           "name": "threat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TargetTrackingExtension::InjectThreat;ScriptedPuppetVector4Float",
+      "shortName": "InjectThreat",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "pos",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "timeToLive",
           "flags": 128
         }
       ]
@@ -418,6 +440,28 @@
         {
           "type": "whandle:entEntity",
           "name": "threat",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TargetTrackingExtension::SetCurrentThreatsPersistence;ScriptedPuppetBoolUint32",
+      "shortName": "SetCurrentThreatsPersistence",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isPersistent",
+          "flags": 128
+        },
+        {
+          "type": "Uint32",
+          "name": "persistenceSource",
           "flags": 128
         }
       ]
@@ -626,6 +670,22 @@
       ]
     },
     {
+      "fullName": "OnStoppedBeingTrackedAsHostile",
+      "shortName": "OnStoppedBeingTrackedAsHostile",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:AIStoppedBeingTrackedAsHostile",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnThreatRemoved",
       "shortName": "OnThreatRemoved",
       "return": {
@@ -650,27 +710,6 @@
           "type": "whandle:gameObject",
           "name": "target",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "GetDroppedThreat;GameInstanceDroppedThreatData",
-      "shortName": "GetDroppedThreat",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "game",
-          "flags": 128
-        },
-        {
-          "type": "DroppedThreatData",
-          "name": "threatData",
-          "flags": 640
         }
       ]
     },
@@ -737,41 +776,9 @@
       ]
     },
     {
-      "fullName": "ResetRecentlyDroppedThreat;",
-      "shortName": "ResetRecentlyDroppedThreat",
-      "flags": 33284
-    },
-    {
       "fullName": "RevaluateTrackedSquads;",
       "shortName": "RevaluateTrackedSquads",
       "flags": 32900
-    },
-    {
-      "fullName": "SetRecentlyDroppedThreat;GameInstanceEntityVector4Float",
-      "shortName": "SetRecentlyDroppedThreat",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "game",
-          "flags": 128
-        },
-        {
-          "type": "handle:entEntity",
-          "name": "threat",
-          "flags": 128
-        },
-        {
-          "type": "Vector4",
-          "name": "position",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "validFor",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "SquadTrackedMembersAmount;CombatSquadScriptInterface",

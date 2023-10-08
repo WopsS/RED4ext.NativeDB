@@ -69,11 +69,6 @@
       "flags": 4297130016
     },
     {
-      "type": "array:RadioStationsMap",
-      "name": "stations",
-      "flags": 6583091232
-    },
-    {
       "type": "Int32",
       "name": "cachedGoToFloorAction",
       "flags": 4565565472
@@ -137,7 +132,7 @@
       ]
     },
     {
-      "fullName": "ActionGoToFloor;Int32Int32Int32StringBool",
+      "fullName": "ActionGoToFloor;Int32Int32Int32script_ref<String>Bool",
       "shortName": "ActionGoToFloor",
       "return": {
         "type": "handle:GoToFloor",
@@ -161,7 +156,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "displayFloor",
           "flags": 128
         },
@@ -386,27 +381,6 @@
       ]
     },
     {
-      "fullName": "CreateRadioStation;CNameString",
-      "shortName": "CreateRadioStation",
-      "return": {
-        "type": "RadioStationsMap",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "CName",
-          "name": "SoundEvt",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "ChannelName",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "EvaluateFloors;",
       "shortName": "EvaluateFloors",
       "flags": 32900
@@ -492,7 +466,7 @@
       "flags": 33280
     },
     {
-      "fullName": "GetDeviceWidget;GetActionsContext",
+      "fullName": "GetDeviceWidget;script_ref<GetActionsContext>",
       "shortName": "GetDeviceWidget",
       "return": {
         "type": "SDeviceWidgetPackage",
@@ -501,11 +475,29 @@
       "flags": 33280,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetExtraFX;",
+      "shortName": "GetExtraFX",
+      "return": {
+        "type": "EffectFiringData",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetExtraVerificationErrorMargin;",
+      "shortName": "GetExtraVerificationErrorMargin",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetFloorAuthorizationFromSlaves;",
@@ -575,7 +567,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetInkWidgetTweakDBID;GetActionsContext",
+      "fullName": "GetInkWidgetTweakDBID;script_ref<GetActionsContext>",
       "shortName": "GetInkWidgetTweakDBID",
       "return": {
         "type": "TweakDBID",
@@ -584,7 +576,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -627,6 +619,15 @@
       "flags": 41476
     },
     {
+      "fullName": "GetMovingCurve;",
+      "shortName": "GetMovingCurve",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetQuestActionByName;CName",
       "shortName": "GetQuestActionByName",
       "return": {
@@ -643,7 +644,7 @@
       ]
     },
     {
-      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuestActions",
       "flags": 33280,
       "params": [
@@ -653,14 +654,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
@@ -670,7 +671,7 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -704,20 +705,13 @@
       "flags": 41476
     },
     {
-      "fullName": "GetStationByIndex;Int32",
-      "shortName": "GetStationByIndex",
+      "fullName": "GetTargetFloor;",
+      "shortName": "GetTargetFloor",
       "return": {
-        "type": "RadioStationsMap",
+        "type": "Int32",
         "flags": 64
       },
-      "flags": 33284,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "index",
-          "flags": 128
-        }
-      ]
+      "flags": 41476
     },
     {
       "fullName": "GetTimeWhenPaused;",
@@ -745,11 +739,6 @@
     {
       "fullName": "InitializeFloorsData;",
       "shortName": "InitializeFloorsData",
-      "flags": 32900
-    },
-    {
-      "fullName": "InitializeRadioStations;",
-      "shortName": "InitializeRadioStations",
       "flags": 32900
     },
     {
@@ -1408,6 +1397,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ShouldUseExtraVerification;",
+      "shortName": "ShouldUseExtraVerification",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "SyncDataWithFloorTerminal;Int32",

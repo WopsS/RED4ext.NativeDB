@@ -1,0 +1,337 @@
+{
+  "parent": "gameScriptableComponent",
+  "name": "ChimeraComponent",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:NPCPuppet",
+      "name": "owner",
+      "flags": 4297130016
+    },
+    {
+      "type": "entEntityID",
+      "name": "ownerId",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameStatPoolsSystem",
+      "name": "statPoolSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:entSimpleColliderComponent",
+      "name": "npcDeathCollisionComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameTargetingComponent",
+      "name": "targetingBody",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ChimeraHealthChangeListener",
+      "name": "healthListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "defeatedOnAttach",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameWeakspotComponent",
+      "name": "weakspotComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "array:whandle:gameWeakspotObject",
+      "name": "weakspots",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "weakspotsInvulnerable",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "weakspotsDelay",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:AITargetTrackerComponent",
+      "name": "targetTrackerComponent",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnAudioEvent",
+      "shortName": "OnAudioEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:entAudioEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChangeToPhase2",
+      "shortName": "OnChangeToPhase2",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ChangeToPhase2DelayedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChangeToPhase3",
+      "shortName": "OnChangeToPhase3",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ChangeToPhase3DelayedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnChimeraWeakspotDelayedEvent",
+      "shortName": "OnChimeraWeakspotDelayedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ChimeraWeakspotDelayedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeath",
+      "shortName": "OnDeath",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEnableGasCloud",
+      "shortName": "OnEnableGasCloud",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:EnableGasCloudDelayedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectApplied",
+      "shortName": "OnStatusEffectApplied",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStatusEffectRemoved",
+      "shortName": "OnStatusEffectRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsRemoveStatusEffect",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ApplyPhase2;",
+      "shortName": "ApplyPhase2",
+      "flags": 33284
+    },
+    {
+      "fullName": "ApplyPhase3;",
+      "shortName": "ApplyPhase3",
+      "flags": 33284
+    },
+    {
+      "fullName": "DestroyAllWeakspots;",
+      "shortName": "DestroyAllWeakspots",
+      "flags": 32900
+    },
+    {
+      "fullName": "DisableAllHitShapes;",
+      "shortName": "DisableAllHitShapes",
+      "flags": 33028
+    },
+    {
+      "fullName": "DisablePhase1HitShapes;",
+      "shortName": "DisablePhase1HitShapes",
+      "flags": 33028
+    },
+    {
+      "fullName": "EnableGasCloud;",
+      "shortName": "EnableGasCloud",
+      "flags": 33284
+    },
+    {
+      "fullName": "EnablePhase1HitShapes;",
+      "shortName": "EnablePhase1HitShapes",
+      "flags": 33028
+    },
+    {
+      "fullName": "EnablePhase2HeadVulnerable;",
+      "shortName": "EnablePhase2HeadVulnerable",
+      "flags": 33028
+    },
+    {
+      "fullName": "EnablePhase2HitShapes;",
+      "shortName": "EnablePhase2HitShapes",
+      "flags": 33028
+    },
+    {
+      "fullName": "EnsureWeakspotsInitialized;",
+      "shortName": "EnsureWeakspotsInitialized",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "OnGameAttach;",
+      "shortName": "OnGameAttach",
+      "flags": 33284
+    },
+    {
+      "fullName": "OnGameDetach;",
+      "shortName": "OnGameDetach",
+      "flags": 33284
+    },
+    {
+      "fullName": "RemoveWeakspotsInvulnerable;",
+      "shortName": "RemoveWeakspotsInvulnerable",
+      "flags": 33284
+    },
+    {
+      "fullName": "SetPercentLifeForPhase;Float",
+      "shortName": "SetPercentLifeForPhase",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetWeakspotsInvulnerable;",
+      "shortName": "SetWeakspotsInvulnerable",
+      "flags": 33284
+    },
+    {
+      "fullName": "WithdrawHealthPercentage;NPCPuppetFloat",
+      "shortName": "WithdrawHealthPercentage",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:NPCPuppet",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "valueToSet",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

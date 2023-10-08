@@ -39,6 +39,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameIBlackboard",
+      "name": "prereqsBlackboard",
+      "flags": 4297130016
+    },
+    {
       "type": "Uint32",
       "name": "friendlyFireCheckID",
       "flags": 4297130016
@@ -114,6 +119,16 @@
       "flags": 4297130016
     },
     {
+      "type": "entEntityID",
+      "name": "lastReservedSeatVehicle",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "assignedVehicleStuck",
+      "flags": 4297130016
+    },
+    {
       "type": "AIbehaviorUniqueActiveCommandList",
       "name": "activeCommands",
       "flags": 4297130016
@@ -163,27 +178,6 @@
       ]
     },
     {
-      "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetMountingSlotId",
-      "shortName": "GetLastUsedVehicleSlot",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "owner",
-          "flags": 128
-        },
-        {
-          "type": "gamemountingMountingSlotId",
-          "name": "vehicleSlot",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetCName",
       "shortName": "GetLastUsedVehicleSlot",
       "return": {
@@ -200,6 +194,27 @@
         {
           "type": "CName",
           "name": "vehicleSlotName",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AIHumanComponent::GetLastUsedVehicleSlot;ScriptedPuppetMountingSlotId",
+      "shortName": "GetLastUsedVehicleSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamemountingMountingSlotId",
+          "name": "vehicleSlot",
           "flags": 640
         }
       ]
@@ -249,7 +264,7 @@
         "type": "entEntityID",
         "flags": 64
       },
-      "index": 10670,
+      "index": 12960,
       "flags": 8193
     },
     {
@@ -259,7 +274,7 @@
         "type": "gamemountingMountingSlotId",
         "flags": 64
       },
-      "index": 10671,
+      "index": 12961,
       "flags": 8193
     },
     {
@@ -269,7 +284,7 @@
         "type": "moveMovementParameters",
         "flags": 64
       },
-      "index": 10666,
+      "index": 12957,
       "flags": 1,
       "params": [
         {
@@ -280,39 +295,19 @@
       ]
     },
     {
-      "fullName": "GetNPCRarity",
-      "shortName": "GetNPCRarity",
-      "return": {
-        "type": "gamedataNPCRarity",
-        "flags": 64
-      },
-      "index": 10668,
-      "flags": 8193
-    },
-    {
       "fullName": "HasVehicleAssigned",
       "shortName": "HasVehicleAssigned",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "index": 10672,
-      "flags": 8193
-    },
-    {
-      "fullName": "IsOfficer",
-      "shortName": "IsOfficer",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "index": 10669,
+      "index": 12962,
       "flags": 8193
     },
     {
       "fullName": "SetMovementParams",
       "shortName": "SetMovementParams",
-      "index": 10665,
+      "index": 12956,
       "flags": 1,
       "params": [
         {
@@ -329,7 +324,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 10667,
+      "index": 12958,
       "flags": 1,
       "params": [
         {
@@ -338,6 +333,16 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "WasForcedToEnterCrowd",
+      "shortName": "WasForcedToEnterCrowd",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 12959,
+      "flags": 1
     },
     {
       "fullName": "OnAnimParamsEvent",
@@ -484,6 +489,22 @@
       ]
     },
     {
+      "fullName": "OnReserveAssignedSeat",
+      "shortName": "OnReserveAssignedSeat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ReserveAssignedSeat",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetScriptExecutionContext",
       "shortName": "OnSetScriptExecutionContext",
       "return": {
@@ -542,6 +563,22 @@
       "params": [
         {
           "type": "handle:gameeventsApplyStatusEffectEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnStuckEvent",
+      "shortName": "OnStuckEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:vehicleVehicleStuckEvent",
           "name": "evt",
           "flags": 128
         }
@@ -627,7 +664,7 @@
       ]
     },
     {
-      "fullName": "CheckTweakCondition;String",
+      "fullName": "CheckTweakCondition;script_ref<String>",
       "shortName": "CheckTweakCondition",
       "return": {
         "type": "Bool",
@@ -636,7 +673,7 @@
       "flags": 41476,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "ActionConditionName",
           "flags": 128
         }
@@ -698,6 +735,15 @@
     {
       "fullName": "GetAIPatrolBlackboard;",
       "shortName": "GetAIPatrolBlackboard",
+      "return": {
+        "type": "handle:gameIBlackboard",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetAIPrereqsBlackboard;",
+      "shortName": "GetAIPrereqsBlackboard",
       "return": {
         "type": "handle:gameIBlackboard",
         "flags": 64
@@ -933,6 +979,36 @@
       "flags": 33284
     },
     {
+      "fullName": "GetVehicleHandle;EntityIDVehicleObject",
+      "shortName": "GetVehicleHandle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "handle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "IsAssignedVehicleStuck;",
+      "shortName": "IsAssignedVehicleStuck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsCommandActive;CName",
       "shortName": "IsCommandActive",
       "return": {
@@ -965,22 +1041,6 @@
       ]
     },
     {
-      "fullName": "IsCommandReceivedOrOverriden;Uint32",
-      "shortName": "IsCommandReceivedOrOverriden",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "Uint32",
-          "name": "commandID",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "IsCommandReceivedOrOverriden;CName",
       "shortName": "IsCommandReceivedOrOverriden",
       "return": {
@@ -992,6 +1052,22 @@
         {
           "type": "CName",
           "name": "commandClassName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsCommandReceivedOrOverriden;Uint32",
+      "shortName": "IsCommandReceivedOrOverriden",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "commandID",
           "flags": 128
         }
       ]
@@ -1078,6 +1154,18 @@
       "flags": 33924
     },
     {
+      "fullName": "OnSeatReserved;EntityID",
+      "shortName": "OnSeatReserved",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSignalCombatQueriesRequest;Uint16Bool",
       "shortName": "OnSignalCombatQueriesRequest",
       "flags": 34308,
@@ -1110,6 +1198,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ReleaseReservedSeat;",
+      "shortName": "ReleaseReservedSeat",
+      "flags": 33284
     },
     {
       "fullName": "ResetBehaviorCoverArguments;",

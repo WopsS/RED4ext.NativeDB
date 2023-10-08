@@ -79,7 +79,7 @@
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetClosestIndexInRange;ScriptExecutionContextFloatFloatarray<Float>FloatFloatarray<Float>array<Vector4>array<CName>Vector4",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetClosestIndexInRange;ScriptExecutionContextFloatFloatscript_ref<array<Float>>FloatFloatscript_ref<array<Float>>array<Vector4>script_ref<array<CName>>Vector4Bool",
       "shortName": "GetClosestIndexInRange",
       "return": {
         "type": "Int32",
@@ -94,17 +94,17 @@
         },
         {
           "type": "Float",
-          "name": "minDistance",
+          "name": "minOwnerDistance",
           "flags": 128
         },
         {
           "type": "Float",
-          "name": "maxDistance",
+          "name": "maxOwnerDistance",
           "flags": 128
         },
         {
-          "type": "array:Float",
-          "name": "distances",
+          "type": "script_ref:array:Float",
+          "name": "ownerDistances",
           "flags": 128
         },
         {
@@ -118,17 +118,17 @@
           "flags": 128
         },
         {
-          "type": "array:Float",
+          "type": "script_ref:array:Float",
           "name": "distancesObj",
           "flags": 128
         },
         {
           "type": "array:Vector4",
           "name": "targetsPosition",
-          "flags": 1152
+          "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "allowedOffMeshTags",
           "flags": 128
         },
@@ -136,11 +136,16 @@
           "type": "Vector4",
           "name": "lineOfSightTarget",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "blockLoSByNonPenetrableObj",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetDistancesFromEntity;ScriptExecutionContextarray<Entity>array<Float>",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetDistancesFromEntity;ScriptExecutionContextscript_ref<array<Entity>>script_ref<array<Float>>",
       "shortName": "GetDistancesFromEntity",
       "return": {
         "type": "Bool",
@@ -154,20 +159,20 @@
           "flags": 128
         },
         {
-          "type": "array:handle:entEntity",
+          "type": "script_ref:array:handle:entEntity",
           "name": "targets",
           "flags": 128
         },
         {
-          "type": "array:Float",
+          "type": "script_ref:array:Float",
           "name": "distances",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetDistancesFromPosition;ScriptExecutionContextarray<Vector4>array<Float>",
-      "shortName": "GetDistancesFromPosition",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetDistancesFromTargetToPositions;ScriptExecutionContextVector4script_ref<array<Vector4>>script_ref<array<Float>>",
+      "shortName": "GetDistancesFromTargetToPositions",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -180,19 +185,24 @@
           "flags": 128
         },
         {
-          "type": "array:Vector4",
-          "name": "targets",
+          "type": "Vector4",
+          "name": "target",
           "flags": 128
         },
         {
-          "type": "array:Float",
-          "name": "distances",
-          "flags": 640
+          "type": "script_ref:array:Vector4",
+          "name": "positions",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Float",
+          "name": "outDistances",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetFarthestIndexInRange;ScriptExecutionContextFloatFloatarray<Float>FloatFloatarray<Float>array<Vector4>array<CName>Vector4",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetFarthestIndexInRange;ScriptExecutionContextFloatFloatscript_ref<array<Float>>FloatFloatscript_ref<array<Float>>array<Vector4>script_ref<array<CName>>Vector4Bool",
       "shortName": "GetFarthestIndexInRange",
       "return": {
         "type": "Int32",
@@ -207,17 +217,17 @@
         },
         {
           "type": "Float",
-          "name": "minDistance",
+          "name": "minOwnerDistance",
           "flags": 128
         },
         {
           "type": "Float",
-          "name": "maxDistance",
+          "name": "maxOwnerDistance",
           "flags": 128
         },
         {
-          "type": "array:Float",
-          "name": "distances",
+          "type": "script_ref:array:Float",
+          "name": "ownerDistances",
           "flags": 128
         },
         {
@@ -231,17 +241,17 @@
           "flags": 128
         },
         {
-          "type": "array:Float",
+          "type": "script_ref:array:Float",
           "name": "distancesObj",
           "flags": 128
         },
         {
           "type": "array:Vector4",
           "name": "targetsPosition",
-          "flags": 1152
+          "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "allowedOffMeshTags",
           "flags": 128
         },
@@ -249,11 +259,16 @@
           "type": "Vector4",
           "name": "lineOfSightTarget",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "blockLoSByNonPenetrableObj",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetPositionsFromEntity;ScriptExecutionContextarray<Entity>array<Vector4>",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetPositionsFromEntity;ScriptExecutionContextscript_ref<array<Entity>>script_ref<array<Vector4>>",
       "shortName": "GetPositionsFromEntity",
       "return": {
         "type": "Bool",
@@ -267,19 +282,19 @@
           "flags": 128
         },
         {
-          "type": "array:handle:entEntity",
+          "type": "script_ref:array:handle:entEntity",
           "name": "targets",
           "flags": 128
         },
         {
-          "type": "array:Vector4",
+          "type": "script_ref:array:Vector4",
           "name": "positions",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetRandomIndexInRange;ScriptExecutionContextFloatFloatarray<Float>FloatFloatarray<Float>array<CName>array<Vector4>Vector4",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::GetRandomIndexInRange;ScriptExecutionContextFloatFloatscript_ref<array<Float>>FloatFloatscript_ref<array<Float>>script_ref<array<CName>>array<Vector4>Vector4Bool",
       "shortName": "GetRandomIndexInRange",
       "return": {
         "type": "Int32",
@@ -294,17 +309,17 @@
         },
         {
           "type": "Float",
-          "name": "minDistance",
+          "name": "minOwnerDistance",
           "flags": 128
         },
         {
           "type": "Float",
-          "name": "maxDistance",
+          "name": "maxOwnerDistance",
           "flags": 128
         },
         {
-          "type": "array:Float",
-          "name": "distances",
+          "type": "script_ref:array:Float",
+          "name": "ownerDistances",
           "flags": 128
         },
         {
@@ -318,12 +333,12 @@
           "flags": 128
         },
         {
-          "type": "array:Float",
+          "type": "script_ref:array:Float",
           "name": "distancesObj",
           "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "allowedOffMeshTags",
           "flags": 128
         },
@@ -336,11 +351,16 @@
           "type": "Vector4",
           "name": "lineOfSightTarget",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "blockLoSByNonPenetrableObj",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionSetTargetByTag_Record_Implementation::SelectIndex;ScriptExecutionContextCNameFloatFloatarray<Float>FloatFloatarray<Float>array<Vector4>array<CName>Vector4",
+      "fullName": "AISubActionSetTargetByTag_Record_Implementation::SelectIndex;ScriptExecutionContextCNameFloatFloatscript_ref<array<Float>>FloatFloatscript_ref<array<Float>>array<Vector4>script_ref<array<CName>>Vector4Bool",
       "shortName": "SelectIndex",
       "return": {
         "type": "Int32",
@@ -369,7 +389,7 @@
           "flags": 128
         },
         {
-          "type": "array:Float",
+          "type": "script_ref:array:Float",
           "name": "distances",
           "flags": 128
         },
@@ -384,7 +404,7 @@
           "flags": 128
         },
         {
-          "type": "array:Float",
+          "type": "script_ref:array:Float",
           "name": "distancesObj",
           "flags": 128
         },
@@ -394,13 +414,18 @@
           "flags": 1152
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "allowedOffMeshTags",
           "flags": 128
         },
         {
           "type": "Vector4",
           "name": "lineOfSightTarget",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "blockLoSByNonPenetrableObj",
           "flags": 128
         }
       ]

@@ -1,0 +1,491 @@
+{
+  "parent": "inkVirtualCompoundItemController",
+  "name": "SimpleQuestListItemController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkTextWidgetReference",
+      "name": "title",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "description",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "typeIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "difficultIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "fixerIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "ep1Icon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "toggleAnimatedIndicator",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "hoverIndicator",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "questItemFrame",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "questItemBg",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "questItemBgButton",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "distanceContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "defaultDistance",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "trackedDistance",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "isNewMarker",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "toggleMarkAnimation",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "trackMarkAnimation",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "distanceAnim_toDefault",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "distanceAnim_toHover",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "distanceAnim_toTracked",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "distanceAnim_toHover_delay",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "pinIcon_toHover",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "pinIcon_toDefault",
+      "flags": 4297130017
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "toggleOnAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "toggleOffAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "pinIconAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "distanceMarkerAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:QuestListItemData",
+      "name": "data",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameJournalQuest",
+      "name": "openedQuest",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hovered",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "toggled",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "tracked",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkWidget",
+      "name": "rootWidget",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnDataChanged",
+      "shortName": "OnDataChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeselected",
+      "shortName": "OnDeselected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHideToggledIconAnimFinished",
+      "shortName": "OnHideToggledIconAnimFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOut",
+      "shortName": "OnHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHoverOver",
+      "shortName": "OnHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnPress",
+      "shortName": "OnPress",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestlListItemSelected",
+      "shortName": "OnQuestlListItemSelected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestlListItemSelected",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSelected",
+      "shortName": "OnSelected",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "discreteNav",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggledOff",
+      "shortName": "OnToggledOff",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggledOn",
+      "shortName": "OnToggledOn",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkVirtualCompoundItemController",
+          "name": "itemController",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTrackBtnHoverOut",
+      "shortName": "OnTrackBtnHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTrackBtnHoverOver",
+      "shortName": "OnTrackBtnHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTrackBtnRelease",
+      "shortName": "OnTrackBtnRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUnnitialize",
+      "shortName": "OnUnnitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnUpdateOpenedQuestEvent",
+      "shortName": "OnUpdateOpenedQuestEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:UpdateOpenedQuestEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUpdateTrackedObjectiveEvent",
+      "shortName": "OnUpdateTrackedObjectiveEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:UpdateTrackedObjectiveEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayDistanceMarkerAnimation;CNameBoolBool",
+      "shortName": "PlayDistanceMarkerAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "targetAnimation",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "playReversed",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "PlayToggleIconAnimation;BoolBool",
+      "shortName": "PlayToggleIconAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "instant",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateDistancesText;",
+      "shortName": "UpdateDistancesText",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateFixerData;",
+      "shortName": "UpdateFixerData",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateState;",
+      "shortName": "UpdateState",
+      "flags": 32900
+    }
+  ]
+}

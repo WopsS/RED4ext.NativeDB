@@ -1,5 +1,5 @@
 {
-  "parent": "AGenericTooltipController",
+  "parent": "AGenericTooltipControllerWithDebug",
   "name": "ItemTooltipController",
   "flags": 4,
   "props": [
@@ -414,11 +414,6 @@
       "flags": 4297195553
     },
     {
-      "type": "Bool",
-      "name": "DEBUG_showAdditionalInfo",
-      "flags": 4297195552
-    },
-    {
       "type": "handle:InventoryTooltipData",
       "name": "data",
       "flags": 4431413280
@@ -436,38 +431,6 @@
   ],
   "funcs": [
     {
-      "fullName": "OnGlobalPress",
-      "shortName": "OnGlobalPress",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGlobalRelease",
-      "shortName": "OnGlobalRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnIconCallback",
       "shortName": "OnIconCallback",
       "return": {
@@ -484,30 +447,12 @@
       ]
     },
     {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
+      "fullName": "DEBUG_UpdateDebugInfo;",
+      "shortName": "DEBUG_UpdateDebugInfo",
+      "flags": 33024
     },
     {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
-    },
-    {
-      "fullName": "DEBUG_UpdateIconErrorInfo;",
-      "shortName": "DEBUG_UpdateIconErrorInfo",
-      "flags": 33028
-    },
-    {
-      "fullName": "FilterArmorStat;array<InventoryTooltipData_StatData>",
+      "fullName": "FilterArmorStat;script_ref<array<InventoryTooltipData_StatData>>",
       "shortName": "FilterArmorStat",
       "return": {
         "type": "array:InventoryTooltipData_StatData",
@@ -516,14 +461,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:InventoryTooltipData_StatData",
+          "type": "script_ref:array:InventoryTooltipData_StatData",
           "name": "stats",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "FilterGrenadeStats;array<InventoryTooltipData_StatData>",
+      "fullName": "FilterGrenadeStats;script_ref<array<InventoryTooltipData_StatData>>",
       "shortName": "FilterGrenadeStats",
       "return": {
         "type": "array:InventoryTooltipData_StatData",
@@ -532,14 +477,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:InventoryTooltipData_StatData",
+          "type": "script_ref:array:InventoryTooltipData_StatData",
           "name": "stats",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "FilterStatsWithValue;array<InventoryTooltipData_StatData>",
+      "fullName": "FilterStatsWithValue;script_ref<array<InventoryTooltipData_StatData>>",
       "shortName": "FilterStatsWithValue",
       "return": {
         "type": "array:InventoryTooltipData_StatData",
@@ -548,7 +493,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:InventoryTooltipData_StatData",
+          "type": "script_ref:array:InventoryTooltipData_StatData",
           "name": "stats",
           "flags": 128
         }
@@ -681,12 +626,12 @@
       ]
     },
     {
-      "fullName": "SetData;ItemViewData",
+      "fullName": "SetData;script_ref<ItemViewData>",
       "shortName": "SetData",
       "flags": 33284,
       "params": [
         {
-          "type": "gameItemViewData",
+          "type": "script_ref:gameItemViewData",
           "name": "data",
           "flags": 128
         }
@@ -705,7 +650,7 @@
       ]
     },
     {
-      "fullName": "ShouldDisplayGrenadeStat;InventoryTooltipData_StatData",
+      "fullName": "ShouldDisplayGrenadeStat;script_ref<InventoryTooltipData_StatData>",
       "shortName": "ShouldDisplayGrenadeStat",
       "return": {
         "type": "Bool",
@@ -714,7 +659,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "InventoryTooltipData_StatData",
+          "type": "script_ref:InventoryTooltipData_StatData",
           "name": "stat",
           "flags": 128
         }
@@ -756,12 +701,12 @@
       "flags": 33028
     },
     {
-      "fullName": "UpdateDedicatedMods;array<InventoryItemAttachments>",
+      "fullName": "UpdateDedicatedMods;script_ref<array<InventoryItemAttachments>>",
       "shortName": "UpdateDedicatedMods",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gameInventoryItemAttachments",
+          "type": "script_ref:array:handle:gameInventoryItemAttachments",
           "name": "mods",
           "flags": 128
         }
@@ -844,12 +789,12 @@
       "flags": 33028
     },
     {
-      "fullName": "UpdateMods;array<InventoryItemAttachments>",
+      "fullName": "UpdateMods;script_ref<array<InventoryItemAttachments>>",
       "shortName": "UpdateMods",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gameInventoryItemAttachments",
+          "type": "script_ref:array:handle:gameInventoryItemAttachments",
           "name": "mods",
           "flags": 128
         }

@@ -82,6 +82,41 @@
       "type": "Bool",
       "name": "customizable",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "holsteredArmsShouldBeVisible",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "holsteredArmsBeingSpawned",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "holsteredArmsVisible",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameItemID",
+      "name": "holsteredArmsItem",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "cyberwareArmsBeingSpawned",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "cyberwareArmsVisible",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameItemID",
+      "name": "cyberwareArmsItem",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -132,6 +167,11 @@
     {
       "fullName": "ClearInventory;",
       "shortName": "ClearInventory",
+      "flags": 32900
+    },
+    {
+      "fullName": "EquipHolsteredArms;",
+      "shortName": "EquipHolsteredArms",
       "flags": 32900
     },
     {
@@ -283,7 +323,7 @@
       "flags": 32900
     },
     {
-      "fullName": "IsItemOfThisType;ItemIDarray<gamedataItemType>",
+      "fullName": "IsItemOfThisType;ItemIDscript_ref<array<gamedataItemType>>",
       "shortName": "IsItemOfThisType",
       "return": {
         "type": "Bool",
@@ -297,7 +337,7 @@
           "flags": 128
         },
         {
-          "type": "array:gamedataItemType",
+          "type": "script_ref:array:gamedataItemType",
           "name": "typesList",
           "flags": 128
         }
@@ -369,12 +409,17 @@
       ]
     },
     {
-      "fullName": "RemoveAllItems;array<SEquipArea>",
+      "fullName": "ReevaluateArmsVisibility;",
+      "shortName": "ReevaluateArmsVisibility",
+      "flags": 32900
+    },
+    {
+      "fullName": "RemoveAllItems;script_ref<array<SEquipArea>>",
       "shortName": "RemoveAllItems",
       "flags": 32900,
       "params": [
         {
-          "type": "array:gameSEquipArea",
+          "type": "script_ref:array:gameSEquipArea",
           "name": "areas",
           "flags": 128
         }
@@ -413,6 +458,16 @@
       "fullName": "StopWeaponShootEffects;",
       "shortName": "StopWeaponShootEffects",
       "flags": 33284
+    },
+    {
+      "fullName": "UnequipCyberwareArms;",
+      "shortName": "UnequipCyberwareArms",
+      "flags": 32900
+    },
+    {
+      "fullName": "UnequipHolsteredArms;",
+      "shortName": "UnequipHolsteredArms",
+      "flags": 32900
     }
   ]
 }

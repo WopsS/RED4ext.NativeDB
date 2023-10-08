@@ -1,0 +1,565 @@
+{
+  "parent": "gameuiMenuGameController",
+  "name": "RadialMenuHubGameController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:MenuDataBuilder",
+      "name": "menusData",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:inkMenuEventDispatcher",
+      "name": "menuEventDispatcher",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:RadialMenuHubLogicController",
+      "name": "menuCtrl",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:MetaQuestLogicController",
+      "name": "metaCtrl",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:RadialSubMenuPanelLogicController",
+      "name": "subMenuCtrl",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:RadialHubTimeSkipController",
+      "name": "timeCtrl",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:PlayerDevelopmentSystem",
+      "name": "playerDevSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameTransactionSystem",
+      "name": "transaction",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "playerStatsBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "hubMenuBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "characterCredListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "characterLevelListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "characterCurrentXPListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "characterCredPointsListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "weightListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "maxWeightListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "submenuHiddenListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "metaQuestStatusListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameJournalManager",
+      "name": "journalManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameJournalQuestObjective",
+      "name": "trackedEntry",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameJournalQuestPhase",
+      "name": "trackedPhase",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameJournalQuest",
+      "name": "trackedQuest",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "notificationRoot",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "buttonHintsManagerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "bgFluff",
+      "flags": 4297130017
+    },
+    {
+      "type": "handle:PlayerDevelopmentDataManager",
+      "name": "dataManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:ButtonHints",
+      "name": "buttonHintsController",
+      "flags": 4297130016
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "gameTimeContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:gameuiTimeDisplayLogicController",
+      "name": "gameTimeController",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gameInventoryScriptListener",
+      "name": "inventoryListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:CurrencyUpdateCallback",
+      "name": "callback",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "hubMenuInstanceID",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:OpenMenuRequest",
+      "name": "previousRequest",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:OpenMenuRequest",
+      "name": "currentRequest",
+      "flags": 4431544352
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnBackActionCallback",
+      "shortName": "OnBackActionCallback",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:BackActionCallback",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelCurrentXPUpdated",
+      "shortName": "OnCharacterLevelCurrentXPUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterLevelUpdated",
+      "shortName": "OnCharacterLevelUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterStreetCredLevelUpdated",
+      "shortName": "OnCharacterStreetCredLevelUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCharacterStreetCredPointsUpdated",
+      "shortName": "OnCharacterStreetCredPointsUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCyberwareModsRequest",
+      "shortName": "OnCyberwareModsRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:CyberwareTabModsRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDropQueueUpdatedEvent",
+      "shortName": "OnDropQueueUpdatedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:DropQueueUpdatedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHubMenuInstanceData",
+      "shortName": "OnHubMenuInstanceData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnMenuButtonHoverOutEvent",
+      "shortName": "OnMenuButtonHoverOutEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:MenuButtonHoverOutEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMenuButtonHoverOverEvent",
+      "shortName": "OnMenuButtonHoverOverEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:MenuButtonHoverOverEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMetaQuestStatusUpdated",
+      "shortName": "OnMetaQuestStatusUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOpenMenuRequest",
+      "shortName": "OnOpenMenuRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OpenMenuRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerMaxWeightUpdated",
+      "shortName": "OnPlayerMaxWeightUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayerWeightUpdated",
+      "shortName": "OnPlayerWeightUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSetMenuEventDispatcher",
+      "shortName": "OnSetMenuEventDispatcher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkMenuEventDispatcher",
+          "name": "menuEventDispatcher",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSubmenuHiddenUpdated",
+      "shortName": "OnSubmenuHiddenUpdated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTimeSkipClosedEvent",
+      "shortName": "OnTimeSkipClosedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TimeSkipClosedEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTimeSkipHoverOutEvent",
+      "shortName": "OnTimeSkipHoverOutEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TimeSkipHoverOutEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTimeSkipHoverOverEvent",
+      "shortName": "OnTimeSkipHoverOverEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TimeSkipHoverOverEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTimeSkipOpenedEvent",
+      "shortName": "OnTimeSkipOpenedEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TimeSkipOpenedEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "HandlePlayerWeightUpdated;Float",
+      "shortName": "HandlePlayerWeightUpdated",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "dropQueueWeight",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "InitMenusData;",
+      "shortName": "InitMenusData",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetupBlackboards;",
+      "shortName": "SetupBlackboards",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateTimeDisplay;",
+      "shortName": "UpdateTimeDisplay",
+      "flags": 32900
+    }
+  ]
+}

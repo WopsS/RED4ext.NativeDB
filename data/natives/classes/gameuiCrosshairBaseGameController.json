@@ -4,8 +4,48 @@
   "flags": 2,
   "props": [
     {
+      "type": "inkWidgetReference",
+      "name": "details",
+      "flags": 6627016705
+    },
+    {
+      "type": "Bool",
+      "name": "isActive",
+      "flags": 6627016704
+    },
+    {
       "type": "whandle:inkWidget",
       "name": "rootWidget",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "psmBlackboard",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "targetBB",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "weaponBB",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:entEntity",
+      "name": "targetEntity",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:entEntity",
+      "name": "raycastTargetEntity",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerPuppet",
       "flags": 4297195552
     },
     {
@@ -29,11 +69,6 @@
       "flags": 4431347744
     },
     {
-      "type": "Uint32",
-      "name": "bbNPCStatsId",
-      "flags": 4297130016
-    },
-    {
       "type": "Bool",
       "name": "isTargetDead",
       "flags": 4297130016
@@ -44,18 +79,13 @@
       "flags": 4297130016
     },
     {
-      "type": "whandle:gameIBlackboard",
-      "name": "targetBB",
-      "flags": 4297195552
-    },
-    {
-      "type": "whandle:gameIBlackboard",
-      "name": "weaponBB",
-      "flags": 4297195552
+      "type": "handle:redCallbackObject",
+      "name": "currentAimTargetBBID",
+      "flags": 4431347744
     },
     {
       "type": "handle:redCallbackObject",
-      "name": "currentAimTargetBBID",
+      "name": "currentRaycastTargetBBID",
       "flags": 4431347744
     },
     {
@@ -69,19 +99,34 @@
       "flags": 4431347744
     },
     {
-      "type": "whandle:entEntity",
-      "name": "targetEntity",
-      "flags": 4297195552
-    },
-    {
       "type": "handle:CrosshairHealthChangeListener",
       "name": "healthListener",
       "flags": 4431347744
     },
     {
+      "type": "inkWidgetReference",
+      "name": "deadEyeWidget",
+      "flags": 4297195553
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "deadEyeAnimProxy",
+      "flags": 4431347744
+    },
+    {
       "type": "Bool",
-      "name": "isActive",
+      "name": "hasDeadEye",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "staminaChangedCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:CrosshairStaminaListener",
+      "name": "staminaListener",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -92,7 +137,7 @@
         "type": "handle:gameItemObject",
         "flags": 64
       },
-      "index": 12589,
+      "index": 14492,
       "flags": 1
     },
     {
@@ -102,7 +147,7 @@
         "type": "handle:gameIBlackboard",
         "flags": 64
       },
-      "index": 12588,
+      "index": 14491,
       "flags": 1
     },
     {
@@ -112,7 +157,7 @@
         "type": "gameItemID",
         "flags": 64
       },
-      "index": 12587,
+      "index": 14490,
       "flags": 1
     },
     {
@@ -122,7 +167,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 12590,
+      "index": 14493,
       "flags": 1,
       "params": [
         {
@@ -160,6 +205,38 @@
         {
           "type": "entEntityID",
           "name": "entId",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCurrentRaycastTarget",
+      "shortName": "OnCurrentRaycastTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDeadEyeAnimFinished",
+      "shortName": "OnDeadEyeAnimFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
           "flags": 128
         }
       ]
@@ -369,7 +446,7 @@
       "fullName": "GetIntroAnimation;Bool",
       "shortName": "GetIntroAnimation",
       "return": {
-        "type": "handle:inkanimDefinition",
+        "type": "handle:inkanimProxy",
         "flags": 64
       },
       "flags": 33280,
@@ -385,7 +462,7 @@
       "fullName": "GetOutroAnimation;",
       "shortName": "GetOutroAnimation",
       "return": {
-        "type": "handle:inkanimDefinition",
+        "type": "handle:inkanimProxy",
         "flags": 64
       },
       "flags": 33280
@@ -407,6 +484,11 @@
         "flags": 64
       },
       "flags": 33028
+    },
+    {
+      "fullName": "HandleDeadEye;",
+      "shortName": "HandleDeadEye",
+      "flags": 33280
     },
     {
       "fullName": "IsActive;",
@@ -460,6 +542,11 @@
       "flags": 33024
     },
     {
+      "fullName": "OnState_ReloadDriverCombatMountedWeapons;",
+      "shortName": "OnState_ReloadDriverCombatMountedWeapons",
+      "flags": 33024
+    },
+    {
       "fullName": "OnState_Safe;",
       "shortName": "OnState_Safe",
       "flags": 33024
@@ -507,6 +594,18 @@
       "fullName": "UpdateCrosshairState;",
       "shortName": "UpdateCrosshairState",
       "flags": 33028
+    },
+    {
+      "fullName": "UpdateTPPDriverCombatCrosshair;Bool",
+      "shortName": "UpdateTPPDriverCombatCrosshair",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

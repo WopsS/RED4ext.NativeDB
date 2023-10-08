@@ -65,6 +65,11 @@
     },
     {
       "type": "Float",
+      "name": "timeSinceExplosion",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
       "name": "detonationTimer",
       "flags": 4297195552
     },
@@ -214,6 +219,11 @@
       "flags": 4297195552
     },
     {
+      "type": "Bool",
+      "name": "hasExploded",
+      "flags": 4297195552
+    },
+    {
       "type": "handle:gameEffectInstance",
       "name": "targetTracker",
       "flags": 4431413280
@@ -272,6 +282,31 @@
       "type": "Float",
       "name": "waterHeight",
       "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "smokeEffectRadius",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "smokeEffectDuration",
+      "flags": 4297195552
+    },
+    {
+      "type": "Uint32",
+      "name": "smokeVisionBlockerId",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isSmokeEffectActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "smokeVFXDeescalationOffset",
+      "flags": 4297130016
     },
     {
       "type": "Float",
@@ -795,12 +830,12 @@
       ]
     },
     {
-      "fullName": "DrillThrough;gameprojectileHitInstance",
+      "fullName": "DrillThrough;script_ref<gameprojectileHitInstance>",
       "shortName": "DrillThrough",
       "flags": 33028,
       "params": [
         {
-          "type": "gameprojectileHitInstance",
+          "type": "script_ref:gameprojectileHitInstance",
           "name": "collisionEventData",
           "flags": 128
         }
@@ -836,13 +871,31 @@
       "flags": 33284
     },
     {
+      "fullName": "GetAttackDuration;",
+      "shortName": "GetAttackDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetAttackRadius;",
       "shortName": "GetAttackRadius",
       "return": {
         "type": "Float",
         "flags": 64
       },
-      "flags": 32900
+      "flags": 33284
+    },
+    {
+      "fullName": "GetDefaultAttack;",
+      "shortName": "GetDefaultAttack",
+      "return": {
+        "type": "whandle:gamedataAttack_Record",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "GetDeliveryMethod;",
@@ -899,7 +952,7 @@
         "type": "EGrenadeType",
         "flags": 64
       },
-      "flags": 33028
+      "flags": 32900
     },
     {
       "fullName": "GetInitialVelocity;Bool",
@@ -933,11 +986,11 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "flags": 33028,
+      "flags": 32900,
       "params": [
         {
           "type": "EGrenadeType",
-          "name": "type",
+          "name": "grenadeType",
           "flags": 128
         }
       ]
@@ -998,18 +1051,6 @@
         "flags": 64
       },
       "flags": 33028
-    },
-    {
-      "fullName": "NewCuttingGrenadeHit;GrenadeTrackerTargetAcquiredEvent",
-      "shortName": "NewCuttingGrenadeHit",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "handle:GrenadeTrackerTargetAcquiredEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "OnServerTick;gameprojectileTickEvent",
@@ -1077,6 +1118,18 @@
       ]
     },
     {
+      "fullName": "RegisterSmokeExplosion;Vector4",
+      "shortName": "RegisterSmokeExplosion",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "position",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Release;Bool",
       "shortName": "Release",
       "flags": 33028,
@@ -1091,6 +1144,11 @@
     {
       "fullName": "ReleaseAttackResources;",
       "shortName": "ReleaseAttackResources",
+      "flags": 33028
+    },
+    {
+      "fullName": "ReleaseMappin;",
+      "shortName": "ReleaseMappin",
       "flags": 33028
     },
     {
@@ -1400,6 +1458,11 @@
       "fullName": "TryToSinkAndRequestDetonation;",
       "shortName": "TryToSinkAndRequestDetonation",
       "flags": 33028
+    },
+    {
+      "fullName": "UnregisterSmokeExplosion;",
+      "shortName": "UnregisterSmokeExplosion",
+      "flags": 32900
     }
   ]
 }

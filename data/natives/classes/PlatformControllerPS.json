@@ -1,0 +1,491 @@
+{
+  "parent": "ScriptableDeviceComponentPS",
+  "name": "PlatformControllerPS",
+  "flags": 1028,
+  "props": [
+    {
+      "type": "array:NodeRef",
+      "name": "floors",
+      "group": "Moving platform Setup",
+      "flags": 15508570145
+    },
+    {
+      "type": "Int32",
+      "name": "startingFloor",
+      "group": "Moving platform Setup",
+      "flags": 13222674465
+    },
+    {
+      "type": "Float",
+      "name": "speed",
+      "group": "Moving platform Setup",
+      "flags": 13222674465
+    },
+    {
+      "type": "CName",
+      "name": "curve",
+      "group": "Moving platform Setup",
+      "flags": 13222674465
+    },
+    {
+      "type": "String",
+      "name": "errorMSG",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "nextFloor",
+      "flags": 4565565472
+    },
+    {
+      "type": "Int32",
+      "name": "prevFloor",
+      "flags": 4565565472
+    },
+    {
+      "type": "Int32",
+      "name": "destinationFloor",
+      "flags": 4565565472
+    },
+    {
+      "type": "Int32",
+      "name": "currentFloor",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isPlayerOnPlatform",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "isMoving",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "paused",
+      "flags": 4565565472
+    },
+    {
+      "type": "Float",
+      "name": "pausingTime",
+      "flags": 4565565472
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionMoveToNextFloor;",
+      "shortName": "ActionMoveToNextFloor",
+      "return": {
+        "type": "handle:QuestMoveToNextFloor",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "ActionMoveToPrevFloor;",
+      "shortName": "ActionMoveToPrevFloor",
+      "return": {
+        "type": "handle:QuestMoveToPrevFloor",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "ActionQuestMoveToFloor;",
+      "shortName": "ActionQuestMoveToFloor",
+      "return": {
+        "type": "handle:QuestMoveToFloor",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "ActionQuestPause;",
+      "shortName": "ActionQuestPause",
+      "return": {
+        "type": "handle:QuestPause",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "ActionQuestResume;",
+      "shortName": "ActionQuestResume",
+      "return": {
+        "type": "handle:QuestResume",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "ActionToggleON;",
+      "shortName": "ActionToggleON",
+      "return": {
+        "type": "handle:ToggleON",
+        "flags": 64
+      },
+      "flags": 33280
+    },
+    {
+      "fullName": "GetActions;array<DeviceAction>GetActionsContext",
+      "shortName": "GetActions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33280,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "actions",
+          "flags": 640
+        },
+        {
+          "type": "gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCurveName;",
+      "shortName": "GetCurveName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetDestinationNode;",
+      "shortName": "GetDestinationNode",
+      "return": {
+        "type": "NodeRef",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetError;",
+      "shortName": "GetError",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetFloorNode;Int32",
+      "shortName": "GetFloorNode",
+      "return": {
+        "type": "NodeRef",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
+      "shortName": "GetQuestActions",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "array:handle:gamedeviceAction",
+          "name": "outActions",
+          "flags": 640
+        },
+        {
+          "type": "script_ref:gameGetActionsContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetResumeTime;",
+      "shortName": "GetResumeTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetSpeed;",
+      "shortName": "GetSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "Initialize;",
+      "shortName": "Initialize",
+      "flags": 33024
+    },
+    {
+      "fullName": "IsAtFloor;Int32",
+      "shortName": "IsAtFloor",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 57860,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floor",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsMoving;Bool",
+      "shortName": "IsMoving",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 57860,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isInverted",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPaused;",
+      "shortName": "IsPaused",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsPlayerOnPlatform;Bool",
+      "shortName": "IsPlayerOnPlatform",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 57860,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isInverted",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LinkPlatforms;",
+      "shortName": "LinkPlatforms",
+      "flags": 33284
+    },
+    {
+      "fullName": "OnArrivedAt;ArrivedAt",
+      "shortName": "OnArrivedAt",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameMovingPlatformArrivedAt",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestMoveToFloor;QuestMoveToFloor",
+      "shortName": "OnQuestMoveToFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuestMoveToFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestMoveToNextFloor;QuestMoveToNextFloor",
+      "shortName": "OnQuestMoveToNextFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuestMoveToNextFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestMoveToPrevFloor;QuestMoveToPrevFloor",
+      "shortName": "OnQuestMoveToPrevFloor",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuestMoveToPrevFloor",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestPause;QuestPause",
+      "shortName": "OnQuestPause",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuestPause",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestResume;QuestResume",
+      "shortName": "OnQuestResume",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuestResume",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCurrentFloor;Int32",
+      "shortName": "SetCurrentFloor",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorIndx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDestination;Int32",
+      "shortName": "SetDestination",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorIndx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsMoving;Bool",
+      "shortName": "SetIsMoving",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetNextFloor;Int32",
+      "shortName": "SetNextFloor",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorIndx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPauseTime;Float",
+      "shortName": "SetPauseTime",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "time",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPlayerOnPlatform;Bool",
+      "shortName": "SetPlayerOnPlatform",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPrevFloor;Int32",
+      "shortName": "SetPrevFloor",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "floorIndx",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ValidateFloors;",
+      "shortName": "ValidateFloors",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    }
+  ]
+}

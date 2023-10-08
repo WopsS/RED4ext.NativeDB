@@ -42,6 +42,11 @@
       "type": "Bool",
       "name": "isInSleepMode",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:gamedataComputerStyleUIDefinition_Record",
+      "name": "computerUIpreset",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -314,6 +319,15 @@
       "flags": 41476
     },
     {
+      "fullName": "GetAnimationStateFactName;",
+      "shortName": "GetAnimationStateFactName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetBannerWidgetTweakDBID;",
       "shortName": "GetBannerWidgetTweakDBID",
       "return": {
@@ -362,7 +376,7 @@
       ]
     },
     {
-      "fullName": "GetEnabledDevicesCount;array<DeviceComponentPS>",
+      "fullName": "GetEnabledDevicesCount;script_ref<array<DeviceComponentPS>>",
       "shortName": "GetEnabledDevicesCount",
       "return": {
         "type": "Int32",
@@ -371,14 +385,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:handle:gameDeviceComponentPS",
+          "type": "script_ref:array:handle:gameDeviceComponentPS",
           "name": "devices",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetEnabledDocumentsCount;array<DataElement>Bool",
+      "fullName": "GetEnabledDocumentsCount;script_ref<array<DataElement>>Bool",
       "shortName": "GetEnabledDocumentsCount",
       "return": {
         "type": "Int32",
@@ -387,7 +401,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:gamedeviceDataElement",
+          "type": "script_ref:array:gamedeviceDataElement",
           "name": "documents",
           "flags": 128
         },
@@ -399,14 +413,14 @@
       ]
     },
     {
-      "fullName": "GetFileStructure;ComputerUIData",
+      "fullName": "GetFileStructure;script_ref<ComputerUIData>",
       "shortName": "GetFileStructure",
       "flags": 41476,
       "params": [
         {
-          "type": "gamedeviceComputerUIData",
+          "type": "script_ref:gamedeviceComputerUIData",
           "name": "data",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -472,7 +486,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetJournalFileEntry;DataElement",
+      "fullName": "GetJournalFileEntry;script_ref<DataElement>",
       "shortName": "GetJournalFileEntry",
       "return": {
         "type": "whandle:gameJournalFile",
@@ -481,14 +495,14 @@
       "flags": 33028,
       "params": [
         {
-          "type": "gamedeviceDataElement",
+          "type": "script_ref:gamedeviceDataElement",
           "name": "dataElement",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetJournalMailEntry;DataElement",
+      "fullName": "GetJournalMailEntry;script_ref<DataElement>",
       "shortName": "GetJournalMailEntry",
       "return": {
         "type": "whandle:gameJournalEmail",
@@ -497,11 +511,20 @@
       "flags": 33028,
       "params": [
         {
-          "type": "gamedeviceDataElement",
+          "type": "script_ref:gamedeviceDataElement",
           "name": "dataElement",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetKeypadWidgetStyle;",
+      "shortName": "GetKeypadWidgetStyle",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 41216
     },
     {
       "fullName": "GetMailThumbnailWidgetTweakDBID;",
@@ -626,7 +649,7 @@
       ]
     },
     {
-      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuestActions",
       "flags": 33280,
       "params": [
@@ -636,14 +659,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
@@ -653,11 +676,20 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetSkillCheckContainerForSetup;",
+      "shortName": "GetSkillCheckContainerForSetup",
+      "return": {
+        "type": "handle:BaseSkillCheckContainer",
+        "flags": 64
+      },
+      "flags": 33024
     },
     {
       "fullName": "HasNewsfeed;",
@@ -669,7 +701,7 @@
       "flags": 41476
     },
     {
-      "fullName": "IsDataElementValid;DataElement",
+      "fullName": "IsDataElementValid;script_ref<DataElement>",
       "shortName": "IsDataElementValid",
       "return": {
         "type": "Bool",
@@ -678,7 +710,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gamedeviceDataElement",
+          "type": "script_ref:gamedeviceDataElement",
           "name": "data",
           "flags": 128
         }
@@ -847,12 +879,12 @@
       ]
     },
     {
-      "fullName": "PushData;ComputerPersistentData",
+      "fullName": "PushData;script_ref<ComputerPersistentData>",
       "shortName": "PushData",
       "flags": 33284,
       "params": [
         {
-          "type": "ComputerPersistentData",
+          "type": "script_ref:ComputerPersistentData",
           "name": "data",
           "flags": 128
         }

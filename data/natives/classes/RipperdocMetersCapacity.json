@@ -1,0 +1,476 @@
+{
+  "parent": "RipperdocMetersBase",
+  "name": "RipperdocMetersCapacity",
+  "flags": 4,
+  "props": [
+    {
+      "type": "Float",
+      "name": "defaultRightBarScale",
+      "group": "Capacity Bars",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "overchargeGapSize",
+      "group": "Capacity Bars",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "curCapacityLabelContainer",
+      "group": "Capacity Labels",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "curCapacityLabelBackground",
+      "group": "Capacity Labels",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "costLabelContainer",
+      "group": "Capacity Labels",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "costLabelText",
+      "group": "Capacity Labels",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "maxCapacityLabelContainer",
+      "group": "Capacity Labels",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "maxCapacityLabelText",
+      "group": "Capacity Labels",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "overchargeBox",
+      "group": "Overcharge Box",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "thresholdLine",
+      "group": "Overcharge Box",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "edgrunnerLock",
+      "group": "Overcharge Box",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "overchargeGlow",
+      "group": "Overcharge Box",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "overchargeGlowAnimName",
+      "group": "Overcharge Box",
+      "flags": 4297130017
+    },
+    {
+      "type": "Float",
+      "name": "overchargeVisibilityThreshold",
+      "group": "Overcharge Box",
+      "flags": 4297130017
+    },
+    {
+      "type": "Int32",
+      "name": "currentCapacity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maxCapacity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "maxCapacityPossible",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "overchargeMaxCapacity",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "overchargeValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEdgerunner",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:RipperdocFillLabel",
+      "name": "curCapacityLabel",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "capacityLabelAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "costLabelAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "capacityPulseAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "costLabelPulseAnimation",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "overchargeGlowAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "inkanimPlaybackOptions",
+      "name": "overchargeGlowAnimOptions",
+      "flags": 4297130016
+    },
+    {
+      "type": "CName",
+      "name": "overchargeBoxState",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "maxBaseBar",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "overBars",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "barsSpawned",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "showOverchargeBox",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isHoverdCyberwareEquipped",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "C_costLabelAnchorPoint_ADD",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "C_costLabelAnchorPoint_SUBTRACT",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "C_costLabelAnchorPoint_EQUIPPED",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "C_costLabelAnchorPoint_EQUIPPED_EDGRUNNER",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnApply",
+      "shortName": "OnApply",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RipperdocMeterCapacityApplyEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBarSpawned",
+      "shortName": "OnBarSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEdgrunnerPerkEvent",
+      "shortName": "OnEdgrunnerPerkEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:EdgrunnerPerkEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHover",
+      "shortName": "OnHover",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:RipperdocMeterCapacityHoverEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnInitialize",
+      "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnIntroAnimationFinished_METER",
+      "shortName": "OnIntroAnimationFinished_METER",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLastBarIntroFinished",
+      "shortName": "OnLastBarIntroFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "animProxy",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOverchargeHoverOut",
+      "shortName": "OnOverchargeHoverOut",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnOverchargeHoverOver",
+      "shortName": "OnOverchargeHoverOver",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "ConfigureBar;Int32Int32Int32Int32Bool",
+      "shortName": "ConfigureBar",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "curEquippedCapacity",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "newEquippedCapacity",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "maxCapacity",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "overclockCapacity",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isChange",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetState;BoolBoolInt32Int32Int32",
+      "shortName": "GetState",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isSafe",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEdgerunner",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "cur",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "start",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "dif",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetCapacity;Int32Int32Int32Float",
+      "shortName": "SetCapacity",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "cur",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "max",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "over",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "maxPossible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetMaxZone;inkWidgetRefinkWidgetRef",
+      "shortName": "SetMaxZone",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "inkWidgetReference",
+          "name": "downLine",
+          "flags": 128
+        },
+        {
+          "type": "inkWidgetReference",
+          "name": "upperLine",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnBars;",
+      "shortName": "SpawnBars",
+      "flags": 32900
+    }
+  ]
+}

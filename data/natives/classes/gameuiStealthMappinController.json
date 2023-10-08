@@ -5,11 +5,6 @@
   "props": [
     {
       "type": "inkImageWidgetReference",
-      "name": "animImage",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkImageWidgetReference",
       "name": "arrow",
       "flags": 4297130017
     },
@@ -70,22 +65,41 @@
     },
     {
       "type": "inkWidgetReference",
-      "name": "statusEffectHolder",
+      "name": "taggedContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "background",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "contagiousQuickhackArrows",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "statusEffectMain",
+      "group": "Status Effect",
       "flags": 4297130017
     },
     {
       "type": "inkImageWidgetReference",
       "name": "statusEffectIcon",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "statusEffectTimer",
+      "group": "Status Effect",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
-      "name": "taggedContainer",
+      "name": "statusEffectFill",
+      "group": "Status Effect",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "statusEffectBackground",
+      "group": "Status Effect",
       "flags": 4297130017
     },
     {
@@ -145,6 +159,11 @@
     },
     {
       "type": "Bool",
+      "name": "isNCPD",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
       "name": "isDevice",
       "flags": 4297130016
     },
@@ -174,8 +193,8 @@
       "flags": 4297130016
     },
     {
-      "type": "gamedataNPCRarity",
-      "name": "NPCRarity",
+      "type": "Bool",
+      "name": "hideUIElements",
       "flags": 4297130016
     },
     {
@@ -285,6 +304,11 @@
     },
     {
       "type": "Bool",
+      "name": "isInCombatWithPlayer",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
       "name": "animationIsPlaying",
       "flags": 4297130016
     },
@@ -319,6 +343,11 @@
       "flags": 4297130016
     },
     {
+      "type": "handle:inkanimProxy",
+      "name": "monowireHackAnimationProxy",
+      "flags": 4431347744
+    },
+    {
       "type": "gameEnemyStealthAwarenessState",
       "name": "currentAnimState",
       "flags": 4297130016
@@ -351,6 +380,16 @@
     {
       "type": "Float",
       "name": "c_objectMarkerMaxCameraDistance",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "statusEffectStartTime",
+      "flags": 4297130016
+    },
+    {
+      "type": "String",
+      "name": "statusEffectTextureName",
       "flags": 4297130016
     }
   ],
@@ -572,9 +611,16 @@
       ]
     },
     {
-      "fullName": "UpdateArchetypeTexture;",
-      "shortName": "UpdateArchetypeTexture",
-      "flags": 32900
+      "fullName": "TriggerStatusEffectAnimation;Bool",
+      "shortName": "TriggerStatusEffectAnimation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "UpdateCanvasOpacity;",
@@ -628,16 +674,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "UpdateNameplateIcon;",
-      "shortName": "UpdateNameplateIcon",
-      "flags": 32900
-    },
-    {
-      "fullName": "UpdateNameplatePart;",
-      "shortName": "UpdateNameplatePart",
-      "flags": 32900
     },
     {
       "fullName": "UpdateObjectMarkerAndTagging;",

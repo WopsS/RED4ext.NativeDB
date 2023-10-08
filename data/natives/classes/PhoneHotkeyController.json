@@ -9,13 +9,33 @@
       "flags": 4297130017
     },
     {
-      "type": "inkTextWidgetReference",
-      "name": "messagePrompt",
+      "type": "inkImageWidgetReference",
+      "name": "questIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "callIcon",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "messageCounterLabel",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "messageCounterLabelCircle",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
       "name": "messageCounter",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "messageCounterCircle",
       "flags": 4297130017
     },
     {
@@ -32,6 +52,36 @@
       "type": "CName",
       "name": "phoneIconName",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "proxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "questImportantAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "comDeviceBB",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "phoneEnabledBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "isVehiclesPopupVisibleBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "isRadioPopupVisibleBBId",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -114,8 +164,8 @@
       ]
     },
     {
-      "fullName": "OnMessagePromptFinished",
-      "shortName": "OnMessagePromptFinished",
+      "fullName": "OnPhoneDeviceReset",
+      "shortName": "OnPhoneDeviceReset",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -123,9 +173,83 @@
       "flags": 33032,
       "params": [
         {
-          "type": "handle:inkanimProxy",
-          "name": "proxy",
+          "type": "whandle:inkWidget",
+          "name": "target",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPhoneDeviceSlot",
+      "shortName": "OnPhoneDeviceSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTrackedEntryChanges",
+      "shortName": "OnTrackedEntryChanges",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Uint32",
+          "name": "hash",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "className",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalNotifyOption",
+          "name": "notifyOption",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalChangeType",
+          "name": "changeType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CountMessages;JournalPhoneConversationscript_ref<array<Int32>>Int32Int32",
+      "shortName": "CountMessages",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameJournalPhoneConversation",
+          "name": "convEntry",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Int32",
+          "name": "tracked",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "questImportantMessages",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "unreadMessages",
+          "flags": 640
         }
       ]
     },
@@ -139,8 +263,13 @@
       "flags": 33024
     },
     {
-      "fullName": "IsAllowedByGameplay;",
-      "shortName": "IsAllowedByGameplay",
+      "fullName": "InitializeStatusListener;",
+      "shortName": "InitializeStatusListener",
+      "flags": 33024
+    },
+    {
+      "fullName": "IsInDefaultState;",
+      "shortName": "IsInDefaultState",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -148,9 +277,61 @@
       "flags": 33024
     },
     {
-      "fullName": "NewMassagePrompt;",
-      "shortName": "NewMassagePrompt",
+      "fullName": "IsPhoneInUse;",
+      "shortName": "IsPhoneInUse",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
       "flags": 32900
+    },
+    {
+      "fullName": "OnPhoneEnabledChanged;Bool",
+      "shortName": "OnPhoneEnabledChanged",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "val",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRadioManagerPopupIsShown;Bool",
+      "shortName": "OnRadioManagerPopupIsShown",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehiclesManagerPopupIsShown;Bool",
+      "shortName": "OnVehiclesManagerPopupIsShown",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "QuestImportantBlink;Bool",
+      "shortName": "QuestImportantBlink",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "RestoreDefaultIcon;",

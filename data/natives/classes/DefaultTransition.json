@@ -136,6 +136,32 @@
       ]
     },
     {
+      "fullName": "DefaultTransition::GetClosestWeakspot;StateGameScriptInterfaceScriptedPuppetFloat",
+      "shortName": "GetClosestWeakspot",
+      "return": {
+        "type": "handle:gameWeakspotObject",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "targetObject",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "withinDistance",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DefaultTransition::GetDistanceToGround;StateGameScriptInterface",
       "shortName": "GetDistanceToGround",
       "return": {
@@ -185,6 +211,42 @@
           "type": "Float",
           "name": "inLenght",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DefaultTransition::GetLeapableObject;StateGameScriptInterfaceTargetingSystemFloatFloatEulerAngles",
+      "shortName": "GetLeapableObject",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gametargetingTargetingSystem",
+          "name": "targetingSystem",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "withinDistance",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "withinAngle",
+          "flags": 128
+        },
+        {
+          "type": "EulerAngles",
+          "name": "angleOut",
+          "flags": 640
         }
       ]
     },
@@ -300,7 +362,43 @@
       ]
     },
     {
-      "fullName": "DefaultTransition::GetTargetObject;StateGameScriptInterfaceFloat",
+      "fullName": "DefaultTransition::GetTargetObject;StateGameScriptInterfaceTargetSearchQueryFloatBoolFloat",
+      "shortName": "GetTargetObject",
+      "return": {
+        "type": "handle:gameObject",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "gameTargetSearchQuery",
+          "name": "searchQuery",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "withinDistance",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "checkForLeapableObject",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "withinAngle",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "DefaultTransition::GetTargetObject;StateGameScriptInterfaceFloatBoolFloat",
       "shortName": "GetTargetObject",
       "return": {
         "type": "handle:gameObject",
@@ -316,6 +414,16 @@
         {
           "type": "Float",
           "name": "withinDistance",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "checkForLeapableObject",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "withinAngle",
           "flags": 1152
         }
       ]
@@ -483,6 +591,22 @@
       ]
     },
     {
+      "fullName": "DefaultTransition::IsFastForwardByLine;GameObject",
+      "shortName": "IsFastForwardByLine",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DefaultTransition::IsHeavyWeaponEquipped;StateGameScriptInterface",
       "shortName": "IsHeavyWeaponEquipped",
       "return": {
@@ -547,6 +671,32 @@
       ]
     },
     {
+      "fullName": "DefaultTransition::IsLeapableTargetValid;StateGameScriptInterfaceGameObjectFloat",
+      "shortName": "IsLeapableTargetValid",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "targetObject",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "withinDistance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "DefaultTransition::IsRangedWeaponEquipped;StateGameScriptInterface",
       "shortName": "IsRangedWeaponEquipped",
       "return": {
@@ -584,7 +734,7 @@
       ]
     },
     {
-      "fullName": "DefaultTransition::PlayRumble;StateGameScriptInterfaceString",
+      "fullName": "DefaultTransition::PlayRumble;StateGameScriptInterfacescript_ref<String>",
       "shortName": "PlayRumble",
       "flags": 33286,
       "params": [
@@ -594,14 +744,14 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "presetName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "DefaultTransition::PlayRumbleLoop;StateGameScriptInterfaceString",
+      "fullName": "DefaultTransition::PlayRumbleLoop;StateGameScriptInterfacescript_ref<String>",
       "shortName": "PlayRumbleLoop",
       "flags": 33286,
       "params": [
@@ -611,7 +761,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "intensity",
           "flags": 128
         }
@@ -630,7 +780,28 @@
       ]
     },
     {
-      "fullName": "DefaultTransition::StopRumbleLoop;StateGameScriptInterfaceString",
+      "fullName": "DefaultTransition::ShouldCheckForLeapableTarget;StateGameScriptInterfaceWeaponObject",
+      "shortName": "ShouldCheckForLeapableTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameweaponObject",
+          "name": "weaponObject",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DefaultTransition::StopRumbleLoop;StateGameScriptInterfacescript_ref<String>",
       "shortName": "StopRumbleLoop",
       "flags": 33286,
       "params": [
@@ -640,21 +811,21 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "intensity",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "DefaultTransition::UppercaseFirstChar;String",
+      "fullName": "DefaultTransition::UppercaseFirstChar;script_ref<String>",
       "shortName": "UppercaseFirstChar",
       "flags": 33286,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "stringToChange",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -686,7 +857,7 @@
       ]
     },
     {
-      "fullName": "AdjustPlayerPosition;StateContextStateGameScriptInterfaceGameObjectFloatFloatCName",
+      "fullName": "AdjustPlayerPosition;StateContextStateGameScriptInterfaceGameObjectFloatFloatFloatCNameBoolVector4",
       "shortName": "AdjustPlayerPosition",
       "return": {
         "type": "Bool",
@@ -720,9 +891,24 @@
           "flags": 128
         },
         {
+          "type": "Float",
+          "name": "rotationDuration",
+          "flags": 128
+        },
+        {
           "type": "CName",
           "name": "curveName",
-          "flags": 128
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "useParabolicMotion",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "targetPosition",
+          "flags": 1152
         }
       ]
     },
@@ -994,7 +1180,7 @@
       ]
     },
     {
-      "fullName": "CompareSMState;CNamearray<CName>StateContext",
+      "fullName": "CompareSMState;CNamescript_ref<array<CName>>StateContext",
       "shortName": "CompareSMState",
       "return": {
         "type": "Bool",
@@ -1008,7 +1194,7 @@
           "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "smState",
           "flags": 128
         },
@@ -1077,6 +1263,42 @@
       ]
     },
     {
+      "fullName": "CompensateTargetPos;AdjustTransformWithDurationsGameObjectVector4FloatVector4",
+      "shortName": "CompensateTargetPos",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineparameterTypeAdjustTransformWithDurations",
+          "name": "adjustRequest",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "targetPosition",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distanceRadius",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "playerPosition",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "DisableCameraBobbing;StateContextStateGameScriptInterfaceBool",
       "shortName": "DisableCameraBobbing",
       "flags": 33028,
@@ -1094,6 +1316,32 @@
         {
           "type": "Bool",
           "name": "b",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FillLookAtRequestData;Vector4FloatFloat",
+      "shortName": "FillLookAtRequestData",
+      "return": {
+        "type": "gameaimAssistAimRequest",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Vector4",
+          "name": "lookAtTarget",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "maxDuration",
           "flags": 128
         }
       ]
@@ -1271,6 +1519,37 @@
       ]
     },
     {
+      "fullName": "GetClosestSlotTransform;StateGameScriptInterfaceBoolSlotComponentWorldTransform",
+      "shortName": "GetClosestSlotTransform",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isTargetKnockedOver",
+          "flags": 128
+        },
+        {
+          "type": "handle:entSlotComponent",
+          "name": "slotComponent",
+          "flags": 128
+        },
+        {
+          "type": "WorldTransform",
+          "name": "slotTransform",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "GetCurrentSceneTierData;StateContext",
       "shortName": "GetCurrentSceneTierData",
       "return": {
@@ -1319,7 +1598,7 @@
       ]
     },
     {
-      "fullName": "GetGameplayCameraParameters;GameplayCameraDataString",
+      "fullName": "GetGameplayCameraParameters;GameplayCameraDatascript_ref<String>",
       "shortName": "GetGameplayCameraParameters",
       "flags": 33284,
       "params": [
@@ -1329,7 +1608,7 @@
           "flags": 640
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "tweakDBPath",
           "flags": 128
         }
@@ -1462,6 +1741,22 @@
       "shortName": "GetLootData",
       "return": {
         "type": "gameinteractionsvisLootData",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetQuickWheelItemName;StateGameScriptInterface",
+      "shortName": "GetQuickWheelItemName",
+      "return": {
+        "type": "String",
         "flags": 64
       },
       "flags": 41220,
@@ -1823,6 +2118,27 @@
       ]
     },
     {
+      "fullName": "IsActiveVehicleVisible;StateGameScriptInterfaceFloat",
+      "shortName": "IsActiveVehicleVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "distance",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "IsAimingBlockedForTime;StateContextStateGameScriptInterface",
       "shortName": "IsAimingBlockedForTime",
       "return": {
@@ -2092,8 +2408,8 @@
       ]
     },
     {
-      "fullName": "IsFastForwardByLine;StateGameScriptInterface",
-      "shortName": "IsFastForwardByLine",
+      "fullName": "IsExitVehicleBlocked;StateGameScriptInterface",
+      "shortName": "IsExitVehicleBlocked",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -2856,6 +3172,27 @@
       ]
     },
     {
+      "fullName": "IsQuickWheelItemACyberware;StateGameScriptInterfacegamedataItemType",
+      "shortName": "IsQuickWheelItemACyberware",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "gamedataItemType",
+          "name": "cyberwareType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsRadialWheelOpen;StateGameScriptInterface",
       "shortName": "IsRadialWheelOpen",
       "return": {
@@ -3315,6 +3652,22 @@
       ]
     },
     {
+      "fullName": "PlayerHasGrenadeCharges;StateGameScriptInterface",
+      "shortName": "PlayerHasGrenadeCharges",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "PrepareGameEffectAoEAttack;StateContextStateGameScriptInterfaceAttack_Record",
       "shortName": "PrepareGameEffectAoEAttack",
       "return": {
@@ -3745,7 +4098,7 @@
       ]
     },
     {
-      "fullName": "SetGameplayCameraParameters;StateGameScriptInterfaceString",
+      "fullName": "SetGameplayCameraParameters;StateGameScriptInterfacescript_ref<String>",
       "shortName": "SetGameplayCameraParameters",
       "flags": 33284,
       "params": [
@@ -3755,7 +4108,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "tweakDBPath",
           "flags": 128
         }
@@ -3872,7 +4225,34 @@
       ]
     },
     {
-      "fullName": "ShowInputHint;StateGameScriptInterfaceCNameCNameStringinkInputHintHoldIndicationTypeBool",
+      "fullName": "ShowAttackPreview;BoolWeaponObjectStateGameScriptInterfaceStateContext",
+      "shortName": "ShowAttackPreview",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "showIfAiming",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameweaponObject",
+          "name": "weaponObject",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowInputHint;StateGameScriptInterfaceCNameCNamescript_ref<String>inkInputHintHoldIndicationTypeBoolInt32inkInputHintKeyCombinationType",
       "shortName": "ShowInputHint",
       "flags": 41220,
       "params": [
@@ -3892,7 +4272,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "label",
           "flags": 128
         },
@@ -3904,6 +4284,16 @@
         {
           "type": "Bool",
           "name": "enableHoldAnimation",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "sortingPriority",
+          "flags": 1152
+        },
+        {
+          "type": "inkInputHintKeyCombinationType",
+          "name": "inputHintKeyCombinationType",
           "flags": 1152
         }
       ]
@@ -3953,7 +4343,7 @@
       ]
     },
     {
-      "fullName": "StartPool;StatPoolsSystemEntityIDgamedataStatPoolTypeFloatFloat",
+      "fullName": "StartPool;StatPoolsSystemEntityIDgamedataStatPoolTypeFloatFloatFloat",
       "shortName": "StartPool",
       "flags": 33028,
       "params": [
@@ -3971,6 +4361,11 @@
           "type": "gamedataStatPoolType",
           "name": "poolType",
           "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "rangeBegin",
+          "flags": 1152
         },
         {
           "type": "Float",
@@ -4019,7 +4414,7 @@
       ]
     },
     {
-      "fullName": "StopPool;StatPoolsSystemEntityIDgamedataStatPoolTypeBool",
+      "fullName": "StopPool;StatPoolsSystemEntityIDgamedataStatPoolTypeBoolFloatFloat",
       "shortName": "StopPool",
       "flags": 33028,
       "params": [
@@ -4042,6 +4437,16 @@
           "type": "Bool",
           "name": "startDecay",
           "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "rangeBegin",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "rangeEnd",
+          "flags": 1152
         }
       ]
     },

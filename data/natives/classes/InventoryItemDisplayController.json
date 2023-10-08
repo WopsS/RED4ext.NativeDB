@@ -44,6 +44,16 @@
       "flags": 4297195553
     },
     {
+      "type": "inkImageWidgetReference",
+      "name": "itemEmptyIcon",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "cyberwareEmptyImage",
+      "flags": 4297195553
+    },
+    {
       "type": "inkWidgetReference",
       "name": "itemSelectedArrow",
       "flags": 4297195553
@@ -85,6 +95,16 @@
     },
     {
       "type": "array:inkWidgetReference",
+      "name": "hideWhenCyberwareInInventory",
+      "flags": 6583091233
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "showWhenCyberwareInInventory",
+      "flags": 6583091233
+    },
+    {
+      "type": "array:inkWidgetReference",
       "name": "showInEmptyWidgets",
       "flags": 6583091233
     },
@@ -97,6 +117,11 @@
       "type": "array:inkWidgetReference",
       "name": "backgroundFrames",
       "flags": 6583091233
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "equippedMarker",
+      "flags": 4297195553
     },
     {
       "type": "inkWidgetReference",
@@ -131,11 +156,6 @@
     {
       "type": "inkWidgetReference",
       "name": "questItemMaker",
-      "flags": 4297195553
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "equippedMarker",
       "flags": 4297195553
     },
     {
@@ -226,6 +246,16 @@
     {
       "type": "inkTextWidgetReference",
       "name": "wardrobeInfoText",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "perkWrapper",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkImageWidgetReference",
+      "name": "perkIcon",
       "flags": 4297195553
     },
     {
@@ -335,7 +365,7 @@
     },
     {
       "type": "Bool",
-      "name": "enoughMoney",
+      "name": "isEnoughMoney",
       "flags": 4297195552
     },
     {
@@ -357,6 +387,16 @@
       "type": "Bool",
       "name": "isNew",
       "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "isNewOverriden",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isQuestBought",
+      "flags": 4297130016
     },
     {
       "type": "array:gameItemID",
@@ -386,6 +426,11 @@
     {
       "type": "Bool",
       "name": "isLocked",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "visibleWhenLocked",
       "flags": 4297195552
     },
     {
@@ -424,6 +469,21 @@
       "flags": 4297195552
     },
     {
+      "type": "handle:IScriptable",
+      "name": "additionalData",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isCyberwarePreviewInInventory",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isPerkRequiredCyberware",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:inkanimProxy",
       "name": "delayProxy",
       "flags": 4431347744
@@ -437,6 +497,16 @@
       "type": "whandle:inkWidget",
       "name": "hoverTarget",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "upgradeProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "selectedCWProxy",
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -727,6 +797,15 @@
       "flags": 33284
     },
     {
+      "fullName": "GetAdditionalData;",
+      "shortName": "GetAdditionalData",
+      "return": {
+        "type": "handle:IScriptable",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "GetAttachmentsSize;",
       "shortName": "GetAttachmentsSize",
       "return": {
@@ -860,6 +939,22 @@
       "flags": 33024
     },
     {
+      "fullName": "GetQualityRounded;gamedataQuality",
+      "shortName": "GetQualityRounded",
+      "return": {
+        "type": "gamedataQuality",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "itemQuality",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetShadowIconAtlas;gamedataEquipmentArea",
       "shortName": "GetShadowIconAtlas",
       "return": {
@@ -971,12 +1066,12 @@
       ]
     },
     {
-      "fullName": "InvalidateVisualContent;InventoryItemDataInt32Bool",
+      "fullName": "InvalidateVisualContent;script_ref<InventoryItemData>Int32Bool",
       "shortName": "InvalidateVisualContent",
       "flags": 33280,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "inventoryItemData",
           "flags": 128
         },
@@ -1034,8 +1129,35 @@
       ]
     },
     {
+      "fullName": "IsItemIconic;",
+      "shortName": "IsItemIconic",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "IsLocked;",
       "shortName": "IsLocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsPerkRequiredCyberware;",
+      "shortName": "IsPerkRequiredCyberware",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsQuestBought;",
+      "shortName": "IsQuestBought",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1209,6 +1331,18 @@
       ]
     },
     {
+      "fullName": "OnItemUpdate;ItemID",
+      "shortName": "OnItemUpdate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnItemUpdate;UIInventoryItem",
       "shortName": "OnItemUpdate",
       "flags": 32900,
@@ -1221,16 +1355,14 @@
       ]
     },
     {
-      "fullName": "OnItemUpdate;ItemID",
-      "shortName": "OnItemUpdate",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameItemID",
-          "name": "itemID",
-          "flags": 128
-        }
-      ]
+      "fullName": "PlayEquipFeedback;",
+      "shortName": "PlayEquipFeedback",
+      "flags": 33284
+    },
+    {
+      "fullName": "PlayUpgradeFeedback;",
+      "shortName": "PlayUpgradeFeedback",
+      "flags": 33284
     },
     {
       "fullName": "RefreshUI;",
@@ -1246,6 +1378,18 @@
       "fullName": "SelectItem;",
       "shortName": "SelectItem",
       "flags": 33284
+    },
+    {
+      "fullName": "SetAdditionalData;IScriptable",
+      "shortName": "SetAdditionalData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:IScriptable",
+          "name": "additionalData",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "SetBuybackStack;Bool",
@@ -1270,6 +1414,16 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "SetCyberwareEmptyInInventroy;",
+      "shortName": "SetCyberwareEmptyInInventroy",
+      "flags": 33284
+    },
+    {
+      "fullName": "SetCyberwarePrieviewInInventroy;",
+      "shortName": "SetCyberwarePrieviewInInventroy",
+      "flags": 33284
     },
     {
       "fullName": "SetDLCNewIndicator;Bool",
@@ -1342,6 +1496,18 @@
       ]
     },
     {
+      "fullName": "SetHighlightedCyberwareSlot;Bool",
+      "shortName": "SetHighlightedCyberwareSlot",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "show",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetInteractive;Bool",
       "shortName": "SetInteractive",
       "flags": 33280,
@@ -1371,8 +1537,8 @@
       ]
     },
     {
-      "fullName": "SetLocked;Bool",
-      "shortName": "SetLocked",
+      "fullName": "SetIsNewOverride;Bool",
+      "shortName": "SetIsNewOverride",
       "flags": 33284,
       "params": [
         {
@@ -1383,13 +1549,54 @@
       ]
     },
     {
+      "fullName": "SetLocked;BoolBool",
+      "shortName": "SetLocked",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "visibleWhenLocked",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetParentItem;gameItemData",
       "shortName": "SetParentItem",
       "flags": 33280,
       "params": [
         {
-          "type": "whandle:gameItemData",
+          "type": "handle:gameItemData",
           "name": "parentItemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetPerkRequiredCyberware;gamedataEquipmentArea",
+      "shortName": "SetPerkRequiredCyberware",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "area",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetQuestBought;Bool",
+      "shortName": "SetQuestBought",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -1402,6 +1609,18 @@
         {
           "type": "Bool",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUpgradableCyberware;Bool",
+      "shortName": "SetUpgradableCyberware",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isUpgradable",
           "flags": 128
         }
       ]
@@ -1435,7 +1654,7 @@
         },
         {
           "type": "Bool",
-          "name": "enoughMoney",
+          "name": "isEnoughMoney",
           "flags": 1152
         },
         {
@@ -1451,6 +1670,104 @@
         {
           "type": "Int32",
           "name": "overrideQuantity",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;UIInventoryItemgamedataEquipmentAreaStringInt32ItemDisplayContextData",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "slotName",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        },
+        {
+          "type": "whandle:ItemDisplayContextData",
+          "name": "displayContextData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;UIInventoryItemgamedataEquipmentAreaStringInt32ItemDisplayContext",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "inventoryItem",
+          "flags": 128
+        },
+        {
+          "type": "gamedataEquipmentArea",
+          "name": "equipmentArea",
+          "flags": 128
+        },
+        {
+          "type": "String",
+          "name": "slotName",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
+          "flags": 1152
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;RecipeDataItemDisplayContext",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:RecipeData",
+          "name": "recipeData",
+          "flags": 128
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;script_ref<InventoryItemData>Int32",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "script_ref:gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "slotIndex",
           "flags": 1152
         }
       ]
@@ -1473,12 +1790,78 @@
       ]
     },
     {
-      "fullName": "Setup;InventoryItemDatagamedataEquipmentAreaStringInt32ItemDisplayContext",
+      "fullName": "Setup;InventoryTooltipData",
       "shortName": "Setup",
       "flags": 33280,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "handle:InventoryTooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;InventoryDataManagerV2script_ref<InventoryItemData>TweakDBIDItemDisplayContextBool",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:InventoryDataManagerV2",
+          "name": "inventoryDataManager",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "forceUpdateCounter",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;script_ref<InventoryItemData>TweakDBIDItemDisplayContext",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "script_ref:gameInventoryItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "slotID",
+          "flags": 128
+        },
+        {
+          "type": "gameItemDisplayContext",
+          "name": "displayContext",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "Setup;script_ref<InventoryItemData>gamedataEquipmentAreaStringInt32ItemDisplayContext",
+      "shortName": "Setup",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -1505,12 +1888,12 @@
       ]
     },
     {
-      "fullName": "Setup;InventoryItemDataItemDisplayContextBoolBoolBool",
+      "fullName": "Setup;script_ref<InventoryItemData>ItemDisplayContextBoolBoolBool",
       "shortName": "Setup",
       "flags": 33280,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
@@ -1521,7 +1904,7 @@
         },
         {
           "type": "Bool",
-          "name": "enoughMoney",
+          "name": "isEnoughMoney",
           "flags": 1152
         },
         {
@@ -1532,106 +1915,6 @@
         {
           "type": "Bool",
           "name": "isUpgradable",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "Setup;InventoryItemDataInt32",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "slotIndex",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "Setup;InventoryTooltipData",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "handle:InventoryTooltipData",
-          "name": "tooltipData",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "Setup;InventoryDataManagerV2InventoryItemDataTweakDBIDItemDisplayContextBool",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "handle:InventoryDataManagerV2",
-          "name": "inventoryDataManager",
-          "flags": 128
-        },
-        {
-          "type": "gameInventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "slotID",
-          "flags": 128
-        },
-        {
-          "type": "gameItemDisplayContext",
-          "name": "displayContext",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "forceUpdateCounter",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "Setup;InventoryItemDataTweakDBIDItemDisplayContext",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "itemData",
-          "flags": 128
-        },
-        {
-          "type": "TweakDBID",
-          "name": "slotID",
-          "flags": 128
-        },
-        {
-          "type": "gameItemDisplayContext",
-          "name": "displayContext",
-          "flags": 1152
-        }
-      ]
-    },
-    {
-      "fullName": "Setup;RecipeDataItemDisplayContext",
-      "shortName": "Setup",
-      "flags": 33280,
-      "params": [
-        {
-          "type": "handle:RecipeData",
-          "name": "recipeData",
-          "flags": 128
-        },
-        {
-          "type": "gameItemDisplayContext",
-          "name": "displayContext",
           "flags": 1152
         }
       ]

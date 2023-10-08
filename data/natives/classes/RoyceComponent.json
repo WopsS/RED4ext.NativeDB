@@ -9,6 +9,11 @@
       "flags": 4297130016
     },
     {
+      "type": "entEntityID",
+      "name": "owner_id",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:entSimpleColliderComponent",
       "name": "npcCollisionComponent",
       "flags": 4431347744
@@ -24,9 +29,19 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:gameStatPoolsSystem",
+      "name": "statPoolSystem",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:animAnimFeature_HitReactionsData",
       "name": "hitData",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "weakspotDestroyed",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -73,6 +88,22 @@
       "params": [
         {
           "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDefeated",
+      "shortName": "OnDefeated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsDefeatedEvent",
           "name": "evt",
           "flags": 128
         }
@@ -143,6 +174,22 @@
       ]
     },
     {
+      "fullName": "OnStatusEffectRemoved",
+      "shortName": "OnStatusEffectRemoved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsRemoveStatusEffect",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnTakeControl",
       "shortName": "OnTakeControl",
       "return": {
@@ -159,9 +206,31 @@
       ]
     },
     {
+      "fullName": "DestroyAllWeakspots;",
+      "shortName": "DestroyAllWeakspots",
+      "flags": 32900
+    },
+    {
+      "fullName": "DestroyMainWeakspots;",
+      "shortName": "DestroyMainWeakspots",
+      "flags": 32900
+    },
+    {
       "fullName": "OnGameAttach;",
       "shortName": "OnGameAttach",
       "flags": 33284
+    },
+    {
+      "fullName": "SetPercentLifeForPhase;Float",
+      "shortName": "SetPercentLifeForPhase",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "StartEffect;CName",

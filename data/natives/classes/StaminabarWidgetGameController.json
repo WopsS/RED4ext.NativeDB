@@ -29,6 +29,16 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:redCallbackObject",
+      "name": "bbAreaZoneEventId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "combatModeListener",
+      "flags": 4431347744
+    },
+    {
       "type": "whandle:NameplateBarLogicController",
       "name": "staminaController",
       "flags": 4297130016
@@ -39,18 +49,13 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:inkanimDefinition",
-      "name": "animLongFade",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "animHideStaminaProxy",
-      "flags": 4431347744
-    },
-    {
       "type": "Float",
-      "name": "currentStamina",
+      "name": "currentBarValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "gamedataStatPoolType",
+      "name": "currentStatPool",
       "flags": 4297130016
     },
     {
@@ -64,12 +69,95 @@
       "flags": 4297130016
     },
     {
+      "type": "gamePSMZones",
+      "name": "zoneState",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:StaminaPoolListener",
       "name": "staminaPoolListener",
       "flags": 4431347744
+    },
+    {
+      "type": "handle:gameStatsSystem",
+      "name": "statsSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "forceHidden",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "staminaRatioEnterCondition",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:PulseAnimation",
+      "name": "pulse",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "playerPuppet",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnAction",
+      "shortName": "OnAction",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "gameinputScriptListenerAction",
+          "name": "action",
+          "flags": 128
+        },
+        {
+          "type": "gameinputScriptListenerActionConsumer",
+          "name": "consumer",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCombatStateChanged",
+      "shortName": "OnCombatStateChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnFocusedCoolPerkActive",
+      "shortName": "OnFocusedCoolPerkActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:FocusPerkTriggerd",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnForceHide",
       "shortName": "OnForceHide",
@@ -153,22 +241,6 @@
       ]
     },
     {
-      "fullName": "OnStaminaHideAnimationFinished",
-      "shortName": "OnStaminaHideAnimationFinished",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkanimProxy",
-          "name": "anim",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnStaminaPSMChange",
       "shortName": "OnStaminaPSMChange",
       "return": {
@@ -194,6 +266,22 @@
       "flags": 33032
     },
     {
+      "fullName": "OnZoneChange",
+      "shortName": "OnZoneChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "arg",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CreateAnimations;",
       "shortName": "CreateAnimations",
       "flags": 32900
@@ -202,6 +290,15 @@
       "fullName": "EvaluateStaminaBarVisibility;",
       "shortName": "EvaluateStaminaBarVisibility",
       "flags": 33284
+    },
+    {
+      "fullName": "IsInCombat;",
+      "shortName": "IsInCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
     },
     {
       "fullName": "RegisterPSMListeners;GameObject",
@@ -249,7 +346,7 @@
       ]
     },
     {
-      "fullName": "UpdateStaminaValue;FloatFloatFloat",
+      "fullName": "UpdateStaminaValue;FloatFloatFloatgamedataStatPoolType",
       "shortName": "UpdateStaminaValue",
       "flags": 33284,
       "params": [
@@ -266,6 +363,11 @@
         {
           "type": "Float",
           "name": "percToPoints",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatPoolType",
+          "name": "statPoolType",
           "flags": 128
         }
       ]

@@ -39,14 +39,59 @@
       "flags": 4297130017
     },
     {
+      "type": "inkCompoundWidgetReference",
+      "name": "missionLinksContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "fluffLinksContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "mapLinksContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "missionLinkLine",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "fluffShardLinkLine",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "codexLinkLine",
+      "flags": 4297130017
+    },
+    {
       "type": "inkWidgetReference",
       "name": "contentContainer",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
+      "name": "scrollContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "noSelectedQuestContainer",
       "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "ep1Marker",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:inkScrollController",
+      "name": "scrollContainerCtrl",
+      "flags": 4297130016
     },
     {
       "type": "whandle:gameJournalQuest",
@@ -56,6 +101,11 @@
     {
       "type": "whandle:gameJournalManager",
       "name": "journalManager",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameJournalOnscreen",
+      "name": "shardEntry",
       "flags": 4297130016
     },
     {
@@ -69,6 +119,11 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameuiGameSystemUI",
+      "name": "uiSystem",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:gameJournalQuestObjective",
       "name": "trackedObjective",
       "flags": 4297130016
@@ -76,6 +131,21 @@
     {
       "type": "Bool",
       "name": "canUsePhone",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "objectiveOffset",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "objectiveActionOffset",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
+      "name": "objectiveActionsCount",
       "flags": 4297130016
     }
   ],
@@ -106,13 +176,55 @@
       ]
     },
     {
+      "fullName": "CalcObjectiveActionsCount;JournalContainerEntry",
+      "shortName": "CalcObjectiveActionsCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameJournalContainerEntry",
+          "name": "entry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasMultipleActionLinks;",
+      "shortName": "HasMultipleActionLinks",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "PopulateCodexLinks;JournalQuestObjective",
       "shortName": "PopulateCodexLinks",
-      "flags": 32900,
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameJournalQuestObjective",
+          "name": "objective",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulateObjectiveActionLinks;JournalQuestObjectiveinkCompoundRef",
+      "shortName": "PopulateObjectiveActionLinks",
+      "flags": 33284,
       "params": [
         {
           "type": "handle:gameJournalQuestObjective",
           "name": "trackedObjective",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "container",
           "flags": 128
         }
       ]
@@ -135,7 +247,7 @@
       ]
     },
     {
-      "fullName": "Setup;JournalQuestJournalManagerPhoneSystemMappinSystemGameInstanceBool",
+      "fullName": "Setup;JournalQuestJournalManagerPhoneSystemMappinSystemUISystemGameInstanceBool",
       "shortName": "Setup",
       "flags": 33284,
       "params": [
@@ -160,6 +272,11 @@
           "flags": 128
         },
         {
+          "type": "whandle:gameuiGameSystemUI",
+          "name": "uiSystem",
+          "flags": 128
+        },
+        {
           "type": "ScriptGameInstance",
           "name": "game",
           "flags": 128
@@ -172,7 +289,7 @@
       ]
     },
     {
-      "fullName": "SpawnCodexLink;JournalEntry",
+      "fullName": "SpawnCodexLink;JournalEntryJournalEntry",
       "shortName": "SpawnCodexLink",
       "flags": 32900,
       "params": [
@@ -180,11 +297,16 @@
           "type": "handle:gameJournalEntry",
           "name": "journalEntry",
           "flags": 128
+        },
+        {
+          "type": "handle:gameJournalEntry",
+          "name": "journalEntryReplacer",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "SpawnContactLink;JournalContact",
+      "fullName": "SpawnContactLink;JournalContactinkCompoundRefBool",
       "shortName": "SpawnContactLink",
       "flags": 32900,
       "params": [
@@ -192,11 +314,33 @@
           "type": "handle:gameJournalContact",
           "name": "contactEntry",
           "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "inputEnabled",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "SpawnMappinLink;JournalQuestMapPinBaseVector3",
+      "fullName": "SpawnFluffShardLink;JournalOnscreen",
+      "shortName": "SpawnFluffShardLink",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameJournalOnscreen",
+          "name": "journalEntry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnMappinLink;JournalQuestMapPinBaseVector3Bool",
       "shortName": "SpawnMappinLink",
       "flags": 32900,
       "params": [
@@ -208,6 +352,67 @@
         {
           "type": "Vector3",
           "name": "jumpTo",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isTracked",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnMessageLink;JournalEntryinkCompoundRefBool",
+      "shortName": "SpawnMessageLink",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameJournalEntry",
+          "name": "childEntry",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "inputEnabled",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnQuestLink;JournalQuest",
+      "shortName": "SpawnQuestLink",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameJournalQuest",
+          "name": "journalEntry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnShardLink;JournalOnscreeninkCompoundRefBool",
+      "shortName": "SpawnShardLink",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameJournalOnscreen",
+          "name": "journalEntry",
+          "flags": 128
+        },
+        {
+          "type": "inkCompoundWidgetReference",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "inputEnabled",
           "flags": 128
         }
       ]

@@ -49,6 +49,16 @@
       "flags": 6851461152
     },
     {
+      "type": "array:CName",
+      "name": "availableCars",
+      "flags": 6851461152
+    },
+    {
+      "type": "array:UIScriptableSystemAttributeLevel",
+      "name": "previousAttributeLevels",
+      "flags": 6851461152
+    },
+    {
       "type": "Bool",
       "name": "comparisionTooltipDisabled",
       "flags": 4565565472
@@ -67,6 +77,16 @@
       "type": "handle:gameInventoryScriptListener",
       "name": "inventoryListener",
       "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "DEV_useNewTooltips",
+      "flags": 4565565472
+    },
+    {
+      "type": "Bool",
+      "name": "DEV_useLongScanTooltips",
+      "flags": 4565565472
     }
   ],
   "funcs": [
@@ -85,6 +105,24 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "DEV_IsNewTooltipEnabled;",
+      "shortName": "DEV_IsNewTooltipEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "DEV_IsScanLongTooltipEnabled;",
+      "shortName": "DEV_IsScanLongTooltipEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "GetBackpackActiveFilter;Int32",
@@ -119,6 +157,22 @@
       ]
     },
     {
+      "fullName": "GetPreviousAttributeLevel;gamedataStatType",
+      "shortName": "GetPreviousAttributeLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "stat",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetVendorPanelPlayerActiveSorting;Int32",
       "shortName": "GetVendorPanelPlayerActiveSorting",
       "return": {
@@ -147,6 +201,22 @@
           "type": "Int32",
           "name": "defaultValue",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsAvailableCarNew;CName",
+      "shortName": "IsAvailableCarNew",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "CName",
+          "name": "carFact",
+          "flags": 128
         }
       ]
     },
@@ -229,6 +299,18 @@
       "flags": 33920
     },
     {
+      "fullName": "OnAvailableCarAdded;UIScriptableSystemAddAvailableCar",
+      "shortName": "OnAvailableCarAdded",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UIScriptableSystemAddAvailableCar",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnComparisionTooltipDisabled;UIScriptableSystemSetComparisionTooltipDisabled",
       "shortName": "OnComparisionTooltipDisabled",
       "flags": 32900,
@@ -256,6 +338,18 @@
       "fullName": "OnDetach;",
       "shortName": "OnDetach",
       "flags": 33920
+    },
+    {
+      "fullName": "OnEnableScanLongDescription;ScanLongDescriptionCall",
+      "shortName": "OnEnableScanLongDescription",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:ScanLongDescriptionCall",
+          "name": "request",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnInventoryItemAdded;UIScriptableSystemInventoryAddItem",
@@ -347,6 +441,18 @@
       ]
     },
     {
+      "fullName": "OnSetPreviousAttributeLevel;UIScriptableSystemSetPreviousAttributeLevel",
+      "shortName": "OnSetPreviousAttributeLevel",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UIScriptableSystemSetPreviousAttributeLevel",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetVendorPanelPlayerSorting;UIScriptableSystemSetVendorPanelPlayerSorting",
       "shortName": "OnSetVendorPanelPlayerSorting",
       "flags": 32900,
@@ -413,6 +519,18 @@
       "params": [
         {
           "type": "handle:UIScriptableSystemWardrobeSetInspected",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "On_DEV_ScriptableSystemUseNewTooltips;UI_DEV_ScriptableSystemUseNewTooltips",
+      "shortName": "On_DEV_ScriptableSystemUseNewTooltips",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UI_DEV_ScriptableSystemUseNewTooltips",
           "name": "request",
           "flags": 128
         }

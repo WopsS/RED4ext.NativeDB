@@ -234,6 +234,11 @@
       "flags": 4297195552
     },
     {
+      "type": "Float",
+      "name": "ragdollInfluenceRadius",
+      "flags": 4297195552
+    },
+    {
       "type": "EAIHitIntensity",
       "name": "hitIntensity",
       "flags": 4297195552
@@ -269,6 +274,16 @@
       "flags": 4297195552
     },
     {
+      "type": "Float",
+      "name": "previousHackStaggerTimeStamp",
+      "flags": 4297195552
+    },
+    {
+      "type": "Float",
+      "name": "previousHackImpactTimeStamp",
+      "flags": 4297195552
+    },
+    {
       "type": "Int32",
       "name": "blockCount",
       "flags": 4297195552
@@ -294,6 +309,11 @@
       "flags": 4297195552
     },
     {
+      "type": "Float",
+      "name": "defeatedRegisteredTime",
+      "flags": 4297195552
+    },
+    {
       "type": "Bool",
       "name": "deathHasBeenPlayed",
       "flags": 4297195552
@@ -311,11 +331,6 @@
     {
       "type": "Float",
       "name": "extendedDeathDelayRegisteredTime",
-      "flags": 4297195552
-    },
-    {
-      "type": "Float",
-      "name": "disableDismembermentAfterDeathDelay",
       "flags": 4297195552
     },
     {
@@ -580,7 +595,7 @@
     },
     {
       "type": "Float",
-      "name": "currentMeleeImmunity",
+      "name": "currentMeleeHitReactionResistance",
       "flags": 4297130016
     },
     {
@@ -604,6 +619,31 @@
       "flags": 4297130016
     },
     {
+      "type": "Vector2",
+      "name": "dismemberExecuteHealthRange",
+      "flags": 4297130016
+    },
+    {
+      "type": "Vector2",
+      "name": "dismemberExecuteDistanceRange",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "executeDismembered",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "attackIsValidBodyPerk",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "invalidForExecuteDismember",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:animAnimFeature_HitReactionsData",
       "name": "hitReactionData",
       "flags": 4431347744
@@ -621,6 +661,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "HitReactionComponent::GetMantisBladesInstantDismembermentSpyBuffStatusEffectID;",
+      "shortName": "GetMantisBladesInstantDismembermentSpyBuffStatusEffectID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 33030
     },
     {
       "fullName": "OnClearHitStimEvent",
@@ -649,6 +698,22 @@
       "params": [
         {
           "type": "handle:gameeventsDeathEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDefeated",
+      "shortName": "OnDefeated",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsDefeatedEvent",
           "name": "evt",
           "flags": 128
         }
@@ -745,6 +810,38 @@
       "params": [
         {
           "type": "handle:gameAttachmentSlotEventsItemAddedToSlot",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayGrandFinaleVFX",
+      "shortName": "OnPlayGrandFinaleVFX",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:PlayGrandFinaleVFX",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPlayOnePunchVFX",
+      "shortName": "OnPlayOnePunchVFX",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:PlayOnePunchVFX",
           "name": "evt",
           "flags": 128
         }
@@ -880,6 +977,18 @@
         "flags": 64
       },
       "flags": 33028
+    },
+    {
+      "fullName": "ClearBodyPerkDismembermentChance;GameObject",
+      "shortName": "ClearBodyPerkDismembermentChance",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DefeatedRemoveConditions;NPCPuppet",
@@ -1281,8 +1390,8 @@
       "flags": 32900
     },
     {
-      "fullName": "GetIsOwnerImmuneToMelee;",
-      "shortName": "GetIsOwnerImmuneToMelee",
+      "fullName": "GetIsOwnerResistantToMeleeHitReaction;",
+      "shortName": "GetIsOwnerResistantToMeleeHitReaction",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -1449,7 +1558,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetReactionType;Float",
+      "fullName": "GetReactionType;FloatgameHitEvent",
       "shortName": "GetReactionType",
       "return": {
         "type": "animHitReactionType",
@@ -1460,6 +1569,11 @@
         {
           "type": "Float",
           "name": "guardBreakImpulse",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "newHitEvent",
           "flags": 128
         }
       ]
@@ -1492,9 +1606,30 @@
       "flags": 41476
     },
     {
+      "fullName": "IncrementBodyPerkDismembermentChance;GameObject",
+      "shortName": "IncrementBodyPerkDismembermentChance",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IncrementHitCountData;",
       "shortName": "IncrementHitCountData",
       "flags": 33028
+    },
+    {
+      "fullName": "IsExecutedByDismemberment;",
+      "shortName": "IsExecutedByDismemberment",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "IsInKnockdown;",
@@ -1515,7 +1650,7 @@
       "flags": 32900
     },
     {
-      "fullName": "IsPowerDifferenceBelow;EPowerDifferential",
+      "fullName": "IsPowerDifferenceBelow;gameEPowerDifferential",
       "shortName": "IsPowerDifferenceBelow",
       "return": {
         "type": "Bool",
@@ -1524,7 +1659,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "EPowerDifferential",
+          "type": "gameEPowerDifferential",
           "name": "powerDifferential",
           "flags": 128
         }
@@ -1563,7 +1698,23 @@
       ]
     },
     {
-      "fullName": "NotifyAboutDismembermentInstigated;GameObjectEHitReactionZone",
+      "fullName": "IsValidBodyPerkDismemberAttack;Float",
+      "shortName": "IsValidBodyPerkDismemberAttack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Float",
+          "name": "healthMissing",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyAboutDismembermentInstigated;GameObjectEHitReactionZoneVector4",
       "shortName": "NotifyAboutDismembermentInstigated",
       "flags": 32900,
       "params": [
@@ -1575,6 +1726,11 @@
         {
           "type": "EHitReactionZone",
           "name": "bodyPart",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "targetPosition",
           "flags": 128
         }
       ]
@@ -1602,9 +1758,19 @@
       "flags": 34304
     },
     {
+      "fullName": "OnGameAttached;",
+      "shortName": "OnGameAttached",
+      "flags": 34304
+    },
+    {
       "fullName": "OnGameDetach;",
       "shortName": "OnGameDetach",
       "flags": 33924
+    },
+    {
+      "fullName": "ProcessBodyPerkDismembement;",
+      "shortName": "ProcessBodyPerkDismembement",
+      "flags": 33028
     },
     {
       "fullName": "ProcessDefeated;NPCPuppet",
@@ -1686,6 +1852,23 @@
       ]
     },
     {
+      "fullName": "ProcessGrandFinaleHitImpact;ScriptedPuppetGameObject",
+      "shortName": "ProcessGrandFinaleHitImpact",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ProcessHitReactionZone;EHitReactionZone",
       "shortName": "ProcessHitReactionZone",
       "return": {
@@ -1697,6 +1880,35 @@
         {
           "type": "EHitReactionZone",
           "name": "bodyPart",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessOnePunchAttackHitImpact;ScriptedPuppetGameObject",
+      "shortName": "ProcessOnePunchAttackHitImpact",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessSpecialFX;gameHitEvent",
+      "shortName": "ProcessSpecialFX",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitevent",
           "flags": 128
         }
       ]
@@ -1735,6 +1947,28 @@
           "type": "EHitReactionZone",
           "name": "reactionZone",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RecalculateHitReactionValsForHacks;FloatInt32Int32",
+      "shortName": "RecalculateHitReactionValsForHacks",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "currentTimeStamp",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "hitReactionMin",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "hitReactionMax",
+          "flags": 640
         }
       ]
     },
@@ -1827,13 +2061,18 @@
       ]
     },
     {
-      "fullName": "SetAnimVariation;Int32",
+      "fullName": "SetAnimVariation;Int32EHitReactionZone",
       "shortName": "SetAnimVariation",
       "flags": 32900,
       "params": [
         {
           "type": "Int32",
           "name": "hitDirection",
+          "flags": 640
+        },
+        {
+          "type": "EHitReactionZone",
+          "name": "hitReactionZone",
           "flags": 640
         }
       ]
@@ -1980,6 +2219,22 @@
         {
           "type": "Int32",
           "name": "variation",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryTriggerBodyPerkDismembement;Float",
+      "shortName": "TryTriggerBodyPerkDismembement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Float",
+          "name": "remainingHealth",
           "flags": 128
         }
       ]
@@ -2203,8 +2458,8 @@
       ]
     },
     {
-      "fullName": "UpdateOwnerMeleeImmunityData;Float",
-      "shortName": "UpdateOwnerMeleeImmunityData",
+      "fullName": "UpdateOwnerMeleeHitReactionResistanceData;Float",
+      "shortName": "UpdateOwnerMeleeHitReactionResistanceData",
       "flags": 33284,
       "params": [
         {

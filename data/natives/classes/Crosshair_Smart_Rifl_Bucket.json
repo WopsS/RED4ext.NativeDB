@@ -4,39 +4,34 @@
   "flags": 4,
   "props": [
     {
-      "type": "inkWidgetReference",
-      "name": "progressBar",
-      "flags": 4297130017
+      "type": "Float",
+      "name": "lockingAnimationLength",
+      "flags": 4297326625
     },
     {
-      "type": "inkWidgetReference",
-      "name": "progressBarValue",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "targetIndicator",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "lockedIndicator",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "lockingIndicator",
-      "flags": 4297130017
+      "type": "Float",
+      "name": "unlockingAnimationLength",
+      "flags": 4297326625
     },
     {
       "type": "gamesmartGunUITargetParameters",
       "name": "data",
-      "flags": 4297130016
+      "flags": 4297326624
     },
     {
       "type": "handle:inkanimProxy",
       "name": "lockingAnimationProxy",
-      "flags": 4431347744
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "unlockingAnimationProxy",
+      "flags": 4431544352
+    },
+    {
+      "type": "array:gameDelayID",
+      "name": "activeCallbacks",
+      "flags": 6583222304
     }
   ],
   "funcs": [
@@ -50,13 +45,90 @@
       "flags": 33032
     },
     {
-      "fullName": "SetData;smartGunUITargetParameters",
+      "fullName": "ClearCallbacks;DelaySystem",
+      "shortName": "ClearCallbacks",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameDelaySystem",
+          "name": "delaySystem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MatchData;script_ref<smartGunUITargetParameters>",
+      "shortName": "MatchData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "script_ref:gamesmartGunUITargetParameters",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetData;GameObject",
+      "shortName": "ResetData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetData;script_ref<smartGunUITargetParameters>smartGunUIParametersGameObject",
       "shortName": "SetData",
       "flags": 33284,
       "params": [
         {
-          "type": "gamesmartGunUITargetParameters",
+          "type": "script_ref:gamesmartGunUITargetParameters",
           "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamesmartGunUIParameters",
+          "name": "params",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartLocking;script_ref<smartGunUITargetParameters>smartGunUIParametersGameObjectBool",
+      "shortName": "StartLocking",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:gamesmartGunUITargetParameters",
+          "name": "data",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamesmartGunUIParameters",
+          "name": "params",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "scheduleSFX",
           "flags": 128
         }
       ]

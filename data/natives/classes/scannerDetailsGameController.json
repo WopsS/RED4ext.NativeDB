@@ -20,22 +20,7 @@
     },
     {
       "type": "inkWidgetReference",
-      "name": "bg",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
       "name": "toggleDescirptionHackPart",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "toggleDescriptionScanIcon",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "fitToContentBackground",
       "flags": 4297130017
     },
     {
@@ -49,54 +34,9 @@
       "flags": 4297130016
     },
     {
-      "type": "ScriptGameInstance",
-      "name": "gameInstance",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "objectTypeCallbackID",
-      "flags": 4431347744
-    },
-    {
-      "type": "whandle:gameIBlackboard",
-      "name": "uiScannerChunkBlackboard",
-      "flags": 4297130016
-    },
-    {
       "type": "gameScanningState",
       "name": "scanningState",
       "flags": 4297130016
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "scanStatusCallbackID",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "scanObjectCallbackID",
-      "flags": 4431347744
-    },
-    {
-      "type": "whandle:gameIBlackboard",
-      "name": "uiBlackboard",
-      "flags": 4297130016
-    },
-    {
-      "type": "whandle:gameIBlackboard",
-      "name": "quickSlotsBoard",
-      "flags": 4297130016
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "quickSlotsCallbackID",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:redCallbackObject",
-      "name": "quickhackStartedCallbackID",
-      "flags": 4431347744
     },
     {
       "type": "ScannerObjectType",
@@ -104,79 +44,67 @@
       "flags": 4297130016
     },
     {
-      "type": "handle:inkanimProxy",
-      "name": "showScanAnimProxy",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "hideScanAnimProxy",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "toggleScanDescriptionAnimProxy",
-      "flags": 4431347744
-    },
-    {
-      "type": "CName",
-      "name": "previousToggleAnimName",
+      "type": "ScannerDetailTab",
+      "name": "currentTab",
       "flags": 4297130016
     },
     {
       "type": "Bool",
-      "name": "hasHacks",
-      "flags": 4297130016
-    },
-    {
-      "type": "entEntityID",
-      "name": "lastScannedObject",
+      "name": "isQuickHackAble",
       "flags": 4297130016
     },
     {
       "type": "Bool",
-      "name": "isDescriptionVisible",
+      "name": "isQuickHackPanelOpened",
       "flags": 4297130016
     },
     {
       "type": "array:whandle:inkAsyncSpawnRequest",
       "name": "asyncSpawnRequests",
       "flags": 6583025696
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiScannedObjectTypeChangedCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiScanningStateChangedCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiScannedObjectChangedCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiQHDescriptionChangedCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "uiQHPanelOpenedCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "introAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "outroAnimProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "scannerToggleTabAnimProxy",
+      "flags": 4431347744
     }
   ],
   "funcs": [
-    {
-      "fullName": "OnDescriptionTransitionFinish",
-      "shortName": "OnDescriptionTransitionFinish",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkanimProxy",
-          "name": "animationProxy",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnFitToContentRest",
-      "shortName": "OnFitToContentRest",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:FitToContetDelay",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -185,22 +113,6 @@
         "flags": 64
       },
       "flags": 33032
-    },
-    {
-      "fullName": "OnObjectTypeChanged",
-      "shortName": "OnObjectTypeChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "value",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "OnPlayerAttach",
@@ -213,7 +125,7 @@
       "params": [
         {
           "type": "handle:gameObject",
-          "name": "playerPuppet",
+          "name": "player",
           "flags": 128
         }
       ]
@@ -221,6 +133,22 @@
     {
       "fullName": "OnQHDescriptionChanged",
       "shortName": "OnQHDescriptionChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQHPanelOpened",
+      "shortName": "OnQHPanelOpened",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -245,6 +173,22 @@
       "params": [
         {
           "type": "entEntityID",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnScannedObjectTypeChanged",
+      "shortName": "OnScannedObjectTypeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
           "name": "value",
           "flags": 128
         }
@@ -283,8 +227,8 @@
       ]
     },
     {
-      "fullName": "OnStateChanged",
-      "shortName": "OnStateChanged",
+      "fullName": "OnScanningStateChanged",
+      "shortName": "OnScanningStateChanged",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -293,7 +237,7 @@
       "params": [
         {
           "type": "Variant",
-          "name": "val",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -320,52 +264,41 @@
       ]
     },
     {
-      "fullName": "BreakAniamtions;",
-      "shortName": "BreakAniamtions",
-      "flags": 32900
-    },
-    {
-      "fullName": "ConvertActorTypeToObjectType;HUDActorType",
-      "shortName": "ConvertActorTypeToObjectType",
-      "return": {
-        "type": "ScannerObjectType",
-        "flags": 64
-      },
-      "flags": 32900,
-      "params": [
-        {
-          "type": "HUDActorType",
-          "name": "actorType",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayCloseScannerAnimation;",
-      "shortName": "PlayCloseScannerAnimation",
+      "fullName": "PlayOutroAnimation;",
+      "shortName": "PlayOutroAnimation",
       "flags": 32900
     },
     {
       "fullName": "RefreshLayout;",
       "shortName": "RefreshLayout",
-      "flags": 33284
-    },
-    {
-      "fullName": "SetupToggleVisibility;",
-      "shortName": "SetupToggleVisibility",
       "flags": 32900
     },
     {
-      "fullName": "ToggleDescriptionAnimation;Bool",
-      "shortName": "ToggleDescriptionAnimation",
+      "fullName": "SetTab;ScannerDetailTabBool",
+      "shortName": "SetTab",
       "flags": 32900,
       "params": [
         {
-          "type": "Bool",
-          "name": "value",
+          "type": "ScannerDetailTab",
+          "name": "scannerDetailTab",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isForceSkippingToggleAnimation",
+          "flags": 1152
         }
       ]
+    },
+    {
+      "fullName": "StopAnimations;",
+      "shortName": "StopAnimations",
+      "flags": 32900
+    },
+    {
+      "fullName": "ToggleQHTabVisibility;",
+      "shortName": "ToggleQHTabVisibility",
+      "flags": 32900
     }
   ]
 }

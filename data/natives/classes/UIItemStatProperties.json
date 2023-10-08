@@ -9,13 +9,13 @@
       "flags": 4297130016
     },
     {
-      "type": "Bool",
-      "name": "roundValue",
+      "type": "Int32",
+      "name": "decimalPlaces",
       "flags": 4297130016
     },
     {
       "type": "Bool",
-      "name": "isPercentage",
+      "name": "displayPercent",
       "flags": 4297130016
     },
     {
@@ -37,11 +37,31 @@
       "type": "Bool",
       "name": "inSpeed",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "multiplyBy100InText",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "roundValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "maxValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "flipNegative",
+      "flags": 4297130016
     }
   ],
   "funcs": [
     {
-      "fullName": "UIItemStatProperties::Make;StringBoolBoolBoolBoolBoolBool",
+      "fullName": "UIItemStatProperties::Make;script_ref<String>Int32BoolBoolBoolBoolBoolBoolBoolFloatBool",
       "shortName": "Make",
       "return": {
         "type": "handle:UIItemStatProperties",
@@ -50,18 +70,18 @@
       "flags": 33286,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "localizedName",
           "flags": 128
         },
         {
-          "type": "Bool",
-          "name": "roundValue",
+          "type": "Int32",
+          "name": "decimalPlaces",
           "flags": 128
         },
         {
           "type": "Bool",
-          "name": "isPercentage",
+          "name": "displayPercent",
           "flags": 128
         },
         {
@@ -83,12 +103,59 @@
           "type": "Bool",
           "name": "inSpeed",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "multiplyBy100InText",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "roundValue",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "maxValue",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "flipNegative",
+          "flags": 128
         }
       ]
     },
     {
+      "fullName": "DecimalPlaces;",
+      "shortName": "DecimalPlaces",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "DisplayPercent;",
+      "shortName": "DisplayPercent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "DisplayPlus;",
       "shortName": "DisplayPlus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "FlipNegative;",
+      "shortName": "FlipNegative",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -132,8 +199,17 @@
       "flags": 33284
     },
     {
-      "fullName": "IsPercentage;",
-      "shortName": "IsPercentage",
+      "fullName": "MaxValue;",
+      "shortName": "MaxValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "MultiplyBy100InText;",
+      "shortName": "MultiplyBy100InText",
       "return": {
         "type": "Bool",
         "flags": 64

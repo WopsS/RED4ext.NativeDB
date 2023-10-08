@@ -20,6 +20,11 @@
     },
     {
       "type": "handle:RadialSlot",
+      "name": "activeWeaponSlotTooltip",
+      "flags": 4431347749
+    },
+    {
+      "type": "handle:RadialSlot",
       "name": "statusEffects",
       "flags": 4431347749
     },
@@ -157,21 +162,6 @@
       "type": "handle:redCallbackObject",
       "name": "equipmentUICallbackID",
       "flags": 4431347744
-    },
-    {
-      "type": "Int32",
-      "name": "dbg_int",
-      "flags": 4297326624
-    },
-    {
-      "type": "array:Uint32",
-      "name": "dbg_layers",
-      "flags": 6583222304
-    },
-    {
-      "type": "array:Uint32",
-      "name": "dbg_activeSlotLayers",
-      "flags": 6583222304
     }
   ],
   "funcs": [
@@ -208,6 +198,22 @@
         {
           "type": "Variant",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnForceRadialWheelRebuild",
+      "shortName": "OnForceRadialWheelRebuild",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ForceRadialWheelRebuild",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -332,12 +338,12 @@
       "flags": 33032
     },
     {
-      "fullName": "AddInputHint;InputHintDataBool",
+      "fullName": "AddInputHint;script_ref<InputHintData>Bool",
       "shortName": "AddInputHint",
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiInputHintData",
+          "type": "script_ref:gameuiInputHintData",
           "name": "inputHint",
           "flags": 128
         },
@@ -431,16 +437,6 @@
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "ClearActiveSlotDebug;",
-      "shortName": "ClearActiveSlotDebug",
-      "flags": 32900
-    },
-    {
-      "fullName": "ClearDebug;",
-      "shortName": "ClearDebug",
-      "flags": 32900
     },
     {
       "fullName": "ClearInputHints;",
@@ -545,23 +541,6 @@
       "fullName": "DisarmPlayer;",
       "shortName": "DisarmPlayer",
       "flags": 32900
-    },
-    {
-      "fullName": "DrawActiveSlotDebug;",
-      "shortName": "DrawActiveSlotDebug",
-      "flags": 32900
-    },
-    {
-      "fullName": "DrawDebug;Uint32",
-      "shortName": "DrawDebug",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "Uint32",
-          "name": "id",
-          "flags": 128
-        }
-      ]
     },
     {
       "fullName": "DrawItem;RadialSlot",
@@ -696,7 +675,7 @@
       ]
     },
     {
-      "fullName": "GetValidNeighbouringIndex;array<InventoryItemData>Int32Bool",
+      "fullName": "GetValidNeighbouringIndex;script_ref<array<InventoryItemData>>Int32Bool",
       "shortName": "GetValidNeighbouringIndex",
       "return": {
         "type": "Int32",
@@ -705,7 +684,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "array:gameInventoryItemData",
+          "type": "script_ref:array:gameInventoryItemData",
           "name": "arr",
           "flags": 128
         },
@@ -731,24 +710,24 @@
       "flags": 33028
     },
     {
-      "fullName": "HandleEquipmentChange;SPaperdollEquipData",
+      "fullName": "HandleEquipmentChange;script_ref<SPaperdollEquipData>",
       "shortName": "HandleEquipmentChange",
       "flags": 32900,
       "params": [
         {
-          "type": "SPaperdollEquipData",
+          "type": "script_ref:SPaperdollEquipData",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "HandleEquipmentChangeByTask;SPaperdollEquipData",
+      "fullName": "HandleEquipmentChangeByTask;script_ref<SPaperdollEquipData>",
       "shortName": "HandleEquipmentChangeByTask",
       "flags": 33028,
       "params": [
         {
-          "type": "SPaperdollEquipData",
+          "type": "script_ref:SPaperdollEquipData",
           "name": "eqData",
           "flags": 128
         }
@@ -762,6 +741,22 @@
         {
           "type": "handle:gameScriptTaskData",
           "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsGadgetOrConsumableSlot;WeaponRadialSlot",
+      "shortName": "IsGadgetOrConsumableSlot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:WeaponRadialSlot",
+          "name": "slot",
           "flags": 128
         }
       ]
@@ -816,12 +811,12 @@
       "flags": 32900
     },
     {
-      "fullName": "SendInputHintEvent;InputHintDataBool",
+      "fullName": "SendInputHintEvent;script_ref<InputHintData>Bool",
       "shortName": "SendInputHintEvent",
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiInputHintData",
+          "type": "script_ref:gameuiInputHintData",
           "name": "inputHint",
           "flags": 128
         },

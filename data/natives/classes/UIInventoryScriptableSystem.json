@@ -24,6 +24,16 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:UIInventoryScriptableStatsListener",
+      "name": "playerStatsListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:gameuiGameSystemUI",
+      "name": "uiSystem",
+      "flags": 4431347744
+    },
+    {
       "type": "handle:inkScriptHashMap",
       "name": "playerItems",
       "flags": 4431347744
@@ -49,8 +59,48 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:inkScriptWeakHashMap",
+      "name": "statsDependantItems",
+      "flags": 4431347744
+    },
+    {
       "type": "whandle:gameIBlackboard",
       "name": "InventoryBlackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UI_CraftingDef",
+      "name": "CraftingBlackboardDefinition",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameIBlackboard",
+      "name": "Blackboard",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "UpgradeBlackboardCallback",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:questQuestsSystem",
+      "name": "TEMP_questSystem",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "TEMP_cuverBarsListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "TEMP_separatorBarsListener",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "itemsRestored",
       "flags": 4297130016
     }
   ],
@@ -81,8 +131,68 @@
       "flags": 33286
     },
     {
+      "fullName": "OnUpgradeItem",
+      "shortName": "OnUpgradeItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DisableCurveBarsChanged;Int32",
+      "shortName": "DisableCurveBarsChanged",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DisableSeparatorBarsChanged;Int32",
+      "shortName": "DisableSeparatorBarsChanged",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FlushCraftingResults;",
+      "shortName": "FlushCraftingResults",
+      "flags": 41476
+    },
+    {
+      "fullName": "FlushCyberwareStats;",
+      "shortName": "FlushCyberwareStats",
+      "flags": 32900
+    },
+    {
       "fullName": "FlushFullscreenCache;",
       "shortName": "FlushFullscreenCache",
+      "flags": 41476
+    },
+    {
+      "fullName": "FlushNanoWiresMods;",
+      "shortName": "FlushNanoWiresMods",
+      "flags": 32900
+    },
+    {
+      "fullName": "FlushStatsDependantItems;",
+      "shortName": "FlushStatsDependantItems",
       "flags": 41476
     },
     {
@@ -210,6 +320,23 @@
       "flags": 41476
     },
     {
+      "fullName": "InsertPlayerItem;Uint64UIInventoryItem",
+      "shortName": "InsertPlayerItem",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Uint64",
+          "name": "hash",
+          "flags": 128
+        },
+        {
+          "type": "handle:UIInventoryItem",
+          "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "Internal_FetchNonInventoryItem;Uint64gameItemData",
       "shortName": "Internal_FetchNonInventoryItem",
       "return": {
@@ -226,6 +353,84 @@
         {
           "type": "whandle:gameItemData",
           "name": "itemData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPreview;ItemID",
+      "shortName": "IsPreview",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsStatDependantItem;TweakDBID",
+      "shortName": "IsStatDependantItem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "tweakDBID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyItemAdded;ItemIDUint64",
+      "shortName": "NotifyItemAdded",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Uint64",
+          "name": "hash",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "NotifyItemRemoved;ItemIDUint64",
+      "shortName": "NotifyItemRemoved",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        },
+        {
+          "type": "Uint64",
+          "name": "hash",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBuyNewPerk;BuyNewPerk",
+      "shortName": "OnBuyNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:BuyNewPerk",
+          "name": "request",
           "flags": 128
         }
       ]
@@ -308,6 +513,18 @@
       ]
     },
     {
+      "fullName": "OnSellNewPerk;SellNewPerk",
+      "shortName": "OnSellNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SellNewPerk",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "QueryNonInventoryItem;TweakDBID",
       "shortName": "QueryNonInventoryItem",
       "return": {
@@ -340,9 +557,50 @@
       ]
     },
     {
+      "fullName": "RefreshItem;ItemID",
+      "shortName": "RefreshItem",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemovePlayerItem;Uint64ItemID",
+      "shortName": "RemovePlayerItem",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Uint64",
+          "name": "hash",
+          "flags": 128
+        },
+        {
+          "type": "gameItemID",
+          "name": "itemID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetupInstance;",
       "shortName": "SetupInstance",
       "flags": 32900
+    },
+    {
+      "fullName": "UpdateNewPerk;gamedataNewPerkType",
+      "shortName": "UpdateNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

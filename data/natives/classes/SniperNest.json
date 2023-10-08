@@ -1,0 +1,600 @@
+{
+  "parent": "SensorDevice",
+  "name": "SniperNest",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:AnimFeature_SecurityTurretData",
+      "name": "animFeature",
+      "flags": 4431347744
+    },
+    {
+      "type": "CName",
+      "name": "animFeatureName",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameweaponObject",
+      "name": "weapon",
+      "flags": 4297195552
+    },
+    {
+      "type": "gameItemID",
+      "name": "itemID",
+      "flags": 4297195552
+    },
+    {
+      "type": "NodeRef",
+      "name": "teleportAfterEnter",
+      "group": "Teleport Node",
+      "flags": 4364238881
+    },
+    {
+      "type": "gameDelayID",
+      "name": "burstDelayEvtID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isBurstDelayOngoing",
+      "flags": 4297130016
+    },
+    {
+      "type": "gameDelayID",
+      "name": "nextShootCycleDelayEvtID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isShootingOngoing",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "timeToNextShot",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "targetZoom",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "startZoom",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "zoomLerpTimeStamp",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "zoomLerpDuration",
+      "flags": 4297130016
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "SniperNest::CreateInputHint;GameInstanceBool",
+      "shortName": "CreateInputHint",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isVisible",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDamageReceived",
+      "shortName": "OnDamageReceived",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsDamageReceivedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetach",
+      "shortName": "OnDetach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnGameAttached",
+      "shortName": "OnGameAttached",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnGrabReferenceToWeaponEvent",
+      "shortName": "OnGrabReferenceToWeaponEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:GrabReferenceToWeaponEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHit",
+      "shortName": "OnHit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEjectPlayer",
+      "shortName": "OnQuestEjectPlayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestEjectPlayer",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEnterNoAnimation",
+      "shortName": "OnQuestEnterNoAnimation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestEnterNoAnimation",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestEnterPlayer",
+      "shortName": "OnQuestEnterPlayer",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestEnterPlayer",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuestExitNoAnimation",
+      "shortName": "OnQuestExitNoAnimation",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:QuestExitNoAnimation",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTCSTakeOverControlActivate",
+      "shortName": "OnTCSTakeOverControlActivate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TCSTakeOverControlActivate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTCSTakeOverControlDeactivate",
+      "shortName": "OnTCSTakeOverControlDeactivate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TCSTakeOverControlDeactivate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnToggleTakeOverControl",
+      "shortName": "OnToggleTakeOverControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:ToggleTakeOverControl",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTurretShootingIntervalEvent",
+      "shortName": "OnTurretShootingIntervalEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:TurretShootingIntervalEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWorkspotFinished",
+      "shortName": "OnWorkspotFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "componentName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddHeadshotModifier;",
+      "shortName": "AddHeadshotModifier",
+      "flags": 32900
+    },
+    {
+      "fullName": "ApplyShootingInterval;",
+      "shortName": "ApplyShootingInterval",
+      "flags": 32900
+    },
+    {
+      "fullName": "BlockSniperNestFunctionalities;Bool",
+      "shortName": "BlockSniperNestFunctionalities",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "blocked",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ControlledDeviceInputAction;Bool",
+      "shortName": "ControlledDeviceInputAction",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isPressed",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeterminGameplayRole;",
+      "shortName": "DeterminGameplayRole",
+      "return": {
+        "type": "EGameplayRole",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "DeviceUpdate;",
+      "shortName": "DeviceUpdate",
+      "flags": 33024
+    },
+    {
+      "fullName": "EnterWorkspot;GameObjectBoolCNameCName",
+      "shortName": "EnterWorkspot",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "activator",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "freeCamera",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "componentName",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "deviceData",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetController;",
+      "shortName": "GetController",
+      "return": {
+        "type": "handle:SniperNestController",
+        "flags": 64
+      },
+      "flags": 41088
+    },
+    {
+      "fullName": "GetDevicePS;",
+      "shortName": "GetDevicePS",
+      "return": {
+        "type": "handle:SniperNestControllerPS",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "GetFirerate;",
+      "shortName": "GetFirerate",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
+      "fullName": "GetScannerName;",
+      "shortName": "GetScannerName",
+      "return": {
+        "type": "String",
+        "flags": 64
+      },
+      "flags": 41216
+    },
+    {
+      "fullName": "GetWeapon;",
+      "shortName": "GetWeapon",
+      "return": {
+        "type": "whandle:gameweaponObject",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
+      "fullName": "GiveSniperRifleToThePlayer;",
+      "shortName": "GiveSniperRifleToThePlayer",
+      "flags": 32900
+    },
+    {
+      "fullName": "GiveWeaponToTurret;",
+      "shortName": "GiveWeaponToTurret",
+      "flags": 33028
+    },
+    {
+      "fullName": "GrabReferenceToWeapon;",
+      "shortName": "GrabReferenceToWeapon",
+      "flags": 33028
+    },
+    {
+      "fullName": "HandlePlayerStateMachineZoom;Float",
+      "shortName": "HandlePlayerStateMachineZoom",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LeaveSniperNest;",
+      "shortName": "LeaveSniperNest",
+      "flags": 32900
+    },
+    {
+      "fullName": "PushPersistentData;",
+      "shortName": "PushPersistentData",
+      "flags": 33024
+    },
+    {
+      "fullName": "QueueNextShot;Float",
+      "shortName": "QueueNextShot",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RemoveHeadshotModifier;",
+      "shortName": "RemoveHeadshotModifier",
+      "flags": 32900
+    },
+    {
+      "fullName": "SelectShootingPattern;WeaponObjectGameObjectBool",
+      "shortName": "SelectShootingPattern",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceReselection",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetFirerate;Float",
+      "shortName": "SetFirerate",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUpSniperNestOnEnter;",
+      "shortName": "SetUpSniperNestOnEnter",
+      "flags": 32900
+    },
+    {
+      "fullName": "ShootAttachedWeapon;Bool",
+      "shortName": "ShootAttachedWeapon",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shootStart",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ShootStart;",
+      "shortName": "ShootStart",
+      "flags": 32900
+    },
+    {
+      "fullName": "ShootStop;",
+      "shortName": "ShootStop",
+      "flags": 32900
+    },
+    {
+      "fullName": "ShouldShowDamageNumber;",
+      "shortName": "ShouldShowDamageNumber",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41472
+    },
+    {
+      "fullName": "TeleportToNode;GameObject",
+      "shortName": "TeleportToNode",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "activator",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

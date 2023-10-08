@@ -4,7 +4,7 @@
   "flags": 4,
   "funcs": [
     {
-      "fullName": "AICoverHelper::CalculateCoverExposureMethod;ScriptedPuppetGameObjectUint64AISubActionCover_RecordFloatTrackedLocationarray<AICoverExposureMethod>",
+      "fullName": "AICoverHelper::CalculateCoverExposureMethod;ScriptedPuppetGameObjectUint64AISubActionCover_RecordFloatscript_ref<TrackedLocation>script_ref<array<AICoverExposureMethod>>",
       "shortName": "CalculateCoverExposureMethod",
       "return": {
         "type": "AICoverExposureMethod",
@@ -38,14 +38,14 @@
           "flags": 128
         },
         {
-          "type": "AITrackedLocation",
+          "type": "script_ref:AITrackedLocation",
           "name": "trackedLocation",
           "flags": 128
         },
         {
-          "type": "array:AICoverExposureMethod",
+          "type": "script_ref:array:AICoverExposureMethod",
           "name": "exposureMethods",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -235,52 +235,6 @@
       ]
     },
     {
-      "fullName": "AICoverHelper::GetAvailableExposureSpots;ScriptedPuppetUint64GameObjectAISubActionCover_RecordFloatarray<AIExposureMethodType_Record>array<AICoverExposureMethod>",
-      "shortName": "GetAvailableExposureSpots",
-      "return": {
-        "type": "array:AICoverExposureMethod",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "whandle:ScriptedPuppet",
-          "name": "puppet",
-          "flags": 128
-        },
-        {
-          "type": "Uint64",
-          "name": "coverID",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "whandle:gamedataAISubActionCover_Record",
-          "name": "record",
-          "flags": 128
-        },
-        {
-          "type": "Float",
-          "name": "lineOfSightTolerance",
-          "flags": 128
-        },
-        {
-          "type": "array:whandle:gamedataAIExposureMethodType_Record",
-          "name": "exposureMethodPriority",
-          "flags": 1152
-        },
-        {
-          "type": "array:AICoverExposureMethod",
-          "name": "allAvailableExposureMethods",
-          "flags": 640
-        }
-      ]
-    },
-    {
       "fullName": "AICoverHelper::GetAvailableExposureSpots;ScriptedPuppetUint64GameObjectAISubActionCover_RecordFloatarray<AIExposureMethodType_Record>",
       "shortName": "GetAvailableExposureSpots",
       "return": {
@@ -322,26 +276,56 @@
       ]
     },
     {
-      "fullName": "AICoverHelper::GetCoverBlackboard;ScriptedPuppet",
-      "shortName": "GetCoverBlackboard",
+      "fullName": "AICoverHelper::GetAvailableExposureSpots;ScriptedPuppetUint64GameObjectAISubActionCover_RecordFloatarray<AIExposureMethodType_Record>script_ref<array<AICoverExposureMethod>>",
+      "shortName": "GetAvailableExposureSpots",
       "return": {
-        "type": "handle:gameIBlackboard",
+        "type": "array:AICoverExposureMethod",
         "flags": 64
       },
       "flags": 33286,
       "params": [
         {
-          "type": "handle:ScriptedPuppet",
+          "type": "whandle:ScriptedPuppet",
           "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "Uint64",
+          "name": "coverID",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAISubActionCover_Record",
+          "name": "record",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "lineOfSightTolerance",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:gamedataAIExposureMethodType_Record",
+          "name": "exposureMethodPriority",
+          "flags": 1152
+        },
+        {
+          "type": "script_ref:array:AICoverExposureMethod",
+          "name": "allAvailableExposureMethods",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "AICoverHelper::GetCoverExposureMethod;ScriptedPuppet",
-      "shortName": "GetCoverExposureMethod",
+      "fullName": "AICoverHelper::GetCoverBlackboard;ScriptedPuppet",
+      "shortName": "GetCoverBlackboard",
       "return": {
-        "type": "CName",
+        "type": "handle:gameIBlackboard",
         "flags": 64
       },
       "flags": 33286,
@@ -367,6 +351,22 @@
           "type": "AICoverExposureMethod",
           "name": "method",
           "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AICoverHelper::GetCoverExposureMethod;ScriptedPuppet",
+      "shortName": "GetCoverExposureMethod",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
         }
       ]
     },
@@ -557,22 +557,6 @@
       ]
     },
     {
-      "fullName": "AICoverHelper::GetDesiredCoverStance;ScriptedPuppet",
-      "shortName": "GetDesiredCoverStance",
-      "return": {
-        "type": "CName",
-        "flags": 64
-      },
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:ScriptedPuppet",
-          "name": "puppet",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "AICoverHelper::GetDesiredCoverStance;ScriptedPuppetgameCoverHeight",
       "shortName": "GetDesiredCoverStance",
       "flags": 33286,
@@ -586,6 +570,22 @@
           "type": "gameCoverHeight",
           "name": "coverStance",
           "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "AICoverHelper::GetDesiredCoverStance;ScriptedPuppet",
+      "shortName": "GetDesiredCoverStance",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
         }
       ]
     },
@@ -640,7 +640,7 @@
       ]
     },
     {
-      "fullName": "AICoverHelper::HasCoverExposureMethods;ScriptedPuppetUint64GameObjectarray<CName>",
+      "fullName": "AICoverHelper::HasCoverExposureMethods;ScriptedPuppetUint64GameObjectscript_ref<array<CName>>",
       "shortName": "HasCoverExposureMethods",
       "return": {
         "type": "Bool",
@@ -664,14 +664,14 @@
           "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "exposureMethods",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "AICoverHelper::HasCoverExposureMethods;ScriptedPuppetUint64GameObjectarray<AICoverExposureMethod>",
+      "fullName": "AICoverHelper::HasCoverExposureMethods;ScriptedPuppetUint64GameObjectscript_ref<array<AICoverExposureMethod>>",
       "shortName": "HasCoverExposureMethods",
       "return": {
         "type": "Bool",
@@ -695,7 +695,7 @@
           "flags": 128
         },
         {
-          "type": "array:AICoverExposureMethod",
+          "type": "script_ref:array:AICoverExposureMethod",
           "name": "exposureMethods",
           "flags": 128
         }
@@ -842,7 +842,7 @@
       ]
     },
     {
-      "fullName": "AICoverHelper::ReturnHighestPriorityMethods;ScriptedPuppetAISubActionCover_Recordarray<AICoverExposureMethod>",
+      "fullName": "AICoverHelper::ReturnHighestPriorityMethods;ScriptedPuppetAISubActionCover_Recordscript_ref<array<AICoverExposureMethod>>",
       "shortName": "ReturnHighestPriorityMethods",
       "return": {
         "type": "array:AICoverExposureMethod",
@@ -861,25 +861,8 @@
           "flags": 128
         },
         {
-          "type": "array:AICoverExposureMethod",
+          "type": "script_ref:array:AICoverExposureMethod",
           "name": "exposureMethods",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AICoverHelper::SetCoverExposureMethod;ScriptedPuppetCName",
-      "shortName": "SetCoverExposureMethod",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:ScriptedPuppet",
-          "name": "puppet",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "value",
           "flags": 128
         }
       ]
@@ -896,6 +879,23 @@
         },
         {
           "type": "AICoverExposureMethod",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AICoverHelper::SetCoverExposureMethod;ScriptedPuppetCName",
+      "shortName": "SetCoverExposureMethod",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "puppet",
+          "flags": 128
+        },
+        {
+          "type": "CName",
           "name": "value",
           "flags": 128
         }

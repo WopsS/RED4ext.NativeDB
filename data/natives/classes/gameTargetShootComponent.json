@@ -10,7 +10,7 @@
         "type": "Vector4",
         "flags": 64
       },
-      "index": 11631,
+      "index": 12430,
       "flags": 8193,
       "params": [
         {
@@ -42,6 +42,28 @@
           "type": "Float",
           "name": "forcedMissZOffset",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isInLowCover",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBasicGroupCoefficient",
+      "shortName": "GetBasicGroupCoefficient",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "index": 12433,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
         }
       ]
     },
@@ -52,7 +74,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11633,
+      "index": 12432,
       "flags": 8193
     },
     {
@@ -62,8 +84,21 @@
         "type": "String",
         "flags": 64
       },
-      "index": 11630,
+      "index": 12429,
       "flags": 8193
+    },
+    {
+      "fullName": "InsertRecentHitter",
+      "shortName": "InsertRecentHitter",
+      "index": 12434,
+      "flags": 1,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "IsDebugEnabled",
@@ -72,7 +107,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11629,
+      "index": 12428,
       "flags": 8193
     },
     {
@@ -82,13 +117,13 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11628,
+      "index": 12427,
       "flags": 8193
     },
     {
       "fullName": "SetLastHitTime",
       "shortName": "SetLastHitTime",
-      "index": 11632,
+      "index": 12431,
       "flags": 1,
       "params": [
         {
@@ -99,7 +134,7 @@
       ]
     },
     {
-      "fullName": "CalculateTimeBetweenHits;TimeBetweenHitsParameters",
+      "fullName": "CalculateTimeBetweenHits;script_ref<TimeBetweenHitsParameters>",
       "shortName": "CalculateTimeBetweenHits",
       "return": {
         "type": "Float",
@@ -108,8 +143,34 @@
       "flags": 32900,
       "params": [
         {
-          "type": "TimeBetweenHitsParameters",
+          "type": "script_ref:TimeBetweenHitsParameters",
           "name": "params",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetCoverCoefficient;GameObjectWeaponItem_RecordGameObject",
+      "shortName": "GetCoverCoefficient",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataWeaponItem_Record",
+          "name": "weaponRecord",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
           "flags": 128
         }
       ]
@@ -181,7 +242,7 @@
         "type": "Float",
         "flags": 64
       },
-      "flags": 41092,
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gameObject",
@@ -189,6 +250,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "GetHMGGroupMultiplier;",
+      "shortName": "GetHMGGroupMultiplier",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41092
     },
     {
       "fullName": "GetPlayersNumCoefficient;GameObject",
@@ -280,8 +350,29 @@
       ]
     },
     {
-      "fullName": "HandleWeaponShoot;GameObjectWeaponObjectVector4FloatFloatBool",
-      "shortName": "HandleWeaponShoot",
+      "fullName": "GetVisionBlockersCoefficient;GameObjectGameObject",
+      "shortName": "GetVisionBlockersCoefficient",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameObject",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleBeingShot;GameObjectWeaponObjectVector4FloatFloatBool",
+      "shortName": "HandleBeingShot",
       "return": {
         "type": "Vector4",
         "flags": 64
@@ -321,8 +412,8 @@
       ]
     },
     {
-      "fullName": "HandleWeaponShoot;GameObjectWeaponObjectVector4FloatFloat",
-      "shortName": "HandleWeaponShoot",
+      "fullName": "HandleBeingShot;GameObjectWeaponObjectVector4FloatFloat",
+      "shortName": "HandleBeingShot",
       "return": {
         "type": "Vector4",
         "flags": 64
@@ -357,7 +448,38 @@
       ]
     },
     {
-      "fullName": "ShouldBeHit;GameObjectWeaponObjectFloat",
+      "fullName": "HandleMissed;GameObjectWeaponObjectVector4Float",
+      "shortName": "HandleMissed",
+      "return": {
+        "type": "Vector4",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "weaponOwner",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "shootAtPoint",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "maxSpread",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldBeHit;GameObjectWeaponObjectWeaponItem_RecordFloat",
       "shortName": "ShouldBeHit",
       "return": {
         "type": "Bool",
@@ -373,6 +495,11 @@
         {
           "type": "whandle:gameweaponObject",
           "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataWeaponItem_Record",
+          "name": "weaponRecord",
           "flags": 128
         },
         {

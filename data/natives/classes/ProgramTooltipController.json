@@ -1,11 +1,36 @@
 {
-  "parent": "AGenericTooltipController",
+  "parent": "AGenericTooltipControllerWithDebug",
   "name": "ProgramTooltipController",
   "flags": 4,
   "props": [
     {
       "type": "inkCompoundWidgetReference",
       "name": "backgroundContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "equipedWrapper",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "equipedCorner",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "recipeWrapper",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "recipeBG",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "root",
       "flags": 4297195553
     },
     {
@@ -55,6 +80,11 @@
     },
     {
       "type": "inkTextWidgetReference",
+      "name": "damageContinuous",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
       "name": "healthPercentageLabel",
       "flags": 4297130017
     },
@@ -99,8 +129,28 @@
       "flags": 4297130017
     },
     {
+      "type": "inkWidgetReference",
+      "name": "qualityContainer",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "qualityText",
+      "flags": 4297130017
+    },
+    {
       "type": "inkCompoundWidgetReference",
       "name": "effectsList",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "headerSegment",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "typeSegment",
       "flags": 4297130017
     },
     {
@@ -112,11 +162,6 @@
       "type": "inkTextWidgetReference",
       "name": "DEBUG_iconErrorText",
       "flags": 4297130017
-    },
-    {
-      "type": "Bool",
-      "name": "DEBUG_showAdditionalInfo",
-      "flags": 4297130016
     },
     {
       "type": "handle:InventoryTooltipData",
@@ -146,59 +191,9 @@
   ],
   "funcs": [
     {
-      "fullName": "OnGlobalPress",
-      "shortName": "OnGlobalPress",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGlobalRelease",
-      "shortName": "OnGlobalRelease",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:inkPointerEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnInitialize",
-      "shortName": "OnInitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
-    },
-    {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032
-    },
-    {
-      "fullName": "DEBUG_UpdateIconErrorInfo;",
-      "shortName": "DEBUG_UpdateIconErrorInfo",
-      "flags": 32900
+      "fullName": "DEBUG_UpdateDebugInfo;",
+      "shortName": "DEBUG_UpdateDebugInfo",
+      "flags": 33024
     },
     {
       "fullName": "GetHackCategory;",
@@ -340,17 +335,22 @@
       "flags": 32896
     },
     {
-      "fullName": "UpdateDetail;inkWidgetRefStringFloatFloat",
+      "fullName": "UpdateDetail;TweakDBIDinkWidgetRefscript_ref<String>FloatFloat",
       "shortName": "UpdateDetail",
       "flags": 32896,
       "params": [
+        {
+          "type": "TweakDBID",
+          "name": "itemID",
+          "flags": 128
+        },
         {
           "type": "inkWidgetReference",
           "name": "targetWidget",
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "key",
           "flags": 128
         },
@@ -362,6 +362,23 @@
         {
           "type": "Float",
           "name": "diff",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateDetail;UIInventoryItemFloat",
+      "shortName": "UpdateDetail",
+      "flags": 32896,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItem",
+          "name": "item",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "value",
           "flags": 128
         }
       ]
@@ -385,6 +402,38 @@
       "fullName": "UpdateRarity;",
       "shortName": "UpdateRarity",
       "flags": 32900
+    },
+    {
+      "fullName": "UpdateRequirements;",
+      "shortName": "UpdateRequirements",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateUploadDetail;inkWidgetRefscript_ref<String>FloatFloat",
+      "shortName": "UpdateUploadDetail",
+      "flags": 32896,
+      "params": [
+        {
+          "type": "inkWidgetReference",
+          "name": "targetWidget",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:String",
+          "name": "key",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "diff",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

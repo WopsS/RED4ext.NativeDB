@@ -58,6 +58,43 @@
       ]
     },
     {
+      "fullName": "CalcCycleTimeDeltaFactor;FloatStateGameScriptInterface",
+      "shortName": "CalcCycleTimeDeltaFactor",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "Float",
+          "name": "cycleTime",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanHoldToShoot;StateGameScriptInterface",
+      "shortName": "CanHoldToShoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CanPerformNextFullAutoShot;WeaponObjectStateContextStateGameScriptInterface",
       "shortName": "CanPerformNextFullAutoShot",
       "return": {
@@ -240,8 +277,26 @@
       "flags": 41220
     },
     {
+      "fullName": "GetBurstTimeName;",
+      "shortName": "GetBurstTimeName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41220
+    },
+    {
       "fullName": "GetBurstTimeRemainingName;",
       "shortName": "GetBurstTimeRemainingName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41220
+    },
+    {
+      "fullName": "GetCycleTimeName;",
+      "shortName": "GetCycleTimeName",
       "return": {
         "type": "CName",
         "flags": 64
@@ -338,6 +393,22 @@
         "flags": 64
       },
       "flags": 41220
+    },
+    {
+      "fullName": "GetWeaponChargeMinValue;StateGameScriptInterface",
+      "shortName": "GetWeaponChargeMinValue",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetWeaponObject;StateGameScriptInterface",
@@ -609,7 +680,7 @@
       ]
     },
     {
-      "fullName": "ShootingSequenceUpdateBurstTime;FloatStateContext",
+      "fullName": "ShootingSequenceUpdateBurstTime;FloatStateContextStateGameScriptInterface",
       "shortName": "ShootingSequenceUpdateBurstTime",
       "flags": 33028,
       "params": [
@@ -622,11 +693,16 @@
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
           "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "ShootingSequenceUpdateCycleTime;FloatStateContext",
+      "fullName": "ShootingSequenceUpdateCycleTime;FloatStateContextStateGameScriptInterface",
       "shortName": "ShootingSequenceUpdateCycleTime",
       "flags": 33028,
       "params": [
@@ -639,43 +715,21 @@
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ShowAttackPreview;BoolWeaponObjectStateGameScriptInterfaceStateContext",
-      "shortName": "ShowAttackPreview",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "showIfAiming",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameweaponObject",
-          "name": "weaponObject",
-          "flags": 128
         },
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
           "flags": 128
-        },
-        {
-          "type": "handle:gamestateMachineStateContextScript",
-          "name": "stateContext",
-          "flags": 128
         }
       ]
     },
     {
-      "fullName": "ShowDebugText;StringStateGameScriptInterfaceUint32",
+      "fullName": "ShowDebugText;script_ref<String>StateGameScriptInterfaceUint32",
       "shortName": "ShowDebugText",
       "flags": 33028,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "textToShow",
           "flags": 128
         },

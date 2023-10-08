@@ -50,6 +50,11 @@
     },
     {
       "type": "String",
+      "name": "gameplayDescription",
+      "flags": 4297326624
+    },
+    {
+      "type": "String",
       "name": "category",
       "flags": 4297326624
     },
@@ -159,6 +164,16 @@
       "flags": 4297326624
     },
     {
+      "type": "Float",
+      "name": "qualityF",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "comparisonQualityF",
+      "flags": 4297326624
+    },
+    {
       "type": "Bool",
       "name": "showIcon",
       "flags": 4297326624
@@ -224,6 +239,16 @@
       "flags": 4431544352
     },
     {
+      "type": "handle:InventoryTooltipData_CyberdeckData",
+      "name": "cyberdeckData",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:InventoryTooltiData_CyberwareUpgradeData",
+      "name": "cyberwareUpgradeData",
+      "flags": 4431544352
+    },
+    {
       "type": "InventoryTooltipDisplayContext",
       "name": "displayContext",
       "flags": 4297326624
@@ -244,6 +269,21 @@
       "flags": 4297326624
     },
     {
+      "type": "whandle:UIInventoryItemsManager",
+      "name": "managerRef",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:UIInventoryItemStatsManager",
+      "name": "statsManager",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "statsManagerFetched",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:DEBUG_IconErrorInfo",
       "name": "DEBUG_iconErrorInfo",
       "flags": 4431544352
@@ -251,7 +291,7 @@
   ],
   "funcs": [
     {
-      "fullName": "InventoryTooltipData::FromInventoryItemData;InventoryItemData",
+      "fullName": "InventoryTooltipData::FromInventoryItemData;script_ref<InventoryItemData>",
       "shortName": "FromInventoryItemData",
       "return": {
         "type": "handle:InventoryTooltipData",
@@ -260,14 +300,14 @@
       "flags": 33286,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "InventoryTooltipData::FromItemViewData;ItemViewData",
+      "fullName": "InventoryTooltipData::FromItemViewData;script_ref<ItemViewData>",
       "shortName": "FromItemViewData",
       "return": {
         "type": "handle:InventoryTooltipData",
@@ -276,14 +316,14 @@
       "flags": 33286,
       "params": [
         {
-          "type": "gameItemViewData",
+          "type": "script_ref:gameItemViewData",
           "name": "itemViewData",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "InventoryTooltipData::FromRecipeAndItemData;GameInstanceRecipeDataInventoryItemDataInventoryItemDatagameItemData",
+      "fullName": "InventoryTooltipData::FromRecipeAndItemData;GameInstanceRecipeDatascript_ref<InventoryItemData>script_ref<InventoryItemData>gameItemData",
       "shortName": "FromRecipeAndItemData",
       "return": {
         "type": "handle:InventoryTooltipData",
@@ -302,12 +342,12 @@
           "flags": 128
         },
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "itemData",
           "flags": 128
         },
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "recipeOutcome",
           "flags": 128
         },
@@ -319,12 +359,12 @@
       ]
     },
     {
-      "fullName": "FillDetailedStats;array<StatViewData>Bool",
+      "fullName": "FillDetailedStats;script_ref<array<StatViewData>>Bool",
       "shortName": "FillDetailedStats",
       "flags": 33284,
       "params": [
         {
-          "type": "array:gameStatViewData",
+          "type": "script_ref:array:gameStatViewData",
           "name": "rawStats",
           "flags": 128
         },
@@ -336,12 +376,12 @@
       ]
     },
     {
-      "fullName": "FillPrimaryStats;array<StatViewData>",
+      "fullName": "FillPrimaryStats;script_ref<array<StatViewData>>",
       "shortName": "FillPrimaryStats",
       "flags": 33284,
       "params": [
         {
-          "type": "array:gameStatViewData",
+          "type": "script_ref:array:gameStatViewData",
           "name": "rawStats",
           "flags": 128
         }
@@ -365,14 +405,55 @@
       ]
     },
     {
-      "fullName": "FillRecipeStatsData;array<Stat_Record>",
+      "fullName": "FillRecipeStatsData;script_ref<array<Stat_Record>>",
       "shortName": "FillRecipeStatsData",
       "flags": 33284,
       "params": [
         {
-          "type": "array:whandle:gamedataStat_Record",
+          "type": "script_ref:array:whandle:gamedataStat_Record",
           "name": "rawStats",
           "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetManager;",
+      "shortName": "GetManager",
+      "return": {
+        "type": "whandle:UIInventoryItemsManager",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetStatsManager;Bool",
+      "shortName": "GetStatsManager",
+      "return": {
+        "type": "whandle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "refetch",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetStatsManagerHandle;Bool",
+      "shortName": "GetStatsManagerHandle",
+      "return": {
+        "type": "handle:UIInventoryItemStatsManager",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "refetch",
+          "flags": 1152
         }
       ]
     },
@@ -405,6 +486,18 @@
         {
           "type": "Int32",
           "name": "numberOfDots",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetManager;UIInventoryItemsManager",
+      "shortName": "SetManager",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:UIInventoryItemsManager",
+          "name": "manager",
           "flags": 128
         }
       ]

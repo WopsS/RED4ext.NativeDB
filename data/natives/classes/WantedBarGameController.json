@@ -20,17 +20,22 @@
     },
     {
       "type": "handle:redCallbackObject",
-      "name": "wantedCallbackID",
+      "name": "wantedDataCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "wantedStateCallbackID",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "wantedZoneCallbackID",
       "flags": 4431347744
     },
     {
       "type": "handle:inkanimProxy",
-      "name": "animProxy",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:inkanimProxy",
-      "name": "attentionAnimProxy",
+      "name": "introAnimProxy",
       "flags": 4431347744
     },
     {
@@ -50,6 +55,11 @@
     },
     {
       "type": "Int32",
+      "name": "currentState",
+      "flags": 4297130016
+    },
+    {
+      "type": "Int32",
       "name": "numOfStar",
       "flags": 4297130016
     },
@@ -64,6 +74,11 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "isDogtown",
+      "flags": 4297130016
+    },
+    {
       "type": "Float",
       "name": "WANTED_TIER_1",
       "flags": 4297130016
@@ -75,54 +90,6 @@
     }
   ],
   "funcs": [
-    {
-      "fullName": "WantedBarGameController::EndFlashWantedBar;GameInstance",
-      "shortName": "EndFlashWantedBar",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "WantedBarGameController::FlashAndHideWantedBar;GameInstance",
-      "shortName": "FlashAndHideWantedBar",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "WantedBarGameController::FlashAndShowWantedBar;GameInstance",
-      "shortName": "FlashAndShowWantedBar",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "WantedBarGameController::FlashWantedBar;GameInstance",
-      "shortName": "FlashWantedBar",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "ScriptGameInstance",
-          "name": "context",
-          "flags": 128
-        }
-      ]
-    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -142,54 +109,6 @@
       "flags": 33032
     },
     {
-      "fullName": "OnWantedBarEndFlashEventEvent",
-      "shortName": "OnWantedBarEndFlashEventEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:WantedBarEndFlashEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnWantedBarFlashAndHideEventEvent",
-      "shortName": "OnWantedBarFlashAndHideEventEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:WantedBarFlashAndHideEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnWantedBarFlashAndShowEvent",
-      "shortName": "OnWantedBarFlashAndShowEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:WantedBarFlashAndShowEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnWantedBarHidden",
       "shortName": "OnWantedBarHidden",
       "return": {
@@ -206,8 +125,8 @@
       ]
     },
     {
-      "fullName": "OnWantedBarStartFlashEvent",
-      "shortName": "OnWantedBarStartFlashEvent",
+      "fullName": "OnWantedBarIntro",
+      "shortName": "OnWantedBarIntro",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -215,8 +134,8 @@
       "flags": 33032,
       "params": [
         {
-          "type": "handle:WantedBarStartFlashEvent",
-          "name": "evt",
+          "type": "handle:inkanimProxy",
+          "name": "animationProxy",
           "flags": 128
         }
       ]
@@ -238,24 +157,25 @@
       ]
     },
     {
-      "fullName": "EndFlash;",
-      "shortName": "EndFlash",
-      "flags": 33284
+      "fullName": "OnWantedStateChange",
+      "shortName": "OnWantedStateChange",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "CName",
+          "name": "value",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "FlashAndHide;",
       "shortName": "FlashAndHide",
-      "flags": 33284
-    },
-    {
-      "fullName": "FlashAndShow;",
-      "shortName": "FlashAndShow",
-      "flags": 33284
-    },
-    {
-      "fullName": "StartFlash;",
-      "shortName": "StartFlash",
-      "flags": 33284
+      "flags": 32900
     },
     {
       "fullName": "StopBountyAnims;",
@@ -263,8 +183,8 @@
       "flags": 32900
     },
     {
-      "fullName": "UpdateWantedData;Int32",
-      "shortName": "UpdateWantedData",
+      "fullName": "UpdateWantedBar;Int32",
+      "shortName": "UpdateWantedBar",
       "flags": 33284,
       "params": [
         {

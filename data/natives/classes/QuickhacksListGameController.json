@@ -44,6 +44,16 @@
       "flags": 4297130017
     },
     {
+      "type": "inkCompoundWidgetReference",
+      "name": "noQuickhacks",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "openCyberdeckBtn",
+      "flags": 4297130017
+    },
+    {
       "type": "inkWidgetReference",
       "name": "executeBtn",
       "flags": 4297130017
@@ -51,6 +61,16 @@
     {
       "type": "inkWidgetReference",
       "name": "executeAndCloseBtn",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "changeTarget",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "tutorialButton",
       "flags": 4297130017
     },
     {
@@ -66,6 +86,11 @@
     {
       "type": "inkWidgetReference",
       "name": "costReductionPanel",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "costReductionText",
       "flags": 4297130017
     },
     {
@@ -339,6 +364,11 @@
       "flags": 4431347744
     },
     {
+      "type": "handle:redCallbackObject",
+      "name": "uiScannerChangeTargetTooltipVisibilityCallback",
+      "flags": 4431347744
+    },
+    {
       "type": "Int32",
       "name": "lastFillCells",
       "flags": 4297130016
@@ -561,6 +591,38 @@
       ]
     },
     {
+      "fullName": "OnScannerChangeTargetTooltipVisibilityChanged",
+      "shortName": "OnScannerChangeTargetTooltipVisibilityChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSpecialQuickhackAttackTriggered",
+      "shortName": "OnSpecialQuickhackAttackTriggered",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:OnSpecialQuickhackTriggeredEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnTargetDisplayNameChanged",
       "shortName": "OnTargetDisplayNameChanged",
       "return": {
@@ -586,13 +648,20 @@
       "flags": 33032
     },
     {
-      "fullName": "ApplyQuickHack;",
+      "fullName": "ApplyQuickHack;Bool",
       "shortName": "ApplyQuickHack",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 32900
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldUseUI",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "ApplyQuickhackSelection;",
@@ -602,6 +671,15 @@
     {
       "fullName": "DeplenishMemoryCells;",
       "shortName": "DeplenishMemoryCells",
+      "flags": 32900
+    },
+    {
+      "fullName": "GetItemDisplayData;",
+      "shortName": "GetItemDisplayData",
+      "return": {
+        "type": "InventoryItemDisplayData",
+        "flags": 64
+      },
       "flags": 32900
     },
     {
@@ -714,6 +792,28 @@
       ]
     },
     {
+      "fullName": "SendOverclockPreviewEvent;BoolInt32Bool",
+      "shortName": "SendOverclockPreviewEvent",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isHovering",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "cost",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "justHacked",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "SetVisibility;Bool",
       "shortName": "SetVisibility",
       "flags": 32900,
@@ -778,6 +878,11 @@
     {
       "fullName": "SetupVulnerabilities;",
       "shortName": "SetupVulnerabilities",
+      "flags": 32900
+    },
+    {
+      "fullName": "ShowInventory;",
+      "shortName": "ShowInventory",
       "flags": 32900
     },
     {

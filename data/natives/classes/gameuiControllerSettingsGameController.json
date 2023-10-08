@@ -20,6 +20,66 @@
     },
     {
       "type": "inkWidgetReference",
+      "name": "generalInputPanel",
+      "group": "Tabs",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "vehicleInputPanel",
+      "group": "Tabs",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "vehicleCombatInputPanel",
+      "group": "Tabs",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "selectorWidget",
+      "group": "Tabs",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "schemeLegacyRef",
+      "group": "Input Modes",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "schemeAgileRef",
+      "group": "Input Modes",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "schemeAlternativeRef",
+      "group": "Input Modes",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "inputSettingSelectorRef",
+      "group": "Input Modes",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "inputSettingGroupName",
+      "group": "Settings",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "inputSettingVarName",
+      "group": "Settings",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
       "name": "buttonHintsManagerRef",
       "flags": 4297130017
     },
@@ -27,9 +87,65 @@
       "type": "whandle:ButtonHints",
       "name": "buttonHintsController",
       "flags": 4297130016
+    },
+    {
+      "type": "whandle:inkListController",
+      "name": "selectorCtrl",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "inputPanel",
+      "flags": 6583025696
+    },
+    {
+      "type": "Int32",
+      "name": "currentTab",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:SettingsSelectorControllerListString",
+      "name": "inputSettingSelector",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:InputSettingsVarListener",
+      "name": "inputSettingsListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:userSettingsUserSettings",
+      "name": "settings",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:userSettingsGroup",
+      "name": "inputSettingGroup",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:userSettingsVar",
+      "name": "inputSettingVar",
+      "flags": 4431347744
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnButtonRelease",
+      "shortName": "OnButtonRelease",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -38,6 +154,73 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnMenuChanged",
+      "shortName": "OnMenuChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "index",
+          "flags": 128
+        },
+        {
+          "type": "handle:inkListItemController",
+          "name": "target",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnUninitialize",
+      "shortName": "OnUninitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnVarModified;CNameCNameConfigVarTypeConfigChangeReason",
+      "shortName": "OnVarModified",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "groupPath",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "varName",
+          "flags": 128
+        },
+        {
+          "type": "InGameConfigVarType",
+          "name": "varType",
+          "flags": 128
+        },
+        {
+          "type": "InGameConfigChangeReason",
+          "name": "reason",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PopulatePanelsList;",
+      "shortName": "PopulatePanelsList",
+      "flags": 32900
+    },
+    {
+      "fullName": "RefreshInputsVisiblity;",
+      "shortName": "RefreshInputsVisiblity",
+      "flags": 32900
     }
   ]
 }

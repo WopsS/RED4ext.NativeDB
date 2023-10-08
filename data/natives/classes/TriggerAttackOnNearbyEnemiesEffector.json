@@ -1,0 +1,199 @@
+{
+  "parent": "gameEffector",
+  "name": "TriggerAttackOnNearbyEnemiesEffector",
+  "flags": 4,
+  "props": [
+    {
+      "type": "whandle:gameObject",
+      "name": "owner",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:gamedataAttack_Record",
+      "name": "attackRecord",
+      "flags": 4297326624
+    },
+    {
+      "type": "Int32",
+      "name": "targetHowManyEnemies",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "targetMaxDistance",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "targetMinDistance",
+      "flags": 4297326624
+    },
+    {
+      "type": "ScriptGameInstance",
+      "name": "gameInstance",
+      "flags": 4297326624
+    },
+    {
+      "type": "CName",
+      "name": "playVFXOnHitTargets",
+      "flags": 4297326624
+    },
+    {
+      "type": "whandle:gamedataStatusEffect_Record",
+      "name": "statusEffectRecord",
+      "flags": 4297326624
+    },
+    {
+      "type": "CName",
+      "name": "enemySlotTransform",
+      "flags": 4297326624
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "ActionOn;GameObject",
+      "shortName": "ActionOn",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "AddHitFlags;AttackData",
+      "shortName": "AddHitFlags",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gamedamageAttackData",
+          "name": "attackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanRaycastBetweenTwoPositions;SpatialQueriesSystemVector4Vector4",
+      "shortName": "CanRaycastBetweenTwoPositions",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameSpatialQueriesSystem",
+          "name": "spatialQueriesSystem",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "hitPosition1",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "hitPosition2",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetClosestEnemies;gameHitEventarray<Entity>array<ScriptedPuppet>",
+      "shortName": "GetClosestEnemies",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitevent",
+          "flags": 128
+        },
+        {
+          "type": "array:whandle:entEntity",
+          "name": "threats",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:ScriptedPuppet",
+          "name": "closestEnemies",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "Initialize;TweakDBIDGameInstanceTweakDBID",
+      "shortName": "Initialize",
+      "flags": 34048,
+      "params": [
+        {
+          "type": "TweakDBID",
+          "name": "record",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "parentRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RepeatedAction;GameObject",
+      "shortName": "RepeatedAction",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendEffectAndDamageToEnemies;gameHitEventarray<ScriptedPuppet>",
+      "shortName": "SendEffectAndDamageToEnemies",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitevent",
+          "flags": 128
+        },
+        {
+          "type": "array:handle:ScriptedPuppet",
+          "name": "closestEnemies",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendHitEvent;gameHitEventScriptedPuppetVector4",
+      "shortName": "SendHitEvent",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitevent",
+          "flags": 128
+        },
+        {
+          "type": "handle:ScriptedPuppet",
+          "name": "enemy",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "enemyHitWorldPosition",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

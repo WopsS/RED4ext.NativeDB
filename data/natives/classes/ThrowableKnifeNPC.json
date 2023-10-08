@@ -1,0 +1,340 @@
+{
+  "parent": "BaseProjectile",
+  "name": "ThrowableKnifeNPC",
+  "flags": 4,
+  "props": [
+    {
+      "type": "handle:entIComponent",
+      "name": "visualComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:ResourceLibraryComponent",
+      "name": "resourceLibraryComponent",
+      "flags": 4431347744
+    },
+    {
+      "type": "whandle:gameweaponObject",
+      "name": "weapon",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gamedataAttack_Record",
+      "name": "attack_record",
+      "flags": 4431347744
+    },
+    {
+      "type": "Float",
+      "name": "explosionRadius",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:gamedataGrenade_Record",
+      "name": "tweakRecord",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hasHitWater",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "projectileStopped",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "desiredLifetime",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "waterHeight",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "deactivationDepth",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "waterImpulseRadius",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "waterImpulseStrength",
+      "flags": 4297130016
+    },
+    {
+      "type": "Float",
+      "name": "dbgCurrentLifetime",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:ThrowingMeleeCollisionEvaluator",
+      "name": "projectileCollisionEvaluator",
+      "flags": 4431413280
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnCollision",
+      "shortName": "OnCollision",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileHitEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDespawnRequest",
+      "shortName": "OnDespawnRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:GrenadeDespawnRequestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnProjectileInitialize",
+      "shortName": "OnProjectileInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileSetUpEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnReleaseRequestEvent",
+      "shortName": "OnReleaseRequestEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:GrenadeReleaseRequestEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequestComponents",
+      "shortName": "OnRequestComponents",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityRequestComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShoot",
+      "shortName": "OnShoot",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnShootTarget",
+      "shortName": "OnShootTarget",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileShootTargetEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTakeControl",
+      "shortName": "OnTakeControl",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "entEntityResolveComponentsInterface",
+          "name": "ri",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTick",
+      "shortName": "OnTick",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameprojectileTickEvent",
+          "name": "eventData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateAndSink;",
+      "shortName": "DeactivateAndSink",
+      "flags": 33028
+    },
+    {
+      "fullName": "GetAccelerationZ;",
+      "shortName": "GetAccelerationZ",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetInitialVelocity;Bool",
+      "shortName": "GetInitialVelocity",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isQuickThrow",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InitializeRotation;",
+      "shortName": "InitializeRotation",
+      "flags": 32900
+    },
+    {
+      "fullName": "ReleaseKnife;",
+      "shortName": "ReleaseKnife",
+      "flags": 33028
+    },
+    {
+      "fullName": "ReleaseKnifeWithDelay;Float",
+      "shortName": "ReleaseKnifeWithDelay",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Float",
+          "name": "delay",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Reset;",
+      "shortName": "Reset",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnAttack;Attack_RecordFloatFloatVector4Vector4Vector4",
+      "shortName": "SpawnAttack",
+      "return": {
+        "type": "handle:gameEffectInstance",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamedataAttack_Record",
+          "name": "attackRecord",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "range",
+          "flags": 1152
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "hitNormal",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "position",
+          "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "vfxOffset",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "isFollowingKnife;",
+      "shortName": "isFollowingKnife",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    }
+  ]
+}

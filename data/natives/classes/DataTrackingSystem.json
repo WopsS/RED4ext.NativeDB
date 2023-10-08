@@ -4,6 +4,11 @@
   "flags": 4,
   "props": [
     {
+      "type": "array:Int32",
+      "name": "achievementEnumKeyMap",
+      "flags": 6851526688
+    },
+    {
       "type": "array:Bool",
       "name": "achievementsMask",
       "flags": 6851526688
@@ -126,6 +131,11 @@
     {
       "type": "Float",
       "name": "failedShardDrops",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
+      "name": "LegPlusPlusHackDropped",
       "flags": 4565631008
     },
     {
@@ -287,13 +297,45 @@
       "flags": 32900
     },
     {
+      "fullName": "GetAchievementFromKey;Int32",
+      "shortName": "GetAchievementFromKey",
+      "return": {
+        "type": "gamedataAchievement",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "key",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAchievementKeyFromRecord;gamedataAchievement",
+      "shortName": "GetAchievementKeyFromRecord",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataAchievement",
+          "name": "achievement",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetAchievementRecordFromGameDataAchievement;gamedataAchievement",
       "shortName": "GetAchievementRecordFromGameDataAchievement",
       "return": {
         "type": "whandle:gamedataAchievement_Record",
         "flags": 64
       },
-      "flags": 32900,
+      "flags": 41092,
       "params": [
         {
           "type": "gamedataAchievement",
@@ -360,6 +402,15 @@
       ]
     },
     {
+      "fullName": "IsFirstPlusPlusLegendaryAwarded;",
+      "shortName": "IsFirstPlusPlusLegendaryAwarded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsSourcePlayer;AttackData",
       "shortName": "IsSourcePlayer",
       "return": {
@@ -374,6 +425,60 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "IsValidHandyManAchievement;",
+      "shortName": "IsValidHandyManAchievement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsValidMaxPainAchievement;",
+      "shortName": "IsValidMaxPainAchievement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsValidMustBeTheRatsAchievement;",
+      "shortName": "IsValidMustBeTheRatsAchievement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsValidRoleplayerAchievement;",
+      "shortName": "IsValidRoleplayerAchievement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsValidTrueSoldierAchievement;",
+      "shortName": "IsValidTrueSoldierAchievement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsValidTrueWarriorAchievement;",
+      "shortName": "IsValidTrueWarriorAchievement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
     },
     {
       "fullName": "OnAddAchievementRequest;AddAchievementRequest",
@@ -408,6 +513,18 @@
       "fullName": "OnDetach;",
       "shortName": "OnDetach",
       "flags": 33920
+    },
+    {
+      "fullName": "OnFirstPlusPlusLegendaryAwarded;FirstPlusPlusLegendaryAwardedRequest",
+      "shortName": "OnFirstPlusPlusLegendaryAwarded",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:FirstPlusPlusLegendaryAwardedRequest",
+          "name": "request",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnModifyNPCTelemetryVariable;ModifyNPCTelemetryVariable",
@@ -679,11 +796,6 @@
       ]
     },
     {
-      "fullName": "ProcessBreathtakingAchievement;",
-      "shortName": "ProcessBreathtakingAchievement",
-      "flags": 32900
-    },
-    {
       "fullName": "ProcessDataTrackingFacts;",
       "shortName": "ProcessDataTrackingFacts",
       "flags": 32900
@@ -740,12 +852,12 @@
       ]
     },
     {
-      "fullName": "ProcessNotTheMobileAchievement;DamageHistoryEntry",
+      "fullName": "ProcessNotTheMobileAchievement;script_ref<DamageHistoryEntry>",
       "shortName": "ProcessNotTheMobileAchievement",
       "flags": 32900,
       "params": [
         {
-          "type": "DamageHistoryEntry",
+          "type": "script_ref:DamageHistoryEntry",
           "name": "damageEntry",
           "flags": 128
         }
@@ -776,6 +888,11 @@
       ]
     },
     {
+      "fullName": "SendAllUnlockAchievemntRequests;",
+      "shortName": "SendAllUnlockAchievemntRequests",
+      "flags": 41092
+    },
+    {
       "fullName": "SetAchievementProgress;Achievement_RecordInt32Int32",
       "shortName": "SetAchievementProgress",
       "flags": 32900,
@@ -798,6 +915,23 @@
       ]
     },
     {
+      "fullName": "SetFlag;gamedataAchievementBool",
+      "shortName": "SetFlag",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataAchievement",
+          "name": "achievement",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "UnlockAchievement;Achievement_Record",
       "shortName": "UnlockAchievement",
       "flags": 32900,
@@ -808,6 +942,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ValidateAchievements;",
+      "shortName": "ValidateAchievements",
+      "flags": 32900
     }
   ]
 }

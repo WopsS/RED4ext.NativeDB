@@ -49,6 +49,41 @@
       "flags": 4297130016
     },
     {
+      "type": "Bool",
+      "name": "isHumanityRequirementMet",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEquippable",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEquippableAdditionalValue",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEquippableFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "array:gameSItemStackRequirementData",
+      "name": "equipRequirements",
+      "flags": 6583025696
+    },
+    {
+      "type": "Bool",
+      "name": "equipRequirementsFetched",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:gameObject",
+      "name": "player",
+      "flags": 4297130016
+    },
+    {
       "type": "whandle:UIInventoryItem",
       "name": "attachedItem",
       "flags": 4297130016
@@ -75,6 +110,53 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "CheckStatEquipRequirement;gamedataStatTypeGameObjectStatsSystem",
+      "shortName": "CheckStatEquipRequirement",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statToCheck",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameStatsSystem",
+          "name": "statsSystem",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FetchEquipRequirements;Bool",
+      "shortName": "FetchEquipRequirements",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "GetFirstUnmetEquipRequirement;",
+      "shortName": "GetFirstUnmetEquipRequirement",
+      "return": {
+        "type": "gameSItemStackRequirementData",
+        "flags": 64
+      },
+      "flags": 33284
     },
     {
       "fullName": "GetLevelRequirementValue;",
@@ -124,6 +206,47 @@
     {
       "fullName": "IsAnyRequirementNotMet;",
       "shortName": "IsAnyRequirementNotMet",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "IsEquippable;Bool",
+      "shortName": "IsEquippable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsEquippableRaw;Bool",
+      "shortName": "IsEquippableRaw",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "force",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "IsHumanityRequirementMet;",
+      "shortName": "IsHumanityRequirementMet",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -192,15 +315,34 @@
       "flags": 33284
     },
     {
-      "fullName": "Update;GameObjectStatsSystem",
-      "shortName": "Update",
+      "fullName": "SetIsEquippable;Bool",
+      "shortName": "SetIsEquippable",
       "flags": 33284,
       "params": [
         {
-          "type": "whandle:gameObject",
-          "name": "player",
+          "type": "Bool",
+          "name": "value",
           "flags": 128
-        },
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsEquippableAdditionalValue;Bool",
+      "shortName": "SetIsEquippableAdditionalValue",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Update;StatsSystem",
+      "shortName": "Update",
+      "flags": 33284,
+      "params": [
         {
           "type": "handle:gameStatsSystem",
           "name": "statsSystem",

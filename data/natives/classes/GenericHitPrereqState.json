@@ -12,6 +12,11 @@
       "type": "handle:gameeventsHitEvent",
       "name": "hitEvent",
       "flags": 4431544352
+    },
+    {
+      "type": "handle:gameeventsMissEvent",
+      "name": "missEvent",
+      "flags": 4431544352
     }
   ],
   "funcs": [
@@ -41,7 +46,16 @@
       "flags": 41476
     },
     {
-      "fullName": "GetObjectToCheck;StringgameHitEvent",
+      "fullName": "GetMissEvent;",
+      "shortName": "GetMissEvent",
+      "return": {
+        "type": "handle:gameeventsMissEvent",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetObjectToCheck;script_ref<String>gameHitEvent",
       "shortName": "GetObjectToCheck",
       "return": {
         "type": "whandle:gameObject",
@@ -50,13 +64,25 @@
       "flags": 33028,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "obj",
           "flags": 128
         },
         {
           "type": "handle:gameeventsHitEvent",
           "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnMissTriggered;gameMissEvent",
+      "shortName": "OnMissTriggered",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:gameeventsMissEvent",
+          "name": "missEvent",
           "flags": 128
         }
       ]
@@ -69,6 +95,18 @@
         {
           "type": "handle:gameeventsHitEvent",
           "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetMissEvent;gameMissEvent",
+      "shortName": "SetMissEvent",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:gameeventsMissEvent",
+          "name": "missEvent",
           "flags": 128
         }
       ]

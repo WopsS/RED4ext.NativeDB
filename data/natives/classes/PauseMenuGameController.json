@@ -4,8 +4,25 @@
   "flags": 4,
   "props": [
     {
+      "type": "inkCompoundWidgetReference",
+      "name": "baseLogoContainer",
+      "group": "Logo",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "ep1LogoContainer",
+      "group": "Logo",
+      "flags": 4297130017
+    },
+    {
       "type": "inkWidgetReference",
       "name": "buttonHintsManagerRef",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "expansionNotyficationRef",
       "flags": 4297130017
     },
     {
@@ -27,9 +44,40 @@
       "type": "Bool",
       "name": "quickSaveInProgress",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "setCursorOnInit",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "axisInputReceived",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "dpadInputReceived",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnGlobalAxisInput",
+      "shortName": "OnGlobalAxisInput",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkPointerEvent",
+          "name": "e",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnGlobalRelease",
       "shortName": "OnGlobalRelease",
@@ -54,6 +102,22 @@
         "flags": 64
       },
       "flags": 33032
+    },
+    {
+      "fullName": "OnIntroFinished",
+      "shortName": "OnIntroFinished",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "proxy",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "OnListRelease",
@@ -177,6 +241,18 @@
       "fullName": "PopulateMenuItemList;",
       "shortName": "PopulateMenuItemList",
       "flags": 32896
+    },
+    {
+      "fullName": "SwitchGameLogo;Bool",
+      "shortName": "SwitchGameLogo",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isEP1Installed",
+          "flags": 128
+        }
+      ]
     }
   ]
 }

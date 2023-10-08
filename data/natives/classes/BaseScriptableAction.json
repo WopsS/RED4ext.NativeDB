@@ -14,6 +14,16 @@
       "flags": 4297195552
     },
     {
+      "type": "whandle:gameObject",
+      "name": "proxyExecutor",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:whandle:gamedataObjectActionCost_Record",
+      "name": "costComponents",
+      "flags": 6583091232
+    },
+    {
       "type": "TweakDBID",
       "name": "objectActionID",
       "flags": 4297195552
@@ -42,6 +52,51 @@
       "type": "Bool",
       "name": "isActionRPGCheckDissabled",
       "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "canSkipPayCost",
+      "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "calculatedBaseCost",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:DeviceActionQueue",
+      "name": "deviceActionQueue",
+      "flags": 4431544352
+    },
+    {
+      "type": "Bool",
+      "name": "isActionQueueingUsed",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isQueuedAction",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isInactive",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "isTargetDead",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "activationTimeReduction",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "IsAppliedByMonowire",
+      "flags": 4297326624
     }
   ],
   "funcs": [
@@ -84,7 +139,7 @@
       ]
     },
     {
-      "fullName": "CanPayCost;GameObject",
+      "fullName": "CanPayCost;GameObjectBool",
       "shortName": "CanPayCost",
       "return": {
         "type": "Bool",
@@ -96,6 +151,27 @@
           "type": "handle:gameObject",
           "name": "user",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "checkForOverclockedState",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "CanSkipPayCost;Bool",
+      "shortName": "CanSkipPayCost",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isJustConsulting",
+          "flags": 128
         }
       ]
     },
@@ -157,6 +233,67 @@
       "flags": 33280
     },
     {
+      "fullName": "GetDetonateGranadeCostReduction;Bool",
+      "shortName": "GetDetonateGranadeCostReduction",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "legendaryPlusPlus",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDeviceActionMaxQueueSize;",
+      "shortName": "GetDeviceActionMaxQueueSize",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDeviceActionQueue;",
+      "shortName": "GetDeviceActionQueue",
+      "return": {
+        "type": "whandle:DeviceActionQueue",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDeviceActionQueueNames;",
+      "shortName": "GetDeviceActionQueueNames",
+      "return": {
+        "type": "array:CName",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDeviceActionQueueSize;",
+      "shortName": "GetDeviceActionQueueSize",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "GetDurationTime;",
+      "shortName": "GetDurationTime",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33280
+    },
+    {
       "fullName": "GetExecutor;",
       "shortName": "GetExecutor",
       "return": {
@@ -164,6 +301,15 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "GetExecutorLevel;",
+      "shortName": "GetExecutorLevel",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900
     },
     {
       "fullName": "GetGameplayCategoryID;",
@@ -191,6 +337,22 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "GetMadnessLvl3ProgramCostReduction;EntityID",
+      "shortName": "GetMadnessLvl3ProgramCostReduction",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetObjectActionID;",
@@ -236,6 +398,15 @@
       "flags": 32900
     },
     {
+      "fullName": "GetProxyExecutor;",
+      "shortName": "GetProxyExecutor",
+      "return": {
+        "type": "whandle:gameObject",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetRequesterID;",
       "shortName": "GetRequesterID",
       "return": {
@@ -261,6 +432,27 @@
         "flags": 64
       },
       "flags": 33280
+    },
+    {
+      "fullName": "IsFirstUniqueCategoryInQueue;EntityIDgamedataHackCategory",
+      "shortName": "IsFirstUniqueCategoryInQueue",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "targetID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataHackCategory",
+          "name": "category",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "IsInactive;",
@@ -307,7 +499,7 @@
       ]
     },
     {
-      "fullName": "IsVisible;GetActionsContextgameObjectActionsCallbackController",
+      "fullName": "IsVisible;script_ref<GetActionsContext>gameObjectActionsCallbackController",
       "shortName": "IsVisible",
       "return": {
         "type": "Bool",
@@ -316,7 +508,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -349,21 +541,28 @@
       ]
     },
     {
-      "fullName": "PayCost;",
+      "fullName": "PayCost;Bool",
       "shortName": "PayCost",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 33280
+      "flags": 33280,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "checkForOverclockedState",
+          "flags": 1152
+        }
+      ]
     },
     {
-      "fullName": "ProcessEffectors;array<ObjectActionEffect_Record>GameInstance",
+      "fullName": "ProcessEffectors;script_ref<array<ObjectActionEffect_Record>>GameInstance",
       "shortName": "ProcessEffectors",
       "flags": 33028,
       "params": [
         {
-          "type": "array:whandle:gamedataObjectActionEffect_Record",
+          "type": "script_ref:array:whandle:gamedataObjectActionEffect_Record",
           "name": "actionEffects",
           "flags": 128
         },
@@ -375,7 +574,7 @@
       ]
     },
     {
-      "fullName": "ProcessRPGAction;GameInstance",
+      "fullName": "ProcessRPGAction;GameInstanceGameplayRoleComponent",
       "shortName": "ProcessRPGAction",
       "flags": 33280,
       "params": [
@@ -383,16 +582,21 @@
           "type": "ScriptGameInstance",
           "name": "gameInstance",
           "flags": 128
+        },
+        {
+          "type": "handle:GameplayRoleComponent",
+          "name": "gameplayRoleComponent",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "ProcessStatusEffects;array<ObjectActionEffect_Record>GameInstance",
+      "fullName": "ProcessStatusEffects;script_ref<array<ObjectActionEffect_Record>>GameInstance",
       "shortName": "ProcessStatusEffects",
       "flags": 33024,
       "params": [
         {
-          "type": "array:whandle:gamedataObjectActionEffect_Record",
+          "type": "script_ref:array:whandle:gamedataObjectActionEffect_Record",
           "name": "actionEffects",
           "flags": 128
         },
@@ -409,6 +613,27 @@
       "flags": 33028
     },
     {
+      "fullName": "PutActionInQuickhackQueue;GameInstanceGameplayRoleComponent",
+      "shortName": "PutActionInQuickhackQueue",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        },
+        {
+          "type": "handle:GameplayRoleComponent",
+          "name": "gameplayRoleComponent",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RegisterAsRequester;EntityID",
       "shortName": "RegisterAsRequester",
       "flags": 33284,
@@ -416,6 +641,28 @@
         {
           "type": "entEntityID",
           "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetStatusEffectIfActionIsQueued;EntityIDStatusEffect_RecordGameInstance",
+      "shortName": "ResetStatusEffectIfActionIsQueued",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "entityID",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataStatusEffect_Record",
+          "name": "statusEffectRecord",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
           "flags": 128
         }
       ]
@@ -462,6 +709,18 @@
         {
           "type": "TweakDBID",
           "name": "id",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetProxyExecutor;GameObject",
+      "shortName": "SetProxyExecutor",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "proxy",
           "flags": 128
         }
       ]

@@ -194,6 +194,16 @@
       "flags": 4297195552
     },
     {
+      "type": "Bool",
+      "name": "keepHostilityTowardsPlayerHostiles",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "hostileUpdateTowardsPlayerHostilesDelayed",
+      "flags": 4297130016
+    },
+    {
       "type": "array:CName",
       "name": "elementsToHideOnTCS",
       "group": "Sensor entity specific data",
@@ -376,28 +386,17 @@
   ],
   "funcs": [
     {
-      "fullName": "SensorDevice::ForceVisionAppearanceNetrunner;GameObjectEntityIDCNameBool",
-      "shortName": "ForceVisionAppearanceNetrunner",
-      "flags": 33286,
+      "fullName": "OnAttitudeChanged",
+      "shortName": "OnAttitudeChanged",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
       "params": [
         {
-          "type": "handle:gameObject",
-          "name": "target",
-          "flags": 128
-        },
-        {
-          "type": "entEntityID",
-          "name": "sourceID",
-          "flags": 128
-        },
-        {
-          "type": "CName",
-          "name": "sourceName",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "toggle",
+          "type": "handle:gameeventsAttitudeChangedEvent",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -496,6 +495,22 @@
         {
           "type": "handle:gameeventsHitEvent",
           "name": "hit",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHostileUpdateTowardsPlayerHostiles",
+      "shortName": "OnHostileUpdateTowardsPlayerHostiles",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:HostileUpdateTowardsPlayerHostiles",
+          "name": "evt",
           "flags": 128
         }
       ]
@@ -1245,12 +1260,12 @@
       "flags": 32900
     },
     {
-      "fullName": "ChangeAttiudetowardsTag;array<GameObject>",
+      "fullName": "ChangeAttiudetowardsTag;script_ref<array<GameObject>>",
       "shortName": "ChangeAttiudetowardsTag",
       "flags": 32900,
       "params": [
         {
-          "type": "array:whandle:gameObject",
+          "type": "script_ref:array:whandle:gameObject",
           "name": "currentList",
           "flags": 128
         }
@@ -1536,7 +1551,7 @@
         "type": "CameraRotationData",
         "flags": 64
       },
-      "flags": 41476
+      "flags": 41472
     },
     {
       "fullName": "GetRotationFromSlotRotation;",
@@ -1750,6 +1765,18 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "KeepHostilityTowardsPlayerHostiles;Bool",
+      "shortName": "KeepHostilityTowardsPlayerHostiles",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "keep",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "LookAtStop;",
@@ -2059,8 +2086,8 @@
       ]
     },
     {
-      "fullName": "RevertTepmoraryAttitude;",
-      "shortName": "RevertTepmoraryAttitude",
+      "fullName": "RevertTemporaryAttitude;",
+      "shortName": "RevertTemporaryAttitude",
       "flags": 32900
     },
     {
@@ -2094,6 +2121,11 @@
       "fullName": "RunVisionConeGameEffect;",
       "shortName": "RunVisionConeGameEffect",
       "flags": 32900
+    },
+    {
+      "fullName": "ScheduleHostileUpdateTowardsPlayerHostiles;",
+      "shortName": "ScheduleHostileUpdateTowardsPlayerHostiles",
+      "flags": 33284
     },
     {
       "fullName": "SendDefaultSSNotification;GameObjectBool",
@@ -2163,6 +2195,30 @@
       ]
     },
     {
+      "fullName": "SetDeviceFriendly;SetDeviceAttitude",
+      "shortName": "SetDeviceFriendly",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDeviceNeutral;SetDeviceAttitude",
+      "shortName": "SetDeviceNeutral",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SetDeviceAttitude",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetHasSupport;Bool",
       "shortName": "SetHasSupport",
       "flags": 33028,
@@ -2193,6 +2249,18 @@
           "type": "handle:gameObject",
           "name": "otherTarget",
           "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetQuestVisibility;Bool",
+      "shortName": "SetQuestVisibility",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isVisible",
+          "flags": 128
         }
       ]
     },

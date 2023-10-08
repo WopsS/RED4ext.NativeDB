@@ -7,6 +7,11 @@
       "type": "whandle:VehicleTransitionInitData",
       "name": "stateMachineInitData",
       "flags": 4297326624
+    },
+    {
+      "type": "CName",
+      "name": "exitSlot",
+      "flags": 4297195552
     }
   ],
   "funcs": [
@@ -36,6 +41,55 @@
         {
           "type": "CName",
           "name": "desiredTag",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "VehicleTransition::DoesVehicleSupportCombat;StateGameScriptInterface",
+      "shortName": "DoesVehicleSupportCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateTimeDilationCW;StateContextStateGameScriptInterface",
+      "shortName": "DeactivateTimeDilationCW",
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DoesVehicleSupportFireArms;VehicleObject",
+      "shortName": "DoesVehicleSupportFireArms",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:vehicleBaseObject",
+          "name": "vehicle",
           "flags": 128
         }
       ]
@@ -110,6 +164,38 @@
       ]
     },
     {
+      "fullName": "GetDriverCombatWeaponManipulationRequest;VehicleObject",
+      "shortName": "GetDriverCombatWeaponManipulationRequest",
+      "return": {
+        "type": "EquipmentManipulationAction",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetDriverCombatWeaponTag;VehicleObject",
+      "shortName": "GetDriverCombatWeaponTag",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:vehicleBaseObject",
+          "name": "vehicle",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetPuppetVehicleSceneTransition;StateContext",
       "shortName": "GetPuppetVehicleSceneTransition",
       "return": {
@@ -148,7 +234,7 @@
         "type": "Int32",
         "flags": 64
       },
-      "flags": 33028,
+      "flags": 41220,
       "params": [
         {
           "type": "handle:gamestateMachineStateContextScript",
@@ -211,6 +297,22 @@
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetVehicleDriverCombatType;VehicleObject",
+      "shortName": "GetVehicleDriverCombatType",
+      "return": {
+        "type": "gamedataDriverCombatType",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:vehicleBaseObject",
+          "name": "vehicle",
           "flags": 128
         }
       ]
@@ -392,14 +494,19 @@
       ]
     },
     {
-      "fullName": "IsPlayerAllowedToExitCombat;StateGameScriptInterface",
-      "shortName": "IsPlayerAllowedToExitCombat",
+      "fullName": "IsPlayerAllowedToEnterDriverCombat;StateContextStateGameScriptInterface",
+      "shortName": "IsPlayerAllowedToEnterDriverCombat",
       "return": {
         "type": "Bool",
         "flags": 64
       },
       "flags": 41220,
       "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
@@ -408,8 +515,8 @@
       ]
     },
     {
-      "fullName": "IsPlayerAllowedToExitVehicle;StateGameScriptInterface",
-      "shortName": "IsPlayerAllowedToExitVehicle",
+      "fullName": "IsPlayerAllowedToExitCombat;StateGameScriptInterface",
+      "shortName": "IsPlayerAllowedToExitCombat",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -461,6 +568,43 @@
         {
           "type": "vehicleExitDirection",
           "name": "unmountDirection",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVehicleExitBlocked1Frame;StateContextStateGameScriptInterface",
+      "shortName": "IsVehicleExitBlocked1Frame",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsVehicleRemoteControlled;StateGameScriptInterface",
+      "shortName": "IsVehicleRemoteControlled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
           "flags": 128
         }
       ]
@@ -533,22 +677,6 @@
         {
           "type": "Int32",
           "name": "newstate",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "PlayerWantsToExitVehicle;StateGameScriptInterface",
-      "shortName": "PlayerWantsToExitVehicle",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41220,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
           "flags": 128
         }
       ]
@@ -801,6 +929,23 @@
       ]
     },
     {
+      "fullName": "SetIsExitingVehicle;StateContextBool",
+      "shortName": "SetIsExitingVehicle",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetIsInVehicle;StateContextBool",
       "shortName": "SetIsInVehicle",
       "flags": 33028,
@@ -903,23 +1048,6 @@
       ]
     },
     {
-      "fullName": "SetOneHandedFirearmsGameplayRestriction;StateGameScriptInterfaceBool",
-      "shortName": "SetOneHandedFirearmsGameplayRestriction",
-      "flags": 33028,
-      "params": [
-        {
-          "type": "handle:gamestateMachineGameScriptInterface",
-          "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "shouleAdd",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "SetRequestedTPPCamera;StateContextBool",
       "shortName": "SetRequestedTPPCamera",
       "flags": 41220,
@@ -1015,6 +1143,23 @@
         {
           "type": "Int32",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetVehicleStatusEffects;StateGameScriptInterfaceBool",
+      "shortName": "SetVehicleStatusEffects",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "shouleAdd",
           "flags": 128
         }
       ]

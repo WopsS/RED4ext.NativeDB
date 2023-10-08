@@ -101,7 +101,7 @@
       ]
     },
     {
-      "fullName": "CheckSecureFootingFailure;SecureFootingResult",
+      "fullName": "CheckSecureFootingFailure;script_ref<SecureFootingResult>",
       "shortName": "CheckSecureFootingFailure",
       "return": {
         "type": "Bool",
@@ -110,7 +110,7 @@
       "flags": 41476,
       "params": [
         {
-          "type": "moveSecureFootingResult",
+          "type": "script_ref:moveSecureFootingResult",
           "name": "result",
           "flags": 128
         }
@@ -134,6 +134,63 @@
       ]
     },
     {
+      "fullName": "DisableMovementDecelerationStatModifier;StateContextStateGameScriptInterfacegameStatModifierData",
+      "shortName": "DisableMovementDecelerationStatModifier",
+      "return": {
+        "type": "handle:gameStatModifierData_Deprecated",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameStatModifierData_Deprecated",
+          "name": "decelerationModifier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "EnableMovementDecelerationStatModifier;StateContextStateGameScriptInterfacegameStatModifierDataFloat",
+      "shortName": "EnableMovementDecelerationStatModifier",
+      "return": {
+        "type": "handle:gameStatModifierData_Deprecated",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameStatModifierData_Deprecated",
+          "name": "decelerationModifier",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "movementDecelerationModifierVal",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetFallingSpeedBasedOnHeight;StateGameScriptInterfaceFloat",
       "shortName": "GetFallingSpeedBasedOnHeight",
       "return": {
@@ -150,6 +207,27 @@
         {
           "type": "Float",
           "name": "height",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInitialHeightBasedOnFallingSpeed;StateGameScriptInterfaceFloat",
+      "shortName": "GetInitialHeightBasedOnFallingSpeed",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "fallSpeed",
           "flags": 128
         }
       ]
@@ -331,6 +409,27 @@
       ]
     },
     {
+      "fullName": "IsPlayerAboveLadderTop;StateContextStateGameScriptInterface",
+      "shortName": "IsPlayerAboveLadderTop",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsStatusEffectType;StatusEffect_RecordgamedataStatusEffectType",
       "shortName": "IsStatusEffectType",
       "return": {
@@ -469,7 +568,7 @@
       ]
     },
     {
-      "fullName": "PlayRumbleBasedOnDodgeDirection;StateContextStateGameScriptInterface",
+      "fullName": "PlayRumbleBasedOnDodgeDirection;StateContextStateGameScriptInterfaceBool",
       "shortName": "PlayRumbleBasedOnDodgeDirection",
       "flags": 33028,
       "params": [
@@ -482,6 +581,11 @@
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isHeavy",
+          "flags": 1152
         }
       ]
     },
@@ -527,6 +631,23 @@
         {
           "type": "handle:gamestateMachineStateContextScript",
           "name": "stateContext",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendSuperHeroLandAnimFeature;StateGameScriptInterfaceInt32",
+      "shortName": "SendSuperHeroLandAnimFeature",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "state",
           "flags": 128
         }
       ]
@@ -616,6 +737,42 @@
       ]
     },
     {
+      "fullName": "SetMovementDecelerationStatModifier;StateContextStateGameScriptInterfaceBoolgameStatModifierDataFloat",
+      "shortName": "SetMovementDecelerationStatModifier",
+      "return": {
+        "type": "handle:gameStatModifierData_Deprecated",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "enable",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameStatModifierData_Deprecated",
+          "name": "decelerationModifier",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "movementDecelerationModifierVal",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "SetupSprintInputLock;StateContextStateGameScriptInterface",
       "shortName": "SetupSprintInputLock",
       "flags": 41220,
@@ -633,12 +790,12 @@
       ]
     },
     {
-      "fullName": "ShowDebugText;StringStateGameScriptInterfaceUint32",
+      "fullName": "ShowDebugText;script_ref<String>StateGameScriptInterfaceUint32",
       "shortName": "ShowDebugText",
       "flags": 33028,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "text",
           "flags": 128
         },

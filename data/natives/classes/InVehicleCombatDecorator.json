@@ -7,6 +7,11 @@
       "type": "whandle:gameObject",
       "name": "targetToChase",
       "flags": 4297326624
+    },
+    {
+      "type": "handle:AIVehicleChaseCommand",
+      "name": "vehCommand",
+      "flags": 4431544352
     }
   ],
   "funcs": [
@@ -40,10 +45,10 @@
       ]
     },
     {
-      "fullName": "CreateChaseCommand;GameObject",
+      "fullName": "CreateChaseCommand;GameObjectScriptExecutionContext",
       "shortName": "CreateChaseCommand",
       "return": {
-        "type": "handle:AIVehicleCommand",
+        "type": "handle:AIVehicleChaseCommand",
         "flags": 64
       },
       "flags": 33028,
@@ -52,21 +57,10 @@
           "type": "whandle:gameObject",
           "name": "newTarget",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "CreateFollowCommand;GameObject",
-      "shortName": "CreateFollowCommand",
-      "return": {
-        "type": "handle:AIVehicleCommand",
-        "flags": 64
-      },
-      "flags": 33028,
-      "params": [
+        },
         {
-          "type": "whandle:gameObject",
-          "name": "newTarget",
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
           "flags": 128
         }
       ]
@@ -75,6 +69,18 @@
       "fullName": "Deactivate;ScriptExecutionContext",
       "shortName": "Deactivate",
       "flags": 33024,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessInitCommands;ScriptExecutionContext",
+      "shortName": "ProcessInitCommands",
+      "flags": 32900,
       "params": [
         {
           "type": "AIbehaviorScriptExecutionContext",

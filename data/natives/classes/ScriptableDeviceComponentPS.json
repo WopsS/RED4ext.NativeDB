@@ -240,6 +240,11 @@
     },
     {
       "type": "Bool",
+      "name": "isTimedTurnOff",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
       "name": "isRestarting",
       "flags": 4565631008
     },
@@ -400,6 +405,11 @@
       "flags": 13155565600
     },
     {
+      "type": "Bool",
+      "name": "isUnderEMPEffect",
+      "flags": 4297130016
+    },
+    {
       "type": "handle:DeviceOperationsContainer",
       "name": "deviceOperationsSetup",
       "group": "Device Operations",
@@ -439,7 +449,7 @@
     {
       "type": "Bool",
       "name": "isInteractive",
-      "flags": 4565631008
+      "flags": 4565565472
     }
   ],
   "funcs": [
@@ -534,7 +544,7 @@
       "flags": 33280
     },
     {
-      "fullName": "ActionDemolition;GetActionsContext",
+      "fullName": "ActionDemolition;script_ref<GetActionsContext>",
       "shortName": "ActionDemolition",
       "return": {
         "type": "handle:ActionDemolition",
@@ -543,7 +553,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -568,7 +578,7 @@
       "flags": 33024
     },
     {
-      "fullName": "ActionEngineering;GetActionsContext",
+      "fullName": "ActionEngineering;script_ref<GetActionsContext>",
       "shortName": "ActionEngineering",
       "return": {
         "type": "handle:ActionEngineering",
@@ -577,7 +587,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -619,7 +629,7 @@
       ]
     },
     {
-      "fullName": "ActionHacking;GetActionsContext",
+      "fullName": "ActionHacking;script_ref<GetActionsContext>",
       "shortName": "ActionHacking",
       "return": {
         "type": "handle:ActionHacking",
@@ -628,7 +638,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -653,7 +663,7 @@
       "flags": 33024
     },
     {
-      "fullName": "ActionPay;GetActionsContext",
+      "fullName": "ActionPay;script_ref<GetActionsContext>",
       "shortName": "ActionPay",
       "return": {
         "type": "handle:Pay",
@@ -662,7 +672,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -994,6 +1004,15 @@
       "flags": 33028
     },
     {
+      "fullName": "ActionQuestRestoreQuickHacks;",
+      "shortName": "ActionQuestRestoreQuickHacks",
+      "return": {
+        "type": "handle:QuestRestoreQuickHacks",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
       "fullName": "ActionQuestStartGlitch;",
       "shortName": "ActionQuestStartGlitch",
       "return": {
@@ -1012,10 +1031,28 @@
       "flags": 33028
     },
     {
+      "fullName": "ActionQuickHackAoeDamage;",
+      "shortName": "ActionQuickHackAoeDamage",
+      "return": {
+        "type": "handle:QuickHackAoeDamage",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
       "fullName": "ActionQuickHackDistraction;",
       "shortName": "ActionQuickHackDistraction",
       "return": {
         "type": "handle:QuickHackDistraction",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "ActionQuickHackHighPitchNoise;",
+      "shortName": "ActionQuickHackHighPitchNoise",
+      "return": {
+        "type": "handle:QuickHackHighPitchNoise",
         "flags": 64
       },
       "flags": 33024
@@ -1039,7 +1076,7 @@
       "flags": 41092
     },
     {
-      "fullName": "ActionScavenge;GetActionsContext",
+      "fullName": "ActionScavenge;script_ref<GetActionsContext>",
       "shortName": "ActionScavenge",
       "return": {
         "type": "handle:ActionScavenge",
@@ -1048,7 +1085,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -1293,6 +1330,33 @@
       "flags": 33284
     },
     {
+      "fullName": "ActionVehicleOverrideAccelerate;",
+      "shortName": "ActionVehicleOverrideAccelerate",
+      "return": {
+        "type": "handle:VehicleOverrideAccelerate",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "ActionVehicleOverrideExplode;",
+      "shortName": "ActionVehicleOverrideExplode",
+      "return": {
+        "type": "handle:VehicleOverrideExplode",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "ActionVehicleOverrideForceBrakes;",
+      "shortName": "ActionVehicleOverrideForceBrakes",
+      "return": {
+        "type": "handle:VehicleOverrideForceBrakes",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
       "fullName": "AddActiveContext;gamedeviceRequestType",
       "shortName": "AddActiveContext",
       "flags": 33284,
@@ -1405,6 +1469,15 @@
       "flags": 33024
     },
     {
+      "fullName": "CanAddEngineeringSkillcheck;",
+      "shortName": "CanAddEngineeringSkillcheck",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
       "fullName": "CanBeDisassembled;",
       "shortName": "CanBeDisassembled",
       "return": {
@@ -1457,6 +1530,15 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "CanConnectToPersonalLink;",
+      "shortName": "CanConnectToPersonalLink",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
     },
     {
       "fullName": "CanCreateAnyQuickHackActions;",
@@ -1633,7 +1715,7 @@
       "flags": 33284
     },
     {
-      "fullName": "CreateSkillcheckInfo;GetActionsContext",
+      "fullName": "CreateSkillcheckInfo;script_ref<GetActionsContext>",
       "shortName": "CreateSkillcheckInfo",
       "return": {
         "type": "array:UIInteractionSkillCheck",
@@ -1642,7 +1724,7 @@
       "flags": 33284,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -1679,7 +1761,7 @@
       ]
     },
     {
-      "fullName": "DetermineGameplayViability;GetActionsContextBool",
+      "fullName": "DetermineGameplayViability;script_ref<GetActionsContext>Bool",
       "shortName": "DetermineGameplayViability",
       "return": {
         "type": "Bool",
@@ -1688,7 +1770,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -1705,7 +1787,7 @@
       "flags": 33284
     },
     {
-      "fullName": "DetermineInteractionState;InteractionComponentGetActionsContext",
+      "fullName": "DetermineInteractionState;InteractionComponentscript_ref<GetActionsContext>",
       "shortName": "DetermineInteractionState",
       "flags": 33280,
       "params": [
@@ -1715,7 +1797,7 @@
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -1778,6 +1860,63 @@
       ]
     },
     {
+      "fullName": "DrawBetweenEntities;BoolBoolFxResourceEntityIDEntityIDBoolBoolBoolBoolBool",
+      "shortName": "DrawBetweenEntities",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldDraw",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "focusModeOnly",
+          "flags": 128
+        },
+        {
+          "type": "gameFxResource",
+          "name": "fxResource",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "masterID",
+          "flags": 128
+        },
+        {
+          "type": "entEntityID",
+          "name": "slaveID",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "revealMaster",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "revealSlave",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "onlyRemoveWeakLink",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isEyeContact",
+          "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "isPermanent",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "EnableDebugQuickHacks;Int32",
       "shortName": "EnableDebugQuickHacks",
       "flags": 33284,
@@ -1821,17 +1960,17 @@
       "flags": 33028
     },
     {
-      "fullName": "EvaluateActionsRPGAvailabilty;array<DeviceAction>GetActionsContext",
+      "fullName": "EvaluateActionsRPGAvailabilty;script_ref<array<DeviceAction>>script_ref<GetActionsContext>",
       "shortName": "EvaluateActionsRPGAvailabilty",
       "flags": 41220,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "outActions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -1899,7 +2038,7 @@
       ]
     },
     {
-      "fullName": "ExtractActions;array<CName>",
+      "fullName": "ExtractActions;script_ref<array<CName>>",
       "shortName": "ExtractActions",
       "return": {
         "type": "array:handle:gamedeviceAction",
@@ -1908,7 +2047,7 @@
       "flags": 33028,
       "params": [
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "actionNames",
           "flags": 128
         }
@@ -1931,24 +2070,24 @@
       ]
     },
     {
-      "fullName": "ExtractIDs;array<PersistentState>array<PersistentID>",
+      "fullName": "ExtractIDs;script_ref<array<PersistentState>>script_ref<array<PersistentID>>",
       "shortName": "ExtractIDs",
       "flags": 41476,
       "params": [
         {
-          "type": "array:handle:gamePersistentState",
+          "type": "script_ref:array:handle:gamePersistentState",
           "name": "persistentStates",
           "flags": 128
         },
         {
-          "type": "array:gamePersistentID",
+          "type": "script_ref:array:gamePersistentID",
           "name": "persistentIDs",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "ExtractKeycardsFromAuthorizationData;array<SecurityAccessLevelEntryClient>",
+      "fullName": "ExtractKeycardsFromAuthorizationData;script_ref<array<SecurityAccessLevelEntry>>",
       "shortName": "ExtractKeycardsFromAuthorizationData",
       "return": {
         "type": "array:TweakDBID",
@@ -1957,14 +2096,14 @@
       "flags": 41220,
       "params": [
         {
-          "type": "array:SecurityAccessLevelEntryClient",
+          "type": "script_ref:array:SecurityAccessLevelEntry",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ExtractKeycardsFromAuthorizationData;array<SecurityAccessLevelEntry>",
+      "fullName": "ExtractKeycardsFromAuthorizationData;script_ref<array<SecurityAccessLevelEntryClient>>",
       "shortName": "ExtractKeycardsFromAuthorizationData",
       "return": {
         "type": "array:TweakDBID",
@@ -1973,14 +2112,14 @@
       "flags": 41220,
       "params": [
         {
-          "type": "array:SecurityAccessLevelEntry",
+          "type": "script_ref:array:SecurityAccessLevelEntryClient",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ExtractPasswordsFromAuthorizationData;array<SecurityAccessLevelEntry>",
+      "fullName": "ExtractPasswordsFromAuthorizationData;script_ref<array<SecurityAccessLevelEntry>>",
       "shortName": "ExtractPasswordsFromAuthorizationData",
       "return": {
         "type": "array:CName",
@@ -1989,14 +2128,14 @@
       "flags": 41220,
       "params": [
         {
-          "type": "array:SecurityAccessLevelEntry",
+          "type": "script_ref:array:SecurityAccessLevelEntry",
           "name": "data",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ExtractPasswordsFromAuthorizationData;array<SecurityAccessLevelEntryClient>",
+      "fullName": "ExtractPasswordsFromAuthorizationData;script_ref<array<SecurityAccessLevelEntryClient>>",
       "shortName": "ExtractPasswordsFromAuthorizationData",
       "return": {
         "type": "array:CName",
@@ -2005,7 +2144,7 @@
       "flags": 41220,
       "params": [
         {
-          "type": "array:SecurityAccessLevelEntryClient",
+          "type": "script_ref:array:SecurityAccessLevelEntryClient",
           "name": "data",
           "flags": 128
         }
@@ -2024,17 +2163,17 @@
       ]
     },
     {
-      "fullName": "FinalizeGetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "FinalizeGetQuickHackActions;script_ref<array<DeviceAction>>script_ref<GetActionsContext>",
       "shortName": "FinalizeGetQuickHackActions",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "outActions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -2053,7 +2192,7 @@
       ]
     },
     {
-      "fullName": "FinalizeNetworkLinkRegistration;Boolarray<DeviceComponentPS>FxResourceFxResourceBoolFloatBoolBool",
+      "fullName": "FinalizeNetworkLinkRegistration;Boolscript_ref<array<DeviceComponentPS>>FxResourceFxResourceBoolFloatBoolBool",
       "shortName": "FinalizeNetworkLinkRegistration",
       "flags": 41092,
       "params": [
@@ -2063,7 +2202,7 @@
           "flags": 128
         },
         {
-          "type": "array:handle:gameDeviceComponentPS",
+          "type": "script_ref:array:handle:gameDeviceComponentPS",
           "name": "relevantDevices",
           "flags": 128
         },
@@ -2100,7 +2239,7 @@
       ]
     },
     {
-      "fullName": "FindActionInTweakList;CNamearray<String>",
+      "fullName": "FindActionInTweakList;CNamescript_ref<array<String>>",
       "shortName": "FindActionInTweakList",
       "return": {
         "type": "Bool",
@@ -2114,7 +2253,7 @@
           "flags": 128
         },
         {
-          "type": "array:String",
+          "type": "script_ref:array:String",
           "name": "allowedNames",
           "flags": 128
         }
@@ -2232,7 +2371,7 @@
       ]
     },
     {
-      "fullName": "GetActionByName;CNameGetActionsContext",
+      "fullName": "GetActionByName;CNamescript_ref<GetActionsContext>",
       "shortName": "GetActionByName",
       "return": {
         "type": "handle:gamedeviceAction",
@@ -2246,14 +2385,14 @@
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetActionWidgets;GetActionsContext",
+      "fullName": "GetActionWidgets;script_ref<GetActionsContext>",
       "shortName": "GetActionWidgets",
       "return": {
         "type": "array:SActionWidgetPackage",
@@ -2262,7 +2401,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -2290,7 +2429,7 @@
       ]
     },
     {
-      "fullName": "GetActionsRestrictionData;array<String>array<String>String",
+      "fullName": "GetActionsRestrictionData;script_ref<array<String>>script_ref<array<String>>script_ref<String>",
       "shortName": "GetActionsRestrictionData",
       "return": {
         "type": "Bool",
@@ -2299,19 +2438,19 @@
       "flags": 33028,
       "params": [
         {
-          "type": "array:String",
+          "type": "script_ref:array:String",
           "name": "allowedNames",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "array:String",
+          "type": "script_ref:array:String",
           "name": "disallowedNames",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "inactiveReason",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -2359,6 +2498,22 @@
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "GetAreaEffectStimRangeByAction;ScriptableDeviceAction",
+      "shortName": "GetAreaEffectStimRangeByAction",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:ScriptableDeviceAction",
+          "name": "action",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetAvailableQuickHacks;",
@@ -2544,7 +2699,7 @@
       "flags": 41472
     },
     {
-      "fullName": "GetDeviceWidget;GetActionsContext",
+      "fullName": "GetDeviceWidget;script_ref<GetActionsContext>",
       "shortName": "GetDeviceWidget",
       "return": {
         "type": "SDeviceWidgetPackage",
@@ -2553,7 +2708,7 @@
       "flags": 33280,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -2637,19 +2792,19 @@
       "flags": 41220
     },
     {
-      "fullName": "GetFullAuthorizationDataSegregated;array<CName>array<TweakDBID>",
+      "fullName": "GetFullAuthorizationDataSegregated;script_ref<array<CName>>script_ref<array<TweakDBID>>",
       "shortName": "GetFullAuthorizationDataSegregated",
       "flags": 41092,
       "params": [
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "passwords",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "array:TweakDBID",
+          "type": "script_ref:array:TweakDBID",
           "name": "keycards",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -2672,7 +2827,7 @@
       "flags": 41472
     },
     {
-      "fullName": "GetInkWidgetTweakDBID;GetActionsContext",
+      "fullName": "GetInkWidgetTweakDBID;script_ref<GetActionsContext>",
       "shortName": "GetInkWidgetTweakDBID",
       "return": {
         "type": "TweakDBID",
@@ -2681,7 +2836,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -2738,6 +2893,15 @@
       "flags": 41476
     },
     {
+      "fullName": "GetKeypadWidgetStyle;",
+      "shortName": "GetKeypadWidgetStyle",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 41216
+    },
+    {
       "fullName": "GetLocalPassword;",
       "shortName": "GetLocalPassword",
       "return": {
@@ -2774,7 +2938,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetMinigameActionByName;CNameGetActionsContext",
+      "fullName": "GetMinigameActionByName;CNamescript_ref<GetActionsContext>",
       "shortName": "GetMinigameActionByName",
       "return": {
         "type": "handle:gamedeviceAction",
@@ -2788,24 +2952,24 @@
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetMinigameActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetMinigameActions;script_ref<array<DeviceAction>>script_ref<GetActionsContext>",
       "shortName": "GetMinigameActions",
       "flags": 33024,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "outActions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -2893,7 +3057,7 @@
         "type": "array:CName",
         "flags": 64
       },
-      "flags": 41476
+      "flags": 41472
     },
     {
       "fullName": "GetPerformedActions;",
@@ -2966,7 +3130,7 @@
       ]
     },
     {
-      "fullName": "GetQuestActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuestActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuestActions",
       "flags": 33280,
       "params": [
@@ -2976,14 +3140,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
@@ -2993,14 +3157,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuickHackActionsExternal;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActionsExternal;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActionsExternal",
       "flags": 33280,
       "params": [
@@ -3010,14 +3174,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetRemoteActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetRemoteActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetRemoteActions",
       "flags": 33284,
       "params": [
@@ -3027,7 +3191,7 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -3052,22 +3216,6 @@
       "flags": 41472
     },
     {
-      "fullName": "GetSecurityAreasWithUserInside;GameObject",
-      "shortName": "GetSecurityAreasWithUserInside",
-      "return": {
-        "type": "array:handle:SecurityAreaControllerPS",
-        "flags": 64
-      },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "whoToCheck",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "GetSecurityAreasWithUserInside;EntityID",
       "shortName": "GetSecurityAreasWithUserInside",
       "return": {
@@ -3084,6 +3232,22 @@
       ]
     },
     {
+      "fullName": "GetSecurityAreasWithUserInside;GameObject",
+      "shortName": "GetSecurityAreasWithUserInside",
+      "return": {
+        "type": "array:handle:SecurityAreaControllerPS",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "whoToCheck",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetSecurityAreasWithUsersInside;",
       "shortName": "GetSecurityAreasWithUsersInside",
       "return": {
@@ -3093,7 +3257,7 @@
       "flags": 41476
     },
     {
-      "fullName": "GetSecurityAreasWithUsersInside;array<AreaEntry>",
+      "fullName": "GetSecurityAreasWithUsersInside;script_ref<array<AreaEntry>>",
       "shortName": "GetSecurityAreasWithUsersInside",
       "return": {
         "type": "array:handle:SecurityAreaControllerPS",
@@ -3102,9 +3266,9 @@
       "flags": 41476,
       "params": [
         {
-          "type": "array:AreaEntry",
+          "type": "script_ref:array:AreaEntry",
           "name": "uniqueUsers",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -3118,17 +3282,26 @@
       "flags": 41476
     },
     {
-      "fullName": "GetSpiderbotActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetSkillCheckContainerForSetup;",
+      "shortName": "GetSkillCheckContainerForSetup",
+      "return": {
+        "type": "handle:BaseSkillCheckContainer",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "GetSpiderbotActions;script_ref<array<DeviceAction>>script_ref<GetActionsContext>",
       "shortName": "GetSpiderbotActions",
       "flags": 33024,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "outActions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -3557,7 +3730,7 @@
         {
           "type": "Bool",
           "name": "isOverride",
-          "flags": 128
+          "flags": 1152
         }
       ]
     },
@@ -3732,7 +3905,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 57860
+      "flags": 57856
     },
     {
       "fullName": "IsDeviceSecuredWithKeycard;",
@@ -3942,6 +4115,15 @@
       "flags": 58884
     },
     {
+      "fullName": "IsOFFTimed;",
+      "shortName": "IsOFFTimed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028
+    },
+    {
       "fullName": "IsON;",
       "shortName": "IsON",
       "return": {
@@ -4039,6 +4221,15 @@
       "flags": 57860
     },
     {
+      "fullName": "IsPoweredAndEnabled;",
+      "shortName": "IsPoweredAndEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 58884
+    },
+    {
       "fullName": "IsRestarting;",
       "shortName": "IsRestarting",
       "return": {
@@ -4093,6 +4284,15 @@
       "flags": 57860
     },
     {
+      "fullName": "IsTimedTurnOff;",
+      "shortName": "IsTimedTurnOff",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "IsUnpowered;",
       "shortName": "IsUnpowered",
       "return": {
@@ -4134,38 +4334,6 @@
       ]
     },
     {
-      "fullName": "LogActionDetails;ScriptableDeviceActionBaseDeviceStatusStringStringBool",
-      "shortName": "LogActionDetails",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "handle:ScriptableDeviceAction",
-          "name": "action",
-          "flags": 128
-        },
-        {
-          "type": "handle:BaseDeviceStatus",
-          "name": "cachedStatus",
-          "flags": 1152
-        },
-        {
-          "type": "String",
-          "name": "context",
-          "flags": 1152
-        },
-        {
-          "type": "String",
-          "name": "status",
-          "flags": 1152
-        },
-        {
-          "type": "Bool",
-          "name": "overrideStatus",
-          "flags": 1152
-        }
-      ]
-    },
-    {
       "fullName": "LogResaveInfo;",
       "shortName": "LogResaveInfo",
       "flags": 33024
@@ -4176,26 +4344,26 @@
       "flags": 33024
     },
     {
-      "fullName": "MarkActionsAsQuickHacks;array<DeviceAction>",
+      "fullName": "MarkActionsAsQuickHacks;script_ref<array<DeviceAction>>",
       "shortName": "MarkActionsAsQuickHacks",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actionsToMark",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "MarkActionsAsSpiderbotActions;array<DeviceAction>",
+      "fullName": "MarkActionsAsSpiderbotActions;script_ref<array<DeviceAction>>",
       "shortName": "MarkActionsAsSpiderbotActions",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actionsToMark",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -5229,6 +5397,22 @@
       ]
     },
     {
+      "fullName": "OnQuestRestoreQuickHacks;QuestRestoreQuickHacks",
+      "shortName": "OnQuestRestoreQuickHacks",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34304,
+      "params": [
+        {
+          "type": "handle:QuestRestoreQuickHacks",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnQuestSetSkillchecks;SetSkillcheckEvent",
       "shortName": "OnQuestSetSkillchecks",
       "return": {
@@ -5277,6 +5461,22 @@
       ]
     },
     {
+      "fullName": "OnQuickHackAoeDamage;QuickHackAoeDamage",
+      "shortName": "OnQuickHackAoeDamage",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuickHackAoeDamage",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnQuickHackAuthorization;QuickHackAuthorization",
       "shortName": "OnQuickHackAuthorization",
       "return": {
@@ -5303,6 +5503,22 @@
       "params": [
         {
           "type": "handle:QuickHackDistraction",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnQuickHackHighPitchNoise;QuickHackHighPitchNoise",
+      "shortName": "OnQuickHackHighPitchNoise",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:QuickHackHighPitchNoise",
           "name": "evt",
           "flags": 128
         }
@@ -5893,6 +6109,54 @@
       ]
     },
     {
+      "fullName": "OnVehicleOverrideAccelerate;VehicleOverrideAccelerate",
+      "shortName": "OnVehicleOverrideAccelerate",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34048,
+      "params": [
+        {
+          "type": "handle:VehicleOverrideAccelerate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleOverrideExplode;VehicleOverrideExplode",
+      "shortName": "OnVehicleOverrideExplode",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34048,
+      "params": [
+        {
+          "type": "handle:VehicleOverrideExplode",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleOverrideForceBrakes;VehicleOverrideForceBrakes",
+      "shortName": "OnVehicleOverrideForceBrakes",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34048,
+      "params": [
+        {
+          "type": "handle:VehicleOverrideForceBrakes",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnWakeUpEvent;WakeUpFromRestartEvent",
       "shortName": "OnWakeUpEvent",
       "return": {
@@ -5909,12 +6173,12 @@
       ]
     },
     {
-      "fullName": "PassDeviceName;StringCName",
+      "fullName": "PassDeviceName;script_ref<String>CName",
       "shortName": "PassDeviceName",
       "flags": 33284,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "deviceName",
           "flags": 128
         },
@@ -5941,7 +6205,7 @@
       "flags": 33024
     },
     {
-      "fullName": "PushChoicesToInteractionComponent;InteractionComponentGetActionsContextscript_ref<array<InteractionChoice>>",
+      "fullName": "PushChoicesToInteractionComponent;InteractionComponentscript_ref<GetActionsContext>script_ref<array<InteractionChoice>>",
       "shortName": "PushChoicesToInteractionComponent",
       "flags": 32900,
       "params": [
@@ -5951,7 +6215,7 @@
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -5963,29 +6227,29 @@
       ]
     },
     {
-      "fullName": "PushInactiveInteractionChoice;GetActionsContextarray<InteractionChoice>",
+      "fullName": "PushInactiveInteractionChoice;script_ref<GetActionsContext>script_ref<array<InteractionChoice>>",
       "shortName": "PushInactiveInteractionChoice",
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
         {
-          "type": "array:gameinteractionsChoice",
+          "type": "script_ref:array:gameinteractionsChoice",
           "name": "choices",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "PushPersistentData;BaseDeviceData",
+      "fullName": "PushPersistentData;script_ref<BaseDeviceData>",
       "shortName": "PushPersistentData",
       "flags": 33284,
       "params": [
         {
-          "type": "BaseDeviceData",
+          "type": "script_ref:BaseDeviceData",
           "name": "data",
           "flags": 128
         }
@@ -6004,7 +6268,7 @@
       ]
     },
     {
-      "fullName": "PushReturnActions;array<DeviceAction>GetActionsContext",
+      "fullName": "PushReturnActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "PushReturnActions",
       "return": {
         "type": "Bool",
@@ -6018,14 +6282,14 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "PushSkillCheckActions;array<DeviceAction>GetActionsContext",
+      "fullName": "PushSkillCheckActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "PushSkillCheckActions",
       "return": {
         "type": "Bool",
@@ -6039,7 +6303,7 @@
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -6197,6 +6461,23 @@
         {
           "type": "handle:gameIBlackboard",
           "name": "blackboard",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestDeviceWidgetsUpdate;IBlackboardarray<SDeviceWidgetPackage>",
+      "shortName": "RequestDeviceWidgetsUpdate",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameIBlackboard",
+          "name": "blackboard",
+          "flags": 128
+        },
+        {
+          "type": "array:SDeviceWidgetPackage",
+          "name": "widgetsData",
           "flags": 128
         }
       ]
@@ -6409,6 +6690,15 @@
       ]
     },
     {
+      "fullName": "SceneInteractionsBlocked;",
+      "shortName": "SceneInteractionsBlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "SendActionFailedEvent;ScriptableDeviceActionEntityIDString",
       "shortName": "SendActionFailedEvent",
       "return": {
@@ -6462,14 +6752,14 @@
       ]
     },
     {
-      "fullName": "SetActionIllegality;array<DeviceAction>Bool",
+      "fullName": "SetActionIllegality;script_ref<array<DeviceAction>>Bool",
       "shortName": "SetActionIllegality",
       "flags": 41220,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "outActions",
-          "flags": 640
+          "flags": 128
         },
         {
           "type": "Bool",
@@ -6479,14 +6769,14 @@
       ]
     },
     {
-      "fullName": "SetActionsQuickHacksExecutioner;array<DeviceAction>",
+      "fullName": "SetActionsQuickHacksExecutioner;script_ref<array<DeviceAction>>",
       "shortName": "SetActionsQuickHacksExecutioner",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "outActions",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -6505,7 +6795,7 @@
     {
       "fullName": "SetBlockSecurityWakeUp;Bool",
       "shortName": "SetBlockSecurityWakeUp",
-      "flags": 33028,
+      "flags": 33284,
       "params": [
         {
           "type": "Bool",
@@ -6558,6 +6848,18 @@
         {
           "type": "EDeviceDurabilityType",
           "name": "durabilityType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetEMPEffectActiveState;Bool",
+      "shortName": "SetEMPEffectActiveState",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isActive",
           "flags": 128
         }
       ]
@@ -6630,6 +6932,18 @@
         {
           "type": "Bool",
           "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetInteractionState;Bool",
+      "shortName": "SetInteractionState",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isActive",
           "flags": 128
         }
       ]
@@ -6734,7 +7048,7 @@
       "flags": 41216
     },
     {
-      "fullName": "ShouldForceAuthorizeUser;GetActionsContext",
+      "fullName": "ShouldForceAuthorizeUser;script_ref<GetActionsContext>",
       "shortName": "ShouldForceAuthorizeUser",
       "return": {
         "type": "Bool",
@@ -6743,7 +7057,7 @@
       "flags": 33024,
       "params": [
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -6852,18 +7166,6 @@
       ]
     },
     {
-      "fullName": "ToggleInteractivity;Bool",
-      "shortName": "ToggleInteractivity",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "Bool",
-          "name": "isInteractive",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "TriggerSecuritySystemNotification;GameObjectVector4ESecurityNotificationTypeBool",
       "shortName": "TriggerSecuritySystemNotification",
       "flags": 33284,
@@ -6903,6 +7205,27 @@
       ]
     },
     {
+      "fullName": "TryGetDevice;Device",
+      "shortName": "TryGetDevice",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41220,
+      "params": [
+        {
+          "type": "whandle:Device",
+          "name": "device",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "TryInitializeSkillChecks;",
+      "shortName": "TryInitializeSkillChecks",
+      "flags": 33028
+    },
+    {
       "fullName": "TurnAuthorizationModuleOFF;",
       "shortName": "TurnAuthorizationModuleOFF",
       "flags": 33280
@@ -6917,12 +7240,12 @@
       "flags": 33284
     },
     {
-      "fullName": "TutorialProcessSkillcheck;array<InteractionChoice>",
+      "fullName": "TutorialProcessSkillcheck;script_ref<array<InteractionChoice>>",
       "shortName": "TutorialProcessSkillcheck",
       "flags": 32900,
       "params": [
         {
-          "type": "array:gameinteractionsChoice",
+          "type": "script_ref:array:gameinteractionsChoice",
           "name": "choices",
           "flags": 128
         }
@@ -6934,24 +7257,24 @@
       "flags": 33280
     },
     {
-      "fullName": "UpdateAvailAbleQuickHacks;array<DeviceAction>",
+      "fullName": "UpdateAvailAbleQuickHacks;script_ref<array<DeviceAction>>",
       "shortName": "UpdateAvailAbleQuickHacks",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "UpdateAvailableSpiderbotActions;array<DeviceAction>",
+      "fullName": "UpdateAvailableSpiderbotActions;script_ref<array<DeviceAction>>",
       "shortName": "UpdateAvailableSpiderbotActions",
       "flags": 33028,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
           "flags": 128
         }

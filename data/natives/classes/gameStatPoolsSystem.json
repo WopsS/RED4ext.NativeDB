@@ -10,7 +10,7 @@
         "type": "gamedataStatPoolType",
         "flags": 64
       },
-      "index": 11351,
+      "index": 12599,
       "flags": 3,
       "params": [
         {
@@ -27,7 +27,7 @@
         "type": "TweakDBID",
         "flags": 64
       },
-      "index": 11346,
+      "index": 12590,
       "flags": 8193,
       "params": [
         {
@@ -59,7 +59,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11329,
+      "index": 12572,
       "flags": 1,
       "params": [
         {
@@ -86,7 +86,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11342,
+      "index": 12586,
       "flags": 1,
       "params": [
         {
@@ -118,7 +118,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11326,
+      "index": 12569,
       "flags": 1,
       "params": [
         {
@@ -140,7 +140,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11327,
+      "index": 12570,
       "flags": 1,
       "params": [
         {
@@ -167,7 +167,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11328,
+      "index": 12571,
       "flags": 1,
       "params": [
         {
@@ -194,7 +194,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11331,
+      "index": 12574,
       "flags": 1,
       "params": [
         {
@@ -216,7 +216,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11334,
+      "index": 12577,
       "flags": 1,
       "params": [
         {
@@ -238,7 +238,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11333,
+      "index": 12576,
       "flags": 1,
       "params": [
         {
@@ -260,7 +260,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11332,
+      "index": 12575,
       "flags": 1,
       "params": [
         {
@@ -271,6 +271,29 @@
         {
           "type": "gamedataStatPoolType",
           "name": "statPoolType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsExtraModifierApplied",
+      "shortName": "IsExtraModifierApplied",
+      "index": 12591,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "objID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatPoolType",
+          "name": "statPoolType",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "modifierRecordID",
           "flags": 128
         }
       ]
@@ -282,7 +305,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11330,
+      "index": 12573,
       "flags": 1,
       "params": [
         {
@@ -298,9 +321,59 @@
       ]
     },
     {
+      "fullName": "IsStatPoolModificationDelayed",
+      "shortName": "IsStatPoolModificationDelayed",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 12578,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "objID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatPoolType",
+          "name": "statPoolType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RequestAddingExtraModifier",
+      "shortName": "RequestAddingExtraModifier",
+      "index": 12592,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "objID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatPoolType",
+          "name": "statPoolType",
+          "flags": 128
+        },
+        {
+          "type": "gameStatPoolModificationTypes",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "modifierRecordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RequestAddingStatPool",
       "shortName": "RequestAddingStatPool",
-      "index": 11324,
+      "index": 12567,
       "flags": 1,
       "params": [
         {
@@ -323,7 +396,7 @@
     {
       "fullName": "RequestChangingStatPoolValue",
       "shortName": "RequestChangingStatPoolValue",
-      "index": 11340,
+      "index": 12584,
       "flags": 1,
       "params": [
         {
@@ -355,13 +428,36 @@
           "type": "Bool",
           "name": "perc",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "ignoreCustomLimit",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "RequestMarkingStatPoolActive",
+      "shortName": "RequestMarkingStatPoolActive",
+      "index": 12598,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "objID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatPoolType",
+          "name": "statPoolType",
+          "flags": 128
         }
       ]
     },
     {
       "fullName": "RequestRegisteringListener",
       "shortName": "RequestRegisteringListener",
-      "index": 11349,
+      "index": 12596,
       "flags": 1,
       "params": [
         {
@@ -382,9 +478,32 @@
       ]
     },
     {
+      "fullName": "RequestRemovingExtraModifier",
+      "shortName": "RequestRemovingExtraModifier",
+      "index": 12593,
+      "flags": 1,
+      "params": [
+        {
+          "type": "gameStatsObjectID",
+          "name": "objID",
+          "flags": 128
+        },
+        {
+          "type": "gamedataStatPoolType",
+          "name": "statPoolType",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "modifierRecordID",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "RequestRemovingStatPool",
       "shortName": "RequestRemovingStatPool",
-      "index": 11325,
+      "index": 12568,
       "flags": 1,
       "params": [
         {
@@ -402,7 +521,7 @@
     {
       "fullName": "RequestResetingModifier",
       "shortName": "RequestResetingModifier",
-      "index": 11345,
+      "index": 12589,
       "flags": 1,
       "params": [
         {
@@ -425,7 +544,7 @@
     {
       "fullName": "RequestSettingModifier",
       "shortName": "RequestSettingModifier",
-      "index": 11343,
+      "index": 12587,
       "flags": 1,
       "params": [
         {
@@ -453,7 +572,7 @@
     {
       "fullName": "RequestSettingModifierWithRecord",
       "shortName": "RequestSettingModifierWithRecord",
-      "index": 11344,
+      "index": 12588,
       "flags": 1,
       "params": [
         {
@@ -481,7 +600,7 @@
     {
       "fullName": "RequestSettingStatPoolBonus",
       "shortName": "RequestSettingStatPoolBonus",
-      "index": 11341,
+      "index": 12585,
       "flags": 1,
       "params": [
         {
@@ -519,7 +638,7 @@
     {
       "fullName": "RequestSettingStatPoolMaxValue",
       "shortName": "RequestSettingStatPoolMaxValue",
-      "index": 11336,
+      "index": 12580,
       "flags": 1,
       "params": [
         {
@@ -542,7 +661,7 @@
     {
       "fullName": "RequestSettingStatPoolMinValue",
       "shortName": "RequestSettingStatPoolMinValue",
-      "index": 11335,
+      "index": 12579,
       "flags": 1,
       "params": [
         {
@@ -565,7 +684,7 @@
     {
       "fullName": "RequestSettingStatPoolValue",
       "shortName": "RequestSettingStatPoolValue",
-      "index": 11337,
+      "index": 12581,
       "flags": 1,
       "params": [
         {
@@ -592,13 +711,18 @@
           "type": "Bool",
           "name": "perc",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "ignoreCustomLimit",
+          "flags": 1152
         }
       ]
     },
     {
       "fullName": "RequestSettingStatPoolValueCustomLimit",
       "shortName": "RequestSettingStatPoolValueCustomLimit",
-      "index": 11338,
+      "index": 12582,
       "flags": 1,
       "params": [
         {
@@ -631,7 +755,7 @@
     {
       "fullName": "RequestSettingStatPoolValueIgnoreChangeMode",
       "shortName": "RequestSettingStatPoolValueIgnoreChangeMode",
-      "index": 11339,
+      "index": 12583,
       "flags": 1,
       "params": [
         {
@@ -664,7 +788,7 @@
     {
       "fullName": "RequestUnregisteringListener",
       "shortName": "RequestUnregisteringListener",
-      "index": 11350,
+      "index": 12597,
       "flags": 1,
       "params": [
         {
@@ -691,7 +815,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11347,
+      "index": 12594,
       "flags": 1,
       "params": [
         {
@@ -718,7 +842,7 @@
         "type": "Float",
         "flags": 64
       },
-      "index": 11348,
+      "index": 12595,
       "flags": 1,
       "params": [
         {

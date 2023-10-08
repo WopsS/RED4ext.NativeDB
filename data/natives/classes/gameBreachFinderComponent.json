@@ -1,0 +1,374 @@
+{
+  "parent": "entIComponent",
+  "name": "gameBreachFinderComponent",
+  "flags": 2,
+  "props": [
+    {
+      "type": "whandle:gameObject",
+      "name": "owner",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:gameGameAudioSystem",
+      "name": "audioSystem",
+      "flags": 4431544352
+    },
+    {
+      "type": "handle:gameStatsSystem",
+      "name": "statsSystem",
+      "flags": 4431544352
+    },
+    {
+      "type": "Int32",
+      "name": "hitCount",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "almostTimeout",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachDurationMin",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachDurationMax",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachDurationIncreasePerStreak",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachDurationIncreaseForAnyStreak",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachDurationIncreaseOnFirstLookat",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachDurationIncreaseOnFirstHit",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachCooldownMin",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachCooldownMax",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "breachCooldownDecreasePerStreak",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:gamedataAttack_GameEffect_Record",
+      "name": "onBreachDestroyedAttackRecord",
+      "flags": 4431544352
+    },
+    {
+      "type": "Float",
+      "name": "onBreachDestroyedHealthToDamage",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "onBreachDestroyedHealthToDamageBoss",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "desiredBreachDuration",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "cooldownAfterBreach",
+      "flags": 4297326624
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "gameBreachFinderComponent::TryProcessBreachHit;gameHitEventBoolBool",
+      "shortName": "TryProcessBreachHit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isHeadshot",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "checkOnly",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "CanTrackedBreachBeKilledByDamage",
+      "shortName": "CanTrackedBreachBeKilledByDamage",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13333,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Float",
+          "name": "damage",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetTrackedBreachComponent",
+      "shortName": "GetTrackedBreachComponent",
+      "return": {
+        "type": "whandle:gameBreachComponent",
+        "flags": 64
+      },
+      "index": 13334,
+      "flags": 1
+    },
+    {
+      "fullName": "GetTrackedBreachPuppet",
+      "shortName": "GetTrackedBreachPuppet",
+      "return": {
+        "type": "whandle:gamePuppet",
+        "flags": 64
+      },
+      "index": 13335,
+      "flags": 1
+    },
+    {
+      "fullName": "IsTrackedBreachHit",
+      "shortName": "IsTrackedBreachHit",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13331,
+      "flags": 1,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isMeleeAttack",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isBulletExplosion",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnTrackedBreachDamaged",
+      "shortName": "OnTrackedBreachDamaged",
+      "index": 13332,
+      "flags": 1,
+      "params": [
+        {
+          "type": "Float",
+          "name": "damage",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDamageDealt",
+      "shortName": "OnDamageDealt",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33036,
+      "params": [
+        {
+          "type": "handle:gameeventsTargetDamageEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetBreachStreak;",
+      "shortName": "GetBreachStreak",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetCooldownAfterBreach;",
+      "shortName": "GetCooldownAfterBreach",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 34308
+    },
+    {
+      "fullName": "GetDesiredBreachDuration;",
+      "shortName": "GetDesiredBreachDuration",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 34308
+    },
+    {
+      "fullName": "Init;GameObject",
+      "shortName": "Init",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsAlmostBreachTimeout;Float",
+      "shortName": "IsAlmostBreachTimeout",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "Float",
+          "name": "currentBreachDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBreachDestroyed;",
+      "shortName": "OnBreachDestroyed",
+      "flags": 34308
+    },
+    {
+      "fullName": "OnFirstBreachHit;",
+      "shortName": "OnFirstBreachHit",
+      "flags": 32900
+    },
+    {
+      "fullName": "OnFirstBreachLookat;",
+      "shortName": "OnFirstBreachLookat",
+      "flags": 34308
+    },
+    {
+      "fullName": "OnStartedTrackingBreach;",
+      "shortName": "OnStartedTrackingBreach",
+      "flags": 34308
+    },
+    {
+      "fullName": "OnStoppedTrackingBreach;",
+      "shortName": "OnStoppedTrackingBreach",
+      "flags": 34308
+    },
+    {
+      "fullName": "ProcessBreachHit;gameHitEvent",
+      "shortName": "ProcessBreachHit",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameeventsHitEvent",
+          "name": "hitEvent",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldStartTrackingBreach;Float",
+      "shortName": "ShouldStartTrackingBreach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "Float",
+          "name": "timeSinceLastBreach",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShouldStopTrackingBreach;Float",
+      "shortName": "ShouldStopTrackingBreach",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 34308,
+      "params": [
+        {
+          "type": "Float",
+          "name": "currentBreachDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpawnFinalAttack;GameObjectAttack_GameEffect_RecordBreachComponentNPCPuppet",
+      "shortName": "SpawnFinalAttack",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "whandle:gameObject",
+          "name": "instigator",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamedataAttack_GameEffect_Record",
+          "name": "attackRecord",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameBreachComponent",
+          "name": "breach",
+          "flags": 128
+        },
+        {
+          "type": "handle:NPCPuppet",
+          "name": "puppet",
+          "flags": 128
+        }
+      ]
+    }
+  ]
+}

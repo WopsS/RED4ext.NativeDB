@@ -21,7 +21,7 @@
       ]
     },
     {
-      "fullName": "AISubActionShootWithWeapon_Record_Implementation::ConvertVector3ArrayToVector4Array;array<Vector3>",
+      "fullName": "AISubActionShootWithWeapon_Record_Implementation::ConvertVector3ArrayToVector4Array;script_ref<array<Vector3>>",
       "shortName": "ConvertVector3ArrayToVector4Array",
       "return": {
         "type": "array:Vector4",
@@ -30,7 +30,7 @@
       "flags": 33286,
       "params": [
         {
-          "type": "array:Vector3",
+          "type": "script_ref:array:Vector3",
           "name": "v3",
           "flags": 128
         }
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "fullName": "AISubActionShootWithWeapon_Record_Implementation::GetWeapon;ScriptExecutionContextAISubActionShootWithWeapon_Recordarray<WeaponObject>",
+      "fullName": "AISubActionShootWithWeapon_Record_Implementation::GetWeapon;ScriptExecutionContextAISubActionShootWithWeapon_Recordscript_ref<array<WeaponObject>>",
       "shortName": "GetWeapon",
       "return": {
         "type": "Bool",
@@ -83,9 +83,9 @@
           "flags": 128
         },
         {
-          "type": "array:whandle:gameweaponObject",
+          "type": "script_ref:array:whandle:gameweaponObject",
           "name": "weaponsList",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "fullName": "AISubActionShootWithWeapon_Record_Implementation::SetShootPointsByCoordinate;ScriptExecutionContextGameObjectarray<Vector4>array<Vector4>",
+      "fullName": "AISubActionShootWithWeapon_Record_Implementation::SetShootPointsByCoordinate;ScriptExecutionContextGameObjectscript_ref<array<Vector4>>script_ref<array<Vector4>>",
       "shortName": "SetShootPointsByCoordinate",
       "return": {
         "type": "Bool",
@@ -143,19 +143,19 @@
           "flags": 128
         },
         {
-          "type": "array:Vector4",
+          "type": "script_ref:array:Vector4",
           "name": "coordinateArray",
           "flags": 128
         },
         {
-          "type": "array:Vector4",
+          "type": "script_ref:array:Vector4",
           "name": "shootPointPosition",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionShootWithWeapon_Record_Implementation::SetShootPointsBytag;ScriptExecutionContextarray<CName>array<Vector4>",
+      "fullName": "AISubActionShootWithWeapon_Record_Implementation::SetShootPointsBytag;ScriptExecutionContextscript_ref<array<CName>>script_ref<array<Vector4>>",
       "shortName": "SetShootPointsBytag",
       "return": {
         "type": "Bool",
@@ -169,19 +169,19 @@
           "flags": 128
         },
         {
-          "type": "array:CName",
+          "type": "script_ref:array:CName",
           "name": "tags",
           "flags": 128
         },
         {
-          "type": "array:Vector4",
+          "type": "script_ref:array:Vector4",
           "name": "shootPointPosition",
-          "flags": 640
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "AISubActionShootWithWeapon_Record_Implementation::Shoot;ScriptExecutionContextAISubActionShootWithWeapon_RecordFloatWeaponObjectgamedataTriggerModeVector4GameObjectVector4Float",
+      "fullName": "AISubActionShootWithWeapon_Record_Implementation::Shoot;ScriptExecutionContextAISubActionShootWithWeapon_RecordFloatWeaponObjectgamedataTriggerModeVector4GameObjectVector4FloatVector4CName",
       "shortName": "Shoot",
       "flags": 33286,
       "params": [
@@ -229,6 +229,62 @@
           "type": "Float",
           "name": "predictionTime",
           "flags": 1152
+        },
+        {
+          "type": "Vector4",
+          "name": "muzzleOffset",
+          "flags": 1152
+        },
+        {
+          "type": "CName",
+          "name": "weaponCustomEvent",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "AISubActionShootWithWeapon_Record_Implementation::ShootChimeraMetalstorm;ScriptExecutionContextAISubActionChimeraMetalstorm_RecordWeaponObjectgamedataTriggerModeGameObjectVector4Float",
+      "shortName": "ShootChimeraMetalstorm",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "AIbehaviorScriptExecutionContext",
+          "name": "context",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gamedataAISubActionChimeraMetalstorm_Record",
+          "name": "record",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameweaponObject",
+          "name": "weapon",
+          "flags": 128
+        },
+        {
+          "type": "gamedataTriggerMode",
+          "name": "requestedTriggerMode",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameObject",
+          "name": "target",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "targetPosition",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
+          "flags": 128
         }
       ]
     },

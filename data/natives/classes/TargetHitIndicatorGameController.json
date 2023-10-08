@@ -69,8 +69,8 @@
       "flags": 4431347744
     },
     {
-      "type": "handle:redCallbackObject",
-      "name": "weaponChangeBlackboardId",
+      "type": "handle:gameAttachmentSlotsScriptListener",
+      "name": "weaponChangedListener",
       "flags": 4431347744
     },
     {
@@ -142,6 +142,11 @@
       "type": "Bool",
       "name": "isAimingDownSights",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:gameuiGameSystemUI",
+      "name": "uiSystem",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -251,6 +256,22 @@
       ]
     },
     {
+      "fullName": "OnNormalizeAndSaveSwayEvent",
+      "shortName": "OnNormalizeAndSaveSwayEvent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:NormalizeAndSaveSwayEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnPlayerAttach",
       "shortName": "OnPlayerAttach",
       "return": {
@@ -308,22 +329,6 @@
       "flags": 33032
     },
     {
-      "fullName": "OnWeaponChange",
-      "shortName": "OnWeaponChange",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "Variant",
-          "name": "value",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "OnZoomLevelChange",
       "shortName": "OnZoomLevelChange",
       "return": {
@@ -340,12 +345,22 @@
       ]
     },
     {
+      "fullName": "OnWeaponChanged;",
+      "shortName": "OnWeaponChanged",
+      "flags": 33284
+    },
+    {
       "fullName": "PlayAnimation;",
       "shortName": "PlayAnimation",
       "flags": 33284
     },
     {
-      "fullName": "ShouldShowBonus;DamageInfo",
+      "fullName": "RegisterWeaponChangedListener;",
+      "shortName": "RegisterWeaponChangedListener",
+      "flags": 32900
+    },
+    {
+      "fullName": "ShouldShowBonus;script_ref<DamageInfo>",
       "shortName": "ShouldShowBonus",
       "return": {
         "type": "Bool",
@@ -354,14 +369,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiDamageInfo",
+          "type": "script_ref:gameuiDamageInfo",
           "name": "damageInfo",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ShouldShowDamage;DamageInfo",
+      "fullName": "ShouldShowDamage;script_ref<DamageInfo>",
       "shortName": "ShouldShowDamage",
       "return": {
         "type": "Bool",
@@ -370,7 +385,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiDamageInfo",
+          "type": "script_ref:gameuiDamageInfo",
           "name": "damageInfo",
           "flags": 128
         }
@@ -418,6 +433,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "UnregisterWeaponChangedListener;",
+      "shortName": "UnregisterWeaponChangedListener",
+      "flags": 32900
     },
     {
       "fullName": "UpdateWidgetPosition;",

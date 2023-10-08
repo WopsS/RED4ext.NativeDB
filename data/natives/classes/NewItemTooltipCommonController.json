@@ -1,0 +1,868 @@
+{
+  "parent": "AGenericTooltipControllerWithDebug",
+  "name": "NewItemTooltipCommonController",
+  "flags": 4,
+  "props": [
+    {
+      "type": "inkWidgetReference",
+      "name": "backgroundContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemEquippedContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemRecipeContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemHeaderContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemBrokenContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemWeaponBarsContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemRequirementsContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemDetailsStatsContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemDescriptionContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemDetailsContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "itemBottomContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "cornerContainer",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "root",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "iconicBG",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "recipeBG",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "descriptionWrapper",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "descriptionText",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "DEBUG_iconErrorWrapper",
+      "flags": 4297195553
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "DEBUG_iconErrorText",
+      "flags": 4297195553
+    },
+    {
+      "type": "array:inkWidgetReference",
+      "name": "frames",
+      "flags": 6583091233
+    },
+    {
+      "type": "array:whandle:NewItemTooltipModuleController",
+      "name": "spawnedModules",
+      "flags": 6583091232
+    },
+    {
+      "type": "whandle:NewItemTooltipEquippedModule",
+      "name": "itemEquippedController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipRepiceModule",
+      "name": "itemRecipeController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipHeaderController",
+      "name": "itemHeaderController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipBrokenModule",
+      "name": "itemBrokenController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipWeaponBarsModule",
+      "name": "itemWeaponBarsController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipRequirementsModule",
+      "name": "itemRequirementsController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipDetailsStatsModule",
+      "name": "itemDetailsStatsController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipDescriptionModule",
+      "name": "itemDescriptionController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipDetailsModule",
+      "name": "itemDetailsController",
+      "flags": 4297195552
+    },
+    {
+      "type": "whandle:NewItemTooltipBottomModule",
+      "name": "itemBottomController",
+      "flags": 4297195552
+    },
+    {
+      "type": "Bool",
+      "name": "DEBUG_showAdditionalInfo",
+      "flags": 4297195552
+    },
+    {
+      "type": "handle:MinimalItemTooltipData",
+      "name": "data",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:UIInventoryItem",
+      "name": "itemData",
+      "flags": 4431413280
+    },
+    {
+      "type": "handle:UIInventoryItemComparisonManager",
+      "name": "comparisonData",
+      "flags": 4431413280
+    },
+    {
+      "type": "whandle:PlayerPuppet",
+      "name": "player",
+      "flags": 4297195552
+    },
+    {
+      "type": "array:CName",
+      "name": "requestedModules",
+      "flags": 6583091232
+    },
+    {
+      "type": "InventoryTooltipDisplayContext",
+      "name": "tooltipDisplayContext",
+      "flags": 4297195552
+    },
+    {
+      "type": "gameItemDisplayContext",
+      "name": "itemDisplayContext",
+      "flags": 4297195552
+    },
+    {
+      "type": "Int32",
+      "name": "priceOverride",
+      "flags": 4297195552
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "OnBottomModuleSpawned",
+      "shortName": "OnBottomModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnBrokenModuleSpawned",
+      "shortName": "OnBrokenModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDescriptionModuleSpawned",
+      "shortName": "OnDescriptionModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetailsModuleSpawned",
+      "shortName": "OnDetailsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnDetailsStatsModuleSpawned",
+      "shortName": "OnDetailsStatsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnEquippedModuleSpawned",
+      "shortName": "OnEquippedModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnHeaderModuleSpawned",
+      "shortName": "OnHeaderModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_BottomModuleSpawned",
+      "shortName": "OnNEW_BottomModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_BrokenModuleSpawned",
+      "shortName": "OnNEW_BrokenModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_DescriptionModuleSpawned",
+      "shortName": "OnNEW_DescriptionModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_DetailsModuleSpawned",
+      "shortName": "OnNEW_DetailsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_DetailsStatsModuleSpawned",
+      "shortName": "OnNEW_DetailsStatsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_EquippedModuleSpawned",
+      "shortName": "OnNEW_EquippedModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_HeaderModuleSpawned",
+      "shortName": "OnNEW_HeaderModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_RecipeModuleSpawned",
+      "shortName": "OnNEW_RecipeModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_RequirementsModuleSpawned",
+      "shortName": "OnNEW_RequirementsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnNEW_WeaponBarsModuleSpawned",
+      "shortName": "OnNEW_WeaponBarsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRecipeModuleSpawned",
+      "shortName": "OnRecipeModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnRequirementsModuleSpawned",
+      "shortName": "OnRequirementsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnWeaponBarsModuleSpawned",
+      "shortName": "OnWeaponBarsModuleSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DEBUG_NewUpdateIconErrorInfo;",
+      "shortName": "DEBUG_NewUpdateIconErrorInfo",
+      "flags": 32900
+    },
+    {
+      "fullName": "DEBUG_UpdateDebugInfo;",
+      "shortName": "DEBUG_UpdateDebugInfo",
+      "flags": 33024
+    },
+    {
+      "fullName": "HandleModuleSpawned;inkWidgetNewItemTooltipModuleSpawnedCallbackData",
+      "shortName": "HandleModuleSpawned",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "whandle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:NewItemTooltipModuleSpawnedCallbackData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "InvalidateSpawnedModules;",
+      "shortName": "InvalidateSpawnedModules",
+      "flags": 33028
+    },
+    {
+      "fullName": "NEW_UpdateBottomModule;",
+      "shortName": "NEW_UpdateBottomModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateBrokenModule;",
+      "shortName": "NEW_UpdateBrokenModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateDescriptionModule;",
+      "shortName": "NEW_UpdateDescriptionModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateDetailsModule;",
+      "shortName": "NEW_UpdateDetailsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateDetailsStatsModule;",
+      "shortName": "NEW_UpdateDetailsStatsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateEquippedModule;",
+      "shortName": "NEW_UpdateEquippedModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateHeaderModule;",
+      "shortName": "NEW_UpdateHeaderModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateIconicBG;",
+      "shortName": "NEW_UpdateIconicBG",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateLayout;",
+      "shortName": "NEW_UpdateLayout",
+      "flags": 32900
+    },
+    {
+      "fullName": "NEW_UpdateRecipeBG;",
+      "shortName": "NEW_UpdateRecipeBG",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateRecipeModule;",
+      "shortName": "NEW_UpdateRecipeModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateRequirementsModule;",
+      "shortName": "NEW_UpdateRequirementsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "NEW_UpdateWeaponBarsModule;",
+      "shortName": "NEW_UpdateWeaponBarsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "RequestModule;inkWidgetRefCNameCNameItemTooltipModuleSpawnedCallbackData",
+      "shortName": "RequestModule",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "inkWidgetReference",
+          "name": "container",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "moduleName",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "callback",
+          "flags": 128
+        },
+        {
+          "type": "handle:ItemTooltipModuleSpawnedCallbackData",
+          "name": "data",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "SetData;script_ref<ItemViewData>",
+      "shortName": "SetData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "script_ref:gameItemViewData",
+          "name": "data",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetData;ATooltipData",
+      "shortName": "SetData",
+      "flags": 33280,
+      "params": [
+        {
+          "type": "handle:ATooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateBottomModule;",
+      "shortName": "UpdateBottomModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateBrokenController;",
+      "shortName": "UpdateBrokenController",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateBrokenModule;",
+      "shortName": "UpdateBrokenModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateData;InventoryTooltipData",
+      "shortName": "UpdateData",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:InventoryTooltipData",
+          "name": "tooltipData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpdateDescriptionModule;",
+      "shortName": "UpdateDescriptionModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateDetailsModule;",
+      "shortName": "UpdateDetailsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateDetailsStatsModule;",
+      "shortName": "UpdateDetailsStatsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateEquippedModule;",
+      "shortName": "UpdateEquippedModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateFramesVisibility;",
+      "shortName": "UpdateFramesVisibility",
+      "flags": 33028
+    },
+    {
+      "fullName": "UpdateHeaderModule;",
+      "shortName": "UpdateHeaderModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateIconicBG;",
+      "shortName": "UpdateIconicBG",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateLayout;",
+      "shortName": "UpdateLayout",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateRecipeBG;",
+      "shortName": "UpdateRecipeBG",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateRecipeModule;",
+      "shortName": "UpdateRecipeModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateRequirementsModule;",
+      "shortName": "UpdateRequirementsModule",
+      "flags": 33024
+    },
+    {
+      "fullName": "UpdateWeaponBarsModule;",
+      "shortName": "UpdateWeaponBarsModule",
+      "flags": 33024
+    }
+  ]
+}

@@ -29,6 +29,16 @@
       "flags": 4297326624
     },
     {
+      "type": "whandle:ScriptedPuppet",
+      "name": "finisherTarget",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "finisherCameraRotReseted",
+      "flags": 4297326624
+    },
+    {
       "type": "Uint32",
       "name": "textLayer",
       "flags": 4297326624
@@ -41,6 +51,21 @@
     {
       "type": "Bool",
       "name": "shouldBlockImpulseUpdate",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "enteredFromMeleeLeap",
+      "flags": 4297326624
+    },
+    {
+      "type": "Bool",
+      "name": "effectPositionUpdated",
+      "flags": 4297326624
+    },
+    {
+      "type": "Float",
+      "name": "tppYawOverride",
       "flags": 4297326624
     }
   ],
@@ -63,18 +88,13 @@
       ]
     },
     {
-      "fullName": "ConsumeStamina;StateGameScriptInterfaceMeleeAttackData",
-      "shortName": "ConsumeStamina",
-      "flags": 33028,
+      "fullName": "ClearLeapedDistanceBlackboardValue;StateGameScriptInterface",
+      "shortName": "ClearLeapedDistanceBlackboardValue",
+      "flags": 32900,
       "params": [
         {
           "type": "handle:gamestateMachineGameScriptInterface",
           "name": "scriptInterface",
-          "flags": 128
-        },
-        {
-          "type": "handle:gameMeleeAttackData",
-          "name": "attackData",
           "flags": 128
         }
       ]
@@ -119,6 +139,32 @@
       ]
     },
     {
+      "fullName": "CreateMeleeAttackForFinisher;StateContextStateGameScriptInterfaceMeleeAttackData",
+      "shortName": "CreateMeleeAttackForFinisher",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
+          "flags": 128
+        },
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameMeleeAttackData",
+          "name": "attackData",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "GetAttackData;StateContext",
       "shortName": "GetAttackData",
       "return": {
@@ -144,6 +190,22 @@
       "flags": 33024
     },
     {
+      "fullName": "GetCameraTransformForMelee;StateGameScriptInterface",
+      "shortName": "GetCameraTransformForMelee",
+      "return": {
+        "type": "Transform",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsAttackWindowOpen;StateContextStateGameScriptInterface",
       "shortName": "IsAttackWindowOpen",
       "return": {
@@ -163,6 +225,15 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "IsMountedTPPAttack;",
+      "shortName": "IsMountedTPPAttack",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41216
     },
     {
       "fullName": "IsMoveToTargetEnabled;MeleeAttackDataAimAssistMelee_Record",
@@ -259,6 +330,35 @@
       ]
     },
     {
+      "fullName": "ResetCameraRotation;StateGameScriptInterface",
+      "shortName": "ResetCameraRotation",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RotateCameraToFinisherTarget;StateGameScriptInterfaceFloat",
+      "shortName": "RotateCameraToFinisherTarget",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamestateMachineGameScriptInterface",
+          "name": "scriptInterface",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "rotateDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SendAnimationSlotData;StateContextStateGameScriptInterfaceMeleeAttackData",
       "shortName": "SendAnimationSlotData",
       "return": {
@@ -280,6 +380,18 @@
         {
           "type": "handle:gameMeleeAttackData",
           "name": "attackData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetTPPYawOverride;StateContext",
+      "shortName": "SetTPPYawOverride",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:gamestateMachineStateContextScript",
+          "name": "stateContext",
           "flags": 128
         }
       ]
@@ -316,7 +428,7 @@
       ]
     },
     {
-      "fullName": "SpawnAttackGameEffect;StateContextStateGameScriptInterfaceVector4Vector4FloatVector4MeleeAttackData",
+      "fullName": "SpawnAttackGameEffect;StateContextStateGameScriptInterfaceVector4Vector4Vector4FloatVector4MeleeAttackData",
       "shortName": "SpawnAttackGameEffect",
       "return": {
         "type": "Bool",
@@ -337,6 +449,11 @@
         {
           "type": "Vector4",
           "name": "startPosition",
+          "flags": 128
+        },
+        {
+          "type": "Vector4",
+          "name": "middlePosition",
           "flags": 128
         },
         {
@@ -362,7 +479,7 @@
       ]
     },
     {
-      "fullName": "UpdateEffectPosition;StateContextStateGameScriptInterfaceMeleeAttackData",
+      "fullName": "UpdateEffectPosition;StateContextStateGameScriptInterfaceMeleeAttackDataFloat",
       "shortName": "UpdateEffectPosition",
       "flags": 33028,
       "params": [
@@ -379,6 +496,11 @@
         {
           "type": "handle:gameMeleeAttackData",
           "name": "attackData",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "duration",
           "flags": 128
         }
       ]

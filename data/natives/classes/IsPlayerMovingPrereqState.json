@@ -1,23 +1,38 @@
 {
-  "parent": "PlayerStateMachinePrereqState",
+  "parent": "gamePrereqState",
   "name": "IsPlayerMovingPrereqState",
   "flags": 4,
   "props": [
     {
+      "type": "whandle:gameObject",
+      "name": "owner",
+      "flags": 4297326624
+    },
+    {
       "type": "Bool",
-      "name": "bbValue",
+      "name": "isMovingVertically",
       "flags": 4297326624
     },
     {
       "type": "handle:redCallbackObject",
       "name": "listenerVertical",
       "flags": 4431544352
+    },
+    {
+      "type": "Bool",
+      "name": "isMovingHorizontally",
+      "flags": 4297326624
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "listenerHorizontal",
+      "flags": 4431544352
     }
   ],
   "funcs": [
     {
-      "fullName": "OnStateUpdateBool",
-      "shortName": "OnStateUpdateBool",
+      "fullName": "OnHorizontalUpdate",
+      "shortName": "OnHorizontalUpdate",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -26,7 +41,23 @@
       "params": [
         {
           "type": "Bool",
-          "name": "value",
+          "name": "isMovingHorizontally",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVerticalUpdate",
+      "shortName": "OnVerticalUpdate",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isMovingVertically",
           "flags": 128
         }
       ]

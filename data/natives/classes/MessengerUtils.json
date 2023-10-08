@@ -4,10 +4,209 @@
   "flags": 4,
   "funcs": [
     {
-      "fullName": "MessengerUtils::GetContactDataArray;JournalManagerBoolBoolMessengerContactSyncData",
-      "shortName": "GetContactDataArray",
+      "fullName": "MessengerUtils::AddContactData;JournalManagerscript_ref<array<IScriptable>>JournalContactscript_ref<array<Int32>>BoolBoolBoolBoolMessengerContactSyncData",
+      "shortName": "AddContactData",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:handle:IScriptable",
+          "name": "contactDataArray",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameJournalContact",
+          "name": "contactEntry",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Int32",
+          "name": "trackedEntriesHashList",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "includeUnknown",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipEmpty",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "includeWithNoUnread",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "includeWithNoReplies",
+          "flags": 128
+        },
+        {
+          "type": "whandle:MessengerContactSyncData",
+          "name": "activeDataSync",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::ContainsQuestRelatedMessage;JournalManagerscript_ref<array<Int32>>script_ref<array<JournalEntry>>",
+      "shortName": "ContainsQuestRelatedMessage",
       "return": {
-        "type": "array:handle:VirutalNestedListData",
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:Int32",
+          "name": "trackedEntriesHashList",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gameJournalEntry",
+          "name": "messagesReceived",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::FetchTrackedQuestCodexLinks;JournalManagerJournalRequestContext",
+      "shortName": "FetchTrackedQuestCodexLinks",
+      "return": {
+        "type": "array:Int32",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "gameJournalRequestContext",
+          "name": "context",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::GetCallableAndNonEmptyContacts;JournalManager",
+      "shortName": "GetCallableAndNonEmptyContacts",
+      "return": {
+        "type": "array:handle:IScriptable",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::GetContactMessageData;ContactDataJournalManagerscript_ref<array<JournalEntry>>script_ref<array<JournalEntry>>",
+      "shortName": "GetContactMessageData",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:ContactData",
+          "name": "contactData",
+          "flags": 640
+        },
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gameJournalEntry",
+          "name": "messagesReceived",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gameJournalEntry",
+          "name": "playerReplies",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::GetConversationHash;JournalManagerJournalPhoneConversation",
+      "shortName": "GetConversationHash",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameJournalPhoneConversation",
+          "name": "conversationEntry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::GetMessageDataArrayForContact;JournalManagerInt32BoolBoolMessengerContactSyncData",
+      "shortName": "GetMessageDataArrayForContact",
+      "return": {
+        "type": "array:handle:IScriptable",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "concactHash",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "includeUnknown",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "skipEmpty",
+          "flags": 128
+        },
+        {
+          "type": "whandle:MessengerContactSyncData",
+          "name": "activeDataSync",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::GetSimpleContactDataArray;JournalManagerBoolBoolBoolMessengerContactSyncData",
+      "shortName": "GetSimpleContactDataArray",
+      "return": {
+        "type": "array:handle:IScriptable",
         "flags": 64
       },
       "flags": 33286,
@@ -28,36 +227,14 @@
           "flags": 128
         },
         {
+          "type": "Bool",
+          "name": "includeWithNoUnread",
+          "flags": 128
+        },
+        {
           "type": "whandle:MessengerContactSyncData",
           "name": "activeDataSync",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "MessengerUtils::GetContactMessageData;ContactDataJournalManagerarray<JournalEntry>array<JournalEntry>",
-      "shortName": "GetContactMessageData",
-      "flags": 33286,
-      "params": [
-        {
-          "type": "handle:ContactData",
-          "name": "contactData",
-          "flags": 640
-        },
-        {
-          "type": "handle:gameJournalManager",
-          "name": "journal",
-          "flags": 128
-        },
-        {
-          "type": "array:whandle:gameJournalEntry",
-          "name": "messagesReceived",
-          "flags": 128
-        },
-        {
-          "type": "array:whandle:gameJournalEntry",
-          "name": "playerReplies",
-          "flags": 128
+          "flags": 1152
         }
       ]
     },
@@ -94,6 +271,104 @@
         {
           "type": "handle:gameJournalManager",
           "name": "journal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::HasQuestImportantCalls;JournalManager",
+      "shortName": "HasQuestImportantCalls",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::HasQuestImportantMessages;JournalManager",
+      "shortName": "HasQuestImportantMessages",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::RefreshQuestRelatedStatus;ContactDataJournalManagerscript_ref<array<JournalEntry>>",
+      "shortName": "RefreshQuestRelatedStatus",
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:ContactData",
+          "name": "contactData",
+          "flags": 640
+        },
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gameJournalEntry",
+          "name": "messagesReceived",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::SetTimestamp;ContactDataJournalManagerscript_ref<array<JournalEntry>>JournalPhoneConversation",
+      "shortName": "SetTimestamp",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:ContactData",
+          "name": "contactData",
+          "flags": 640
+        },
+        {
+          "type": "handle:gameJournalManager",
+          "name": "journal",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:array:whandle:gameJournalEntry",
+          "name": "messagesReceived",
+          "flags": 128
+        },
+        {
+          "type": "whandle:gameJournalPhoneConversation",
+          "name": "conversationEntry",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "MessengerUtils::SetTitle;ContactDataJournalPhoneConversation",
+      "shortName": "SetTitle",
+      "flags": 32902,
+      "params": [
+        {
+          "type": "handle:ContactData",
+          "name": "contactData",
+          "flags": 640
+        },
+        {
+          "type": "whandle:gameJournalPhoneConversation",
+          "name": "conversationEntry",
           "flags": 128
         }
       ]

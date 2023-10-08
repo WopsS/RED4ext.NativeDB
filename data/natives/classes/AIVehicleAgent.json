@@ -1,5 +1,178 @@
 {
   "parent": "AICAgent",
   "name": "AIVehicleAgent",
-  "flags": 2
+  "flags": 2,
+  "props": [
+    {
+      "type": "Bool",
+      "name": "keepStrategyOnSearch",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:AIVehicleCommand",
+      "name": "initCmd",
+      "flags": 4431347744
+    }
+  ],
+  "funcs": [
+    {
+      "fullName": "GetReservedSeatsCount",
+      "shortName": "GetReservedSeatsCount",
+      "return": {
+        "type": "Uint32",
+        "flags": 64
+      },
+      "index": 13431,
+      "flags": 8193
+    },
+    {
+      "fullName": "IsSeatReserved",
+      "shortName": "IsSeatReserved",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 13430,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "CName",
+          "name": "seatName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseSeat",
+      "shortName": "ReleaseSeat",
+      "index": 13428,
+      "flags": 1,
+      "params": [
+        {
+          "type": "CName",
+          "name": "seatName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReleaseSeatReservedBy",
+      "shortName": "ReleaseSeatReservedBy",
+      "index": 13429,
+      "flags": 1,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "reserver",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDrivePatrolUpdate",
+      "shortName": "SetDrivePatrolUpdate",
+      "index": 13426,
+      "flags": 1,
+      "params": [
+        {
+          "type": "handle:AIDrivePatrolUpdate",
+          "name": "update",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetDriveToPointAutonomousUpdate",
+      "shortName": "SetDriveToPointAutonomousUpdate",
+      "index": 13425,
+      "flags": 1,
+      "params": [
+        {
+          "type": "handle:AIDriveToPointAutonomousUpdate",
+          "name": "update",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "TryReserveSeatOrFirstAvailable",
+      "shortName": "TryReserveSeatOrFirstAvailable",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "index": 13427,
+      "flags": 1,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "reserver",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "preferredSeatName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetInitCmd;",
+      "shortName": "GetInitCmd",
+      "return": {
+        "type": "handle:AIVehicleCommand",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "InitCommandIsA;CName",
+      "shortName": "InitCommandIsA",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "CName",
+          "name": "commandClassName",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "KeepStrategyOnSearch;",
+      "shortName": "KeepStrategyOnSearch",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "SetInitCmd;AIVehicleCommand",
+      "shortName": "SetInitCmd",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:AIVehicleCommand",
+          "name": "cmd",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetKeepStrategyOnSearch;Bool",
+      "shortName": "SetKeepStrategyOnSearch",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "keep",
+          "flags": 128
+        }
+      ]
+    }
+  ]
 }

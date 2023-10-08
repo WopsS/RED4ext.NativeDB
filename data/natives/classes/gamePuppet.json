@@ -4,9 +4,44 @@
   "flags": 2,
   "funcs": [
     {
-      "fullName": "CacheLootForDroping",
-      "shortName": "CacheLootForDroping",
-      "index": 11112,
+      "fullName": "HasLootableItems",
+      "shortName": "HasLootableItems",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 12722,
+      "flags": 3,
+      "params": [
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "self",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ScaleDroppedItem",
+      "shortName": "ScaleDroppedItem",
+      "index": 12721,
+      "flags": 3,
+      "params": [
+        {
+          "type": "whandle:gameItemData",
+          "name": "itemData",
+          "flags": 128
+        },
+        {
+          "type": "whandle:ScriptedPuppet",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CacheLootForDropping",
+      "shortName": "CacheLootForDropping",
+      "index": 12709,
       "flags": 1
     },
     {
@@ -16,37 +51,54 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11118,
+      "index": 12716,
       "flags": 1
+    },
+    {
+      "fullName": "CheckIsStandingOnVehicle",
+      "shortName": "CheckIsStandingOnVehicle",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "index": 12712,
+      "flags": 8193,
+      "params": [
+        {
+          "type": "entEntityID",
+          "name": "vehicleID",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "DropAmmo",
       "shortName": "DropAmmo",
-      "index": 11109,
+      "index": 12706,
       "flags": 8193
     },
     {
       "fullName": "DropLootBag",
       "shortName": "DropLootBag",
-      "index": 11113,
+      "index": 12710,
       "flags": 1
     },
     {
       "fullName": "DropWeapons",
       "shortName": "DropWeapons",
-      "index": 11108,
+      "index": 12705,
       "flags": 8193
     },
     {
       "fullName": "GenerateLoot",
       "shortName": "GenerateLoot",
-      "index": 11106,
+      "index": 12703,
       "flags": 8193
     },
     {
       "fullName": "GenerateLootWithStats",
       "shortName": "GenerateLootWithStats",
-      "index": 11107,
+      "index": 12704,
       "flags": 8193,
       "params": [
         {
@@ -63,7 +115,7 @@
         "type": "handle:gameAttitudeAgent",
         "flags": 64
       },
-      "index": 11095,
+      "index": 12692,
       "flags": 8193
     },
     {
@@ -73,7 +125,7 @@
         "type": "handle:gameIBlackboard",
         "flags": 64
       },
-      "index": 11097,
+      "index": 12694,
       "flags": 8193
     },
     {
@@ -83,7 +135,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11105,
+      "index": 12702,
       "flags": 8193
     },
     {
@@ -93,7 +145,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11103,
+      "index": 12700,
       "flags": 8193,
       "params": [
         {
@@ -110,7 +162,7 @@
         "type": "navNaviPositionType",
         "flags": 64
       },
-      "index": 11117,
+      "index": 12715,
       "flags": 1,
       "params": [
         {
@@ -127,8 +179,28 @@
         "type": "Vector4",
         "flags": 64
       },
-      "index": 11119,
+      "index": 12717,
       "flags": 1
+    },
+    {
+      "fullName": "GetNPCRarity",
+      "shortName": "GetNPCRarity",
+      "return": {
+        "type": "gamedataNPCRarity",
+        "flags": 64
+      },
+      "index": 12718,
+      "flags": 8193
+    },
+    {
+      "fullName": "GetNPCRarityRecord",
+      "shortName": "GetNPCRarityRecord",
+      "return": {
+        "type": "handle:gamedataNPCRarity_Record",
+        "flags": 64
+      },
+      "index": 12719,
+      "flags": 8193
     },
     {
       "fullName": "GetResolvedGenderName",
@@ -137,7 +209,7 @@
         "type": "CName",
         "flags": 64
       },
-      "index": 11104,
+      "index": 12701,
       "flags": 8193
     },
     {
@@ -147,7 +219,7 @@
         "type": "handle:senseComponent",
         "flags": 64
       },
-      "index": 11094,
+      "index": 12691,
       "flags": 8193
     },
     {
@@ -157,7 +229,7 @@
         "type": "handle:AITargetTrackerComponent",
         "flags": 64
       },
-      "index": 11098,
+      "index": 12695,
       "flags": 8193
     },
     {
@@ -167,7 +239,7 @@
         "type": "Vector4",
         "flags": 64
       },
-      "index": 11093,
+      "index": 12690,
       "flags": 8193
     },
     {
@@ -177,7 +249,7 @@
         "type": "handle:senseVisibleObjectComponent",
         "flags": 64
       },
-      "index": 11096,
+      "index": 12693,
       "flags": 8193
     },
     {
@@ -187,7 +259,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11101,
+      "index": 12698,
       "flags": 8193
     },
     {
@@ -197,7 +269,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11111,
+      "index": 12708,
       "flags": 8193
     },
     {
@@ -207,7 +279,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11110,
+      "index": 12707,
       "flags": 8193,
       "params": [
         {
@@ -220,13 +292,13 @@
     {
       "fullName": "HideIrreversibly",
       "shortName": "HideIrreversibly",
-      "index": 11099,
+      "index": 12696,
       "flags": 8193
     },
     {
       "fullName": "InitializeBaseInventory",
       "shortName": "InitializeBaseInventory",
-      "index": 11115,
+      "index": 12713,
       "flags": 1
     },
     {
@@ -236,13 +308,19 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11114,
+      "index": 12711,
       "flags": 8193
+    },
+    {
+      "fullName": "ProcessLoot",
+      "shortName": "ProcessLoot",
+      "index": 12720,
+      "flags": 1
     },
     {
       "fullName": "SetCPOMissionData",
       "shortName": "SetCPOMissionData",
-      "index": 11100,
+      "index": 12697,
       "flags": 8193,
       "params": [
         {
@@ -255,7 +333,7 @@
     {
       "fullName": "SetCPOMissionVoted",
       "shortName": "SetCPOMissionVoted",
-      "index": 11102,
+      "index": 12699,
       "flags": 8193,
       "params": [
         {
@@ -277,7 +355,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "index": 11116,
+      "index": 12714,
       "flags": 1
     }
   ]

@@ -14,9 +14,24 @@
       "flags": 4297130016
     },
     {
+      "type": "whandle:gameIBlackboard",
+      "name": "PsmBlackboard",
+      "flags": 4297130016
+    },
+    {
       "type": "questPhoneCallInformation",
       "name": "LastCallInformation",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:PhoneStatusEffectListener",
+      "name": "StatusEffectsListener",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:PhoneStatsListener",
+      "name": "StatsListener",
+      "flags": 4431347744
     },
     {
       "type": "Bool",
@@ -25,11 +40,83 @@
     },
     {
       "type": "handle:redCallbackObject",
+      "name": "PhoneVisibilityBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
       "name": "ContactsOpenBBId",
       "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "HighLevelBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "CombatBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "SwimmingBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "IsContrDeviceBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:redCallbackObject",
+      "name": "IsUIZoomDeviceBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "Uint32",
+      "name": "PlayerAttachedCallbackID",
+      "flags": 4297130016
+    },
+    {
+      "type": "Uint32",
+      "name": "PlayerDetachedCallbackID",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnPhoneEnabledChangedBool",
+      "shortName": "OnPhoneEnabledChangedBool",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPhoneEnabledChangedInt",
+      "shortName": "OnPhoneEnabledChangedInt",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "GetPhoneCallFactName;CNameCName",
       "shortName": "GetPhoneCallFactName",
@@ -52,6 +139,105 @@
       ]
     },
     {
+      "fullName": "IsBlockedByBlackboard;",
+      "shortName": "IsBlockedByBlackboard",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsBlockedByCombat;",
+      "shortName": "IsBlockedByCombat",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsBlockedByHUD;",
+      "shortName": "IsBlockedByHUD",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsBlockedByStatus;",
+      "shortName": "IsBlockedByStatus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsBlockedByTier;",
+      "shortName": "IsBlockedByTier",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsBlockedByVisiblity;",
+      "shortName": "IsBlockedByVisiblity",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsCallingAvaliable;",
+      "shortName": "IsCallingAvaliable",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsCallingBlockedByStatus;",
+      "shortName": "IsCallingBlockedByStatus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsCallingEnabled;",
+      "shortName": "IsCallingEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsEnabledByQuestSystem;",
+      "shortName": "IsEnabledByQuestSystem",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsEnabledByVisiblity;",
+      "shortName": "IsEnabledByVisiblity",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
       "fullName": "IsPhoneAvailable;",
       "shortName": "IsPhoneAvailable",
       "return": {
@@ -61,6 +247,24 @@
       "flags": 41476
     },
     {
+      "fullName": "IsPhoneEnabled;",
+      "shortName": "IsPhoneEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
+      "fullName": "IsPhoneOpened;",
+      "shortName": "IsPhoneOpened",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900
+    },
+    {
       "fullName": "IsShowingMessage;",
       "shortName": "IsShowingMessage",
       "return": {
@@ -68,6 +272,24 @@
         "flags": 64
       },
       "flags": 32900
+    },
+    {
+      "fullName": "IsTextingBlockedByStatus;",
+      "shortName": "IsTextingBlockedByStatus",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
+      "fullName": "IsTextingEnabled;",
+      "shortName": "IsTextingEnabled",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
     },
     {
       "fullName": "OnAttach;",
@@ -111,6 +333,18 @@
         {
           "type": "handle:PhoneTimeoutRequest",
           "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnPhoneVisibilityChanged;Variant",
+      "shortName": "OnPhoneVisibilityChanged",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "newValue",
           "flags": 128
         }
       ]
@@ -176,6 +410,28 @@
       ]
     },
     {
+      "fullName": "PlayerAttachedCallback;GameObject",
+      "shortName": "PlayerAttachedCallback",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "playerPuppet",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerDetached;",
+      "shortName": "PlayerDetached",
+      "flags": 32900
+    },
+    {
+      "fullName": "RefreshPhoneEnabled;",
+      "shortName": "RefreshPhoneEnabled",
+      "flags": 41476
+    },
+    {
       "fullName": "SetPhoneFact;BoolCNamequestPhoneTalkingState",
       "shortName": "SetPhoneFact",
       "flags": 32900,
@@ -210,7 +466,7 @@
       ]
     },
     {
-      "fullName": "TriggerCall;questPhoneCallModeBoolCNameBoolquestPhoneCallPhaseBoolBool",
+      "fullName": "TriggerCall;questPhoneCallModeBoolCNameBoolquestPhoneCallPhaseBoolBoolBoolquestPhoneCallVisuals",
       "shortName": "TriggerCall",
       "flags": 32900,
       "params": [
@@ -248,6 +504,16 @@
           "type": "Bool",
           "name": "isRejectable",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "showAvatar",
+          "flags": 128
+        },
+        {
+          "type": "questPhoneCallVisuals",
+          "name": "callVisuals",
+          "flags": 128
         }
       ]
     }

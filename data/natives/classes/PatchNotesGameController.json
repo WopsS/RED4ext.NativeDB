@@ -1,37 +1,32 @@
 {
-  "parent": "gameuiMenuGameController",
+  "parent": "gameuiWidgetGameController",
   "name": "PatchNotesGameController",
   "flags": 4,
   "props": [
     {
       "type": "inkWidgetReference",
-      "name": "buttonHintsRef",
+      "name": "notesContainerRef",
       "flags": 4297130017
     },
     {
       "type": "CName",
-      "name": "animationName",
+      "name": "itemLibraryName",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "introAnimationName",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "outroAnimationName",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
-      "name": "confirmBtn",
+      "name": "closeButtonRef",
       "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "selectorRef",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkImageWidgetReference",
-      "name": "patchImageRef",
-      "flags": 4297130017
-    },
-    {
-      "type": "array:inkWidgetReference",
-      "name": "platformSpecificNotes",
-      "flags": 6583025697
     },
     {
       "type": "handle:gameuiGameSystemUI",
@@ -39,13 +34,8 @@
       "flags": 4431347744
     },
     {
-      "type": "whandle:inkMenuEventDispatcher",
-      "name": "menuEventDispatcher",
-      "flags": 4297130016
-    },
-    {
       "type": "handle:inkanimProxy",
-      "name": "animProxy",
+      "name": "introAnimProxy",
       "flags": 4431347744
     },
     {
@@ -54,63 +44,13 @@
       "flags": 4297130016
     },
     {
-      "type": "array:inkCompoundWidgetReference",
-      "name": "contentList",
-      "flags": 6583025696
+      "type": "handle:PatchNotesPopupData",
+      "name": "data",
+      "flags": 4431347744
     },
     {
-      "type": "array:CName",
-      "name": "atlasParts",
-      "flags": 6583025696
-    },
-    {
-      "type": "array:String",
-      "name": "labelsList",
-      "flags": 6583025696
-    },
-    {
-      "type": "Int32",
-      "name": "selectedIndex",
-      "flags": 4297130016
-    },
-    {
-      "type": "inkCompoundWidgetReference",
-      "name": "contentPatchRef_1500",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkCompoundWidgetReference",
-      "name": "contentPatchRef_1600",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "contentPatchAtlasPart_1500",
-      "flags": 4297130017
-    },
-    {
-      "type": "CName",
-      "name": "contentPatchAtlasPart_1600",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "tabsRef",
-      "flags": 4297130017
-    },
-    {
-      "type": "whandle:TabRadioGroup",
-      "name": "tabsController",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkCompoundWidgetReference",
-      "name": "cloudSaveSettingsBlockRef",
-      "flags": 4297130017
-    },
-    {
-      "type": "whandle:PatchSettingsController",
-      "name": "cloudSaveSettingsBlock",
+      "type": "whandle:inkISystemRequestsHandler",
+      "name": "requestHandler",
       "flags": 4297130016
     }
   ],
@@ -157,6 +97,27 @@
       ]
     },
     {
+      "fullName": "OnNoteSpawned",
+      "shortName": "OnNoteSpawned",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkWidget",
+          "name": "widget",
+          "flags": 128
+        },
+        {
+          "type": "handle:IScriptable",
+          "name": "userData",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnOutroAnimationFinished",
       "shortName": "OnOutroAnimationFinished",
       "return": {
@@ -173,24 +134,8 @@
       ]
     },
     {
-      "fullName": "OnPatchSelectEvent",
-      "shortName": "OnPatchSelectEvent",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "handle:PatchSelectEvent",
-          "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnPressConfirm",
-      "shortName": "OnPressConfirm",
+      "fullName": "OnPressClose",
+      "shortName": "OnPressClose",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -200,43 +145,6 @@
         {
           "type": "handle:inkPointerEvent",
           "name": "evt",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnSetMenuEventDispatcher",
-      "shortName": "OnSetMenuEventDispatcher",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "whandle:inkMenuEventDispatcher",
-          "name": "menuEventDispatcher",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnTabChanged",
-      "shortName": "OnTabChanged",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 33032,
-      "params": [
-        {
-          "type": "whandle:inkRadioGroupController",
-          "name": "controller",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "selectedIndex",
           "flags": 128
         }
       ]
@@ -253,11 +161,6 @@
     {
       "fullName": "Close;",
       "shortName": "Close",
-      "flags": 32900
-    },
-    {
-      "fullName": "InitTabs;",
-      "shortName": "InitTabs",
       "flags": 32900
     },
     {
@@ -278,36 +181,36 @@
       ]
     },
     {
-      "fullName": "SetPatchContent;gameuiPatchIntroinkCompoundRefStringCName",
-      "shortName": "SetPatchContent",
+      "fullName": "PopulateNotesList;",
+      "shortName": "PopulateNotesList",
+      "flags": 32900
+    },
+    {
+      "fullName": "SpawnNote;CNameCNameCNameCName",
+      "shortName": "SpawnNote",
       "flags": 32900,
       "params": [
         {
-          "type": "gameuiPatchIntro",
-          "name": "version",
-          "flags": 128
-        },
-        {
-          "type": "inkCompoundWidgetReference",
-          "name": "contentRef",
-          "flags": 128
-        },
-        {
-          "type": "String",
-          "name": "label",
+          "type": "CName",
+          "name": "title",
           "flags": 128
         },
         {
           "type": "CName",
-          "name": "imageAtlasPart",
+          "name": "description",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "guide",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "imagePart",
           "flags": 128
         }
       ]
-    },
-    {
-      "fullName": "SetupPlatformSpecificNotes;",
-      "shortName": "SetupPlatformSpecificNotes",
-      "flags": 32900
     }
   ]
 }

@@ -59,6 +59,11 @@
       "flags": 6851461152
     },
     {
+      "type": "array:SAttributeData",
+      "name": "attributesData",
+      "flags": 6851461152
+    },
+    {
       "type": "Int32",
       "name": "highestCompletedMinigameLevel",
       "flags": 4565565472
@@ -82,9 +87,30 @@
       "type": "Bool",
       "name": "displayActivityLog",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "progressionBuildSetCompleted",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "PlayerDevelopmentData::AttributeDataTypeToStatType;gamedataAttributeDataType",
+      "shortName": "AttributeDataTypeToStatType",
+      "return": {
+        "type": "gamedataStatType",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataAttributeDataType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "PlayerDevelopmentData::IsAttribute;gamedataStatType",
       "shortName": "IsAttribute",
@@ -97,6 +123,55 @@
         {
           "type": "gamedataStatType",
           "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerDevelopmentData::IsProfficiencyObsolete;gamedataProficiencyType",
+      "shortName": "IsProfficiencyObsolete",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataProficiencyType",
+          "name": "profficeinct",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerDevelopmentData::StatTypeToAttributeDataType;gamedataStatType",
+      "shortName": "StatTypeToAttributeDataType",
+      "return": {
+        "type": "gamedataAttributeDataType",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ActivateNewPerk;gamedataNewPerkTypeInt32",
+      "shortName": "ActivateNewPerk",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "perkLevel",
           "flags": 128
         }
       ]
@@ -148,7 +223,7 @@
       ]
     },
     {
-      "fullName": "AddExperience;Int32gamedataProficiencyTypetelemetryLevelGainReason",
+      "fullName": "AddExperience;Int32gamedataProficiencyTypetelemetryLevelGainReasonBool",
       "shortName": "AddExperience",
       "flags": 41476,
       "params": [
@@ -166,6 +241,11 @@
           "type": "telemetryLevelGainReason",
           "name": "telemetryGainReason",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebug",
+          "flags": 1152
         }
       ]
     },
@@ -194,23 +274,6 @@
         {
           "type": "gamedataProficiencyType",
           "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "AddProficiencyStat;gamedataProficiencyTypeInt32",
-      "shortName": "AddProficiencyStat",
-      "flags": 41092,
-      "params": [
-        {
-          "type": "gamedataProficiencyType",
-          "name": "type",
-          "flags": 128
-        },
-        {
-          "type": "Int32",
-          "name": "level",
           "flags": 128
         }
       ]
@@ -256,6 +319,27 @@
       ]
     },
     {
+      "fullName": "BuyNewPerk;gamedataNewPerkTypeBool",
+      "shortName": "BuyNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceBuy",
+          "flags": 1152
+        }
+      ]
+    },
+    {
       "fullName": "BuyPerk;gamedataPerkType",
       "shortName": "BuyPerk",
       "return": {
@@ -278,7 +362,7 @@
         "type": "Bool",
         "flags": 64
       },
-      "flags": 41092,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataStatType",
@@ -299,6 +383,32 @@
         {
           "type": "Int32",
           "name": "pIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CanNewPerkBeBought;gamedataNewPerkTypeBoolBool",
+      "shortName": "CanNewPerkBeBought",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEspionagePerk",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEspionageMilestonePerk",
           "flags": 128
         }
       ]
@@ -329,6 +439,43 @@
       "flags": 41476
     },
     {
+      "fullName": "CheckIfAllNewPerkParentSold;Int32script_ref<SNewPerk>",
+      "shortName": "CheckIfAllNewPerkParentSold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "attributeIdx",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:SNewPerk",
+          "name": "perkRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CheckIfAllnewPerkParentSold;gamedataNewPerkType",
+      "shortName": "CheckIfAllnewPerkParentSold",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "CheckPlayerRespecCost;",
       "shortName": "CheckPlayerRespecCost",
       "return": {
@@ -336,6 +483,11 @@
         "flags": 64
       },
       "flags": 33284
+    },
+    {
+      "fullName": "CheckRelicMasterAchievement;",
+      "shortName": "CheckRelicMasterAchievement",
+      "flags": 41476
     },
     {
       "fullName": "CheckSpecialistAchievement;Int32",
@@ -352,7 +504,7 @@
     {
       "fullName": "ClearAllDevPoints;",
       "shortName": "ClearAllDevPoints",
-      "flags": 41092
+      "flags": 41476
     },
     {
       "fullName": "ClearTraitInfiniteData;Int32",
@@ -362,6 +514,23 @@
         {
           "type": "Int32",
           "name": "traitIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "DeactivateNewPerk;gamedataNewPerkTypeInt32",
+      "shortName": "DeactivateNewPerk",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "perkLevel",
           "flags": 128
         }
       ]
@@ -382,6 +551,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "EspionageAttributeRetrofix;",
+      "shortName": "EspionageAttributeRetrofix",
+      "flags": 33284
     },
     {
       "fullName": "EvaluatePerkAreas;gamedataProficiencyType",
@@ -420,9 +594,93 @@
       ]
     },
     {
+      "fullName": "FindNewPerk;gamedataNewPerkTypeInt32Int32",
+      "shortName": "FindNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 640
+        },
+        {
+          "type": "Int32",
+          "name": "j",
+          "flags": 640
+        }
+      ]
+    },
+    {
       "fullName": "FlushDevelopment;",
       "shortName": "FlushDevelopment",
       "flags": 32900
+    },
+    {
+      "fullName": "ForceSellNewPerk;gamedataNewPerkTypeInt32",
+      "shortName": "ForceSellNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "perkLevelSold",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttributeData;gamedataAttributeDataType",
+      "shortName": "GetAttributeData",
+      "return": {
+        "type": "SAttributeData",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataAttributeDataType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttributeData;gamedataStatTypeSAttributeData",
+      "shortName": "GetAttributeData",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "statType",
+          "flags": 128
+        },
+        {
+          "type": "SAttributeData",
+          "name": "attrData",
+          "flags": 640
+        }
+      ]
     },
     {
       "fullName": "GetAttributeDevCap;gamedataStatType",
@@ -473,10 +731,42 @@
       ]
     },
     {
+      "fullName": "GetAttributePoints;gamedataAttributeDataType",
+      "shortName": "GetAttributePoints",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataAttributeDataType",
+          "name": "attributeDataType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetAttributeRecord;gamedataStatType",
       "shortName": "GetAttributeRecord",
       "return": {
         "type": "handle:gamedataStat_Record",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetAttributeValue;gamedataStatType",
+      "shortName": "GetAttributeValue",
+      "return": {
+        "type": "Float",
         "flags": 64
       },
       "flags": 41476,
@@ -581,6 +871,15 @@
       "flags": 41476
     },
     {
+      "fullName": "GetEspionagePerksCount;",
+      "shortName": "GetEspionagePerksCount",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41092
+    },
+    {
       "fullName": "GetExperienceForNextLevel;gamedataProficiencyType",
       "shortName": "GetExperienceForNextLevel",
       "return": {
@@ -631,6 +930,15 @@
       ]
     },
     {
+      "fullName": "GetIsProgressionBuildSetCompleted;",
+      "shortName": "GetIsProgressionBuildSetCompleted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476
+    },
+    {
       "fullName": "GetLifePath;",
       "shortName": "GetLifePath",
       "return": {
@@ -638,6 +946,43 @@
         "flags": 64
       },
       "flags": 41476
+    },
+    {
+      "fullName": "GetNewPerkGLPackageTDBID;gamedataNewPerkTypeInt32",
+      "shortName": "GetNewPerkGLPackageTDBID",
+      "return": {
+        "type": "TweakDBID",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "perkLevel",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetNewPerkMaxLevel;gamedataNewPerkType",
+      "shortName": "GetNewPerkMaxLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "GetOwner;",
@@ -701,6 +1046,22 @@
         {
           "type": "gamedataPerkArea",
           "name": "areaType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPerkAttribute;gamedataNewPerkType",
+      "shortName": "GetPerkAttribute",
+      "return": {
+        "type": "whandle:gamedataAttributeData_Record",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
           "flags": 128
         }
       ]
@@ -1157,6 +1518,89 @@
       ]
     },
     {
+      "fullName": "GetUnlockedPerkList;gamedataNewPerkTypearray<gamedataNewPerkType>",
+      "shortName": "GetUnlockedPerkList",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "array:gamedataNewPerkType",
+          "name": "unlockedPerks",
+          "flags": 640
+        }
+      ]
+    },
+    {
+      "fullName": "HandleAddingPerkLevel;Int32Int32",
+      "shortName": "HandleAddingPerkLevel",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "j",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleRemovingPerkLevel;Int32Int32",
+      "shortName": "HandleRemovingPerkLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "j",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleRemovingTech_Central_Milestone_3;EquipmentSystemPlayerData",
+      "shortName": "HandleRemovingTech_Central_Milestone_3",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:EquipmentSystemPlayerData",
+          "name": "playerData",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HasEnoughtAttributePoints;gamedataNewPerkType",
+      "shortName": "HasEnoughtAttributePoints",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "HasPerk;gamedataPerkType",
       "shortName": "HasPerk",
       "return": {
@@ -1206,6 +1650,11 @@
       ]
     },
     {
+      "fullName": "InitializeAttributesData;",
+      "shortName": "InitializeAttributesData",
+      "flags": 32900
+    },
+    {
       "fullName": "InitializePerk;gamedataPerkType",
       "shortName": "InitializePerk",
       "return": {
@@ -1242,6 +1691,86 @@
       "fullName": "InitializeTraits;",
       "shortName": "InitializeTraits",
       "flags": 32900
+    },
+    {
+      "fullName": "IsEspionageMilestonePerk;gamedataNewPerkType",
+      "shortName": "IsEspionageMilestonePerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsNewPerkBought;gamedataNewPerkType",
+      "shortName": "IsNewPerkBought",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsNewPerkBoughtAnyLevel;gamedataNewPerkType",
+      "shortName": "IsNewPerkBoughtAnyLevel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsNewPerkEspionage;gamedataNewPerkType",
+      "shortName": "IsNewPerkEspionage",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsNewPerkUnlocked;gamedataNewPerkType",
+      "shortName": "IsNewPerkUnlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "IsPerkAreaBaseReqMet;PerkArea_Record",
@@ -1292,22 +1821,6 @@
       ]
     },
     {
-      "fullName": "IsPerkAreaUnlocked;gamedataPerkArea",
-      "shortName": "IsPerkAreaUnlocked",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
-      "flags": 41476,
-      "params": [
-        {
-          "type": "gamedataPerkArea",
-          "name": "area",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "IsPerkAreaUnlocked;Int32",
       "shortName": "IsPerkAreaUnlocked",
       "return": {
@@ -1319,6 +1832,22 @@
         {
           "type": "Int32",
           "name": "aIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsPerkAreaUnlocked;gamedataPerkArea",
+      "shortName": "IsPerkAreaUnlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataPerkArea",
+          "name": "area",
           "flags": 128
         }
       ]
@@ -1372,6 +1901,22 @@
       ]
     },
     {
+      "fullName": "IsProficiencyStatAdded;gamedataProficiencyType",
+      "shortName": "IsProficiencyStatAdded",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataProficiencyType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsStatValid;gamedataStatType",
       "shortName": "IsStatValid",
       "return": {
@@ -1404,6 +1949,22 @@
       ]
     },
     {
+      "fullName": "IsTraitUnlocked;Int32",
+      "shortName": "IsTraitUnlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "traitIndex",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsTraitUnlocked;gamedataTraitType",
       "shortName": "IsTraitUnlocked",
       "return": {
@@ -1420,17 +1981,34 @@
       ]
     },
     {
-      "fullName": "IsTraitUnlocked;Int32",
-      "shortName": "IsTraitUnlocked",
+      "fullName": "LockAllNewPerkParents;Int32script_ref<SNewPerk>",
+      "shortName": "LockAllNewPerkParents",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "attributeIdx",
+          "flags": 128
+        },
+        {
+          "type": "script_ref:SNewPerk",
+          "name": "perkRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LockNewPerk;gamedataNewPerkType",
+      "shortName": "LockNewPerk",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 41092,
+      "flags": 33284,
       "params": [
         {
-          "type": "Int32",
-          "name": "traitIndex",
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
           "flags": 128
         }
       ]
@@ -1467,7 +2045,7 @@
     {
       "fullName": "ModifyDevPoints;gamedataProficiencyTypeInt32",
       "shortName": "ModifyDevPoints",
-      "flags": 41092,
+      "flags": 41476,
       "params": [
         {
           "type": "gamedataProficiencyType",
@@ -1482,7 +2060,29 @@
       ]
     },
     {
-      "fullName": "ModifyProficiencyLevel;Int32",
+      "fullName": "ModifyProficiencyLevel;gamedataProficiencyTypeBoolInt32",
+      "shortName": "ModifyProficiencyLevel",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataProficiencyType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebug",
+          "flags": 1152
+        },
+        {
+          "type": "Int32",
+          "name": "levelIncrease",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ModifyProficiencyLevel;Int32BoolInt32",
       "shortName": "ModifyProficiencyLevel",
       "flags": 41092,
       "params": [
@@ -1490,18 +2090,16 @@
           "type": "Int32",
           "name": "proficiencyIndex",
           "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ModifyProficiencyLevel;gamedataProficiencyType",
-      "shortName": "ModifyProficiencyLevel",
-      "flags": 41092,
-      "params": [
+        },
         {
-          "type": "gamedataProficiencyType",
-          "name": "type",
+          "type": "Bool",
+          "name": "isDebug",
           "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "levelIncrease",
+          "flags": 1152
         }
       ]
     },
@@ -1533,36 +2131,36 @@
       ]
     },
     {
-      "fullName": "ProcessBuildAttributes;array<BuildAttribute_Record>",
+      "fullName": "ProcessBuildAttributes;script_ref<array<BuildAttribute_Record>>",
       "shortName": "ProcessBuildAttributes",
       "flags": 41092,
       "params": [
         {
-          "type": "array:whandle:gamedataBuildAttribute_Record",
+          "type": "script_ref:array:whandle:gamedataBuildAttribute_Record",
           "name": "attributes",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ProcessBuildCyberware;array<BuildCyberware_Record>",
+      "fullName": "ProcessBuildCyberware;script_ref<array<BuildCyberware_Record>>",
       "shortName": "ProcessBuildCyberware",
       "flags": 41092,
       "params": [
         {
-          "type": "array:whandle:gamedataBuildCyberware_Record",
+          "type": "script_ref:array:whandle:gamedataBuildCyberware_Record",
           "name": "cyberware",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ProcessBuildEquipment;array<BuildEquipment_Record>Bool",
+      "fullName": "ProcessBuildEquipment;script_ref<array<BuildEquipment_Record>>Bool",
       "shortName": "ProcessBuildEquipment",
       "flags": 41092,
       "params": [
         {
-          "type": "array:whandle:gamedataBuildEquipment_Record",
+          "type": "script_ref:array:whandle:gamedataBuildEquipment_Record",
           "name": "equipment",
           "flags": 128
         },
@@ -1574,37 +2172,71 @@
       ]
     },
     {
-      "fullName": "ProcessBuildItems;array<InventoryItem_Record>",
+      "fullName": "ProcessBuildItems;script_ref<array<InventoryItem_Record>>",
       "shortName": "ProcessBuildItems",
       "flags": 41092,
       "params": [
         {
-          "type": "array:whandle:gamedataInventoryItem_Record",
+          "type": "script_ref:array:whandle:gamedataInventoryItem_Record",
           "name": "items",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ProcessBuildPerks;array<BuildPerk_Record>",
+      "fullName": "ProcessBuildNewPerks;script_ref<array<BuildNewPerk_Record>>Bool",
+      "shortName": "ProcessBuildNewPerks",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "script_ref:array:whandle:gamedataBuildNewPerk_Record",
+          "name": "perks",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "forceBuy",
+          "flags": 1152
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessBuildPerks;script_ref<array<BuildPerk_Record>>",
       "shortName": "ProcessBuildPerks",
       "flags": 32900,
       "params": [
         {
-          "type": "array:whandle:gamedataBuildPerk_Record",
+          "type": "script_ref:array:whandle:gamedataBuildPerk_Record",
           "name": "perks",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ProcessBuildProficiencies;array<BuildProficiency_Record>",
+      "fullName": "ProcessBuildProficiencies;script_ref<array<BuildProficiency_Record>>Bool",
       "shortName": "ProcessBuildProficiencies",
       "flags": 41092,
       "params": [
         {
-          "type": "array:whandle:gamedataBuildProficiency_Record",
+          "type": "script_ref:array:whandle:gamedataBuildProficiency_Record",
           "name": "proficiencies",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebugBuild",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ProcessBuildPrograms;script_ref<array<BuildProgram_Record>>",
+      "shortName": "ProcessBuildPrograms",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "script_ref:array:whandle:gamedataBuildProgram_Record",
+          "name": "programs",
           "flags": 128
         }
       ]
@@ -1646,7 +2278,7 @@
       ]
     },
     {
-      "fullName": "ProcessProgressionBuild;ProgressionBuild_Record",
+      "fullName": "ProcessProgressionBuild;ProgressionBuild_RecordBool",
       "shortName": "ProcessProgressionBuild",
       "flags": 32900,
       "params": [
@@ -1654,6 +2286,11 @@
           "type": "handle:gamedataProgressionBuild_Record",
           "name": "buildRecord",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebugBuild",
+          "flags": 1152
         }
       ]
     },
@@ -1746,6 +2383,11 @@
       ]
     },
     {
+      "fullName": "ReinitializeProficiencies;",
+      "shortName": "ReinitializeProficiencies",
+      "flags": 33284
+    },
+    {
       "fullName": "RemoveAllPerks;Bool",
       "shortName": "RemoveAllPerks",
       "flags": 41476,
@@ -1756,6 +2398,11 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "RemoveDeprecatedPerkPoints;",
+      "shortName": "RemoveDeprecatedPerkPoints",
+      "flags": 41476
     },
     {
       "fullName": "RemovePerk;gamedataPerkType",
@@ -1786,18 +2433,6 @@
       ]
     },
     {
-      "fullName": "RemoveProficiencyStat;gamedataProficiencyType",
-      "shortName": "RemoveProficiencyStat",
-      "flags": 41092,
-      "params": [
-        {
-          "type": "gamedataProficiencyType",
-          "name": "type",
-          "flags": 128
-        }
-      ]
-    },
-    {
       "fullName": "RemoveTrait;gamedataTraitType",
       "shortName": "RemoveTrait",
       "return": {
@@ -1816,7 +2451,29 @@
     {
       "fullName": "ResetAllDevPoints;",
       "shortName": "ResetAllDevPoints",
-      "flags": 41092
+      "flags": 41476
+    },
+    {
+      "fullName": "ResetAllProficienciesLevel;",
+      "shortName": "ResetAllProficienciesLevel",
+      "flags": 41476
+    },
+    {
+      "fullName": "ResetAttribute;gamedataStatType",
+      "shortName": "ResetAttribute",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ResetAttributes;",
+      "shortName": "ResetAttributes",
+      "flags": 41476
     },
     {
       "fullName": "ResetDevelopmentPoints;gamedataDevelopmentPointType",
@@ -1831,6 +2488,11 @@
       ]
     },
     {
+      "fullName": "ResetNewPerks;",
+      "shortName": "ResetNewPerks",
+      "flags": 33284
+    },
+    {
       "fullName": "ResetProficiencyLevel;gamedataProficiencyType",
       "shortName": "ResetProficiencyLevel",
       "flags": 41092,
@@ -1843,9 +2505,90 @@
       ]
     },
     {
+      "fullName": "RestoreProficiencyPassiveBonuses;Int32GameInstance",
+      "shortName": "RestoreProficiencyPassiveBonuses",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "profIndex",
+          "flags": 128
+        },
+        {
+          "type": "ScriptGameInstance",
+          "name": "gameInstance",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReturnDevelopmentPointForSoldPerk;Int32Int32",
+      "shortName": "ReturnDevelopmentPointForSoldPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "j",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ScaleItems;",
       "shortName": "ScaleItems",
       "flags": 32900
+    },
+    {
+      "fullName": "ScaleNPCsToPlayerLevel;",
+      "shortName": "ScaleNPCsToPlayerLevel",
+      "flags": 33284
+    },
+    {
+      "fullName": "SellAllAttributes;",
+      "shortName": "SellAllAttributes",
+      "flags": 41476
+    },
+    {
+      "fullName": "SellAttribute;gamedataStatType",
+      "shortName": "SellAttribute",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataStatType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SellNewPerk;gamedataNewPerkTypeInt32",
+      "shortName": "SellNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "perkLevelSold",
+          "flags": 640
+        }
+      ]
     },
     {
       "fullName": "SendMaxStreetCredLevelReachedTrackingRequest;",
@@ -1892,7 +2635,36 @@
       "flags": 32900
     },
     {
-      "fullName": "SetLevel;gamedataProficiencyTypeInt32telemetryLevelGainReason",
+      "fullName": "SetDevelopmentsPoint;gamedataDevelopmentPointTypeInt32",
+      "shortName": "SetDevelopmentsPoint",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "gamedataDevelopmentPointType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsProgressionBuildSetCompleted;Bool",
+      "shortName": "SetIsProgressionBuildSetCompleted",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetLevel;gamedataProficiencyTypeInt32telemetryLevelGainReasonBool",
       "shortName": "SetLevel",
       "flags": 41476,
       "params": [
@@ -1910,6 +2682,11 @@
           "type": "telemetryLevelGainReason",
           "name": "telemetryGainReason",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebug",
+          "flags": 1152
         }
       ]
     },
@@ -1943,7 +2720,24 @@
       "flags": 32900
     },
     {
-      "fullName": "SetProgressionBuild;gamedataBuildType",
+      "fullName": "SetProficiencyStat;gamedataProficiencyTypeInt32",
+      "shortName": "SetProficiencyStat",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataProficiencyType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "level",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetProgressionBuild;gamedataBuildTypeBool",
       "shortName": "SetProgressionBuild",
       "flags": 33284,
       "params": [
@@ -1951,11 +2745,16 @@
           "type": "gamedataBuildType",
           "name": "build",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebugBuild",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "SetProgressionBuild;TweakDBID",
+      "fullName": "SetProgressionBuild;TweakDBIDBool",
       "shortName": "SetProgressionBuild",
       "flags": 33284,
       "params": [
@@ -1963,6 +2762,11 @@
           "type": "TweakDBID",
           "name": "buildID",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isDebugBuild",
+          "flags": 1152
         }
       ]
     },
@@ -1990,6 +2794,51 @@
         {
           "type": "gamedataDevelopmentPointType",
           "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SpendDevelopmentPoint;gamedataDevelopmentPointTypeInt32",
+      "shortName": "SpendDevelopmentPoint",
+      "flags": 41092,
+      "params": [
+        {
+          "type": "gamedataDevelopmentPointType",
+          "name": "type",
+          "flags": 128
+        },
+        {
+          "type": "Int32",
+          "name": "amount",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnlockFreeNewPerks;gamedataAttributeDataType",
+      "shortName": "UnlockFreeNewPerks",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataAttributeDataType",
+          "name": "attributeDataType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnlockNewPerk;gamedataNewPerkType",
+      "shortName": "UnlockNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
           "flags": 128
         }
       ]
@@ -2031,12 +2880,12 @@
       ]
     },
     {
-      "fullName": "UpdateAttributes;array<CharacterCustomizationAttribute>",
+      "fullName": "UpdateAttributes;script_ref<array<CharacterCustomizationAttribute>>",
       "shortName": "UpdateAttributes",
       "flags": 33284,
       "params": [
         {
-          "type": "array:gameuiCharacterCustomizationAttribute",
+          "type": "script_ref:array:gameuiCharacterCustomizationAttribute",
           "name": "attributes",
           "flags": 128
         }

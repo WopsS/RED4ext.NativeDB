@@ -85,6 +85,11 @@
     },
     {
       "type": "Bool",
+      "name": "isDefaultLightToggleSet",
+      "flags": 4565631008
+    },
+    {
+      "type": "Bool",
       "name": "anyDoorOpen",
       "flags": 4565631008
     },
@@ -112,6 +117,16 @@
       "type": "handle:EngDemoContainer",
       "name": "vehicleSkillChecks",
       "flags": 4431413280
+    },
+    {
+      "type": "Bool",
+      "name": "controlStimShouldBeActive",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "controlStimRunning",
+      "flags": 4297130016
     },
     {
       "type": "Bool",
@@ -215,7 +230,7 @@
       ]
     },
     {
-      "fullName": "ActionVehicleDoorClose;String",
+      "fullName": "ActionVehicleDoorClose;script_ref<String>",
       "shortName": "ActionVehicleDoorClose",
       "return": {
         "type": "handle:VehicleDoorClose",
@@ -224,14 +239,14 @@
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "slotName",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ActionVehicleDoorInteraction;StringBoolBool",
+      "fullName": "ActionVehicleDoorInteraction;script_ref<String>BoolBool",
       "shortName": "ActionVehicleDoorInteraction",
       "return": {
         "type": "handle:VehicleDoorInteraction",
@@ -240,7 +255,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "slotName",
           "flags": 128
         },
@@ -257,7 +272,7 @@
       ]
     },
     {
-      "fullName": "ActionVehicleDoorInteractionStateChange;EVehicleDoorVehicleDoorInteractionStateString",
+      "fullName": "ActionVehicleDoorInteractionStateChange;EVehicleDoorVehicleDoorInteractionStatescript_ref<String>",
       "shortName": "ActionVehicleDoorInteractionStateChange",
       "return": {
         "type": "handle:VehicleDoorInteractionStateChange",
@@ -276,14 +291,14 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "source",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "ActionVehicleDoorOpen;String",
+      "fullName": "ActionVehicleDoorOpen;script_ref<String>",
       "shortName": "ActionVehicleDoorOpen",
       "return": {
         "type": "handle:VehicleDoorOpen",
@@ -292,7 +307,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "slotName",
           "flags": 128
         }
@@ -317,7 +332,7 @@
       "flags": 32900
     },
     {
-      "fullName": "ActionVehicleForceOccupantOut;String",
+      "fullName": "ActionVehicleForceOccupantOut;script_ref<String>",
       "shortName": "ActionVehicleForceOccupantOut",
       "return": {
         "type": "handle:VehicleForceOccupantOut",
@@ -326,7 +341,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "slotName",
           "flags": 128
         }
@@ -351,7 +366,7 @@
       "flags": 41216
     },
     {
-      "fullName": "ChangeToActionContext;VehicleActionsContext",
+      "fullName": "ChangeToActionContext;script_ref<VehicleActionsContext>",
       "shortName": "ChangeToActionContext",
       "return": {
         "type": "gameGetActionsContext",
@@ -360,11 +375,16 @@
       "flags": 33028,
       "params": [
         {
-          "type": "VehicleActionsContext",
+          "type": "script_ref:VehicleActionsContext",
           "name": "vehicleContext",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "CheckVehicleVelocityForStims;",
+      "shortName": "CheckVehicleVelocityForStims",
+      "flags": 32900
     },
     {
       "fullName": "CloseAllVehDoors;Bool",
@@ -419,6 +439,16 @@
       "fullName": "DisableAllVehInteractions;",
       "shortName": "DisableAllVehInteractions",
       "flags": 32900
+    },
+    {
+      "fullName": "EndStimsOnVehicleQuickhack;",
+      "shortName": "EndStimsOnVehicleQuickhack",
+      "flags": 33284
+    },
+    {
+      "fullName": "EndVehicleStimsOnVehicleQuickhack;",
+      "shortName": "EndVehicleStimsOnVehicleQuickhack",
+      "flags": 33284
     },
     {
       "fullName": "GameAttached;",
@@ -542,17 +572,17 @@
       "flags": 33284
     },
     {
-      "fullName": "GetHoodActions;array<DeviceAction>VehicleActionsContext",
+      "fullName": "GetHoodActions;script_ref<array<DeviceAction>>script_ref<VehicleActionsContext>",
       "shortName": "GetHoodActions",
       "flags": 33284,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "VehicleActionsContext",
+          "type": "script_ref:VehicleActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -561,6 +591,15 @@
     {
       "fullName": "GetIsCrystalDomeQuestModified;",
       "shortName": "GetIsCrystalDomeQuestModified",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
+      "fullName": "GetIsDefaultLightToggleSet;",
+      "shortName": "GetIsDefaultLightToggleSet",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -631,51 +670,51 @@
       "flags": 41220
     },
     {
-      "fullName": "GetPlayerTrunkActions;array<DeviceAction>VehicleActionsContext",
+      "fullName": "GetPlayerTrunkActions;script_ref<array<DeviceAction>>script_ref<VehicleActionsContext>",
       "shortName": "GetPlayerTrunkActions",
       "flags": 33284,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "VehicleActionsContext",
+          "type": "script_ref:VehicleActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuestLockedActions;array<DeviceAction>VehicleActionsContext",
+      "fullName": "GetQuestLockedActions;script_ref<array<DeviceAction>>script_ref<VehicleActionsContext>",
       "shortName": "GetQuestLockedActions",
       "flags": 33284,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "VehicleActionsContext",
+          "type": "script_ref:VehicleActionsContext",
           "name": "context",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "GetQuickHackActions;array<DeviceAction>GetActionsContext",
+      "fullName": "GetQuickHackActions;array<DeviceAction>script_ref<GetActionsContext>",
       "shortName": "GetQuickHackActions",
       "flags": 33024,
       "params": [
         {
           "type": "array:handle:gamedeviceAction",
-          "name": "actions",
+          "name": "outActions",
           "flags": 640
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -752,17 +791,17 @@
       "flags": 33284
     },
     {
-      "fullName": "GetTrunkActions;array<DeviceAction>VehicleActionsContext",
+      "fullName": "GetTrunkActions;script_ref<array<DeviceAction>>script_ref<VehicleActionsContext>",
       "shortName": "GetTrunkActions",
       "flags": 33284,
       "params": [
         {
-          "type": "array:handle:gamedeviceAction",
+          "type": "script_ref:array:handle:gamedeviceAction",
           "name": "actions",
-          "flags": 640
+          "flags": 128
         },
         {
-          "type": "VehicleActionsContext",
+          "type": "script_ref:VehicleActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -778,17 +817,17 @@
       "flags": 33284
     },
     {
-      "fullName": "GetValidChoices;array<ObjectAction_Record>GetActionsContextgameObjectActionsCallbackControllerarray<InteractionChoice>Bool",
+      "fullName": "GetValidChoices;script_ref<array<ObjectAction_Record>>script_ref<GetActionsContext>gameObjectActionsCallbackControllerscript_ref<array<InteractionChoice>>Bool",
       "shortName": "GetValidChoices",
       "flags": 33284,
       "params": [
         {
-          "type": "array:whandle:gamedataObjectAction_Record",
+          "type": "script_ref:array:whandle:gamedataObjectAction_Record",
           "name": "objectActionRecords",
           "flags": 128
         },
         {
-          "type": "gameGetActionsContext",
+          "type": "script_ref:gameGetActionsContext",
           "name": "context",
           "flags": 128
         },
@@ -798,9 +837,9 @@
           "flags": 128
         },
         {
-          "type": "array:gameinteractionsChoice",
+          "type": "script_ref:array:gameinteractionsChoice",
           "name": "choices",
-          "flags": 640
+          "flags": 128
         },
         {
           "type": "Bool",
@@ -912,6 +951,15 @@
       ]
     },
     {
+      "fullName": "IsPlayerSwimming;",
+      "shortName": "IsPlayerSwimming",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33284
+    },
+    {
       "fullName": "IsSlotOccupiedByNPC;CName",
       "shortName": "IsSlotOccupiedByNPC",
       "return": {
@@ -975,6 +1023,22 @@
       "params": [
         {
           "type": "handle:ActionEngineering",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCheckVehicleVelocityForStimsEvent;CheckVehicleVelocityForStimsEvent",
+      "shortName": "OnCheckVehicleVelocityForStimsEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:CheckVehicleVelocityForStimsEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1077,6 +1141,22 @@
       ]
     },
     {
+      "fullName": "OnPreventionVehicleHackedEvent;PreventionVehicleHackedEvent",
+      "shortName": "OnPreventionVehicleHackedEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33284,
+      "params": [
+        {
+          "type": "handle:PreventionVehicleHackedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnSetExposeQuickHacks;SetExposeQuickHacks",
       "shortName": "OnSetExposeQuickHacks",
       "return": {
@@ -1109,6 +1189,22 @@
       ]
     },
     {
+      "fullName": "OnToggleTakeOverControl;ToggleTakeOverControl",
+      "shortName": "OnToggleTakeOverControl",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:ToggleTakeOverControl",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnToggleVehicle;ToggleVehicle",
       "shortName": "OnToggleVehicle",
       "return": {
@@ -1135,6 +1231,38 @@
       "params": [
         {
           "type": "handle:VehicleBodyDisposalPerformedEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDelayedQuestHornEvent;VehicleQuestDelayedHornEvent",
+      "shortName": "OnVehicleDelayedQuestHornEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:VehicleQuestDelayedHornEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleDetachPartEvent;VehicleDetachPartEvent",
+      "shortName": "OnVehicleDetachPartEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:vehicleDetachPartEvent",
           "name": "evt",
           "flags": 128
         }
@@ -1253,6 +1381,22 @@
       ]
     },
     {
+      "fullName": "OnVehicleLightQuestChangeColorEvent;VehicleLightQuestChangeColorEvent",
+      "shortName": "OnVehicleLightQuestChangeColorEvent",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 34052,
+      "params": [
+        {
+          "type": "handle:VehicleLightQuestChangeColorEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnVehicleLightQuestToggleEvent;VehicleLightQuestToggleEvent",
       "shortName": "OnVehicleLightQuestToggleEvent",
       "return": {
@@ -1263,6 +1407,54 @@
       "params": [
         {
           "type": "handle:VehicleLightQuestToggleEvent",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleOverrideAccelerate;VehicleOverrideAccelerate",
+      "shortName": "OnVehicleOverrideAccelerate",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:VehicleOverrideAccelerate",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleOverrideExplode;VehicleOverrideExplode",
+      "shortName": "OnVehicleOverrideExplode",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:VehicleOverrideExplode",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnVehicleOverrideForceBrakes;VehicleOverrideForceBrakes",
+      "shortName": "OnVehicleOverrideForceBrakes",
+      "return": {
+        "type": "EntityNotificationType",
+        "flags": 64
+      },
+      "flags": 33024,
+      "params": [
+        {
+          "type": "handle:VehicleOverrideForceBrakes",
           "name": "evt",
           "flags": 128
         }
@@ -1643,7 +1835,7 @@
       "flags": 33028
     },
     {
-      "fullName": "PushActionsToInteractionComponent;InteractionComponentarray<InteractionChoice>VehicleActionsContext",
+      "fullName": "PushActionsToInteractionComponent;InteractionComponentscript_ref<array<InteractionChoice>>script_ref<VehicleActionsContext>",
       "shortName": "PushActionsToInteractionComponent",
       "flags": 33284,
       "params": [
@@ -1653,12 +1845,12 @@
           "flags": 128
         },
         {
-          "type": "array:gameinteractionsChoice",
+          "type": "script_ref:array:gameinteractionsChoice",
           "name": "choices",
           "flags": 128
         },
         {
-          "type": "VehicleActionsContext",
+          "type": "script_ref:VehicleActionsContext",
           "name": "context",
           "flags": 128
         }
@@ -1685,6 +1877,35 @@
       "flags": 32900
     },
     {
+      "fullName": "SendStimsOnVehicleQuickhack;BoolBool",
+      "shortName": "SendStimsOnVehicleQuickhack",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "shouldTriggerIllegalActionStim",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "areHacksIndefiniteDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SendVehicleStimsOnVehicleQuickhack;Float",
+      "shortName": "SendVehicleStimsOnVehicleQuickhack",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "Float",
+          "name": "vehicleQuickhackStimDuration",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetCrystalDomeQuestState;Bool",
       "shortName": "SetCrystalDomeQuestState",
       "flags": 33284,
@@ -1709,7 +1930,7 @@
       ]
     },
     {
-      "fullName": "SetDoorInteractionState;EVehicleDoorVehicleDoorInteractionStateString",
+      "fullName": "SetDoorInteractionState;EVehicleDoorVehicleDoorInteractionStatescript_ref<String>",
       "shortName": "SetDoorInteractionState",
       "flags": 33284,
       "params": [
@@ -1724,7 +1945,7 @@
           "flags": 128
         },
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "source",
           "flags": 128
         }
@@ -1815,6 +2036,18 @@
     {
       "fullName": "SetIsCrystalDomeQuestModified;Bool",
       "shortName": "SetIsCrystalDomeQuestModified",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetIsDefaultLightToggleSet;Bool",
+      "shortName": "SetIsDefaultLightToggleSet",
       "flags": 33284,
       "params": [
         {

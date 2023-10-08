@@ -6,76 +6,127 @@
     {
       "type": "inkWidgetReference",
       "name": "scrollPanel",
+      "group": "Main",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "selectorWidget",
+      "group": "Main",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "buttonHintsManagerRef",
+      "group": "Main",
       "flags": 4297130017
     },
     {
       "type": "inkCompoundWidgetReference",
       "name": "settingsOptionsList",
+      "group": "Main",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "applyButton",
+      "group": "Bottom Buttons",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "resetButton",
+      "group": "Bottom Buttons",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "defaultButton",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "brightnessButton",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "hdrButton",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkWidgetReference",
-      "name": "controllerButton",
+      "group": "Bottom Buttons",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "benchmarkButton",
-      "flags": 4297130017
-    },
-    {
-      "type": "inkTextWidgetReference",
-      "name": "descriptionText",
+      "group": "Extra Buttons",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
-      "name": "previousButtonHint",
+      "name": "brightnessButton",
+      "group": "Extra Buttons",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
-      "name": "nextButtonHint",
+      "name": "hdrButton",
+      "group": "Extra Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "controllerButton",
+      "group": "Extra Buttons",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "safezonesButton",
+      "group": "Extra Buttons",
       "flags": 4297130017
     },
     {
       "type": "inkWidgetReference",
       "name": "languageInstallProgressBarRoot",
+      "group": "Right Side",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkWidgetReference",
+      "name": "languageDisclaimer",
+      "group": "Right Side",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkTextWidgetReference",
+      "name": "descriptionText",
+      "group": "Right Side",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "settingGroupName_Video",
+      "group": "Setting Groups Names",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "settingGroupName_Graphics",
+      "group": "Setting Groups Names",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "settingGroupName_Interface",
+      "group": "Setting Groups Names",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "settingGroupName_Controls",
+      "group": "Setting Groups Names",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "settingGroupName_Language",
+      "group": "Setting Groups Names",
+      "flags": 4297130017
+    },
+    {
+      "type": "CName",
+      "name": "settingGroupName_KeyBindings",
+      "group": "Setting Groups Names",
       "flags": 4297130017
     },
     {
@@ -109,11 +160,6 @@
       "flags": 6583025696
     },
     {
-      "type": "array:CName",
-      "name": "eventsList",
-      "flags": 6583025696
-    },
-    {
       "type": "handle:SettingsVarListener",
       "name": "settingsListener",
       "flags": 4431347744
@@ -136,6 +182,11 @@
     {
       "type": "handle:inkGameNotificationToken",
       "name": "benchmarkNotificationToken",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:inkGameNotificationToken",
+      "name": "safezonesEditorToken",
       "flags": 4431347744
     },
     {
@@ -174,13 +225,13 @@
       "flags": 4297130016
     },
     {
-      "type": "whandle:inkListController",
-      "name": "selectorCtrl",
+      "type": "Bool",
+      "name": "showHdrButton",
       "flags": 4297130016
     },
     {
-      "type": "Int32",
-      "name": "languageMenuIndex",
+      "type": "whandle:inkListController",
+      "name": "selectorCtrl",
       "flags": 4297130016
     }
   ],
@@ -371,6 +422,38 @@
         {
           "type": "whandle:inkButtonController",
           "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSafezonesButtonReleased",
+      "shortName": "OnSafezonesButtonReleased",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "whandle:inkButtonController",
+          "name": "controller",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSafezonesEditorCloseRequest",
+      "shortName": "OnSafezonesEditorCloseRequest",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkGameNotificationData",
+          "name": "data",
           "flags": 128
         }
       ]
@@ -634,6 +717,23 @@
       "flags": 32900
     },
     {
+      "fullName": "RunSafezonesEditor;",
+      "shortName": "RunSafezonesEditor",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetLanguageDisclaimerVisiblity;Int32",
+      "shortName": "SetLanguageDisclaimerVisiblity",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "SetLanguagePackageInstallProgress;Float",
       "shortName": "SetLanguagePackageInstallProgress",
       "flags": 33024,
@@ -668,6 +768,18 @@
       ]
     },
     {
+      "fullName": "SetSideButtonsVisiblity;Int32",
+      "shortName": "SetSideButtonsVisiblity",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Int32",
+          "name": "i",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "ShowBrightnessScreen;",
       "shortName": "ShowBrightnessScreen",
       "flags": 32900
@@ -681,6 +793,23 @@
       "fullName": "ShowHDRScreen;",
       "shortName": "ShowHDRScreen",
       "flags": 32900
+    },
+    {
+      "fullName": "ShowPathtracingMessage;CNameCName",
+      "shortName": "ShowPathtracingMessage",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "CName",
+          "name": "groupPath",
+          "flags": 128
+        },
+        {
+          "type": "CName",
+          "name": "varName",
+          "flags": 128
+        }
+      ]
     },
     {
       "fullName": "WarnAboutEmptyKeyBindingValue;",

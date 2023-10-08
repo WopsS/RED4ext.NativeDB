@@ -89,6 +89,11 @@
       "flags": 4297130016
     },
     {
+      "type": "Uint64",
+      "name": "saveToLoadID",
+      "flags": 4297130016
+    },
+    {
       "type": "Bool",
       "name": "isInputDisabled",
       "flags": 4297130016
@@ -127,6 +132,21 @@
       "type": "Bool",
       "name": "pendingRegistration",
       "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "isEp1Enabled",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "animProxy",
+      "flags": 4431347744
+    },
+    {
+      "type": "Int32",
+      "name": "sourceIndex",
+      "flags": 4297130016
     }
   ],
   "funcs": [
@@ -142,6 +162,22 @@
         {
           "type": "handle:inkPointerEvent",
           "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnCloudSaveUploadFinish",
+      "shortName": "OnCloudSaveUploadFinish",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "success",
           "flags": 128
         }
       ]
@@ -197,6 +233,15 @@
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032
+    },
+    {
+      "fullName": "OnLoadSaveInGameCanceled",
+      "shortName": "OnLoadSaveInGameCanceled",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -321,6 +366,22 @@
       ]
     },
     {
+      "fullName": "OnTransitionFinishedPreGame",
+      "shortName": "OnTransitionFinishedPreGame",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:inkanimProxy",
+          "name": "anim",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUninitialize",
       "shortName": "OnUninitialize",
       "return": {
@@ -369,7 +430,7 @@
       "flags": 32900
     },
     {
-      "fullName": "PlayTransitionAnimOnButton;Int32Int32",
+      "fullName": "PlayTransitionAnimOnButton;Int32Int32Bool",
       "shortName": "PlayTransitionAnimOnButton",
       "flags": 32900,
       "params": [
@@ -382,11 +443,16 @@
           "type": "Int32",
           "name": "distanceFromSource",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "reverse",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "PlayTransitionAnimOnButton;Int32Float",
+      "fullName": "PlayTransitionAnimOnButton;Int32FloatBool",
       "shortName": "PlayTransitionAnimOnButton",
       "flags": 32900,
       "params": [
@@ -399,11 +465,16 @@
           "type": "Float",
           "name": "delay",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "reverse",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "PlayTransitionAnimOnButtons;Int32",
+      "fullName": "PlayTransitionAnimOnButtons;Int32Bool",
       "shortName": "PlayTransitionAnimOnButtons",
       "flags": 32900,
       "params": [
@@ -411,16 +482,21 @@
           "type": "Int32",
           "name": "sourceIndex",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "reverse",
+          "flags": 128
         }
       ]
     },
     {
-      "fullName": "SetupLoadItems;array<String>",
+      "fullName": "SetupLoadItems;script_ref<array<String>>",
       "shortName": "SetupLoadItems",
       "flags": 32900,
       "params": [
         {
-          "type": "array:String",
+          "type": "script_ref:array:String",
           "name": "saves",
           "flags": 128
         }

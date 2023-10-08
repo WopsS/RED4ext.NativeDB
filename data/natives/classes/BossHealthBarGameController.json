@@ -10,12 +10,17 @@
     },
     {
       "type": "inkTextWidgetReference",
-      "name": "healthPersentage",
+      "name": "healthPercentage",
       "flags": 4297130017
     },
     {
       "type": "inkTextWidgetReference",
       "name": "bossName",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "dividerContainerRef",
       "flags": 4297130017
     },
     {
@@ -34,9 +39,19 @@
       "flags": 4297130016
     },
     {
+      "type": "array:Float",
+      "name": "thresholds",
+      "flags": 6583025696
+    },
+    {
       "type": "whandle:inkWidget",
       "name": "root",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "unfoldAnimation",
+      "flags": 4431347744
     },
     {
       "type": "handle:inkanimProxy",
@@ -232,7 +247,7 @@
       ]
     },
     {
-      "fullName": "AddBoss;NPCPuppetBool",
+      "fullName": "AddBoss;NPCPuppet",
       "shortName": "AddBoss",
       "flags": 32900,
       "params": [
@@ -240,17 +255,17 @@
           "type": "handle:NPCPuppet",
           "name": "boss",
           "flags": 128
-        },
-        {
-          "type": "Bool",
-          "name": "priorityTarget",
-          "flags": 1152
         }
       ]
     },
     {
       "fullName": "HideBossHealthBar;",
       "shortName": "HideBossHealthBar",
+      "flags": 32900
+    },
+    {
+      "fullName": "MoveDividers;",
+      "shortName": "MoveDividers",
       "flags": 32900
     },
     {
@@ -264,13 +279,18 @@
       "flags": 32900
     },
     {
-      "fullName": "RegisterToNewBoss;NPCPuppet",
+      "fullName": "RegisterToNewBoss;NPCPuppetBool",
       "shortName": "RegisterToNewBoss",
       "flags": 32900,
       "params": [
         {
           "type": "handle:NPCPuppet",
           "name": "boss",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "useSilentUpdate",
           "flags": 128
         }
       ]
@@ -288,7 +308,55 @@
       ]
     },
     {
-      "fullName": "ShowBossHealthBar;NPCPuppet",
+      "fullName": "ScaleBetween;FloatFloatFloatFloatFloat",
+      "shortName": "ScaleBetween",
+      "return": {
+        "type": "Float",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "value",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "inMin",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "inMax",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "outMin",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "outMax",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetUpThresholds;Character_Record",
+      "shortName": "SetUpThresholds",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gamedataCharacter_Record",
+          "name": "boss",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ShowBossHealthBar;NPCPuppetBool",
       "shortName": "ShowBossHealthBar",
       "flags": 32900,
       "params": [
@@ -296,8 +364,18 @@
           "type": "handle:NPCPuppet",
           "name": "puppet",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "useSilentUpdate",
+          "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "SortThresholds;",
+      "shortName": "SortThresholds",
+      "flags": 32900
     },
     {
       "fullName": "UnregisterPreviousBoss;",
@@ -305,7 +383,7 @@
       "flags": 32900
     },
     {
-      "fullName": "UpdateHealthValue;Float",
+      "fullName": "UpdateHealthValue;FloatBool",
       "shortName": "UpdateHealthValue",
       "flags": 33284,
       "params": [
@@ -313,6 +391,11 @@
           "type": "Float",
           "name": "newValue",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "silent",
+          "flags": 1152
         }
       ]
     }

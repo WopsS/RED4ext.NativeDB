@@ -107,6 +107,11 @@
       "type": "redResourceReferenceScriptToken",
       "name": "defaultAtlasPath",
       "flags": 4297130016
+    },
+    {
+      "type": "handle:inkanimProxy",
+      "name": "tranistionAnimProxy",
+      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -227,7 +232,24 @@
       "flags": 33284
     },
     {
-      "fullName": "SetData;Int32Bool",
+      "fullName": "PlayTransitionAnimation;CNameinkAnimOptions",
+      "shortName": "PlayTransitionAnimation",
+      "flags": 33284,
+      "params": [
+        {
+          "type": "CName",
+          "name": "animName",
+          "flags": 128
+        },
+        {
+          "type": "inkanimPlaybackOptions",
+          "name": "animOptions",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "SetData;Int32BoolBool",
       "shortName": "SetData",
       "flags": 33284,
       "params": [
@@ -240,23 +262,28 @@
           "type": "Bool",
           "name": "emptySlot",
           "flags": 1152
+        },
+        {
+          "type": "Bool",
+          "name": "allSlotsTaken",
+          "flags": 1152
         }
       ]
     },
     {
-      "fullName": "SetInvalid;String",
+      "fullName": "SetInvalid;script_ref<String>",
       "shortName": "SetInvalid",
       "flags": 33284,
       "params": [
         {
-          "type": "String",
+          "type": "script_ref:String",
           "name": "label",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "SetMetadata;SaveMetadataInfo",
+      "fullName": "SetMetadata;SaveMetadataInfoBool",
       "shortName": "SetMetadata",
       "flags": 33284,
       "params": [
@@ -264,6 +291,11 @@
           "type": "handle:inkSaveMetadataInfo",
           "name": "metadata",
           "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "isEp1Enabled",
+          "flags": 1152
         }
       ]
     },

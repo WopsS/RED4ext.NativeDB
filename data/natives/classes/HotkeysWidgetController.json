@@ -1,16 +1,21 @@
 {
-  "parent": "gameuiHUDGameController",
+  "parent": "gameuiNewPhoneRelatedHUDGameController",
   "name": "HotkeysWidgetController",
   "flags": 4,
   "props": [
     {
-      "type": "inkHorizontalPanelWidgetReference",
-      "name": "hotkeysList",
+      "type": "inkCompoundWidgetReference",
+      "name": "phoneSlot",
       "flags": 4297130017
     },
     {
-      "type": "inkHorizontalPanelWidgetReference",
-      "name": "utilsList",
+      "type": "inkCompoundWidgetReference",
+      "name": "carSlot",
+      "flags": 4297130017
+    },
+    {
+      "type": "inkCompoundWidgetReference",
+      "name": "dpadHintsPanel",
       "flags": 4297130017
     },
     {
@@ -34,32 +39,53 @@
       "flags": 4297130017
     },
     {
-      "type": "whandle:PlayerPuppet",
-      "name": "player",
-      "flags": 4297130016
+      "type": "whandle:inkWidget",
+      "name": "cyberware",
+      "flags": 4297130017
     },
     {
-      "type": "whandle:inkCompoundWidget",
-      "name": "root",
-      "flags": 4297130016
+      "type": "whandle:inkWidget",
+      "name": "leeroy",
+      "flags": 4297130017
     },
     {
-      "type": "ScriptGameInstance",
-      "name": "gameInstance",
-      "flags": 4297130016
+      "type": "whandle:inkWidget",
+      "name": "timeBank",
+      "flags": 4297130017
     },
     {
-      "type": "Uint32",
-      "name": "fact1ListenerId",
-      "flags": 4297130016
+      "type": "handle:redCallbackObject",
+      "name": "remoteControlledVehicleDataCallback",
+      "flags": 4431347744
     },
     {
-      "type": "Uint32",
-      "name": "fact2ListenerId",
+      "type": "handle:redCallbackObject",
+      "name": "berserkEnabledBBId",
+      "flags": 4431347744
+    },
+    {
+      "type": "Bool",
+      "name": "isRemoteControllingVehicle",
       "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "OnBerserkActive",
+      "shortName": "OnBerserkActive",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "OnInitialize",
       "shortName": "OnInitialize",
@@ -80,65 +106,77 @@
       "params": [
         {
           "type": "handle:gameObject",
-          "name": "playerPuppet",
+          "name": "player",
           "flags": 128
         }
       ]
     },
     {
-      "fullName": "OnUninitialize",
-      "shortName": "OnUninitialize",
+      "fullName": "OnPlayerDetach",
+      "shortName": "OnPlayerDetach",
       "return": {
         "type": "Bool",
         "flags": 64
       },
-      "flags": 33032
+      "flags": 33032,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "player",
+          "flags": 128
+        }
+      ]
     },
     {
-      "fullName": "GameStarted;",
-      "shortName": "GameStarted",
+      "fullName": "OnRemoteControlledVehicleChanged",
+      "shortName": "OnRemoteControlledVehicleChanged",
       "return": {
         "type": "Bool",
         "flags": 64
       },
+      "flags": 33032,
+      "params": [
+        {
+          "type": "Variant",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "HandleBerserkActive;Bool",
+      "shortName": "HandleBerserkActive",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Bool",
+          "name": "isBerserkActive",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsDerivedHUDVisible;",
+      "shortName": "IsDerivedHUDVisible",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 33024
+    },
+    {
+      "fullName": "RegisterBlackboardListeners;",
+      "shortName": "RegisterBlackboardListeners",
       "flags": 32900
     },
     {
-      "fullName": "OnConsumableTutorial;Int32",
-      "shortName": "OnConsumableTutorial",
-      "flags": 33284,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "val",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "OnGameStarted;Int32",
-      "shortName": "OnGameStarted",
-      "flags": 34308,
-      "params": [
-        {
-          "type": "Int32",
-          "name": "val",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ResolveVisibility;",
-      "shortName": "ResolveVisibility",
+      "fullName": "SendBlackboardHotkeyUpdates;",
+      "shortName": "SendBlackboardHotkeyUpdates",
       "flags": 32900
     },
     {
-      "fullName": "TutorialActivated;",
-      "shortName": "TutorialActivated",
-      "return": {
-        "type": "Bool",
-        "flags": 64
-      },
+      "fullName": "UnregisterBlackboardListeners;",
+      "shortName": "UnregisterBlackboardListeners",
       "flags": 32900
     }
   ]

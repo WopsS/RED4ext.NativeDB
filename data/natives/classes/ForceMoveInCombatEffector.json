@@ -4,40 +4,25 @@
   "flags": 4,
   "props": [
     {
-      "type": "whandle:gameObject",
-      "name": "target",
-      "flags": 4297326624
+      "type": "handle:AIHumanComponent",
+      "name": "aiComponent",
+      "flags": 4431544352
     },
     {
-      "type": "Float",
-      "name": "duration",
+      "type": "Bool",
+      "name": "commandStarted",
       "flags": 4297326624
     }
   ],
   "funcs": [
     {
-      "fullName": "ActionOff;GameObject",
-      "shortName": "ActionOff",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "owner",
-          "flags": 128
-        }
-      ]
-    },
-    {
-      "fullName": "ActionOn;GameObject",
-      "shortName": "ActionOn",
-      "flags": 33024,
-      "params": [
-        {
-          "type": "handle:gameObject",
-          "name": "owner",
-          "flags": 128
-        }
-      ]
+      "fullName": "ForceMoveInCombatEffector::GetCommandName;",
+      "shortName": "GetCommandName",
+      "return": {
+        "type": "CName",
+        "flags": 64
+      },
+      "flags": 32902
     },
     {
       "fullName": "Initialize;TweakDBIDGameInstanceTweakDBID",
@@ -57,6 +42,45 @@
         {
           "type": "TweakDBID",
           "name": "parentRecord",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "StartMovement;GameObjectAIPositionSpecFloatmoveMovementType",
+      "shortName": "StartMovement",
+      "flags": 33028,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "AIPositionSpec",
+          "name": "end",
+          "flags": 128
+        },
+        {
+          "type": "Float",
+          "name": "desiredDistance",
+          "flags": 128
+        },
+        {
+          "type": "moveMovementType",
+          "name": "movementType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "Uninitialize;GameInstance",
+      "shortName": "Uninitialize",
+      "flags": 33024,
+      "params": [
+        {
+          "type": "ScriptGameInstance",
+          "name": "game",
           "flags": 128
         }
       ]

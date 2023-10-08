@@ -4,14 +4,34 @@
   "flags": 4,
   "props": [
     {
-      "type": "array:whandle:AGenericTooltipController",
-      "name": "itemTooltipControllers",
-      "flags": 6583025696
+      "type": "inkTextWidgetReference",
+      "name": "itemNameUpgrade",
+      "flags": 4297130017
     },
     {
-      "type": "array:handle:InventoryTooltipData",
-      "name": "tooltipDatas",
-      "flags": 6583025696
+      "type": "inkWidgetReference",
+      "name": "arrowComparison",
+      "flags": 4297130017
+    },
+    {
+      "type": "whandle:AGenericTooltipController",
+      "name": "itemTooltipControllerLeft",
+      "flags": 4297130016
+    },
+    {
+      "type": "whandle:AGenericTooltipController",
+      "name": "itemTooltipControllerRight",
+      "flags": 4297130016
+    },
+    {
+      "type": "handle:MinimalItemTooltipData",
+      "name": "tooltipDataLeft",
+      "flags": 4431347744
+    },
+    {
+      "type": "handle:MinimalItemTooltipData",
+      "name": "tooltipDataRight",
+      "flags": 4431347744
     },
     {
       "type": "array:gamedataItemType",
@@ -24,19 +44,9 @@
       "flags": 6583025696
     },
     {
-      "type": "whandle:gameItemData",
-      "name": "newItem",
+      "type": "Float",
+      "name": "DELAYED_TOOLTIP_RIGHT",
       "flags": 4297130016
-    },
-    {
-      "type": "handle:gameStatModifierData_Deprecated",
-      "name": "statMod",
-      "flags": 4431347744
-    },
-    {
-      "type": "handle:gameStatModifierData_Deprecated",
-      "name": "levelMod",
-      "flags": 4431347744
     }
   ],
   "funcs": [
@@ -57,8 +67,8 @@
       ]
     },
     {
-      "fullName": "OnItemTooltipSpawned",
-      "shortName": "OnItemTooltipSpawned",
+      "fullName": "OnItemTooltipSpawnedLeft",
+      "shortName": "OnItemTooltipSpawnedLeft",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -78,8 +88,8 @@
       ]
     },
     {
-      "fullName": "OnUpgradedItemTooltipSpawned",
-      "shortName": "OnUpgradedItemTooltipSpawned",
+      "fullName": "OnItemTooltipSpawnedRight",
+      "shortName": "OnItemTooltipSpawnedRight",
       "return": {
         "type": "Bool",
         "flags": 64
@@ -99,35 +109,56 @@
       ]
     },
     {
-      "fullName": "ApplyStatsModification;",
-      "shortName": "ApplyStatsModification",
+      "fullName": "ApplyQualityModifier;Float",
+      "shortName": "ApplyQualityModifier",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "Float",
+          "name": "multiplier",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "CreateDelayedCall;",
+      "shortName": "CreateDelayedCall",
+      "return": {
+        "type": "handle:DelayedTooltipCall",
+        "flags": 64
+      },
       "flags": 32900
     },
     {
-      "fullName": "FillInventoryData;array<InventoryItemData>array<IScriptable>",
+      "fullName": "FillBarsComparisonData;MinimalItemTooltipDataMinimalItemTooltipData",
+      "shortName": "FillBarsComparisonData",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:MinimalItemTooltipData",
+          "name": "tooltipDataLeft",
+          "flags": 128
+        },
+        {
+          "type": "handle:MinimalItemTooltipData",
+          "name": "tooltipDataRight",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "FillInventoryData;script_ref<array<InventoryItemData>>script_ref<array<IScriptable>>",
       "shortName": "FillInventoryData",
       "flags": 32900,
       "params": [
         {
-          "type": "array:gameInventoryItemData",
+          "type": "script_ref:array:gameInventoryItemData",
           "name": "itemDataHolder",
           "flags": 128
         },
         {
-          "type": "array:handle:IScriptable",
+          "type": "script_ref:array:handle:IScriptable",
           "name": "itemArrayHolder",
-          "flags": 640
-        }
-      ]
-    },
-    {
-      "fullName": "GetItemTooltips;InventoryItemData",
-      "shortName": "GetItemTooltips",
-      "flags": 32900,
-      "params": [
-        {
-          "type": "gameInventoryItemData",
-          "name": "oldData",
           "flags": 128
         }
       ]
@@ -139,6 +170,16 @@
         "type": "array:handle:IScriptable",
         "flags": 64
       },
+      "flags": 32900
+    },
+    {
+      "fullName": "HideContent;",
+      "shortName": "HideContent",
+      "flags": 32900
+    },
+    {
+      "fullName": "HideTooltips;",
+      "shortName": "HideTooltips",
       "flags": 32900
     },
     {
@@ -154,7 +195,55 @@
       ]
     },
     {
-      "fullName": "IsUpgradable;InventoryItemDataBool",
+      "fullName": "IsItemMaxedLevel;gamedataQuality",
+      "shortName": "IsItemMaxedLevel",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "itemQuality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsLastUpgrade;gamedataQuality",
+      "shortName": "IsLastUpgrade",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "itemQuality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsQualityShown;gamedataQuality",
+      "shortName": "IsQualityShown",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "gamedataQuality",
+          "name": "itemQuality",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsUpgradable;script_ref<InventoryItemData>Bool",
       "shortName": "IsUpgradable",
       "return": {
         "type": "Bool",
@@ -163,7 +252,7 @@
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "item",
           "flags": 128
         },
@@ -187,11 +276,6 @@
       ]
     },
     {
-      "fullName": "RemoveStatsModification;",
-      "shortName": "RemoveStatsModification",
-      "flags": 32900
-    },
-    {
       "fullName": "SetItemButtonHintsHoverOver;inkPointerEvent",
       "shortName": "SetItemButtonHintsHoverOver",
       "flags": 33024,
@@ -204,8 +288,13 @@
       ]
     },
     {
-      "fullName": "SetQualityHeader;",
-      "shortName": "SetQualityHeader",
+      "fullName": "SetItemNames;",
+      "shortName": "SetItemNames",
+      "flags": 32900
+    },
+    {
+      "fullName": "SetItemQualities;",
+      "shortName": "SetItemQualities",
       "flags": 32900
     },
     {
@@ -214,16 +303,21 @@
       "flags": 33024
     },
     {
-      "fullName": "SetupIngredients;array<IngredientData>",
+      "fullName": "SetupIngredients;script_ref<array<IngredientData>>",
       "shortName": "SetupIngredients",
       "flags": 32900,
       "params": [
         {
-          "type": "array:IngredientData",
+          "type": "script_ref:array:IngredientData",
           "name": "ingredient",
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "ShowTooltips;",
+      "shortName": "ShowTooltips",
+      "flags": 32900
     },
     {
       "fullName": "UpdateItemPreview;CraftableItemLogicController",
@@ -238,12 +332,12 @@
       ]
     },
     {
-      "fullName": "UpdateItemPreviewPanel;InventoryItemData",
+      "fullName": "UpdateItemPreviewPanel;script_ref<InventoryItemData>",
       "shortName": "UpdateItemPreviewPanel",
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "selectedItem",
           "flags": 128
         }
@@ -255,12 +349,22 @@
       "flags": 32900
     },
     {
-      "fullName": "UpgradeItem;InventoryItemData",
+      "fullName": "UpdateTooltipLeft;",
+      "shortName": "UpdateTooltipLeft",
+      "flags": 32900
+    },
+    {
+      "fullName": "UpdateTooltipRightAndShow;",
+      "shortName": "UpdateTooltipRightAndShow",
+      "flags": 33284
+    },
+    {
+      "fullName": "UpgradeItem;script_ref<InventoryItemData>",
       "shortName": "UpgradeItem",
       "flags": 32900,
       "params": [
         {
-          "type": "gameInventoryItemData",
+          "type": "script_ref:gameInventoryItemData",
           "name": "selectedItemData",
           "flags": 128
         }

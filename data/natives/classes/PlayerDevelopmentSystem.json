@@ -9,12 +9,54 @@
       "flags": 6851461152
     },
     {
-      "type": "array:handle:PlayerDevelopmentData",
-      "name": "ownerData",
-      "flags": 6851461152
+      "type": "Bool",
+      "name": "playerDevelopmentUpdated",
+      "flags": 4297130016
+    },
+    {
+      "type": "Bool",
+      "name": "progressionBuildUpdated",
+      "flags": 4297130016
     }
   ],
   "funcs": [
+    {
+      "fullName": "PlayerDevelopmentSystem::CanSellNewPerk;PlayerPuppetgamedataNewPerkType",
+      "shortName": "CanSellNewPerk",
+      "return": {
+        "type": "CanSellNewPerkResult",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "PlayerDevelopmentSystem::CanSellNewPerks;PlayerPuppet",
+      "shortName": "CanSellNewPerks",
+      "return": {
+        "type": "CanSellNewPerkResult",
+        "flags": 64
+      },
+      "flags": 33286,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        }
+      ]
+    },
     {
       "fullName": "PlayerDevelopmentSystem::GetData;GameObject",
       "shortName": "GetData",
@@ -69,6 +111,27 @@
         {
           "type": "gamedataStatType",
           "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "BuyNewPerk;GameObjectgamedataNewPerkType",
+      "shortName": "BuyNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
           "flags": 128
         }
       ]
@@ -180,6 +243,22 @@
       ]
     },
     {
+      "fullName": "GetIsProgressionBuildSetCompleted;GameObject",
+      "shortName": "GetIsProgressionBuildSetCompleted",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "GetLifePath;GameObject",
       "shortName": "GetLifePath",
       "return": {
@@ -211,6 +290,48 @@
         },
         {
           "type": "gamedataPerkType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPerkLevel;GameObjectgamedataNewPerkType",
+      "shortName": "GetPerkLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "GetPerkMaxLevel;GameObjectgamedataNewPerkType",
+      "shortName": "GetPerkMaxLevel",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
           "name": "type",
           "flags": 128
         }
@@ -380,6 +501,48 @@
       ]
     },
     {
+      "fullName": "IsNewPerkBought;GameObjectgamedataNewPerkType",
+      "shortName": "IsNewPerkBought",
+      "return": {
+        "type": "Int32",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "IsNewPerkUnlocked;GameObjectgamedataNewPerkType",
+      "shortName": "IsNewPerkUnlocked",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "IsPerkImplemented;GameObjectgamedataPerkType",
       "shortName": "IsPerkImplemented",
       "return": {
@@ -417,6 +580,27 @@
         {
           "type": "gamedataProficiencyType",
           "name": "type",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "LockNewPerk;GameObjectgamedataNewPerkType",
+      "shortName": "LockNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
           "flags": 128
         }
       ]
@@ -470,12 +654,36 @@
       ]
     },
     {
+      "fullName": "OnBuyNewPerk;BuyNewPerk",
+      "shortName": "OnBuyNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:BuyNewPerk",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnClearAllDevPoints;ClearAllDevPointsRequest",
+      "shortName": "OnClearAllDevPoints",
+      "flags": 33924,
+      "params": [
+        {
+          "type": "handle:ClearAllDevPointsRequest",
+          "name": "evt",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnDevelopmentPointsAdded;AddDevelopmentPoints",
       "shortName": "OnDevelopmentPointsAdded",
       "flags": 33924,
       "params": [
         {
-          "type": "handle:AddDevelopmentPoints",
+          "type": "handle:questAddDevelopmentPointsRequest",
           "name": "request",
           "flags": 128
         }
@@ -500,6 +708,30 @@
       "params": [
         {
           "type": "handle:QueueCombatExperience",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLevelUpProficiency;LevelUpProficiency",
+      "shortName": "OnLevelUpProficiency",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:questLevelUpProficiency",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnLockNewPerk;LockNewPerk",
+      "shortName": "OnLockNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:LockNewPerk",
           "name": "request",
           "flags": 128
         }
@@ -590,12 +822,36 @@
       ]
     },
     {
+      "fullName": "OnReinitializeProficiencies;ReinitializeProficiencies",
+      "shortName": "OnReinitializeProficiencies",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:ReinitializeProficiencies",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnRequestStatsBB;RequestStatsBB",
       "shortName": "OnRequestStatsBB",
       "flags": 33924,
       "params": [
         {
           "type": "handle:RequestStatsBB",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnResetProgressionForNewPerks;ResetProgressionForNewPerks",
+      "shortName": "OnResetProgressionForNewPerks",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:ResetProgressionForNewPerks",
           "name": "request",
           "flags": 128
         }
@@ -614,6 +870,18 @@
         {
           "type": "Int32",
           "name": "gameVersion",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "OnSellNewPerk;SellNewPerk",
+      "shortName": "OnSellNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:SellNewPerk",
+          "name": "request",
           "flags": 128
         }
       ]
@@ -715,6 +983,18 @@
       ]
     },
     {
+      "fullName": "OnUnlockNewPerk;UnlockNewPerk",
+      "shortName": "OnUnlockNewPerk",
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:UnlockNewPerk",
+          "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
       "fullName": "OnUnlockPerkArea;UnlockPerkArea",
       "shortName": "OnUnlockPerkArea",
       "flags": 32900,
@@ -734,6 +1014,73 @@
         {
           "type": "handle:UpdatePlayerDevelopment",
           "name": "request",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "ReinitializeProficiencies;",
+      "shortName": "ReinitializeProficiencies",
+      "flags": 32900
+    },
+    {
+      "fullName": "ResetProgressionForNewPerks;",
+      "shortName": "ResetProgressionForNewPerks",
+      "flags": 32900
+    },
+    {
+      "fullName": "RetrofixCraftingComponent;PlayerPuppetTransactionSystemTweakDBIDarray<TweakDBID>",
+      "shortName": "RetrofixCraftingComponent",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:PlayerPuppet",
+          "name": "player",
+          "flags": 128
+        },
+        {
+          "type": "handle:gameTransactionSystem",
+          "name": "transactionSystem",
+          "flags": 128
+        },
+        {
+          "type": "TweakDBID",
+          "name": "requirementID",
+          "flags": 128
+        },
+        {
+          "type": "array:TweakDBID",
+          "name": "itemIDs",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "RetrofixCraftingComponents;",
+      "shortName": "RetrofixCraftingComponents",
+      "flags": 32900
+    },
+    {
+      "fullName": "SellNewPerk;GameObjectgamedataNewPerkType",
+      "shortName": "SellNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
           "flags": 128
         }
       ]
@@ -764,6 +1111,49 @@
           "flags": 128
         }
       ]
+    },
+    {
+      "fullName": "SetIsProgressionBuildSetCompleted;GameObjectBool",
+      "shortName": "SetIsProgressionBuildSetCompleted",
+      "flags": 41476,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "Bool",
+          "name": "value",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UnlockNewPerk;GameObjectgamedataNewPerkType",
+      "shortName": "UnlockNewPerk",
+      "return": {
+        "type": "Bool",
+        "flags": 64
+      },
+      "flags": 32900,
+      "params": [
+        {
+          "type": "handle:gameObject",
+          "name": "owner",
+          "flags": 128
+        },
+        {
+          "type": "gamedataNewPerkType",
+          "name": "perkType",
+          "flags": 128
+        }
+      ]
+    },
+    {
+      "fullName": "UpgradeExperienceToSkills2;",
+      "shortName": "UpgradeExperienceToSkills2",
+      "flags": 32900
     }
   ]
 }

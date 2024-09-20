@@ -1,5 +1,8 @@
 # RED4ext.NativeDB
 
+## This project is no longer maintained. For the new NativeDB see [rayshader/cp2077-nativedb](https://github.com/rayshader/cp2077-nativedb).
+
+
 A website that contains the scripting RTTI for REDengine 4
 ([Cyberpunk 2077](https://www.cyberpunk.net)).
 
